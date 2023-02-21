@@ -2660,7 +2660,7 @@ public final class Wasm {
       "dmin\"\022-\n\007code_id\030\004 \001(\004B\034\362\336\037\016yaml:\"code_i" +
       "d\"\342\336\037\006CodeID\022A\n\010init_msg\030\005 \001(\014B/\362\336\037\017yaml" +
       ":\"init_msg\"\372\336\037\030encoding/json.RawMessage:" +
-      "\004\350\240\037\001B*Z(github.com/terra-rebels/classic/x/w" +
+      "\004\350\240\037\001B*Z(github.com/terra-money/core/x/w" +
       "asm/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor

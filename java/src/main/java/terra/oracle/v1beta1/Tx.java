@@ -3992,7 +3992,7 @@ public final class Tx {
       "e\022y\n\023DelegateFeedConsent\022,.terra.oracle." +
       "v1beta1.MsgDelegateFeedConsent\0324.terra.o" +
       "racle.v1beta1.MsgDelegateFeedConsentResp" +
-      "onseB,Z*github.com/terra-rebels/classic/x/or" +
+      "onseB,Z*github.com/terra-money/core/x/or" +
       "acle/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor

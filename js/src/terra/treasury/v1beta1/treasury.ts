@@ -14,6 +14,7 @@ export interface Params {
   windowShort: Long;
   windowLong: Long;
   windowProbation: Long;
+  burnTaxSplit: string;
 }
 
 /** PolicyConstraints - defines policy constraints can be applied in tax & reward policies */
@@ -46,6 +47,7 @@ const baseParams: object = {
   windowShort: Long.UZERO,
   windowLong: Long.UZERO,
   windowProbation: Long.UZERO,
+  burnTaxSplit: "",
 };
 
 export const Params = {
@@ -70,6 +72,9 @@ export const Params = {
     }
     if (!message.windowProbation.isZero()) {
       writer.uint32(56).uint64(message.windowProbation);
+    }
+    if (message.burnTaxSplit !== "") {
+      writer.uint32(66).string(message.burnTaxSplit);
     }
     return writer;
   },
@@ -101,6 +106,9 @@ export const Params = {
           break;
         case 7:
           message.windowProbation = reader.uint64() as Long;
+          break;
+        case 8:
+          message.burnTaxSplit = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -147,6 +155,11 @@ export const Params = {
     } else {
       message.windowProbation = Long.UZERO;
     }
+    if (object.burnTaxSplit !== undefined && object.burnTaxSplit !== null) {
+      message.burnTaxSplit = String(object.burnTaxSplit);
+    } else {
+      message.burnTaxSplit = "";
+    }
     return message;
   },
 
@@ -163,6 +176,7 @@ export const Params = {
     message.windowLong !== undefined && (obj.windowLong = (message.windowLong || Long.UZERO).toString());
     message.windowProbation !== undefined &&
       (obj.windowProbation = (message.windowProbation || Long.UZERO).toString());
+    message.burnTaxSplit !== undefined && (obj.burnTaxSplit = message.burnTaxSplit);
     return obj;
   },
 
@@ -202,6 +216,11 @@ export const Params = {
       message.windowProbation = object.windowProbation as Long;
     } else {
       message.windowProbation = Long.UZERO;
+    }
+    if (object.burnTaxSplit !== undefined && object.burnTaxSplit !== null) {
+      message.burnTaxSplit = object.burnTaxSplit;
+    } else {
+      message.burnTaxSplit = "";
     }
     return message;
   },

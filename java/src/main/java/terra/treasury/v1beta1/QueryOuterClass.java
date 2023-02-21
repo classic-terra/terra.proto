@@ -9832,7 +9832,7 @@ public final class QueryOuterClass {
       "ury.v1beta1.QueryParamsRequest\032+.terra.t" +
       "reasury.v1beta1.QueryParamsResponse\"&\202\323\344" +
       "\223\002 \022\036/terra/treasury/v1beta1/paramsB.Z,g" +
-      "ithub.com/terra-rebels/classic/x/treasury/ty" +
+      "ithub.com/terra-money/core/x/treasury/ty" +
       "pesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor

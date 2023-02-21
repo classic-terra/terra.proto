@@ -5037,7 +5037,7 @@ public final class Genesis {
       "address\030\001 \001(\t\022\024\n\014miss_counter\030\002 \001(\004\"\\\n\010T" +
       "obinTax\022\r\n\005denom\030\001 \001(\t\022A\n\ttobin_tax\030\002 \001(" +
       "\tB.\332\336\037&github.com/cosmos/cosmos-sdk/type" +
-      "s.Dec\310\336\037\000B,Z*github.com/terra-rebels/classic" +
+      "s.Dec\310\336\037\000B,Z*github.com/terra-money/core" +
       "/x/oracle/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor

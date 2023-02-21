@@ -1,16 +1,4 @@
-all: init proto-gen build
-
-init:
-	@echo "Pull External Protofiles"
-	git submodule init
-	git submodule update --remote
-
-#@echo "Install dependencies"
-#npm i
-
-# do not format. we uses just auto-generated ones.
-#format: 
-#	npm run format
+all: proto-gen build
 
 proto-gen: 
 	@echo "Generating Protobuf files"
@@ -22,4 +10,4 @@ build:
 publish:
 	poetry publish
 
-.PHONY: all proto-gen format init build publish
+.PHONY: all proto-gen format build publish

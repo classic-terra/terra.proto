@@ -10834,8 +10834,8 @@ public final class Tx {
       "ractAdminResponse\022r\n\022ClearContractAdmin\022" +
       ").terra.wasm.v1beta1.MsgClearContractAdm" +
       "in\0321.terra.wasm.v1beta1.MsgClearContract" +
-      "AdminResponseB*Z(github.com/terra-rebels/" +
-      "classic/x/wasm/typesb\006proto3"
+      "AdminResponseB*Z(github.com/terra-money/" +
+      "core/x/wasm/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

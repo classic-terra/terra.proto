@@ -4904,8 +4904,8 @@ public final class Oracle {
       "\001 \001(\tB\020\362\336\037\014yaml:\"denom\"\022]\n\rexchange_rate" +
       "\030\002 \001(\tBF\362\336\037\024yaml:\"exchange_rate\"\332\336\037&gith" +
       "ub.com/cosmos/cosmos-sdk/types.Dec\310\336\037\000:\014" +
-      "\350\240\037\000\210\240\037\000\230\240\037\000B,Z*github.com/terra-rebels/c" +
-      "lassic/x/oracle/typesb\006proto3"
+      "\350\240\037\000\210\240\037\000\230\240\037\000B,Z*github.com/terra-money/c" +
+      "ore/x/oracle/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

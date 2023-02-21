@@ -682,7 +682,7 @@ public final class Market {
       "\022k\n\024min_stability_spread\030\003 \001(\014BM\362\336\037\033yaml" +
       ":\"min_stability_spread\"\332\336\037&github.com/co" +
       "smos/cosmos-sdk/types.Dec\310\336\037\000:\010\350\240\037\001\230\240\037\000B" +
-      ",Z*github.com/terra-rebels/classic/x/market/" +
+      ",Z*github.com/terra-money/core/x/market/" +
       "typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
