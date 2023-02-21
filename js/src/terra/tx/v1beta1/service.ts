@@ -13,8 +13,15 @@ export const protobufPackage = "terra.tx.v1beta1";
  * RPC method.
  */
 export interface ComputeTaxRequest {
-  /** tx is the transaction to simulate. */
+  /**
+   * tx is the transaction to simulate.
+   * Deprecated. Send raw tx bytes instead.
+   *
+   * @deprecated
+   */
   tx?: Tx;
+  /** tx_bytes is the raw transaction. */
+  txBytes: Uint8Array;
 }
 
 /**
@@ -33,6 +40,9 @@ export const ComputeTaxRequest = {
     if (message.tx !== undefined) {
       Tx.encode(message.tx, writer.uint32(10).fork()).ldelim();
     }
+    if (message.txBytes.length !== 0) {
+      writer.uint32(18).bytes(message.txBytes);
+    }
     return writer;
   },
 
@@ -40,11 +50,15 @@ export const ComputeTaxRequest = {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = { ...baseComputeTaxRequest } as ComputeTaxRequest;
+    message.txBytes = new Uint8Array();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
           message.tx = Tx.decode(reader, reader.uint32());
+          break;
+        case 2:
+          message.txBytes = reader.bytes();
           break;
         default:
           reader.skipType(tag & 7);
@@ -56,10 +70,14 @@ export const ComputeTaxRequest = {
 
   fromJSON(object: any): ComputeTaxRequest {
     const message = { ...baseComputeTaxRequest } as ComputeTaxRequest;
+    message.txBytes = new Uint8Array();
     if (object.tx !== undefined && object.tx !== null) {
       message.tx = Tx.fromJSON(object.tx);
     } else {
       message.tx = undefined;
+    }
+    if (object.txBytes !== undefined && object.txBytes !== null) {
+      message.txBytes = bytesFromBase64(object.txBytes);
     }
     return message;
   },
@@ -67,6 +85,8 @@ export const ComputeTaxRequest = {
   toJSON(message: ComputeTaxRequest): unknown {
     const obj: any = {};
     message.tx !== undefined && (obj.tx = message.tx ? Tx.toJSON(message.tx) : undefined);
+    message.txBytes !== undefined &&
+      (obj.txBytes = base64FromBytes(message.txBytes !== undefined ? message.txBytes : new Uint8Array()));
     return obj;
   },
 
@@ -76,6 +96,11 @@ export const ComputeTaxRequest = {
       message.tx = Tx.fromPartial(object.tx);
     } else {
       message.tx = undefined;
+    }
+    if (object.txBytes !== undefined && object.txBytes !== null) {
+      message.txBytes = object.txBytes;
+    } else {
+      message.txBytes = new Uint8Array();
     }
     return message;
   },
@@ -255,6 +280,37 @@ export class GrpcWebImpl {
       });
     });
   }
+}
+
+declare var self: any | undefined;
+declare var window: any | undefined;
+var globalThis: any = (() => {
+  if (typeof globalThis !== "undefined") return globalThis;
+  if (typeof self !== "undefined") return self;
+  if (typeof window !== "undefined") return window;
+  if (typeof global !== "undefined") return global;
+  throw "Unable to locate global object";
+})();
+
+const atob: (b64: string) => string =
+  globalThis.atob || ((b64) => globalThis.Buffer.from(b64, "base64").toString("binary"));
+function bytesFromBase64(b64: string): Uint8Array {
+  const bin = atob(b64);
+  const arr = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; ++i) {
+    arr[i] = bin.charCodeAt(i);
+  }
+  return arr;
+}
+
+const btoa: (bin: string) => string =
+  globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, "binary").toString("base64"));
+function base64FromBytes(arr: Uint8Array): string {
+  const bin: string[] = [];
+  for (const byte of arr) {
+    bin.push(String.fromCharCode(byte));
+  }
+  return btoa(bin.join(""));
 }
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;

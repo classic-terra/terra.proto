@@ -2,11 +2,25 @@
 # sources: cosmos/vesting/v1beta1/tx.proto, cosmos/vesting/v1beta1/vesting.proto
 # plugin: python-betterproto
 from dataclasses import dataclass
-from typing import Dict, List, Optional
+from typing import (
+    TYPE_CHECKING,
+    Dict,
+    List,
+    Optional,
+)
 
 import betterproto
-from betterproto.grpc.grpclib_server import ServiceBase
 import grpclib
+from betterproto.grpc.grpclib_server import ServiceBase
+
+from ...auth import v1beta1 as __auth_v1_beta1__
+from ...base import v1beta1 as __base_v1_beta1__
+
+
+if TYPE_CHECKING:
+    import grpclib.server
+    from betterproto.grpc.grpclib_client import MetadataLike
+    from grpclib.metadata import Deadline
 
 
 @dataclass(eq=False, repr=False)
@@ -101,176 +115,37 @@ class MsgCreateVestingAccountResponse(betterproto.Message):
     pass
 
 
-@dataclass(eq=False, repr=False)
-class MsgCreatePeriodicVestingAccount(betterproto.Message):
-    """
-    MsgCreatePeriodicVestingAccount defines a message that enables creating a
-    vesting account.
-    """
-
-    from_address: str = betterproto.string_field(1)
-    to_address: str = betterproto.string_field(2)
-    start_time: int = betterproto.int64_field(3)
-    vesting_periods: List["Period"] = betterproto.message_field(4)
-
-
-@dataclass(eq=False, repr=False)
-class MsgCreatePeriodicVestingAccountResponse(betterproto.Message):
-    """
-    MsgCreatePeriodicVestingAccountResponse defines the
-    Msg/CreatePeriodicVestingAccount response type.
-    """
-
-    pass
-
-
-@dataclass(eq=False, repr=False)
-class MsgDonateAllVestingTokens(betterproto.Message):
-    """
-    MsgDonateAllVestingTokens defines a message that enables donating all
-    vesting token to community pool.
-    """
-
-    from_address: str = betterproto.string_field(1)
-
-
-@dataclass(eq=False, repr=False)
-class MsgDonateAllVestingTokensResponse(betterproto.Message):
-    """
-    MsgDonateAllVestingTokensResponse defines the Msg/MsgDonateAllVestingTokens
-    response type.
-    """
-
-    pass
-
-
 class MsgStub(betterproto.ServiceStub):
     async def create_vesting_account(
         self,
+        msg_create_vesting_account: "MsgCreateVestingAccount",
         *,
-        from_address: str = "",
-        to_address: str = "",
-        amount: Optional[List["__base_v1_beta1__.Coin"]] = None,
-        end_time: int = 0,
-        delayed: bool = False
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None
     ) -> "MsgCreateVestingAccountResponse":
-        amount = amount or []
-
-        request = MsgCreateVestingAccount()
-        request.from_address = from_address
-        request.to_address = to_address
-        if amount is not None:
-            request.amount = amount
-        request.end_time = end_time
-        request.delayed = delayed
-
         return await self._unary_unary(
             "/cosmos.vesting.v1beta1.Msg/CreateVestingAccount",
-            request,
+            msg_create_vesting_account,
             MsgCreateVestingAccountResponse,
-        )
-
-    async def create_periodic_vesting_account(
-        self,
-        *,
-        from_address: str = "",
-        to_address: str = "",
-        start_time: int = 0,
-        vesting_periods: Optional[List["Period"]] = None
-    ) -> "MsgCreatePeriodicVestingAccountResponse":
-        vesting_periods = vesting_periods or []
-
-        request = MsgCreatePeriodicVestingAccount()
-        request.from_address = from_address
-        request.to_address = to_address
-        request.start_time = start_time
-        if vesting_periods is not None:
-            request.vesting_periods = vesting_periods
-
-        return await self._unary_unary(
-            "/cosmos.vesting.v1beta1.Msg/CreatePeriodicVestingAccount",
-            request,
-            MsgCreatePeriodicVestingAccountResponse,
-        )
-
-    async def donate_all_vesting_tokens(
-        self, *, from_address: str = ""
-    ) -> "MsgDonateAllVestingTokensResponse":
-
-        request = MsgDonateAllVestingTokens()
-        request.from_address = from_address
-
-        return await self._unary_unary(
-            "/cosmos.vesting.v1beta1.Msg/DonateAllVestingTokens",
-            request,
-            MsgDonateAllVestingTokensResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
         )
 
 
 class MsgBase(ServiceBase):
     async def create_vesting_account(
-        self,
-        from_address: str,
-        to_address: str,
-        amount: Optional[List["__base_v1_beta1__.Coin"]],
-        end_time: int,
-        delayed: bool,
+        self, msg_create_vesting_account: "MsgCreateVestingAccount"
     ) -> "MsgCreateVestingAccountResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
-    async def create_periodic_vesting_account(
+    async def __rpc_create_vesting_account(
         self,
-        from_address: str,
-        to_address: str,
-        start_time: int,
-        vesting_periods: Optional[List["Period"]],
-    ) -> "MsgCreatePeriodicVestingAccountResponse":
-        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
-
-    async def donate_all_vesting_tokens(
-        self, from_address: str
-    ) -> "MsgDonateAllVestingTokensResponse":
-        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
-
-    async def __rpc_create_vesting_account(self, stream: grpclib.server.Stream) -> None:
-        request = await stream.recv_message()
-
-        request_kwargs = {
-            "from_address": request.from_address,
-            "to_address": request.to_address,
-            "amount": request.amount,
-            "end_time": request.end_time,
-            "delayed": request.delayed,
-        }
-
-        response = await self.create_vesting_account(**request_kwargs)
-        await stream.send_message(response)
-
-    async def __rpc_create_periodic_vesting_account(
-        self, stream: grpclib.server.Stream
+        stream: "grpclib.server.Stream[MsgCreateVestingAccount, MsgCreateVestingAccountResponse]",
     ) -> None:
         request = await stream.recv_message()
-
-        request_kwargs = {
-            "from_address": request.from_address,
-            "to_address": request.to_address,
-            "start_time": request.start_time,
-            "vesting_periods": request.vesting_periods,
-        }
-
-        response = await self.create_periodic_vesting_account(**request_kwargs)
-        await stream.send_message(response)
-
-    async def __rpc_donate_all_vesting_tokens(
-        self, stream: grpclib.server.Stream
-    ) -> None:
-        request = await stream.recv_message()
-
-        request_kwargs = {
-            "from_address": request.from_address,
-        }
-
-        response = await self.donate_all_vesting_tokens(**request_kwargs)
+        response = await self.create_vesting_account(request)
         await stream.send_message(response)
 
     def __mapping__(self) -> Dict[str, grpclib.const.Handler]:
@@ -281,20 +156,4 @@ class MsgBase(ServiceBase):
                 MsgCreateVestingAccount,
                 MsgCreateVestingAccountResponse,
             ),
-            "/cosmos.vesting.v1beta1.Msg/CreatePeriodicVestingAccount": grpclib.const.Handler(
-                self.__rpc_create_periodic_vesting_account,
-                grpclib.const.Cardinality.UNARY_UNARY,
-                MsgCreatePeriodicVestingAccount,
-                MsgCreatePeriodicVestingAccountResponse,
-            ),
-            "/cosmos.vesting.v1beta1.Msg/DonateAllVestingTokens": grpclib.const.Handler(
-                self.__rpc_donate_all_vesting_tokens,
-                grpclib.const.Cardinality.UNARY_UNARY,
-                MsgDonateAllVestingTokens,
-                MsgDonateAllVestingTokensResponse,
-            ),
         }
-
-
-from ...auth import v1beta1 as __auth_v1_beta1__
-from ...base import v1beta1 as __base_v1_beta1__

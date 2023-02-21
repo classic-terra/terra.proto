@@ -3740,8 +3740,8 @@ public final class Tx {
       "gSwap\032%.terra.market.v1beta1.MsgSwapResp" +
       "onse\022X\n\010SwapSend\022!.terra.market.v1beta1." +
       "MsgSwapSend\032).terra.market.v1beta1.MsgSw" +
-      "apSendResponseB,Z*github.com/terra-rebels" +
-      "/classic/x/market/typesb\006proto3"
+      "apSendResponseB,Z*github.com/terra-money" +
+      "/core/x/market/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

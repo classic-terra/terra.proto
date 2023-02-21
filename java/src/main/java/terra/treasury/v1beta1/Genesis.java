@@ -4157,7 +4157,7 @@ public final class Genesis {
       "com/cosmos/cosmos-sdk/types.Dec\310\336\037\000\022I\n\021t" +
       "otal_staked_luna\030\004 \001(\tB.\332\336\037&github.com/c" +
       "osmos/cosmos-sdk/types.Int\310\336\037\000B.Z,github" +
-      ".com/terra-rebels/classic/x/treasury/typesb\006" +
+      ".com/terra-money/core/x/treasury/typesb\006" +
       "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor

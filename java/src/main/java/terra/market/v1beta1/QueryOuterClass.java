@@ -3626,7 +3626,7 @@ public final class QueryOuterClass {
       ".v1beta1.QueryParamsRequest\032).terra.mark" +
       "et.v1beta1.QueryParamsResponse\"$\202\323\344\223\002\036\022\034" +
       "/terra/market/v1beta1/paramsB,Z*github.c" +
-      "om/terra-rebels/classic/x/market/typesb\006prot" +
+      "om/terra-money/core/x/market/typesb\006prot" +
       "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor

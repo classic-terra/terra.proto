@@ -3858,7 +3858,7 @@ public final class Genesis {
       "tract\022=\n\rcontract_info\030\001 \001(\0132 .terra.was" +
       "m.v1beta1.ContractInfoB\004\310\336\037\000\0227\n\016contract" +
       "_store\030\002 \003(\0132\031.terra.wasm.v1beta1.ModelB" +
-      "\004\310\336\037\000B*Z(github.com/terra-rebels/classic/x/w" +
+      "\004\310\336\037\000B*Z(github.com/terra-money/core/x/w" +
       "asm/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor

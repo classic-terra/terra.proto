@@ -4106,8 +4106,8 @@ public final class Treasury {
       "EpochInitialIssuance\022p\n\010issuance\030\001 \003(\0132\031" +
       ".cosmos.base.v1beta1.CoinBC\362\336\037\017yaml:\"iss" +
       "uance\"\252\337\037(github.com/cosmos/cosmos-sdk/t" +
-      "ypes.Coins\310\336\037\000B.Z,github.com/terra-rebels" +
-      "/classic/x/treasury/typesb\006proto3"
+      "ypes.Coins\310\336\037\000B.Z,github.com/terra-money" +
+      "/core/x/treasury/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

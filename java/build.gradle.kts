@@ -30,8 +30,7 @@ allprojects {
     sourceSets {
         main {
             proto {
-                srcDir("${rootProject.rootDir.parent}/terrad/third_party/proto")
-                srcDir("${rootProject.rootDir.parent}/terrad/proto")
+                srcDir("${rootProject.rootDir.parent}/proto")
             }
         }
     }
@@ -65,7 +64,7 @@ allprojects {
                 pom {
                     name.set(project.name)
                     description.set("Terra Core Protobuf Builds")
-                    url.set("https://github.com/classic-terra/terra.proto")
+                    url.set("https://github.com/terra-money/terra.proto")
                     licenses {
                         license {
                             name.set("The Apache License, Version 2.0")
@@ -79,9 +78,9 @@ allprojects {
                         }
                     }
                     scm {
-                        connection.set("scm:git:git://github.com/classic-terra/terra.proto.git")
-                        developerConnection.set("scm:git:git://github.com/classic-terra/terra.proto.git")
-                        url.set("https://github.com/classic-terra/terra.proto")
+                        connection.set("scm:git:git://github.com/terra-money/terra.proto.git")
+                        developerConnection.set("scm:git:git://github.com/terra-money/terra.proto.git")
+                        url.set("https://github.com/terra-money/terra.proto")
                     }
                 }
             }

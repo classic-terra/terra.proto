@@ -3,6 +3,7 @@ import Long from "long";
 import { grpc } from "@improbable-eng/grpc-web";
 import _m0 from "protobufjs/minimal";
 import { Params } from "../../../terra/treasury/v1beta1/treasury";
+import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination";
 import { BrowserHeaders } from "browser-headers";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
 
@@ -105,6 +106,17 @@ export interface QueryParamsRequest {}
 export interface QueryParamsResponse {
   /** params defines the parameters of the module. */
   params?: Params;
+}
+
+/** QueryBurnTaxExemptionListRequest is the request type for the Query/BurnTaxExemptionList RPC method. */
+export interface QueryBurnTaxExemptionListRequest {
+  pagination?: PageRequest;
+}
+
+/** QueryBurnTaxExemptionListResponse is response type for the Query/BurnTaxExemptionList RPC method. */
+export interface QueryBurnTaxExemptionListResponse {
+  addresses: string[];
+  pagination?: PageResponse;
 }
 
 const baseQueryTaxRateRequest: object = {};
@@ -971,6 +983,142 @@ export const QueryParamsResponse = {
   },
 };
 
+const baseQueryBurnTaxExemptionListRequest: object = {};
+
+export const QueryBurnTaxExemptionListRequest = {
+  encode(message: QueryBurnTaxExemptionListRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.pagination !== undefined) {
+      PageRequest.encode(message.pagination, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryBurnTaxExemptionListRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseQueryBurnTaxExemptionListRequest } as QueryBurnTaxExemptionListRequest;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 2:
+          message.pagination = PageRequest.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryBurnTaxExemptionListRequest {
+    const message = { ...baseQueryBurnTaxExemptionListRequest } as QueryBurnTaxExemptionListRequest;
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageRequest.fromJSON(object.pagination);
+    } else {
+      message.pagination = undefined;
+    }
+    return message;
+  },
+
+  toJSON(message: QueryBurnTaxExemptionListRequest): unknown {
+    const obj: any = {};
+    message.pagination !== undefined &&
+      (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: DeepPartial<QueryBurnTaxExemptionListRequest>): QueryBurnTaxExemptionListRequest {
+    const message = { ...baseQueryBurnTaxExemptionListRequest } as QueryBurnTaxExemptionListRequest;
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageRequest.fromPartial(object.pagination);
+    } else {
+      message.pagination = undefined;
+    }
+    return message;
+  },
+};
+
+const baseQueryBurnTaxExemptionListResponse: object = { addresses: "" };
+
+export const QueryBurnTaxExemptionListResponse = {
+  encode(message: QueryBurnTaxExemptionListResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    for (const v of message.addresses) {
+      writer.uint32(10).string(v!);
+    }
+    if (message.pagination !== undefined) {
+      PageResponse.encode(message.pagination, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryBurnTaxExemptionListResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseQueryBurnTaxExemptionListResponse } as QueryBurnTaxExemptionListResponse;
+    message.addresses = [];
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.addresses.push(reader.string());
+          break;
+        case 2:
+          message.pagination = PageResponse.decode(reader, reader.uint32());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QueryBurnTaxExemptionListResponse {
+    const message = { ...baseQueryBurnTaxExemptionListResponse } as QueryBurnTaxExemptionListResponse;
+    message.addresses = [];
+    if (object.addresses !== undefined && object.addresses !== null) {
+      for (const e of object.addresses) {
+        message.addresses.push(String(e));
+      }
+    }
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageResponse.fromJSON(object.pagination);
+    } else {
+      message.pagination = undefined;
+    }
+    return message;
+  },
+
+  toJSON(message: QueryBurnTaxExemptionListResponse): unknown {
+    const obj: any = {};
+    if (message.addresses) {
+      obj.addresses = message.addresses.map((e) => e);
+    } else {
+      obj.addresses = [];
+    }
+    message.pagination !== undefined &&
+      (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
+    return obj;
+  },
+
+  fromPartial(object: DeepPartial<QueryBurnTaxExemptionListResponse>): QueryBurnTaxExemptionListResponse {
+    const message = { ...baseQueryBurnTaxExemptionListResponse } as QueryBurnTaxExemptionListResponse;
+    message.addresses = [];
+    if (object.addresses !== undefined && object.addresses !== null) {
+      for (const e of object.addresses) {
+        message.addresses.push(e);
+      }
+    }
+    if (object.pagination !== undefined && object.pagination !== null) {
+      message.pagination = PageResponse.fromPartial(object.pagination);
+    } else {
+      message.pagination = undefined;
+    }
+    return message;
+  },
+};
+
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** TaxRate return the current tax rate */
@@ -999,6 +1147,11 @@ export interface Query {
     request: DeepPartial<QueryIndicatorsRequest>,
     metadata?: grpc.Metadata,
   ): Promise<QueryIndicatorsResponse>;
+  /** BurnTaxExemptionList returns all registered burn tax exemption addresses */
+  BurnTaxExemptionList(
+    request: DeepPartial<QueryBurnTaxExemptionListRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryBurnTaxExemptionListResponse>;
   /** Params queries all parameters. */
   Params(request: DeepPartial<QueryParamsRequest>, metadata?: grpc.Metadata): Promise<QueryParamsResponse>;
 }
@@ -1015,6 +1168,7 @@ export class QueryClientImpl implements Query {
     this.SeigniorageProceeds = this.SeigniorageProceeds.bind(this);
     this.TaxProceeds = this.TaxProceeds.bind(this);
     this.Indicators = this.Indicators.bind(this);
+    this.BurnTaxExemptionList = this.BurnTaxExemptionList.bind(this);
     this.Params = this.Params.bind(this);
   }
 
@@ -1066,6 +1220,17 @@ export class QueryClientImpl implements Query {
     metadata?: grpc.Metadata,
   ): Promise<QueryIndicatorsResponse> {
     return this.rpc.unary(QueryIndicatorsDesc, QueryIndicatorsRequest.fromPartial(request), metadata);
+  }
+
+  BurnTaxExemptionList(
+    request: DeepPartial<QueryBurnTaxExemptionListRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryBurnTaxExemptionListResponse> {
+    return this.rpc.unary(
+      QueryBurnTaxExemptionListDesc,
+      QueryBurnTaxExemptionListRequest.fromPartial(request),
+      metadata,
+    );
   }
 
   Params(request: DeepPartial<QueryParamsRequest>, metadata?: grpc.Metadata): Promise<QueryParamsResponse> {
@@ -1223,6 +1388,28 @@ export const QueryIndicatorsDesc: UnaryMethodDefinitionish = {
     deserializeBinary(data: Uint8Array) {
       return {
         ...QueryIndicatorsResponse.decode(data),
+        toObject() {
+          return this;
+        },
+      };
+    },
+  } as any,
+};
+
+export const QueryBurnTaxExemptionListDesc: UnaryMethodDefinitionish = {
+  methodName: "BurnTaxExemptionList",
+  service: QueryDesc,
+  requestStream: false,
+  responseStream: false,
+  requestType: {
+    serializeBinary() {
+      return QueryBurnTaxExemptionListRequest.encode(this).finish();
+    },
+  } as any,
+  responseType: {
+    deserializeBinary(data: Uint8Array) {
+      return {
+        ...QueryBurnTaxExemptionListResponse.decode(data),
         toObject() {
           return this;
         },
