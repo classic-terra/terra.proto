@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializedescription")
-public inline fun description(block: cosmos.staking.v1beta1.DescriptionKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Description =
+@kotlin.jvm.JvmSynthetic
+inline fun description(block: cosmos.staking.v1beta1.DescriptionKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Description =
   cosmos.staking.v1beta1.DescriptionKt.Dsl._create(cosmos.staking.v1beta1.Staking.Description.newBuilder()).apply { block() }._build()
-public object DescriptionKt {
+object DescriptionKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Staking.Description.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Staking.Description.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Staking.Description.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object DescriptionKt {
      *
      * <code>string moniker = 1;</code>
      */
-    public var moniker: kotlin.String
+    var moniker: kotlin.String
       @JvmName("getMoniker")
       get() = _builder.getMoniker()
       @JvmName("setMoniker")
@@ -43,7 +43,7 @@ public object DescriptionKt {
      *
      * <code>string moniker = 1;</code>
      */
-    public fun clearMoniker() {
+    fun clearMoniker() {
       _builder.clearMoniker()
     }
 
@@ -54,7 +54,7 @@ public object DescriptionKt {
      *
      * <code>string identity = 2;</code>
      */
-    public var identity: kotlin.String
+    var identity: kotlin.String
       @JvmName("getIdentity")
       get() = _builder.getIdentity()
       @JvmName("setIdentity")
@@ -68,7 +68,7 @@ public object DescriptionKt {
      *
      * <code>string identity = 2;</code>
      */
-    public fun clearIdentity() {
+    fun clearIdentity() {
       _builder.clearIdentity()
     }
 
@@ -79,7 +79,7 @@ public object DescriptionKt {
      *
      * <code>string website = 3;</code>
      */
-    public var website: kotlin.String
+    var website: kotlin.String
       @JvmName("getWebsite")
       get() = _builder.getWebsite()
       @JvmName("setWebsite")
@@ -93,7 +93,7 @@ public object DescriptionKt {
      *
      * <code>string website = 3;</code>
      */
-    public fun clearWebsite() {
+    fun clearWebsite() {
       _builder.clearWebsite()
     }
 
@@ -104,7 +104,7 @@ public object DescriptionKt {
      *
      * <code>string security_contact = 4 [(.gogoproto.moretags) = "yaml:&#92;"security_contact&#92;""];</code>
      */
-    public var securityContact: kotlin.String
+    var securityContact: kotlin.String
       @JvmName("getSecurityContact")
       get() = _builder.getSecurityContact()
       @JvmName("setSecurityContact")
@@ -118,7 +118,7 @@ public object DescriptionKt {
      *
      * <code>string security_contact = 4 [(.gogoproto.moretags) = "yaml:&#92;"security_contact&#92;""];</code>
      */
-    public fun clearSecurityContact() {
+    fun clearSecurityContact() {
       _builder.clearSecurityContact()
     }
 
@@ -129,7 +129,7 @@ public object DescriptionKt {
      *
      * <code>string details = 5;</code>
      */
-    public var details: kotlin.String
+    var details: kotlin.String
       @JvmName("getDetails")
       get() = _builder.getDetails()
       @JvmName("setDetails")
@@ -143,12 +143,11 @@ public object DescriptionKt {
      *
      * <code>string details = 5;</code>
      */
-    public fun clearDetails() {
+    fun clearDetails() {
       _builder.clearDetails()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Staking.Description.copy(block: cosmos.staking.v1beta1.DescriptionKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Description =
+inline fun cosmos.staking.v1beta1.Staking.Description.copy(block: cosmos.staking.v1beta1.DescriptionKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Description =
   cosmos.staking.v1beta1.DescriptionKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

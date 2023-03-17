@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializeparams")
-public inline fun params(block: ibc.core.client.v1.ParamsKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Client.Params =
+@kotlin.jvm.JvmSynthetic
+inline fun params(block: ibc.core.client.v1.ParamsKt.Dsl.() -> Unit): ibc.core.client.v1.Client.Params =
   ibc.core.client.v1.ParamsKt.Dsl._create(ibc.core.client.v1.Client.Params.newBuilder()).apply { block() }._build()
-public object ParamsKt {
+object ParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.Client.Params.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.Client.Params.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.Client.Params.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object ParamsKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class AllowedClientsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class AllowedClientsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * allowed_clients defines the list of allowed client state types.
@@ -36,8 +36,8 @@ public object ParamsKt {
      * <code>repeated string allowed_clients = 1 [(.gogoproto.moretags) = "yaml:&#92;"allowed_clients&#92;""];</code>
      * @return A list containing the allowedClients.
      */
-    public val allowedClients: com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>
-      @kotlin.jvm.JvmSynthetic
+    val allowedClients: com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>
+      @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getAllowedClientsList()
       )
@@ -51,7 +51,7 @@ public object ParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllowedClients")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.add(value: kotlin.String) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.add(value: kotlin.String) {
       _builder.addAllowedClients(value)
     }
     /**
@@ -64,9 +64,8 @@ public object ParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllowedClients")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.plusAssign(value: kotlin.String) {
-      add(value)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.plusAssign(value: kotlin.String) {
+      _builder.addAllowedClients(value)
     }
     /**
      * <pre>
@@ -78,7 +77,7 @@ public object ParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllAllowedClients")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllAllowedClients(values)
     }
     /**
@@ -91,9 +90,8 @@ public object ParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllAllowedClients")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
-      addAll(values)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
+      _builder.addAllAllowedClients(values)
     }
     /**
      * <pre>
@@ -106,7 +104,7 @@ public object ParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setAllowedClients")
-    public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.set(index: kotlin.Int, value: kotlin.String) {
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setAllowedClients(index, value)
     }/**
      * <pre>
@@ -117,11 +115,10 @@ public object ParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearAllowedClients")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, AllowedClientsProxy>.clear() {
       _builder.clearAllowedClients()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.Client.Params.copy(block: ibc.core.client.v1.ParamsKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Client.Params =
+inline fun ibc.core.client.v1.Client.Params.copy(block: ibc.core.client.v1.ParamsKt.Dsl.() -> Unit): ibc.core.client.v1.Client.Params =
   ibc.core.client.v1.ParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

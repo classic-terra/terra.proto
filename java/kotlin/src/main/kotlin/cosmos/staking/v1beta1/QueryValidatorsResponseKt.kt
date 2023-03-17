@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryValidatorsResponse")
-public inline fun queryValidatorsResponse(block: cosmos.staking.v1beta1.QueryValidatorsResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryValidatorsResponse(block: cosmos.staking.v1beta1.QueryValidatorsResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorsResponse =
   cosmos.staking.v1beta1.QueryValidatorsResponseKt.Dsl._create(cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorsResponse.newBuilder()).apply { block() }._build()
-public object QueryValidatorsResponseKt {
+object QueryValidatorsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorsResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryValidatorsResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ValidatorsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ValidatorsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * validators contains all the queried validators.
@@ -35,7 +35,7 @@ public object QueryValidatorsResponseKt {
      *
      * <code>repeated .cosmos.staking.v1beta1.Validator validators = 1 [(.gogoproto.nullable) = false];</code>
      */
-     public val validators: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>
+     val validators: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getValidatorsList()
@@ -50,10 +50,9 @@ public object QueryValidatorsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addValidators")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.add(value: cosmos.staking.v1beta1.Staking.Validator) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.add(value: cosmos.staking.v1beta1.Staking.Validator) {
       _builder.addValidators(value)
-    }
-    /**
+    }/**
      * <pre>
      * validators contains all the queried validators.
      * </pre>
@@ -63,11 +62,9 @@ public object QueryValidatorsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignValidators")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.Validator) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.Validator) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * validators contains all the queried validators.
      * </pre>
@@ -77,10 +74,9 @@ public object QueryValidatorsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllValidators")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Validator>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Validator>) {
       _builder.addAllValidators(values)
-    }
-    /**
+    }/**
      * <pre>
      * validators contains all the queried validators.
      * </pre>
@@ -90,11 +86,9 @@ public object QueryValidatorsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllValidators")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Validator>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Validator>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * validators contains all the queried validators.
      * </pre>
@@ -105,10 +99,9 @@ public object QueryValidatorsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setValidators")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.Validator) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.Validator) {
       _builder.setValidators(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * validators contains all the queried validators.
      * </pre>
@@ -117,11 +110,9 @@ public object QueryValidatorsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearValidators")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.clear() {
       _builder.clearValidators()
     }
-
-
     /**
      * <pre>
      * pagination defines the pagination in the response.
@@ -129,7 +120,7 @@ public object QueryValidatorsResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -143,7 +134,7 @@ public object QueryValidatorsResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -154,15 +145,11 @@ public object QueryValidatorsResponseKt {
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorsResponse.copy(block: cosmos.staking.v1beta1.QueryValidatorsResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorsResponse =
+inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorsResponse.copy(block: cosmos.staking.v1beta1.QueryValidatorsResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorsResponse =
   cosmos.staking.v1beta1.QueryValidatorsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorsResponseOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageResponse?
-  get() = if (hasPagination()) getPagination() else null
-

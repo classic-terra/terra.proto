@@ -29,39 +29,38 @@ import kotlin.jvm.JvmStatic
  * Holder for Kotlin coroutine-based client and server APIs for
  * cosmos.base.tendermint.v1beta1.Service.
  */
-public object ServiceGrpcKt {
-  public const val SERVICE_NAME: String = ServiceGrpc.SERVICE_NAME
+object ServiceGrpcKt {
+  const val SERVICE_NAME: String = ServiceGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = ServiceGrpc.getServiceDescriptor()
 
-  public val getNodeInfoMethod:
-      MethodDescriptor<Query.GetNodeInfoRequest, Query.GetNodeInfoResponse>
+  val getNodeInfoMethod: MethodDescriptor<Query.GetNodeInfoRequest, Query.GetNodeInfoResponse>
     @JvmStatic
     get() = ServiceGrpc.getGetNodeInfoMethod()
 
-  public val getSyncingMethod: MethodDescriptor<Query.GetSyncingRequest, Query.GetSyncingResponse>
+  val getSyncingMethod: MethodDescriptor<Query.GetSyncingRequest, Query.GetSyncingResponse>
     @JvmStatic
     get() = ServiceGrpc.getGetSyncingMethod()
 
-  public val getLatestBlockMethod:
-      MethodDescriptor<Query.GetLatestBlockRequest, Query.GetLatestBlockResponse>
+  val getLatestBlockMethod: MethodDescriptor<Query.GetLatestBlockRequest,
+      Query.GetLatestBlockResponse>
     @JvmStatic
     get() = ServiceGrpc.getGetLatestBlockMethod()
 
-  public val getBlockByHeightMethod:
-      MethodDescriptor<Query.GetBlockByHeightRequest, Query.GetBlockByHeightResponse>
+  val getBlockByHeightMethod: MethodDescriptor<Query.GetBlockByHeightRequest,
+      Query.GetBlockByHeightResponse>
     @JvmStatic
     get() = ServiceGrpc.getGetBlockByHeightMethod()
 
-  public val getLatestValidatorSetMethod:
-      MethodDescriptor<Query.GetLatestValidatorSetRequest, Query.GetLatestValidatorSetResponse>
+  val getLatestValidatorSetMethod: MethodDescriptor<Query.GetLatestValidatorSetRequest,
+      Query.GetLatestValidatorSetResponse>
     @JvmStatic
     get() = ServiceGrpc.getGetLatestValidatorSetMethod()
 
-  public val getValidatorSetByHeightMethod:
-      MethodDescriptor<Query.GetValidatorSetByHeightRequest, Query.GetValidatorSetByHeightResponse>
+  val getValidatorSetByHeightMethod: MethodDescriptor<Query.GetValidatorSetByHeightRequest,
+      Query.GetValidatorSetByHeightResponse>
     @JvmStatic
     get() = ServiceGrpc.getGetValidatorSetByHeightMethod()
 
@@ -70,11 +69,11 @@ public object ServiceGrpcKt {
    * coroutines.
    */
   @StubFor(ServiceGrpc::class)
-  public class ServiceCoroutineStub @JvmOverloads constructor(
+  class ServiceCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<ServiceCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): ServiceCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): ServiceCoroutineStub =
         ServiceCoroutineStub(channel, callOptions)
 
     /**
@@ -85,19 +84,16 @@ public object ServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun getNodeInfo(request: Query.GetNodeInfoRequest, headers: Metadata =
-        Metadata()): Query.GetNodeInfoResponse = unaryRpc(
+    suspend fun getNodeInfo(request: Query.GetNodeInfoRequest): Query.GetNodeInfoResponse =
+        unaryRpc(
       channel,
       ServiceGrpc.getGetNodeInfoMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -106,19 +102,15 @@ public object ServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun getSyncing(request: Query.GetSyncingRequest, headers: Metadata = Metadata()):
-        Query.GetSyncingResponse = unaryRpc(
+    suspend fun getSyncing(request: Query.GetSyncingRequest): Query.GetSyncingResponse = unaryRpc(
       channel,
       ServiceGrpc.getGetSyncingMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -127,19 +119,16 @@ public object ServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun getLatestBlock(request: Query.GetLatestBlockRequest, headers: Metadata =
-        Metadata()): Query.GetLatestBlockResponse = unaryRpc(
+    suspend fun getLatestBlock(request: Query.GetLatestBlockRequest): Query.GetLatestBlockResponse =
+        unaryRpc(
       channel,
       ServiceGrpc.getGetLatestBlockMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -148,19 +137,16 @@ public object ServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun getBlockByHeight(request: Query.GetBlockByHeightRequest, headers: Metadata =
-        Metadata()): Query.GetBlockByHeightResponse = unaryRpc(
+    suspend fun getBlockByHeight(request: Query.GetBlockByHeightRequest):
+        Query.GetBlockByHeightResponse = unaryRpc(
       channel,
       ServiceGrpc.getGetBlockByHeightMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -169,19 +155,16 @@ public object ServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun getLatestValidatorSet(request: Query.GetLatestValidatorSetRequest,
-        headers: Metadata = Metadata()): Query.GetLatestValidatorSetResponse = unaryRpc(
+    suspend fun getLatestValidatorSet(request: Query.GetLatestValidatorSetRequest):
+        Query.GetLatestValidatorSetResponse = unaryRpc(
       channel,
       ServiceGrpc.getGetLatestValidatorSetMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -190,26 +173,23 @@ public object ServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun getValidatorSetByHeight(request: Query.GetValidatorSetByHeightRequest,
-        headers: Metadata = Metadata()): Query.GetValidatorSetByHeightResponse = unaryRpc(
+    suspend fun getValidatorSetByHeight(request: Query.GetValidatorSetByHeightRequest):
+        Query.GetValidatorSetByHeightResponse = unaryRpc(
       channel,
       ServiceGrpc.getGetValidatorSetByHeightMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.base.tendermint.v1beta1.Service service based on Kotlin
    * coroutines.
    */
-  public abstract class ServiceCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class ServiceCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for cosmos.base.tendermint.v1beta1.Service.GetNodeInfo.
@@ -222,8 +202,8 @@ public object ServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun getNodeInfo(request: Query.GetNodeInfoRequest):
-        Query.GetNodeInfoResponse = throw
+    open suspend fun getNodeInfo(request: Query.GetNodeInfoRequest): Query.GetNodeInfoResponse =
+        throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.tendermint.v1beta1.Service.GetNodeInfo is unimplemented"))
 
     /**
@@ -237,8 +217,7 @@ public object ServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun getSyncing(request: Query.GetSyncingRequest): Query.GetSyncingResponse =
-        throw
+    open suspend fun getSyncing(request: Query.GetSyncingRequest): Query.GetSyncingResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.tendermint.v1beta1.Service.GetSyncing is unimplemented"))
 
     /**
@@ -252,7 +231,7 @@ public object ServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun getLatestBlock(request: Query.GetLatestBlockRequest):
+    open suspend fun getLatestBlock(request: Query.GetLatestBlockRequest):
         Query.GetLatestBlockResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.tendermint.v1beta1.Service.GetLatestBlock is unimplemented"))
 
@@ -267,7 +246,7 @@ public object ServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun getBlockByHeight(request: Query.GetBlockByHeightRequest):
+    open suspend fun getBlockByHeight(request: Query.GetBlockByHeightRequest):
         Query.GetBlockByHeightResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.tendermint.v1beta1.Service.GetBlockByHeight is unimplemented"))
 
@@ -283,7 +262,7 @@ public object ServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun getLatestValidatorSet(request: Query.GetLatestValidatorSetRequest):
+    open suspend fun getLatestValidatorSet(request: Query.GetLatestValidatorSetRequest):
         Query.GetLatestValidatorSetResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.tendermint.v1beta1.Service.GetLatestValidatorSet is unimplemented"))
 
@@ -299,12 +278,11 @@ public object ServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun getValidatorSetByHeight(request: Query.GetValidatorSetByHeightRequest):
+    open suspend fun getValidatorSetByHeight(request: Query.GetValidatorSetByHeightRequest):
         Query.GetValidatorSetByHeightResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.tendermint.v1beta1.Service.GetValidatorSetByHeight is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = ServiceGrpc.getGetNodeInfoMethod(),

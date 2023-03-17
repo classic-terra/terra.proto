@@ -3,16 +3,16 @@
 
 package terra.market.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequerySwapResponse")
-public inline fun querySwapResponse(block: terra.market.v1beta1.QuerySwapResponseKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QuerySwapResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun querySwapResponse(block: terra.market.v1beta1.QuerySwapResponseKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QuerySwapResponse =
   terra.market.v1beta1.QuerySwapResponseKt.Dsl._create(terra.market.v1beta1.QueryOuterClass.QuerySwapResponse.newBuilder()).apply { block() }._build()
-public object QuerySwapResponseKt {
+object QuerySwapResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.market.v1beta1.QueryOuterClass.QuerySwapResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.market.v1beta1.QueryOuterClass.QuerySwapResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.market.v1beta1.QueryOuterClass.QuerySwapResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QuerySwapResponseKt {
      *
      * <code>.cosmos.base.v1beta1.Coin return_coin = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var returnCoin: cosmos.base.v1beta1.CoinOuterClass.Coin
+    var returnCoin: cosmos.base.v1beta1.CoinOuterClass.Coin
       @JvmName("getReturnCoin")
       get() = _builder.getReturnCoin()
       @JvmName("setReturnCoin")
@@ -43,7 +43,7 @@ public object QuerySwapResponseKt {
      *
      * <code>.cosmos.base.v1beta1.Coin return_coin = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearReturnCoin() {
+    fun clearReturnCoin() {
       _builder.clearReturnCoin()
     }
     /**
@@ -54,15 +54,11 @@ public object QuerySwapResponseKt {
      * <code>.cosmos.base.v1beta1.Coin return_coin = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the returnCoin field is set.
      */
-    public fun hasReturnCoin(): kotlin.Boolean {
+    fun hasReturnCoin(): kotlin.Boolean {
       return _builder.hasReturnCoin()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.market.v1beta1.QueryOuterClass.QuerySwapResponse.copy(block: terra.market.v1beta1.QuerySwapResponseKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QuerySwapResponse =
+inline fun terra.market.v1beta1.QueryOuterClass.QuerySwapResponse.copy(block: terra.market.v1beta1.QuerySwapResponseKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QuerySwapResponse =
   terra.market.v1beta1.QuerySwapResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.market.v1beta1.QueryOuterClass.QuerySwapResponseOrBuilder.returnCoinOrNull: cosmos.base.v1beta1.CoinOuterClass.Coin?
-  get() = if (hasReturnCoin()) getReturnCoin() else null
-

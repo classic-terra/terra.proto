@@ -3,16 +3,16 @@
 
 package cosmos.base.abci.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeaBCIMessageLog")
-public inline fun aBCIMessageLog(block: cosmos.base.abci.v1beta1.ABCIMessageLogKt.Dsl.() -> kotlin.Unit): cosmos.base.abci.v1beta1.Abci.ABCIMessageLog =
+@kotlin.jvm.JvmSynthetic
+inline fun aBCIMessageLog(block: cosmos.base.abci.v1beta1.ABCIMessageLogKt.Dsl.() -> Unit): cosmos.base.abci.v1beta1.Abci.ABCIMessageLog =
   cosmos.base.abci.v1beta1.ABCIMessageLogKt.Dsl._create(cosmos.base.abci.v1beta1.Abci.ABCIMessageLog.newBuilder()).apply { block() }._build()
-public object ABCIMessageLogKt {
+object ABCIMessageLogKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.abci.v1beta1.Abci.ABCIMessageLog.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.abci.v1beta1.Abci.ABCIMessageLog.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.abci.v1beta1.Abci.ABCIMessageLog.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ABCIMessageLogKt {
     /**
      * <code>uint32 msg_index = 1;</code>
      */
-    public var msgIndex: kotlin.Int
+    var msgIndex: kotlin.Int
       @JvmName("getMsgIndex")
       get() = _builder.getMsgIndex()
       @JvmName("setMsgIndex")
@@ -35,14 +35,14 @@ public object ABCIMessageLogKt {
     /**
      * <code>uint32 msg_index = 1;</code>
      */
-    public fun clearMsgIndex() {
+    fun clearMsgIndex() {
       _builder.clearMsgIndex()
     }
 
     /**
      * <code>string log = 2;</code>
      */
-    public var log: kotlin.String
+    var log: kotlin.String
       @JvmName("getLog")
       get() = _builder.getLog()
       @JvmName("setLog")
@@ -52,7 +52,7 @@ public object ABCIMessageLogKt {
     /**
      * <code>string log = 2;</code>
      */
-    public fun clearLog() {
+    fun clearLog() {
       _builder.clearLog()
     }
 
@@ -61,7 +61,7 @@ public object ABCIMessageLogKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class EventsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class EventsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * Events contains a slice of Event objects that were emitted during some
@@ -70,7 +70,7 @@ public object ABCIMessageLogKt {
      *
      * <code>repeated .cosmos.base.abci.v1beta1.StringEvent events = 3 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "StringEvents"];</code>
      */
-     public val events: com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>
+     val events: com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getEventsList()
@@ -86,10 +86,9 @@ public object ABCIMessageLogKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addEvents")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.add(value: cosmos.base.abci.v1beta1.Abci.StringEvent) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.add(value: cosmos.base.abci.v1beta1.Abci.StringEvent) {
       _builder.addEvents(value)
-    }
-    /**
+    }/**
      * <pre>
      * Events contains a slice of Event objects that were emitted during some
      * execution.
@@ -100,11 +99,9 @@ public object ABCIMessageLogKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignEvents")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.plusAssign(value: cosmos.base.abci.v1beta1.Abci.StringEvent) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.plusAssign(value: cosmos.base.abci.v1beta1.Abci.StringEvent) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * Events contains a slice of Event objects that were emitted during some
      * execution.
@@ -115,10 +112,9 @@ public object ABCIMessageLogKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllEvents")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.StringEvent>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.StringEvent>) {
       _builder.addAllEvents(values)
-    }
-    /**
+    }/**
      * <pre>
      * Events contains a slice of Event objects that were emitted during some
      * execution.
@@ -129,11 +125,9 @@ public object ABCIMessageLogKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllEvents")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.StringEvent>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.StringEvent>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * Events contains a slice of Event objects that were emitted during some
      * execution.
@@ -145,10 +139,9 @@ public object ABCIMessageLogKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setEvents")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.set(index: kotlin.Int, value: cosmos.base.abci.v1beta1.Abci.StringEvent) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.set(index: kotlin.Int, value: cosmos.base.abci.v1beta1.Abci.StringEvent) {
       _builder.setEvents(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * Events contains a slice of Event objects that were emitted during some
      * execution.
@@ -158,13 +151,10 @@ public object ABCIMessageLogKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearEvents")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.StringEvent, EventsProxy>.clear() {
       _builder.clearEvents()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.abci.v1beta1.Abci.ABCIMessageLog.copy(block: cosmos.base.abci.v1beta1.ABCIMessageLogKt.Dsl.() -> kotlin.Unit): cosmos.base.abci.v1beta1.Abci.ABCIMessageLog =
+inline fun cosmos.base.abci.v1beta1.Abci.ABCIMessageLog.copy(block: cosmos.base.abci.v1beta1.ABCIMessageLogKt.Dsl.() -> Unit): cosmos.base.abci.v1beta1.Abci.ABCIMessageLog =
   cosmos.base.abci.v1beta1.ABCIMessageLogKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

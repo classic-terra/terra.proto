@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryDelegatorDelegationsResponse")
-public inline fun queryDelegatorDelegationsResponse(block: cosmos.staking.v1beta1.QueryDelegatorDelegationsResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorDelegationsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryDelegatorDelegationsResponse(block: cosmos.staking.v1beta1.QueryDelegatorDelegationsResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorDelegationsResponse =
   cosmos.staking.v1beta1.QueryDelegatorDelegationsResponseKt.Dsl._create(cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorDelegationsResponse.newBuilder()).apply { block() }._build()
-public object QueryDelegatorDelegationsResponseKt {
+object QueryDelegatorDelegationsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorDelegationsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorDelegationsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorDelegationsResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryDelegatorDelegationsResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class DelegationResponsesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class DelegationResponsesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * delegation_responses defines all the delegations' info of a delegator.
@@ -35,7 +35,7 @@ public object QueryDelegatorDelegationsResponseKt {
      *
      * <code>repeated .cosmos.staking.v1beta1.DelegationResponse delegation_responses = 1 [(.gogoproto.nullable) = false];</code>
      */
-     public val delegationResponses: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>
+     val delegationResponses: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getDelegationResponsesList()
@@ -50,10 +50,9 @@ public object QueryDelegatorDelegationsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addDelegationResponses")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.add(value: cosmos.staking.v1beta1.Staking.DelegationResponse) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.add(value: cosmos.staking.v1beta1.Staking.DelegationResponse) {
       _builder.addDelegationResponses(value)
-    }
-    /**
+    }/**
      * <pre>
      * delegation_responses defines all the delegations' info of a delegator.
      * </pre>
@@ -63,11 +62,9 @@ public object QueryDelegatorDelegationsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignDelegationResponses")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.DelegationResponse) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.DelegationResponse) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * delegation_responses defines all the delegations' info of a delegator.
      * </pre>
@@ -77,10 +74,9 @@ public object QueryDelegatorDelegationsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllDelegationResponses")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.DelegationResponse>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.DelegationResponse>) {
       _builder.addAllDelegationResponses(values)
-    }
-    /**
+    }/**
      * <pre>
      * delegation_responses defines all the delegations' info of a delegator.
      * </pre>
@@ -90,11 +86,9 @@ public object QueryDelegatorDelegationsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllDelegationResponses")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.DelegationResponse>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.DelegationResponse>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * delegation_responses defines all the delegations' info of a delegator.
      * </pre>
@@ -105,10 +99,9 @@ public object QueryDelegatorDelegationsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setDelegationResponses")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.DelegationResponse) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.DelegationResponse) {
       _builder.setDelegationResponses(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * delegation_responses defines all the delegations' info of a delegator.
      * </pre>
@@ -117,11 +110,9 @@ public object QueryDelegatorDelegationsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearDelegationResponses")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.DelegationResponse, DelegationResponsesProxy>.clear() {
       _builder.clearDelegationResponses()
     }
-
-
     /**
      * <pre>
      * pagination defines the pagination in the response.
@@ -129,7 +120,7 @@ public object QueryDelegatorDelegationsResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -143,7 +134,7 @@ public object QueryDelegatorDelegationsResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -154,15 +145,11 @@ public object QueryDelegatorDelegationsResponseKt {
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorDelegationsResponse.copy(block: cosmos.staking.v1beta1.QueryDelegatorDelegationsResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorDelegationsResponse =
+inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorDelegationsResponse.copy(block: cosmos.staking.v1beta1.QueryDelegatorDelegationsResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorDelegationsResponse =
   cosmos.staking.v1beta1.QueryDelegatorDelegationsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorDelegationsResponseOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageResponse?
-  get() = if (hasPagination()) getPagination() else null
-

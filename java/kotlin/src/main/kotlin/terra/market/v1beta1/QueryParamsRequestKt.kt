@@ -3,16 +3,16 @@
 
 package terra.market.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryParamsRequest")
-public inline fun queryParamsRequest(block: terra.market.v1beta1.QueryParamsRequestKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QueryParamsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryParamsRequest(block: terra.market.v1beta1.QueryParamsRequestKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QueryParamsRequest =
   terra.market.v1beta1.QueryParamsRequestKt.Dsl._create(terra.market.v1beta1.QueryOuterClass.QueryParamsRequest.newBuilder()).apply { block() }._build()
-public object QueryParamsRequestKt {
+object QueryParamsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.market.v1beta1.QueryOuterClass.QueryParamsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.market.v1beta1.QueryOuterClass.QueryParamsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.market.v1beta1.QueryOuterClass.QueryParamsRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryParamsRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.market.v1beta1.QueryOuterClass.QueryParamsRequest.copy(block: terra.market.v1beta1.QueryParamsRequestKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QueryParamsRequest =
+inline fun terra.market.v1beta1.QueryOuterClass.QueryParamsRequest.copy(block: terra.market.v1beta1.QueryParamsRequestKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QueryParamsRequest =
   terra.market.v1beta1.QueryParamsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

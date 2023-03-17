@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequerySeigniorageProceedsRequest")
-public inline fun querySeigniorageProceedsRequest(block: terra.treasury.v1beta1.QuerySeigniorageProceedsRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QuerySeigniorageProceedsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun querySeigniorageProceedsRequest(block: terra.treasury.v1beta1.QuerySeigniorageProceedsRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QuerySeigniorageProceedsRequest =
   terra.treasury.v1beta1.QuerySeigniorageProceedsRequestKt.Dsl._create(terra.treasury.v1beta1.QueryOuterClass.QuerySeigniorageProceedsRequest.newBuilder()).apply { block() }._build()
-public object QuerySeigniorageProceedsRequestKt {
+object QuerySeigniorageProceedsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.QueryOuterClass.QuerySeigniorageProceedsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.QueryOuterClass.QuerySeigniorageProceedsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.QueryOuterClass.QuerySeigniorageProceedsRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QuerySeigniorageProceedsRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.QueryOuterClass.QuerySeigniorageProceedsRequest.copy(block: terra.treasury.v1beta1.QuerySeigniorageProceedsRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QuerySeigniorageProceedsRequest =
+inline fun terra.treasury.v1beta1.QueryOuterClass.QuerySeigniorageProceedsRequest.copy(block: terra.treasury.v1beta1.QuerySeigniorageProceedsRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QuerySeigniorageProceedsRequest =
   terra.treasury.v1beta1.QuerySeigniorageProceedsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

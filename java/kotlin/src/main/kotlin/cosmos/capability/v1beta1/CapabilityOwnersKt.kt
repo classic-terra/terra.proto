@@ -3,16 +3,16 @@
 
 package cosmos.capability.v1beta1;
 
-@kotlin.jvm.JvmName("-initializecapabilityOwners")
-public inline fun capabilityOwners(block: cosmos.capability.v1beta1.CapabilityOwnersKt.Dsl.() -> kotlin.Unit): cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners =
+@kotlin.jvm.JvmSynthetic
+inline fun capabilityOwners(block: cosmos.capability.v1beta1.CapabilityOwnersKt.Dsl.() -> Unit): cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners =
   cosmos.capability.v1beta1.CapabilityOwnersKt.Dsl._create(cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.newBuilder()).apply { block() }._build()
-public object CapabilityOwnersKt {
+object CapabilityOwnersKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.Builder): Dsl = Dsl(builder)
@@ -27,11 +27,11 @@ public object CapabilityOwnersKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class OwnersProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class OwnersProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .cosmos.capability.v1beta1.Owner owners = 1 [(.gogoproto.nullable) = false];</code>
      */
-     public val owners: com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>
+     val owners: com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getOwnersList()
@@ -42,60 +42,50 @@ public object CapabilityOwnersKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addOwners")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.add(value: cosmos.capability.v1beta1.CapabilityOuterClass.Owner) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.add(value: cosmos.capability.v1beta1.CapabilityOuterClass.Owner) {
       _builder.addOwners(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.capability.v1beta1.Owner owners = 1 [(.gogoproto.nullable) = false];</code>
      * @param value The owners to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignOwners")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.plusAssign(value: cosmos.capability.v1beta1.CapabilityOuterClass.Owner) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.plusAssign(value: cosmos.capability.v1beta1.CapabilityOuterClass.Owner) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.capability.v1beta1.Owner owners = 1 [(.gogoproto.nullable) = false];</code>
      * @param values The owners to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllOwners")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.addAll(values: kotlin.collections.Iterable<cosmos.capability.v1beta1.CapabilityOuterClass.Owner>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.addAll(values: kotlin.collections.Iterable<cosmos.capability.v1beta1.CapabilityOuterClass.Owner>) {
       _builder.addAllOwners(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.capability.v1beta1.Owner owners = 1 [(.gogoproto.nullable) = false];</code>
      * @param values The owners to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllOwners")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.capability.v1beta1.CapabilityOuterClass.Owner>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.capability.v1beta1.CapabilityOuterClass.Owner>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.capability.v1beta1.Owner owners = 1 [(.gogoproto.nullable) = false];</code>
      * @param index The index to set the value at.
      * @param value The owners to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setOwners")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.set(index: kotlin.Int, value: cosmos.capability.v1beta1.CapabilityOuterClass.Owner) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.set(index: kotlin.Int, value: cosmos.capability.v1beta1.CapabilityOuterClass.Owner) {
       _builder.setOwners(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.capability.v1beta1.Owner owners = 1 [(.gogoproto.nullable) = false];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearOwners")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.CapabilityOuterClass.Owner, OwnersProxy>.clear() {
       _builder.clearOwners()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.copy(block: cosmos.capability.v1beta1.CapabilityOwnersKt.Dsl.() -> kotlin.Unit): cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners =
+inline fun cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.copy(block: cosmos.capability.v1beta1.CapabilityOwnersKt.Dsl.() -> Unit): cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners =
   cosmos.capability.v1beta1.CapabilityOwnersKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

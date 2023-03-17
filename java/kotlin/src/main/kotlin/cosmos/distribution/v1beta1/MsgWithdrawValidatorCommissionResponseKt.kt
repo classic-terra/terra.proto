@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgWithdrawValidatorCommissionResponse")
-public inline fun msgWithdrawValidatorCommissionResponse(block: cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponseKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommissionResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgWithdrawValidatorCommissionResponse(block: cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponseKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommissionResponse =
   cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponseKt.Dsl._create(cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommissionResponse.newBuilder()).apply { block() }._build()
-public object MsgWithdrawValidatorCommissionResponseKt {
+object MsgWithdrawValidatorCommissionResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommissionResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommissionResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommissionResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgWithdrawValidatorCommissionResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommissionResponse.copy(block: cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponseKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommissionResponse =
+inline fun cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommissionResponse.copy(block: cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponseKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommissionResponse =
   cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

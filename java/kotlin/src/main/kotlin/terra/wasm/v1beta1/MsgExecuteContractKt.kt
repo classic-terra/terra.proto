@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgExecuteContract")
-public inline fun msgExecuteContract(block: terra.wasm.v1beta1.MsgExecuteContractKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgExecuteContract =
+@kotlin.jvm.JvmSynthetic
+inline fun msgExecuteContract(block: terra.wasm.v1beta1.MsgExecuteContractKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgExecuteContract =
   terra.wasm.v1beta1.MsgExecuteContractKt.Dsl._create(terra.wasm.v1beta1.Tx.MsgExecuteContract.newBuilder()).apply { block() }._build()
-public object MsgExecuteContractKt {
+object MsgExecuteContractKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Tx.MsgExecuteContract.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Tx.MsgExecuteContract.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Tx.MsgExecuteContract.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MsgExecuteContractKt {
      *
      * <code>string sender = 1 [(.gogoproto.moretags) = "yaml:&#92;"sender&#92;""];</code>
      */
-    public var sender: kotlin.String
+    var sender: kotlin.String
       @JvmName("getSender")
       get() = _builder.getSender()
       @JvmName("setSender")
@@ -43,7 +43,7 @@ public object MsgExecuteContractKt {
      *
      * <code>string sender = 1 [(.gogoproto.moretags) = "yaml:&#92;"sender&#92;""];</code>
      */
-    public fun clearSender() {
+    fun clearSender() {
       _builder.clearSender()
     }
 
@@ -54,7 +54,7 @@ public object MsgExecuteContractKt {
      *
      * <code>string contract = 2 [(.gogoproto.moretags) = "yaml:&#92;"contract&#92;""];</code>
      */
-    public var contract: kotlin.String
+    var contract: kotlin.String
       @JvmName("getContract")
       get() = _builder.getContract()
       @JvmName("setContract")
@@ -68,7 +68,7 @@ public object MsgExecuteContractKt {
      *
      * <code>string contract = 2 [(.gogoproto.moretags) = "yaml:&#92;"contract&#92;""];</code>
      */
-    public fun clearContract() {
+    fun clearContract() {
       _builder.clearContract()
     }
 
@@ -79,7 +79,7 @@ public object MsgExecuteContractKt {
      *
      * <code>bytes execute_msg = 3 [(.gogoproto.moretags) = "yaml:&#92;"execute_msg&#92;"", (.gogoproto.casttype) = "encoding/json.RawMessage"];</code>
      */
-    public var executeMsg: com.google.protobuf.ByteString
+    var executeMsg: com.google.protobuf.ByteString
       @JvmName("getExecuteMsg")
       get() = _builder.getExecuteMsg()
       @JvmName("setExecuteMsg")
@@ -93,7 +93,7 @@ public object MsgExecuteContractKt {
      *
      * <code>bytes execute_msg = 3 [(.gogoproto.moretags) = "yaml:&#92;"execute_msg&#92;"", (.gogoproto.casttype) = "encoding/json.RawMessage"];</code>
      */
-    public fun clearExecuteMsg() {
+    fun clearExecuteMsg() {
       _builder.clearExecuteMsg()
     }
 
@@ -102,7 +102,7 @@ public object MsgExecuteContractKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class CoinsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class CoinsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * Coins that are transferred to the contract on execution
@@ -110,7 +110,7 @@ public object MsgExecuteContractKt {
      *
      * <code>repeated .cosmos.base.v1beta1.Coin coins = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"coins&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
-     public val coins: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>
+     val coins: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getCoinsList()
@@ -125,10 +125,9 @@ public object MsgExecuteContractKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addCoins")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.addCoins(value)
-    }
-    /**
+    }/**
      * <pre>
      * Coins that are transferred to the contract on execution
      * </pre>
@@ -138,11 +137,9 @@ public object MsgExecuteContractKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignCoins")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * Coins that are transferred to the contract on execution
      * </pre>
@@ -152,10 +149,9 @@ public object MsgExecuteContractKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllCoins")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       _builder.addAllCoins(values)
-    }
-    /**
+    }/**
      * <pre>
      * Coins that are transferred to the contract on execution
      * </pre>
@@ -165,11 +161,9 @@ public object MsgExecuteContractKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllCoins")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * Coins that are transferred to the contract on execution
      * </pre>
@@ -180,10 +174,9 @@ public object MsgExecuteContractKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setCoins")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.setCoins(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * Coins that are transferred to the contract on execution
      * </pre>
@@ -192,13 +185,10 @@ public object MsgExecuteContractKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearCoins")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.clear() {
       _builder.clearCoins()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Tx.MsgExecuteContract.copy(block: terra.wasm.v1beta1.MsgExecuteContractKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgExecuteContract =
+inline fun terra.wasm.v1beta1.Tx.MsgExecuteContract.copy(block: terra.wasm.v1beta1.MsgExecuteContractKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgExecuteContract =
   terra.wasm.v1beta1.MsgExecuteContractKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

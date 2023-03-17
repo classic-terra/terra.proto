@@ -3,16 +3,16 @@
 
 package cosmos.authz.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegrant")
-public inline fun grant(block: cosmos.authz.v1beta1.GrantKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Authz.Grant =
+@kotlin.jvm.JvmSynthetic
+inline fun grant(block: cosmos.authz.v1beta1.GrantKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Authz.Grant =
   cosmos.authz.v1beta1.GrantKt.Dsl._create(cosmos.authz.v1beta1.Authz.Grant.newBuilder()).apply { block() }._build()
-public object GrantKt {
+object GrantKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.authz.v1beta1.Authz.Grant.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.authz.v1beta1.Authz.Grant.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.authz.v1beta1.Authz.Grant.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object GrantKt {
     /**
      * <code>.google.protobuf.Any authorization = 1 [(.cosmos_proto.accepts_interface) = "Authorization"];</code>
      */
-    public var authorization: com.google.protobuf.Any
+    var authorization: com.google.protobuf.Any
       @JvmName("getAuthorization")
       get() = _builder.getAuthorization()
       @JvmName("setAuthorization")
@@ -35,21 +35,21 @@ public object GrantKt {
     /**
      * <code>.google.protobuf.Any authorization = 1 [(.cosmos_proto.accepts_interface) = "Authorization"];</code>
      */
-    public fun clearAuthorization() {
+    fun clearAuthorization() {
       _builder.clearAuthorization()
     }
     /**
      * <code>.google.protobuf.Any authorization = 1 [(.cosmos_proto.accepts_interface) = "Authorization"];</code>
      * @return Whether the authorization field is set.
      */
-    public fun hasAuthorization(): kotlin.Boolean {
+    fun hasAuthorization(): kotlin.Boolean {
       return _builder.hasAuthorization()
     }
 
     /**
      * <code>.google.protobuf.Timestamp expiration = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public var expiration: com.google.protobuf.Timestamp
+    var expiration: com.google.protobuf.Timestamp
       @JvmName("getExpiration")
       get() = _builder.getExpiration()
       @JvmName("setExpiration")
@@ -59,25 +59,18 @@ public object GrantKt {
     /**
      * <code>.google.protobuf.Timestamp expiration = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearExpiration() {
+    fun clearExpiration() {
       _builder.clearExpiration()
     }
     /**
      * <code>.google.protobuf.Timestamp expiration = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      * @return Whether the expiration field is set.
      */
-    public fun hasExpiration(): kotlin.Boolean {
+    fun hasExpiration(): kotlin.Boolean {
       return _builder.hasExpiration()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.authz.v1beta1.Authz.Grant.copy(block: cosmos.authz.v1beta1.GrantKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Authz.Grant =
+inline fun cosmos.authz.v1beta1.Authz.Grant.copy(block: cosmos.authz.v1beta1.GrantKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Authz.Grant =
   cosmos.authz.v1beta1.GrantKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.authz.v1beta1.Authz.GrantOrBuilder.authorizationOrNull: com.google.protobuf.Any?
-  get() = if (hasAuthorization()) getAuthorization() else null
-
-public val cosmos.authz.v1beta1.Authz.GrantOrBuilder.expirationOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasExpiration()) getExpiration() else null
-

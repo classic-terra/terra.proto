@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializequeryChannelClientStateRequest")
-public inline fun queryChannelClientStateRequest(block: ibc.core.channel.v1.QueryChannelClientStateRequestKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryChannelClientStateRequest(block: ibc.core.channel.v1.QueryChannelClientStateRequestKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest =
   ibc.core.channel.v1.QueryChannelClientStateRequestKt.Dsl._create(ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest.newBuilder()).apply { block() }._build()
-public object QueryChannelClientStateRequestKt {
+object QueryChannelClientStateRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryChannelClientStateRequestKt {
      *
      * <code>string port_id = 1;</code>
      */
-    public var portId: kotlin.String
+    var portId: kotlin.String
       @JvmName("getPortId")
       get() = _builder.getPortId()
       @JvmName("setPortId")
@@ -43,7 +43,7 @@ public object QueryChannelClientStateRequestKt {
      *
      * <code>string port_id = 1;</code>
      */
-    public fun clearPortId() {
+    fun clearPortId() {
       _builder.clearPortId()
     }
 
@@ -54,7 +54,7 @@ public object QueryChannelClientStateRequestKt {
      *
      * <code>string channel_id = 2;</code>
      */
-    public var channelId: kotlin.String
+    var channelId: kotlin.String
       @JvmName("getChannelId")
       get() = _builder.getChannelId()
       @JvmName("setChannelId")
@@ -68,12 +68,11 @@ public object QueryChannelClientStateRequestKt {
      *
      * <code>string channel_id = 2;</code>
      */
-    public fun clearChannelId() {
+    fun clearChannelId() {
       _builder.clearChannelId()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest.copy(block: ibc.core.channel.v1.QueryChannelClientStateRequestKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest =
+inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest.copy(block: ibc.core.channel.v1.QueryChannelClientStateRequestKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest =
   ibc.core.channel.v1.QueryChannelClientStateRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

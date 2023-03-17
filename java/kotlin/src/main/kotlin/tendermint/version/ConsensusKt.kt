@@ -3,16 +3,16 @@
 
 package tendermint.version;
 
-@kotlin.jvm.JvmName("-initializeconsensus")
-public inline fun consensus(block: tendermint.version.ConsensusKt.Dsl.() -> kotlin.Unit): tendermint.version.Types.Consensus =
+@kotlin.jvm.JvmSynthetic
+inline fun consensus(block: tendermint.version.ConsensusKt.Dsl.() -> Unit): tendermint.version.Types.Consensus =
   tendermint.version.ConsensusKt.Dsl._create(tendermint.version.Types.Consensus.newBuilder()).apply { block() }._build()
-public object ConsensusKt {
+object ConsensusKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.version.Types.Consensus.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.version.Types.Consensus.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.version.Types.Consensus.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ConsensusKt {
     /**
      * <code>uint64 block = 1;</code>
      */
-    public var block: kotlin.Long
+    var block: kotlin.Long
       @JvmName("getBlock")
       get() = _builder.getBlock()
       @JvmName("setBlock")
@@ -35,14 +35,14 @@ public object ConsensusKt {
     /**
      * <code>uint64 block = 1;</code>
      */
-    public fun clearBlock() {
+    fun clearBlock() {
       _builder.clearBlock()
     }
 
     /**
      * <code>uint64 app = 2;</code>
      */
-    public var app: kotlin.Long
+    var app: kotlin.Long
       @JvmName("getApp")
       get() = _builder.getApp()
       @JvmName("setApp")
@@ -52,12 +52,11 @@ public object ConsensusKt {
     /**
      * <code>uint64 app = 2;</code>
      */
-    public fun clearApp() {
+    fun clearApp() {
       _builder.clearApp()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.version.Types.Consensus.copy(block: tendermint.version.ConsensusKt.Dsl.() -> kotlin.Unit): tendermint.version.Types.Consensus =
+inline fun tendermint.version.Types.Consensus.copy(block: tendermint.version.ConsensusKt.Dsl.() -> Unit): tendermint.version.Types.Consensus =
   tendermint.version.ConsensusKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

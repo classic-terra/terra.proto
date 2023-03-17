@@ -3,16 +3,16 @@
 
 package cosmos.base.tendermint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemodule")
-public inline fun module(block: cosmos.base.tendermint.v1beta1.ModuleKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.Module =
+@kotlin.jvm.JvmSynthetic
+inline fun module(block: cosmos.base.tendermint.v1beta1.ModuleKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.Module =
   cosmos.base.tendermint.v1beta1.ModuleKt.Dsl._create(cosmos.base.tendermint.v1beta1.Query.Module.newBuilder()).apply { block() }._build()
-public object ModuleKt {
+object ModuleKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.tendermint.v1beta1.Query.Module.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.tendermint.v1beta1.Query.Module.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.tendermint.v1beta1.Query.Module.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ModuleKt {
      *
      * <code>string path = 1;</code>
      */
-    public var path: kotlin.String
+    var path: kotlin.String
       @JvmName("getPath")
       get() = _builder.getPath()
       @JvmName("setPath")
@@ -43,7 +43,7 @@ public object ModuleKt {
      *
      * <code>string path = 1;</code>
      */
-    public fun clearPath() {
+    fun clearPath() {
       _builder.clearPath()
     }
 
@@ -54,7 +54,7 @@ public object ModuleKt {
      *
      * <code>string version = 2;</code>
      */
-    public var version: kotlin.String
+    var version: kotlin.String
       @JvmName("getVersion")
       get() = _builder.getVersion()
       @JvmName("setVersion")
@@ -68,7 +68,7 @@ public object ModuleKt {
      *
      * <code>string version = 2;</code>
      */
-    public fun clearVersion() {
+    fun clearVersion() {
       _builder.clearVersion()
     }
 
@@ -79,7 +79,7 @@ public object ModuleKt {
      *
      * <code>string sum = 3;</code>
      */
-    public var sum: kotlin.String
+    var sum: kotlin.String
       @JvmName("getSum")
       get() = _builder.getSum()
       @JvmName("setSum")
@@ -93,12 +93,11 @@ public object ModuleKt {
      *
      * <code>string sum = 3;</code>
      */
-    public fun clearSum() {
+    fun clearSum() {
       _builder.clearSum()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.tendermint.v1beta1.Query.Module.copy(block: cosmos.base.tendermint.v1beta1.ModuleKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.Module =
+inline fun cosmos.base.tendermint.v1beta1.Query.Module.copy(block: cosmos.base.tendermint.v1beta1.ModuleKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.Module =
   cosmos.base.tendermint.v1beta1.ModuleKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

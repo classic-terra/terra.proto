@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializeresponseListSnapshots")
-public inline fun responseListSnapshots(block: tendermint.abci.ResponseListSnapshotsKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseListSnapshots =
+@kotlin.jvm.JvmSynthetic
+inline fun responseListSnapshots(block: tendermint.abci.ResponseListSnapshotsKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseListSnapshots =
   tendermint.abci.ResponseListSnapshotsKt.Dsl._create(tendermint.abci.Types.ResponseListSnapshots.newBuilder()).apply { block() }._build()
-public object ResponseListSnapshotsKt {
+object ResponseListSnapshotsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.ResponseListSnapshots.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.ResponseListSnapshots.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.ResponseListSnapshots.Builder): Dsl = Dsl(builder)
@@ -27,11 +27,11 @@ public object ResponseListSnapshotsKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class SnapshotsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class SnapshotsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .tendermint.abci.Snapshot snapshots = 1;</code>
      */
-     public val snapshots: com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>
+     val snapshots: com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getSnapshotsList()
@@ -42,60 +42,50 @@ public object ResponseListSnapshotsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addSnapshots")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.add(value: tendermint.abci.Types.Snapshot) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.add(value: tendermint.abci.Types.Snapshot) {
       _builder.addSnapshots(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.Snapshot snapshots = 1;</code>
      * @param value The snapshots to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignSnapshots")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.plusAssign(value: tendermint.abci.Types.Snapshot) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.plusAssign(value: tendermint.abci.Types.Snapshot) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.Snapshot snapshots = 1;</code>
      * @param values The snapshots to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllSnapshots")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.addAll(values: kotlin.collections.Iterable<tendermint.abci.Types.Snapshot>) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.addAll(values: kotlin.collections.Iterable<tendermint.abci.Types.Snapshot>) {
       _builder.addAllSnapshots(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.Snapshot snapshots = 1;</code>
      * @param values The snapshots to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllSnapshots")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.abci.Types.Snapshot>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.abci.Types.Snapshot>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.Snapshot snapshots = 1;</code>
      * @param index The index to set the value at.
      * @param value The snapshots to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setSnapshots")
-    public operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.set(index: kotlin.Int, value: tendermint.abci.Types.Snapshot) {
+    operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.set(index: kotlin.Int, value: tendermint.abci.Types.Snapshot) {
       _builder.setSnapshots(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.Snapshot snapshots = 1;</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearSnapshots")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Snapshot, SnapshotsProxy>.clear() {
       _builder.clearSnapshots()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.ResponseListSnapshots.copy(block: tendermint.abci.ResponseListSnapshotsKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseListSnapshots =
+inline fun tendermint.abci.Types.ResponseListSnapshots.copy(block: tendermint.abci.ResponseListSnapshotsKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseListSnapshots =
   tendermint.abci.ResponseListSnapshotsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

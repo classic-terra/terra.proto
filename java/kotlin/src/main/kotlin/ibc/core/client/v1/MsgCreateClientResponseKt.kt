@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializemsgCreateClientResponse")
-public inline fun msgCreateClientResponse(block: ibc.core.client.v1.MsgCreateClientResponseKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Tx.MsgCreateClientResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgCreateClientResponse(block: ibc.core.client.v1.MsgCreateClientResponseKt.Dsl.() -> Unit): ibc.core.client.v1.Tx.MsgCreateClientResponse =
   ibc.core.client.v1.MsgCreateClientResponseKt.Dsl._create(ibc.core.client.v1.Tx.MsgCreateClientResponse.newBuilder()).apply { block() }._build()
-public object MsgCreateClientResponseKt {
+object MsgCreateClientResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.Tx.MsgCreateClientResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.Tx.MsgCreateClientResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.Tx.MsgCreateClientResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgCreateClientResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.Tx.MsgCreateClientResponse.copy(block: ibc.core.client.v1.MsgCreateClientResponseKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Tx.MsgCreateClientResponse =
+inline fun ibc.core.client.v1.Tx.MsgCreateClientResponse.copy(block: ibc.core.client.v1.MsgCreateClientResponseKt.Dsl.() -> Unit): ibc.core.client.v1.Tx.MsgCreateClientResponse =
   ibc.core.client.v1.MsgCreateClientResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

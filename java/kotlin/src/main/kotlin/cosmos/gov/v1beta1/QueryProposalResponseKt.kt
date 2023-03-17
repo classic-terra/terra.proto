@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryProposalResponse")
-public inline fun queryProposalResponse(block: cosmos.gov.v1beta1.QueryProposalResponseKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryProposalResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryProposalResponse(block: cosmos.gov.v1beta1.QueryProposalResponseKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryProposalResponse =
   cosmos.gov.v1beta1.QueryProposalResponseKt.Dsl._create(cosmos.gov.v1beta1.QueryOuterClass.QueryProposalResponse.newBuilder()).apply { block() }._build()
-public object QueryProposalResponseKt {
+object QueryProposalResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryProposalResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryProposalResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.QueryOuterClass.QueryProposalResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryProposalResponseKt {
     /**
      * <code>.cosmos.gov.v1beta1.Proposal proposal = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var proposal: cosmos.gov.v1beta1.Gov.Proposal
+    var proposal: cosmos.gov.v1beta1.Gov.Proposal
       @JvmName("getProposal")
       get() = _builder.getProposal()
       @JvmName("setProposal")
@@ -35,22 +35,18 @@ public object QueryProposalResponseKt {
     /**
      * <code>.cosmos.gov.v1beta1.Proposal proposal = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearProposal() {
+    fun clearProposal() {
       _builder.clearProposal()
     }
     /**
      * <code>.cosmos.gov.v1beta1.Proposal proposal = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the proposal field is set.
      */
-    public fun hasProposal(): kotlin.Boolean {
+    fun hasProposal(): kotlin.Boolean {
       return _builder.hasProposal()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryProposalResponse.copy(block: cosmos.gov.v1beta1.QueryProposalResponseKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryProposalResponse =
+inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryProposalResponse.copy(block: cosmos.gov.v1beta1.QueryProposalResponseKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryProposalResponse =
   cosmos.gov.v1beta1.QueryProposalResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.gov.v1beta1.QueryOuterClass.QueryProposalResponseOrBuilder.proposalOrNull: cosmos.gov.v1beta1.Gov.Proposal?
-  get() = if (hasProposal()) getProposal() else null
-

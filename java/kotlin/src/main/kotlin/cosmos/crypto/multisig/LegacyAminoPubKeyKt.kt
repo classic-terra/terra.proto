@@ -3,16 +3,16 @@
 
 package cosmos.crypto.multisig;
 
-@kotlin.jvm.JvmName("-initializelegacyAminoPubKey")
-public inline fun legacyAminoPubKey(block: cosmos.crypto.multisig.LegacyAminoPubKeyKt.Dsl.() -> kotlin.Unit): cosmos.crypto.multisig.Keys.LegacyAminoPubKey =
+@kotlin.jvm.JvmSynthetic
+inline fun legacyAminoPubKey(block: cosmos.crypto.multisig.LegacyAminoPubKeyKt.Dsl.() -> Unit): cosmos.crypto.multisig.Keys.LegacyAminoPubKey =
   cosmos.crypto.multisig.LegacyAminoPubKeyKt.Dsl._create(cosmos.crypto.multisig.Keys.LegacyAminoPubKey.newBuilder()).apply { block() }._build()
-public object LegacyAminoPubKeyKt {
+object LegacyAminoPubKeyKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.crypto.multisig.Keys.LegacyAminoPubKey.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.crypto.multisig.Keys.LegacyAminoPubKey.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.crypto.multisig.Keys.LegacyAminoPubKey.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object LegacyAminoPubKeyKt {
     /**
      * <code>uint32 threshold = 1 [(.gogoproto.moretags) = "yaml:&#92;"threshold&#92;""];</code>
      */
-    public var threshold: kotlin.Int
+    var threshold: kotlin.Int
       @JvmName("getThreshold")
       get() = _builder.getThreshold()
       @JvmName("setThreshold")
@@ -35,7 +35,7 @@ public object LegacyAminoPubKeyKt {
     /**
      * <code>uint32 threshold = 1 [(.gogoproto.moretags) = "yaml:&#92;"threshold&#92;""];</code>
      */
-    public fun clearThreshold() {
+    fun clearThreshold() {
       _builder.clearThreshold()
     }
 
@@ -44,11 +44,11 @@ public object LegacyAminoPubKeyKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class PublicKeysProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class PublicKeysProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .google.protobuf.Any public_keys = 2 [(.gogoproto.customname) = "PubKeys", (.gogoproto.moretags) = "yaml:&#92;"pubkeys&#92;""];</code>
      */
-     public val publicKeys: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>
+     val publicKeys: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getPublicKeysList()
@@ -59,60 +59,50 @@ public object LegacyAminoPubKeyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addPublicKeys")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.add(value: com.google.protobuf.Any) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.add(value: com.google.protobuf.Any) {
       _builder.addPublicKeys(value)
-    }
-    /**
+    }/**
      * <code>repeated .google.protobuf.Any public_keys = 2 [(.gogoproto.customname) = "PubKeys", (.gogoproto.moretags) = "yaml:&#92;"pubkeys&#92;""];</code>
      * @param value The publicKeys to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignPublicKeys")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.plusAssign(value: com.google.protobuf.Any) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.plusAssign(value: com.google.protobuf.Any) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .google.protobuf.Any public_keys = 2 [(.gogoproto.customname) = "PubKeys", (.gogoproto.moretags) = "yaml:&#92;"pubkeys&#92;""];</code>
      * @param values The publicKeys to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllPublicKeys")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       _builder.addAllPublicKeys(values)
-    }
-    /**
+    }/**
      * <code>repeated .google.protobuf.Any public_keys = 2 [(.gogoproto.customname) = "PubKeys", (.gogoproto.moretags) = "yaml:&#92;"pubkeys&#92;""];</code>
      * @param values The publicKeys to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllPublicKeys")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .google.protobuf.Any public_keys = 2 [(.gogoproto.customname) = "PubKeys", (.gogoproto.moretags) = "yaml:&#92;"pubkeys&#92;""];</code>
      * @param index The index to set the value at.
      * @param value The publicKeys to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setPublicKeys")
-    public operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
+    operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
       _builder.setPublicKeys(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .google.protobuf.Any public_keys = 2 [(.gogoproto.customname) = "PubKeys", (.gogoproto.moretags) = "yaml:&#92;"pubkeys&#92;""];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearPublicKeys")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, PublicKeysProxy>.clear() {
       _builder.clearPublicKeys()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.crypto.multisig.Keys.LegacyAminoPubKey.copy(block: cosmos.crypto.multisig.LegacyAminoPubKeyKt.Dsl.() -> kotlin.Unit): cosmos.crypto.multisig.Keys.LegacyAminoPubKey =
+inline fun cosmos.crypto.multisig.Keys.LegacyAminoPubKey.copy(block: cosmos.crypto.multisig.LegacyAminoPubKeyKt.Dsl.() -> Unit): cosmos.crypto.multisig.Keys.LegacyAminoPubKey =
   cosmos.crypto.multisig.LegacyAminoPubKeyKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

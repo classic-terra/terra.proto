@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgStoreCodeResponse")
-public inline fun msgStoreCodeResponse(block: terra.wasm.v1beta1.MsgStoreCodeResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgStoreCodeResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgStoreCodeResponse(block: terra.wasm.v1beta1.MsgStoreCodeResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgStoreCodeResponse =
   terra.wasm.v1beta1.MsgStoreCodeResponseKt.Dsl._create(terra.wasm.v1beta1.Tx.MsgStoreCodeResponse.newBuilder()).apply { block() }._build()
-public object MsgStoreCodeResponseKt {
+object MsgStoreCodeResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Tx.MsgStoreCodeResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Tx.MsgStoreCodeResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Tx.MsgStoreCodeResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MsgStoreCodeResponseKt {
      *
      * <code>uint64 code_id = 1 [(.gogoproto.customname) = "CodeID", (.gogoproto.moretags) = "yaml:&#92;"code_id&#92;""];</code>
      */
-    public var codeId: kotlin.Long
+    var codeId: kotlin.Long
       @JvmName("getCodeId")
       get() = _builder.getCodeId()
       @JvmName("setCodeId")
@@ -43,12 +43,11 @@ public object MsgStoreCodeResponseKt {
      *
      * <code>uint64 code_id = 1 [(.gogoproto.customname) = "CodeID", (.gogoproto.moretags) = "yaml:&#92;"code_id&#92;""];</code>
      */
-    public fun clearCodeId() {
+    fun clearCodeId() {
       _builder.clearCodeId()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Tx.MsgStoreCodeResponse.copy(block: terra.wasm.v1beta1.MsgStoreCodeResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgStoreCodeResponse =
+inline fun terra.wasm.v1beta1.Tx.MsgStoreCodeResponse.copy(block: terra.wasm.v1beta1.MsgStoreCodeResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgStoreCodeResponse =
   terra.wasm.v1beta1.MsgStoreCodeResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

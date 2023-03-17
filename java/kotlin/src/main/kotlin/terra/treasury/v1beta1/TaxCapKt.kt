@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializetaxCap")
-public inline fun taxCap(block: terra.treasury.v1beta1.TaxCapKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.Genesis.TaxCap =
+@kotlin.jvm.JvmSynthetic
+inline fun taxCap(block: terra.treasury.v1beta1.TaxCapKt.Dsl.() -> Unit): terra.treasury.v1beta1.Genesis.TaxCap =
   terra.treasury.v1beta1.TaxCapKt.Dsl._create(terra.treasury.v1beta1.Genesis.TaxCap.newBuilder()).apply { block() }._build()
-public object TaxCapKt {
+object TaxCapKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.Genesis.TaxCap.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.Genesis.TaxCap.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.Genesis.TaxCap.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object TaxCapKt {
     /**
      * <code>string denom = 1;</code>
      */
-    public var denom: kotlin.String
+    var denom: kotlin.String
       @JvmName("getDenom")
       get() = _builder.getDenom()
       @JvmName("setDenom")
@@ -35,14 +35,14 @@ public object TaxCapKt {
     /**
      * <code>string denom = 1;</code>
      */
-    public fun clearDenom() {
+    fun clearDenom() {
       _builder.clearDenom()
     }
 
     /**
      * <code>string tax_cap = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public var taxCap: kotlin.String
+    var taxCap: kotlin.String
       @JvmName("getTaxCap")
       get() = _builder.getTaxCap()
       @JvmName("setTaxCap")
@@ -52,12 +52,11 @@ public object TaxCapKt {
     /**
      * <code>string tax_cap = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public fun clearTaxCap() {
+    fun clearTaxCap() {
       _builder.clearTaxCap()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.Genesis.TaxCap.copy(block: terra.treasury.v1beta1.TaxCapKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.Genesis.TaxCap =
+inline fun terra.treasury.v1beta1.Genesis.TaxCap.copy(block: terra.treasury.v1beta1.TaxCapKt.Dsl.() -> Unit): terra.treasury.v1beta1.Genesis.TaxCap =
   terra.treasury.v1beta1.TaxCapKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

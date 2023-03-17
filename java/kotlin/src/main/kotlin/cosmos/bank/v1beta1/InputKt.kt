@@ -3,16 +3,16 @@
 
 package cosmos.bank.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeinput")
-public inline fun input(block: cosmos.bank.v1beta1.InputKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.Bank.Input =
+@kotlin.jvm.JvmSynthetic
+inline fun input(block: cosmos.bank.v1beta1.InputKt.Dsl.() -> Unit): cosmos.bank.v1beta1.Bank.Input =
   cosmos.bank.v1beta1.InputKt.Dsl._create(cosmos.bank.v1beta1.Bank.Input.newBuilder()).apply { block() }._build()
-public object InputKt {
+object InputKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.bank.v1beta1.Bank.Input.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.bank.v1beta1.Bank.Input.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.bank.v1beta1.Bank.Input.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object InputKt {
     /**
      * <code>string address = 1;</code>
      */
-    public var address: kotlin.String
+    var address: kotlin.String
       @JvmName("getAddress")
       get() = _builder.getAddress()
       @JvmName("setAddress")
@@ -35,7 +35,7 @@ public object InputKt {
     /**
      * <code>string address = 1;</code>
      */
-    public fun clearAddress() {
+    fun clearAddress() {
       _builder.clearAddress()
     }
 
@@ -44,11 +44,11 @@ public object InputKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class CoinsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class CoinsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .cosmos.base.v1beta1.Coin coins = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
-     public val coins: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>
+     val coins: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getCoinsList()
@@ -59,60 +59,50 @@ public object InputKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addCoins")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.addCoins(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin coins = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param value The coins to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignCoins")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin coins = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param values The coins to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllCoins")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       _builder.addAllCoins(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin coins = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param values The coins to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllCoins")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin coins = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param index The index to set the value at.
      * @param value The coins to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setCoins")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.setCoins(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin coins = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearCoins")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, CoinsProxy>.clear() {
       _builder.clearCoins()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.bank.v1beta1.Bank.Input.copy(block: cosmos.bank.v1beta1.InputKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.Bank.Input =
+inline fun cosmos.bank.v1beta1.Bank.Input.copy(block: cosmos.bank.v1beta1.InputKt.Dsl.() -> Unit): cosmos.bank.v1beta1.Bank.Input =
   cosmos.bank.v1beta1.InputKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

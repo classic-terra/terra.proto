@@ -3,16 +3,16 @@
 
 package cosmos.evidence.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeequivocation")
-public inline fun equivocation(block: cosmos.evidence.v1beta1.EquivocationKt.Dsl.() -> kotlin.Unit): cosmos.evidence.v1beta1.Evidence.Equivocation =
+@kotlin.jvm.JvmSynthetic
+inline fun equivocation(block: cosmos.evidence.v1beta1.EquivocationKt.Dsl.() -> Unit): cosmos.evidence.v1beta1.Evidence.Equivocation =
   cosmos.evidence.v1beta1.EquivocationKt.Dsl._create(cosmos.evidence.v1beta1.Evidence.Equivocation.newBuilder()).apply { block() }._build()
-public object EquivocationKt {
+object EquivocationKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.evidence.v1beta1.Evidence.Equivocation.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.evidence.v1beta1.Evidence.Equivocation.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.evidence.v1beta1.Evidence.Equivocation.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object EquivocationKt {
     /**
      * <code>int64 height = 1;</code>
      */
-    public var height: kotlin.Long
+    var height: kotlin.Long
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -35,14 +35,14 @@ public object EquivocationKt {
     /**
      * <code>int64 height = 1;</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
 
     /**
      * <code>.google.protobuf.Timestamp time = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public var time: com.google.protobuf.Timestamp
+    var time: com.google.protobuf.Timestamp
       @JvmName("getTime")
       get() = _builder.getTime()
       @JvmName("setTime")
@@ -52,21 +52,21 @@ public object EquivocationKt {
     /**
      * <code>.google.protobuf.Timestamp time = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearTime() {
+    fun clearTime() {
       _builder.clearTime()
     }
     /**
      * <code>.google.protobuf.Timestamp time = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      * @return Whether the time field is set.
      */
-    public fun hasTime(): kotlin.Boolean {
+    fun hasTime(): kotlin.Boolean {
       return _builder.hasTime()
     }
 
     /**
      * <code>int64 power = 3;</code>
      */
-    public var power: kotlin.Long
+    var power: kotlin.Long
       @JvmName("getPower")
       get() = _builder.getPower()
       @JvmName("setPower")
@@ -76,14 +76,14 @@ public object EquivocationKt {
     /**
      * <code>int64 power = 3;</code>
      */
-    public fun clearPower() {
+    fun clearPower() {
       _builder.clearPower()
     }
 
     /**
      * <code>string consensus_address = 4 [(.gogoproto.moretags) = "yaml:&#92;"consensus_address&#92;""];</code>
      */
-    public var consensusAddress: kotlin.String
+    var consensusAddress: kotlin.String
       @JvmName("getConsensusAddress")
       get() = _builder.getConsensusAddress()
       @JvmName("setConsensusAddress")
@@ -93,15 +93,11 @@ public object EquivocationKt {
     /**
      * <code>string consensus_address = 4 [(.gogoproto.moretags) = "yaml:&#92;"consensus_address&#92;""];</code>
      */
-    public fun clearConsensusAddress() {
+    fun clearConsensusAddress() {
       _builder.clearConsensusAddress()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.evidence.v1beta1.Evidence.Equivocation.copy(block: cosmos.evidence.v1beta1.EquivocationKt.Dsl.() -> kotlin.Unit): cosmos.evidence.v1beta1.Evidence.Equivocation =
+inline fun cosmos.evidence.v1beta1.Evidence.Equivocation.copy(block: cosmos.evidence.v1beta1.EquivocationKt.Dsl.() -> Unit): cosmos.evidence.v1beta1.Evidence.Equivocation =
   cosmos.evidence.v1beta1.EquivocationKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.evidence.v1beta1.Evidence.EquivocationOrBuilder.timeOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasTime()) getTime() else null
-

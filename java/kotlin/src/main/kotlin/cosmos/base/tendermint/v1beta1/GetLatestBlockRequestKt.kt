@@ -3,16 +3,16 @@
 
 package cosmos.base.tendermint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegetLatestBlockRequest")
-public inline fun getLatestBlockRequest(block: cosmos.base.tendermint.v1beta1.GetLatestBlockRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.GetLatestBlockRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun getLatestBlockRequest(block: cosmos.base.tendermint.v1beta1.GetLatestBlockRequestKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.GetLatestBlockRequest =
   cosmos.base.tendermint.v1beta1.GetLatestBlockRequestKt.Dsl._create(cosmos.base.tendermint.v1beta1.Query.GetLatestBlockRequest.newBuilder()).apply { block() }._build()
-public object GetLatestBlockRequestKt {
+object GetLatestBlockRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.tendermint.v1beta1.Query.GetLatestBlockRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.tendermint.v1beta1.Query.GetLatestBlockRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.tendermint.v1beta1.Query.GetLatestBlockRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object GetLatestBlockRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.tendermint.v1beta1.Query.GetLatestBlockRequest.copy(block: cosmos.base.tendermint.v1beta1.GetLatestBlockRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.GetLatestBlockRequest =
+inline fun cosmos.base.tendermint.v1beta1.Query.GetLatestBlockRequest.copy(block: cosmos.base.tendermint.v1beta1.GetLatestBlockRequestKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.GetLatestBlockRequest =
   cosmos.base.tendermint.v1beta1.GetLatestBlockRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

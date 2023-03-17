@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializeduplicateVoteEvidence")
-public inline fun duplicateVoteEvidence(block: tendermint.types.DuplicateVoteEvidenceKt.Dsl.() -> kotlin.Unit): tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence =
+@kotlin.jvm.JvmSynthetic
+inline fun duplicateVoteEvidence(block: tendermint.types.DuplicateVoteEvidenceKt.Dsl.() -> Unit): tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence =
   tendermint.types.DuplicateVoteEvidenceKt.Dsl._create(tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence.newBuilder()).apply { block() }._build()
-public object DuplicateVoteEvidenceKt {
+object DuplicateVoteEvidenceKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object DuplicateVoteEvidenceKt {
     /**
      * <code>.tendermint.types.Vote vote_a = 1;</code>
      */
-    public var voteA: tendermint.types.Types.Vote
+    var voteA: tendermint.types.Types.Vote
       @JvmName("getVoteA")
       get() = _builder.getVoteA()
       @JvmName("setVoteA")
@@ -35,21 +35,21 @@ public object DuplicateVoteEvidenceKt {
     /**
      * <code>.tendermint.types.Vote vote_a = 1;</code>
      */
-    public fun clearVoteA() {
+    fun clearVoteA() {
       _builder.clearVoteA()
     }
     /**
      * <code>.tendermint.types.Vote vote_a = 1;</code>
      * @return Whether the voteA field is set.
      */
-    public fun hasVoteA(): kotlin.Boolean {
+    fun hasVoteA(): kotlin.Boolean {
       return _builder.hasVoteA()
     }
 
     /**
      * <code>.tendermint.types.Vote vote_b = 2;</code>
      */
-    public var voteB: tendermint.types.Types.Vote
+    var voteB: tendermint.types.Types.Vote
       @JvmName("getVoteB")
       get() = _builder.getVoteB()
       @JvmName("setVoteB")
@@ -59,21 +59,21 @@ public object DuplicateVoteEvidenceKt {
     /**
      * <code>.tendermint.types.Vote vote_b = 2;</code>
      */
-    public fun clearVoteB() {
+    fun clearVoteB() {
       _builder.clearVoteB()
     }
     /**
      * <code>.tendermint.types.Vote vote_b = 2;</code>
      * @return Whether the voteB field is set.
      */
-    public fun hasVoteB(): kotlin.Boolean {
+    fun hasVoteB(): kotlin.Boolean {
       return _builder.hasVoteB()
     }
 
     /**
      * <code>int64 total_voting_power = 3;</code>
      */
-    public var totalVotingPower: kotlin.Long
+    var totalVotingPower: kotlin.Long
       @JvmName("getTotalVotingPower")
       get() = _builder.getTotalVotingPower()
       @JvmName("setTotalVotingPower")
@@ -83,14 +83,14 @@ public object DuplicateVoteEvidenceKt {
     /**
      * <code>int64 total_voting_power = 3;</code>
      */
-    public fun clearTotalVotingPower() {
+    fun clearTotalVotingPower() {
       _builder.clearTotalVotingPower()
     }
 
     /**
      * <code>int64 validator_power = 4;</code>
      */
-    public var validatorPower: kotlin.Long
+    var validatorPower: kotlin.Long
       @JvmName("getValidatorPower")
       get() = _builder.getValidatorPower()
       @JvmName("setValidatorPower")
@@ -100,14 +100,14 @@ public object DuplicateVoteEvidenceKt {
     /**
      * <code>int64 validator_power = 4;</code>
      */
-    public fun clearValidatorPower() {
+    fun clearValidatorPower() {
       _builder.clearValidatorPower()
     }
 
     /**
      * <code>.google.protobuf.Timestamp timestamp = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public var timestamp: com.google.protobuf.Timestamp
+    var timestamp: com.google.protobuf.Timestamp
       @JvmName("getTimestamp")
       get() = _builder.getTimestamp()
       @JvmName("setTimestamp")
@@ -117,28 +117,18 @@ public object DuplicateVoteEvidenceKt {
     /**
      * <code>.google.protobuf.Timestamp timestamp = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearTimestamp() {
+    fun clearTimestamp() {
       _builder.clearTimestamp()
     }
     /**
      * <code>.google.protobuf.Timestamp timestamp = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      * @return Whether the timestamp field is set.
      */
-    public fun hasTimestamp(): kotlin.Boolean {
+    fun hasTimestamp(): kotlin.Boolean {
       return _builder.hasTimestamp()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence.copy(block: tendermint.types.DuplicateVoteEvidenceKt.Dsl.() -> kotlin.Unit): tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence =
+inline fun tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence.copy(block: tendermint.types.DuplicateVoteEvidenceKt.Dsl.() -> Unit): tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence =
   tendermint.types.DuplicateVoteEvidenceKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.EvidenceOuterClass.DuplicateVoteEvidenceOrBuilder.voteAOrNull: tendermint.types.Types.Vote?
-  get() = if (hasVoteA()) getVoteA() else null
-
-public val tendermint.types.EvidenceOuterClass.DuplicateVoteEvidenceOrBuilder.voteBOrNull: tendermint.types.Types.Vote?
-  get() = if (hasVoteB()) getVoteB() else null
-
-public val tendermint.types.EvidenceOuterClass.DuplicateVoteEvidenceOrBuilder.timestampOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasTimestamp()) getTimestamp() else null
-

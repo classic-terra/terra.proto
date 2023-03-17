@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTobinTaxResponse")
-public inline fun queryTobinTaxResponse(block: terra.oracle.v1beta1.QueryTobinTaxResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTobinTaxResponse(block: terra.oracle.v1beta1.QueryTobinTaxResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse =
   terra.oracle.v1beta1.QueryTobinTaxResponseKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse.newBuilder()).apply { block() }._build()
-public object QueryTobinTaxResponseKt {
+object QueryTobinTaxResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryTobinTaxResponseKt {
      *
      * <code>string tobin_tax = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var tobinTax: kotlin.String
+    var tobinTax: kotlin.String
       @JvmName("getTobinTax")
       get() = _builder.getTobinTax()
       @JvmName("setTobinTax")
@@ -43,12 +43,11 @@ public object QueryTobinTaxResponseKt {
      *
      * <code>string tobin_tax = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearTobinTax() {
+    fun clearTobinTax() {
       _builder.clearTobinTax()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse.copy(block: terra.oracle.v1beta1.QueryTobinTaxResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse.copy(block: terra.oracle.v1beta1.QueryTobinTaxResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse =
   terra.oracle.v1beta1.QueryTobinTaxResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

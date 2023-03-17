@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryVoteTargetsRequest")
-public inline fun queryVoteTargetsRequest(block: terra.oracle.v1beta1.QueryVoteTargetsRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryVoteTargetsRequest(block: terra.oracle.v1beta1.QueryVoteTargetsRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest =
   terra.oracle.v1beta1.QueryVoteTargetsRequestKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest.newBuilder()).apply { block() }._build()
-public object QueryVoteTargetsRequestKt {
+object QueryVoteTargetsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryVoteTargetsRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest.copy(block: terra.oracle.v1beta1.QueryVoteTargetsRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest.copy(block: terra.oracle.v1beta1.QueryVoteTargetsRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest =
   terra.oracle.v1beta1.QueryVoteTargetsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

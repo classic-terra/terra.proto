@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializeversionParams")
-public inline fun versionParams(block: tendermint.types.VersionParamsKt.Dsl.() -> kotlin.Unit): tendermint.types.Params.VersionParams =
+@kotlin.jvm.JvmSynthetic
+inline fun versionParams(block: tendermint.types.VersionParamsKt.Dsl.() -> Unit): tendermint.types.Params.VersionParams =
   tendermint.types.VersionParamsKt.Dsl._create(tendermint.types.Params.VersionParams.newBuilder()).apply { block() }._build()
-public object VersionParamsKt {
+object VersionParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.Params.VersionParams.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.Params.VersionParams.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.Params.VersionParams.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object VersionParamsKt {
     /**
      * <code>uint64 app_version = 1;</code>
      */
-    public var appVersion: kotlin.Long
+    var appVersion: kotlin.Long
       @JvmName("getAppVersion")
       get() = _builder.getAppVersion()
       @JvmName("setAppVersion")
@@ -35,12 +35,11 @@ public object VersionParamsKt {
     /**
      * <code>uint64 app_version = 1;</code>
      */
-    public fun clearAppVersion() {
+    fun clearAppVersion() {
       _builder.clearAppVersion()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.Params.VersionParams.copy(block: tendermint.types.VersionParamsKt.Dsl.() -> kotlin.Unit): tendermint.types.Params.VersionParams =
+inline fun tendermint.types.Params.VersionParams.copy(block: tendermint.types.VersionParamsKt.Dsl.() -> Unit): tendermint.types.Params.VersionParams =
   tendermint.types.VersionParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

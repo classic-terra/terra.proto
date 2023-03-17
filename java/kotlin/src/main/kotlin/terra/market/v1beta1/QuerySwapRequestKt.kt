@@ -3,16 +3,16 @@
 
 package terra.market.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequerySwapRequest")
-public inline fun querySwapRequest(block: terra.market.v1beta1.QuerySwapRequestKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QuerySwapRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun querySwapRequest(block: terra.market.v1beta1.QuerySwapRequestKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QuerySwapRequest =
   terra.market.v1beta1.QuerySwapRequestKt.Dsl._create(terra.market.v1beta1.QueryOuterClass.QuerySwapRequest.newBuilder()).apply { block() }._build()
-public object QuerySwapRequestKt {
+object QuerySwapRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.market.v1beta1.QueryOuterClass.QuerySwapRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.market.v1beta1.QueryOuterClass.QuerySwapRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.market.v1beta1.QueryOuterClass.QuerySwapRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QuerySwapRequestKt {
      *
      * <code>string offer_coin = 1;</code>
      */
-    public var offerCoin: kotlin.String
+    var offerCoin: kotlin.String
       @JvmName("getOfferCoin")
       get() = _builder.getOfferCoin()
       @JvmName("setOfferCoin")
@@ -43,7 +43,7 @@ public object QuerySwapRequestKt {
      *
      * <code>string offer_coin = 1;</code>
      */
-    public fun clearOfferCoin() {
+    fun clearOfferCoin() {
       _builder.clearOfferCoin()
     }
 
@@ -54,7 +54,7 @@ public object QuerySwapRequestKt {
      *
      * <code>string ask_denom = 2;</code>
      */
-    public var askDenom: kotlin.String
+    var askDenom: kotlin.String
       @JvmName("getAskDenom")
       get() = _builder.getAskDenom()
       @JvmName("setAskDenom")
@@ -68,12 +68,11 @@ public object QuerySwapRequestKt {
      *
      * <code>string ask_denom = 2;</code>
      */
-    public fun clearAskDenom() {
+    fun clearAskDenom() {
       _builder.clearAskDenom()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.market.v1beta1.QueryOuterClass.QuerySwapRequest.copy(block: terra.market.v1beta1.QuerySwapRequestKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QuerySwapRequest =
+inline fun terra.market.v1beta1.QueryOuterClass.QuerySwapRequest.copy(block: terra.market.v1beta1.QuerySwapRequestKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QuerySwapRequest =
   terra.market.v1beta1.QuerySwapRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

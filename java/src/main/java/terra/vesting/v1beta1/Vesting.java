@@ -90,6 +90,69 @@ public final class Vesting {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private LazyGradedVestingAccount(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cosmos.vesting.v1beta1.Vesting.BaseVestingAccount.Builder subBuilder = null;
+              if (baseVestingAccount_ != null) {
+                subBuilder = baseVestingAccount_.toBuilder();
+              }
+              baseVestingAccount_ = input.readMessage(cosmos.vesting.v1beta1.Vesting.BaseVestingAccount.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(baseVestingAccount_);
+                baseVestingAccount_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                vestingSchedules_ = new java.util.ArrayList<terra.vesting.v1beta1.Vesting.VestingSchedule>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              vestingSchedules_.add(
+                  input.readMessage(terra.vesting.v1beta1.Vesting.VestingSchedule.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          vestingSchedules_ = java.util.Collections.unmodifiableList(vestingSchedules_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.vesting.v1beta1.Vesting.internal_static_terra_vesting_v1beta1_LazyGradedVestingAccount_descriptor;
@@ -126,11 +189,10 @@ public final class Vesting {
      */
     @java.lang.Override
     public cosmos.vesting.v1beta1.Vesting.BaseVestingAccountOrBuilder getBaseVestingAccountOrBuilder() {
-      return baseVestingAccount_ == null ? cosmos.vesting.v1beta1.Vesting.BaseVestingAccount.getDefaultInstance() : baseVestingAccount_;
+      return getBaseVestingAccount();
     }
 
     public static final int VESTING_SCHEDULES_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private java.util.List<terra.vesting.v1beta1.Vesting.VestingSchedule> vestingSchedules_;
     /**
      * <code>repeated .terra.vesting.v1beta1.VestingSchedule vesting_schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"vesting_schedules&#92;"", (.gogoproto.castrepeated) = "VestingSchedules"];</code>
@@ -190,7 +252,7 @@ public final class Vesting {
       for (int i = 0; i < vestingSchedules_.size(); i++) {
         output.writeMessage(2, vestingSchedules_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -207,7 +269,7 @@ public final class Vesting {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, vestingSchedules_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -229,7 +291,7 @@ public final class Vesting {
       }
       if (!getVestingSchedulesList()
           .equals(other.getVestingSchedulesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -248,7 +310,7 @@ public final class Vesting {
         hash = (37 * hash) + VESTING_SCHEDULES_FIELD_NUMBER;
         hash = (53 * hash) + getVestingSchedulesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -370,30 +432,35 @@ public final class Vesting {
 
       // Construct using terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getVestingSchedulesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        baseVestingAccount_ = null;
-        if (baseVestingAccountBuilder_ != null) {
-          baseVestingAccountBuilder_.dispose();
+        if (baseVestingAccountBuilder_ == null) {
+          baseVestingAccount_ = null;
+        } else {
+          baseVestingAccount_ = null;
           baseVestingAccountBuilder_ = null;
         }
         if (vestingSchedulesBuilder_ == null) {
           vestingSchedules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          vestingSchedules_ = null;
           vestingSchedulesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -420,31 +487,23 @@ public final class Vesting {
       @java.lang.Override
       public terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount buildPartial() {
         terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount result = new terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount result) {
+        int from_bitField0_ = bitField0_;
+        if (baseVestingAccountBuilder_ == null) {
+          result.baseVestingAccount_ = baseVestingAccount_;
+        } else {
+          result.baseVestingAccount_ = baseVestingAccountBuilder_.build();
+        }
         if (vestingSchedulesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             vestingSchedules_ = java.util.Collections.unmodifiableList(vestingSchedules_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.vestingSchedules_ = vestingSchedules_;
         } else {
           result.vestingSchedules_ = vestingSchedulesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.baseVestingAccount_ = baseVestingAccountBuilder_ == null
-              ? baseVestingAccount_
-              : baseVestingAccountBuilder_.build();
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -498,7 +557,7 @@ public final class Vesting {
           if (!other.vestingSchedules_.isEmpty()) {
             if (vestingSchedules_.isEmpty()) {
               vestingSchedules_ = other.vestingSchedules_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureVestingSchedulesIsMutable();
               vestingSchedules_.addAll(other.vestingSchedules_);
@@ -511,7 +570,7 @@ public final class Vesting {
               vestingSchedulesBuilder_.dispose();
               vestingSchedulesBuilder_ = null;
               vestingSchedules_ = other.vestingSchedules_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               vestingSchedulesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getVestingSchedulesFieldBuilder() : null;
@@ -520,7 +579,7 @@ public final class Vesting {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -535,50 +594,17 @@ public final class Vesting {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getBaseVestingAccountFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                terra.vesting.v1beta1.Vesting.VestingSchedule m =
-                    input.readMessage(
-                        terra.vesting.v1beta1.Vesting.VestingSchedule.parser(),
-                        extensionRegistry);
-                if (vestingSchedulesBuilder_ == null) {
-                  ensureVestingSchedulesIsMutable();
-                  vestingSchedules_.add(m);
-                } else {
-                  vestingSchedulesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -591,7 +617,7 @@ public final class Vesting {
        * @return Whether the baseVestingAccount field is set.
        */
       public boolean hasBaseVestingAccount() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return baseVestingAccountBuilder_ != null || baseVestingAccount_ != null;
       }
       /**
        * <code>.cosmos.vesting.v1beta1.BaseVestingAccount base_vesting_account = 1 [(.gogoproto.embed) = true];</code>
@@ -613,11 +639,11 @@ public final class Vesting {
             throw new NullPointerException();
           }
           baseVestingAccount_ = value;
+          onChanged();
         } else {
           baseVestingAccountBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -627,11 +653,11 @@ public final class Vesting {
           cosmos.vesting.v1beta1.Vesting.BaseVestingAccount.Builder builderForValue) {
         if (baseVestingAccountBuilder_ == null) {
           baseVestingAccount_ = builderForValue.build();
+          onChanged();
         } else {
           baseVestingAccountBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -639,38 +665,38 @@ public final class Vesting {
        */
       public Builder mergeBaseVestingAccount(cosmos.vesting.v1beta1.Vesting.BaseVestingAccount value) {
         if (baseVestingAccountBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            baseVestingAccount_ != null &&
-            baseVestingAccount_ != cosmos.vesting.v1beta1.Vesting.BaseVestingAccount.getDefaultInstance()) {
-            getBaseVestingAccountBuilder().mergeFrom(value);
+          if (baseVestingAccount_ != null) {
+            baseVestingAccount_ =
+              cosmos.vesting.v1beta1.Vesting.BaseVestingAccount.newBuilder(baseVestingAccount_).mergeFrom(value).buildPartial();
           } else {
             baseVestingAccount_ = value;
           }
+          onChanged();
         } else {
           baseVestingAccountBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.cosmos.vesting.v1beta1.BaseVestingAccount base_vesting_account = 1 [(.gogoproto.embed) = true];</code>
        */
       public Builder clearBaseVestingAccount() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        baseVestingAccount_ = null;
-        if (baseVestingAccountBuilder_ != null) {
-          baseVestingAccountBuilder_.dispose();
+        if (baseVestingAccountBuilder_ == null) {
+          baseVestingAccount_ = null;
+          onChanged();
+        } else {
+          baseVestingAccount_ = null;
           baseVestingAccountBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.cosmos.vesting.v1beta1.BaseVestingAccount base_vesting_account = 1 [(.gogoproto.embed) = true];</code>
        */
       public cosmos.vesting.v1beta1.Vesting.BaseVestingAccount.Builder getBaseVestingAccountBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getBaseVestingAccountFieldBuilder().getBuilder();
       }
@@ -705,9 +731,9 @@ public final class Vesting {
       private java.util.List<terra.vesting.v1beta1.Vesting.VestingSchedule> vestingSchedules_ =
         java.util.Collections.emptyList();
       private void ensureVestingSchedulesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           vestingSchedules_ = new java.util.ArrayList<terra.vesting.v1beta1.Vesting.VestingSchedule>(vestingSchedules_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -857,7 +883,7 @@ public final class Vesting {
       public Builder clearVestingSchedules() {
         if (vestingSchedulesBuilder_ == null) {
           vestingSchedules_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           vestingSchedulesBuilder_.clear();
@@ -934,7 +960,7 @@ public final class Vesting {
           vestingSchedulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.vesting.v1beta1.Vesting.VestingSchedule, terra.vesting.v1beta1.Vesting.VestingSchedule.Builder, terra.vesting.v1beta1.Vesting.VestingScheduleOrBuilder>(
                   vestingSchedules_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           vestingSchedules_ = null;
@@ -974,18 +1000,7 @@ public final class Vesting {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new LazyGradedVestingAccount(input, extensionRegistry);
       }
     };
 
@@ -1065,6 +1080,59 @@ public final class Vesting {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Schedule(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              startTime_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              endTime_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              ratio_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.vesting.v1beta1.Vesting.internal_static_terra_vesting_v1beta1_Schedule_descriptor;
@@ -1079,7 +1147,7 @@ public final class Vesting {
     }
 
     public static final int START_TIME_FIELD_NUMBER = 1;
-    private long startTime_ = 0L;
+    private long startTime_;
     /**
      * <code>int64 start_time = 1 [(.gogoproto.moretags) = "yaml:&#92;"start_time&#92;""];</code>
      * @return The startTime.
@@ -1090,7 +1158,7 @@ public final class Vesting {
     }
 
     public static final int END_TIME_FIELD_NUMBER = 2;
-    private long endTime_ = 0L;
+    private long endTime_;
     /**
      * <code>int64 end_time = 2 [(.gogoproto.moretags) = "yaml:&#92;"end_time&#92;""];</code>
      * @return The endTime.
@@ -1101,8 +1169,7 @@ public final class Vesting {
     }
 
     public static final int RATIO_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object ratio_ = "";
+    private volatile java.lang.Object ratio_;
     /**
      * <code>string ratio = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"ratio&#92;""];</code>
      * @return The ratio.
@@ -1159,10 +1226,10 @@ public final class Vesting {
       if (endTime_ != 0L) {
         output.writeInt64(2, endTime_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ratio_)) {
+      if (!getRatioBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, ratio_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1179,10 +1246,10 @@ public final class Vesting {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, endTime_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ratio_)) {
+      if (!getRatioBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, ratio_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1203,7 +1270,7 @@ public final class Vesting {
           != other.getEndTime()) return false;
       if (!getRatio()
           .equals(other.getRatio())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1222,7 +1289,7 @@ public final class Vesting {
           getEndTime());
       hash = (37 * hash) + RATIO_FIELD_NUMBER;
       hash = (53 * hash) + getRatio().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1343,21 +1410,28 @@ public final class Vesting {
 
       // Construct using terra.vesting.v1beta1.Vesting.Schedule.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         startTime_ = 0L;
+
         endTime_ = 0L;
+
         ratio_ = "";
+
         return this;
       }
 
@@ -1384,22 +1458,11 @@ public final class Vesting {
       @java.lang.Override
       public terra.vesting.v1beta1.Vesting.Schedule buildPartial() {
         terra.vesting.v1beta1.Vesting.Schedule result = new terra.vesting.v1beta1.Vesting.Schedule(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.startTime_ = startTime_;
+        result.endTime_ = endTime_;
+        result.ratio_ = ratio_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.vesting.v1beta1.Vesting.Schedule result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.startTime_ = startTime_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.endTime_ = endTime_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.ratio_ = ratio_;
-        }
       }
 
       @java.lang.Override
@@ -1454,10 +1517,9 @@ public final class Vesting {
         }
         if (!other.getRatio().isEmpty()) {
           ratio_ = other.ratio_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1472,48 +1534,19 @@ public final class Vesting {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.vesting.v1beta1.Vesting.Schedule parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                startTime_ = input.readInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                endTime_ = input.readInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                ratio_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.vesting.v1beta1.Vesting.Schedule) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long startTime_ ;
       /**
@@ -1532,7 +1565,6 @@ public final class Vesting {
       public Builder setStartTime(long value) {
         
         startTime_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1541,7 +1573,7 @@ public final class Vesting {
        * @return This builder for chaining.
        */
       public Builder clearStartTime() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         startTime_ = 0L;
         onChanged();
         return this;
@@ -1564,7 +1596,6 @@ public final class Vesting {
       public Builder setEndTime(long value) {
         
         endTime_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1573,7 +1604,7 @@ public final class Vesting {
        * @return This builder for chaining.
        */
       public Builder clearEndTime() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         endTime_ = 0L;
         onChanged();
         return this;
@@ -1620,9 +1651,11 @@ public final class Vesting {
        */
       public Builder setRatio(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         ratio_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1631,8 +1664,8 @@ public final class Vesting {
        * @return This builder for chaining.
        */
       public Builder clearRatio() {
+        
         ratio_ = getDefaultInstance().getRatio();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1643,10 +1676,12 @@ public final class Vesting {
        */
       public Builder setRatioBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         ratio_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1683,18 +1718,7 @@ public final class Vesting {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Schedule(input, extensionRegistry);
       }
     };
 
@@ -1787,6 +1811,62 @@ public final class Vesting {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private VestingSchedule(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              denom_ = s;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                schedules_ = new java.util.ArrayList<terra.vesting.v1beta1.Vesting.Schedule>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              schedules_.add(
+                  input.readMessage(terra.vesting.v1beta1.Vesting.Schedule.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          schedules_ = java.util.Collections.unmodifiableList(schedules_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.vesting.v1beta1.Vesting.internal_static_terra_vesting_v1beta1_VestingSchedule_descriptor;
@@ -1801,8 +1881,7 @@ public final class Vesting {
     }
 
     public static final int DENOM_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object denom_ = "";
+    private volatile java.lang.Object denom_;
     /**
      * <code>string denom = 1 [(.gogoproto.moretags) = "yaml:&#92;"start_time&#92;""];</code>
      * @return The denom.
@@ -1840,7 +1919,6 @@ public final class Vesting {
     }
 
     public static final int SCHEDULES_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private java.util.List<terra.vesting.v1beta1.Vesting.Schedule> schedules_;
     /**
      * <code>repeated .terra.vesting.v1beta1.Schedule schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"schedules&#92;"", (.gogoproto.castrepeated) = "Schedules"];</code>
@@ -1894,13 +1972,13 @@ public final class Vesting {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, denom_);
       }
       for (int i = 0; i < schedules_.size(); i++) {
         output.writeMessage(2, schedules_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1909,14 +1987,14 @@ public final class Vesting {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, denom_);
       }
       for (int i = 0; i < schedules_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, schedules_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1935,7 +2013,7 @@ public final class Vesting {
           .equals(other.getDenom())) return false;
       if (!getSchedulesList()
           .equals(other.getSchedulesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1952,7 +2030,7 @@ public final class Vesting {
         hash = (37 * hash) + SCHEDULES_FIELD_NUMBER;
         hash = (53 * hash) + getSchedulesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2073,26 +2151,31 @@ public final class Vesting {
 
       // Construct using terra.vesting.v1beta1.Vesting.VestingSchedule.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getSchedulesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         denom_ = "";
+
         if (schedulesBuilder_ == null) {
           schedules_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          schedules_ = null;
           schedulesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -2119,29 +2202,19 @@ public final class Vesting {
       @java.lang.Override
       public terra.vesting.v1beta1.Vesting.VestingSchedule buildPartial() {
         terra.vesting.v1beta1.Vesting.VestingSchedule result = new terra.vesting.v1beta1.Vesting.VestingSchedule(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.vesting.v1beta1.Vesting.VestingSchedule result) {
+        int from_bitField0_ = bitField0_;
+        result.denom_ = denom_;
         if (schedulesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             schedules_ = java.util.Collections.unmodifiableList(schedules_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.schedules_ = schedules_;
         } else {
           result.schedules_ = schedulesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(terra.vesting.v1beta1.Vesting.VestingSchedule result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.denom_ = denom_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -2190,14 +2263,13 @@ public final class Vesting {
         if (other == terra.vesting.v1beta1.Vesting.VestingSchedule.getDefaultInstance()) return this;
         if (!other.getDenom().isEmpty()) {
           denom_ = other.denom_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (schedulesBuilder_ == null) {
           if (!other.schedules_.isEmpty()) {
             if (schedules_.isEmpty()) {
               schedules_ = other.schedules_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureSchedulesIsMutable();
               schedules_.addAll(other.schedules_);
@@ -2210,7 +2282,7 @@ public final class Vesting {
               schedulesBuilder_.dispose();
               schedulesBuilder_ = null;
               schedules_ = other.schedules_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               schedulesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getSchedulesFieldBuilder() : null;
@@ -2219,7 +2291,7 @@ public final class Vesting {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2234,48 +2306,17 @@ public final class Vesting {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.vesting.v1beta1.Vesting.VestingSchedule parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                denom_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                terra.vesting.v1beta1.Vesting.Schedule m =
-                    input.readMessage(
-                        terra.vesting.v1beta1.Vesting.Schedule.parser(),
-                        extensionRegistry);
-                if (schedulesBuilder_ == null) {
-                  ensureSchedulesIsMutable();
-                  schedules_.add(m);
-                } else {
-                  schedulesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.vesting.v1beta1.Vesting.VestingSchedule) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -2321,9 +2362,11 @@ public final class Vesting {
        */
       public Builder setDenom(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2332,8 +2375,8 @@ public final class Vesting {
        * @return This builder for chaining.
        */
       public Builder clearDenom() {
+        
         denom_ = getDefaultInstance().getDenom();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2344,10 +2387,12 @@ public final class Vesting {
        */
       public Builder setDenomBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2355,9 +2400,9 @@ public final class Vesting {
       private java.util.List<terra.vesting.v1beta1.Vesting.Schedule> schedules_ =
         java.util.Collections.emptyList();
       private void ensureSchedulesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           schedules_ = new java.util.ArrayList<terra.vesting.v1beta1.Vesting.Schedule>(schedules_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -2507,7 +2552,7 @@ public final class Vesting {
       public Builder clearSchedules() {
         if (schedulesBuilder_ == null) {
           schedules_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           schedulesBuilder_.clear();
@@ -2584,7 +2629,7 @@ public final class Vesting {
           schedulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.vesting.v1beta1.Vesting.Schedule, terra.vesting.v1beta1.Vesting.Schedule.Builder, terra.vesting.v1beta1.Vesting.ScheduleOrBuilder>(
                   schedules_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           schedules_ = null;
@@ -2624,18 +2669,7 @@ public final class Vesting {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new VestingSchedule(input, extensionRegistry);
       }
     };
 
@@ -2696,8 +2730,8 @@ public final class Vesting {
       "\022$\n\005denom\030\001 \001(\tB\025\362\336\037\021yaml:\"start_time\"\022Y" +
       "\n\tschedules\030\002 \003(\0132\037.terra.vesting.v1beta" +
       "1.ScheduleB%\362\336\037\020yaml:\"schedules\"\252\337\037\tSche" +
-      "dules\310\336\037\000:\004\210\240\037\000B/Z-github.com/classic-te" +
-      "rra/core/x/vesting/typesb\006proto3"
+      "dules\310\336\037\000:\004\210\240\037\000B-Z+github.com/terra-mone" +
+      "y/core/x/vesting/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

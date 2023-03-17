@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryActivesRequest")
-public inline fun queryActivesRequest(block: terra.oracle.v1beta1.QueryActivesRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryActivesRequest(block: terra.oracle.v1beta1.QueryActivesRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest =
   terra.oracle.v1beta1.QueryActivesRequestKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest.newBuilder()).apply { block() }._build()
-public object QueryActivesRequestKt {
+object QueryActivesRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryActivesRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest.copy(block: terra.oracle.v1beta1.QueryActivesRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest.copy(block: terra.oracle.v1beta1.QueryActivesRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest =
   terra.oracle.v1beta1.QueryActivesRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

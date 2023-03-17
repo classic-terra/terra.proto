@@ -3,16 +3,16 @@
 
 package tendermint.crypto;
 
-@kotlin.jvm.JvmName("-initializeproofOps")
-public inline fun proofOps(block: tendermint.crypto.ProofOpsKt.Dsl.() -> kotlin.Unit): tendermint.crypto.ProofOuterClass.ProofOps =
+@kotlin.jvm.JvmSynthetic
+inline fun proofOps(block: tendermint.crypto.ProofOpsKt.Dsl.() -> Unit): tendermint.crypto.ProofOuterClass.ProofOps =
   tendermint.crypto.ProofOpsKt.Dsl._create(tendermint.crypto.ProofOuterClass.ProofOps.newBuilder()).apply { block() }._build()
-public object ProofOpsKt {
+object ProofOpsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.crypto.ProofOuterClass.ProofOps.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.crypto.ProofOuterClass.ProofOps.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.crypto.ProofOuterClass.ProofOps.Builder): Dsl = Dsl(builder)
@@ -27,11 +27,11 @@ public object ProofOpsKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class OpsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class OpsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .tendermint.crypto.ProofOp ops = 1 [(.gogoproto.nullable) = false];</code>
      */
-     public val ops: com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>
+     val ops: com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getOpsList()
@@ -42,60 +42,50 @@ public object ProofOpsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addOps")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.add(value: tendermint.crypto.ProofOuterClass.ProofOp) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.add(value: tendermint.crypto.ProofOuterClass.ProofOp) {
       _builder.addOps(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.crypto.ProofOp ops = 1 [(.gogoproto.nullable) = false];</code>
      * @param value The ops to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignOps")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.plusAssign(value: tendermint.crypto.ProofOuterClass.ProofOp) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.plusAssign(value: tendermint.crypto.ProofOuterClass.ProofOp) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.crypto.ProofOp ops = 1 [(.gogoproto.nullable) = false];</code>
      * @param values The ops to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllOps")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.addAll(values: kotlin.collections.Iterable<tendermint.crypto.ProofOuterClass.ProofOp>) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.addAll(values: kotlin.collections.Iterable<tendermint.crypto.ProofOuterClass.ProofOp>) {
       _builder.addAllOps(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.crypto.ProofOp ops = 1 [(.gogoproto.nullable) = false];</code>
      * @param values The ops to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllOps")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.crypto.ProofOuterClass.ProofOp>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.crypto.ProofOuterClass.ProofOp>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.crypto.ProofOp ops = 1 [(.gogoproto.nullable) = false];</code>
      * @param index The index to set the value at.
      * @param value The ops to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setOps")
-    public operator fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.set(index: kotlin.Int, value: tendermint.crypto.ProofOuterClass.ProofOp) {
+    operator fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.set(index: kotlin.Int, value: tendermint.crypto.ProofOuterClass.ProofOp) {
       _builder.setOps(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.crypto.ProofOp ops = 1 [(.gogoproto.nullable) = false];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearOps")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<tendermint.crypto.ProofOuterClass.ProofOp, OpsProxy>.clear() {
       _builder.clearOps()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.crypto.ProofOuterClass.ProofOps.copy(block: tendermint.crypto.ProofOpsKt.Dsl.() -> kotlin.Unit): tendermint.crypto.ProofOuterClass.ProofOps =
+inline fun tendermint.crypto.ProofOuterClass.ProofOps.copy(block: tendermint.crypto.ProofOpsKt.Dsl.() -> Unit): tendermint.crypto.ProofOuterClass.ProofOps =
   tendermint.crypto.ProofOpsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializegetAuthnDescriptorResponse")
-public inline fun getAuthnDescriptorResponse(block: cosmos.base.reflection.v2alpha1.GetAuthnDescriptorResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun getAuthnDescriptorResponse(block: cosmos.base.reflection.v2alpha1.GetAuthnDescriptorResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorResponse =
   cosmos.base.reflection.v2alpha1.GetAuthnDescriptorResponseKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorResponse.newBuilder()).apply { block() }._build()
-public object GetAuthnDescriptorResponseKt {
+object GetAuthnDescriptorResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object GetAuthnDescriptorResponseKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.AuthnDescriptor authn = 1;</code>
      */
-    public var authn: cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor
+    var authn: cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor
       @JvmName("getAuthn")
       get() = _builder.getAuthn()
       @JvmName("setAuthn")
@@ -43,7 +43,7 @@ public object GetAuthnDescriptorResponseKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.AuthnDescriptor authn = 1;</code>
      */
-    public fun clearAuthn() {
+    fun clearAuthn() {
       _builder.clearAuthn()
     }
     /**
@@ -54,15 +54,11 @@ public object GetAuthnDescriptorResponseKt {
      * <code>.cosmos.base.reflection.v2alpha1.AuthnDescriptor authn = 1;</code>
      * @return Whether the authn field is set.
      */
-    public fun hasAuthn(): kotlin.Boolean {
+    fun hasAuthn(): kotlin.Boolean {
       return _builder.hasAuthn()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorResponse.copy(block: cosmos.base.reflection.v2alpha1.GetAuthnDescriptorResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorResponse =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorResponse.copy(block: cosmos.base.reflection.v2alpha1.GetAuthnDescriptorResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorResponse =
   cosmos.base.reflection.v2alpha1.GetAuthnDescriptorResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorResponseOrBuilder.authnOrNull: cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor?
-  get() = if (hasAuthn()) getAuthn() else null
-

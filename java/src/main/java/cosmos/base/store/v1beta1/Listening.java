@@ -65,7 +65,6 @@ public final class Listening {
    * StoreKVPair is a KVStore KVPair used for listening to state changes (Sets and Deletes)
    * It optionally includes the StoreKey for the originating KVStore and a Boolean flag to distinguish between Sets and
    * Deletes
-   * Since: cosmos-sdk 0.43
    * </pre>
    *
    * Protobuf type {@code cosmos.base.store.v1beta1.StoreKVPair}
@@ -97,6 +96,64 @@ public final class Listening {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private StoreKVPair(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              storeKey_ = s;
+              break;
+            }
+            case 16: {
+
+              delete_ = input.readBool();
+              break;
+            }
+            case 26: {
+
+              key_ = input.readBytes();
+              break;
+            }
+            case 34: {
+
+              value_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.store.v1beta1.Listening.internal_static_cosmos_base_store_v1beta1_StoreKVPair_descriptor;
@@ -111,8 +168,7 @@ public final class Listening {
     }
 
     public static final int STORE_KEY_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object storeKey_ = "";
+    private volatile java.lang.Object storeKey_;
     /**
      * <pre>
      * the store key for the KVStore this pair originates from
@@ -158,7 +214,7 @@ public final class Listening {
     }
 
     public static final int DELETE_FIELD_NUMBER = 2;
-    private boolean delete_ = false;
+    private boolean delete_;
     /**
      * <pre>
      * true indicates a delete operation, false indicates a set operation
@@ -173,7 +229,7 @@ public final class Listening {
     }
 
     public static final int KEY_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString key_;
     /**
      * <code>bytes key = 3;</code>
      * @return The key.
@@ -184,7 +240,7 @@ public final class Listening {
     }
 
     public static final int VALUE_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString value_;
     /**
      * <code>bytes value = 4;</code>
      * @return The value.
@@ -208,7 +264,7 @@ public final class Listening {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storeKey_)) {
+      if (!getStoreKeyBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, storeKey_);
       }
       if (delete_ != false) {
@@ -220,7 +276,7 @@ public final class Listening {
       if (!value_.isEmpty()) {
         output.writeBytes(4, value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -229,7 +285,7 @@ public final class Listening {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storeKey_)) {
+      if (!getStoreKeyBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, storeKey_);
       }
       if (delete_ != false) {
@@ -244,7 +300,7 @@ public final class Listening {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, value_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -267,7 +323,7 @@ public final class Listening {
           .equals(other.getKey())) return false;
       if (!getValue()
           .equals(other.getValue())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -287,7 +343,7 @@ public final class Listening {
       hash = (53 * hash) + getKey().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -387,7 +443,6 @@ public final class Listening {
      * StoreKVPair is a KVStore KVPair used for listening to state changes (Sets and Deletes)
      * It optionally includes the StoreKey for the originating KVStore and a Boolean flag to distinguish between Sets and
      * Deletes
-     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * Protobuf type {@code cosmos.base.store.v1beta1.StoreKVPair}
@@ -411,22 +466,30 @@ public final class Listening {
 
       // Construct using cosmos.base.store.v1beta1.Listening.StoreKVPair.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         storeKey_ = "";
+
         delete_ = false;
+
         key_ = com.google.protobuf.ByteString.EMPTY;
+
         value_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -453,25 +516,12 @@ public final class Listening {
       @java.lang.Override
       public cosmos.base.store.v1beta1.Listening.StoreKVPair buildPartial() {
         cosmos.base.store.v1beta1.Listening.StoreKVPair result = new cosmos.base.store.v1beta1.Listening.StoreKVPair(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.storeKey_ = storeKey_;
+        result.delete_ = delete_;
+        result.key_ = key_;
+        result.value_ = value_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.base.store.v1beta1.Listening.StoreKVPair result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.storeKey_ = storeKey_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.delete_ = delete_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.key_ = key_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.value_ = value_;
-        }
       }
 
       @java.lang.Override
@@ -520,7 +570,6 @@ public final class Listening {
         if (other == cosmos.base.store.v1beta1.Listening.StoreKVPair.getDefaultInstance()) return this;
         if (!other.getStoreKey().isEmpty()) {
           storeKey_ = other.storeKey_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getDelete() != false) {
@@ -532,7 +581,7 @@ public final class Listening {
         if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -547,53 +596,19 @@ public final class Listening {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.store.v1beta1.Listening.StoreKVPair parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                storeKey_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                delete_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                key_ = input.readBytes();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                value_ = input.readBytes();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.store.v1beta1.Listening.StoreKVPair) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object storeKey_ = "";
       /**
@@ -648,9 +663,11 @@ public final class Listening {
        */
       public Builder setStoreKey(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         storeKey_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -663,8 +680,8 @@ public final class Listening {
        * @return This builder for chaining.
        */
       public Builder clearStoreKey() {
+        
         storeKey_ = getDefaultInstance().getStoreKey();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -679,10 +696,12 @@ public final class Listening {
        */
       public Builder setStoreKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         storeKey_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -712,7 +731,6 @@ public final class Listening {
       public Builder setDelete(boolean value) {
         
         delete_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -725,7 +743,7 @@ public final class Listening {
        * @return This builder for chaining.
        */
       public Builder clearDelete() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         delete_ = false;
         onChanged();
         return this;
@@ -746,9 +764,11 @@ public final class Listening {
        * @return This builder for chaining.
        */
       public Builder setKey(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         key_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -757,7 +777,7 @@ public final class Listening {
        * @return This builder for chaining.
        */
       public Builder clearKey() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         key_ = getDefaultInstance().getKey();
         onChanged();
         return this;
@@ -778,9 +798,11 @@ public final class Listening {
        * @return This builder for chaining.
        */
       public Builder setValue(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         value_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -789,7 +811,7 @@ public final class Listening {
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         value_ = getDefaultInstance().getValue();
         onChanged();
         return this;
@@ -827,18 +849,7 @@ public final class Listening {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new StoreKVPair(input, extensionRegistry);
       }
     };
 

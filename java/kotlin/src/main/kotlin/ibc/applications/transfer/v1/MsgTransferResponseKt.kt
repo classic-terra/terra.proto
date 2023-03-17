@@ -3,16 +3,16 @@
 
 package ibc.applications.transfer.v1;
 
-@kotlin.jvm.JvmName("-initializemsgTransferResponse")
-public inline fun msgTransferResponse(block: ibc.applications.transfer.v1.MsgTransferResponseKt.Dsl.() -> kotlin.Unit): ibc.applications.transfer.v1.Tx.MsgTransferResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgTransferResponse(block: ibc.applications.transfer.v1.MsgTransferResponseKt.Dsl.() -> Unit): ibc.applications.transfer.v1.Tx.MsgTransferResponse =
   ibc.applications.transfer.v1.MsgTransferResponseKt.Dsl._create(ibc.applications.transfer.v1.Tx.MsgTransferResponse.newBuilder()).apply { block() }._build()
-public object MsgTransferResponseKt {
+object MsgTransferResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.applications.transfer.v1.Tx.MsgTransferResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.applications.transfer.v1.Tx.MsgTransferResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.applications.transfer.v1.Tx.MsgTransferResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgTransferResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.applications.transfer.v1.Tx.MsgTransferResponse.copy(block: ibc.applications.transfer.v1.MsgTransferResponseKt.Dsl.() -> kotlin.Unit): ibc.applications.transfer.v1.Tx.MsgTransferResponse =
+inline fun ibc.applications.transfer.v1.Tx.MsgTransferResponse.copy(block: ibc.applications.transfer.v1.MsgTransferResponseKt.Dsl.() -> Unit): ibc.applications.transfer.v1.Tx.MsgTransferResponse =
   ibc.applications.transfer.v1.MsgTransferResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

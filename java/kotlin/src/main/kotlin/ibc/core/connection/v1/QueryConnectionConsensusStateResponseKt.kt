@@ -3,16 +3,16 @@
 
 package ibc.core.connection.v1;
 
-@kotlin.jvm.JvmName("-initializequeryConnectionConsensusStateResponse")
-public inline fun queryConnectionConsensusStateResponse(block: ibc.core.connection.v1.QueryConnectionConsensusStateResponseKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryConnectionConsensusStateResponse(block: ibc.core.connection.v1.QueryConnectionConsensusStateResponseKt.Dsl.() -> Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponse =
   ibc.core.connection.v1.QueryConnectionConsensusStateResponseKt.Dsl._create(ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponse.newBuilder()).apply { block() }._build()
-public object QueryConnectionConsensusStateResponseKt {
+object QueryConnectionConsensusStateResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryConnectionConsensusStateResponseKt {
      *
      * <code>.google.protobuf.Any consensus_state = 1;</code>
      */
-    public var consensusState: com.google.protobuf.Any
+    var consensusState: com.google.protobuf.Any
       @JvmName("getConsensusState")
       get() = _builder.getConsensusState()
       @JvmName("setConsensusState")
@@ -43,7 +43,7 @@ public object QueryConnectionConsensusStateResponseKt {
      *
      * <code>.google.protobuf.Any consensus_state = 1;</code>
      */
-    public fun clearConsensusState() {
+    fun clearConsensusState() {
       _builder.clearConsensusState()
     }
     /**
@@ -54,7 +54,7 @@ public object QueryConnectionConsensusStateResponseKt {
      * <code>.google.protobuf.Any consensus_state = 1;</code>
      * @return Whether the consensusState field is set.
      */
-    public fun hasConsensusState(): kotlin.Boolean {
+    fun hasConsensusState(): kotlin.Boolean {
       return _builder.hasConsensusState()
     }
 
@@ -65,7 +65,7 @@ public object QueryConnectionConsensusStateResponseKt {
      *
      * <code>string client_id = 2;</code>
      */
-    public var clientId: kotlin.String
+    var clientId: kotlin.String
       @JvmName("getClientId")
       get() = _builder.getClientId()
       @JvmName("setClientId")
@@ -79,7 +79,7 @@ public object QueryConnectionConsensusStateResponseKt {
      *
      * <code>string client_id = 2;</code>
      */
-    public fun clearClientId() {
+    fun clearClientId() {
       _builder.clearClientId()
     }
 
@@ -90,7 +90,7 @@ public object QueryConnectionConsensusStateResponseKt {
      *
      * <code>bytes proof = 3;</code>
      */
-    public var proof: com.google.protobuf.ByteString
+    var proof: com.google.protobuf.ByteString
       @JvmName("getProof")
       get() = _builder.getProof()
       @JvmName("setProof")
@@ -104,7 +104,7 @@ public object QueryConnectionConsensusStateResponseKt {
      *
      * <code>bytes proof = 3;</code>
      */
-    public fun clearProof() {
+    fun clearProof() {
       _builder.clearProof()
     }
 
@@ -115,7 +115,7 @@ public object QueryConnectionConsensusStateResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
      */
-    public var proofHeight: ibc.core.client.v1.Client.Height
+    var proofHeight: ibc.core.client.v1.Client.Height
       @JvmName("getProofHeight")
       get() = _builder.getProofHeight()
       @JvmName("setProofHeight")
@@ -129,7 +129,7 @@ public object QueryConnectionConsensusStateResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearProofHeight() {
+    fun clearProofHeight() {
       _builder.clearProofHeight()
     }
     /**
@@ -140,18 +140,11 @@ public object QueryConnectionConsensusStateResponseKt {
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
      * @return Whether the proofHeight field is set.
      */
-    public fun hasProofHeight(): kotlin.Boolean {
+    fun hasProofHeight(): kotlin.Boolean {
       return _builder.hasProofHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponse.copy(block: ibc.core.connection.v1.QueryConnectionConsensusStateResponseKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponse =
+inline fun ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponse.copy(block: ibc.core.connection.v1.QueryConnectionConsensusStateResponseKt.Dsl.() -> Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponse =
   ibc.core.connection.v1.QueryConnectionConsensusStateResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponseOrBuilder.consensusStateOrNull: com.google.protobuf.Any?
-  get() = if (hasConsensusState()) getConsensusState() else null
-
-public val ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateResponseOrBuilder.proofHeightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasProofHeight()) getProofHeight() else null
-

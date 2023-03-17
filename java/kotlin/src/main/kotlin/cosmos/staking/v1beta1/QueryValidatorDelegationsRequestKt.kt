@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryValidatorDelegationsRequest")
-public inline fun queryValidatorDelegationsRequest(block: cosmos.staking.v1beta1.QueryValidatorDelegationsRequestKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorDelegationsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryValidatorDelegationsRequest(block: cosmos.staking.v1beta1.QueryValidatorDelegationsRequestKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorDelegationsRequest =
   cosmos.staking.v1beta1.QueryValidatorDelegationsRequestKt.Dsl._create(cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorDelegationsRequest.newBuilder()).apply { block() }._build()
-public object QueryValidatorDelegationsRequestKt {
+object QueryValidatorDelegationsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorDelegationsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorDelegationsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorDelegationsRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryValidatorDelegationsRequestKt {
      *
      * <code>string validator_addr = 1;</code>
      */
-    public var validatorAddr: kotlin.String
+    var validatorAddr: kotlin.String
       @JvmName("getValidatorAddr")
       get() = _builder.getValidatorAddr()
       @JvmName("setValidatorAddr")
@@ -43,7 +43,7 @@ public object QueryValidatorDelegationsRequestKt {
      *
      * <code>string validator_addr = 1;</code>
      */
-    public fun clearValidatorAddr() {
+    fun clearValidatorAddr() {
       _builder.clearValidatorAddr()
     }
 
@@ -54,7 +54,7 @@ public object QueryValidatorDelegationsRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -68,7 +68,7 @@ public object QueryValidatorDelegationsRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -79,15 +79,11 @@ public object QueryValidatorDelegationsRequestKt {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorDelegationsRequest.copy(block: cosmos.staking.v1beta1.QueryValidatorDelegationsRequestKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorDelegationsRequest =
+inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorDelegationsRequest.copy(block: cosmos.staking.v1beta1.QueryValidatorDelegationsRequestKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorDelegationsRequest =
   cosmos.staking.v1beta1.QueryValidatorDelegationsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.QueryOuterClass.QueryValidatorDelegationsRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

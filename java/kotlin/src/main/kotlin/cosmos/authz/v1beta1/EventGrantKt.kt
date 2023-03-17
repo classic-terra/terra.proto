@@ -3,16 +3,16 @@
 
 package cosmos.authz.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeeventGrant")
-public inline fun eventGrant(block: cosmos.authz.v1beta1.EventGrantKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Event.EventGrant =
+@kotlin.jvm.JvmSynthetic
+inline fun eventGrant(block: cosmos.authz.v1beta1.EventGrantKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Event.EventGrant =
   cosmos.authz.v1beta1.EventGrantKt.Dsl._create(cosmos.authz.v1beta1.Event.EventGrant.newBuilder()).apply { block() }._build()
-public object EventGrantKt {
+object EventGrantKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.authz.v1beta1.Event.EventGrant.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.authz.v1beta1.Event.EventGrant.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.authz.v1beta1.Event.EventGrant.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object EventGrantKt {
      *
      * <code>string msg_type_url = 2;</code>
      */
-    public var msgTypeUrl: kotlin.String
+    var msgTypeUrl: kotlin.String
       @JvmName("getMsgTypeUrl")
       get() = _builder.getMsgTypeUrl()
       @JvmName("setMsgTypeUrl")
@@ -43,7 +43,7 @@ public object EventGrantKt {
      *
      * <code>string msg_type_url = 2;</code>
      */
-    public fun clearMsgTypeUrl() {
+    fun clearMsgTypeUrl() {
       _builder.clearMsgTypeUrl()
     }
 
@@ -54,7 +54,7 @@ public object EventGrantKt {
      *
      * <code>string granter = 3;</code>
      */
-    public var granter: kotlin.String
+    var granter: kotlin.String
       @JvmName("getGranter")
       get() = _builder.getGranter()
       @JvmName("setGranter")
@@ -68,7 +68,7 @@ public object EventGrantKt {
      *
      * <code>string granter = 3;</code>
      */
-    public fun clearGranter() {
+    fun clearGranter() {
       _builder.clearGranter()
     }
 
@@ -79,7 +79,7 @@ public object EventGrantKt {
      *
      * <code>string grantee = 4;</code>
      */
-    public var grantee: kotlin.String
+    var grantee: kotlin.String
       @JvmName("getGrantee")
       get() = _builder.getGrantee()
       @JvmName("setGrantee")
@@ -93,12 +93,11 @@ public object EventGrantKt {
      *
      * <code>string grantee = 4;</code>
      */
-    public fun clearGrantee() {
+    fun clearGrantee() {
       _builder.clearGrantee()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.authz.v1beta1.Event.EventGrant.copy(block: cosmos.authz.v1beta1.EventGrantKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Event.EventGrant =
+inline fun cosmos.authz.v1beta1.Event.EventGrant.copy(block: cosmos.authz.v1beta1.EventGrantKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Event.EventGrant =
   cosmos.authz.v1beta1.EventGrantKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

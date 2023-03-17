@@ -3,16 +3,16 @@
 
 package tendermint.p2p;
 
-@kotlin.jvm.JvmName("-initializeprotocolVersion")
-public inline fun protocolVersion(block: tendermint.p2p.ProtocolVersionKt.Dsl.() -> kotlin.Unit): tendermint.p2p.Types.ProtocolVersion =
+@kotlin.jvm.JvmSynthetic
+inline fun protocolVersion(block: tendermint.p2p.ProtocolVersionKt.Dsl.() -> Unit): tendermint.p2p.Types.ProtocolVersion =
   tendermint.p2p.ProtocolVersionKt.Dsl._create(tendermint.p2p.Types.ProtocolVersion.newBuilder()).apply { block() }._build()
-public object ProtocolVersionKt {
+object ProtocolVersionKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.p2p.Types.ProtocolVersion.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.p2p.Types.ProtocolVersion.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.p2p.Types.ProtocolVersion.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ProtocolVersionKt {
     /**
      * <code>uint64 p2p = 1 [(.gogoproto.customname) = "P2P"];</code>
      */
-    public var p2P: kotlin.Long
+    var p2P: kotlin.Long
       @JvmName("getP2P")
       get() = _builder.getP2P()
       @JvmName("setP2P")
@@ -35,14 +35,14 @@ public object ProtocolVersionKt {
     /**
      * <code>uint64 p2p = 1 [(.gogoproto.customname) = "P2P"];</code>
      */
-    public fun clearP2P() {
+    fun clearP2P() {
       _builder.clearP2P()
     }
 
     /**
      * <code>uint64 block = 2;</code>
      */
-    public var block: kotlin.Long
+    var block: kotlin.Long
       @JvmName("getBlock")
       get() = _builder.getBlock()
       @JvmName("setBlock")
@@ -52,14 +52,14 @@ public object ProtocolVersionKt {
     /**
      * <code>uint64 block = 2;</code>
      */
-    public fun clearBlock() {
+    fun clearBlock() {
       _builder.clearBlock()
     }
 
     /**
      * <code>uint64 app = 3;</code>
      */
-    public var app: kotlin.Long
+    var app: kotlin.Long
       @JvmName("getApp")
       get() = _builder.getApp()
       @JvmName("setApp")
@@ -69,12 +69,11 @@ public object ProtocolVersionKt {
     /**
      * <code>uint64 app = 3;</code>
      */
-    public fun clearApp() {
+    fun clearApp() {
       _builder.clearApp()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.p2p.Types.ProtocolVersion.copy(block: tendermint.p2p.ProtocolVersionKt.Dsl.() -> kotlin.Unit): tendermint.p2p.Types.ProtocolVersion =
+inline fun tendermint.p2p.Types.ProtocolVersion.copy(block: tendermint.p2p.ProtocolVersionKt.Dsl.() -> Unit): tendermint.p2p.Types.ProtocolVersion =
   tendermint.p2p.ProtocolVersionKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

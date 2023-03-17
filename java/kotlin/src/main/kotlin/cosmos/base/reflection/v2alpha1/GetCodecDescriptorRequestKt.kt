@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializegetCodecDescriptorRequest")
-public inline fun getCodecDescriptorRequest(block: cosmos.base.reflection.v2alpha1.GetCodecDescriptorRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetCodecDescriptorRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun getCodecDescriptorRequest(block: cosmos.base.reflection.v2alpha1.GetCodecDescriptorRequestKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetCodecDescriptorRequest =
   cosmos.base.reflection.v2alpha1.GetCodecDescriptorRequestKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.GetCodecDescriptorRequest.newBuilder()).apply { block() }._build()
-public object GetCodecDescriptorRequestKt {
+object GetCodecDescriptorRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetCodecDescriptorRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetCodecDescriptorRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.GetCodecDescriptorRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object GetCodecDescriptorRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.GetCodecDescriptorRequest.copy(block: cosmos.base.reflection.v2alpha1.GetCodecDescriptorRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetCodecDescriptorRequest =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.GetCodecDescriptorRequest.copy(block: cosmos.base.reflection.v2alpha1.GetCodecDescriptorRequestKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetCodecDescriptorRequest =
   cosmos.base.reflection.v2alpha1.GetCodecDescriptorRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

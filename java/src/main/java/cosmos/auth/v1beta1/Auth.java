@@ -91,6 +91,72 @@ public final class Auth {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private BaseAccount(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              address_ = s;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (pubKey_ != null) {
+                subBuilder = pubKey_.toBuilder();
+              }
+              pubKey_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pubKey_);
+                pubKey_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 24: {
+
+              accountNumber_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+
+              sequence_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.auth.v1beta1.Auth.internal_static_cosmos_auth_v1beta1_BaseAccount_descriptor;
@@ -105,8 +171,7 @@ public final class Auth {
     }
 
     public static final int ADDRESS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object address_ = "";
+    private volatile java.lang.Object address_;
     /**
      * <code>string address = 1;</code>
      * @return The address.
@@ -166,11 +231,11 @@ public final class Auth {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getPubKeyOrBuilder() {
-      return pubKey_ == null ? com.google.protobuf.Any.getDefaultInstance() : pubKey_;
+      return getPubKey();
     }
 
     public static final int ACCOUNT_NUMBER_FIELD_NUMBER = 3;
-    private long accountNumber_ = 0L;
+    private long accountNumber_;
     /**
      * <code>uint64 account_number = 3 [(.gogoproto.moretags) = "yaml:&#92;"account_number&#92;""];</code>
      * @return The accountNumber.
@@ -181,7 +246,7 @@ public final class Auth {
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 4;
-    private long sequence_ = 0L;
+    private long sequence_;
     /**
      * <code>uint64 sequence = 4;</code>
      * @return The sequence.
@@ -205,7 +270,7 @@ public final class Auth {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+      if (!getAddressBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, address_);
       }
       if (pubKey_ != null) {
@@ -217,7 +282,7 @@ public final class Auth {
       if (sequence_ != 0L) {
         output.writeUInt64(4, sequence_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -226,7 +291,7 @@ public final class Auth {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+      if (!getAddressBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, address_);
       }
       if (pubKey_ != null) {
@@ -241,7 +306,7 @@ public final class Auth {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(4, sequence_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -267,7 +332,7 @@ public final class Auth {
           != other.getAccountNumber()) return false;
       if (getSequence()
           != other.getSequence()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -290,7 +355,7 @@ public final class Auth {
       hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSequence());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -413,26 +478,34 @@ public final class Auth {
 
       // Construct using cosmos.auth.v1beta1.Auth.BaseAccount.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         address_ = "";
-        pubKey_ = null;
-        if (pubKeyBuilder_ != null) {
-          pubKeyBuilder_.dispose();
+
+        if (pubKeyBuilder_ == null) {
+          pubKey_ = null;
+        } else {
+          pubKey_ = null;
           pubKeyBuilder_ = null;
         }
         accountNumber_ = 0L;
+
         sequence_ = 0L;
+
         return this;
       }
 
@@ -459,27 +532,16 @@ public final class Auth {
       @java.lang.Override
       public cosmos.auth.v1beta1.Auth.BaseAccount buildPartial() {
         cosmos.auth.v1beta1.Auth.BaseAccount result = new cosmos.auth.v1beta1.Auth.BaseAccount(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.address_ = address_;
+        if (pubKeyBuilder_ == null) {
+          result.pubKey_ = pubKey_;
+        } else {
+          result.pubKey_ = pubKeyBuilder_.build();
+        }
+        result.accountNumber_ = accountNumber_;
+        result.sequence_ = sequence_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.auth.v1beta1.Auth.BaseAccount result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.address_ = address_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.pubKey_ = pubKeyBuilder_ == null
-              ? pubKey_
-              : pubKeyBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.accountNumber_ = accountNumber_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.sequence_ = sequence_;
-        }
       }
 
       @java.lang.Override
@@ -528,7 +590,6 @@ public final class Auth {
         if (other == cosmos.auth.v1beta1.Auth.BaseAccount.getDefaultInstance()) return this;
         if (!other.getAddress().isEmpty()) {
           address_ = other.address_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasPubKey()) {
@@ -540,7 +601,7 @@ public final class Auth {
         if (other.getSequence() != 0L) {
           setSequence(other.getSequence());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -555,55 +616,19 @@ public final class Auth {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.auth.v1beta1.Auth.BaseAccount parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                address_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getPubKeyFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                accountNumber_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 32: {
-                sequence_ = input.readUInt64();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.auth.v1beta1.Auth.BaseAccount) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object address_ = "";
       /**
@@ -646,9 +671,11 @@ public final class Auth {
        */
       public Builder setAddress(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         address_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -657,8 +684,8 @@ public final class Auth {
        * @return This builder for chaining.
        */
       public Builder clearAddress() {
+        
         address_ = getDefaultInstance().getAddress();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -669,10 +696,12 @@ public final class Auth {
        */
       public Builder setAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         address_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -685,7 +714,7 @@ public final class Auth {
        * @return Whether the pubKey field is set.
        */
       public boolean hasPubKey() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return pubKeyBuilder_ != null || pubKey_ != null;
       }
       /**
        * <code>.google.protobuf.Any pub_key = 2 [(.gogoproto.jsontag) = "public_key,omitempty", (.gogoproto.moretags) = "yaml:&#92;"public_key&#92;""];</code>
@@ -707,11 +736,11 @@ public final class Auth {
             throw new NullPointerException();
           }
           pubKey_ = value;
+          onChanged();
         } else {
           pubKeyBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -721,11 +750,11 @@ public final class Auth {
           com.google.protobuf.Any.Builder builderForValue) {
         if (pubKeyBuilder_ == null) {
           pubKey_ = builderForValue.build();
+          onChanged();
         } else {
           pubKeyBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -733,38 +762,38 @@ public final class Auth {
        */
       public Builder mergePubKey(com.google.protobuf.Any value) {
         if (pubKeyBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            pubKey_ != null &&
-            pubKey_ != com.google.protobuf.Any.getDefaultInstance()) {
-            getPubKeyBuilder().mergeFrom(value);
+          if (pubKey_ != null) {
+            pubKey_ =
+              com.google.protobuf.Any.newBuilder(pubKey_).mergeFrom(value).buildPartial();
           } else {
             pubKey_ = value;
           }
+          onChanged();
         } else {
           pubKeyBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Any pub_key = 2 [(.gogoproto.jsontag) = "public_key,omitempty", (.gogoproto.moretags) = "yaml:&#92;"public_key&#92;""];</code>
        */
       public Builder clearPubKey() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        pubKey_ = null;
-        if (pubKeyBuilder_ != null) {
-          pubKeyBuilder_.dispose();
+        if (pubKeyBuilder_ == null) {
+          pubKey_ = null;
+          onChanged();
+        } else {
+          pubKey_ = null;
           pubKeyBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Any pub_key = 2 [(.gogoproto.jsontag) = "public_key,omitempty", (.gogoproto.moretags) = "yaml:&#92;"public_key&#92;""];</code>
        */
       public com.google.protobuf.Any.Builder getPubKeyBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getPubKeyFieldBuilder().getBuilder();
       }
@@ -813,7 +842,6 @@ public final class Auth {
       public Builder setAccountNumber(long value) {
         
         accountNumber_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -822,7 +850,7 @@ public final class Auth {
        * @return This builder for chaining.
        */
       public Builder clearAccountNumber() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         accountNumber_ = 0L;
         onChanged();
         return this;
@@ -845,7 +873,6 @@ public final class Auth {
       public Builder setSequence(long value) {
         
         sequence_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -854,7 +881,7 @@ public final class Auth {
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         sequence_ = 0L;
         onChanged();
         return this;
@@ -892,18 +919,7 @@ public final class Auth {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new BaseAccount(input, extensionRegistry);
       }
     };
 
@@ -1012,6 +1028,75 @@ public final class Auth {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ModuleAccount(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cosmos.auth.v1beta1.Auth.BaseAccount.Builder subBuilder = null;
+              if (baseAccount_ != null) {
+                subBuilder = baseAccount_.toBuilder();
+              }
+              baseAccount_ = input.readMessage(cosmos.auth.v1beta1.Auth.BaseAccount.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(baseAccount_);
+                baseAccount_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                permissions_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              permissions_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          permissions_ = permissions_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.auth.v1beta1.Auth.internal_static_cosmos_auth_v1beta1_ModuleAccount_descriptor;
@@ -1048,12 +1133,11 @@ public final class Auth {
      */
     @java.lang.Override
     public cosmos.auth.v1beta1.Auth.BaseAccountOrBuilder getBaseAccountOrBuilder() {
-      return baseAccount_ == null ? cosmos.auth.v1beta1.Auth.BaseAccount.getDefaultInstance() : baseAccount_;
+      return getBaseAccount();
     }
 
     public static final int NAME_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object name_ = "";
+    private volatile java.lang.Object name_;
     /**
      * <code>string name = 2;</code>
      * @return The name.
@@ -1091,7 +1175,6 @@ public final class Auth {
     }
 
     public static final int PERMISSIONS_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList permissions_;
     /**
      * <code>repeated string permissions = 3;</code>
@@ -1143,13 +1226,13 @@ public final class Auth {
       if (baseAccount_ != null) {
         output.writeMessage(1, getBaseAccount());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
       for (int i = 0; i < permissions_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, permissions_.getRaw(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1162,7 +1245,7 @@ public final class Auth {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getBaseAccount());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
       {
@@ -1173,7 +1256,7 @@ public final class Auth {
         size += dataSize;
         size += 1 * getPermissionsList().size();
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1197,7 +1280,7 @@ public final class Auth {
           .equals(other.getName())) return false;
       if (!getPermissionsList()
           .equals(other.getPermissionsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1218,7 +1301,7 @@ public final class Auth {
         hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
         hash = (53 * hash) + getPermissionsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1339,26 +1422,32 @@ public final class Auth {
 
       // Construct using cosmos.auth.v1beta1.Auth.ModuleAccount.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        baseAccount_ = null;
-        if (baseAccountBuilder_ != null) {
-          baseAccountBuilder_.dispose();
+        if (baseAccountBuilder_ == null) {
+          baseAccount_ = null;
+        } else {
+          baseAccount_ = null;
           baseAccountBuilder_ = null;
         }
         name_ = "";
+
         permissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1385,30 +1474,20 @@ public final class Auth {
       @java.lang.Override
       public cosmos.auth.v1beta1.Auth.ModuleAccount buildPartial() {
         cosmos.auth.v1beta1.Auth.ModuleAccount result = new cosmos.auth.v1beta1.Auth.ModuleAccount(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(cosmos.auth.v1beta1.Auth.ModuleAccount result) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        int from_bitField0_ = bitField0_;
+        if (baseAccountBuilder_ == null) {
+          result.baseAccount_ = baseAccount_;
+        } else {
+          result.baseAccount_ = baseAccountBuilder_.build();
+        }
+        result.name_ = name_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           permissions_ = permissions_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.permissions_ = permissions_;
-      }
-
-      private void buildPartial0(cosmos.auth.v1beta1.Auth.ModuleAccount result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.baseAccount_ = baseAccountBuilder_ == null
-              ? baseAccount_
-              : baseAccountBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.name_ = name_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -1460,20 +1539,19 @@ public final class Auth {
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.permissions_.isEmpty()) {
           if (permissions_.isEmpty()) {
             permissions_ = other.permissions_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensurePermissionsIsMutable();
             permissions_.addAll(other.permissions_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1488,48 +1566,17 @@ public final class Auth {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.auth.v1beta1.Auth.ModuleAccount parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getBaseAccountFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                name_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
-                ensurePermissionsIsMutable();
-                permissions_.add(s);
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.auth.v1beta1.Auth.ModuleAccount) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -1542,7 +1589,7 @@ public final class Auth {
        * @return Whether the baseAccount field is set.
        */
       public boolean hasBaseAccount() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return baseAccountBuilder_ != null || baseAccount_ != null;
       }
       /**
        * <code>.cosmos.auth.v1beta1.BaseAccount base_account = 1 [(.gogoproto.embed) = true, (.gogoproto.moretags) = "yaml:&#92;"base_account&#92;""];</code>
@@ -1564,11 +1611,11 @@ public final class Auth {
             throw new NullPointerException();
           }
           baseAccount_ = value;
+          onChanged();
         } else {
           baseAccountBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1578,11 +1625,11 @@ public final class Auth {
           cosmos.auth.v1beta1.Auth.BaseAccount.Builder builderForValue) {
         if (baseAccountBuilder_ == null) {
           baseAccount_ = builderForValue.build();
+          onChanged();
         } else {
           baseAccountBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1590,38 +1637,38 @@ public final class Auth {
        */
       public Builder mergeBaseAccount(cosmos.auth.v1beta1.Auth.BaseAccount value) {
         if (baseAccountBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            baseAccount_ != null &&
-            baseAccount_ != cosmos.auth.v1beta1.Auth.BaseAccount.getDefaultInstance()) {
-            getBaseAccountBuilder().mergeFrom(value);
+          if (baseAccount_ != null) {
+            baseAccount_ =
+              cosmos.auth.v1beta1.Auth.BaseAccount.newBuilder(baseAccount_).mergeFrom(value).buildPartial();
           } else {
             baseAccount_ = value;
           }
+          onChanged();
         } else {
           baseAccountBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.cosmos.auth.v1beta1.BaseAccount base_account = 1 [(.gogoproto.embed) = true, (.gogoproto.moretags) = "yaml:&#92;"base_account&#92;""];</code>
        */
       public Builder clearBaseAccount() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        baseAccount_ = null;
-        if (baseAccountBuilder_ != null) {
-          baseAccountBuilder_.dispose();
+        if (baseAccountBuilder_ == null) {
+          baseAccount_ = null;
+          onChanged();
+        } else {
+          baseAccount_ = null;
           baseAccountBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.cosmos.auth.v1beta1.BaseAccount base_account = 1 [(.gogoproto.embed) = true, (.gogoproto.moretags) = "yaml:&#92;"base_account&#92;""];</code>
        */
       public cosmos.auth.v1beta1.Auth.BaseAccount.Builder getBaseAccountBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getBaseAccountFieldBuilder().getBuilder();
       }
@@ -1694,9 +1741,11 @@ public final class Auth {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         name_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1705,8 +1754,8 @@ public final class Auth {
        * @return This builder for chaining.
        */
       public Builder clearName() {
+        
         name_ = getDefaultInstance().getName();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1717,19 +1766,21 @@ public final class Auth {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         name_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList permissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensurePermissionsIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           permissions_ = new com.google.protobuf.LazyStringArrayList(permissions_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000001;
          }
       }
       /**
@@ -1772,8 +1823,10 @@ public final class Auth {
        */
       public Builder setPermissions(
           int index, java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensurePermissionsIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePermissionsIsMutable();
         permissions_.set(index, value);
         onChanged();
         return this;
@@ -1785,8 +1838,10 @@ public final class Auth {
        */
       public Builder addPermissions(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensurePermissionsIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePermissionsIsMutable();
         permissions_.add(value);
         onChanged();
         return this;
@@ -1810,7 +1865,7 @@ public final class Auth {
        */
       public Builder clearPermissions() {
         permissions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1821,8 +1876,10 @@ public final class Auth {
        */
       public Builder addPermissionsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         ensurePermissionsIsMutable();
         permissions_.add(value);
         onChanged();
@@ -1861,18 +1918,7 @@ public final class Auth {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ModuleAccount(input, extensionRegistry);
       }
     };
 
@@ -1957,6 +2003,68 @@ public final class Auth {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Params(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              maxMemoCharacters_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              txSigLimit_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+
+              txSizeCostPerByte_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+
+              sigVerifyCostEd25519_ = input.readUInt64();
+              break;
+            }
+            case 40: {
+
+              sigVerifyCostSecp256K1_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.auth.v1beta1.Auth.internal_static_cosmos_auth_v1beta1_Params_descriptor;
@@ -1971,7 +2079,7 @@ public final class Auth {
     }
 
     public static final int MAX_MEMO_CHARACTERS_FIELD_NUMBER = 1;
-    private long maxMemoCharacters_ = 0L;
+    private long maxMemoCharacters_;
     /**
      * <code>uint64 max_memo_characters = 1 [(.gogoproto.moretags) = "yaml:&#92;"max_memo_characters&#92;""];</code>
      * @return The maxMemoCharacters.
@@ -1982,7 +2090,7 @@ public final class Auth {
     }
 
     public static final int TX_SIG_LIMIT_FIELD_NUMBER = 2;
-    private long txSigLimit_ = 0L;
+    private long txSigLimit_;
     /**
      * <code>uint64 tx_sig_limit = 2 [(.gogoproto.moretags) = "yaml:&#92;"tx_sig_limit&#92;""];</code>
      * @return The txSigLimit.
@@ -1993,7 +2101,7 @@ public final class Auth {
     }
 
     public static final int TX_SIZE_COST_PER_BYTE_FIELD_NUMBER = 3;
-    private long txSizeCostPerByte_ = 0L;
+    private long txSizeCostPerByte_;
     /**
      * <code>uint64 tx_size_cost_per_byte = 3 [(.gogoproto.moretags) = "yaml:&#92;"tx_size_cost_per_byte&#92;""];</code>
      * @return The txSizeCostPerByte.
@@ -2004,7 +2112,7 @@ public final class Auth {
     }
 
     public static final int SIG_VERIFY_COST_ED25519_FIELD_NUMBER = 4;
-    private long sigVerifyCostEd25519_ = 0L;
+    private long sigVerifyCostEd25519_;
     /**
      * <code>uint64 sig_verify_cost_ed25519 = 4 [(.gogoproto.customname) = "SigVerifyCostED25519", (.gogoproto.moretags) = "yaml:&#92;"sig_verify_cost_ed25519&#92;""];</code>
      * @return The sigVerifyCostEd25519.
@@ -2015,7 +2123,7 @@ public final class Auth {
     }
 
     public static final int SIG_VERIFY_COST_SECP256K1_FIELD_NUMBER = 5;
-    private long sigVerifyCostSecp256K1_ = 0L;
+    private long sigVerifyCostSecp256K1_;
     /**
      * <code>uint64 sig_verify_cost_secp256k1 = 5 [(.gogoproto.customname) = "SigVerifyCostSecp256k1", (.gogoproto.moretags) = "yaml:&#92;"sig_verify_cost_secp256k1&#92;""];</code>
      * @return The sigVerifyCostSecp256k1.
@@ -2054,7 +2162,7 @@ public final class Auth {
       if (sigVerifyCostSecp256K1_ != 0L) {
         output.writeUInt64(5, sigVerifyCostSecp256K1_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2083,7 +2191,7 @@ public final class Auth {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(5, sigVerifyCostSecp256K1_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2108,7 +2216,7 @@ public final class Auth {
           != other.getSigVerifyCostEd25519()) return false;
       if (getSigVerifyCostSecp256K1()
           != other.getSigVerifyCostSecp256K1()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2134,7 +2242,7 @@ public final class Auth {
       hash = (37 * hash) + SIG_VERIFY_COST_SECP256K1_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSigVerifyCostSecp256K1());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2255,23 +2363,32 @@ public final class Auth {
 
       // Construct using cosmos.auth.v1beta1.Auth.Params.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         maxMemoCharacters_ = 0L;
+
         txSigLimit_ = 0L;
+
         txSizeCostPerByte_ = 0L;
+
         sigVerifyCostEd25519_ = 0L;
+
         sigVerifyCostSecp256K1_ = 0L;
+
         return this;
       }
 
@@ -2298,28 +2415,13 @@ public final class Auth {
       @java.lang.Override
       public cosmos.auth.v1beta1.Auth.Params buildPartial() {
         cosmos.auth.v1beta1.Auth.Params result = new cosmos.auth.v1beta1.Auth.Params(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.maxMemoCharacters_ = maxMemoCharacters_;
+        result.txSigLimit_ = txSigLimit_;
+        result.txSizeCostPerByte_ = txSizeCostPerByte_;
+        result.sigVerifyCostEd25519_ = sigVerifyCostEd25519_;
+        result.sigVerifyCostSecp256K1_ = sigVerifyCostSecp256K1_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.auth.v1beta1.Auth.Params result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.maxMemoCharacters_ = maxMemoCharacters_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.txSigLimit_ = txSigLimit_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.txSizeCostPerByte_ = txSizeCostPerByte_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.sigVerifyCostEd25519_ = sigVerifyCostEd25519_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.sigVerifyCostSecp256K1_ = sigVerifyCostSecp256K1_;
-        }
       }
 
       @java.lang.Override
@@ -2381,7 +2483,7 @@ public final class Auth {
         if (other.getSigVerifyCostSecp256K1() != 0L) {
           setSigVerifyCostSecp256K1(other.getSigVerifyCostSecp256K1());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2396,58 +2498,19 @@ public final class Auth {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.auth.v1beta1.Auth.Params parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                maxMemoCharacters_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                txSigLimit_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                txSizeCostPerByte_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 32: {
-                sigVerifyCostEd25519_ = input.readUInt64();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 40: {
-                sigVerifyCostSecp256K1_ = input.readUInt64();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.auth.v1beta1.Auth.Params) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long maxMemoCharacters_ ;
       /**
@@ -2466,7 +2529,6 @@ public final class Auth {
       public Builder setMaxMemoCharacters(long value) {
         
         maxMemoCharacters_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2475,7 +2537,7 @@ public final class Auth {
        * @return This builder for chaining.
        */
       public Builder clearMaxMemoCharacters() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         maxMemoCharacters_ = 0L;
         onChanged();
         return this;
@@ -2498,7 +2560,6 @@ public final class Auth {
       public Builder setTxSigLimit(long value) {
         
         txSigLimit_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2507,7 +2568,7 @@ public final class Auth {
        * @return This builder for chaining.
        */
       public Builder clearTxSigLimit() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         txSigLimit_ = 0L;
         onChanged();
         return this;
@@ -2530,7 +2591,6 @@ public final class Auth {
       public Builder setTxSizeCostPerByte(long value) {
         
         txSizeCostPerByte_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2539,7 +2599,7 @@ public final class Auth {
        * @return This builder for chaining.
        */
       public Builder clearTxSizeCostPerByte() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         txSizeCostPerByte_ = 0L;
         onChanged();
         return this;
@@ -2562,7 +2622,6 @@ public final class Auth {
       public Builder setSigVerifyCostEd25519(long value) {
         
         sigVerifyCostEd25519_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2571,7 +2630,7 @@ public final class Auth {
        * @return This builder for chaining.
        */
       public Builder clearSigVerifyCostEd25519() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         sigVerifyCostEd25519_ = 0L;
         onChanged();
         return this;
@@ -2594,7 +2653,6 @@ public final class Auth {
       public Builder setSigVerifyCostSecp256K1(long value) {
         
         sigVerifyCostSecp256K1_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2603,7 +2661,7 @@ public final class Auth {
        * @return This builder for chaining.
        */
       public Builder clearSigVerifyCostSecp256K1() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         sigVerifyCostSecp256K1_ = 0L;
         onChanged();
         return this;
@@ -2641,18 +2699,7 @@ public final class Auth {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Params(input, extensionRegistry);
       }
     };
 

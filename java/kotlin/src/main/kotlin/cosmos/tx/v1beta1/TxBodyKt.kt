@@ -3,16 +3,16 @@
 
 package cosmos.tx.v1beta1;
 
-@kotlin.jvm.JvmName("-initializetxBody")
-public inline fun txBody(block: cosmos.tx.v1beta1.TxBodyKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.TxOuterClass.TxBody =
+@kotlin.jvm.JvmSynthetic
+inline fun txBody(block: cosmos.tx.v1beta1.TxBodyKt.Dsl.() -> Unit): cosmos.tx.v1beta1.TxOuterClass.TxBody =
   cosmos.tx.v1beta1.TxBodyKt.Dsl._create(cosmos.tx.v1beta1.TxOuterClass.TxBody.newBuilder()).apply { block() }._build()
-public object TxBodyKt {
+object TxBodyKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.tx.v1beta1.TxOuterClass.TxBody.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.tx.v1beta1.TxOuterClass.TxBody.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.tx.v1beta1.TxOuterClass.TxBody.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object TxBodyKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class MessagesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class MessagesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * messages is a list of messages to be executed. The required signers of
@@ -41,7 +41,7 @@ public object TxBodyKt {
      *
      * <code>repeated .google.protobuf.Any messages = 1;</code>
      */
-     public val messages: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>
+     val messages: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getMessagesList()
@@ -62,10 +62,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addMessages")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.add(value: com.google.protobuf.Any) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.add(value: com.google.protobuf.Any) {
       _builder.addMessages(value)
-    }
-    /**
+    }/**
      * <pre>
      * messages is a list of messages to be executed. The required signers of
      * those messages define the number and order of elements in AuthInfo's
@@ -81,11 +80,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignMessages")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.plusAssign(value: com.google.protobuf.Any) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.plusAssign(value: com.google.protobuf.Any) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * messages is a list of messages to be executed. The required signers of
      * those messages define the number and order of elements in AuthInfo's
@@ -101,10 +98,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllMessages")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       _builder.addAllMessages(values)
-    }
-    /**
+    }/**
      * <pre>
      * messages is a list of messages to be executed. The required signers of
      * those messages define the number and order of elements in AuthInfo's
@@ -120,11 +116,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllMessages")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * messages is a list of messages to be executed. The required signers of
      * those messages define the number and order of elements in AuthInfo's
@@ -141,10 +135,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setMessages")
-    public operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
+    operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
       _builder.setMessages(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * messages is a list of messages to be executed. The required signers of
      * those messages define the number and order of elements in AuthInfo's
@@ -159,11 +152,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearMessages")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, MessagesProxy>.clear() {
       _builder.clearMessages()
     }
-
-
     /**
      * <pre>
      * memo is any arbitrary note/comment to be added to the transaction.
@@ -173,7 +164,7 @@ public object TxBodyKt {
      *
      * <code>string memo = 2;</code>
      */
-    public var memo: kotlin.String
+    var memo: kotlin.String
       @JvmName("getMemo")
       get() = _builder.getMemo()
       @JvmName("setMemo")
@@ -189,7 +180,7 @@ public object TxBodyKt {
      *
      * <code>string memo = 2;</code>
      */
-    public fun clearMemo() {
+    fun clearMemo() {
       _builder.clearMemo()
     }
 
@@ -201,7 +192,7 @@ public object TxBodyKt {
      *
      * <code>uint64 timeout_height = 3;</code>
      */
-    public var timeoutHeight: kotlin.Long
+    var timeoutHeight: kotlin.Long
       @JvmName("getTimeoutHeight")
       get() = _builder.getTimeoutHeight()
       @JvmName("setTimeoutHeight")
@@ -216,7 +207,7 @@ public object TxBodyKt {
      *
      * <code>uint64 timeout_height = 3;</code>
      */
-    public fun clearTimeoutHeight() {
+    fun clearTimeoutHeight() {
       _builder.clearTimeoutHeight()
     }
 
@@ -225,7 +216,7 @@ public object TxBodyKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ExtensionOptionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ExtensionOptionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
@@ -235,7 +226,7 @@ public object TxBodyKt {
      *
      * <code>repeated .google.protobuf.Any extension_options = 1023;</code>
      */
-     public val extensionOptions: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>
+     val extensionOptions: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getExtensionOptionsList()
@@ -252,10 +243,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addExtensionOptions")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.add(value: com.google.protobuf.Any) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.add(value: com.google.protobuf.Any) {
       _builder.addExtensionOptions(value)
-    }
-    /**
+    }/**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
      * when the default options are not sufficient. If any of these are present
@@ -267,11 +257,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignExtensionOptions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.plusAssign(value: com.google.protobuf.Any) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.plusAssign(value: com.google.protobuf.Any) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
      * when the default options are not sufficient. If any of these are present
@@ -283,10 +271,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllExtensionOptions")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       _builder.addAllExtensionOptions(values)
-    }
-    /**
+    }/**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
      * when the default options are not sufficient. If any of these are present
@@ -298,11 +285,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllExtensionOptions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
      * when the default options are not sufficient. If any of these are present
@@ -315,10 +300,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setExtensionOptions")
-    public operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
+    operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
       _builder.setExtensionOptions(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
      * when the default options are not sufficient. If any of these are present
@@ -329,17 +313,15 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearExtensionOptions")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, ExtensionOptionsProxy>.clear() {
       _builder.clearExtensionOptions()
     }
-
-
     /**
      * An uninstantiable, behaviorless type to represent the field in
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class NonCriticalExtensionOptionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class NonCriticalExtensionOptionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
@@ -349,7 +331,7 @@ public object TxBodyKt {
      *
      * <code>repeated .google.protobuf.Any non_critical_extension_options = 2047;</code>
      */
-     public val nonCriticalExtensionOptions: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>
+     val nonCriticalExtensionOptions: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getNonCriticalExtensionOptionsList()
@@ -366,10 +348,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addNonCriticalExtensionOptions")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.add(value: com.google.protobuf.Any) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.add(value: com.google.protobuf.Any) {
       _builder.addNonCriticalExtensionOptions(value)
-    }
-    /**
+    }/**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
      * when the default options are not sufficient. If any of these are present
@@ -381,11 +362,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignNonCriticalExtensionOptions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.plusAssign(value: com.google.protobuf.Any) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.plusAssign(value: com.google.protobuf.Any) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
      * when the default options are not sufficient. If any of these are present
@@ -397,10 +376,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllNonCriticalExtensionOptions")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       _builder.addAllNonCriticalExtensionOptions(values)
-    }
-    /**
+    }/**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
      * when the default options are not sufficient. If any of these are present
@@ -412,11 +390,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllNonCriticalExtensionOptions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
      * when the default options are not sufficient. If any of these are present
@@ -429,10 +405,9 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setNonCriticalExtensionOptions")
-    public operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
+    operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
       _builder.setNonCriticalExtensionOptions(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * extension_options are arbitrary options that can be added by chains
      * when the default options are not sufficient. If any of these are present
@@ -443,13 +418,10 @@ public object TxBodyKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearNonCriticalExtensionOptions")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, NonCriticalExtensionOptionsProxy>.clear() {
       _builder.clearNonCriticalExtensionOptions()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.tx.v1beta1.TxOuterClass.TxBody.copy(block: cosmos.tx.v1beta1.TxBodyKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.TxOuterClass.TxBody =
+inline fun cosmos.tx.v1beta1.TxOuterClass.TxBody.copy(block: cosmos.tx.v1beta1.TxBodyKt.Dsl.() -> Unit): cosmos.tx.v1beta1.TxOuterClass.TxBody =
   cosmos.tx.v1beta1.TxBodyKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

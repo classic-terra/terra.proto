@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializequeryConsensusStatesRequest")
-public inline fun queryConsensusStatesRequest(block: ibc.core.client.v1.QueryConsensusStatesRequestKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryConsensusStatesRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryConsensusStatesRequest(block: ibc.core.client.v1.QueryConsensusStatesRequestKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryConsensusStatesRequest =
   ibc.core.client.v1.QueryConsensusStatesRequestKt.Dsl._create(ibc.core.client.v1.QueryOuterClass.QueryConsensusStatesRequest.newBuilder()).apply { block() }._build()
-public object QueryConsensusStatesRequestKt {
+object QueryConsensusStatesRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.QueryOuterClass.QueryConsensusStatesRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.QueryOuterClass.QueryConsensusStatesRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.QueryOuterClass.QueryConsensusStatesRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryConsensusStatesRequestKt {
      *
      * <code>string client_id = 1;</code>
      */
-    public var clientId: kotlin.String
+    var clientId: kotlin.String
       @JvmName("getClientId")
       get() = _builder.getClientId()
       @JvmName("setClientId")
@@ -43,7 +43,7 @@ public object QueryConsensusStatesRequestKt {
      *
      * <code>string client_id = 1;</code>
      */
-    public fun clearClientId() {
+    fun clearClientId() {
       _builder.clearClientId()
     }
 
@@ -54,7 +54,7 @@ public object QueryConsensusStatesRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -68,7 +68,7 @@ public object QueryConsensusStatesRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -79,15 +79,11 @@ public object QueryConsensusStatesRequestKt {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.QueryOuterClass.QueryConsensusStatesRequest.copy(block: ibc.core.client.v1.QueryConsensusStatesRequestKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryConsensusStatesRequest =
+inline fun ibc.core.client.v1.QueryOuterClass.QueryConsensusStatesRequest.copy(block: ibc.core.client.v1.QueryConsensusStatesRequestKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryConsensusStatesRequest =
   ibc.core.client.v1.QueryConsensusStatesRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.client.v1.QueryOuterClass.QueryConsensusStatesRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

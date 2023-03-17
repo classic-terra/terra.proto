@@ -3,16 +3,16 @@
 
 package cosmos.authz.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgRevoke")
-public inline fun msgRevoke(block: cosmos.authz.v1beta1.MsgRevokeKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Tx.MsgRevoke =
+@kotlin.jvm.JvmSynthetic
+inline fun msgRevoke(block: cosmos.authz.v1beta1.MsgRevokeKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Tx.MsgRevoke =
   cosmos.authz.v1beta1.MsgRevokeKt.Dsl._create(cosmos.authz.v1beta1.Tx.MsgRevoke.newBuilder()).apply { block() }._build()
-public object MsgRevokeKt {
+object MsgRevokeKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.authz.v1beta1.Tx.MsgRevoke.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.authz.v1beta1.Tx.MsgRevoke.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.authz.v1beta1.Tx.MsgRevoke.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgRevokeKt {
     /**
      * <code>string granter = 1;</code>
      */
-    public var granter: kotlin.String
+    var granter: kotlin.String
       @JvmName("getGranter")
       get() = _builder.getGranter()
       @JvmName("setGranter")
@@ -35,14 +35,14 @@ public object MsgRevokeKt {
     /**
      * <code>string granter = 1;</code>
      */
-    public fun clearGranter() {
+    fun clearGranter() {
       _builder.clearGranter()
     }
 
     /**
      * <code>string grantee = 2;</code>
      */
-    public var grantee: kotlin.String
+    var grantee: kotlin.String
       @JvmName("getGrantee")
       get() = _builder.getGrantee()
       @JvmName("setGrantee")
@@ -52,14 +52,14 @@ public object MsgRevokeKt {
     /**
      * <code>string grantee = 2;</code>
      */
-    public fun clearGrantee() {
+    fun clearGrantee() {
       _builder.clearGrantee()
     }
 
     /**
      * <code>string msg_type_url = 3;</code>
      */
-    public var msgTypeUrl: kotlin.String
+    var msgTypeUrl: kotlin.String
       @JvmName("getMsgTypeUrl")
       get() = _builder.getMsgTypeUrl()
       @JvmName("setMsgTypeUrl")
@@ -69,12 +69,11 @@ public object MsgRevokeKt {
     /**
      * <code>string msg_type_url = 3;</code>
      */
-    public fun clearMsgTypeUrl() {
+    fun clearMsgTypeUrl() {
       _builder.clearMsgTypeUrl()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.authz.v1beta1.Tx.MsgRevoke.copy(block: cosmos.authz.v1beta1.MsgRevokeKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Tx.MsgRevoke =
+inline fun cosmos.authz.v1beta1.Tx.MsgRevoke.copy(block: cosmos.authz.v1beta1.MsgRevokeKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Tx.MsgRevoke =
   cosmos.authz.v1beta1.MsgRevokeKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializeblockParams")
-public inline fun blockParams(block: tendermint.abci.BlockParamsKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.BlockParams =
+@kotlin.jvm.JvmSynthetic
+inline fun blockParams(block: tendermint.abci.BlockParamsKt.Dsl.() -> Unit): tendermint.abci.Types.BlockParams =
   tendermint.abci.BlockParamsKt.Dsl._create(tendermint.abci.Types.BlockParams.newBuilder()).apply { block() }._build()
-public object BlockParamsKt {
+object BlockParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.BlockParams.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.BlockParams.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.BlockParams.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object BlockParamsKt {
      *
      * <code>int64 max_bytes = 1;</code>
      */
-    public var maxBytes: kotlin.Long
+    var maxBytes: kotlin.Long
       @JvmName("getMaxBytes")
       get() = _builder.getMaxBytes()
       @JvmName("setMaxBytes")
@@ -43,7 +43,7 @@ public object BlockParamsKt {
      *
      * <code>int64 max_bytes = 1;</code>
      */
-    public fun clearMaxBytes() {
+    fun clearMaxBytes() {
       _builder.clearMaxBytes()
     }
 
@@ -54,7 +54,7 @@ public object BlockParamsKt {
      *
      * <code>int64 max_gas = 2;</code>
      */
-    public var maxGas: kotlin.Long
+    var maxGas: kotlin.Long
       @JvmName("getMaxGas")
       get() = _builder.getMaxGas()
       @JvmName("setMaxGas")
@@ -68,12 +68,11 @@ public object BlockParamsKt {
      *
      * <code>int64 max_gas = 2;</code>
      */
-    public fun clearMaxGas() {
+    fun clearMaxGas() {
       _builder.clearMaxGas()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.BlockParams.copy(block: tendermint.abci.BlockParamsKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.BlockParams =
+inline fun tendermint.abci.Types.BlockParams.copy(block: tendermint.abci.BlockParamsKt.Dsl.() -> Unit): tendermint.abci.Types.BlockParams =
   tendermint.abci.BlockParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

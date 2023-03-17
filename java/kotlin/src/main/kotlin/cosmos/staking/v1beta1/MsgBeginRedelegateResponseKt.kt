@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgBeginRedelegateResponse")
-public inline fun msgBeginRedelegateResponse(block: cosmos.staking.v1beta1.MsgBeginRedelegateResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Tx.MsgBeginRedelegateResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgBeginRedelegateResponse(block: cosmos.staking.v1beta1.MsgBeginRedelegateResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Tx.MsgBeginRedelegateResponse =
   cosmos.staking.v1beta1.MsgBeginRedelegateResponseKt.Dsl._create(cosmos.staking.v1beta1.Tx.MsgBeginRedelegateResponse.newBuilder()).apply { block() }._build()
-public object MsgBeginRedelegateResponseKt {
+object MsgBeginRedelegateResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Tx.MsgBeginRedelegateResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Tx.MsgBeginRedelegateResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Tx.MsgBeginRedelegateResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgBeginRedelegateResponseKt {
     /**
      * <code>.google.protobuf.Timestamp completion_time = 1 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public var completionTime: com.google.protobuf.Timestamp
+    var completionTime: com.google.protobuf.Timestamp
       @JvmName("getCompletionTime")
       get() = _builder.getCompletionTime()
       @JvmName("setCompletionTime")
@@ -35,22 +35,18 @@ public object MsgBeginRedelegateResponseKt {
     /**
      * <code>.google.protobuf.Timestamp completion_time = 1 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearCompletionTime() {
+    fun clearCompletionTime() {
       _builder.clearCompletionTime()
     }
     /**
      * <code>.google.protobuf.Timestamp completion_time = 1 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      * @return Whether the completionTime field is set.
      */
-    public fun hasCompletionTime(): kotlin.Boolean {
+    fun hasCompletionTime(): kotlin.Boolean {
       return _builder.hasCompletionTime()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Tx.MsgBeginRedelegateResponse.copy(block: cosmos.staking.v1beta1.MsgBeginRedelegateResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Tx.MsgBeginRedelegateResponse =
+inline fun cosmos.staking.v1beta1.Tx.MsgBeginRedelegateResponse.copy(block: cosmos.staking.v1beta1.MsgBeginRedelegateResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Tx.MsgBeginRedelegateResponse =
   cosmos.staking.v1beta1.MsgBeginRedelegateResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.Tx.MsgBeginRedelegateResponseOrBuilder.completionTimeOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasCompletionTime()) getCompletionTime() else null
-

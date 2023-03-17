@@ -3,16 +3,16 @@
 
 package cosmos.bank.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryAllBalancesRequest")
-public inline fun queryAllBalancesRequest(block: cosmos.bank.v1beta1.QueryAllBalancesRequestKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryAllBalancesRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryAllBalancesRequest(block: cosmos.bank.v1beta1.QueryAllBalancesRequestKt.Dsl.() -> Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryAllBalancesRequest =
   cosmos.bank.v1beta1.QueryAllBalancesRequestKt.Dsl._create(cosmos.bank.v1beta1.QueryOuterClass.QueryAllBalancesRequest.newBuilder()).apply { block() }._build()
-public object QueryAllBalancesRequestKt {
+object QueryAllBalancesRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.bank.v1beta1.QueryOuterClass.QueryAllBalancesRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.bank.v1beta1.QueryOuterClass.QueryAllBalancesRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.bank.v1beta1.QueryOuterClass.QueryAllBalancesRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryAllBalancesRequestKt {
      *
      * <code>string address = 1;</code>
      */
-    public var address: kotlin.String
+    var address: kotlin.String
       @JvmName("getAddress")
       get() = _builder.getAddress()
       @JvmName("setAddress")
@@ -43,7 +43,7 @@ public object QueryAllBalancesRequestKt {
      *
      * <code>string address = 1;</code>
      */
-    public fun clearAddress() {
+    fun clearAddress() {
       _builder.clearAddress()
     }
 
@@ -54,7 +54,7 @@ public object QueryAllBalancesRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -68,7 +68,7 @@ public object QueryAllBalancesRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -79,15 +79,11 @@ public object QueryAllBalancesRequestKt {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.bank.v1beta1.QueryOuterClass.QueryAllBalancesRequest.copy(block: cosmos.bank.v1beta1.QueryAllBalancesRequestKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryAllBalancesRequest =
+inline fun cosmos.bank.v1beta1.QueryOuterClass.QueryAllBalancesRequest.copy(block: cosmos.bank.v1beta1.QueryAllBalancesRequestKt.Dsl.() -> Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryAllBalancesRequest =
   cosmos.bank.v1beta1.QueryAllBalancesRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.bank.v1beta1.QueryOuterClass.QueryAllBalancesRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

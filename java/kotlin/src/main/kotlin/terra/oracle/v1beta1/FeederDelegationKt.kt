@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializefeederDelegation")
-public inline fun feederDelegation(block: terra.oracle.v1beta1.FeederDelegationKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Genesis.FeederDelegation =
+@kotlin.jvm.JvmSynthetic
+inline fun feederDelegation(block: terra.oracle.v1beta1.FeederDelegationKt.Dsl.() -> Unit): terra.oracle.v1beta1.Genesis.FeederDelegation =
   terra.oracle.v1beta1.FeederDelegationKt.Dsl._create(terra.oracle.v1beta1.Genesis.FeederDelegation.newBuilder()).apply { block() }._build()
-public object FeederDelegationKt {
+object FeederDelegationKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.Genesis.FeederDelegation.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.Genesis.FeederDelegation.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.Genesis.FeederDelegation.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object FeederDelegationKt {
     /**
      * <code>string feeder_address = 1;</code>
      */
-    public var feederAddress: kotlin.String
+    var feederAddress: kotlin.String
       @JvmName("getFeederAddress")
       get() = _builder.getFeederAddress()
       @JvmName("setFeederAddress")
@@ -35,14 +35,14 @@ public object FeederDelegationKt {
     /**
      * <code>string feeder_address = 1;</code>
      */
-    public fun clearFeederAddress() {
+    fun clearFeederAddress() {
       _builder.clearFeederAddress()
     }
 
     /**
      * <code>string validator_address = 2;</code>
      */
-    public var validatorAddress: kotlin.String
+    var validatorAddress: kotlin.String
       @JvmName("getValidatorAddress")
       get() = _builder.getValidatorAddress()
       @JvmName("setValidatorAddress")
@@ -52,12 +52,11 @@ public object FeederDelegationKt {
     /**
      * <code>string validator_address = 2;</code>
      */
-    public fun clearValidatorAddress() {
+    fun clearValidatorAddress() {
       _builder.clearValidatorAddress()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.Genesis.FeederDelegation.copy(block: terra.oracle.v1beta1.FeederDelegationKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Genesis.FeederDelegation =
+inline fun terra.oracle.v1beta1.Genesis.FeederDelegation.copy(block: terra.oracle.v1beta1.FeederDelegationKt.Dsl.() -> Unit): terra.oracle.v1beta1.Genesis.FeederDelegation =
   terra.oracle.v1beta1.FeederDelegationKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

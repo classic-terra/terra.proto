@@ -3,16 +3,16 @@
 
 package terra.market.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgSwap")
-public inline fun msgSwap(block: terra.market.v1beta1.MsgSwapKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.Tx.MsgSwap =
+@kotlin.jvm.JvmSynthetic
+inline fun msgSwap(block: terra.market.v1beta1.MsgSwapKt.Dsl.() -> Unit): terra.market.v1beta1.Tx.MsgSwap =
   terra.market.v1beta1.MsgSwapKt.Dsl._create(terra.market.v1beta1.Tx.MsgSwap.newBuilder()).apply { block() }._build()
-public object MsgSwapKt {
+object MsgSwapKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.market.v1beta1.Tx.MsgSwap.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.market.v1beta1.Tx.MsgSwap.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.market.v1beta1.Tx.MsgSwap.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgSwapKt {
     /**
      * <code>string trader = 1 [(.gogoproto.moretags) = "yaml:&#92;"trader&#92;""];</code>
      */
-    public var trader: kotlin.String
+    var trader: kotlin.String
       @JvmName("getTrader")
       get() = _builder.getTrader()
       @JvmName("setTrader")
@@ -35,14 +35,14 @@ public object MsgSwapKt {
     /**
      * <code>string trader = 1 [(.gogoproto.moretags) = "yaml:&#92;"trader&#92;""];</code>
      */
-    public fun clearTrader() {
+    fun clearTrader() {
       _builder.clearTrader()
     }
 
     /**
      * <code>.cosmos.base.v1beta1.Coin offer_coin = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
      */
-    public var offerCoin: cosmos.base.v1beta1.CoinOuterClass.Coin
+    var offerCoin: cosmos.base.v1beta1.CoinOuterClass.Coin
       @JvmName("getOfferCoin")
       get() = _builder.getOfferCoin()
       @JvmName("setOfferCoin")
@@ -52,21 +52,21 @@ public object MsgSwapKt {
     /**
      * <code>.cosmos.base.v1beta1.Coin offer_coin = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
      */
-    public fun clearOfferCoin() {
+    fun clearOfferCoin() {
       _builder.clearOfferCoin()
     }
     /**
      * <code>.cosmos.base.v1beta1.Coin offer_coin = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
      * @return Whether the offerCoin field is set.
      */
-    public fun hasOfferCoin(): kotlin.Boolean {
+    fun hasOfferCoin(): kotlin.Boolean {
       return _builder.hasOfferCoin()
     }
 
     /**
      * <code>string ask_denom = 3 [(.gogoproto.moretags) = "yaml:&#92;"ask_denom&#92;""];</code>
      */
-    public var askDenom: kotlin.String
+    var askDenom: kotlin.String
       @JvmName("getAskDenom")
       get() = _builder.getAskDenom()
       @JvmName("setAskDenom")
@@ -76,15 +76,11 @@ public object MsgSwapKt {
     /**
      * <code>string ask_denom = 3 [(.gogoproto.moretags) = "yaml:&#92;"ask_denom&#92;""];</code>
      */
-    public fun clearAskDenom() {
+    fun clearAskDenom() {
       _builder.clearAskDenom()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.market.v1beta1.Tx.MsgSwap.copy(block: terra.market.v1beta1.MsgSwapKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.Tx.MsgSwap =
+inline fun terra.market.v1beta1.Tx.MsgSwap.copy(block: terra.market.v1beta1.MsgSwapKt.Dsl.() -> Unit): terra.market.v1beta1.Tx.MsgSwap =
   terra.market.v1beta1.MsgSwapKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.market.v1beta1.Tx.MsgSwapOrBuilder.offerCoinOrNull: cosmos.base.v1beta1.CoinOuterClass.Coin?
-  get() = if (hasOfferCoin()) getOfferCoin() else null
-

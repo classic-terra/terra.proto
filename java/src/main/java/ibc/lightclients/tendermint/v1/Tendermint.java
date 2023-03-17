@@ -349,6 +349,162 @@ public final class Tendermint {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ClientState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              chainId_ = s;
+              break;
+            }
+            case 18: {
+              ibc.lightclients.tendermint.v1.Tendermint.Fraction.Builder subBuilder = null;
+              if (trustLevel_ != null) {
+                subBuilder = trustLevel_.toBuilder();
+              }
+              trustLevel_ = input.readMessage(ibc.lightclients.tendermint.v1.Tendermint.Fraction.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(trustLevel_);
+                trustLevel_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              com.google.protobuf.Duration.Builder subBuilder = null;
+              if (trustingPeriod_ != null) {
+                subBuilder = trustingPeriod_.toBuilder();
+              }
+              trustingPeriod_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(trustingPeriod_);
+                trustingPeriod_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              com.google.protobuf.Duration.Builder subBuilder = null;
+              if (unbondingPeriod_ != null) {
+                subBuilder = unbondingPeriod_.toBuilder();
+              }
+              unbondingPeriod_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(unbondingPeriod_);
+                unbondingPeriod_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 42: {
+              com.google.protobuf.Duration.Builder subBuilder = null;
+              if (maxClockDrift_ != null) {
+                subBuilder = maxClockDrift_.toBuilder();
+              }
+              maxClockDrift_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(maxClockDrift_);
+                maxClockDrift_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 50: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (frozenHeight_ != null) {
+                subBuilder = frozenHeight_.toBuilder();
+              }
+              frozenHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(frozenHeight_);
+                frozenHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 58: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (latestHeight_ != null) {
+                subBuilder = latestHeight_.toBuilder();
+              }
+              latestHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(latestHeight_);
+                latestHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                proofSpecs_ = new java.util.ArrayList<ics23.Proofs.ProofSpec>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              proofSpecs_.add(
+                  input.readMessage(ics23.Proofs.ProofSpec.parser(), extensionRegistry));
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                upgradePath_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              upgradePath_.add(s);
+              break;
+            }
+            case 80: {
+
+              allowUpdateAfterExpiry_ = input.readBool();
+              break;
+            }
+            case 88: {
+
+              allowUpdateAfterMisbehaviour_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          proofSpecs_ = java.util.Collections.unmodifiableList(proofSpecs_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          upgradePath_ = upgradePath_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.tendermint.v1.Tendermint.internal_static_ibc_lightclients_tendermint_v1_ClientState_descriptor;
@@ -363,8 +519,7 @@ public final class Tendermint {
     }
 
     public static final int CHAIN_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object chainId_ = "";
+    private volatile java.lang.Object chainId_;
     /**
      * <code>string chain_id = 1;</code>
      * @return The chainId.
@@ -424,7 +579,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public ibc.lightclients.tendermint.v1.Tendermint.FractionOrBuilder getTrustLevelOrBuilder() {
-      return trustLevel_ == null ? ibc.lightclients.tendermint.v1.Tendermint.Fraction.getDefaultInstance() : trustLevel_;
+      return getTrustLevel();
     }
 
     public static final int TRUSTING_PERIOD_FIELD_NUMBER = 3;
@@ -465,7 +620,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getTrustingPeriodOrBuilder() {
-      return trustingPeriod_ == null ? com.google.protobuf.Duration.getDefaultInstance() : trustingPeriod_;
+      return getTrustingPeriod();
     }
 
     public static final int UNBONDING_PERIOD_FIELD_NUMBER = 4;
@@ -503,7 +658,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getUnbondingPeriodOrBuilder() {
-      return unbondingPeriod_ == null ? com.google.protobuf.Duration.getDefaultInstance() : unbondingPeriod_;
+      return getUnbondingPeriod();
     }
 
     public static final int MAX_CLOCK_DRIFT_FIELD_NUMBER = 5;
@@ -541,7 +696,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getMaxClockDriftOrBuilder() {
-      return maxClockDrift_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxClockDrift_;
+      return getMaxClockDrift();
     }
 
     public static final int FROZEN_HEIGHT_FIELD_NUMBER = 6;
@@ -579,7 +734,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getFrozenHeightOrBuilder() {
-      return frozenHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : frozenHeight_;
+      return getFrozenHeight();
     }
 
     public static final int LATEST_HEIGHT_FIELD_NUMBER = 7;
@@ -617,11 +772,10 @@ public final class Tendermint {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getLatestHeightOrBuilder() {
-      return latestHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : latestHeight_;
+      return getLatestHeight();
     }
 
     public static final int PROOF_SPECS_FIELD_NUMBER = 8;
-    @SuppressWarnings("serial")
     private java.util.List<ics23.Proofs.ProofSpec> proofSpecs_;
     /**
      * <pre>
@@ -682,7 +836,6 @@ public final class Tendermint {
     }
 
     public static final int UPGRADE_PATH_FIELD_NUMBER = 9;
-    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList upgradePath_;
     /**
      * <pre>
@@ -758,7 +911,7 @@ public final class Tendermint {
     }
 
     public static final int ALLOW_UPDATE_AFTER_EXPIRY_FIELD_NUMBER = 10;
-    private boolean allowUpdateAfterExpiry_ = false;
+    private boolean allowUpdateAfterExpiry_;
     /**
      * <pre>
      * This flag, when set to true, will allow governance to recover a client
@@ -774,7 +927,7 @@ public final class Tendermint {
     }
 
     public static final int ALLOW_UPDATE_AFTER_MISBEHAVIOUR_FIELD_NUMBER = 11;
-    private boolean allowUpdateAfterMisbehaviour_ = false;
+    private boolean allowUpdateAfterMisbehaviour_;
     /**
      * <pre>
      * This flag, when set to true, will allow governance to unfreeze a client
@@ -803,7 +956,7 @@ public final class Tendermint {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chainId_)) {
+      if (!getChainIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, chainId_);
       }
       if (trustLevel_ != null) {
@@ -836,7 +989,7 @@ public final class Tendermint {
       if (allowUpdateAfterMisbehaviour_ != false) {
         output.writeBool(11, allowUpdateAfterMisbehaviour_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -845,7 +998,7 @@ public final class Tendermint {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chainId_)) {
+      if (!getChainIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, chainId_);
       }
       if (trustLevel_ != null) {
@@ -892,7 +1045,7 @@ public final class Tendermint {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(11, allowUpdateAfterMisbehaviour_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -947,7 +1100,7 @@ public final class Tendermint {
           != other.getAllowUpdateAfterExpiry()) return false;
       if (getAllowUpdateAfterMisbehaviour()
           != other.getAllowUpdateAfterMisbehaviour()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -998,7 +1151,7 @@ public final class Tendermint {
       hash = (37 * hash) + ALLOW_UPDATE_AFTER_MISBEHAVIOUR_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAllowUpdateAfterMisbehaviour());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1120,60 +1273,73 @@ public final class Tendermint {
 
       // Construct using ibc.lightclients.tendermint.v1.Tendermint.ClientState.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getProofSpecsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         chainId_ = "";
-        trustLevel_ = null;
-        if (trustLevelBuilder_ != null) {
-          trustLevelBuilder_.dispose();
+
+        if (trustLevelBuilder_ == null) {
+          trustLevel_ = null;
+        } else {
+          trustLevel_ = null;
           trustLevelBuilder_ = null;
         }
-        trustingPeriod_ = null;
-        if (trustingPeriodBuilder_ != null) {
-          trustingPeriodBuilder_.dispose();
+        if (trustingPeriodBuilder_ == null) {
+          trustingPeriod_ = null;
+        } else {
+          trustingPeriod_ = null;
           trustingPeriodBuilder_ = null;
         }
-        unbondingPeriod_ = null;
-        if (unbondingPeriodBuilder_ != null) {
-          unbondingPeriodBuilder_.dispose();
+        if (unbondingPeriodBuilder_ == null) {
+          unbondingPeriod_ = null;
+        } else {
+          unbondingPeriod_ = null;
           unbondingPeriodBuilder_ = null;
         }
-        maxClockDrift_ = null;
-        if (maxClockDriftBuilder_ != null) {
-          maxClockDriftBuilder_.dispose();
+        if (maxClockDriftBuilder_ == null) {
+          maxClockDrift_ = null;
+        } else {
+          maxClockDrift_ = null;
           maxClockDriftBuilder_ = null;
         }
-        frozenHeight_ = null;
-        if (frozenHeightBuilder_ != null) {
-          frozenHeightBuilder_.dispose();
+        if (frozenHeightBuilder_ == null) {
+          frozenHeight_ = null;
+        } else {
+          frozenHeight_ = null;
           frozenHeightBuilder_ = null;
         }
-        latestHeight_ = null;
-        if (latestHeightBuilder_ != null) {
-          latestHeightBuilder_.dispose();
+        if (latestHeightBuilder_ == null) {
+          latestHeight_ = null;
+        } else {
+          latestHeight_ = null;
           latestHeightBuilder_ = null;
         }
         if (proofSpecsBuilder_ == null) {
           proofSpecs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          proofSpecs_ = null;
           proofSpecsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000080);
         upgradePath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000002);
         allowUpdateAfterExpiry_ = false;
+
         allowUpdateAfterMisbehaviour_ = false;
+
         return this;
       }
 
@@ -1200,70 +1366,56 @@ public final class Tendermint {
       @java.lang.Override
       public ibc.lightclients.tendermint.v1.Tendermint.ClientState buildPartial() {
         ibc.lightclients.tendermint.v1.Tendermint.ClientState result = new ibc.lightclients.tendermint.v1.Tendermint.ClientState(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.lightclients.tendermint.v1.Tendermint.ClientState result) {
+        int from_bitField0_ = bitField0_;
+        result.chainId_ = chainId_;
+        if (trustLevelBuilder_ == null) {
+          result.trustLevel_ = trustLevel_;
+        } else {
+          result.trustLevel_ = trustLevelBuilder_.build();
+        }
+        if (trustingPeriodBuilder_ == null) {
+          result.trustingPeriod_ = trustingPeriod_;
+        } else {
+          result.trustingPeriod_ = trustingPeriodBuilder_.build();
+        }
+        if (unbondingPeriodBuilder_ == null) {
+          result.unbondingPeriod_ = unbondingPeriod_;
+        } else {
+          result.unbondingPeriod_ = unbondingPeriodBuilder_.build();
+        }
+        if (maxClockDriftBuilder_ == null) {
+          result.maxClockDrift_ = maxClockDrift_;
+        } else {
+          result.maxClockDrift_ = maxClockDriftBuilder_.build();
+        }
+        if (frozenHeightBuilder_ == null) {
+          result.frozenHeight_ = frozenHeight_;
+        } else {
+          result.frozenHeight_ = frozenHeightBuilder_.build();
+        }
+        if (latestHeightBuilder_ == null) {
+          result.latestHeight_ = latestHeight_;
+        } else {
+          result.latestHeight_ = latestHeightBuilder_.build();
+        }
         if (proofSpecsBuilder_ == null) {
-          if (((bitField0_ & 0x00000080) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             proofSpecs_ = java.util.Collections.unmodifiableList(proofSpecs_);
-            bitField0_ = (bitField0_ & ~0x00000080);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.proofSpecs_ = proofSpecs_;
         } else {
           result.proofSpecs_ = proofSpecsBuilder_.build();
         }
-        if (((bitField0_ & 0x00000100) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           upgradePath_ = upgradePath_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.upgradePath_ = upgradePath_;
-      }
-
-      private void buildPartial0(ibc.lightclients.tendermint.v1.Tendermint.ClientState result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.chainId_ = chainId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.trustLevel_ = trustLevelBuilder_ == null
-              ? trustLevel_
-              : trustLevelBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.trustingPeriod_ = trustingPeriodBuilder_ == null
-              ? trustingPeriod_
-              : trustingPeriodBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.unbondingPeriod_ = unbondingPeriodBuilder_ == null
-              ? unbondingPeriod_
-              : unbondingPeriodBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.maxClockDrift_ = maxClockDriftBuilder_ == null
-              ? maxClockDrift_
-              : maxClockDriftBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.frozenHeight_ = frozenHeightBuilder_ == null
-              ? frozenHeight_
-              : frozenHeightBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.latestHeight_ = latestHeightBuilder_ == null
-              ? latestHeight_
-              : latestHeightBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000200) != 0)) {
-          result.allowUpdateAfterExpiry_ = allowUpdateAfterExpiry_;
-        }
-        if (((from_bitField0_ & 0x00000400) != 0)) {
-          result.allowUpdateAfterMisbehaviour_ = allowUpdateAfterMisbehaviour_;
-        }
+        result.allowUpdateAfterExpiry_ = allowUpdateAfterExpiry_;
+        result.allowUpdateAfterMisbehaviour_ = allowUpdateAfterMisbehaviour_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -1312,7 +1464,6 @@ public final class Tendermint {
         if (other == ibc.lightclients.tendermint.v1.Tendermint.ClientState.getDefaultInstance()) return this;
         if (!other.getChainId().isEmpty()) {
           chainId_ = other.chainId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasTrustLevel()) {
@@ -1337,7 +1488,7 @@ public final class Tendermint {
           if (!other.proofSpecs_.isEmpty()) {
             if (proofSpecs_.isEmpty()) {
               proofSpecs_ = other.proofSpecs_;
-              bitField0_ = (bitField0_ & ~0x00000080);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureProofSpecsIsMutable();
               proofSpecs_.addAll(other.proofSpecs_);
@@ -1350,7 +1501,7 @@ public final class Tendermint {
               proofSpecsBuilder_.dispose();
               proofSpecsBuilder_ = null;
               proofSpecs_ = other.proofSpecs_;
-              bitField0_ = (bitField0_ & ~0x00000080);
+              bitField0_ = (bitField0_ & ~0x00000001);
               proofSpecsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getProofSpecsFieldBuilder() : null;
@@ -1362,7 +1513,7 @@ public final class Tendermint {
         if (!other.upgradePath_.isEmpty()) {
           if (upgradePath_.isEmpty()) {
             upgradePath_ = other.upgradePath_;
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureUpgradePathIsMutable();
             upgradePath_.addAll(other.upgradePath_);
@@ -1375,7 +1526,7 @@ public final class Tendermint {
         if (other.getAllowUpdateAfterMisbehaviour() != false) {
           setAllowUpdateAfterMisbehaviour(other.getAllowUpdateAfterMisbehaviour());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1390,106 +1541,17 @@ public final class Tendermint {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.tendermint.v1.Tendermint.ClientState parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                chainId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getTrustLevelFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getTrustingPeriodFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getUnbondingPeriodFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 42: {
-                input.readMessage(
-                    getMaxClockDriftFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              case 50: {
-                input.readMessage(
-                    getFrozenHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 50
-              case 58: {
-                input.readMessage(
-                    getLatestHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 58
-              case 66: {
-                ics23.Proofs.ProofSpec m =
-                    input.readMessage(
-                        ics23.Proofs.ProofSpec.parser(),
-                        extensionRegistry);
-                if (proofSpecsBuilder_ == null) {
-                  ensureProofSpecsIsMutable();
-                  proofSpecs_.add(m);
-                } else {
-                  proofSpecsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 66
-              case 74: {
-                java.lang.String s = input.readStringRequireUtf8();
-                ensureUpgradePathIsMutable();
-                upgradePath_.add(s);
-                break;
-              } // case 74
-              case 80: {
-                allowUpdateAfterExpiry_ = input.readBool();
-                bitField0_ |= 0x00000200;
-                break;
-              } // case 80
-              case 88: {
-                allowUpdateAfterMisbehaviour_ = input.readBool();
-                bitField0_ |= 0x00000400;
-                break;
-              } // case 88
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.tendermint.v1.Tendermint.ClientState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -1535,9 +1597,11 @@ public final class Tendermint {
        */
       public Builder setChainId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         chainId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1546,8 +1610,8 @@ public final class Tendermint {
        * @return This builder for chaining.
        */
       public Builder clearChainId() {
+        
         chainId_ = getDefaultInstance().getChainId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1558,10 +1622,12 @@ public final class Tendermint {
        */
       public Builder setChainIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         chainId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1574,7 +1640,7 @@ public final class Tendermint {
        * @return Whether the trustLevel field is set.
        */
       public boolean hasTrustLevel() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return trustLevelBuilder_ != null || trustLevel_ != null;
       }
       /**
        * <code>.ibc.lightclients.tendermint.v1.Fraction trust_level = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"trust_level&#92;""];</code>
@@ -1596,11 +1662,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           trustLevel_ = value;
+          onChanged();
         } else {
           trustLevelBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -1610,11 +1676,11 @@ public final class Tendermint {
           ibc.lightclients.tendermint.v1.Tendermint.Fraction.Builder builderForValue) {
         if (trustLevelBuilder_ == null) {
           trustLevel_ = builderForValue.build();
+          onChanged();
         } else {
           trustLevelBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -1622,38 +1688,38 @@ public final class Tendermint {
        */
       public Builder mergeTrustLevel(ibc.lightclients.tendermint.v1.Tendermint.Fraction value) {
         if (trustLevelBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            trustLevel_ != null &&
-            trustLevel_ != ibc.lightclients.tendermint.v1.Tendermint.Fraction.getDefaultInstance()) {
-            getTrustLevelBuilder().mergeFrom(value);
+          if (trustLevel_ != null) {
+            trustLevel_ =
+              ibc.lightclients.tendermint.v1.Tendermint.Fraction.newBuilder(trustLevel_).mergeFrom(value).buildPartial();
           } else {
             trustLevel_ = value;
           }
+          onChanged();
         } else {
           trustLevelBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.tendermint.v1.Fraction trust_level = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"trust_level&#92;""];</code>
        */
       public Builder clearTrustLevel() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        trustLevel_ = null;
-        if (trustLevelBuilder_ != null) {
-          trustLevelBuilder_.dispose();
+        if (trustLevelBuilder_ == null) {
+          trustLevel_ = null;
+          onChanged();
+        } else {
+          trustLevel_ = null;
           trustLevelBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.tendermint.v1.Fraction trust_level = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"trust_level&#92;""];</code>
        */
       public ibc.lightclients.tendermint.v1.Tendermint.Fraction.Builder getTrustLevelBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getTrustLevelFieldBuilder().getBuilder();
       }
@@ -1698,7 +1764,7 @@ public final class Tendermint {
        * @return Whether the trustingPeriod field is set.
        */
       public boolean hasTrustingPeriod() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return trustingPeriodBuilder_ != null || trustingPeriod_ != null;
       }
       /**
        * <pre>
@@ -1730,11 +1796,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           trustingPeriod_ = value;
+          onChanged();
         } else {
           trustingPeriodBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1749,11 +1815,11 @@ public final class Tendermint {
           com.google.protobuf.Duration.Builder builderForValue) {
         if (trustingPeriodBuilder_ == null) {
           trustingPeriod_ = builderForValue.build();
+          onChanged();
         } else {
           trustingPeriodBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1766,18 +1832,17 @@ public final class Tendermint {
        */
       public Builder mergeTrustingPeriod(com.google.protobuf.Duration value) {
         if (trustingPeriodBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            trustingPeriod_ != null &&
-            trustingPeriod_ != com.google.protobuf.Duration.getDefaultInstance()) {
-            getTrustingPeriodBuilder().mergeFrom(value);
+          if (trustingPeriod_ != null) {
+            trustingPeriod_ =
+              com.google.protobuf.Duration.newBuilder(trustingPeriod_).mergeFrom(value).buildPartial();
           } else {
             trustingPeriod_ = value;
           }
+          onChanged();
         } else {
           trustingPeriodBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1789,13 +1854,14 @@ public final class Tendermint {
        * <code>.google.protobuf.Duration trusting_period = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"trusting_period&#92;"", (.gogoproto.stdduration) = true];</code>
        */
       public Builder clearTrustingPeriod() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        trustingPeriod_ = null;
-        if (trustingPeriodBuilder_ != null) {
-          trustingPeriodBuilder_.dispose();
+        if (trustingPeriodBuilder_ == null) {
+          trustingPeriod_ = null;
+          onChanged();
+        } else {
+          trustingPeriod_ = null;
           trustingPeriodBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1807,7 +1873,7 @@ public final class Tendermint {
        * <code>.google.protobuf.Duration trusting_period = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"trusting_period&#92;"", (.gogoproto.stdduration) = true];</code>
        */
       public com.google.protobuf.Duration.Builder getTrustingPeriodBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getTrustingPeriodFieldBuilder().getBuilder();
       }
@@ -1861,7 +1927,7 @@ public final class Tendermint {
        * @return Whether the unbondingPeriod field is set.
        */
       public boolean hasUnbondingPeriod() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return unbondingPeriodBuilder_ != null || unbondingPeriod_ != null;
       }
       /**
        * <pre>
@@ -1891,11 +1957,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           unbondingPeriod_ = value;
+          onChanged();
         } else {
           unbondingPeriodBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -1909,11 +1975,11 @@ public final class Tendermint {
           com.google.protobuf.Duration.Builder builderForValue) {
         if (unbondingPeriodBuilder_ == null) {
           unbondingPeriod_ = builderForValue.build();
+          onChanged();
         } else {
           unbondingPeriodBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -1925,18 +1991,17 @@ public final class Tendermint {
        */
       public Builder mergeUnbondingPeriod(com.google.protobuf.Duration value) {
         if (unbondingPeriodBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            unbondingPeriod_ != null &&
-            unbondingPeriod_ != com.google.protobuf.Duration.getDefaultInstance()) {
-            getUnbondingPeriodBuilder().mergeFrom(value);
+          if (unbondingPeriod_ != null) {
+            unbondingPeriod_ =
+              com.google.protobuf.Duration.newBuilder(unbondingPeriod_).mergeFrom(value).buildPartial();
           } else {
             unbondingPeriod_ = value;
           }
+          onChanged();
         } else {
           unbondingPeriodBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -1947,13 +2012,14 @@ public final class Tendermint {
        * <code>.google.protobuf.Duration unbonding_period = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"unbonding_period&#92;"", (.gogoproto.stdduration) = true];</code>
        */
       public Builder clearUnbondingPeriod() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        unbondingPeriod_ = null;
-        if (unbondingPeriodBuilder_ != null) {
-          unbondingPeriodBuilder_.dispose();
+        if (unbondingPeriodBuilder_ == null) {
+          unbondingPeriod_ = null;
+          onChanged();
+        } else {
+          unbondingPeriod_ = null;
           unbondingPeriodBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1964,7 +2030,7 @@ public final class Tendermint {
        * <code>.google.protobuf.Duration unbonding_period = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"unbonding_period&#92;"", (.gogoproto.stdduration) = true];</code>
        */
       public com.google.protobuf.Duration.Builder getUnbondingPeriodBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getUnbondingPeriodFieldBuilder().getBuilder();
       }
@@ -2016,7 +2082,7 @@ public final class Tendermint {
        * @return Whether the maxClockDrift field is set.
        */
       public boolean hasMaxClockDrift() {
-        return ((bitField0_ & 0x00000010) != 0);
+        return maxClockDriftBuilder_ != null || maxClockDrift_ != null;
       }
       /**
        * <pre>
@@ -2046,11 +2112,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           maxClockDrift_ = value;
+          onChanged();
         } else {
           maxClockDriftBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
-        onChanged();
+
         return this;
       }
       /**
@@ -2064,11 +2130,11 @@ public final class Tendermint {
           com.google.protobuf.Duration.Builder builderForValue) {
         if (maxClockDriftBuilder_ == null) {
           maxClockDrift_ = builderForValue.build();
+          onChanged();
         } else {
           maxClockDriftBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
-        onChanged();
+
         return this;
       }
       /**
@@ -2080,18 +2146,17 @@ public final class Tendermint {
        */
       public Builder mergeMaxClockDrift(com.google.protobuf.Duration value) {
         if (maxClockDriftBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) != 0) &&
-            maxClockDrift_ != null &&
-            maxClockDrift_ != com.google.protobuf.Duration.getDefaultInstance()) {
-            getMaxClockDriftBuilder().mergeFrom(value);
+          if (maxClockDrift_ != null) {
+            maxClockDrift_ =
+              com.google.protobuf.Duration.newBuilder(maxClockDrift_).mergeFrom(value).buildPartial();
           } else {
             maxClockDrift_ = value;
           }
+          onChanged();
         } else {
           maxClockDriftBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
-        onChanged();
+
         return this;
       }
       /**
@@ -2102,13 +2167,14 @@ public final class Tendermint {
        * <code>.google.protobuf.Duration max_clock_drift = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"max_clock_drift&#92;"", (.gogoproto.stdduration) = true];</code>
        */
       public Builder clearMaxClockDrift() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        maxClockDrift_ = null;
-        if (maxClockDriftBuilder_ != null) {
-          maxClockDriftBuilder_.dispose();
+        if (maxClockDriftBuilder_ == null) {
+          maxClockDrift_ = null;
+          onChanged();
+        } else {
+          maxClockDrift_ = null;
           maxClockDriftBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -2119,7 +2185,7 @@ public final class Tendermint {
        * <code>.google.protobuf.Duration max_clock_drift = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"max_clock_drift&#92;"", (.gogoproto.stdduration) = true];</code>
        */
       public com.google.protobuf.Duration.Builder getMaxClockDriftBuilder() {
-        bitField0_ |= 0x00000010;
+        
         onChanged();
         return getMaxClockDriftFieldBuilder().getBuilder();
       }
@@ -2171,7 +2237,7 @@ public final class Tendermint {
        * @return Whether the frozenHeight field is set.
        */
       public boolean hasFrozenHeight() {
-        return ((bitField0_ & 0x00000020) != 0);
+        return frozenHeightBuilder_ != null || frozenHeight_ != null;
       }
       /**
        * <pre>
@@ -2201,11 +2267,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           frozenHeight_ = value;
+          onChanged();
         } else {
           frozenHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000020;
-        onChanged();
+
         return this;
       }
       /**
@@ -2219,11 +2285,11 @@ public final class Tendermint {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (frozenHeightBuilder_ == null) {
           frozenHeight_ = builderForValue.build();
+          onChanged();
         } else {
           frozenHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000020;
-        onChanged();
+
         return this;
       }
       /**
@@ -2235,18 +2301,17 @@ public final class Tendermint {
        */
       public Builder mergeFrozenHeight(ibc.core.client.v1.Client.Height value) {
         if (frozenHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) != 0) &&
-            frozenHeight_ != null &&
-            frozenHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getFrozenHeightBuilder().mergeFrom(value);
+          if (frozenHeight_ != null) {
+            frozenHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(frozenHeight_).mergeFrom(value).buildPartial();
           } else {
             frozenHeight_ = value;
           }
+          onChanged();
         } else {
           frozenHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000020;
-        onChanged();
+
         return this;
       }
       /**
@@ -2257,13 +2322,14 @@ public final class Tendermint {
        * <code>.ibc.core.client.v1.Height frozen_height = 6 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"frozen_height&#92;""];</code>
        */
       public Builder clearFrozenHeight() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        frozenHeight_ = null;
-        if (frozenHeightBuilder_ != null) {
-          frozenHeightBuilder_.dispose();
+        if (frozenHeightBuilder_ == null) {
+          frozenHeight_ = null;
+          onChanged();
+        } else {
+          frozenHeight_ = null;
           frozenHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -2274,7 +2340,7 @@ public final class Tendermint {
        * <code>.ibc.core.client.v1.Height frozen_height = 6 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"frozen_height&#92;""];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getFrozenHeightBuilder() {
-        bitField0_ |= 0x00000020;
+        
         onChanged();
         return getFrozenHeightFieldBuilder().getBuilder();
       }
@@ -2326,7 +2392,7 @@ public final class Tendermint {
        * @return Whether the latestHeight field is set.
        */
       public boolean hasLatestHeight() {
-        return ((bitField0_ & 0x00000040) != 0);
+        return latestHeightBuilder_ != null || latestHeight_ != null;
       }
       /**
        * <pre>
@@ -2356,11 +2422,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           latestHeight_ = value;
+          onChanged();
         } else {
           latestHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000040;
-        onChanged();
+
         return this;
       }
       /**
@@ -2374,11 +2440,11 @@ public final class Tendermint {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (latestHeightBuilder_ == null) {
           latestHeight_ = builderForValue.build();
+          onChanged();
         } else {
           latestHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000040;
-        onChanged();
+
         return this;
       }
       /**
@@ -2390,18 +2456,17 @@ public final class Tendermint {
        */
       public Builder mergeLatestHeight(ibc.core.client.v1.Client.Height value) {
         if (latestHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) != 0) &&
-            latestHeight_ != null &&
-            latestHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getLatestHeightBuilder().mergeFrom(value);
+          if (latestHeight_ != null) {
+            latestHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(latestHeight_).mergeFrom(value).buildPartial();
           } else {
             latestHeight_ = value;
           }
+          onChanged();
         } else {
           latestHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000040;
-        onChanged();
+
         return this;
       }
       /**
@@ -2412,13 +2477,14 @@ public final class Tendermint {
        * <code>.ibc.core.client.v1.Height latest_height = 7 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"latest_height&#92;""];</code>
        */
       public Builder clearLatestHeight() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        latestHeight_ = null;
-        if (latestHeightBuilder_ != null) {
-          latestHeightBuilder_.dispose();
+        if (latestHeightBuilder_ == null) {
+          latestHeight_ = null;
+          onChanged();
+        } else {
+          latestHeight_ = null;
           latestHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -2429,7 +2495,7 @@ public final class Tendermint {
        * <code>.ibc.core.client.v1.Height latest_height = 7 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"latest_height&#92;""];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getLatestHeightBuilder() {
-        bitField0_ |= 0x00000040;
+        
         onChanged();
         return getLatestHeightFieldBuilder().getBuilder();
       }
@@ -2472,9 +2538,9 @@ public final class Tendermint {
       private java.util.List<ics23.Proofs.ProofSpec> proofSpecs_ =
         java.util.Collections.emptyList();
       private void ensureProofSpecsIsMutable() {
-        if (!((bitField0_ & 0x00000080) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           proofSpecs_ = new java.util.ArrayList<ics23.Proofs.ProofSpec>(proofSpecs_);
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -2668,7 +2734,7 @@ public final class Tendermint {
       public Builder clearProofSpecs() {
         if (proofSpecsBuilder_ == null) {
           proofSpecs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           proofSpecsBuilder_.clear();
@@ -2773,7 +2839,7 @@ public final class Tendermint {
           proofSpecsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               ics23.Proofs.ProofSpec, ics23.Proofs.ProofSpec.Builder, ics23.Proofs.ProofSpecOrBuilder>(
                   proofSpecs_,
-                  ((bitField0_ & 0x00000080) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           proofSpecs_ = null;
@@ -2783,9 +2849,9 @@ public final class Tendermint {
 
       private com.google.protobuf.LazyStringList upgradePath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureUpgradePathIsMutable() {
-        if (!((bitField0_ & 0x00000100) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           upgradePath_ = new com.google.protobuf.LazyStringArrayList(upgradePath_);
-          bitField0_ |= 0x00000100;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
@@ -2878,8 +2944,10 @@ public final class Tendermint {
        */
       public Builder setUpgradePath(
           int index, java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureUpgradePathIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUpgradePathIsMutable();
         upgradePath_.set(index, value);
         onChanged();
         return this;
@@ -2901,8 +2969,10 @@ public final class Tendermint {
        */
       public Builder addUpgradePath(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureUpgradePathIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureUpgradePathIsMutable();
         upgradePath_.add(value);
         onChanged();
         return this;
@@ -2946,7 +3016,7 @@ public final class Tendermint {
        */
       public Builder clearUpgradePath() {
         upgradePath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2967,8 +3037,10 @@ public final class Tendermint {
        */
       public Builder addUpgradePathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         ensureUpgradePathIsMutable();
         upgradePath_.add(value);
         onChanged();
@@ -3002,7 +3074,6 @@ public final class Tendermint {
       public Builder setAllowUpdateAfterExpiry(boolean value) {
         
         allowUpdateAfterExpiry_ = value;
-        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -3016,7 +3087,7 @@ public final class Tendermint {
        * @return This builder for chaining.
        */
       public Builder clearAllowUpdateAfterExpiry() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        
         allowUpdateAfterExpiry_ = false;
         onChanged();
         return this;
@@ -3049,7 +3120,6 @@ public final class Tendermint {
       public Builder setAllowUpdateAfterMisbehaviour(boolean value) {
         
         allowUpdateAfterMisbehaviour_ = value;
-        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -3063,7 +3133,7 @@ public final class Tendermint {
        * @return This builder for chaining.
        */
       public Builder clearAllowUpdateAfterMisbehaviour() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        
         allowUpdateAfterMisbehaviour_ = false;
         onChanged();
         return this;
@@ -3101,18 +3171,7 @@ public final class Tendermint {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ClientState(input, extensionRegistry);
       }
     };
 
@@ -3231,6 +3290,74 @@ public final class Tendermint {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ConsensusState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (timestamp_ != null) {
+                subBuilder = timestamp_.toBuilder();
+              }
+              timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(timestamp_);
+                timestamp_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              ibc.core.commitment.v1.Commitment.MerkleRoot.Builder subBuilder = null;
+              if (root_ != null) {
+                subBuilder = root_.toBuilder();
+              }
+              root_ = input.readMessage(ibc.core.commitment.v1.Commitment.MerkleRoot.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(root_);
+                root_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+
+              nextValidatorsHash_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.tendermint.v1.Tendermint.internal_static_ibc_lightclients_tendermint_v1_ConsensusState_descriptor;
@@ -3282,7 +3409,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
-      return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
+      return getTimestamp();
     }
 
     public static final int ROOT_FIELD_NUMBER = 2;
@@ -3320,11 +3447,11 @@ public final class Tendermint {
      */
     @java.lang.Override
     public ibc.core.commitment.v1.Commitment.MerkleRootOrBuilder getRootOrBuilder() {
-      return root_ == null ? ibc.core.commitment.v1.Commitment.MerkleRoot.getDefaultInstance() : root_;
+      return getRoot();
     }
 
     public static final int NEXT_VALIDATORS_HASH_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString nextValidatorsHash_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString nextValidatorsHash_;
     /**
      * <code>bytes next_validators_hash = 3 [(.gogoproto.moretags) = "yaml:&#92;"next_validators_hash&#92;"", (.gogoproto.casttype) = "github.com/tendermint/tendermint/libs/bytes.HexBytes"];</code>
      * @return The nextValidatorsHash.
@@ -3357,7 +3484,7 @@ public final class Tendermint {
       if (!nextValidatorsHash_.isEmpty()) {
         output.writeBytes(3, nextValidatorsHash_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3378,7 +3505,7 @@ public final class Tendermint {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, nextValidatorsHash_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3405,7 +3532,7 @@ public final class Tendermint {
       }
       if (!getNextValidatorsHash()
           .equals(other.getNextValidatorsHash())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3426,7 +3553,7 @@ public final class Tendermint {
       }
       hash = (37 * hash) + NEXT_VALIDATORS_HASH_FIELD_NUMBER;
       hash = (53 * hash) + getNextValidatorsHash().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3547,29 +3674,36 @@ public final class Tendermint {
 
       // Construct using ibc.lightclients.tendermint.v1.Tendermint.ConsensusState.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        timestamp_ = null;
-        if (timestampBuilder_ != null) {
-          timestampBuilder_.dispose();
+        if (timestampBuilder_ == null) {
+          timestamp_ = null;
+        } else {
+          timestamp_ = null;
           timestampBuilder_ = null;
         }
-        root_ = null;
-        if (rootBuilder_ != null) {
-          rootBuilder_.dispose();
+        if (rootBuilder_ == null) {
+          root_ = null;
+        } else {
+          root_ = null;
           rootBuilder_ = null;
         }
         nextValidatorsHash_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -3596,26 +3730,19 @@ public final class Tendermint {
       @java.lang.Override
       public ibc.lightclients.tendermint.v1.Tendermint.ConsensusState buildPartial() {
         ibc.lightclients.tendermint.v1.Tendermint.ConsensusState result = new ibc.lightclients.tendermint.v1.Tendermint.ConsensusState(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (timestampBuilder_ == null) {
+          result.timestamp_ = timestamp_;
+        } else {
+          result.timestamp_ = timestampBuilder_.build();
+        }
+        if (rootBuilder_ == null) {
+          result.root_ = root_;
+        } else {
+          result.root_ = rootBuilder_.build();
+        }
+        result.nextValidatorsHash_ = nextValidatorsHash_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.tendermint.v1.Tendermint.ConsensusState result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.timestamp_ = timestampBuilder_ == null
-              ? timestamp_
-              : timestampBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.root_ = rootBuilder_ == null
-              ? root_
-              : rootBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.nextValidatorsHash_ = nextValidatorsHash_;
-        }
       }
 
       @java.lang.Override
@@ -3671,7 +3798,7 @@ public final class Tendermint {
         if (other.getNextValidatorsHash() != com.google.protobuf.ByteString.EMPTY) {
           setNextValidatorsHash(other.getNextValidatorsHash());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3686,52 +3813,19 @@ public final class Tendermint {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.tendermint.v1.Tendermint.ConsensusState parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getTimestampFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getRootFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                nextValidatorsHash_ = input.readBytes();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.tendermint.v1.Tendermint.ConsensusState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.Timestamp timestamp_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3746,7 +3840,7 @@ public final class Tendermint {
        * @return Whether the timestamp field is set.
        */
       public boolean hasTimestamp() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return timestampBuilder_ != null || timestamp_ != null;
       }
       /**
        * <pre>
@@ -3778,11 +3872,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           timestamp_ = value;
+          onChanged();
         } else {
           timestampBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -3797,11 +3891,11 @@ public final class Tendermint {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (timestampBuilder_ == null) {
           timestamp_ = builderForValue.build();
+          onChanged();
         } else {
           timestampBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -3814,18 +3908,17 @@ public final class Tendermint {
        */
       public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
         if (timestampBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            timestamp_ != null &&
-            timestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-            getTimestampBuilder().mergeFrom(value);
+          if (timestamp_ != null) {
+            timestamp_ =
+              com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
           } else {
             timestamp_ = value;
           }
+          onChanged();
         } else {
           timestampBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -3837,13 +3930,14 @@ public final class Tendermint {
        * <code>.google.protobuf.Timestamp timestamp = 1 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public Builder clearTimestamp() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        timestamp_ = null;
-        if (timestampBuilder_ != null) {
-          timestampBuilder_.dispose();
+        if (timestampBuilder_ == null) {
+          timestamp_ = null;
+          onChanged();
+        } else {
+          timestamp_ = null;
           timestampBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -3855,7 +3949,7 @@ public final class Tendermint {
        * <code>.google.protobuf.Timestamp timestamp = 1 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getTimestampFieldBuilder().getBuilder();
       }
@@ -3909,7 +4003,7 @@ public final class Tendermint {
        * @return Whether the root field is set.
        */
       public boolean hasRoot() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return rootBuilder_ != null || root_ != null;
       }
       /**
        * <pre>
@@ -3939,11 +4033,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           root_ = value;
+          onChanged();
         } else {
           rootBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -3957,11 +4051,11 @@ public final class Tendermint {
           ibc.core.commitment.v1.Commitment.MerkleRoot.Builder builderForValue) {
         if (rootBuilder_ == null) {
           root_ = builderForValue.build();
+          onChanged();
         } else {
           rootBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -3973,18 +4067,17 @@ public final class Tendermint {
        */
       public Builder mergeRoot(ibc.core.commitment.v1.Commitment.MerkleRoot value) {
         if (rootBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            root_ != null &&
-            root_ != ibc.core.commitment.v1.Commitment.MerkleRoot.getDefaultInstance()) {
-            getRootBuilder().mergeFrom(value);
+          if (root_ != null) {
+            root_ =
+              ibc.core.commitment.v1.Commitment.MerkleRoot.newBuilder(root_).mergeFrom(value).buildPartial();
           } else {
             root_ = value;
           }
+          onChanged();
         } else {
           rootBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -3995,13 +4088,14 @@ public final class Tendermint {
        * <code>.ibc.core.commitment.v1.MerkleRoot root = 2 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearRoot() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        root_ = null;
-        if (rootBuilder_ != null) {
-          rootBuilder_.dispose();
+        if (rootBuilder_ == null) {
+          root_ = null;
+          onChanged();
+        } else {
+          root_ = null;
           rootBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -4012,7 +4106,7 @@ public final class Tendermint {
        * <code>.ibc.core.commitment.v1.MerkleRoot root = 2 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.commitment.v1.Commitment.MerkleRoot.Builder getRootBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getRootFieldBuilder().getBuilder();
       }
@@ -4067,9 +4161,11 @@ public final class Tendermint {
        * @return This builder for chaining.
        */
       public Builder setNextValidatorsHash(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         nextValidatorsHash_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4078,7 +4174,7 @@ public final class Tendermint {
        * @return This builder for chaining.
        */
       public Builder clearNextValidatorsHash() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         nextValidatorsHash_ = getDefaultInstance().getNextValidatorsHash();
         onChanged();
         return this;
@@ -4116,18 +4212,7 @@ public final class Tendermint {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ConsensusState(input, extensionRegistry);
       }
     };
 
@@ -4226,6 +4311,75 @@ public final class Tendermint {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Misbehaviour(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              clientId_ = s;
+              break;
+            }
+            case 18: {
+              ibc.lightclients.tendermint.v1.Tendermint.Header.Builder subBuilder = null;
+              if (header1_ != null) {
+                subBuilder = header1_.toBuilder();
+              }
+              header1_ = input.readMessage(ibc.lightclients.tendermint.v1.Tendermint.Header.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header1_);
+                header1_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              ibc.lightclients.tendermint.v1.Tendermint.Header.Builder subBuilder = null;
+              if (header2_ != null) {
+                subBuilder = header2_.toBuilder();
+              }
+              header2_ = input.readMessage(ibc.lightclients.tendermint.v1.Tendermint.Header.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header2_);
+                header2_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.tendermint.v1.Tendermint.internal_static_ibc_lightclients_tendermint_v1_Misbehaviour_descriptor;
@@ -4240,8 +4394,7 @@ public final class Tendermint {
     }
 
     public static final int CLIENT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object clientId_ = "";
+    private volatile java.lang.Object clientId_;
     /**
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      * @return The clientId.
@@ -4301,7 +4454,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public ibc.lightclients.tendermint.v1.Tendermint.HeaderOrBuilder getHeader1OrBuilder() {
-      return header1_ == null ? ibc.lightclients.tendermint.v1.Tendermint.Header.getDefaultInstance() : header1_;
+      return getHeader1();
     }
 
     public static final int HEADER_2_FIELD_NUMBER = 3;
@@ -4327,7 +4480,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public ibc.lightclients.tendermint.v1.Tendermint.HeaderOrBuilder getHeader2OrBuilder() {
-      return header2_ == null ? ibc.lightclients.tendermint.v1.Tendermint.Header.getDefaultInstance() : header2_;
+      return getHeader2();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4344,7 +4497,7 @@ public final class Tendermint {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+      if (!getClientIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, clientId_);
       }
       if (header1_ != null) {
@@ -4353,7 +4506,7 @@ public final class Tendermint {
       if (header2_ != null) {
         output.writeMessage(3, getHeader2());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4362,7 +4515,7 @@ public final class Tendermint {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+      if (!getClientIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, clientId_);
       }
       if (header1_ != null) {
@@ -4373,7 +4526,7 @@ public final class Tendermint {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getHeader2());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4400,7 +4553,7 @@ public final class Tendermint {
         if (!getHeader2()
             .equals(other.getHeader2())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4421,7 +4574,7 @@ public final class Tendermint {
         hash = (37 * hash) + HEADER_2_FIELD_NUMBER;
         hash = (53 * hash) + getHeader2().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4543,27 +4696,34 @@ public final class Tendermint {
 
       // Construct using ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         clientId_ = "";
-        header1_ = null;
-        if (header1Builder_ != null) {
-          header1Builder_.dispose();
+
+        if (header1Builder_ == null) {
+          header1_ = null;
+        } else {
+          header1_ = null;
           header1Builder_ = null;
         }
-        header2_ = null;
-        if (header2Builder_ != null) {
-          header2Builder_.dispose();
+        if (header2Builder_ == null) {
+          header2_ = null;
+        } else {
+          header2_ = null;
           header2Builder_ = null;
         }
         return this;
@@ -4592,26 +4752,19 @@ public final class Tendermint {
       @java.lang.Override
       public ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour buildPartial() {
         ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour result = new ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.clientId_ = clientId_;
+        if (header1Builder_ == null) {
+          result.header1_ = header1_;
+        } else {
+          result.header1_ = header1Builder_.build();
+        }
+        if (header2Builder_ == null) {
+          result.header2_ = header2_;
+        } else {
+          result.header2_ = header2Builder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.clientId_ = clientId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.header1_ = header1Builder_ == null
-              ? header1_
-              : header1Builder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.header2_ = header2Builder_ == null
-              ? header2_
-              : header2Builder_.build();
-        }
       }
 
       @java.lang.Override
@@ -4660,7 +4813,6 @@ public final class Tendermint {
         if (other == ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour.getDefaultInstance()) return this;
         if (!other.getClientId().isEmpty()) {
           clientId_ = other.clientId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasHeader1()) {
@@ -4669,7 +4821,7 @@ public final class Tendermint {
         if (other.hasHeader2()) {
           mergeHeader2(other.getHeader2());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4684,52 +4836,19 @@ public final class Tendermint {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                clientId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getHeader1FieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getHeader2FieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object clientId_ = "";
       /**
@@ -4772,9 +4891,11 @@ public final class Tendermint {
        */
       public Builder setClientId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         clientId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4783,8 +4904,8 @@ public final class Tendermint {
        * @return This builder for chaining.
        */
       public Builder clearClientId() {
+        
         clientId_ = getDefaultInstance().getClientId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4795,10 +4916,12 @@ public final class Tendermint {
        */
       public Builder setClientIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         clientId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4811,7 +4934,7 @@ public final class Tendermint {
        * @return Whether the header1 field is set.
        */
       public boolean hasHeader1() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return header1Builder_ != null || header1_ != null;
       }
       /**
        * <code>.ibc.lightclients.tendermint.v1.Header header_1 = 2 [(.gogoproto.customname) = "Header1", (.gogoproto.moretags) = "yaml:&#92;"header_1&#92;""];</code>
@@ -4833,11 +4956,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           header1_ = value;
+          onChanged();
         } else {
           header1Builder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -4847,11 +4970,11 @@ public final class Tendermint {
           ibc.lightclients.tendermint.v1.Tendermint.Header.Builder builderForValue) {
         if (header1Builder_ == null) {
           header1_ = builderForValue.build();
+          onChanged();
         } else {
           header1Builder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -4859,38 +4982,38 @@ public final class Tendermint {
        */
       public Builder mergeHeader1(ibc.lightclients.tendermint.v1.Tendermint.Header value) {
         if (header1Builder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            header1_ != null &&
-            header1_ != ibc.lightclients.tendermint.v1.Tendermint.Header.getDefaultInstance()) {
-            getHeader1Builder().mergeFrom(value);
+          if (header1_ != null) {
+            header1_ =
+              ibc.lightclients.tendermint.v1.Tendermint.Header.newBuilder(header1_).mergeFrom(value).buildPartial();
           } else {
             header1_ = value;
           }
+          onChanged();
         } else {
           header1Builder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.tendermint.v1.Header header_1 = 2 [(.gogoproto.customname) = "Header1", (.gogoproto.moretags) = "yaml:&#92;"header_1&#92;""];</code>
        */
       public Builder clearHeader1() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        header1_ = null;
-        if (header1Builder_ != null) {
-          header1Builder_.dispose();
+        if (header1Builder_ == null) {
+          header1_ = null;
+          onChanged();
+        } else {
+          header1_ = null;
           header1Builder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.tendermint.v1.Header header_1 = 2 [(.gogoproto.customname) = "Header1", (.gogoproto.moretags) = "yaml:&#92;"header_1&#92;""];</code>
        */
       public ibc.lightclients.tendermint.v1.Tendermint.Header.Builder getHeader1Builder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getHeader1FieldBuilder().getBuilder();
       }
@@ -4930,7 +5053,7 @@ public final class Tendermint {
        * @return Whether the header2 field is set.
        */
       public boolean hasHeader2() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return header2Builder_ != null || header2_ != null;
       }
       /**
        * <code>.ibc.lightclients.tendermint.v1.Header header_2 = 3 [(.gogoproto.customname) = "Header2", (.gogoproto.moretags) = "yaml:&#92;"header_2&#92;""];</code>
@@ -4952,11 +5075,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           header2_ = value;
+          onChanged();
         } else {
           header2Builder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -4966,11 +5089,11 @@ public final class Tendermint {
           ibc.lightclients.tendermint.v1.Tendermint.Header.Builder builderForValue) {
         if (header2Builder_ == null) {
           header2_ = builderForValue.build();
+          onChanged();
         } else {
           header2Builder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -4978,38 +5101,38 @@ public final class Tendermint {
        */
       public Builder mergeHeader2(ibc.lightclients.tendermint.v1.Tendermint.Header value) {
         if (header2Builder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            header2_ != null &&
-            header2_ != ibc.lightclients.tendermint.v1.Tendermint.Header.getDefaultInstance()) {
-            getHeader2Builder().mergeFrom(value);
+          if (header2_ != null) {
+            header2_ =
+              ibc.lightclients.tendermint.v1.Tendermint.Header.newBuilder(header2_).mergeFrom(value).buildPartial();
           } else {
             header2_ = value;
           }
+          onChanged();
         } else {
           header2Builder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.tendermint.v1.Header header_2 = 3 [(.gogoproto.customname) = "Header2", (.gogoproto.moretags) = "yaml:&#92;"header_2&#92;""];</code>
        */
       public Builder clearHeader2() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        header2_ = null;
-        if (header2Builder_ != null) {
-          header2Builder_.dispose();
+        if (header2Builder_ == null) {
+          header2_ = null;
+          onChanged();
+        } else {
+          header2_ = null;
           header2Builder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.tendermint.v1.Header header_2 = 3 [(.gogoproto.customname) = "Header2", (.gogoproto.moretags) = "yaml:&#92;"header_2&#92;""];</code>
        */
       public ibc.lightclients.tendermint.v1.Tendermint.Header.Builder getHeader2Builder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getHeader2FieldBuilder().getBuilder();
       }
@@ -5073,18 +5196,7 @@ public final class Tendermint {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Misbehaviour(input, extensionRegistry);
       }
     };
 
@@ -5210,6 +5322,95 @@ public final class Tendermint {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Header(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              tendermint.types.Types.SignedHeader.Builder subBuilder = null;
+              if (signedHeader_ != null) {
+                subBuilder = signedHeader_.toBuilder();
+              }
+              signedHeader_ = input.readMessage(tendermint.types.Types.SignedHeader.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(signedHeader_);
+                signedHeader_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              tendermint.types.ValidatorOuterClass.ValidatorSet.Builder subBuilder = null;
+              if (validatorSet_ != null) {
+                subBuilder = validatorSet_.toBuilder();
+              }
+              validatorSet_ = input.readMessage(tendermint.types.ValidatorOuterClass.ValidatorSet.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(validatorSet_);
+                validatorSet_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (trustedHeight_ != null) {
+                subBuilder = trustedHeight_.toBuilder();
+              }
+              trustedHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(trustedHeight_);
+                trustedHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              tendermint.types.ValidatorOuterClass.ValidatorSet.Builder subBuilder = null;
+              if (trustedValidators_ != null) {
+                subBuilder = trustedValidators_.toBuilder();
+              }
+              trustedValidators_ = input.readMessage(tendermint.types.ValidatorOuterClass.ValidatorSet.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(trustedValidators_);
+                trustedValidators_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.tendermint.v1.Tendermint.internal_static_ibc_lightclients_tendermint_v1_Header_descriptor;
@@ -5246,7 +5447,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public tendermint.types.Types.SignedHeaderOrBuilder getSignedHeaderOrBuilder() {
-      return signedHeader_ == null ? tendermint.types.Types.SignedHeader.getDefaultInstance() : signedHeader_;
+      return getSignedHeader();
     }
 
     public static final int VALIDATOR_SET_FIELD_NUMBER = 2;
@@ -5272,7 +5473,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public tendermint.types.ValidatorOuterClass.ValidatorSetOrBuilder getValidatorSetOrBuilder() {
-      return validatorSet_ == null ? tendermint.types.ValidatorOuterClass.ValidatorSet.getDefaultInstance() : validatorSet_;
+      return getValidatorSet();
     }
 
     public static final int TRUSTED_HEIGHT_FIELD_NUMBER = 3;
@@ -5298,7 +5499,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getTrustedHeightOrBuilder() {
-      return trustedHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : trustedHeight_;
+      return getTrustedHeight();
     }
 
     public static final int TRUSTED_VALIDATORS_FIELD_NUMBER = 4;
@@ -5324,7 +5525,7 @@ public final class Tendermint {
      */
     @java.lang.Override
     public tendermint.types.ValidatorOuterClass.ValidatorSetOrBuilder getTrustedValidatorsOrBuilder() {
-      return trustedValidators_ == null ? tendermint.types.ValidatorOuterClass.ValidatorSet.getDefaultInstance() : trustedValidators_;
+      return getTrustedValidators();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5353,7 +5554,7 @@ public final class Tendermint {
       if (trustedValidators_ != null) {
         output.writeMessage(4, getTrustedValidators());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5378,7 +5579,7 @@ public final class Tendermint {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getTrustedValidators());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5413,7 +5614,7 @@ public final class Tendermint {
         if (!getTrustedValidators()
             .equals(other.getTrustedValidators())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5440,7 +5641,7 @@ public final class Tendermint {
         hash = (37 * hash) + TRUSTED_VALIDATORS_FIELD_NUMBER;
         hash = (53 * hash) + getTrustedValidators().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5572,36 +5773,44 @@ public final class Tendermint {
 
       // Construct using ibc.lightclients.tendermint.v1.Tendermint.Header.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        signedHeader_ = null;
-        if (signedHeaderBuilder_ != null) {
-          signedHeaderBuilder_.dispose();
+        if (signedHeaderBuilder_ == null) {
+          signedHeader_ = null;
+        } else {
+          signedHeader_ = null;
           signedHeaderBuilder_ = null;
         }
-        validatorSet_ = null;
-        if (validatorSetBuilder_ != null) {
-          validatorSetBuilder_.dispose();
+        if (validatorSetBuilder_ == null) {
+          validatorSet_ = null;
+        } else {
+          validatorSet_ = null;
           validatorSetBuilder_ = null;
         }
-        trustedHeight_ = null;
-        if (trustedHeightBuilder_ != null) {
-          trustedHeightBuilder_.dispose();
+        if (trustedHeightBuilder_ == null) {
+          trustedHeight_ = null;
+        } else {
+          trustedHeight_ = null;
           trustedHeightBuilder_ = null;
         }
-        trustedValidators_ = null;
-        if (trustedValidatorsBuilder_ != null) {
-          trustedValidatorsBuilder_.dispose();
+        if (trustedValidatorsBuilder_ == null) {
+          trustedValidators_ = null;
+        } else {
+          trustedValidators_ = null;
           trustedValidatorsBuilder_ = null;
         }
         return this;
@@ -5630,33 +5839,28 @@ public final class Tendermint {
       @java.lang.Override
       public ibc.lightclients.tendermint.v1.Tendermint.Header buildPartial() {
         ibc.lightclients.tendermint.v1.Tendermint.Header result = new ibc.lightclients.tendermint.v1.Tendermint.Header(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (signedHeaderBuilder_ == null) {
+          result.signedHeader_ = signedHeader_;
+        } else {
+          result.signedHeader_ = signedHeaderBuilder_.build();
+        }
+        if (validatorSetBuilder_ == null) {
+          result.validatorSet_ = validatorSet_;
+        } else {
+          result.validatorSet_ = validatorSetBuilder_.build();
+        }
+        if (trustedHeightBuilder_ == null) {
+          result.trustedHeight_ = trustedHeight_;
+        } else {
+          result.trustedHeight_ = trustedHeightBuilder_.build();
+        }
+        if (trustedValidatorsBuilder_ == null) {
+          result.trustedValidators_ = trustedValidators_;
+        } else {
+          result.trustedValidators_ = trustedValidatorsBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.tendermint.v1.Tendermint.Header result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.signedHeader_ = signedHeaderBuilder_ == null
-              ? signedHeader_
-              : signedHeaderBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.validatorSet_ = validatorSetBuilder_ == null
-              ? validatorSet_
-              : validatorSetBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.trustedHeight_ = trustedHeightBuilder_ == null
-              ? trustedHeight_
-              : trustedHeightBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.trustedValidators_ = trustedValidatorsBuilder_ == null
-              ? trustedValidators_
-              : trustedValidatorsBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -5715,7 +5919,7 @@ public final class Tendermint {
         if (other.hasTrustedValidators()) {
           mergeTrustedValidators(other.getTrustedValidators());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5730,61 +5934,19 @@ public final class Tendermint {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.tendermint.v1.Tendermint.Header parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getSignedHeaderFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getValidatorSetFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getTrustedHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getTrustedValidatorsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.tendermint.v1.Tendermint.Header) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private tendermint.types.Types.SignedHeader signedHeader_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5794,7 +5956,7 @@ public final class Tendermint {
        * @return Whether the signedHeader field is set.
        */
       public boolean hasSignedHeader() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return signedHeaderBuilder_ != null || signedHeader_ != null;
       }
       /**
        * <code>.tendermint.types.SignedHeader signed_header = 1 [(.gogoproto.embed) = true, (.gogoproto.moretags) = "yaml:&#92;"signed_header&#92;""];</code>
@@ -5816,11 +5978,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           signedHeader_ = value;
+          onChanged();
         } else {
           signedHeaderBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -5830,11 +5992,11 @@ public final class Tendermint {
           tendermint.types.Types.SignedHeader.Builder builderForValue) {
         if (signedHeaderBuilder_ == null) {
           signedHeader_ = builderForValue.build();
+          onChanged();
         } else {
           signedHeaderBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -5842,38 +6004,38 @@ public final class Tendermint {
        */
       public Builder mergeSignedHeader(tendermint.types.Types.SignedHeader value) {
         if (signedHeaderBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            signedHeader_ != null &&
-            signedHeader_ != tendermint.types.Types.SignedHeader.getDefaultInstance()) {
-            getSignedHeaderBuilder().mergeFrom(value);
+          if (signedHeader_ != null) {
+            signedHeader_ =
+              tendermint.types.Types.SignedHeader.newBuilder(signedHeader_).mergeFrom(value).buildPartial();
           } else {
             signedHeader_ = value;
           }
+          onChanged();
         } else {
           signedHeaderBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.SignedHeader signed_header = 1 [(.gogoproto.embed) = true, (.gogoproto.moretags) = "yaml:&#92;"signed_header&#92;""];</code>
        */
       public Builder clearSignedHeader() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        signedHeader_ = null;
-        if (signedHeaderBuilder_ != null) {
-          signedHeaderBuilder_.dispose();
+        if (signedHeaderBuilder_ == null) {
+          signedHeader_ = null;
+          onChanged();
+        } else {
+          signedHeader_ = null;
           signedHeaderBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.SignedHeader signed_header = 1 [(.gogoproto.embed) = true, (.gogoproto.moretags) = "yaml:&#92;"signed_header&#92;""];</code>
        */
       public tendermint.types.Types.SignedHeader.Builder getSignedHeaderBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getSignedHeaderFieldBuilder().getBuilder();
       }
@@ -5913,7 +6075,7 @@ public final class Tendermint {
        * @return Whether the validatorSet field is set.
        */
       public boolean hasValidatorSet() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return validatorSetBuilder_ != null || validatorSet_ != null;
       }
       /**
        * <code>.tendermint.types.ValidatorSet validator_set = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_set&#92;""];</code>
@@ -5935,11 +6097,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           validatorSet_ = value;
+          onChanged();
         } else {
           validatorSetBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -5949,11 +6111,11 @@ public final class Tendermint {
           tendermint.types.ValidatorOuterClass.ValidatorSet.Builder builderForValue) {
         if (validatorSetBuilder_ == null) {
           validatorSet_ = builderForValue.build();
+          onChanged();
         } else {
           validatorSetBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -5961,38 +6123,38 @@ public final class Tendermint {
        */
       public Builder mergeValidatorSet(tendermint.types.ValidatorOuterClass.ValidatorSet value) {
         if (validatorSetBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            validatorSet_ != null &&
-            validatorSet_ != tendermint.types.ValidatorOuterClass.ValidatorSet.getDefaultInstance()) {
-            getValidatorSetBuilder().mergeFrom(value);
+          if (validatorSet_ != null) {
+            validatorSet_ =
+              tendermint.types.ValidatorOuterClass.ValidatorSet.newBuilder(validatorSet_).mergeFrom(value).buildPartial();
           } else {
             validatorSet_ = value;
           }
+          onChanged();
         } else {
           validatorSetBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.ValidatorSet validator_set = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_set&#92;""];</code>
        */
       public Builder clearValidatorSet() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        validatorSet_ = null;
-        if (validatorSetBuilder_ != null) {
-          validatorSetBuilder_.dispose();
+        if (validatorSetBuilder_ == null) {
+          validatorSet_ = null;
+          onChanged();
+        } else {
+          validatorSet_ = null;
           validatorSetBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.ValidatorSet validator_set = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_set&#92;""];</code>
        */
       public tendermint.types.ValidatorOuterClass.ValidatorSet.Builder getValidatorSetBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getValidatorSetFieldBuilder().getBuilder();
       }
@@ -6032,7 +6194,7 @@ public final class Tendermint {
        * @return Whether the trustedHeight field is set.
        */
       public boolean hasTrustedHeight() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return trustedHeightBuilder_ != null || trustedHeight_ != null;
       }
       /**
        * <code>.ibc.core.client.v1.Height trusted_height = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"trusted_height&#92;""];</code>
@@ -6054,11 +6216,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           trustedHeight_ = value;
+          onChanged();
         } else {
           trustedHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -6068,11 +6230,11 @@ public final class Tendermint {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (trustedHeightBuilder_ == null) {
           trustedHeight_ = builderForValue.build();
+          onChanged();
         } else {
           trustedHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -6080,38 +6242,38 @@ public final class Tendermint {
        */
       public Builder mergeTrustedHeight(ibc.core.client.v1.Client.Height value) {
         if (trustedHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            trustedHeight_ != null &&
-            trustedHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getTrustedHeightBuilder().mergeFrom(value);
+          if (trustedHeight_ != null) {
+            trustedHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(trustedHeight_).mergeFrom(value).buildPartial();
           } else {
             trustedHeight_ = value;
           }
+          onChanged();
         } else {
           trustedHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.core.client.v1.Height trusted_height = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"trusted_height&#92;""];</code>
        */
       public Builder clearTrustedHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        trustedHeight_ = null;
-        if (trustedHeightBuilder_ != null) {
-          trustedHeightBuilder_.dispose();
+        if (trustedHeightBuilder_ == null) {
+          trustedHeight_ = null;
+          onChanged();
+        } else {
+          trustedHeight_ = null;
           trustedHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.core.client.v1.Height trusted_height = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"trusted_height&#92;""];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getTrustedHeightBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getTrustedHeightFieldBuilder().getBuilder();
       }
@@ -6151,7 +6313,7 @@ public final class Tendermint {
        * @return Whether the trustedValidators field is set.
        */
       public boolean hasTrustedValidators() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return trustedValidatorsBuilder_ != null || trustedValidators_ != null;
       }
       /**
        * <code>.tendermint.types.ValidatorSet trusted_validators = 4 [(.gogoproto.moretags) = "yaml:&#92;"trusted_validators&#92;""];</code>
@@ -6173,11 +6335,11 @@ public final class Tendermint {
             throw new NullPointerException();
           }
           trustedValidators_ = value;
+          onChanged();
         } else {
           trustedValidatorsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -6187,11 +6349,11 @@ public final class Tendermint {
           tendermint.types.ValidatorOuterClass.ValidatorSet.Builder builderForValue) {
         if (trustedValidatorsBuilder_ == null) {
           trustedValidators_ = builderForValue.build();
+          onChanged();
         } else {
           trustedValidatorsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -6199,38 +6361,38 @@ public final class Tendermint {
        */
       public Builder mergeTrustedValidators(tendermint.types.ValidatorOuterClass.ValidatorSet value) {
         if (trustedValidatorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            trustedValidators_ != null &&
-            trustedValidators_ != tendermint.types.ValidatorOuterClass.ValidatorSet.getDefaultInstance()) {
-            getTrustedValidatorsBuilder().mergeFrom(value);
+          if (trustedValidators_ != null) {
+            trustedValidators_ =
+              tendermint.types.ValidatorOuterClass.ValidatorSet.newBuilder(trustedValidators_).mergeFrom(value).buildPartial();
           } else {
             trustedValidators_ = value;
           }
+          onChanged();
         } else {
           trustedValidatorsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.ValidatorSet trusted_validators = 4 [(.gogoproto.moretags) = "yaml:&#92;"trusted_validators&#92;""];</code>
        */
       public Builder clearTrustedValidators() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        trustedValidators_ = null;
-        if (trustedValidatorsBuilder_ != null) {
-          trustedValidatorsBuilder_.dispose();
+        if (trustedValidatorsBuilder_ == null) {
+          trustedValidators_ = null;
+          onChanged();
+        } else {
+          trustedValidators_ = null;
           trustedValidatorsBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.ValidatorSet trusted_validators = 4 [(.gogoproto.moretags) = "yaml:&#92;"trusted_validators&#92;""];</code>
        */
       public tendermint.types.ValidatorOuterClass.ValidatorSet.Builder getTrustedValidatorsBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getTrustedValidatorsFieldBuilder().getBuilder();
       }
@@ -6294,18 +6456,7 @@ public final class Tendermint {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Header(input, extensionRegistry);
       }
     };
 
@@ -6373,6 +6524,53 @@ public final class Tendermint {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Fraction(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              numerator_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              denominator_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.tendermint.v1.Tendermint.internal_static_ibc_lightclients_tendermint_v1_Fraction_descriptor;
@@ -6387,7 +6585,7 @@ public final class Tendermint {
     }
 
     public static final int NUMERATOR_FIELD_NUMBER = 1;
-    private long numerator_ = 0L;
+    private long numerator_;
     /**
      * <code>uint64 numerator = 1;</code>
      * @return The numerator.
@@ -6398,7 +6596,7 @@ public final class Tendermint {
     }
 
     public static final int DENOMINATOR_FIELD_NUMBER = 2;
-    private long denominator_ = 0L;
+    private long denominator_;
     /**
      * <code>uint64 denominator = 2;</code>
      * @return The denominator.
@@ -6428,7 +6626,7 @@ public final class Tendermint {
       if (denominator_ != 0L) {
         output.writeUInt64(2, denominator_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -6445,7 +6643,7 @@ public final class Tendermint {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, denominator_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6464,7 +6662,7 @@ public final class Tendermint {
           != other.getNumerator()) return false;
       if (getDenominator()
           != other.getDenominator()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -6481,7 +6679,7 @@ public final class Tendermint {
       hash = (37 * hash) + DENOMINATOR_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getDenominator());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6603,20 +6801,26 @@ public final class Tendermint {
 
       // Construct using ibc.lightclients.tendermint.v1.Tendermint.Fraction.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         numerator_ = 0L;
+
         denominator_ = 0L;
+
         return this;
       }
 
@@ -6643,19 +6847,10 @@ public final class Tendermint {
       @java.lang.Override
       public ibc.lightclients.tendermint.v1.Tendermint.Fraction buildPartial() {
         ibc.lightclients.tendermint.v1.Tendermint.Fraction result = new ibc.lightclients.tendermint.v1.Tendermint.Fraction(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.numerator_ = numerator_;
+        result.denominator_ = denominator_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.tendermint.v1.Tendermint.Fraction result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.numerator_ = numerator_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.denominator_ = denominator_;
-        }
       }
 
       @java.lang.Override
@@ -6708,7 +6903,7 @@ public final class Tendermint {
         if (other.getDenominator() != 0L) {
           setDenominator(other.getDenominator());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6723,43 +6918,19 @@ public final class Tendermint {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.tendermint.v1.Tendermint.Fraction parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                numerator_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                denominator_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.tendermint.v1.Tendermint.Fraction) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long numerator_ ;
       /**
@@ -6778,7 +6949,6 @@ public final class Tendermint {
       public Builder setNumerator(long value) {
         
         numerator_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6787,7 +6957,7 @@ public final class Tendermint {
        * @return This builder for chaining.
        */
       public Builder clearNumerator() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         numerator_ = 0L;
         onChanged();
         return this;
@@ -6810,7 +6980,6 @@ public final class Tendermint {
       public Builder setDenominator(long value) {
         
         denominator_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6819,7 +6988,7 @@ public final class Tendermint {
        * @return This builder for chaining.
        */
       public Builder clearDenominator() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         denominator_ = 0L;
         onChanged();
         return this;
@@ -6857,18 +7026,7 @@ public final class Tendermint {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Fraction(input, extensionRegistry);
       }
     };
 
@@ -6925,57 +7083,57 @@ public final class Tendermint {
       "\n/ibc/lightclients/tendermint/v1/tenderm" +
       "int.proto\022\036ibc.lightclients.tendermint.v" +
       "1\032 tendermint/types/validator.proto\032\034ten" +
-      "dermint/types/types.proto\032\014proofs.proto\032" +
-      "\036google/protobuf/duration.proto\032\037google/" +
-      "protobuf/timestamp.proto\032\037ibc/core/clien" +
-      "t/v1/client.proto\032\'ibc/core/commitment/v" +
-      "1/commitment.proto\032\024gogoproto/gogo.proto" +
-      "\"\270\006\n\013ClientState\022\020\n\010chain_id\030\001 \001(\t\022Y\n\013tr" +
-      "ust_level\030\002 \001(\0132(.ibc.lightclients.tende" +
-      "rmint.v1.FractionB\032\310\336\037\000\362\336\037\022yaml:\"trust_l" +
-      "evel\"\022V\n\017trusting_period\030\003 \001(\0132\031.google." +
-      "protobuf.DurationB\"\310\336\037\000\230\337\037\001\362\336\037\026yaml:\"tru" +
-      "sting_period\"\022X\n\020unbonding_period\030\004 \001(\0132" +
-      "\031.google.protobuf.DurationB#\310\336\037\000\230\337\037\001\362\336\037\027" +
-      "yaml:\"unbonding_period\"\022V\n\017max_clock_dri" +
-      "ft\030\005 \001(\0132\031.google.protobuf.DurationB\"\310\336\037" +
-      "\000\230\337\037\001\362\336\037\026yaml:\"max_clock_drift\"\022O\n\rfroze" +
-      "n_height\030\006 \001(\0132\032.ibc.core.client.v1.Heig" +
-      "htB\034\310\336\037\000\362\336\037\024yaml:\"frozen_height\"\022O\n\rlate" +
-      "st_height\030\007 \001(\0132\032.ibc.core.client.v1.Hei" +
-      "ghtB\034\310\336\037\000\362\336\037\024yaml:\"latest_height\"\022=\n\013pro" +
-      "of_specs\030\010 \003(\0132\020.ics23.ProofSpecB\026\362\336\037\022ya" +
-      "ml:\"proof_specs\"\022-\n\014upgrade_path\030\t \003(\tB\027" +
-      "\362\336\037\023yaml:\"upgrade_path\"\022G\n\031allow_update_" +
-      "after_expiry\030\n \001(\010B$\362\336\037 yaml:\"allow_upda" +
-      "te_after_expiry\"\022S\n\037allow_update_after_m" +
-      "isbehaviour\030\013 \001(\010B*\362\336\037&yaml:\"allow_updat" +
-      "e_after_misbehaviour\":\004\210\240\037\000\"\376\001\n\016Consensu" +
-      "sState\0227\n\ttimestamp\030\001 \001(\0132\032.google.proto" +
-      "buf.TimestampB\010\310\336\037\000\220\337\037\001\0226\n\004root\030\002 \001(\0132\"." +
-      "ibc.core.commitment.v1.MerkleRootB\004\310\336\037\000\022" +
-      "u\n\024next_validators_hash\030\003 \001(\014BW\372\336\0374githu" +
-      "b.com/tendermint/tendermint/libs/bytes.H" +
-      "exBytes\362\336\037\033yaml:\"next_validators_hash\":\004" +
-      "\210\240\037\000\"\361\001\n\014Misbehaviour\022\'\n\tclient_id\030\001 \001(\t" +
-      "B\024\362\336\037\020yaml:\"client_id\"\022X\n\010header_1\030\002 \001(\013" +
-      "2&.ibc.lightclients.tendermint.v1.Header" +
-      "B\036\342\336\037\007Header1\362\336\037\017yaml:\"header_1\"\022X\n\010head" +
-      "er_2\030\003 \001(\0132&.ibc.lightclients.tendermint" +
-      ".v1.HeaderB\036\342\336\037\007Header2\362\336\037\017yaml:\"header_" +
-      "2\":\004\210\240\037\000\"\334\002\n\006Header\022S\n\rsigned_header\030\001 \001" +
-      "(\0132\036.tendermint.types.SignedHeaderB\034\320\336\037\001" +
-      "\362\336\037\024yaml:\"signed_header\"\022O\n\rvalidator_se" +
-      "t\030\002 \001(\0132\036.tendermint.types.ValidatorSetB" +
-      "\030\362\336\037\024yaml:\"validator_set\"\022Q\n\016trusted_hei" +
-      "ght\030\003 \001(\0132\032.ibc.core.client.v1.HeightB\035\310" +
-      "\336\037\000\362\336\037\025yaml:\"trusted_height\"\022Y\n\022trusted_" +
-      "validators\030\004 \001(\0132\036.tendermint.types.Vali" +
-      "datorSetB\035\362\336\037\031yaml:\"trusted_validators\"\"" +
-      "2\n\010Fraction\022\021\n\tnumerator\030\001 \001(\004\022\023\n\013denomi" +
-      "nator\030\002 \001(\004BDZBgithub.com/cosmos/ibc-go/" +
-      "modules/light-clients/07-tendermint/type" +
-      "sb\006proto3"
+      "dermint/types/types.proto\032\023confio/proofs" +
+      ".proto\032\036google/protobuf/duration.proto\032\037" +
+      "google/protobuf/timestamp.proto\032\037ibc/cor" +
+      "e/client/v1/client.proto\032\'ibc/core/commi" +
+      "tment/v1/commitment.proto\032\024gogoproto/gog" +
+      "o.proto\"\270\006\n\013ClientState\022\020\n\010chain_id\030\001 \001(" +
+      "\t\022Y\n\013trust_level\030\002 \001(\0132(.ibc.lightclient" +
+      "s.tendermint.v1.FractionB\032\310\336\037\000\362\336\037\022yaml:\"" +
+      "trust_level\"\022V\n\017trusting_period\030\003 \001(\0132\031." +
+      "google.protobuf.DurationB\"\310\336\037\000\230\337\037\001\362\336\037\026ya" +
+      "ml:\"trusting_period\"\022X\n\020unbonding_period" +
+      "\030\004 \001(\0132\031.google.protobuf.DurationB#\310\336\037\000\230" +
+      "\337\037\001\362\336\037\027yaml:\"unbonding_period\"\022V\n\017max_cl" +
+      "ock_drift\030\005 \001(\0132\031.google.protobuf.Durati" +
+      "onB\"\310\336\037\000\230\337\037\001\362\336\037\026yaml:\"max_clock_drift\"\022O" +
+      "\n\rfrozen_height\030\006 \001(\0132\032.ibc.core.client." +
+      "v1.HeightB\034\310\336\037\000\362\336\037\024yaml:\"frozen_height\"\022" +
+      "O\n\rlatest_height\030\007 \001(\0132\032.ibc.core.client" +
+      ".v1.HeightB\034\310\336\037\000\362\336\037\024yaml:\"latest_height\"" +
+      "\022=\n\013proof_specs\030\010 \003(\0132\020.ics23.ProofSpecB" +
+      "\026\362\336\037\022yaml:\"proof_specs\"\022-\n\014upgrade_path\030" +
+      "\t \003(\tB\027\362\336\037\023yaml:\"upgrade_path\"\022G\n\031allow_" +
+      "update_after_expiry\030\n \001(\010B$\362\336\037 yaml:\"all" +
+      "ow_update_after_expiry\"\022S\n\037allow_update_" +
+      "after_misbehaviour\030\013 \001(\010B*\362\336\037&yaml:\"allo" +
+      "w_update_after_misbehaviour\":\004\210\240\037\000\"\376\001\n\016C" +
+      "onsensusState\0227\n\ttimestamp\030\001 \001(\0132\032.googl" +
+      "e.protobuf.TimestampB\010\310\336\037\000\220\337\037\001\0226\n\004root\030\002" +
+      " \001(\0132\".ibc.core.commitment.v1.MerkleRoot" +
+      "B\004\310\336\037\000\022u\n\024next_validators_hash\030\003 \001(\014BW\372\336" +
+      "\0374github.com/tendermint/tendermint/libs/" +
+      "bytes.HexBytes\362\336\037\033yaml:\"next_validators_" +
+      "hash\":\004\210\240\037\000\"\361\001\n\014Misbehaviour\022\'\n\tclient_i" +
+      "d\030\001 \001(\tB\024\362\336\037\020yaml:\"client_id\"\022X\n\010header_" +
+      "1\030\002 \001(\0132&.ibc.lightclients.tendermint.v1" +
+      ".HeaderB\036\342\336\037\007Header1\362\336\037\017yaml:\"header_1\"\022" +
+      "X\n\010header_2\030\003 \001(\0132&.ibc.lightclients.ten" +
+      "dermint.v1.HeaderB\036\342\336\037\007Header2\362\336\037\017yaml:\"" +
+      "header_2\":\004\210\240\037\000\"\334\002\n\006Header\022S\n\rsigned_hea" +
+      "der\030\001 \001(\0132\036.tendermint.types.SignedHeade" +
+      "rB\034\320\336\037\001\362\336\037\024yaml:\"signed_header\"\022O\n\rvalid" +
+      "ator_set\030\002 \001(\0132\036.tendermint.types.Valida" +
+      "torSetB\030\362\336\037\024yaml:\"validator_set\"\022Q\n\016trus" +
+      "ted_height\030\003 \001(\0132\032.ibc.core.client.v1.He" +
+      "ightB\035\310\336\037\000\362\336\037\025yaml:\"trusted_height\"\022Y\n\022t" +
+      "rusted_validators\030\004 \001(\0132\036.tendermint.typ" +
+      "es.ValidatorSetB\035\362\336\037\031yaml:\"trusted_valid" +
+      "ators\"\"2\n\010Fraction\022\021\n\tnumerator\030\001 \001(\004\022\023\n" +
+      "\013denominator\030\002 \001(\004BDZBgithub.com/cosmos/" +
+      "ibc-go/modules/light-clients/07-tendermi" +
+      "nt/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

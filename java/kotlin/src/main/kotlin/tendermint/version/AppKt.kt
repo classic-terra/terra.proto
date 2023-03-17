@@ -3,16 +3,16 @@
 
 package tendermint.version;
 
-@kotlin.jvm.JvmName("-initializeapp")
-public inline fun app(block: tendermint.version.AppKt.Dsl.() -> kotlin.Unit): tendermint.version.Types.App =
+@kotlin.jvm.JvmSynthetic
+inline fun app(block: tendermint.version.AppKt.Dsl.() -> Unit): tendermint.version.Types.App =
   tendermint.version.AppKt.Dsl._create(tendermint.version.Types.App.newBuilder()).apply { block() }._build()
-public object AppKt {
+object AppKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.version.Types.App.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.version.Types.App.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.version.Types.App.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object AppKt {
     /**
      * <code>uint64 protocol = 1;</code>
      */
-    public var protocol: kotlin.Long
+    var protocol: kotlin.Long
       @JvmName("getProtocol")
       get() = _builder.getProtocol()
       @JvmName("setProtocol")
@@ -35,14 +35,14 @@ public object AppKt {
     /**
      * <code>uint64 protocol = 1;</code>
      */
-    public fun clearProtocol() {
+    fun clearProtocol() {
       _builder.clearProtocol()
     }
 
     /**
      * <code>string software = 2;</code>
      */
-    public var software: kotlin.String
+    var software: kotlin.String
       @JvmName("getSoftware")
       get() = _builder.getSoftware()
       @JvmName("setSoftware")
@@ -52,12 +52,11 @@ public object AppKt {
     /**
      * <code>string software = 2;</code>
      */
-    public fun clearSoftware() {
+    fun clearSoftware() {
       _builder.clearSoftware()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.version.Types.App.copy(block: tendermint.version.AppKt.Dsl.() -> kotlin.Unit): tendermint.version.Types.App =
+inline fun tendermint.version.Types.App.copy(block: tendermint.version.AppKt.Dsl.() -> Unit): tendermint.version.Types.App =
   tendermint.version.AppKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

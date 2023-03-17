@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializequeryPacketCommitmentResponse")
-public inline fun queryPacketCommitmentResponse(block: ibc.core.channel.v1.QueryPacketCommitmentResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryPacketCommitmentResponse(block: ibc.core.channel.v1.QueryPacketCommitmentResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse =
   ibc.core.channel.v1.QueryPacketCommitmentResponseKt.Dsl._create(ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse.newBuilder()).apply { block() }._build()
-public object QueryPacketCommitmentResponseKt {
+object QueryPacketCommitmentResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryPacketCommitmentResponseKt {
      *
      * <code>bytes commitment = 1;</code>
      */
-    public var commitment: com.google.protobuf.ByteString
+    var commitment: com.google.protobuf.ByteString
       @JvmName("getCommitment")
       get() = _builder.getCommitment()
       @JvmName("setCommitment")
@@ -43,7 +43,7 @@ public object QueryPacketCommitmentResponseKt {
      *
      * <code>bytes commitment = 1;</code>
      */
-    public fun clearCommitment() {
+    fun clearCommitment() {
       _builder.clearCommitment()
     }
 
@@ -54,7 +54,7 @@ public object QueryPacketCommitmentResponseKt {
      *
      * <code>bytes proof = 2;</code>
      */
-    public var proof: com.google.protobuf.ByteString
+    var proof: com.google.protobuf.ByteString
       @JvmName("getProof")
       get() = _builder.getProof()
       @JvmName("setProof")
@@ -68,7 +68,7 @@ public object QueryPacketCommitmentResponseKt {
      *
      * <code>bytes proof = 2;</code>
      */
-    public fun clearProof() {
+    fun clearProof() {
       _builder.clearProof()
     }
 
@@ -79,7 +79,7 @@ public object QueryPacketCommitmentResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public var proofHeight: ibc.core.client.v1.Client.Height
+    var proofHeight: ibc.core.client.v1.Client.Height
       @JvmName("getProofHeight")
       get() = _builder.getProofHeight()
       @JvmName("setProofHeight")
@@ -93,7 +93,7 @@ public object QueryPacketCommitmentResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearProofHeight() {
+    fun clearProofHeight() {
       _builder.clearProofHeight()
     }
     /**
@@ -104,15 +104,11 @@ public object QueryPacketCommitmentResponseKt {
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      * @return Whether the proofHeight field is set.
      */
-    public fun hasProofHeight(): kotlin.Boolean {
+    fun hasProofHeight(): kotlin.Boolean {
       return _builder.hasProofHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse.copy(block: ibc.core.channel.v1.QueryPacketCommitmentResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse =
+inline fun ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse.copy(block: ibc.core.channel.v1.QueryPacketCommitmentResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse =
   ibc.core.channel.v1.QueryPacketCommitmentResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponseOrBuilder.proofHeightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasProofHeight()) getProofHeight() else null
-

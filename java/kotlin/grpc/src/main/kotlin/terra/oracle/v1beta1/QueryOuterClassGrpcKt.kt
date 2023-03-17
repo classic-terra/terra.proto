@@ -28,75 +28,75 @@ import terra.oracle.v1beta1.QueryGrpc.getServiceDescriptor
 /**
  * Holder for Kotlin coroutine-based client and server APIs for terra.oracle.v1beta1.Query.
  */
-public object QueryGrpcKt {
-  public const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
+object QueryGrpcKt {
+  const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = QueryGrpc.getServiceDescriptor()
 
-  public val exchangeRateMethod:
-      MethodDescriptor<QueryOuterClass.QueryExchangeRateRequest, QueryOuterClass.QueryExchangeRateResponse>
+  val exchangeRateMethod: MethodDescriptor<QueryOuterClass.QueryExchangeRateRequest,
+      QueryOuterClass.QueryExchangeRateResponse>
     @JvmStatic
     get() = QueryGrpc.getExchangeRateMethod()
 
-  public val exchangeRatesMethod:
-      MethodDescriptor<QueryOuterClass.QueryExchangeRatesRequest, QueryOuterClass.QueryExchangeRatesResponse>
+  val exchangeRatesMethod: MethodDescriptor<QueryOuterClass.QueryExchangeRatesRequest,
+      QueryOuterClass.QueryExchangeRatesResponse>
     @JvmStatic
     get() = QueryGrpc.getExchangeRatesMethod()
 
-  public val tobinTaxMethod:
-      MethodDescriptor<QueryOuterClass.QueryTobinTaxRequest, QueryOuterClass.QueryTobinTaxResponse>
+  val tobinTaxMethod: MethodDescriptor<QueryOuterClass.QueryTobinTaxRequest,
+      QueryOuterClass.QueryTobinTaxResponse>
     @JvmStatic
     get() = QueryGrpc.getTobinTaxMethod()
 
-  public val tobinTaxesMethod:
-      MethodDescriptor<QueryOuterClass.QueryTobinTaxesRequest, QueryOuterClass.QueryTobinTaxesResponse>
+  val tobinTaxesMethod: MethodDescriptor<QueryOuterClass.QueryTobinTaxesRequest,
+      QueryOuterClass.QueryTobinTaxesResponse>
     @JvmStatic
     get() = QueryGrpc.getTobinTaxesMethod()
 
-  public val activesMethod:
-      MethodDescriptor<QueryOuterClass.QueryActivesRequest, QueryOuterClass.QueryActivesResponse>
+  val activesMethod: MethodDescriptor<QueryOuterClass.QueryActivesRequest,
+      QueryOuterClass.QueryActivesResponse>
     @JvmStatic
     get() = QueryGrpc.getActivesMethod()
 
-  public val voteTargetsMethod:
-      MethodDescriptor<QueryOuterClass.QueryVoteTargetsRequest, QueryOuterClass.QueryVoteTargetsResponse>
+  val voteTargetsMethod: MethodDescriptor<QueryOuterClass.QueryVoteTargetsRequest,
+      QueryOuterClass.QueryVoteTargetsResponse>
     @JvmStatic
     get() = QueryGrpc.getVoteTargetsMethod()
 
-  public val feederDelegationMethod:
-      MethodDescriptor<QueryOuterClass.QueryFeederDelegationRequest, QueryOuterClass.QueryFeederDelegationResponse>
+  val feederDelegationMethod: MethodDescriptor<QueryOuterClass.QueryFeederDelegationRequest,
+      QueryOuterClass.QueryFeederDelegationResponse>
     @JvmStatic
     get() = QueryGrpc.getFeederDelegationMethod()
 
-  public val missCounterMethod:
-      MethodDescriptor<QueryOuterClass.QueryMissCounterRequest, QueryOuterClass.QueryMissCounterResponse>
+  val missCounterMethod: MethodDescriptor<QueryOuterClass.QueryMissCounterRequest,
+      QueryOuterClass.QueryMissCounterResponse>
     @JvmStatic
     get() = QueryGrpc.getMissCounterMethod()
 
-  public val aggregatePrevoteMethod:
-      MethodDescriptor<QueryOuterClass.QueryAggregatePrevoteRequest, QueryOuterClass.QueryAggregatePrevoteResponse>
+  val aggregatePrevoteMethod: MethodDescriptor<QueryOuterClass.QueryAggregatePrevoteRequest,
+      QueryOuterClass.QueryAggregatePrevoteResponse>
     @JvmStatic
     get() = QueryGrpc.getAggregatePrevoteMethod()
 
-  public val aggregatePrevotesMethod:
-      MethodDescriptor<QueryOuterClass.QueryAggregatePrevotesRequest, QueryOuterClass.QueryAggregatePrevotesResponse>
+  val aggregatePrevotesMethod: MethodDescriptor<QueryOuterClass.QueryAggregatePrevotesRequest,
+      QueryOuterClass.QueryAggregatePrevotesResponse>
     @JvmStatic
     get() = QueryGrpc.getAggregatePrevotesMethod()
 
-  public val aggregateVoteMethod:
-      MethodDescriptor<QueryOuterClass.QueryAggregateVoteRequest, QueryOuterClass.QueryAggregateVoteResponse>
+  val aggregateVoteMethod: MethodDescriptor<QueryOuterClass.QueryAggregateVoteRequest,
+      QueryOuterClass.QueryAggregateVoteResponse>
     @JvmStatic
     get() = QueryGrpc.getAggregateVoteMethod()
 
-  public val aggregateVotesMethod:
-      MethodDescriptor<QueryOuterClass.QueryAggregateVotesRequest, QueryOuterClass.QueryAggregateVotesResponse>
+  val aggregateVotesMethod: MethodDescriptor<QueryOuterClass.QueryAggregateVotesRequest,
+      QueryOuterClass.QueryAggregateVotesResponse>
     @JvmStatic
     get() = QueryGrpc.getAggregateVotesMethod()
 
-  public val paramsMethod:
-      MethodDescriptor<QueryOuterClass.QueryParamsRequest, QueryOuterClass.QueryParamsResponse>
+  val paramsMethod: MethodDescriptor<QueryOuterClass.QueryParamsRequest,
+      QueryOuterClass.QueryParamsResponse>
     @JvmStatic
     get() = QueryGrpc.getParamsMethod()
 
@@ -104,11 +104,11 @@ public object QueryGrpcKt {
    * A stub for issuing RPCs to a(n) terra.oracle.v1beta1.Query service as suspending coroutines.
    */
   @StubFor(QueryGrpc::class)
-  public class QueryCoroutineStub @JvmOverloads constructor(
+  class QueryCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<QueryCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
         QueryCoroutineStub(channel, callOptions)
 
     /**
@@ -119,19 +119,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun exchangeRate(request: QueryOuterClass.QueryExchangeRateRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryExchangeRateResponse = unaryRpc(
+    suspend fun exchangeRate(request: QueryOuterClass.QueryExchangeRateRequest):
+        QueryOuterClass.QueryExchangeRateResponse = unaryRpc(
       channel,
       QueryGrpc.getExchangeRateMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -140,19 +137,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun exchangeRates(request: QueryOuterClass.QueryExchangeRatesRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryExchangeRatesResponse = unaryRpc(
+    suspend fun exchangeRates(request: QueryOuterClass.QueryExchangeRatesRequest):
+        QueryOuterClass.QueryExchangeRatesResponse = unaryRpc(
       channel,
       QueryGrpc.getExchangeRatesMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -161,19 +155,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun tobinTax(request: QueryOuterClass.QueryTobinTaxRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryTobinTaxResponse = unaryRpc(
+    suspend fun tobinTax(request: QueryOuterClass.QueryTobinTaxRequest):
+        QueryOuterClass.QueryTobinTaxResponse = unaryRpc(
       channel,
       QueryGrpc.getTobinTaxMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -182,19 +173,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun tobinTaxes(request: QueryOuterClass.QueryTobinTaxesRequest, headers: Metadata
-        = Metadata()): QueryOuterClass.QueryTobinTaxesResponse = unaryRpc(
+    suspend fun tobinTaxes(request: QueryOuterClass.QueryTobinTaxesRequest):
+        QueryOuterClass.QueryTobinTaxesResponse = unaryRpc(
       channel,
       QueryGrpc.getTobinTaxesMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -203,19 +191,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun actives(request: QueryOuterClass.QueryActivesRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryActivesResponse = unaryRpc(
+    suspend fun actives(request: QueryOuterClass.QueryActivesRequest):
+        QueryOuterClass.QueryActivesResponse = unaryRpc(
       channel,
       QueryGrpc.getActivesMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -224,19 +209,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun voteTargets(request: QueryOuterClass.QueryVoteTargetsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryVoteTargetsResponse = unaryRpc(
+    suspend fun voteTargets(request: QueryOuterClass.QueryVoteTargetsRequest):
+        QueryOuterClass.QueryVoteTargetsResponse = unaryRpc(
       channel,
       QueryGrpc.getVoteTargetsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -245,19 +227,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun feederDelegation(request: QueryOuterClass.QueryFeederDelegationRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryFeederDelegationResponse = unaryRpc(
+    suspend fun feederDelegation(request: QueryOuterClass.QueryFeederDelegationRequest):
+        QueryOuterClass.QueryFeederDelegationResponse = unaryRpc(
       channel,
       QueryGrpc.getFeederDelegationMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -266,19 +245,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun missCounter(request: QueryOuterClass.QueryMissCounterRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryMissCounterResponse = unaryRpc(
+    suspend fun missCounter(request: QueryOuterClass.QueryMissCounterRequest):
+        QueryOuterClass.QueryMissCounterResponse = unaryRpc(
       channel,
       QueryGrpc.getMissCounterMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -287,19 +263,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun aggregatePrevote(request: QueryOuterClass.QueryAggregatePrevoteRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryAggregatePrevoteResponse = unaryRpc(
+    suspend fun aggregatePrevote(request: QueryOuterClass.QueryAggregatePrevoteRequest):
+        QueryOuterClass.QueryAggregatePrevoteResponse = unaryRpc(
       channel,
       QueryGrpc.getAggregatePrevoteMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -308,19 +281,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun aggregatePrevotes(request: QueryOuterClass.QueryAggregatePrevotesRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryAggregatePrevotesResponse = unaryRpc(
+    suspend fun aggregatePrevotes(request: QueryOuterClass.QueryAggregatePrevotesRequest):
+        QueryOuterClass.QueryAggregatePrevotesResponse = unaryRpc(
       channel,
       QueryGrpc.getAggregatePrevotesMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -329,19 +299,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun aggregateVote(request: QueryOuterClass.QueryAggregateVoteRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryAggregateVoteResponse = unaryRpc(
+    suspend fun aggregateVote(request: QueryOuterClass.QueryAggregateVoteRequest):
+        QueryOuterClass.QueryAggregateVoteResponse = unaryRpc(
       channel,
       QueryGrpc.getAggregateVoteMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -350,19 +317,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun aggregateVotes(request: QueryOuterClass.QueryAggregateVotesRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryAggregateVotesResponse = unaryRpc(
+    suspend fun aggregateVotes(request: QueryOuterClass.QueryAggregateVotesRequest):
+        QueryOuterClass.QueryAggregateVotesResponse = unaryRpc(
       channel,
       QueryGrpc.getAggregateVotesMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -371,25 +335,22 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun params(request: QueryOuterClass.QueryParamsRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryParamsResponse = unaryRpc(
+    suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+        QueryOuterClass.QueryParamsResponse = unaryRpc(
       channel,
       QueryGrpc.getParamsMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the terra.oracle.v1beta1.Query service based on Kotlin coroutines.
    */
-  public abstract class QueryCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class QueryCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for terra.oracle.v1beta1.Query.ExchangeRate.
@@ -402,7 +363,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun exchangeRate(request: QueryOuterClass.QueryExchangeRateRequest):
+    open suspend fun exchangeRate(request: QueryOuterClass.QueryExchangeRateRequest):
         QueryOuterClass.QueryExchangeRateResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.ExchangeRate is unimplemented"))
 
@@ -417,7 +378,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun exchangeRates(request: QueryOuterClass.QueryExchangeRatesRequest):
+    open suspend fun exchangeRates(request: QueryOuterClass.QueryExchangeRatesRequest):
         QueryOuterClass.QueryExchangeRatesResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.ExchangeRates is unimplemented"))
 
@@ -432,7 +393,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun tobinTax(request: QueryOuterClass.QueryTobinTaxRequest):
+    open suspend fun tobinTax(request: QueryOuterClass.QueryTobinTaxRequest):
         QueryOuterClass.QueryTobinTaxResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.TobinTax is unimplemented"))
 
@@ -447,7 +408,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun tobinTaxes(request: QueryOuterClass.QueryTobinTaxesRequest):
+    open suspend fun tobinTaxes(request: QueryOuterClass.QueryTobinTaxesRequest):
         QueryOuterClass.QueryTobinTaxesResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.TobinTaxes is unimplemented"))
 
@@ -462,7 +423,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun actives(request: QueryOuterClass.QueryActivesRequest):
+    open suspend fun actives(request: QueryOuterClass.QueryActivesRequest):
         QueryOuterClass.QueryActivesResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.Actives is unimplemented"))
 
@@ -477,7 +438,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun voteTargets(request: QueryOuterClass.QueryVoteTargetsRequest):
+    open suspend fun voteTargets(request: QueryOuterClass.QueryVoteTargetsRequest):
         QueryOuterClass.QueryVoteTargetsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.VoteTargets is unimplemented"))
 
@@ -492,7 +453,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun feederDelegation(request: QueryOuterClass.QueryFeederDelegationRequest):
+    open suspend fun feederDelegation(request: QueryOuterClass.QueryFeederDelegationRequest):
         QueryOuterClass.QueryFeederDelegationResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.FeederDelegation is unimplemented"))
 
@@ -507,7 +468,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun missCounter(request: QueryOuterClass.QueryMissCounterRequest):
+    open suspend fun missCounter(request: QueryOuterClass.QueryMissCounterRequest):
         QueryOuterClass.QueryMissCounterResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.MissCounter is unimplemented"))
 
@@ -522,7 +483,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun aggregatePrevote(request: QueryOuterClass.QueryAggregatePrevoteRequest):
+    open suspend fun aggregatePrevote(request: QueryOuterClass.QueryAggregatePrevoteRequest):
         QueryOuterClass.QueryAggregatePrevoteResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.AggregatePrevote is unimplemented"))
 
@@ -537,8 +498,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
-        fun aggregatePrevotes(request: QueryOuterClass.QueryAggregatePrevotesRequest):
+    open suspend fun aggregatePrevotes(request: QueryOuterClass.QueryAggregatePrevotesRequest):
         QueryOuterClass.QueryAggregatePrevotesResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.AggregatePrevotes is unimplemented"))
 
@@ -553,7 +513,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun aggregateVote(request: QueryOuterClass.QueryAggregateVoteRequest):
+    open suspend fun aggregateVote(request: QueryOuterClass.QueryAggregateVoteRequest):
         QueryOuterClass.QueryAggregateVoteResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.AggregateVote is unimplemented"))
 
@@ -568,7 +528,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun aggregateVotes(request: QueryOuterClass.QueryAggregateVotesRequest):
+    open suspend fun aggregateVotes(request: QueryOuterClass.QueryAggregateVotesRequest):
         QueryOuterClass.QueryAggregateVotesResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.AggregateVotes is unimplemented"))
 
@@ -583,12 +543,11 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+    open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
         QueryOuterClass.QueryParamsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Query.Params is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = QueryGrpc.getExchangeRateMethod(),

@@ -3,16 +3,16 @@
 
 package tendermint.p2p;
 
-@kotlin.jvm.JvmName("-initializedefaultNodeInfoOther")
-public inline fun defaultNodeInfoOther(block: tendermint.p2p.DefaultNodeInfoOtherKt.Dsl.() -> kotlin.Unit): tendermint.p2p.Types.DefaultNodeInfoOther =
+@kotlin.jvm.JvmSynthetic
+inline fun defaultNodeInfoOther(block: tendermint.p2p.DefaultNodeInfoOtherKt.Dsl.() -> Unit): tendermint.p2p.Types.DefaultNodeInfoOther =
   tendermint.p2p.DefaultNodeInfoOtherKt.Dsl._create(tendermint.p2p.Types.DefaultNodeInfoOther.newBuilder()).apply { block() }._build()
-public object DefaultNodeInfoOtherKt {
+object DefaultNodeInfoOtherKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.p2p.Types.DefaultNodeInfoOther.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.p2p.Types.DefaultNodeInfoOther.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.p2p.Types.DefaultNodeInfoOther.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object DefaultNodeInfoOtherKt {
     /**
      * <code>string tx_index = 1;</code>
      */
-    public var txIndex: kotlin.String
+    var txIndex: kotlin.String
       @JvmName("getTxIndex")
       get() = _builder.getTxIndex()
       @JvmName("setTxIndex")
@@ -35,14 +35,14 @@ public object DefaultNodeInfoOtherKt {
     /**
      * <code>string tx_index = 1;</code>
      */
-    public fun clearTxIndex() {
+    fun clearTxIndex() {
       _builder.clearTxIndex()
     }
 
     /**
      * <code>string rpc_address = 2 [(.gogoproto.customname) = "RPCAddress"];</code>
      */
-    public var rpcAddress: kotlin.String
+    var rpcAddress: kotlin.String
       @JvmName("getRpcAddress")
       get() = _builder.getRpcAddress()
       @JvmName("setRpcAddress")
@@ -52,12 +52,11 @@ public object DefaultNodeInfoOtherKt {
     /**
      * <code>string rpc_address = 2 [(.gogoproto.customname) = "RPCAddress"];</code>
      */
-    public fun clearRpcAddress() {
+    fun clearRpcAddress() {
       _builder.clearRpcAddress()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.p2p.Types.DefaultNodeInfoOther.copy(block: tendermint.p2p.DefaultNodeInfoOtherKt.Dsl.() -> kotlin.Unit): tendermint.p2p.Types.DefaultNodeInfoOther =
+inline fun tendermint.p2p.Types.DefaultNodeInfoOther.copy(block: tendermint.p2p.DefaultNodeInfoOtherKt.Dsl.() -> Unit): tendermint.p2p.Types.DefaultNodeInfoOther =
   tendermint.p2p.DefaultNodeInfoOtherKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

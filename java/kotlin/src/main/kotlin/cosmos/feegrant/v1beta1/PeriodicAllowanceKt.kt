@@ -3,16 +3,16 @@
 
 package cosmos.feegrant.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeperiodicAllowance")
-public inline fun periodicAllowance(block: cosmos.feegrant.v1beta1.PeriodicAllowanceKt.Dsl.() -> kotlin.Unit): cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance =
+@kotlin.jvm.JvmSynthetic
+inline fun periodicAllowance(block: cosmos.feegrant.v1beta1.PeriodicAllowanceKt.Dsl.() -> Unit): cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance =
   cosmos.feegrant.v1beta1.PeriodicAllowanceKt.Dsl._create(cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance.newBuilder()).apply { block() }._build()
-public object PeriodicAllowanceKt {
+object PeriodicAllowanceKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object PeriodicAllowanceKt {
      *
      * <code>.cosmos.feegrant.v1beta1.BasicAllowance basic = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var basic: cosmos.feegrant.v1beta1.Feegrant.BasicAllowance
+    var basic: cosmos.feegrant.v1beta1.Feegrant.BasicAllowance
       @JvmName("getBasic")
       get() = _builder.getBasic()
       @JvmName("setBasic")
@@ -43,7 +43,7 @@ public object PeriodicAllowanceKt {
      *
      * <code>.cosmos.feegrant.v1beta1.BasicAllowance basic = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearBasic() {
+    fun clearBasic() {
       _builder.clearBasic()
     }
     /**
@@ -54,7 +54,7 @@ public object PeriodicAllowanceKt {
      * <code>.cosmos.feegrant.v1beta1.BasicAllowance basic = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the basic field is set.
      */
-    public fun hasBasic(): kotlin.Boolean {
+    fun hasBasic(): kotlin.Boolean {
       return _builder.hasBasic()
     }
 
@@ -66,7 +66,7 @@ public object PeriodicAllowanceKt {
      *
      * <code>.google.protobuf.Duration period = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
      */
-    public var period: com.google.protobuf.Duration
+    var period: com.google.protobuf.Duration
       @JvmName("getPeriod")
       get() = _builder.getPeriod()
       @JvmName("setPeriod")
@@ -81,7 +81,7 @@ public object PeriodicAllowanceKt {
      *
      * <code>.google.protobuf.Duration period = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
      */
-    public fun clearPeriod() {
+    fun clearPeriod() {
       _builder.clearPeriod()
     }
     /**
@@ -93,7 +93,7 @@ public object PeriodicAllowanceKt {
      * <code>.google.protobuf.Duration period = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
      * @return Whether the period field is set.
      */
-    public fun hasPeriod(): kotlin.Boolean {
+    fun hasPeriod(): kotlin.Boolean {
       return _builder.hasPeriod()
     }
 
@@ -102,7 +102,7 @@ public object PeriodicAllowanceKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class PeriodSpendLimitProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class PeriodSpendLimitProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * period_spend_limit specifies the maximum number of coins that can be spent
@@ -111,7 +111,7 @@ public object PeriodicAllowanceKt {
      *
      * <code>repeated .cosmos.base.v1beta1.Coin period_spend_limit = 3 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
-     public val periodSpendLimit: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>
+     val periodSpendLimit: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getPeriodSpendLimitList()
@@ -127,10 +127,9 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addPeriodSpendLimit")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.addPeriodSpendLimit(value)
-    }
-    /**
+    }/**
      * <pre>
      * period_spend_limit specifies the maximum number of coins that can be spent
      * in the period
@@ -141,11 +140,9 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignPeriodSpendLimit")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * period_spend_limit specifies the maximum number of coins that can be spent
      * in the period
@@ -156,10 +153,9 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllPeriodSpendLimit")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       _builder.addAllPeriodSpendLimit(values)
-    }
-    /**
+    }/**
      * <pre>
      * period_spend_limit specifies the maximum number of coins that can be spent
      * in the period
@@ -170,11 +166,9 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllPeriodSpendLimit")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * period_spend_limit specifies the maximum number of coins that can be spent
      * in the period
@@ -186,10 +180,9 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setPeriodSpendLimit")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.setPeriodSpendLimit(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * period_spend_limit specifies the maximum number of coins that can be spent
      * in the period
@@ -199,17 +192,15 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearPeriodSpendLimit")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodSpendLimitProxy>.clear() {
       _builder.clearPeriodSpendLimit()
     }
-
-
     /**
      * An uninstantiable, behaviorless type to represent the field in
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class PeriodCanSpendProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class PeriodCanSpendProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * period_can_spend is the number of coins left to be spent before the period_reset time
@@ -217,7 +208,7 @@ public object PeriodicAllowanceKt {
      *
      * <code>repeated .cosmos.base.v1beta1.Coin period_can_spend = 4 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
-     public val periodCanSpend: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>
+     val periodCanSpend: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getPeriodCanSpendList()
@@ -232,10 +223,9 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addPeriodCanSpend")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.addPeriodCanSpend(value)
-    }
-    /**
+    }/**
      * <pre>
      * period_can_spend is the number of coins left to be spent before the period_reset time
      * </pre>
@@ -245,11 +235,9 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignPeriodCanSpend")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * period_can_spend is the number of coins left to be spent before the period_reset time
      * </pre>
@@ -259,10 +247,9 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllPeriodCanSpend")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       _builder.addAllPeriodCanSpend(values)
-    }
-    /**
+    }/**
      * <pre>
      * period_can_spend is the number of coins left to be spent before the period_reset time
      * </pre>
@@ -272,11 +259,9 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllPeriodCanSpend")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * period_can_spend is the number of coins left to be spent before the period_reset time
      * </pre>
@@ -287,10 +272,9 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setPeriodCanSpend")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.setPeriodCanSpend(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * period_can_spend is the number of coins left to be spent before the period_reset time
      * </pre>
@@ -299,11 +283,9 @@ public object PeriodicAllowanceKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearPeriodCanSpend")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, PeriodCanSpendProxy>.clear() {
       _builder.clearPeriodCanSpend()
     }
-
-
     /**
      * <pre>
      * period_reset is the time at which this period resets and a new one begins,
@@ -313,7 +295,7 @@ public object PeriodicAllowanceKt {
      *
      * <code>.google.protobuf.Timestamp period_reset = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public var periodReset: com.google.protobuf.Timestamp
+    var periodReset: com.google.protobuf.Timestamp
       @JvmName("getPeriodReset")
       get() = _builder.getPeriodReset()
       @JvmName("setPeriodReset")
@@ -329,7 +311,7 @@ public object PeriodicAllowanceKt {
      *
      * <code>.google.protobuf.Timestamp period_reset = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearPeriodReset() {
+    fun clearPeriodReset() {
       _builder.clearPeriodReset()
     }
     /**
@@ -342,21 +324,11 @@ public object PeriodicAllowanceKt {
      * <code>.google.protobuf.Timestamp period_reset = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      * @return Whether the periodReset field is set.
      */
-    public fun hasPeriodReset(): kotlin.Boolean {
+    fun hasPeriodReset(): kotlin.Boolean {
       return _builder.hasPeriodReset()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance.copy(block: cosmos.feegrant.v1beta1.PeriodicAllowanceKt.Dsl.() -> kotlin.Unit): cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance =
+inline fun cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance.copy(block: cosmos.feegrant.v1beta1.PeriodicAllowanceKt.Dsl.() -> Unit): cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance =
   cosmos.feegrant.v1beta1.PeriodicAllowanceKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowanceOrBuilder.basicOrNull: cosmos.feegrant.v1beta1.Feegrant.BasicAllowance?
-  get() = if (hasBasic()) getBasic() else null
-
-public val cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowanceOrBuilder.periodOrNull: com.google.protobuf.Duration?
-  get() = if (hasPeriod()) getPeriod() else null
-
-public val cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowanceOrBuilder.periodResetOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasPeriodReset()) getPeriodReset() else null
-

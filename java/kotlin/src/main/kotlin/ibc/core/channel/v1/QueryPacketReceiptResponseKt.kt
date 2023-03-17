@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializequeryPacketReceiptResponse")
-public inline fun queryPacketReceiptResponse(block: ibc.core.channel.v1.QueryPacketReceiptResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryPacketReceiptResponse(block: ibc.core.channel.v1.QueryPacketReceiptResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse =
   ibc.core.channel.v1.QueryPacketReceiptResponseKt.Dsl._create(ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse.newBuilder()).apply { block() }._build()
-public object QueryPacketReceiptResponseKt {
+object QueryPacketReceiptResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryPacketReceiptResponseKt {
      *
      * <code>bool received = 2;</code>
      */
-    public var received: kotlin.Boolean
+    var received: kotlin.Boolean
       @JvmName("getReceived")
       get() = _builder.getReceived()
       @JvmName("setReceived")
@@ -43,7 +43,7 @@ public object QueryPacketReceiptResponseKt {
      *
      * <code>bool received = 2;</code>
      */
-    public fun clearReceived() {
+    fun clearReceived() {
       _builder.clearReceived()
     }
 
@@ -54,7 +54,7 @@ public object QueryPacketReceiptResponseKt {
      *
      * <code>bytes proof = 3;</code>
      */
-    public var proof: com.google.protobuf.ByteString
+    var proof: com.google.protobuf.ByteString
       @JvmName("getProof")
       get() = _builder.getProof()
       @JvmName("setProof")
@@ -68,7 +68,7 @@ public object QueryPacketReceiptResponseKt {
      *
      * <code>bytes proof = 3;</code>
      */
-    public fun clearProof() {
+    fun clearProof() {
       _builder.clearProof()
     }
 
@@ -79,7 +79,7 @@ public object QueryPacketReceiptResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
      */
-    public var proofHeight: ibc.core.client.v1.Client.Height
+    var proofHeight: ibc.core.client.v1.Client.Height
       @JvmName("getProofHeight")
       get() = _builder.getProofHeight()
       @JvmName("setProofHeight")
@@ -93,7 +93,7 @@ public object QueryPacketReceiptResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearProofHeight() {
+    fun clearProofHeight() {
       _builder.clearProofHeight()
     }
     /**
@@ -104,15 +104,11 @@ public object QueryPacketReceiptResponseKt {
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
      * @return Whether the proofHeight field is set.
      */
-    public fun hasProofHeight(): kotlin.Boolean {
+    fun hasProofHeight(): kotlin.Boolean {
       return _builder.hasProofHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse.copy(block: ibc.core.channel.v1.QueryPacketReceiptResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse =
+inline fun ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse.copy(block: ibc.core.channel.v1.QueryPacketReceiptResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse =
   ibc.core.channel.v1.QueryPacketReceiptResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponseOrBuilder.proofHeightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasProofHeight()) getProofHeight() else null
-

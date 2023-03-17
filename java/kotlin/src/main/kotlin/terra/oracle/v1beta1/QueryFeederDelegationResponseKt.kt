@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryFeederDelegationResponse")
-public inline fun queryFeederDelegationResponse(block: terra.oracle.v1beta1.QueryFeederDelegationResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryFeederDelegationResponse(block: terra.oracle.v1beta1.QueryFeederDelegationResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse =
   terra.oracle.v1beta1.QueryFeederDelegationResponseKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse.newBuilder()).apply { block() }._build()
-public object QueryFeederDelegationResponseKt {
+object QueryFeederDelegationResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryFeederDelegationResponseKt {
      *
      * <code>string feeder_addr = 1;</code>
      */
-    public var feederAddr: kotlin.String
+    var feederAddr: kotlin.String
       @JvmName("getFeederAddr")
       get() = _builder.getFeederAddr()
       @JvmName("setFeederAddr")
@@ -43,12 +43,11 @@ public object QueryFeederDelegationResponseKt {
      *
      * <code>string feeder_addr = 1;</code>
      */
-    public fun clearFeederAddr() {
+    fun clearFeederAddr() {
       _builder.clearFeederAddr()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse.copy(block: terra.oracle.v1beta1.QueryFeederDelegationResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse.copy(block: terra.oracle.v1beta1.QueryFeederDelegationResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse =
   terra.oracle.v1beta1.QueryFeederDelegationResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

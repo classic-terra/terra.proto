@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializegetTxDescriptorRequest")
-public inline fun getTxDescriptorRequest(block: cosmos.base.reflection.v2alpha1.GetTxDescriptorRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun getTxDescriptorRequest(block: cosmos.base.reflection.v2alpha1.GetTxDescriptorRequestKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorRequest =
   cosmos.base.reflection.v2alpha1.GetTxDescriptorRequestKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorRequest.newBuilder()).apply { block() }._build()
-public object GetTxDescriptorRequestKt {
+object GetTxDescriptorRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object GetTxDescriptorRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorRequest.copy(block: cosmos.base.reflection.v2alpha1.GetTxDescriptorRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorRequest =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorRequest.copy(block: cosmos.base.reflection.v2alpha1.GetTxDescriptorRequestKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorRequest =
   cosmos.base.reflection.v2alpha1.GetTxDescriptorRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -144,6 +144,95 @@ public final class Oracle {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Params(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              votePeriod_ = input.readUInt64();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              voteThreshold_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              rewardBand_ = s;
+              break;
+            }
+            case 32: {
+
+              rewardDistributionWindow_ = input.readUInt64();
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                whitelist_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.Denom>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              whitelist_.add(
+                  input.readMessage(terra.oracle.v1beta1.Oracle.Denom.parser(), extensionRegistry));
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              slashFraction_ = s;
+              break;
+            }
+            case 56: {
+
+              slashWindow_ = input.readUInt64();
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              minValidPerWindow_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          whitelist_ = java.util.Collections.unmodifiableList(whitelist_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.Oracle.internal_static_terra_oracle_v1beta1_Params_descriptor;
@@ -158,7 +247,7 @@ public final class Oracle {
     }
 
     public static final int VOTE_PERIOD_FIELD_NUMBER = 1;
-    private long votePeriod_ = 0L;
+    private long votePeriod_;
     /**
      * <code>uint64 vote_period = 1 [(.gogoproto.moretags) = "yaml:&#92;"vote_period&#92;""];</code>
      * @return The votePeriod.
@@ -169,8 +258,7 @@ public final class Oracle {
     }
 
     public static final int VOTE_THRESHOLD_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object voteThreshold_ = "";
+    private volatile java.lang.Object voteThreshold_;
     /**
      * <code>string vote_threshold = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"vote_threshold&#92;""];</code>
      * @return The voteThreshold.
@@ -208,8 +296,7 @@ public final class Oracle {
     }
 
     public static final int REWARD_BAND_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object rewardBand_ = "";
+    private volatile java.lang.Object rewardBand_;
     /**
      * <code>string reward_band = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"reward_band&#92;""];</code>
      * @return The rewardBand.
@@ -247,7 +334,7 @@ public final class Oracle {
     }
 
     public static final int REWARD_DISTRIBUTION_WINDOW_FIELD_NUMBER = 4;
-    private long rewardDistributionWindow_ = 0L;
+    private long rewardDistributionWindow_;
     /**
      * <code>uint64 reward_distribution_window = 4 [(.gogoproto.moretags) = "yaml:&#92;"reward_distribution_window&#92;""];</code>
      * @return The rewardDistributionWindow.
@@ -258,7 +345,6 @@ public final class Oracle {
     }
 
     public static final int WHITELIST_FIELD_NUMBER = 5;
-    @SuppressWarnings("serial")
     private java.util.List<terra.oracle.v1beta1.Oracle.Denom> whitelist_;
     /**
      * <code>repeated .terra.oracle.v1beta1.Denom whitelist = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"whitelist&#92;"", (.gogoproto.castrepeated) = "DenomList"];</code>
@@ -299,8 +385,7 @@ public final class Oracle {
     }
 
     public static final int SLASH_FRACTION_FIELD_NUMBER = 6;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object slashFraction_ = "";
+    private volatile java.lang.Object slashFraction_;
     /**
      * <code>string slash_fraction = 6 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"slash_fraction&#92;""];</code>
      * @return The slashFraction.
@@ -338,7 +423,7 @@ public final class Oracle {
     }
 
     public static final int SLASH_WINDOW_FIELD_NUMBER = 7;
-    private long slashWindow_ = 0L;
+    private long slashWindow_;
     /**
      * <code>uint64 slash_window = 7 [(.gogoproto.moretags) = "yaml:&#92;"slash_window&#92;""];</code>
      * @return The slashWindow.
@@ -349,8 +434,7 @@ public final class Oracle {
     }
 
     public static final int MIN_VALID_PER_WINDOW_FIELD_NUMBER = 8;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object minValidPerWindow_ = "";
+    private volatile java.lang.Object minValidPerWindow_;
     /**
      * <code>string min_valid_per_window = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"min_valid_per_window&#92;""];</code>
      * @return The minValidPerWindow.
@@ -404,10 +488,10 @@ public final class Oracle {
       if (votePeriod_ != 0L) {
         output.writeUInt64(1, votePeriod_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(voteThreshold_)) {
+      if (!getVoteThresholdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, voteThreshold_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rewardBand_)) {
+      if (!getRewardBandBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, rewardBand_);
       }
       if (rewardDistributionWindow_ != 0L) {
@@ -416,16 +500,16 @@ public final class Oracle {
       for (int i = 0; i < whitelist_.size(); i++) {
         output.writeMessage(5, whitelist_.get(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(slashFraction_)) {
+      if (!getSlashFractionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, slashFraction_);
       }
       if (slashWindow_ != 0L) {
         output.writeUInt64(7, slashWindow_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(minValidPerWindow_)) {
+      if (!getMinValidPerWindowBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, minValidPerWindow_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -438,10 +522,10 @@ public final class Oracle {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, votePeriod_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(voteThreshold_)) {
+      if (!getVoteThresholdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, voteThreshold_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rewardBand_)) {
+      if (!getRewardBandBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, rewardBand_);
       }
       if (rewardDistributionWindow_ != 0L) {
@@ -452,17 +536,17 @@ public final class Oracle {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, whitelist_.get(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(slashFraction_)) {
+      if (!getSlashFractionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, slashFraction_);
       }
       if (slashWindow_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(7, slashWindow_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(minValidPerWindow_)) {
+      if (!getMinValidPerWindowBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, minValidPerWindow_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -493,7 +577,7 @@ public final class Oracle {
           != other.getSlashWindow()) return false;
       if (!getMinValidPerWindow()
           .equals(other.getMinValidPerWindow())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -525,7 +609,7 @@ public final class Oracle {
           getSlashWindow());
       hash = (37 * hash) + MIN_VALID_PER_WINDOW_FIELD_NUMBER;
       hash = (53 * hash) + getMinValidPerWindow().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -646,32 +730,43 @@ public final class Oracle {
 
       // Construct using terra.oracle.v1beta1.Oracle.Params.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getWhitelistFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         votePeriod_ = 0L;
+
         voteThreshold_ = "";
+
         rewardBand_ = "";
+
         rewardDistributionWindow_ = 0L;
+
         if (whitelistBuilder_ == null) {
           whitelist_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          whitelist_ = null;
           whitelistBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
         slashFraction_ = "";
+
         slashWindow_ = 0L;
+
         minValidPerWindow_ = "";
+
         return this;
       }
 
@@ -698,47 +793,25 @@ public final class Oracle {
       @java.lang.Override
       public terra.oracle.v1beta1.Oracle.Params buildPartial() {
         terra.oracle.v1beta1.Oracle.Params result = new terra.oracle.v1beta1.Oracle.Params(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.oracle.v1beta1.Oracle.Params result) {
+        int from_bitField0_ = bitField0_;
+        result.votePeriod_ = votePeriod_;
+        result.voteThreshold_ = voteThreshold_;
+        result.rewardBand_ = rewardBand_;
+        result.rewardDistributionWindow_ = rewardDistributionWindow_;
         if (whitelistBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             whitelist_ = java.util.Collections.unmodifiableList(whitelist_);
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.whitelist_ = whitelist_;
         } else {
           result.whitelist_ = whitelistBuilder_.build();
         }
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.Oracle.Params result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.votePeriod_ = votePeriod_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.voteThreshold_ = voteThreshold_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.rewardBand_ = rewardBand_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.rewardDistributionWindow_ = rewardDistributionWindow_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.slashFraction_ = slashFraction_;
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.slashWindow_ = slashWindow_;
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.minValidPerWindow_ = minValidPerWindow_;
-        }
+        result.slashFraction_ = slashFraction_;
+        result.slashWindow_ = slashWindow_;
+        result.minValidPerWindow_ = minValidPerWindow_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -790,12 +863,10 @@ public final class Oracle {
         }
         if (!other.getVoteThreshold().isEmpty()) {
           voteThreshold_ = other.voteThreshold_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getRewardBand().isEmpty()) {
           rewardBand_ = other.rewardBand_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getRewardDistributionWindow() != 0L) {
@@ -805,7 +876,7 @@ public final class Oracle {
           if (!other.whitelist_.isEmpty()) {
             if (whitelist_.isEmpty()) {
               whitelist_ = other.whitelist_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureWhitelistIsMutable();
               whitelist_.addAll(other.whitelist_);
@@ -818,7 +889,7 @@ public final class Oracle {
               whitelistBuilder_.dispose();
               whitelistBuilder_ = null;
               whitelist_ = other.whitelist_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000001);
               whitelistBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getWhitelistFieldBuilder() : null;
@@ -829,7 +900,6 @@ public final class Oracle {
         }
         if (!other.getSlashFraction().isEmpty()) {
           slashFraction_ = other.slashFraction_;
-          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (other.getSlashWindow() != 0L) {
@@ -837,10 +907,9 @@ public final class Oracle {
         }
         if (!other.getMinValidPerWindow().isEmpty()) {
           minValidPerWindow_ = other.minValidPerWindow_;
-          bitField0_ |= 0x00000080;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -855,78 +924,17 @@ public final class Oracle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.Oracle.Params parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                votePeriod_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                voteThreshold_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                rewardBand_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 32: {
-                rewardDistributionWindow_ = input.readUInt64();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 42: {
-                terra.oracle.v1beta1.Oracle.Denom m =
-                    input.readMessage(
-                        terra.oracle.v1beta1.Oracle.Denom.parser(),
-                        extensionRegistry);
-                if (whitelistBuilder_ == null) {
-                  ensureWhitelistIsMutable();
-                  whitelist_.add(m);
-                } else {
-                  whitelistBuilder_.addMessage(m);
-                }
-                break;
-              } // case 42
-              case 50: {
-                slashFraction_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 50
-              case 56: {
-                slashWindow_ = input.readUInt64();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 56
-              case 66: {
-                minValidPerWindow_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 66
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.Oracle.Params) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -948,7 +956,6 @@ public final class Oracle {
       public Builder setVotePeriod(long value) {
         
         votePeriod_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -957,7 +964,7 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearVotePeriod() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         votePeriod_ = 0L;
         onChanged();
         return this;
@@ -1004,9 +1011,11 @@ public final class Oracle {
        */
       public Builder setVoteThreshold(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         voteThreshold_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1015,8 +1024,8 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearVoteThreshold() {
+        
         voteThreshold_ = getDefaultInstance().getVoteThreshold();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1027,10 +1036,12 @@ public final class Oracle {
        */
       public Builder setVoteThresholdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         voteThreshold_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1076,9 +1087,11 @@ public final class Oracle {
        */
       public Builder setRewardBand(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         rewardBand_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1087,8 +1100,8 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearRewardBand() {
+        
         rewardBand_ = getDefaultInstance().getRewardBand();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1099,10 +1112,12 @@ public final class Oracle {
        */
       public Builder setRewardBandBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         rewardBand_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1124,7 +1139,6 @@ public final class Oracle {
       public Builder setRewardDistributionWindow(long value) {
         
         rewardDistributionWindow_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1133,7 +1147,7 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearRewardDistributionWindow() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         rewardDistributionWindow_ = 0L;
         onChanged();
         return this;
@@ -1142,9 +1156,9 @@ public final class Oracle {
       private java.util.List<terra.oracle.v1beta1.Oracle.Denom> whitelist_ =
         java.util.Collections.emptyList();
       private void ensureWhitelistIsMutable() {
-        if (!((bitField0_ & 0x00000010) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           whitelist_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.Denom>(whitelist_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -1294,7 +1308,7 @@ public final class Oracle {
       public Builder clearWhitelist() {
         if (whitelistBuilder_ == null) {
           whitelist_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           whitelistBuilder_.clear();
@@ -1371,7 +1385,7 @@ public final class Oracle {
           whitelistBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.oracle.v1beta1.Oracle.Denom, terra.oracle.v1beta1.Oracle.Denom.Builder, terra.oracle.v1beta1.Oracle.DenomOrBuilder>(
                   whitelist_,
-                  ((bitField0_ & 0x00000010) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           whitelist_ = null;
@@ -1420,9 +1434,11 @@ public final class Oracle {
        */
       public Builder setSlashFraction(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         slashFraction_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1431,8 +1447,8 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearSlashFraction() {
+        
         slashFraction_ = getDefaultInstance().getSlashFraction();
-        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -1443,10 +1459,12 @@ public final class Oracle {
        */
       public Builder setSlashFractionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         slashFraction_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1468,7 +1486,6 @@ public final class Oracle {
       public Builder setSlashWindow(long value) {
         
         slashWindow_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1477,7 +1494,7 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearSlashWindow() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        
         slashWindow_ = 0L;
         onChanged();
         return this;
@@ -1524,9 +1541,11 @@ public final class Oracle {
        */
       public Builder setMinValidPerWindow(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         minValidPerWindow_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -1535,8 +1554,8 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearMinValidPerWindow() {
+        
         minValidPerWindow_ = getDefaultInstance().getMinValidPerWindow();
-        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -1547,10 +1566,12 @@ public final class Oracle {
        */
       public Builder setMinValidPerWindowBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         minValidPerWindow_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -1587,18 +1608,7 @@ public final class Oracle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Params(input, extensionRegistry);
       }
     };
 
@@ -1679,6 +1689,55 @@ public final class Oracle {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Denom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tobinTax_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.Oracle.internal_static_terra_oracle_v1beta1_Denom_descriptor;
@@ -1693,8 +1752,7 @@ public final class Oracle {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object name_ = "";
+    private volatile java.lang.Object name_;
     /**
      * <code>string name = 1 [(.gogoproto.moretags) = "yaml:&#92;"name&#92;""];</code>
      * @return The name.
@@ -1732,8 +1790,7 @@ public final class Oracle {
     }
 
     public static final int TOBIN_TAX_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object tobinTax_ = "";
+    private volatile java.lang.Object tobinTax_;
     /**
      * <code>string tobin_tax = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"tobin_tax&#92;""];</code>
      * @return The tobinTax.
@@ -1784,13 +1841,13 @@ public final class Oracle {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tobinTax_)) {
+      if (!getTobinTaxBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tobinTax_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1799,13 +1856,13 @@ public final class Oracle {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tobinTax_)) {
+      if (!getTobinTaxBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tobinTax_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1824,7 +1881,7 @@ public final class Oracle {
           .equals(other.getName())) return false;
       if (!getTobinTax()
           .equals(other.getTobinTax())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1839,7 +1896,7 @@ public final class Oracle {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + TOBIN_TAX_FIELD_NUMBER;
       hash = (53 * hash) + getTobinTax().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1960,20 +2017,26 @@ public final class Oracle {
 
       // Construct using terra.oracle.v1beta1.Oracle.Denom.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         name_ = "";
+
         tobinTax_ = "";
+
         return this;
       }
 
@@ -2000,19 +2063,10 @@ public final class Oracle {
       @java.lang.Override
       public terra.oracle.v1beta1.Oracle.Denom buildPartial() {
         terra.oracle.v1beta1.Oracle.Denom result = new terra.oracle.v1beta1.Oracle.Denom(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.name_ = name_;
+        result.tobinTax_ = tobinTax_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.Oracle.Denom result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.name_ = name_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.tobinTax_ = tobinTax_;
-        }
       }
 
       @java.lang.Override
@@ -2061,15 +2115,13 @@ public final class Oracle {
         if (other == terra.oracle.v1beta1.Oracle.Denom.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getTobinTax().isEmpty()) {
           tobinTax_ = other.tobinTax_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2084,43 +2136,19 @@ public final class Oracle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.Oracle.Denom parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                name_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                tobinTax_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.Oracle.Denom) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -2163,9 +2191,11 @@ public final class Oracle {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         name_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2174,8 +2204,8 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearName() {
+        
         name_ = getDefaultInstance().getName();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2186,10 +2216,12 @@ public final class Oracle {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         name_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2235,9 +2267,11 @@ public final class Oracle {
        */
       public Builder setTobinTax(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         tobinTax_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2246,8 +2280,8 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearTobinTax() {
+        
         tobinTax_ = getDefaultInstance().getTobinTax();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2258,10 +2292,12 @@ public final class Oracle {
        */
       public Builder setTobinTaxBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         tobinTax_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2298,18 +2334,7 @@ public final class Oracle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Denom(input, extensionRegistry);
       }
     };
 
@@ -2398,6 +2423,60 @@ public final class Oracle {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private AggregateExchangeRatePrevote(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              hash_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              voter_ = s;
+              break;
+            }
+            case 24: {
+
+              submitBlock_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.Oracle.internal_static_terra_oracle_v1beta1_AggregateExchangeRatePrevote_descriptor;
@@ -2412,8 +2491,7 @@ public final class Oracle {
     }
 
     public static final int HASH_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object hash_ = "";
+    private volatile java.lang.Object hash_;
     /**
      * <code>string hash = 1 [(.gogoproto.moretags) = "yaml:&#92;"hash&#92;""];</code>
      * @return The hash.
@@ -2451,8 +2529,7 @@ public final class Oracle {
     }
 
     public static final int VOTER_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object voter_ = "";
+    private volatile java.lang.Object voter_;
     /**
      * <code>string voter = 2 [(.gogoproto.moretags) = "yaml:&#92;"voter&#92;""];</code>
      * @return The voter.
@@ -2490,7 +2567,7 @@ public final class Oracle {
     }
 
     public static final int SUBMIT_BLOCK_FIELD_NUMBER = 3;
-    private long submitBlock_ = 0L;
+    private long submitBlock_;
     /**
      * <code>uint64 submit_block = 3 [(.gogoproto.moretags) = "yaml:&#92;"submit_block&#92;""];</code>
      * @return The submitBlock.
@@ -2514,16 +2591,16 @@ public final class Oracle {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hash_)) {
+      if (!getHashBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, hash_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(voter_)) {
+      if (!getVoterBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, voter_);
       }
       if (submitBlock_ != 0L) {
         output.writeUInt64(3, submitBlock_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2532,17 +2609,17 @@ public final class Oracle {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hash_)) {
+      if (!getHashBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, hash_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(voter_)) {
+      if (!getVoterBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, voter_);
       }
       if (submitBlock_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, submitBlock_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2563,7 +2640,7 @@ public final class Oracle {
           .equals(other.getVoter())) return false;
       if (getSubmitBlock()
           != other.getSubmitBlock()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2581,7 +2658,7 @@ public final class Oracle {
       hash = (37 * hash) + SUBMIT_BLOCK_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSubmitBlock());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2704,21 +2781,28 @@ public final class Oracle {
 
       // Construct using terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         hash_ = "";
+
         voter_ = "";
+
         submitBlock_ = 0L;
+
         return this;
       }
 
@@ -2745,22 +2829,11 @@ public final class Oracle {
       @java.lang.Override
       public terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote buildPartial() {
         terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote result = new terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.hash_ = hash_;
+        result.voter_ = voter_;
+        result.submitBlock_ = submitBlock_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.hash_ = hash_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.voter_ = voter_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.submitBlock_ = submitBlock_;
-        }
       }
 
       @java.lang.Override
@@ -2809,18 +2882,16 @@ public final class Oracle {
         if (other == terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.getDefaultInstance()) return this;
         if (!other.getHash().isEmpty()) {
           hash_ = other.hash_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getVoter().isEmpty()) {
           voter_ = other.voter_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getSubmitBlock() != 0L) {
           setSubmitBlock(other.getSubmitBlock());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2835,48 +2906,19 @@ public final class Oracle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                hash_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                voter_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                submitBlock_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object hash_ = "";
       /**
@@ -2919,9 +2961,11 @@ public final class Oracle {
        */
       public Builder setHash(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         hash_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2930,8 +2974,8 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearHash() {
+        
         hash_ = getDefaultInstance().getHash();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2942,10 +2986,12 @@ public final class Oracle {
        */
       public Builder setHashBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         hash_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2991,9 +3037,11 @@ public final class Oracle {
        */
       public Builder setVoter(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         voter_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3002,8 +3050,8 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearVoter() {
+        
         voter_ = getDefaultInstance().getVoter();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -3014,10 +3062,12 @@ public final class Oracle {
        */
       public Builder setVoterBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         voter_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3039,7 +3089,6 @@ public final class Oracle {
       public Builder setSubmitBlock(long value) {
         
         submitBlock_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3048,7 +3097,7 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearSubmitBlock() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         submitBlock_ = 0L;
         onChanged();
         return this;
@@ -3086,18 +3135,7 @@ public final class Oracle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AggregateExchangeRatePrevote(input, extensionRegistry);
       }
     };
 
@@ -3191,6 +3229,62 @@ public final class Oracle {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private AggregateExchangeRateVote(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                exchangeRateTuples_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.ExchangeRateTuple>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              exchangeRateTuples_.add(
+                  input.readMessage(terra.oracle.v1beta1.Oracle.ExchangeRateTuple.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              voter_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          exchangeRateTuples_ = java.util.Collections.unmodifiableList(exchangeRateTuples_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.Oracle.internal_static_terra_oracle_v1beta1_AggregateExchangeRateVote_descriptor;
@@ -3205,7 +3299,6 @@ public final class Oracle {
     }
 
     public static final int EXCHANGE_RATE_TUPLES_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<terra.oracle.v1beta1.Oracle.ExchangeRateTuple> exchangeRateTuples_;
     /**
      * <code>repeated .terra.oracle.v1beta1.ExchangeRateTuple exchange_rate_tuples = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"exchange_rate_tuples&#92;"", (.gogoproto.castrepeated) = "ExchangeRateTuples"];</code>
@@ -3246,8 +3339,7 @@ public final class Oracle {
     }
 
     public static final int VOTER_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object voter_ = "";
+    private volatile java.lang.Object voter_;
     /**
      * <code>string voter = 2 [(.gogoproto.moretags) = "yaml:&#92;"voter&#92;""];</code>
      * @return The voter.
@@ -3301,10 +3393,10 @@ public final class Oracle {
       for (int i = 0; i < exchangeRateTuples_.size(); i++) {
         output.writeMessage(1, exchangeRateTuples_.get(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(voter_)) {
+      if (!getVoterBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, voter_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3317,10 +3409,10 @@ public final class Oracle {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, exchangeRateTuples_.get(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(voter_)) {
+      if (!getVoterBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, voter_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3339,7 +3431,7 @@ public final class Oracle {
           .equals(other.getExchangeRateTuplesList())) return false;
       if (!getVoter()
           .equals(other.getVoter())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3356,7 +3448,7 @@ public final class Oracle {
       }
       hash = (37 * hash) + VOTER_FIELD_NUMBER;
       hash = (53 * hash) + getVoter().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3478,26 +3570,31 @@ public final class Oracle {
 
       // Construct using terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getExchangeRateTuplesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (exchangeRateTuplesBuilder_ == null) {
           exchangeRateTuples_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          exchangeRateTuples_ = null;
           exchangeRateTuplesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         voter_ = "";
+
         return this;
       }
 
@@ -3524,13 +3621,7 @@ public final class Oracle {
       @java.lang.Override
       public terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote buildPartial() {
         terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote result = new terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote result) {
+        int from_bitField0_ = bitField0_;
         if (exchangeRateTuplesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             exchangeRateTuples_ = java.util.Collections.unmodifiableList(exchangeRateTuples_);
@@ -3540,13 +3631,9 @@ public final class Oracle {
         } else {
           result.exchangeRateTuples_ = exchangeRateTuplesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.voter_ = voter_;
-        }
+        result.voter_ = voter_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -3621,10 +3708,9 @@ public final class Oracle {
         }
         if (!other.getVoter().isEmpty()) {
           voter_ = other.voter_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3639,48 +3725,17 @@ public final class Oracle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                terra.oracle.v1beta1.Oracle.ExchangeRateTuple m =
-                    input.readMessage(
-                        terra.oracle.v1beta1.Oracle.ExchangeRateTuple.parser(),
-                        extensionRegistry);
-                if (exchangeRateTuplesBuilder_ == null) {
-                  ensureExchangeRateTuplesIsMutable();
-                  exchangeRateTuples_.add(m);
-                } else {
-                  exchangeRateTuplesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              case 18: {
-                voter_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -3966,9 +4021,11 @@ public final class Oracle {
        */
       public Builder setVoter(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         voter_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3977,8 +4034,8 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearVoter() {
+        
         voter_ = getDefaultInstance().getVoter();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -3989,10 +4046,12 @@ public final class Oracle {
        */
       public Builder setVoterBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         voter_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4029,18 +4088,7 @@ public final class Oracle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AggregateExchangeRateVote(input, extensionRegistry);
       }
     };
 
@@ -4121,6 +4169,55 @@ public final class Oracle {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ExchangeRateTuple(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              denom_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              exchangeRate_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.Oracle.internal_static_terra_oracle_v1beta1_ExchangeRateTuple_descriptor;
@@ -4135,8 +4232,7 @@ public final class Oracle {
     }
 
     public static final int DENOM_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object denom_ = "";
+    private volatile java.lang.Object denom_;
     /**
      * <code>string denom = 1 [(.gogoproto.moretags) = "yaml:&#92;"denom&#92;""];</code>
      * @return The denom.
@@ -4174,8 +4270,7 @@ public final class Oracle {
     }
 
     public static final int EXCHANGE_RATE_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object exchangeRate_ = "";
+    private volatile java.lang.Object exchangeRate_;
     /**
      * <code>string exchange_rate = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"exchange_rate&#92;""];</code>
      * @return The exchangeRate.
@@ -4226,13 +4321,13 @@ public final class Oracle {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, denom_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(exchangeRate_)) {
+      if (!getExchangeRateBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, exchangeRate_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4241,13 +4336,13 @@ public final class Oracle {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, denom_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(exchangeRate_)) {
+      if (!getExchangeRateBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, exchangeRate_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4266,7 +4361,7 @@ public final class Oracle {
           .equals(other.getDenom())) return false;
       if (!getExchangeRate()
           .equals(other.getExchangeRate())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4281,7 +4376,7 @@ public final class Oracle {
       hash = (53 * hash) + getDenom().hashCode();
       hash = (37 * hash) + EXCHANGE_RATE_FIELD_NUMBER;
       hash = (53 * hash) + getExchangeRate().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4402,20 +4497,26 @@ public final class Oracle {
 
       // Construct using terra.oracle.v1beta1.Oracle.ExchangeRateTuple.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         denom_ = "";
+
         exchangeRate_ = "";
+
         return this;
       }
 
@@ -4442,19 +4543,10 @@ public final class Oracle {
       @java.lang.Override
       public terra.oracle.v1beta1.Oracle.ExchangeRateTuple buildPartial() {
         terra.oracle.v1beta1.Oracle.ExchangeRateTuple result = new terra.oracle.v1beta1.Oracle.ExchangeRateTuple(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.denom_ = denom_;
+        result.exchangeRate_ = exchangeRate_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.Oracle.ExchangeRateTuple result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.denom_ = denom_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.exchangeRate_ = exchangeRate_;
-        }
       }
 
       @java.lang.Override
@@ -4503,15 +4595,13 @@ public final class Oracle {
         if (other == terra.oracle.v1beta1.Oracle.ExchangeRateTuple.getDefaultInstance()) return this;
         if (!other.getDenom().isEmpty()) {
           denom_ = other.denom_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getExchangeRate().isEmpty()) {
           exchangeRate_ = other.exchangeRate_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4526,43 +4616,19 @@ public final class Oracle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.Oracle.ExchangeRateTuple parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                denom_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                exchangeRate_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.Oracle.ExchangeRateTuple) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object denom_ = "";
       /**
@@ -4605,9 +4671,11 @@ public final class Oracle {
        */
       public Builder setDenom(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4616,8 +4684,8 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearDenom() {
+        
         denom_ = getDefaultInstance().getDenom();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4628,10 +4696,12 @@ public final class Oracle {
        */
       public Builder setDenomBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4677,9 +4747,11 @@ public final class Oracle {
        */
       public Builder setExchangeRate(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         exchangeRate_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4688,8 +4760,8 @@ public final class Oracle {
        * @return This builder for chaining.
        */
       public Builder clearExchangeRate() {
+        
         exchangeRate_ = getDefaultInstance().getExchangeRate();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4700,10 +4772,12 @@ public final class Oracle {
        */
       public Builder setExchangeRateBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         exchangeRate_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4740,18 +4814,7 @@ public final class Oracle {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ExchangeRateTuple(input, extensionRegistry);
       }
     };
 
@@ -4806,47 +4869,49 @@ public final class Oracle {
   static {
     java.lang.String[] descriptorData = {
       "\n!terra/oracle/v1beta1/oracle.proto\022\024ter" +
-      "ra.oracle.v1beta1\032\024gogoproto/gogo.proto\"" +
-      "\232\005\n\006Params\022+\n\013vote_period\030\001 \001(\004B\026\362\336\037\022yam" +
-      "l:\"vote_period\"\022_\n\016vote_threshold\030\002 \001(\tB" +
-      "G\362\336\037\025yaml:\"vote_threshold\"\332\336\037&github.com" +
-      "/cosmos/cosmos-sdk/types.Dec\310\336\037\000\022Y\n\013rewa" +
-      "rd_band\030\003 \001(\tBD\362\336\037\022yaml:\"reward_band\"\332\336\037" +
-      "&github.com/cosmos/cosmos-sdk/types.Dec\310" +
-      "\336\037\000\022I\n\032reward_distribution_window\030\004 \001(\004B" +
-      "%\362\336\037!yaml:\"reward_distribution_window\"\022U" +
-      "\n\twhitelist\030\005 \003(\0132\033.terra.oracle.v1beta1" +
-      ".DenomB%\362\336\037\020yaml:\"whitelist\"\252\337\037\tDenomLis" +
-      "t\310\336\037\000\022_\n\016slash_fraction\030\006 \001(\tBG\362\336\037\025yaml:" +
-      "\"slash_fraction\"\332\336\037&github.com/cosmos/co" +
-      "smos-sdk/types.Dec\310\336\037\000\022-\n\014slash_window\030\007" +
-      " \001(\004B\027\362\336\037\023yaml:\"slash_window\"\022k\n\024min_val" +
-      "id_per_window\030\010 \001(\tBM\362\336\037\033yaml:\"min_valid" +
-      "_per_window\"\332\336\037&github.com/cosmos/cosmos" +
-      "-sdk/types.Dec\310\336\037\000:\010\350\240\037\001\230\240\037\000\"\213\001\n\005Denom\022\035" +
-      "\n\004name\030\001 \001(\tB\017\362\336\037\013yaml:\"name\"\022U\n\ttobin_t" +
-      "ax\030\002 \001(\tBB\362\336\037\020yaml:\"tobin_tax\"\332\336\037&github" +
-      ".com/cosmos/cosmos-sdk/types.Dec\310\336\037\000:\014\350\240" +
-      "\037\000\210\240\037\000\230\240\037\000\"\233\001\n\034AggregateExchangeRatePrev" +
-      "ote\022\035\n\004hash\030\001 \001(\tB\017\362\336\037\013yaml:\"hash\"\022\037\n\005vo" +
-      "ter\030\002 \001(\tB\020\362\336\037\014yaml:\"voter\"\022-\n\014submit_bl" +
-      "ock\030\003 \001(\004B\027\362\336\037\023yaml:\"submit_block\":\014\350\240\037\000" +
-      "\210\240\037\000\230\240\037\000\"\315\001\n\031AggregateExchangeRateVote\022\200" +
-      "\001\n\024exchange_rate_tuples\030\001 \003(\0132\'.terra.or" +
-      "acle.v1beta1.ExchangeRateTupleB9\362\336\037\033yaml" +
-      ":\"exchange_rate_tuples\"\252\337\037\022ExchangeRateT" +
-      "uples\310\336\037\000\022\037\n\005voter\030\002 \001(\tB\020\362\336\037\014yaml:\"vote" +
-      "r\":\014\350\240\037\000\210\240\037\000\230\240\037\000\"\241\001\n\021ExchangeRateTuple\022\037" +
-      "\n\005denom\030\001 \001(\tB\020\362\336\037\014yaml:\"denom\"\022]\n\rexcha" +
-      "nge_rate\030\002 \001(\tBF\362\336\037\024yaml:\"exchange_rate\"" +
-      "\332\336\037&github.com/cosmos/cosmos-sdk/types.D" +
-      "ec\310\336\037\000:\014\350\240\037\000\210\240\037\000\230\240\037\000B.Z,github.com/class" +
-      "ic-terra/core/x/oracle/typesb\006proto3"
+      "ra.oracle.v1beta1\032\024gogoproto/gogo.proto\032" +
+      "\036cosmos/base/v1beta1/coin.proto\"\232\005\n\006Para" +
+      "ms\022+\n\013vote_period\030\001 \001(\004B\026\362\336\037\022yaml:\"vote_" +
+      "period\"\022_\n\016vote_threshold\030\002 \001(\tBG\362\336\037\025yam" +
+      "l:\"vote_threshold\"\332\336\037&github.com/cosmos/" +
+      "cosmos-sdk/types.Dec\310\336\037\000\022Y\n\013reward_band\030" +
+      "\003 \001(\tBD\362\336\037\022yaml:\"reward_band\"\332\336\037&github." +
+      "com/cosmos/cosmos-sdk/types.Dec\310\336\037\000\022I\n\032r" +
+      "eward_distribution_window\030\004 \001(\004B%\362\336\037!yam" +
+      "l:\"reward_distribution_window\"\022U\n\twhitel" +
+      "ist\030\005 \003(\0132\033.terra.oracle.v1beta1.DenomB%" +
+      "\362\336\037\020yaml:\"whitelist\"\252\337\037\tDenomList\310\336\037\000\022_\n" +
+      "\016slash_fraction\030\006 \001(\tBG\362\336\037\025yaml:\"slash_f" +
+      "raction\"\332\336\037&github.com/cosmos/cosmos-sdk" +
+      "/types.Dec\310\336\037\000\022-\n\014slash_window\030\007 \001(\004B\027\362\336" +
+      "\037\023yaml:\"slash_window\"\022k\n\024min_valid_per_w" +
+      "indow\030\010 \001(\tBM\362\336\037\033yaml:\"min_valid_per_win" +
+      "dow\"\332\336\037&github.com/cosmos/cosmos-sdk/typ" +
+      "es.Dec\310\336\037\000:\010\350\240\037\001\230\240\037\000\"\213\001\n\005Denom\022\035\n\004name\030\001" +
+      " \001(\tB\017\362\336\037\013yaml:\"name\"\022U\n\ttobin_tax\030\002 \001(\t" +
+      "BB\362\336\037\020yaml:\"tobin_tax\"\332\336\037&github.com/cos" +
+      "mos/cosmos-sdk/types.Dec\310\336\037\000:\014\350\240\037\000\210\240\037\000\230\240" +
+      "\037\000\"\233\001\n\034AggregateExchangeRatePrevote\022\035\n\004h" +
+      "ash\030\001 \001(\tB\017\362\336\037\013yaml:\"hash\"\022\037\n\005voter\030\002 \001(" +
+      "\tB\020\362\336\037\014yaml:\"voter\"\022-\n\014submit_block\030\003 \001(" +
+      "\004B\027\362\336\037\023yaml:\"submit_block\":\014\350\240\037\000\210\240\037\000\230\240\037\000" +
+      "\"\315\001\n\031AggregateExchangeRateVote\022\200\001\n\024excha" +
+      "nge_rate_tuples\030\001 \003(\0132\'.terra.oracle.v1b" +
+      "eta1.ExchangeRateTupleB9\362\336\037\033yaml:\"exchan" +
+      "ge_rate_tuples\"\252\337\037\022ExchangeRateTuples\310\336\037" +
+      "\000\022\037\n\005voter\030\002 \001(\tB\020\362\336\037\014yaml:\"voter\":\014\350\240\037\000" +
+      "\210\240\037\000\230\240\037\000\"\241\001\n\021ExchangeRateTuple\022\037\n\005denom\030" +
+      "\001 \001(\tB\020\362\336\037\014yaml:\"denom\"\022]\n\rexchange_rate" +
+      "\030\002 \001(\tBF\362\336\037\024yaml:\"exchange_rate\"\332\336\037&gith" +
+      "ub.com/cosmos/cosmos-sdk/types.Dec\310\336\037\000:\014" +
+      "\350\240\037\000\210\240\037\000\230\240\037\000B,Z*github.com/terra-money/c" +
+      "ore/x/oracle/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.GoGoProtos.getDescriptor(),
+          cosmos.base.v1beta1.CoinOuterClass.getDescriptor(),
         });
     internal_static_terra_oracle_v1beta1_Params_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -4890,6 +4955,7 @@ public final class Oracle {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.protobuf.GoGoProtos.getDescriptor();
+    cosmos.base.v1beta1.CoinOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

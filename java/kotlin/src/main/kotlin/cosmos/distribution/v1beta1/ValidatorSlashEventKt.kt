@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializevalidatorSlashEvent")
-public inline fun validatorSlashEvent(block: cosmos.distribution.v1beta1.ValidatorSlashEventKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent =
+@kotlin.jvm.JvmSynthetic
+inline fun validatorSlashEvent(block: cosmos.distribution.v1beta1.ValidatorSlashEventKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent =
   cosmos.distribution.v1beta1.ValidatorSlashEventKt.Dsl._create(cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent.newBuilder()).apply { block() }._build()
-public object ValidatorSlashEventKt {
+object ValidatorSlashEventKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ValidatorSlashEventKt {
     /**
      * <code>uint64 validator_period = 1 [(.gogoproto.moretags) = "yaml:&#92;"validator_period&#92;""];</code>
      */
-    public var validatorPeriod: kotlin.Long
+    var validatorPeriod: kotlin.Long
       @JvmName("getValidatorPeriod")
       get() = _builder.getValidatorPeriod()
       @JvmName("setValidatorPeriod")
@@ -35,14 +35,14 @@ public object ValidatorSlashEventKt {
     /**
      * <code>uint64 validator_period = 1 [(.gogoproto.moretags) = "yaml:&#92;"validator_period&#92;""];</code>
      */
-    public fun clearValidatorPeriod() {
+    fun clearValidatorPeriod() {
       _builder.clearValidatorPeriod()
     }
 
     /**
      * <code>string fraction = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var fraction: kotlin.String
+    var fraction: kotlin.String
       @JvmName("getFraction")
       get() = _builder.getFraction()
       @JvmName("setFraction")
@@ -52,12 +52,11 @@ public object ValidatorSlashEventKt {
     /**
      * <code>string fraction = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearFraction() {
+    fun clearFraction() {
       _builder.clearFraction()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent.copy(block: cosmos.distribution.v1beta1.ValidatorSlashEventKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent =
+inline fun cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent.copy(block: cosmos.distribution.v1beta1.ValidatorSlashEventKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent =
   cosmos.distribution.v1beta1.ValidatorSlashEventKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

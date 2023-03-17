@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgEditValidator")
-public inline fun msgEditValidator(block: cosmos.staking.v1beta1.MsgEditValidatorKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Tx.MsgEditValidator =
+@kotlin.jvm.JvmSynthetic
+inline fun msgEditValidator(block: cosmos.staking.v1beta1.MsgEditValidatorKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Tx.MsgEditValidator =
   cosmos.staking.v1beta1.MsgEditValidatorKt.Dsl._create(cosmos.staking.v1beta1.Tx.MsgEditValidator.newBuilder()).apply { block() }._build()
-public object MsgEditValidatorKt {
+object MsgEditValidatorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Tx.MsgEditValidator.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Tx.MsgEditValidator.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Tx.MsgEditValidator.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgEditValidatorKt {
     /**
      * <code>.cosmos.staking.v1beta1.Description description = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var description: cosmos.staking.v1beta1.Staking.Description
+    var description: cosmos.staking.v1beta1.Staking.Description
       @JvmName("getDescription")
       get() = _builder.getDescription()
       @JvmName("setDescription")
@@ -35,21 +35,21 @@ public object MsgEditValidatorKt {
     /**
      * <code>.cosmos.staking.v1beta1.Description description = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearDescription() {
+    fun clearDescription() {
       _builder.clearDescription()
     }
     /**
      * <code>.cosmos.staking.v1beta1.Description description = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the description field is set.
      */
-    public fun hasDescription(): kotlin.Boolean {
+    fun hasDescription(): kotlin.Boolean {
       return _builder.hasDescription()
     }
 
     /**
      * <code>string validator_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"address&#92;""];</code>
      */
-    public var validatorAddress: kotlin.String
+    var validatorAddress: kotlin.String
       @JvmName("getValidatorAddress")
       get() = _builder.getValidatorAddress()
       @JvmName("setValidatorAddress")
@@ -59,7 +59,7 @@ public object MsgEditValidatorKt {
     /**
      * <code>string validator_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"address&#92;""];</code>
      */
-    public fun clearValidatorAddress() {
+    fun clearValidatorAddress() {
       _builder.clearValidatorAddress()
     }
 
@@ -73,7 +73,7 @@ public object MsgEditValidatorKt {
      *
      * <code>string commission_rate = 3 [(.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"commission_rate&#92;""];</code>
      */
-    public var commissionRate: kotlin.String
+    var commissionRate: kotlin.String
       @JvmName("getCommissionRate")
       get() = _builder.getCommissionRate()
       @JvmName("setCommissionRate")
@@ -90,14 +90,14 @@ public object MsgEditValidatorKt {
      *
      * <code>string commission_rate = 3 [(.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"commission_rate&#92;""];</code>
      */
-    public fun clearCommissionRate() {
+    fun clearCommissionRate() {
       _builder.clearCommissionRate()
     }
 
     /**
      * <code>string min_self_delegation = 4 [(.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int", (.gogoproto.moretags) = "yaml:&#92;"min_self_delegation&#92;""];</code>
      */
-    public var minSelfDelegation: kotlin.String
+    var minSelfDelegation: kotlin.String
       @JvmName("getMinSelfDelegation")
       get() = _builder.getMinSelfDelegation()
       @JvmName("setMinSelfDelegation")
@@ -107,15 +107,11 @@ public object MsgEditValidatorKt {
     /**
      * <code>string min_self_delegation = 4 [(.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int", (.gogoproto.moretags) = "yaml:&#92;"min_self_delegation&#92;""];</code>
      */
-    public fun clearMinSelfDelegation() {
+    fun clearMinSelfDelegation() {
       _builder.clearMinSelfDelegation()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Tx.MsgEditValidator.copy(block: cosmos.staking.v1beta1.MsgEditValidatorKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Tx.MsgEditValidator =
+inline fun cosmos.staking.v1beta1.Tx.MsgEditValidator.copy(block: cosmos.staking.v1beta1.MsgEditValidatorKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Tx.MsgEditValidator =
   cosmos.staking.v1beta1.MsgEditValidatorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.Tx.MsgEditValidatorOrBuilder.descriptionOrNull: cosmos.staking.v1beta1.Staking.Description?
-  get() = if (hasDescription()) getDescription() else null
-

@@ -3,16 +3,16 @@
 
 package cosmos.base.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeintProto")
-public inline fun intProto(block: cosmos.base.v1beta1.IntProtoKt.Dsl.() -> kotlin.Unit): cosmos.base.v1beta1.CoinOuterClass.IntProto =
+@kotlin.jvm.JvmSynthetic
+inline fun intProto(block: cosmos.base.v1beta1.IntProtoKt.Dsl.() -> Unit): cosmos.base.v1beta1.CoinOuterClass.IntProto =
   cosmos.base.v1beta1.IntProtoKt.Dsl._create(cosmos.base.v1beta1.CoinOuterClass.IntProto.newBuilder()).apply { block() }._build()
-public object IntProtoKt {
+object IntProtoKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.v1beta1.CoinOuterClass.IntProto.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.v1beta1.CoinOuterClass.IntProto.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.v1beta1.CoinOuterClass.IntProto.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object IntProtoKt {
     /**
      * <code>string int = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Int"];</code>
      */
-    public var int: kotlin.String
+    var int: kotlin.String
       @JvmName("getInt")
       get() = _builder.getInt()
       @JvmName("setInt")
@@ -35,12 +35,11 @@ public object IntProtoKt {
     /**
      * <code>string int = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Int"];</code>
      */
-    public fun clearInt() {
+    fun clearInt() {
       _builder.clearInt()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.v1beta1.CoinOuterClass.IntProto.copy(block: cosmos.base.v1beta1.IntProtoKt.Dsl.() -> kotlin.Unit): cosmos.base.v1beta1.CoinOuterClass.IntProto =
+inline fun cosmos.base.v1beta1.CoinOuterClass.IntProto.copy(block: cosmos.base.v1beta1.IntProtoKt.Dsl.() -> Unit): cosmos.base.v1beta1.CoinOuterClass.IntProto =
   cosmos.base.v1beta1.IntProtoKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

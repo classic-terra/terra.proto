@@ -70,6 +70,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryExchangeRateRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              denom_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryExchangeRateRequest_descriptor;
@@ -84,8 +127,7 @@ public final class QueryOuterClass {
     }
 
     public static final int DENOM_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object denom_ = "";
+    private volatile java.lang.Object denom_;
     /**
      * <pre>
      * denom defines the denomination to query for.
@@ -144,10 +186,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, denom_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -156,10 +198,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, denom_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -176,7 +218,7 @@ public final class QueryOuterClass {
 
       if (!getDenom()
           .equals(other.getDenom())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -189,7 +231,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + DENOM_FIELD_NUMBER;
       hash = (53 * hash) + getDenom().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -310,19 +352,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         denom_ = "";
+
         return this;
       }
 
@@ -349,16 +396,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest result = new terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.denom_ = denom_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.denom_ = denom_;
-        }
       }
 
       @java.lang.Override
@@ -407,10 +447,9 @@ public final class QueryOuterClass {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest.getDefaultInstance()) return this;
         if (!other.getDenom().isEmpty()) {
           denom_ = other.denom_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -425,38 +464,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                denom_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object denom_ = "";
       /**
@@ -511,9 +531,11 @@ public final class QueryOuterClass {
        */
       public Builder setDenom(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -526,8 +548,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDenom() {
+        
         denom_ = getDefaultInstance().getDenom();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -542,10 +564,12 @@ public final class QueryOuterClass {
        */
       public Builder setDenomBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -582,18 +606,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryExchangeRateRequest(input, extensionRegistry);
       }
     };
 
@@ -670,6 +683,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryExchangeRateResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              exchangeRate_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryExchangeRateResponse_descriptor;
@@ -684,8 +740,7 @@ public final class QueryOuterClass {
     }
 
     public static final int EXCHANGE_RATE_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object exchangeRate_ = "";
+    private volatile java.lang.Object exchangeRate_;
     /**
      * <pre>
      * exchange_rate defines the exchange rate of Luna denominated in various Terra
@@ -744,10 +799,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(exchangeRate_)) {
+      if (!getExchangeRateBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, exchangeRate_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -756,10 +811,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(exchangeRate_)) {
+      if (!getExchangeRateBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, exchangeRate_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -776,7 +831,7 @@ public final class QueryOuterClass {
 
       if (!getExchangeRate()
           .equals(other.getExchangeRate())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -789,7 +844,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + EXCHANGE_RATE_FIELD_NUMBER;
       hash = (53 * hash) + getExchangeRate().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -911,19 +966,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         exchangeRate_ = "";
+
         return this;
       }
 
@@ -950,16 +1010,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.exchangeRate_ = exchangeRate_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.exchangeRate_ = exchangeRate_;
-        }
       }
 
       @java.lang.Override
@@ -1008,10 +1061,9 @@ public final class QueryOuterClass {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse.getDefaultInstance()) return this;
         if (!other.getExchangeRate().isEmpty()) {
           exchangeRate_ = other.exchangeRate_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1026,38 +1078,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                exchangeRate_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object exchangeRate_ = "";
       /**
@@ -1112,9 +1145,11 @@ public final class QueryOuterClass {
        */
       public Builder setExchangeRate(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         exchangeRate_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1127,8 +1162,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearExchangeRate() {
+        
         exchangeRate_ = getDefaultInstance().getExchangeRate();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1143,10 +1178,12 @@ public final class QueryOuterClass {
        */
       public Builder setExchangeRateBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         exchangeRate_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1183,18 +1220,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryExchangeRateResponse(input, extensionRegistry);
       }
     };
 
@@ -1249,6 +1275,43 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryExchangeRatesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryExchangeRatesRequest_descriptor;
@@ -1276,7 +1339,7 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1285,7 +1348,7 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1300,7 +1363,7 @@ public final class QueryOuterClass {
       }
       terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest other = (terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1311,7 +1374,7 @@ public final class QueryOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1432,13 +1495,18 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -1517,7 +1585,7 @@ public final class QueryOuterClass {
 
       public Builder mergeFrom(terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest other) {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1532,30 +1600,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -1591,18 +1646,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryExchangeRatesRequest(input, extensionRegistry);
       }
     };
 
@@ -1703,6 +1747,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryExchangeRatesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                exchangeRates_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.DecCoin>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              exchangeRates_.add(
+                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          exchangeRates_ = java.util.Collections.unmodifiableList(exchangeRates_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryExchangeRatesResponse_descriptor;
@@ -1717,7 +1811,6 @@ public final class QueryOuterClass {
     }
 
     public static final int EXCHANGE_RATES_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.DecCoin> exchangeRates_;
     /**
      * <pre>
@@ -1794,7 +1887,7 @@ public final class QueryOuterClass {
       for (int i = 0; i < exchangeRates_.size(); i++) {
         output.writeMessage(1, exchangeRates_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1807,7 +1900,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, exchangeRates_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1824,7 +1917,7 @@ public final class QueryOuterClass {
 
       if (!getExchangeRatesList()
           .equals(other.getExchangeRatesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1839,7 +1932,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + EXCHANGE_RATES_FIELD_NUMBER;
         hash = (53 * hash) + getExchangeRatesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1961,25 +2054,29 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getExchangeRatesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (exchangeRatesBuilder_ == null) {
           exchangeRates_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          exchangeRates_ = null;
           exchangeRatesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2006,13 +2103,7 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse result) {
+        int from_bitField0_ = bitField0_;
         if (exchangeRatesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             exchangeRates_ = java.util.Collections.unmodifiableList(exchangeRates_);
@@ -2022,10 +2113,8 @@ public final class QueryOuterClass {
         } else {
           result.exchangeRates_ = exchangeRatesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -2098,7 +2187,7 @@ public final class QueryOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2113,43 +2202,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                cosmos.base.v1beta1.CoinOuterClass.DecCoin m =
-                    input.readMessage(
-                        cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(),
-                        extensionRegistry);
-                if (exchangeRatesBuilder_ == null) {
-                  ensureExchangeRatesIsMutable();
-                  exchangeRates_.add(m);
-                } else {
-                  exchangeRatesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -2498,18 +2561,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryExchangeRatesResponse(input, extensionRegistry);
       }
     };
 
@@ -2585,6 +2637,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryTobinTaxRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              denom_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryTobinTaxRequest_descriptor;
@@ -2599,8 +2694,7 @@ public final class QueryOuterClass {
     }
 
     public static final int DENOM_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object denom_ = "";
+    private volatile java.lang.Object denom_;
     /**
      * <pre>
      * denom defines the denomination to query for.
@@ -2659,10 +2753,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, denom_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2671,10 +2765,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, denom_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2691,7 +2785,7 @@ public final class QueryOuterClass {
 
       if (!getDenom()
           .equals(other.getDenom())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2704,7 +2798,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + DENOM_FIELD_NUMBER;
       hash = (53 * hash) + getDenom().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2825,19 +2919,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         denom_ = "";
+
         return this;
       }
 
@@ -2864,16 +2963,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxRequest buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxRequest result = new terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.denom_ = denom_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.denom_ = denom_;
-        }
       }
 
       @java.lang.Override
@@ -2922,10 +3014,9 @@ public final class QueryOuterClass {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxRequest.getDefaultInstance()) return this;
         if (!other.getDenom().isEmpty()) {
           denom_ = other.denom_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2940,38 +3031,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                denom_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object denom_ = "";
       /**
@@ -3026,9 +3098,11 @@ public final class QueryOuterClass {
        */
       public Builder setDenom(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3041,8 +3115,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDenom() {
+        
         denom_ = getDefaultInstance().getDenom();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3057,10 +3131,12 @@ public final class QueryOuterClass {
        */
       public Builder setDenomBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3097,18 +3173,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryTobinTaxRequest(input, extensionRegistry);
       }
     };
 
@@ -3185,6 +3250,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryTobinTaxResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tobinTax_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryTobinTaxResponse_descriptor;
@@ -3199,8 +3307,7 @@ public final class QueryOuterClass {
     }
 
     public static final int TOBIN_TAX_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object tobinTax_ = "";
+    private volatile java.lang.Object tobinTax_;
     /**
      * <pre>
      * tobin_taxe defines the tobin tax of a denom
@@ -3259,10 +3366,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tobinTax_)) {
+      if (!getTobinTaxBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, tobinTax_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3271,10 +3378,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tobinTax_)) {
+      if (!getTobinTaxBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, tobinTax_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3291,7 +3398,7 @@ public final class QueryOuterClass {
 
       if (!getTobinTax()
           .equals(other.getTobinTax())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3304,7 +3411,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TOBIN_TAX_FIELD_NUMBER;
       hash = (53 * hash) + getTobinTax().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3426,19 +3533,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         tobinTax_ = "";
+
         return this;
       }
 
@@ -3465,16 +3577,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.tobinTax_ = tobinTax_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.tobinTax_ = tobinTax_;
-        }
       }
 
       @java.lang.Override
@@ -3523,10 +3628,9 @@ public final class QueryOuterClass {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse.getDefaultInstance()) return this;
         if (!other.getTobinTax().isEmpty()) {
           tobinTax_ = other.tobinTax_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3541,38 +3645,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                tobinTax_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object tobinTax_ = "";
       /**
@@ -3627,9 +3712,11 @@ public final class QueryOuterClass {
        */
       public Builder setTobinTax(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         tobinTax_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3642,8 +3729,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTobinTax() {
+        
         tobinTax_ = getDefaultInstance().getTobinTax();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3658,10 +3745,12 @@ public final class QueryOuterClass {
        */
       public Builder setTobinTaxBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         tobinTax_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3698,18 +3787,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryTobinTaxResponse(input, extensionRegistry);
       }
     };
 
@@ -3764,6 +3842,43 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryTobinTaxesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryTobinTaxesRequest_descriptor;
@@ -3791,7 +3906,7 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3800,7 +3915,7 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3815,7 +3930,7 @@ public final class QueryOuterClass {
       }
       terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest other = (terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3826,7 +3941,7 @@ public final class QueryOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3947,13 +4062,18 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -4032,7 +4152,7 @@ public final class QueryOuterClass {
 
       public Builder mergeFrom(terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest other) {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4047,30 +4167,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -4106,18 +4213,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryTobinTaxesRequest(input, extensionRegistry);
       }
     };
 
@@ -4218,6 +4314,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryTobinTaxesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tobinTaxes_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.Denom>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              tobinTaxes_.add(
+                  input.readMessage(terra.oracle.v1beta1.Oracle.Denom.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          tobinTaxes_ = java.util.Collections.unmodifiableList(tobinTaxes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryTobinTaxesResponse_descriptor;
@@ -4232,7 +4378,6 @@ public final class QueryOuterClass {
     }
 
     public static final int TOBIN_TAXES_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<terra.oracle.v1beta1.Oracle.Denom> tobinTaxes_;
     /**
      * <pre>
@@ -4309,7 +4454,7 @@ public final class QueryOuterClass {
       for (int i = 0; i < tobinTaxes_.size(); i++) {
         output.writeMessage(1, tobinTaxes_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4322,7 +4467,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, tobinTaxes_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4339,7 +4484,7 @@ public final class QueryOuterClass {
 
       if (!getTobinTaxesList()
           .equals(other.getTobinTaxesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4354,7 +4499,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + TOBIN_TAXES_FIELD_NUMBER;
         hash = (53 * hash) + getTobinTaxesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4476,25 +4621,29 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getTobinTaxesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (tobinTaxesBuilder_ == null) {
           tobinTaxes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          tobinTaxes_ = null;
           tobinTaxesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -4521,13 +4670,7 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesResponse result) {
+        int from_bitField0_ = bitField0_;
         if (tobinTaxesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             tobinTaxes_ = java.util.Collections.unmodifiableList(tobinTaxes_);
@@ -4537,10 +4680,8 @@ public final class QueryOuterClass {
         } else {
           result.tobinTaxes_ = tobinTaxesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesResponse result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -4613,7 +4754,7 @@ public final class QueryOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4628,43 +4769,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                terra.oracle.v1beta1.Oracle.Denom m =
-                    input.readMessage(
-                        terra.oracle.v1beta1.Oracle.Denom.parser(),
-                        extensionRegistry);
-                if (tobinTaxesBuilder_ == null) {
-                  ensureTobinTaxesIsMutable();
-                  tobinTaxes_.add(m);
-                } else {
-                  tobinTaxesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -5013,18 +5128,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryTobinTaxesResponse(input, extensionRegistry);
       }
     };
 
@@ -5079,6 +5183,43 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryActivesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryActivesRequest_descriptor;
@@ -5106,7 +5247,7 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5115,7 +5256,7 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5130,7 +5271,7 @@ public final class QueryOuterClass {
       }
       terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest other = (terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5141,7 +5282,7 @@ public final class QueryOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5262,13 +5403,18 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -5347,7 +5493,7 @@ public final class QueryOuterClass {
 
       public Builder mergeFrom(terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest other) {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5362,30 +5508,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryActivesRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -5421,18 +5554,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryActivesRequest(input, extensionRegistry);
       }
     };
 
@@ -5530,6 +5652,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryActivesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                actives_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              actives_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          actives_ = actives_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryActivesResponse_descriptor;
@@ -5544,7 +5716,6 @@ public final class QueryOuterClass {
     }
 
     public static final int ACTIVES_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList actives_;
     /**
      * <pre>
@@ -5612,7 +5783,7 @@ public final class QueryOuterClass {
       for (int i = 0; i < actives_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, actives_.getRaw(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5629,7 +5800,7 @@ public final class QueryOuterClass {
         size += dataSize;
         size += 1 * getActivesList().size();
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5646,7 +5817,7 @@ public final class QueryOuterClass {
 
       if (!getActivesList()
           .equals(other.getActivesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5661,7 +5832,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + ACTIVES_FIELD_NUMBER;
         hash = (53 * hash) + getActivesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5783,18 +5954,22 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         actives_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -5823,22 +5998,14 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           actives_ = actives_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.actives_ = actives_;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -5895,7 +6062,7 @@ public final class QueryOuterClass {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5910,36 +6077,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-                ensureActivesIsMutable();
-                actives_.add(s);
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -6011,8 +6159,10 @@ public final class QueryOuterClass {
        */
       public Builder setActives(
           int index, java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureActivesIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureActivesIsMutable();
         actives_.set(index, value);
         onChanged();
         return this;
@@ -6028,8 +6178,10 @@ public final class QueryOuterClass {
        */
       public Builder addActives(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureActivesIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureActivesIsMutable();
         actives_.add(value);
         onChanged();
         return this;
@@ -6076,8 +6228,10 @@ public final class QueryOuterClass {
        */
       public Builder addActivesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         ensureActivesIsMutable();
         actives_.add(value);
         onChanged();
@@ -6116,18 +6270,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryActivesResponse(input, extensionRegistry);
       }
     };
 
@@ -6182,6 +6325,43 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryVoteTargetsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryVoteTargetsRequest_descriptor;
@@ -6209,7 +6389,7 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -6218,7 +6398,7 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6233,7 +6413,7 @@ public final class QueryOuterClass {
       }
       terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest other = (terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -6244,7 +6424,7 @@ public final class QueryOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6365,13 +6545,18 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -6450,7 +6635,7 @@ public final class QueryOuterClass {
 
       public Builder mergeFrom(terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest other) {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6465,30 +6650,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -6524,18 +6696,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryVoteTargetsRequest(input, extensionRegistry);
       }
     };
 
@@ -6637,6 +6798,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryVoteTargetsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                voteTargets_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              voteTargets_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          voteTargets_ = voteTargets_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryVoteTargetsResponse_descriptor;
@@ -6651,7 +6862,6 @@ public final class QueryOuterClass {
     }
 
     public static final int VOTE_TARGETS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList voteTargets_;
     /**
      * <pre>
@@ -6723,7 +6933,7 @@ public final class QueryOuterClass {
       for (int i = 0; i < voteTargets_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, voteTargets_.getRaw(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -6740,7 +6950,7 @@ public final class QueryOuterClass {
         size += dataSize;
         size += 1 * getVoteTargetsList().size();
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6757,7 +6967,7 @@ public final class QueryOuterClass {
 
       if (!getVoteTargetsList()
           .equals(other.getVoteTargetsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -6772,7 +6982,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + VOTE_TARGETS_FIELD_NUMBER;
         hash = (53 * hash) + getVoteTargetsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6894,18 +7104,22 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         voteTargets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -6934,22 +7148,14 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           voteTargets_ = voteTargets_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.voteTargets_ = voteTargets_;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -7006,7 +7212,7 @@ public final class QueryOuterClass {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -7021,36 +7227,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-                ensureVoteTargetsIsMutable();
-                voteTargets_.add(s);
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -7127,8 +7314,10 @@ public final class QueryOuterClass {
        */
       public Builder setVoteTargets(
           int index, java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureVoteTargetsIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureVoteTargetsIsMutable();
         voteTargets_.set(index, value);
         onChanged();
         return this;
@@ -7145,8 +7334,10 @@ public final class QueryOuterClass {
        */
       public Builder addVoteTargets(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureVoteTargetsIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureVoteTargetsIsMutable();
         voteTargets_.add(value);
         onChanged();
         return this;
@@ -7196,8 +7387,10 @@ public final class QueryOuterClass {
        */
       public Builder addVoteTargetsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         ensureVoteTargetsIsMutable();
         voteTargets_.add(value);
         onChanged();
@@ -7236,18 +7429,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryVoteTargetsResponse(input, extensionRegistry);
       }
     };
 
@@ -7323,6 +7505,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryFeederDelegationRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              validatorAddr_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryFeederDelegationRequest_descriptor;
@@ -7337,8 +7562,7 @@ public final class QueryOuterClass {
     }
 
     public static final int VALIDATOR_ADDR_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object validatorAddr_ = "";
+    private volatile java.lang.Object validatorAddr_;
     /**
      * <pre>
      * validator defines the validator address to query for.
@@ -7397,10 +7621,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddr_)) {
+      if (!getValidatorAddrBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, validatorAddr_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -7409,10 +7633,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddr_)) {
+      if (!getValidatorAddrBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, validatorAddr_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7429,7 +7653,7 @@ public final class QueryOuterClass {
 
       if (!getValidatorAddr()
           .equals(other.getValidatorAddr())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -7442,7 +7666,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + VALIDATOR_ADDR_FIELD_NUMBER;
       hash = (53 * hash) + getValidatorAddr().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7563,19 +7787,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         validatorAddr_ = "";
+
         return this;
       }
 
@@ -7602,16 +7831,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationRequest buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationRequest result = new terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.validatorAddr_ = validatorAddr_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.validatorAddr_ = validatorAddr_;
-        }
       }
 
       @java.lang.Override
@@ -7660,10 +7882,9 @@ public final class QueryOuterClass {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationRequest.getDefaultInstance()) return this;
         if (!other.getValidatorAddr().isEmpty()) {
           validatorAddr_ = other.validatorAddr_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -7678,38 +7899,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                validatorAddr_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object validatorAddr_ = "";
       /**
@@ -7764,9 +7966,11 @@ public final class QueryOuterClass {
        */
       public Builder setValidatorAddr(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         validatorAddr_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7779,8 +7983,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearValidatorAddr() {
+        
         validatorAddr_ = getDefaultInstance().getValidatorAddr();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -7795,10 +7999,12 @@ public final class QueryOuterClass {
        */
       public Builder setValidatorAddrBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         validatorAddr_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7835,18 +8041,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryFeederDelegationRequest(input, extensionRegistry);
       }
     };
 
@@ -7923,6 +8118,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryFeederDelegationResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              feederAddr_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryFeederDelegationResponse_descriptor;
@@ -7937,8 +8175,7 @@ public final class QueryOuterClass {
     }
 
     public static final int FEEDER_ADDR_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object feederAddr_ = "";
+    private volatile java.lang.Object feederAddr_;
     /**
      * <pre>
      * feeder_addr defines the feeder delegation of a validator
@@ -7997,10 +8234,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(feederAddr_)) {
+      if (!getFeederAddrBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, feederAddr_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -8009,10 +8246,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(feederAddr_)) {
+      if (!getFeederAddrBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, feederAddr_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8029,7 +8266,7 @@ public final class QueryOuterClass {
 
       if (!getFeederAddr()
           .equals(other.getFeederAddr())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -8042,7 +8279,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FEEDER_ADDR_FIELD_NUMBER;
       hash = (53 * hash) + getFeederAddr().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8164,19 +8401,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         feederAddr_ = "";
+
         return this;
       }
 
@@ -8203,16 +8445,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.feederAddr_ = feederAddr_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.feederAddr_ = feederAddr_;
-        }
       }
 
       @java.lang.Override
@@ -8261,10 +8496,9 @@ public final class QueryOuterClass {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse.getDefaultInstance()) return this;
         if (!other.getFeederAddr().isEmpty()) {
           feederAddr_ = other.feederAddr_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -8279,38 +8513,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                feederAddr_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryFeederDelegationResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object feederAddr_ = "";
       /**
@@ -8365,9 +8580,11 @@ public final class QueryOuterClass {
        */
       public Builder setFeederAddr(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         feederAddr_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8380,8 +8597,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFeederAddr() {
+        
         feederAddr_ = getDefaultInstance().getFeederAddr();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -8396,10 +8613,12 @@ public final class QueryOuterClass {
        */
       public Builder setFeederAddrBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         feederAddr_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8436,18 +8655,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryFeederDelegationResponse(input, extensionRegistry);
       }
     };
 
@@ -8523,6 +8731,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryMissCounterRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              validatorAddr_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryMissCounterRequest_descriptor;
@@ -8537,8 +8788,7 @@ public final class QueryOuterClass {
     }
 
     public static final int VALIDATOR_ADDR_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object validatorAddr_ = "";
+    private volatile java.lang.Object validatorAddr_;
     /**
      * <pre>
      * validator defines the validator address to query for.
@@ -8597,10 +8847,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddr_)) {
+      if (!getValidatorAddrBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, validatorAddr_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -8609,10 +8859,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddr_)) {
+      if (!getValidatorAddrBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, validatorAddr_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8629,7 +8879,7 @@ public final class QueryOuterClass {
 
       if (!getValidatorAddr()
           .equals(other.getValidatorAddr())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -8642,7 +8892,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + VALIDATOR_ADDR_FIELD_NUMBER;
       hash = (53 * hash) + getValidatorAddr().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8763,19 +9013,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         validatorAddr_ = "";
+
         return this;
       }
 
@@ -8802,16 +9057,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterRequest buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterRequest result = new terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.validatorAddr_ = validatorAddr_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.validatorAddr_ = validatorAddr_;
-        }
       }
 
       @java.lang.Override
@@ -8860,10 +9108,9 @@ public final class QueryOuterClass {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterRequest.getDefaultInstance()) return this;
         if (!other.getValidatorAddr().isEmpty()) {
           validatorAddr_ = other.validatorAddr_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -8878,38 +9125,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                validatorAddr_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object validatorAddr_ = "";
       /**
@@ -8964,9 +9192,11 @@ public final class QueryOuterClass {
        */
       public Builder setValidatorAddr(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         validatorAddr_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8979,8 +9209,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearValidatorAddr() {
+        
         validatorAddr_ = getDefaultInstance().getValidatorAddr();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -8995,10 +9225,12 @@ public final class QueryOuterClass {
        */
       public Builder setValidatorAddrBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         validatorAddr_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9035,18 +9267,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryMissCounterRequest(input, extensionRegistry);
       }
     };
 
@@ -9112,6 +9333,48 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryMissCounterResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              missCounter_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryMissCounterResponse_descriptor;
@@ -9126,7 +9389,7 @@ public final class QueryOuterClass {
     }
 
     public static final int MISS_COUNTER_FIELD_NUMBER = 1;
-    private long missCounter_ = 0L;
+    private long missCounter_;
     /**
      * <pre>
      * miss_counter defines the oracle miss counter of a validator
@@ -9157,7 +9420,7 @@ public final class QueryOuterClass {
       if (missCounter_ != 0L) {
         output.writeUInt64(1, missCounter_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -9170,7 +9433,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, missCounter_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9187,7 +9450,7 @@ public final class QueryOuterClass {
 
       if (getMissCounter()
           != other.getMissCounter()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -9201,7 +9464,7 @@ public final class QueryOuterClass {
       hash = (37 * hash) + MISS_COUNTER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMissCounter());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9323,19 +9586,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         missCounter_ = 0L;
+
         return this;
       }
 
@@ -9362,16 +9630,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.missCounter_ = missCounter_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.missCounter_ = missCounter_;
-        }
       }
 
       @java.lang.Override
@@ -9421,7 +9682,7 @@ public final class QueryOuterClass {
         if (other.getMissCounter() != 0L) {
           setMissCounter(other.getMissCounter());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -9436,38 +9697,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                missCounter_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long missCounter_ ;
       /**
@@ -9494,7 +9736,6 @@ public final class QueryOuterClass {
       public Builder setMissCounter(long value) {
         
         missCounter_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9507,7 +9748,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearMissCounter() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         missCounter_ = 0L;
         onChanged();
         return this;
@@ -9545,18 +9786,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryMissCounterResponse(input, extensionRegistry);
       }
     };
 
@@ -9632,6 +9862,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryAggregatePrevoteRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              validatorAddr_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryAggregatePrevoteRequest_descriptor;
@@ -9646,8 +9919,7 @@ public final class QueryOuterClass {
     }
 
     public static final int VALIDATOR_ADDR_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object validatorAddr_ = "";
+    private volatile java.lang.Object validatorAddr_;
     /**
      * <pre>
      * validator defines the validator address to query for.
@@ -9706,10 +9978,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddr_)) {
+      if (!getValidatorAddrBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, validatorAddr_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -9718,10 +9990,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddr_)) {
+      if (!getValidatorAddrBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, validatorAddr_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9738,7 +10010,7 @@ public final class QueryOuterClass {
 
       if (!getValidatorAddr()
           .equals(other.getValidatorAddr())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -9751,7 +10023,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + VALIDATOR_ADDR_FIELD_NUMBER;
       hash = (53 * hash) + getValidatorAddr().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9872,19 +10144,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         validatorAddr_ = "";
+
         return this;
       }
 
@@ -9911,16 +10188,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest result = new terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.validatorAddr_ = validatorAddr_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.validatorAddr_ = validatorAddr_;
-        }
       }
 
       @java.lang.Override
@@ -9969,10 +10239,9 @@ public final class QueryOuterClass {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest.getDefaultInstance()) return this;
         if (!other.getValidatorAddr().isEmpty()) {
           validatorAddr_ = other.validatorAddr_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -9987,38 +10256,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                validatorAddr_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object validatorAddr_ = "";
       /**
@@ -10073,9 +10323,11 @@ public final class QueryOuterClass {
        */
       public Builder setValidatorAddr(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         validatorAddr_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10088,8 +10340,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearValidatorAddr() {
+        
         validatorAddr_ = getDefaultInstance().getValidatorAddr();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -10104,10 +10356,12 @@ public final class QueryOuterClass {
        */
       public Builder setValidatorAddrBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         validatorAddr_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10144,18 +10398,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryAggregatePrevoteRequest(input, extensionRegistry);
       }
     };
 
@@ -10238,6 +10481,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryAggregatePrevoteResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.Builder subBuilder = null;
+              if (aggregatePrevote_ != null) {
+                subBuilder = aggregatePrevote_.toBuilder();
+              }
+              aggregatePrevote_ = input.readMessage(terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(aggregatePrevote_);
+                aggregatePrevote_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryAggregatePrevoteResponse_descriptor;
@@ -10286,7 +10579,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevoteOrBuilder getAggregatePrevoteOrBuilder() {
-      return aggregatePrevote_ == null ? terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.getDefaultInstance() : aggregatePrevote_;
+      return getAggregatePrevote();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10306,7 +10599,7 @@ public final class QueryOuterClass {
       if (aggregatePrevote_ != null) {
         output.writeMessage(1, getAggregatePrevote());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -10319,7 +10612,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getAggregatePrevote());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10339,7 +10632,7 @@ public final class QueryOuterClass {
         if (!getAggregatePrevote()
             .equals(other.getAggregatePrevote())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -10354,7 +10647,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + AGGREGATE_PREVOTE_FIELD_NUMBER;
         hash = (53 * hash) + getAggregatePrevote().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10476,21 +10769,26 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        aggregatePrevote_ = null;
-        if (aggregatePrevoteBuilder_ != null) {
-          aggregatePrevoteBuilder_.dispose();
+        if (aggregatePrevoteBuilder_ == null) {
+          aggregatePrevote_ = null;
+        } else {
+          aggregatePrevote_ = null;
           aggregatePrevoteBuilder_ = null;
         }
         return this;
@@ -10519,18 +10817,13 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (aggregatePrevoteBuilder_ == null) {
+          result.aggregatePrevote_ = aggregatePrevote_;
+        } else {
+          result.aggregatePrevote_ = aggregatePrevoteBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.aggregatePrevote_ = aggregatePrevoteBuilder_ == null
-              ? aggregatePrevote_
-              : aggregatePrevoteBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -10580,7 +10873,7 @@ public final class QueryOuterClass {
         if (other.hasAggregatePrevote()) {
           mergeAggregatePrevote(other.getAggregatePrevote());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -10595,40 +10888,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getAggregatePrevoteFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote aggregatePrevote_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -10642,7 +10914,7 @@ public final class QueryOuterClass {
        * @return Whether the aggregatePrevote field is set.
        */
       public boolean hasAggregatePrevote() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return aggregatePrevoteBuilder_ != null || aggregatePrevote_ != null;
       }
       /**
        * <pre>
@@ -10672,11 +10944,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           aggregatePrevote_ = value;
+          onChanged();
         } else {
           aggregatePrevoteBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -10690,11 +10962,11 @@ public final class QueryOuterClass {
           terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.Builder builderForValue) {
         if (aggregatePrevoteBuilder_ == null) {
           aggregatePrevote_ = builderForValue.build();
+          onChanged();
         } else {
           aggregatePrevoteBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -10706,18 +10978,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeAggregatePrevote(terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote value) {
         if (aggregatePrevoteBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            aggregatePrevote_ != null &&
-            aggregatePrevote_ != terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.getDefaultInstance()) {
-            getAggregatePrevoteBuilder().mergeFrom(value);
+          if (aggregatePrevote_ != null) {
+            aggregatePrevote_ =
+              terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.newBuilder(aggregatePrevote_).mergeFrom(value).buildPartial();
           } else {
             aggregatePrevote_ = value;
           }
+          onChanged();
         } else {
           aggregatePrevoteBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -10728,13 +10999,14 @@ public final class QueryOuterClass {
        * <code>.terra.oracle.v1beta1.AggregateExchangeRatePrevote aggregate_prevote = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearAggregatePrevote() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        aggregatePrevote_ = null;
-        if (aggregatePrevoteBuilder_ != null) {
-          aggregatePrevoteBuilder_.dispose();
+        if (aggregatePrevoteBuilder_ == null) {
+          aggregatePrevote_ = null;
+          onChanged();
+        } else {
+          aggregatePrevote_ = null;
           aggregatePrevoteBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -10745,7 +11017,7 @@ public final class QueryOuterClass {
        * <code>.terra.oracle.v1beta1.AggregateExchangeRatePrevote aggregate_prevote = 1 [(.gogoproto.nullable) = false];</code>
        */
       public terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.Builder getAggregatePrevoteBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getAggregatePrevoteFieldBuilder().getBuilder();
       }
@@ -10817,18 +11089,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryAggregatePrevoteResponse(input, extensionRegistry);
       }
     };
 
@@ -10883,6 +11144,43 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryAggregatePrevotesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryAggregatePrevotesRequest_descriptor;
@@ -10910,7 +11208,7 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -10919,7 +11217,7 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10934,7 +11232,7 @@ public final class QueryOuterClass {
       }
       terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesRequest other = (terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesRequest) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -10945,7 +11243,7 @@ public final class QueryOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11066,13 +11364,18 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -11151,7 +11454,7 @@ public final class QueryOuterClass {
 
       public Builder mergeFrom(terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesRequest other) {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesRequest.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -11166,30 +11469,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -11225,18 +11515,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryAggregatePrevotesRequest(input, extensionRegistry);
       }
     };
 
@@ -11337,6 +11616,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryAggregatePrevotesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                aggregatePrevotes_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              aggregatePrevotes_.add(
+                  input.readMessage(terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          aggregatePrevotes_ = java.util.Collections.unmodifiableList(aggregatePrevotes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryAggregatePrevotesResponse_descriptor;
@@ -11351,7 +11680,6 @@ public final class QueryOuterClass {
     }
 
     public static final int AGGREGATE_PREVOTES_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote> aggregatePrevotes_;
     /**
      * <pre>
@@ -11428,7 +11756,7 @@ public final class QueryOuterClass {
       for (int i = 0; i < aggregatePrevotes_.size(); i++) {
         output.writeMessage(1, aggregatePrevotes_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -11441,7 +11769,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, aggregatePrevotes_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11458,7 +11786,7 @@ public final class QueryOuterClass {
 
       if (!getAggregatePrevotesList()
           .equals(other.getAggregatePrevotesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -11473,7 +11801,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + AGGREGATE_PREVOTES_FIELD_NUMBER;
         hash = (53 * hash) + getAggregatePrevotesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11595,25 +11923,29 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getAggregatePrevotesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (aggregatePrevotesBuilder_ == null) {
           aggregatePrevotes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          aggregatePrevotes_ = null;
           aggregatePrevotesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -11640,13 +11972,7 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesResponse result) {
+        int from_bitField0_ = bitField0_;
         if (aggregatePrevotesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             aggregatePrevotes_ = java.util.Collections.unmodifiableList(aggregatePrevotes_);
@@ -11656,10 +11982,8 @@ public final class QueryOuterClass {
         } else {
           result.aggregatePrevotes_ = aggregatePrevotesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesResponse result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -11732,7 +12056,7 @@ public final class QueryOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -11747,43 +12071,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote m =
-                    input.readMessage(
-                        terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.parser(),
-                        extensionRegistry);
-                if (aggregatePrevotesBuilder_ == null) {
-                  ensureAggregatePrevotesIsMutable();
-                  aggregatePrevotes_.add(m);
-                } else {
-                  aggregatePrevotesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevotesResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -12132,18 +12430,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryAggregatePrevotesResponse(input, extensionRegistry);
       }
     };
 
@@ -12219,6 +12506,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryAggregateVoteRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              validatorAddr_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryAggregateVoteRequest_descriptor;
@@ -12233,8 +12563,7 @@ public final class QueryOuterClass {
     }
 
     public static final int VALIDATOR_ADDR_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object validatorAddr_ = "";
+    private volatile java.lang.Object validatorAddr_;
     /**
      * <pre>
      * validator defines the validator address to query for.
@@ -12293,10 +12622,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddr_)) {
+      if (!getValidatorAddrBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, validatorAddr_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -12305,10 +12634,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddr_)) {
+      if (!getValidatorAddrBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, validatorAddr_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -12325,7 +12654,7 @@ public final class QueryOuterClass {
 
       if (!getValidatorAddr()
           .equals(other.getValidatorAddr())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -12338,7 +12667,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + VALIDATOR_ADDR_FIELD_NUMBER;
       hash = (53 * hash) + getValidatorAddr().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -12459,19 +12788,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         validatorAddr_ = "";
+
         return this;
       }
 
@@ -12498,16 +12832,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteRequest buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteRequest result = new terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.validatorAddr_ = validatorAddr_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.validatorAddr_ = validatorAddr_;
-        }
       }
 
       @java.lang.Override
@@ -12556,10 +12883,9 @@ public final class QueryOuterClass {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteRequest.getDefaultInstance()) return this;
         if (!other.getValidatorAddr().isEmpty()) {
           validatorAddr_ = other.validatorAddr_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -12574,38 +12900,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                validatorAddr_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object validatorAddr_ = "";
       /**
@@ -12660,9 +12967,11 @@ public final class QueryOuterClass {
        */
       public Builder setValidatorAddr(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         validatorAddr_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -12675,8 +12984,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearValidatorAddr() {
+        
         validatorAddr_ = getDefaultInstance().getValidatorAddr();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -12691,10 +13000,12 @@ public final class QueryOuterClass {
        */
       public Builder setValidatorAddrBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         validatorAddr_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -12731,18 +13042,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryAggregateVoteRequest(input, extensionRegistry);
       }
     };
 
@@ -12825,6 +13125,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryAggregateVoteResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.Builder subBuilder = null;
+              if (aggregateVote_ != null) {
+                subBuilder = aggregateVote_.toBuilder();
+              }
+              aggregateVote_ = input.readMessage(terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(aggregateVote_);
+                aggregateVote_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryAggregateVoteResponse_descriptor;
@@ -12873,7 +13223,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public terra.oracle.v1beta1.Oracle.AggregateExchangeRateVoteOrBuilder getAggregateVoteOrBuilder() {
-      return aggregateVote_ == null ? terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.getDefaultInstance() : aggregateVote_;
+      return getAggregateVote();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -12893,7 +13243,7 @@ public final class QueryOuterClass {
       if (aggregateVote_ != null) {
         output.writeMessage(1, getAggregateVote());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -12906,7 +13256,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getAggregateVote());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -12926,7 +13276,7 @@ public final class QueryOuterClass {
         if (!getAggregateVote()
             .equals(other.getAggregateVote())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -12941,7 +13291,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + AGGREGATE_VOTE_FIELD_NUMBER;
         hash = (53 * hash) + getAggregateVote().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -13063,21 +13413,26 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        aggregateVote_ = null;
-        if (aggregateVoteBuilder_ != null) {
-          aggregateVoteBuilder_.dispose();
+        if (aggregateVoteBuilder_ == null) {
+          aggregateVote_ = null;
+        } else {
+          aggregateVote_ = null;
           aggregateVoteBuilder_ = null;
         }
         return this;
@@ -13106,18 +13461,13 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (aggregateVoteBuilder_ == null) {
+          result.aggregateVote_ = aggregateVote_;
+        } else {
+          result.aggregateVote_ = aggregateVoteBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.aggregateVote_ = aggregateVoteBuilder_ == null
-              ? aggregateVote_
-              : aggregateVoteBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -13167,7 +13517,7 @@ public final class QueryOuterClass {
         if (other.hasAggregateVote()) {
           mergeAggregateVote(other.getAggregateVote());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -13182,40 +13532,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getAggregateVoteFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVoteResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote aggregateVote_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -13229,7 +13558,7 @@ public final class QueryOuterClass {
        * @return Whether the aggregateVote field is set.
        */
       public boolean hasAggregateVote() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return aggregateVoteBuilder_ != null || aggregateVote_ != null;
       }
       /**
        * <pre>
@@ -13259,11 +13588,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           aggregateVote_ = value;
+          onChanged();
         } else {
           aggregateVoteBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -13277,11 +13606,11 @@ public final class QueryOuterClass {
           terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.Builder builderForValue) {
         if (aggregateVoteBuilder_ == null) {
           aggregateVote_ = builderForValue.build();
+          onChanged();
         } else {
           aggregateVoteBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -13293,18 +13622,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeAggregateVote(terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote value) {
         if (aggregateVoteBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            aggregateVote_ != null &&
-            aggregateVote_ != terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.getDefaultInstance()) {
-            getAggregateVoteBuilder().mergeFrom(value);
+          if (aggregateVote_ != null) {
+            aggregateVote_ =
+              terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.newBuilder(aggregateVote_).mergeFrom(value).buildPartial();
           } else {
             aggregateVote_ = value;
           }
+          onChanged();
         } else {
           aggregateVoteBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -13315,13 +13643,14 @@ public final class QueryOuterClass {
        * <code>.terra.oracle.v1beta1.AggregateExchangeRateVote aggregate_vote = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearAggregateVote() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        aggregateVote_ = null;
-        if (aggregateVoteBuilder_ != null) {
-          aggregateVoteBuilder_.dispose();
+        if (aggregateVoteBuilder_ == null) {
+          aggregateVote_ = null;
+          onChanged();
+        } else {
+          aggregateVote_ = null;
           aggregateVoteBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -13332,7 +13661,7 @@ public final class QueryOuterClass {
        * <code>.terra.oracle.v1beta1.AggregateExchangeRateVote aggregate_vote = 1 [(.gogoproto.nullable) = false];</code>
        */
       public terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.Builder getAggregateVoteBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getAggregateVoteFieldBuilder().getBuilder();
       }
@@ -13404,18 +13733,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryAggregateVoteResponse(input, extensionRegistry);
       }
     };
 
@@ -13470,6 +13788,43 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryAggregateVotesRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryAggregateVotesRequest_descriptor;
@@ -13497,7 +13852,7 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -13506,7 +13861,7 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -13521,7 +13876,7 @@ public final class QueryOuterClass {
       }
       terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest other = (terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -13532,7 +13887,7 @@ public final class QueryOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -13653,13 +14008,18 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -13738,7 +14098,7 @@ public final class QueryOuterClass {
 
       public Builder mergeFrom(terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest other) {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -13753,30 +14113,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -13812,18 +14159,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryAggregateVotesRequest(input, extensionRegistry);
       }
     };
 
@@ -13924,6 +14260,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryAggregateVotesResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                aggregateVotes_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              aggregateVotes_.add(
+                  input.readMessage(terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          aggregateVotes_ = java.util.Collections.unmodifiableList(aggregateVotes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryAggregateVotesResponse_descriptor;
@@ -13938,7 +14324,6 @@ public final class QueryOuterClass {
     }
 
     public static final int AGGREGATE_VOTES_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote> aggregateVotes_;
     /**
      * <pre>
@@ -14015,7 +14400,7 @@ public final class QueryOuterClass {
       for (int i = 0; i < aggregateVotes_.size(); i++) {
         output.writeMessage(1, aggregateVotes_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -14028,7 +14413,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, aggregateVotes_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -14045,7 +14430,7 @@ public final class QueryOuterClass {
 
       if (!getAggregateVotesList()
           .equals(other.getAggregateVotesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -14060,7 +14445,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + AGGREGATE_VOTES_FIELD_NUMBER;
         hash = (53 * hash) + getAggregateVotesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -14182,25 +14567,29 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getAggregateVotesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (aggregateVotesBuilder_ == null) {
           aggregateVotes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          aggregateVotes_ = null;
           aggregateVotesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -14227,13 +14616,7 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesResponse result) {
+        int from_bitField0_ = bitField0_;
         if (aggregateVotesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             aggregateVotes_ = java.util.Collections.unmodifiableList(aggregateVotes_);
@@ -14243,10 +14626,8 @@ public final class QueryOuterClass {
         } else {
           result.aggregateVotes_ = aggregateVotesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesResponse result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -14319,7 +14700,7 @@ public final class QueryOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -14334,43 +14715,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote m =
-                    input.readMessage(
-                        terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.parser(),
-                        extensionRegistry);
-                if (aggregateVotesBuilder_ == null) {
-                  ensureAggregateVotesIsMutable();
-                  aggregateVotes_.add(m);
-                } else {
-                  aggregateVotesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -14719,18 +15074,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryAggregateVotesResponse(input, extensionRegistry);
       }
     };
 
@@ -14785,6 +15129,43 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryParamsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryParamsRequest_descriptor;
@@ -14812,7 +15193,7 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -14821,7 +15202,7 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -14836,7 +15217,7 @@ public final class QueryOuterClass {
       }
       terra.oracle.v1beta1.QueryOuterClass.QueryParamsRequest other = (terra.oracle.v1beta1.QueryOuterClass.QueryParamsRequest) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -14847,7 +15228,7 @@ public final class QueryOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -14968,13 +15349,18 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryParamsRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -15053,7 +15439,7 @@ public final class QueryOuterClass {
 
       public Builder mergeFrom(terra.oracle.v1beta1.QueryOuterClass.QueryParamsRequest other) {
         if (other == terra.oracle.v1beta1.QueryOuterClass.QueryParamsRequest.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -15068,30 +15454,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryParamsRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryParamsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -15127,18 +15500,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryParamsRequest(input, extensionRegistry);
       }
     };
 
@@ -15220,6 +15582,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryParamsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              terra.oracle.v1beta1.Oracle.Params.Builder subBuilder = null;
+              if (params_ != null) {
+                subBuilder = params_.toBuilder();
+              }
+              params_ = input.readMessage(terra.oracle.v1beta1.Oracle.Params.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(params_);
+                params_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.QueryOuterClass.internal_static_terra_oracle_v1beta1_QueryParamsResponse_descriptor;
@@ -15268,7 +15680,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public terra.oracle.v1beta1.Oracle.ParamsOrBuilder getParamsOrBuilder() {
-      return params_ == null ? terra.oracle.v1beta1.Oracle.Params.getDefaultInstance() : params_;
+      return getParams();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -15288,7 +15700,7 @@ public final class QueryOuterClass {
       if (params_ != null) {
         output.writeMessage(1, getParams());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -15301,7 +15713,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getParams());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -15321,7 +15733,7 @@ public final class QueryOuterClass {
         if (!getParams()
             .equals(other.getParams())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -15336,7 +15748,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PARAMS_FIELD_NUMBER;
         hash = (53 * hash) + getParams().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -15457,21 +15869,26 @@ public final class QueryOuterClass {
 
       // Construct using terra.oracle.v1beta1.QueryOuterClass.QueryParamsResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        params_ = null;
-        if (paramsBuilder_ != null) {
-          paramsBuilder_.dispose();
+        if (paramsBuilder_ == null) {
+          params_ = null;
+        } else {
+          params_ = null;
           paramsBuilder_ = null;
         }
         return this;
@@ -15500,18 +15917,13 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.oracle.v1beta1.QueryOuterClass.QueryParamsResponse buildPartial() {
         terra.oracle.v1beta1.QueryOuterClass.QueryParamsResponse result = new terra.oracle.v1beta1.QueryOuterClass.QueryParamsResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (paramsBuilder_ == null) {
+          result.params_ = params_;
+        } else {
+          result.params_ = paramsBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.QueryOuterClass.QueryParamsResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.params_ = paramsBuilder_ == null
-              ? params_
-              : paramsBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -15561,7 +15973,7 @@ public final class QueryOuterClass {
         if (other.hasParams()) {
           mergeParams(other.getParams());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -15576,40 +15988,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.QueryOuterClass.QueryParamsResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getParamsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.QueryOuterClass.QueryParamsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private terra.oracle.v1beta1.Oracle.Params params_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -15623,7 +16014,7 @@ public final class QueryOuterClass {
        * @return Whether the params field is set.
        */
       public boolean hasParams() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return paramsBuilder_ != null || params_ != null;
       }
       /**
        * <pre>
@@ -15653,11 +16044,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           params_ = value;
+          onChanged();
         } else {
           paramsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -15671,11 +16062,11 @@ public final class QueryOuterClass {
           terra.oracle.v1beta1.Oracle.Params.Builder builderForValue) {
         if (paramsBuilder_ == null) {
           params_ = builderForValue.build();
+          onChanged();
         } else {
           paramsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -15687,18 +16078,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeParams(terra.oracle.v1beta1.Oracle.Params value) {
         if (paramsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            params_ != null &&
-            params_ != terra.oracle.v1beta1.Oracle.Params.getDefaultInstance()) {
-            getParamsBuilder().mergeFrom(value);
+          if (params_ != null) {
+            params_ =
+              terra.oracle.v1beta1.Oracle.Params.newBuilder(params_).mergeFrom(value).buildPartial();
           } else {
             params_ = value;
           }
+          onChanged();
         } else {
           paramsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -15709,13 +16099,14 @@ public final class QueryOuterClass {
        * <code>.terra.oracle.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearParams() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        params_ = null;
-        if (paramsBuilder_ != null) {
-          paramsBuilder_.dispose();
+        if (paramsBuilder_ == null) {
+          params_ = null;
+          onChanged();
+        } else {
+          params_ = null;
           paramsBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -15726,7 +16117,7 @@ public final class QueryOuterClass {
        * <code>.terra.oracle.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
        */
       public terra.oracle.v1beta1.Oracle.Params.Builder getParamsBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getParamsFieldBuilder().getBuilder();
       }
@@ -15798,18 +16189,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryParamsResponse(input, extensionRegistry);
       }
     };
 
@@ -16071,8 +16451,8 @@ public final class QueryOuterClass {
       "votes\022\203\001\n\006Params\022(.terra.oracle.v1beta1." +
       "QueryParamsRequest\032).terra.oracle.v1beta" +
       "1.QueryParamsResponse\"$\202\323\344\223\002\036\022\034/terra/or" +
-      "acle/v1beta1/paramsB.Z,github.com/classi" +
-      "c-terra/core/x/oracle/typesb\006proto3"
+      "acle/v1beta1/paramsB,Z*github.com/terra-" +
+      "money/core/x/oracle/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

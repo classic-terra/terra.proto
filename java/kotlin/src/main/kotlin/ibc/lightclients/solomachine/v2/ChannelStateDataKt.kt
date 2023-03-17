@@ -3,16 +3,16 @@
 
 package ibc.lightclients.solomachine.v2;
 
-@kotlin.jvm.JvmName("-initializechannelStateData")
-public inline fun channelStateData(block: ibc.lightclients.solomachine.v2.ChannelStateDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData =
+@kotlin.jvm.JvmSynthetic
+inline fun channelStateData(block: ibc.lightclients.solomachine.v2.ChannelStateDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData =
   ibc.lightclients.solomachine.v2.ChannelStateDataKt.Dsl._create(ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData.newBuilder()).apply { block() }._build()
-public object ChannelStateDataKt {
+object ChannelStateDataKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ChannelStateDataKt {
     /**
      * <code>bytes path = 1;</code>
      */
-    public var path: com.google.protobuf.ByteString
+    var path: com.google.protobuf.ByteString
       @JvmName("getPath")
       get() = _builder.getPath()
       @JvmName("setPath")
@@ -35,14 +35,14 @@ public object ChannelStateDataKt {
     /**
      * <code>bytes path = 1;</code>
      */
-    public fun clearPath() {
+    fun clearPath() {
       _builder.clearPath()
     }
 
     /**
      * <code>.ibc.core.channel.v1.Channel channel = 2;</code>
      */
-    public var channel: ibc.core.channel.v1.ChannelOuterClass.Channel
+    var channel: ibc.core.channel.v1.ChannelOuterClass.Channel
       @JvmName("getChannel")
       get() = _builder.getChannel()
       @JvmName("setChannel")
@@ -52,22 +52,18 @@ public object ChannelStateDataKt {
     /**
      * <code>.ibc.core.channel.v1.Channel channel = 2;</code>
      */
-    public fun clearChannel() {
+    fun clearChannel() {
       _builder.clearChannel()
     }
     /**
      * <code>.ibc.core.channel.v1.Channel channel = 2;</code>
      * @return Whether the channel field is set.
      */
-    public fun hasChannel(): kotlin.Boolean {
+    fun hasChannel(): kotlin.Boolean {
       return _builder.hasChannel()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData.copy(block: ibc.lightclients.solomachine.v2.ChannelStateDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData =
+inline fun ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData.copy(block: ibc.lightclients.solomachine.v2.ChannelStateDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData =
   ibc.lightclients.solomachine.v2.ChannelStateDataKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.lightclients.solomachine.v2.Solomachine.ChannelStateDataOrBuilder.channelOrNull: ibc.core.channel.v1.ChannelOuterClass.Channel?
-  get() = if (hasChannel()) getChannel() else null
-

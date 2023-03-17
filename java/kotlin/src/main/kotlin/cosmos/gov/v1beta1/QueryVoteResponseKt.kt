@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryVoteResponse")
-public inline fun queryVoteResponse(block: cosmos.gov.v1beta1.QueryVoteResponseKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVoteResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryVoteResponse(block: cosmos.gov.v1beta1.QueryVoteResponseKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVoteResponse =
   cosmos.gov.v1beta1.QueryVoteResponseKt.Dsl._create(cosmos.gov.v1beta1.QueryOuterClass.QueryVoteResponse.newBuilder()).apply { block() }._build()
-public object QueryVoteResponseKt {
+object QueryVoteResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryVoteResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryVoteResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.QueryOuterClass.QueryVoteResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryVoteResponseKt {
      *
      * <code>.cosmos.gov.v1beta1.Vote vote = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var vote: cosmos.gov.v1beta1.Gov.Vote
+    var vote: cosmos.gov.v1beta1.Gov.Vote
       @JvmName("getVote")
       get() = _builder.getVote()
       @JvmName("setVote")
@@ -43,7 +43,7 @@ public object QueryVoteResponseKt {
      *
      * <code>.cosmos.gov.v1beta1.Vote vote = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearVote() {
+    fun clearVote() {
       _builder.clearVote()
     }
     /**
@@ -54,15 +54,11 @@ public object QueryVoteResponseKt {
      * <code>.cosmos.gov.v1beta1.Vote vote = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the vote field is set.
      */
-    public fun hasVote(): kotlin.Boolean {
+    fun hasVote(): kotlin.Boolean {
       return _builder.hasVote()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryVoteResponse.copy(block: cosmos.gov.v1beta1.QueryVoteResponseKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVoteResponse =
+inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryVoteResponse.copy(block: cosmos.gov.v1beta1.QueryVoteResponseKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVoteResponse =
   cosmos.gov.v1beta1.QueryVoteResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.gov.v1beta1.QueryOuterClass.QueryVoteResponseOrBuilder.voteOrNull: cosmos.gov.v1beta1.Gov.Vote?
-  get() = if (hasVote()) getVote() else null
-

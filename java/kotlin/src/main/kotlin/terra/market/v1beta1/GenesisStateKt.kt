@@ -3,16 +3,16 @@
 
 package terra.market.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegenesisState")
-public inline fun genesisState(block: terra.market.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.Genesis.GenesisState =
+@kotlin.jvm.JvmSynthetic
+inline fun genesisState(block: terra.market.v1beta1.GenesisStateKt.Dsl.() -> Unit): terra.market.v1beta1.Genesis.GenesisState =
   terra.market.v1beta1.GenesisStateKt.Dsl._create(terra.market.v1beta1.Genesis.GenesisState.newBuilder()).apply { block() }._build()
-public object GenesisStateKt {
+object GenesisStateKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.market.v1beta1.Genesis.GenesisState.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.market.v1beta1.Genesis.GenesisState.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.market.v1beta1.Genesis.GenesisState.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object GenesisStateKt {
      *
      * <code>.terra.market.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var params: terra.market.v1beta1.Market.Params
+    var params: terra.market.v1beta1.Market.Params
       @JvmName("getParams")
       get() = _builder.getParams()
       @JvmName("setParams")
@@ -43,7 +43,7 @@ public object GenesisStateKt {
      *
      * <code>.terra.market.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearParams() {
+    fun clearParams() {
       _builder.clearParams()
     }
     /**
@@ -54,7 +54,7 @@ public object GenesisStateKt {
      * <code>.terra.market.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the params field is set.
      */
-    public fun hasParams(): kotlin.Boolean {
+    fun hasParams(): kotlin.Boolean {
       return _builder.hasParams()
     }
 
@@ -65,7 +65,7 @@ public object GenesisStateKt {
      *
      * <code>bytes terra_pool_delta = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var terraPoolDelta: com.google.protobuf.ByteString
+    var terraPoolDelta: com.google.protobuf.ByteString
       @JvmName("getTerraPoolDelta")
       get() = _builder.getTerraPoolDelta()
       @JvmName("setTerraPoolDelta")
@@ -79,15 +79,11 @@ public object GenesisStateKt {
      *
      * <code>bytes terra_pool_delta = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearTerraPoolDelta() {
+    fun clearTerraPoolDelta() {
       _builder.clearTerraPoolDelta()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.market.v1beta1.Genesis.GenesisState.copy(block: terra.market.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.Genesis.GenesisState =
+inline fun terra.market.v1beta1.Genesis.GenesisState.copy(block: terra.market.v1beta1.GenesisStateKt.Dsl.() -> Unit): terra.market.v1beta1.Genesis.GenesisState =
   terra.market.v1beta1.GenesisStateKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.market.v1beta1.Genesis.GenesisStateOrBuilder.paramsOrNull: terra.market.v1beta1.Market.Params?
-  get() = if (hasParams()) getParams() else null
-

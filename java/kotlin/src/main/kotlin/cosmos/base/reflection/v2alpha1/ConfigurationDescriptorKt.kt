@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializeconfigurationDescriptor")
-public inline fun configurationDescriptor(block: cosmos.base.reflection.v2alpha1.ConfigurationDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor =
+@kotlin.jvm.JvmSynthetic
+inline fun configurationDescriptor(block: cosmos.base.reflection.v2alpha1.ConfigurationDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor =
   cosmos.base.reflection.v2alpha1.ConfigurationDescriptorKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor.newBuilder()).apply { block() }._build()
-public object ConfigurationDescriptorKt {
+object ConfigurationDescriptorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ConfigurationDescriptorKt {
      *
      * <code>string bech32_account_address_prefix = 1;</code>
      */
-    public var bech32AccountAddressPrefix: kotlin.String
+    var bech32AccountAddressPrefix: kotlin.String
       @JvmName("getBech32AccountAddressPrefix")
       get() = _builder.getBech32AccountAddressPrefix()
       @JvmName("setBech32AccountAddressPrefix")
@@ -43,12 +43,11 @@ public object ConfigurationDescriptorKt {
      *
      * <code>string bech32_account_address_prefix = 1;</code>
      */
-    public fun clearBech32AccountAddressPrefix() {
+    fun clearBech32AccountAddressPrefix() {
       _builder.clearBech32AccountAddressPrefix()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor.copy(block: cosmos.base.reflection.v2alpha1.ConfigurationDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor.copy(block: cosmos.base.reflection.v2alpha1.ConfigurationDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor =
   cosmos.base.reflection.v2alpha1.ConfigurationDescriptorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

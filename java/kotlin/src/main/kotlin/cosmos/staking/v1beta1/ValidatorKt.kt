@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializevalidator")
-public inline fun validator(block: cosmos.staking.v1beta1.ValidatorKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Validator =
+@kotlin.jvm.JvmSynthetic
+inline fun validator(block: cosmos.staking.v1beta1.ValidatorKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Validator =
   cosmos.staking.v1beta1.ValidatorKt.Dsl._create(cosmos.staking.v1beta1.Staking.Validator.newBuilder()).apply { block() }._build()
-public object ValidatorKt {
+object ValidatorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Staking.Validator.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Staking.Validator.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Staking.Validator.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ValidatorKt {
      *
      * <code>string operator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"operator_address&#92;""];</code>
      */
-    public var operatorAddress: kotlin.String
+    var operatorAddress: kotlin.String
       @JvmName("getOperatorAddress")
       get() = _builder.getOperatorAddress()
       @JvmName("setOperatorAddress")
@@ -43,7 +43,7 @@ public object ValidatorKt {
      *
      * <code>string operator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"operator_address&#92;""];</code>
      */
-    public fun clearOperatorAddress() {
+    fun clearOperatorAddress() {
       _builder.clearOperatorAddress()
     }
 
@@ -54,7 +54,7 @@ public object ValidatorKt {
      *
      * <code>.google.protobuf.Any consensus_pubkey = 2 [(.gogoproto.moretags) = "yaml:&#92;"consensus_pubkey&#92;"", (.cosmos_proto.accepts_interface) = "cosmos.crypto.PubKey"];</code>
      */
-    public var consensusPubkey: com.google.protobuf.Any
+    var consensusPubkey: com.google.protobuf.Any
       @JvmName("getConsensusPubkey")
       get() = _builder.getConsensusPubkey()
       @JvmName("setConsensusPubkey")
@@ -68,7 +68,7 @@ public object ValidatorKt {
      *
      * <code>.google.protobuf.Any consensus_pubkey = 2 [(.gogoproto.moretags) = "yaml:&#92;"consensus_pubkey&#92;"", (.cosmos_proto.accepts_interface) = "cosmos.crypto.PubKey"];</code>
      */
-    public fun clearConsensusPubkey() {
+    fun clearConsensusPubkey() {
       _builder.clearConsensusPubkey()
     }
     /**
@@ -79,7 +79,7 @@ public object ValidatorKt {
      * <code>.google.protobuf.Any consensus_pubkey = 2 [(.gogoproto.moretags) = "yaml:&#92;"consensus_pubkey&#92;"", (.cosmos_proto.accepts_interface) = "cosmos.crypto.PubKey"];</code>
      * @return Whether the consensusPubkey field is set.
      */
-    public fun hasConsensusPubkey(): kotlin.Boolean {
+    fun hasConsensusPubkey(): kotlin.Boolean {
       return _builder.hasConsensusPubkey()
     }
 
@@ -90,7 +90,7 @@ public object ValidatorKt {
      *
      * <code>bool jailed = 3;</code>
      */
-    public var jailed: kotlin.Boolean
+    var jailed: kotlin.Boolean
       @JvmName("getJailed")
       get() = _builder.getJailed()
       @JvmName("setJailed")
@@ -104,7 +104,7 @@ public object ValidatorKt {
      *
      * <code>bool jailed = 3;</code>
      */
-    public fun clearJailed() {
+    fun clearJailed() {
       _builder.clearJailed()
     }
 
@@ -115,7 +115,7 @@ public object ValidatorKt {
      *
      * <code>.cosmos.staking.v1beta1.BondStatus status = 4;</code>
      */
-    public var status: cosmos.staking.v1beta1.Staking.BondStatus
+    var status: cosmos.staking.v1beta1.Staking.BondStatus
       @JvmName("getStatus")
       get() = _builder.getStatus()
       @JvmName("setStatus")
@@ -129,7 +129,7 @@ public object ValidatorKt {
      *
      * <code>.cosmos.staking.v1beta1.BondStatus status = 4;</code>
      */
-    public fun clearStatus() {
+    fun clearStatus() {
       _builder.clearStatus()
     }
 
@@ -140,7 +140,7 @@ public object ValidatorKt {
      *
      * <code>string tokens = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public var tokens: kotlin.String
+    var tokens: kotlin.String
       @JvmName("getTokens")
       get() = _builder.getTokens()
       @JvmName("setTokens")
@@ -154,7 +154,7 @@ public object ValidatorKt {
      *
      * <code>string tokens = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public fun clearTokens() {
+    fun clearTokens() {
       _builder.clearTokens()
     }
 
@@ -165,7 +165,7 @@ public object ValidatorKt {
      *
      * <code>string delegator_shares = 6 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"delegator_shares&#92;""];</code>
      */
-    public var delegatorShares: kotlin.String
+    var delegatorShares: kotlin.String
       @JvmName("getDelegatorShares")
       get() = _builder.getDelegatorShares()
       @JvmName("setDelegatorShares")
@@ -179,7 +179,7 @@ public object ValidatorKt {
      *
      * <code>string delegator_shares = 6 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"delegator_shares&#92;""];</code>
      */
-    public fun clearDelegatorShares() {
+    fun clearDelegatorShares() {
       _builder.clearDelegatorShares()
     }
 
@@ -190,7 +190,7 @@ public object ValidatorKt {
      *
      * <code>.cosmos.staking.v1beta1.Description description = 7 [(.gogoproto.nullable) = false];</code>
      */
-    public var description: cosmos.staking.v1beta1.Staking.Description
+    var description: cosmos.staking.v1beta1.Staking.Description
       @JvmName("getDescription")
       get() = _builder.getDescription()
       @JvmName("setDescription")
@@ -204,7 +204,7 @@ public object ValidatorKt {
      *
      * <code>.cosmos.staking.v1beta1.Description description = 7 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearDescription() {
+    fun clearDescription() {
       _builder.clearDescription()
     }
     /**
@@ -215,7 +215,7 @@ public object ValidatorKt {
      * <code>.cosmos.staking.v1beta1.Description description = 7 [(.gogoproto.nullable) = false];</code>
      * @return Whether the description field is set.
      */
-    public fun hasDescription(): kotlin.Boolean {
+    fun hasDescription(): kotlin.Boolean {
       return _builder.hasDescription()
     }
 
@@ -226,7 +226,7 @@ public object ValidatorKt {
      *
      * <code>int64 unbonding_height = 8 [(.gogoproto.moretags) = "yaml:&#92;"unbonding_height&#92;""];</code>
      */
-    public var unbondingHeight: kotlin.Long
+    var unbondingHeight: kotlin.Long
       @JvmName("getUnbondingHeight")
       get() = _builder.getUnbondingHeight()
       @JvmName("setUnbondingHeight")
@@ -240,7 +240,7 @@ public object ValidatorKt {
      *
      * <code>int64 unbonding_height = 8 [(.gogoproto.moretags) = "yaml:&#92;"unbonding_height&#92;""];</code>
      */
-    public fun clearUnbondingHeight() {
+    fun clearUnbondingHeight() {
       _builder.clearUnbondingHeight()
     }
 
@@ -251,7 +251,7 @@ public object ValidatorKt {
      *
      * <code>.google.protobuf.Timestamp unbonding_time = 9 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"unbonding_time&#92;"", (.gogoproto.stdtime) = true];</code>
      */
-    public var unbondingTime: com.google.protobuf.Timestamp
+    var unbondingTime: com.google.protobuf.Timestamp
       @JvmName("getUnbondingTime")
       get() = _builder.getUnbondingTime()
       @JvmName("setUnbondingTime")
@@ -265,7 +265,7 @@ public object ValidatorKt {
      *
      * <code>.google.protobuf.Timestamp unbonding_time = 9 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"unbonding_time&#92;"", (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearUnbondingTime() {
+    fun clearUnbondingTime() {
       _builder.clearUnbondingTime()
     }
     /**
@@ -276,7 +276,7 @@ public object ValidatorKt {
      * <code>.google.protobuf.Timestamp unbonding_time = 9 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"unbonding_time&#92;"", (.gogoproto.stdtime) = true];</code>
      * @return Whether the unbondingTime field is set.
      */
-    public fun hasUnbondingTime(): kotlin.Boolean {
+    fun hasUnbondingTime(): kotlin.Boolean {
       return _builder.hasUnbondingTime()
     }
 
@@ -287,7 +287,7 @@ public object ValidatorKt {
      *
      * <code>.cosmos.staking.v1beta1.Commission commission = 10 [(.gogoproto.nullable) = false];</code>
      */
-    public var commission: cosmos.staking.v1beta1.Staking.Commission
+    var commission: cosmos.staking.v1beta1.Staking.Commission
       @JvmName("getCommission")
       get() = _builder.getCommission()
       @JvmName("setCommission")
@@ -301,7 +301,7 @@ public object ValidatorKt {
      *
      * <code>.cosmos.staking.v1beta1.Commission commission = 10 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearCommission() {
+    fun clearCommission() {
       _builder.clearCommission()
     }
     /**
@@ -312,7 +312,7 @@ public object ValidatorKt {
      * <code>.cosmos.staking.v1beta1.Commission commission = 10 [(.gogoproto.nullable) = false];</code>
      * @return Whether the commission field is set.
      */
-    public fun hasCommission(): kotlin.Boolean {
+    fun hasCommission(): kotlin.Boolean {
       return _builder.hasCommission()
     }
 
@@ -323,7 +323,7 @@ public object ValidatorKt {
      *
      * <code>string min_self_delegation = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int", (.gogoproto.moretags) = "yaml:&#92;"min_self_delegation&#92;""];</code>
      */
-    public var minSelfDelegation: kotlin.String
+    var minSelfDelegation: kotlin.String
       @JvmName("getMinSelfDelegation")
       get() = _builder.getMinSelfDelegation()
       @JvmName("setMinSelfDelegation")
@@ -337,24 +337,11 @@ public object ValidatorKt {
      *
      * <code>string min_self_delegation = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int", (.gogoproto.moretags) = "yaml:&#92;"min_self_delegation&#92;""];</code>
      */
-    public fun clearMinSelfDelegation() {
+    fun clearMinSelfDelegation() {
       _builder.clearMinSelfDelegation()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Staking.Validator.copy(block: cosmos.staking.v1beta1.ValidatorKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Validator =
+inline fun cosmos.staking.v1beta1.Staking.Validator.copy(block: cosmos.staking.v1beta1.ValidatorKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Validator =
   cosmos.staking.v1beta1.ValidatorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.Staking.ValidatorOrBuilder.consensusPubkeyOrNull: com.google.protobuf.Any?
-  get() = if (hasConsensusPubkey()) getConsensusPubkey() else null
-
-public val cosmos.staking.v1beta1.Staking.ValidatorOrBuilder.descriptionOrNull: cosmos.staking.v1beta1.Staking.Description?
-  get() = if (hasDescription()) getDescription() else null
-
-public val cosmos.staking.v1beta1.Staking.ValidatorOrBuilder.unbondingTimeOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasUnbondingTime()) getUnbondingTime() else null
-
-public val cosmos.staking.v1beta1.Staking.ValidatorOrBuilder.commissionOrNull: cosmos.staking.v1beta1.Staking.Commission?
-  get() = if (hasCommission()) getCommission() else null
-

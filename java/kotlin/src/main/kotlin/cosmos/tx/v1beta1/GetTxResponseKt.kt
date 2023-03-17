@@ -3,16 +3,16 @@
 
 package cosmos.tx.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegetTxResponse")
-public inline fun getTxResponse(block: cosmos.tx.v1beta1.GetTxResponseKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun getTxResponse(block: cosmos.tx.v1beta1.GetTxResponseKt.Dsl.() -> Unit): cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponse =
   cosmos.tx.v1beta1.GetTxResponseKt.Dsl._create(cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponse.newBuilder()).apply { block() }._build()
-public object GetTxResponseKt {
+object GetTxResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object GetTxResponseKt {
      *
      * <code>.cosmos.tx.v1beta1.Tx tx = 1;</code>
      */
-    public var tx: cosmos.tx.v1beta1.TxOuterClass.Tx
+    var tx: cosmos.tx.v1beta1.TxOuterClass.Tx
       @JvmName("getTx")
       get() = _builder.getTx()
       @JvmName("setTx")
@@ -43,7 +43,7 @@ public object GetTxResponseKt {
      *
      * <code>.cosmos.tx.v1beta1.Tx tx = 1;</code>
      */
-    public fun clearTx() {
+    fun clearTx() {
       _builder.clearTx()
     }
     /**
@@ -54,7 +54,7 @@ public object GetTxResponseKt {
      * <code>.cosmos.tx.v1beta1.Tx tx = 1;</code>
      * @return Whether the tx field is set.
      */
-    public fun hasTx(): kotlin.Boolean {
+    fun hasTx(): kotlin.Boolean {
       return _builder.hasTx()
     }
 
@@ -65,7 +65,7 @@ public object GetTxResponseKt {
      *
      * <code>.cosmos.base.abci.v1beta1.TxResponse tx_response = 2;</code>
      */
-    public var txResponse: cosmos.base.abci.v1beta1.Abci.TxResponse
+    var txResponse: cosmos.base.abci.v1beta1.Abci.TxResponse
       @JvmName("getTxResponse")
       get() = _builder.getTxResponse()
       @JvmName("setTxResponse")
@@ -79,7 +79,7 @@ public object GetTxResponseKt {
      *
      * <code>.cosmos.base.abci.v1beta1.TxResponse tx_response = 2;</code>
      */
-    public fun clearTxResponse() {
+    fun clearTxResponse() {
       _builder.clearTxResponse()
     }
     /**
@@ -90,18 +90,11 @@ public object GetTxResponseKt {
      * <code>.cosmos.base.abci.v1beta1.TxResponse tx_response = 2;</code>
      * @return Whether the txResponse field is set.
      */
-    public fun hasTxResponse(): kotlin.Boolean {
+    fun hasTxResponse(): kotlin.Boolean {
       return _builder.hasTxResponse()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponse.copy(block: cosmos.tx.v1beta1.GetTxResponseKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponse =
+inline fun cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponse.copy(block: cosmos.tx.v1beta1.GetTxResponseKt.Dsl.() -> Unit): cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponse =
   cosmos.tx.v1beta1.GetTxResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponseOrBuilder.txOrNull: cosmos.tx.v1beta1.TxOuterClass.Tx?
-  get() = if (hasTx()) getTx() else null
-
-public val cosmos.tx.v1beta1.ServiceOuterClass.GetTxResponseOrBuilder.txResponseOrNull: cosmos.base.abci.v1beta1.Abci.TxResponse?
-  get() = if (hasTxResponse()) getTxResponse() else null
-

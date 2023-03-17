@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializeresponseLoadSnapshotChunk")
-public inline fun responseLoadSnapshotChunk(block: tendermint.abci.ResponseLoadSnapshotChunkKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseLoadSnapshotChunk =
+@kotlin.jvm.JvmSynthetic
+inline fun responseLoadSnapshotChunk(block: tendermint.abci.ResponseLoadSnapshotChunkKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseLoadSnapshotChunk =
   tendermint.abci.ResponseLoadSnapshotChunkKt.Dsl._create(tendermint.abci.Types.ResponseLoadSnapshotChunk.newBuilder()).apply { block() }._build()
-public object ResponseLoadSnapshotChunkKt {
+object ResponseLoadSnapshotChunkKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.ResponseLoadSnapshotChunk.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.ResponseLoadSnapshotChunk.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.ResponseLoadSnapshotChunk.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ResponseLoadSnapshotChunkKt {
     /**
      * <code>bytes chunk = 1;</code>
      */
-    public var chunk: com.google.protobuf.ByteString
+    var chunk: com.google.protobuf.ByteString
       @JvmName("getChunk")
       get() = _builder.getChunk()
       @JvmName("setChunk")
@@ -35,12 +35,11 @@ public object ResponseLoadSnapshotChunkKt {
     /**
      * <code>bytes chunk = 1;</code>
      */
-    public fun clearChunk() {
+    fun clearChunk() {
       _builder.clearChunk()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.ResponseLoadSnapshotChunk.copy(block: tendermint.abci.ResponseLoadSnapshotChunkKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseLoadSnapshotChunk =
+inline fun tendermint.abci.Types.ResponseLoadSnapshotChunk.copy(block: tendermint.abci.ResponseLoadSnapshotChunkKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseLoadSnapshotChunk =
   tendermint.abci.ResponseLoadSnapshotChunkKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

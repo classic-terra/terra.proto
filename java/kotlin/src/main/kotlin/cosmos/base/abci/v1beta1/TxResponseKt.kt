@@ -3,16 +3,16 @@
 
 package cosmos.base.abci.v1beta1;
 
-@kotlin.jvm.JvmName("-initializetxResponse")
-public inline fun txResponse(block: cosmos.base.abci.v1beta1.TxResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.abci.v1beta1.Abci.TxResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun txResponse(block: cosmos.base.abci.v1beta1.TxResponseKt.Dsl.() -> Unit): cosmos.base.abci.v1beta1.Abci.TxResponse =
   cosmos.base.abci.v1beta1.TxResponseKt.Dsl._create(cosmos.base.abci.v1beta1.Abci.TxResponse.newBuilder()).apply { block() }._build()
-public object TxResponseKt {
+object TxResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.abci.v1beta1.Abci.TxResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.abci.v1beta1.Abci.TxResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.abci.v1beta1.Abci.TxResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object TxResponseKt {
      *
      * <code>int64 height = 1;</code>
      */
-    public var height: kotlin.Long
+    var height: kotlin.Long
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -43,7 +43,7 @@ public object TxResponseKt {
      *
      * <code>int64 height = 1;</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
 
@@ -54,7 +54,7 @@ public object TxResponseKt {
      *
      * <code>string txhash = 2 [(.gogoproto.customname) = "TxHash"];</code>
      */
-    public var txhash: kotlin.String
+    var txhash: kotlin.String
       @JvmName("getTxhash")
       get() = _builder.getTxhash()
       @JvmName("setTxhash")
@@ -68,7 +68,7 @@ public object TxResponseKt {
      *
      * <code>string txhash = 2 [(.gogoproto.customname) = "TxHash"];</code>
      */
-    public fun clearTxhash() {
+    fun clearTxhash() {
       _builder.clearTxhash()
     }
 
@@ -79,7 +79,7 @@ public object TxResponseKt {
      *
      * <code>string codespace = 3;</code>
      */
-    public var codespace: kotlin.String
+    var codespace: kotlin.String
       @JvmName("getCodespace")
       get() = _builder.getCodespace()
       @JvmName("setCodespace")
@@ -93,7 +93,7 @@ public object TxResponseKt {
      *
      * <code>string codespace = 3;</code>
      */
-    public fun clearCodespace() {
+    fun clearCodespace() {
       _builder.clearCodespace()
     }
 
@@ -104,7 +104,7 @@ public object TxResponseKt {
      *
      * <code>uint32 code = 4;</code>
      */
-    public var code: kotlin.Int
+    var code: kotlin.Int
       @JvmName("getCode")
       get() = _builder.getCode()
       @JvmName("setCode")
@@ -118,7 +118,7 @@ public object TxResponseKt {
      *
      * <code>uint32 code = 4;</code>
      */
-    public fun clearCode() {
+    fun clearCode() {
       _builder.clearCode()
     }
 
@@ -129,7 +129,7 @@ public object TxResponseKt {
      *
      * <code>string data = 5;</code>
      */
-    public var data: kotlin.String
+    var data: kotlin.String
       @JvmName("getData")
       get() = _builder.getData()
       @JvmName("setData")
@@ -143,7 +143,7 @@ public object TxResponseKt {
      *
      * <code>string data = 5;</code>
      */
-    public fun clearData() {
+    fun clearData() {
       _builder.clearData()
     }
 
@@ -155,7 +155,7 @@ public object TxResponseKt {
      *
      * <code>string raw_log = 6;</code>
      */
-    public var rawLog: kotlin.String
+    var rawLog: kotlin.String
       @JvmName("getRawLog")
       get() = _builder.getRawLog()
       @JvmName("setRawLog")
@@ -170,7 +170,7 @@ public object TxResponseKt {
      *
      * <code>string raw_log = 6;</code>
      */
-    public fun clearRawLog() {
+    fun clearRawLog() {
       _builder.clearRawLog()
     }
 
@@ -179,7 +179,7 @@ public object TxResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class LogsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class LogsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * The output of the application's logger (typed). May be non-deterministic.
@@ -187,7 +187,7 @@ public object TxResponseKt {
      *
      * <code>repeated .cosmos.base.abci.v1beta1.ABCIMessageLog logs = 7 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "ABCIMessageLogs"];</code>
      */
-     public val logs: com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>
+     val logs: com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getLogsList()
@@ -202,10 +202,9 @@ public object TxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addLogs")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.add(value: cosmos.base.abci.v1beta1.Abci.ABCIMessageLog) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.add(value: cosmos.base.abci.v1beta1.Abci.ABCIMessageLog) {
       _builder.addLogs(value)
-    }
-    /**
+    }/**
      * <pre>
      * The output of the application's logger (typed). May be non-deterministic.
      * </pre>
@@ -215,11 +214,9 @@ public object TxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignLogs")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.plusAssign(value: cosmos.base.abci.v1beta1.Abci.ABCIMessageLog) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.plusAssign(value: cosmos.base.abci.v1beta1.Abci.ABCIMessageLog) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * The output of the application's logger (typed). May be non-deterministic.
      * </pre>
@@ -229,10 +226,9 @@ public object TxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllLogs")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog>) {
       _builder.addAllLogs(values)
-    }
-    /**
+    }/**
      * <pre>
      * The output of the application's logger (typed). May be non-deterministic.
      * </pre>
@@ -242,11 +238,9 @@ public object TxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllLogs")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * The output of the application's logger (typed). May be non-deterministic.
      * </pre>
@@ -257,10 +251,9 @@ public object TxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setLogs")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.set(index: kotlin.Int, value: cosmos.base.abci.v1beta1.Abci.ABCIMessageLog) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.set(index: kotlin.Int, value: cosmos.base.abci.v1beta1.Abci.ABCIMessageLog) {
       _builder.setLogs(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * The output of the application's logger (typed). May be non-deterministic.
      * </pre>
@@ -269,11 +262,9 @@ public object TxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearLogs")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, LogsProxy>.clear() {
       _builder.clearLogs()
     }
-
-
     /**
      * <pre>
      * Additional information. May be non-deterministic.
@@ -281,7 +272,7 @@ public object TxResponseKt {
      *
      * <code>string info = 8;</code>
      */
-    public var info: kotlin.String
+    var info: kotlin.String
       @JvmName("getInfo")
       get() = _builder.getInfo()
       @JvmName("setInfo")
@@ -295,7 +286,7 @@ public object TxResponseKt {
      *
      * <code>string info = 8;</code>
      */
-    public fun clearInfo() {
+    fun clearInfo() {
       _builder.clearInfo()
     }
 
@@ -306,7 +297,7 @@ public object TxResponseKt {
      *
      * <code>int64 gas_wanted = 9;</code>
      */
-    public var gasWanted: kotlin.Long
+    var gasWanted: kotlin.Long
       @JvmName("getGasWanted")
       get() = _builder.getGasWanted()
       @JvmName("setGasWanted")
@@ -320,7 +311,7 @@ public object TxResponseKt {
      *
      * <code>int64 gas_wanted = 9;</code>
      */
-    public fun clearGasWanted() {
+    fun clearGasWanted() {
       _builder.clearGasWanted()
     }
 
@@ -331,7 +322,7 @@ public object TxResponseKt {
      *
      * <code>int64 gas_used = 10;</code>
      */
-    public var gasUsed: kotlin.Long
+    var gasUsed: kotlin.Long
       @JvmName("getGasUsed")
       get() = _builder.getGasUsed()
       @JvmName("setGasUsed")
@@ -345,7 +336,7 @@ public object TxResponseKt {
      *
      * <code>int64 gas_used = 10;</code>
      */
-    public fun clearGasUsed() {
+    fun clearGasUsed() {
       _builder.clearGasUsed()
     }
 
@@ -356,7 +347,7 @@ public object TxResponseKt {
      *
      * <code>.google.protobuf.Any tx = 11;</code>
      */
-    public var tx: com.google.protobuf.Any
+    var tx: com.google.protobuf.Any
       @JvmName("getTx")
       get() = _builder.getTx()
       @JvmName("setTx")
@@ -370,7 +361,7 @@ public object TxResponseKt {
      *
      * <code>.google.protobuf.Any tx = 11;</code>
      */
-    public fun clearTx() {
+    fun clearTx() {
       _builder.clearTx()
     }
     /**
@@ -381,7 +372,7 @@ public object TxResponseKt {
      * <code>.google.protobuf.Any tx = 11;</code>
      * @return Whether the tx field is set.
      */
-    public fun hasTx(): kotlin.Boolean {
+    fun hasTx(): kotlin.Boolean {
       return _builder.hasTx()
     }
 
@@ -394,7 +385,7 @@ public object TxResponseKt {
      *
      * <code>string timestamp = 12;</code>
      */
-    public var timestamp: kotlin.String
+    var timestamp: kotlin.String
       @JvmName("getTimestamp")
       get() = _builder.getTimestamp()
       @JvmName("setTimestamp")
@@ -410,143 +401,11 @@ public object TxResponseKt {
      *
      * <code>string timestamp = 12;</code>
      */
-    public fun clearTimestamp() {
+    fun clearTimestamp() {
       _builder.clearTimestamp()
     }
-
-    /**
-     * An uninstantiable, behaviorless type to represent the field in
-     * generics.
-     */
-    @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class EventsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-     public val events: com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Event, EventsProxy>
-      @kotlin.jvm.JvmSynthetic
-      get() = com.google.protobuf.kotlin.DslList(
-        _builder.getEventsList()
-      )
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     * @param value The events to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addEvents")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Event, EventsProxy>.add(value: tendermint.abci.Types.Event) {
-      _builder.addEvents(value)
-    }
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     * @param value The events to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignEvents")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Event, EventsProxy>.plusAssign(value: tendermint.abci.Types.Event) {
-      add(value)
-    }
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     * @param values The events to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("addAllEvents")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Event, EventsProxy>.addAll(values: kotlin.collections.Iterable<tendermint.abci.Types.Event>) {
-      _builder.addAllEvents(values)
-    }
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     * @param values The events to add.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("plusAssignAllEvents")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Event, EventsProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.abci.Types.Event>) {
-      addAll(values)
-    }
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     * @param index The index to set the value at.
-     * @param value The events to set.
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("setEvents")
-    public operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Event, EventsProxy>.set(index: kotlin.Int, value: tendermint.abci.Types.Event) {
-      _builder.setEvents(index, value)
-    }
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-    @kotlin.jvm.JvmSynthetic
-    @kotlin.jvm.JvmName("clearEvents")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Event, EventsProxy>.clear() {
-      _builder.clearEvents()
-    }
-
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.abci.v1beta1.Abci.TxResponse.copy(block: cosmos.base.abci.v1beta1.TxResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.abci.v1beta1.Abci.TxResponse =
+inline fun cosmos.base.abci.v1beta1.Abci.TxResponse.copy(block: cosmos.base.abci.v1beta1.TxResponseKt.Dsl.() -> Unit): cosmos.base.abci.v1beta1.Abci.TxResponse =
   cosmos.base.abci.v1beta1.TxResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.abci.v1beta1.Abci.TxResponseOrBuilder.txOrNull: com.google.protobuf.Any?
-  get() = if (hasTx()) getTx() else null
-

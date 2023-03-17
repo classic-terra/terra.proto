@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTaxCapRequest")
-public inline fun queryTaxCapRequest(block: terra.treasury.v1beta1.QueryTaxCapRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTaxCapRequest(block: terra.treasury.v1beta1.QueryTaxCapRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapRequest =
   terra.treasury.v1beta1.QueryTaxCapRequestKt.Dsl._create(terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapRequest.newBuilder()).apply { block() }._build()
-public object QueryTaxCapRequestKt {
+object QueryTaxCapRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryTaxCapRequestKt {
      *
      * <code>string denom = 1;</code>
      */
-    public var denom: kotlin.String
+    var denom: kotlin.String
       @JvmName("getDenom")
       get() = _builder.getDenom()
       @JvmName("setDenom")
@@ -43,12 +43,11 @@ public object QueryTaxCapRequestKt {
      *
      * <code>string denom = 1;</code>
      */
-    public fun clearDenom() {
+    fun clearDenom() {
       _builder.clearDenom()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapRequest.copy(block: terra.treasury.v1beta1.QueryTaxCapRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapRequest =
+inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapRequest.copy(block: terra.treasury.v1beta1.QueryTaxCapRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapRequest =
   terra.treasury.v1beta1.QueryTaxCapRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

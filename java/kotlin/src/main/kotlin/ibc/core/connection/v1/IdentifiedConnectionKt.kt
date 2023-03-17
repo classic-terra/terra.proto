@@ -3,16 +3,16 @@
 
 package ibc.core.connection.v1;
 
-@kotlin.jvm.JvmName("-initializeidentifiedConnection")
-public inline fun identifiedConnection(block: ibc.core.connection.v1.IdentifiedConnectionKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Connection.IdentifiedConnection =
+@kotlin.jvm.JvmSynthetic
+inline fun identifiedConnection(block: ibc.core.connection.v1.IdentifiedConnectionKt.Dsl.() -> Unit): ibc.core.connection.v1.Connection.IdentifiedConnection =
   ibc.core.connection.v1.IdentifiedConnectionKt.Dsl._create(ibc.core.connection.v1.Connection.IdentifiedConnection.newBuilder()).apply { block() }._build()
-public object IdentifiedConnectionKt {
+object IdentifiedConnectionKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.connection.v1.Connection.IdentifiedConnection.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.connection.v1.Connection.IdentifiedConnection.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.connection.v1.Connection.IdentifiedConnection.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object IdentifiedConnectionKt {
      *
      * <code>string id = 1 [(.gogoproto.moretags) = "yaml:&#92;"id&#92;""];</code>
      */
-    public var id: kotlin.String
+    var id: kotlin.String
       @JvmName("getId")
       get() = _builder.getId()
       @JvmName("setId")
@@ -43,7 +43,7 @@ public object IdentifiedConnectionKt {
      *
      * <code>string id = 1 [(.gogoproto.moretags) = "yaml:&#92;"id&#92;""];</code>
      */
-    public fun clearId() {
+    fun clearId() {
       _builder.clearId()
     }
 
@@ -54,7 +54,7 @@ public object IdentifiedConnectionKt {
      *
      * <code>string client_id = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public var clientId: kotlin.String
+    var clientId: kotlin.String
       @JvmName("getClientId")
       get() = _builder.getClientId()
       @JvmName("setClientId")
@@ -68,7 +68,7 @@ public object IdentifiedConnectionKt {
      *
      * <code>string client_id = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public fun clearClientId() {
+    fun clearClientId() {
       _builder.clearClientId()
     }
 
@@ -77,7 +77,7 @@ public object IdentifiedConnectionKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class VersionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class VersionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * IBC version which can be utilised to determine encodings or protocols for
@@ -86,7 +86,7 @@ public object IdentifiedConnectionKt {
      *
      * <code>repeated .ibc.core.connection.v1.Version versions = 3;</code>
      */
-     public val versions: com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>
+     val versions: com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getVersionsList()
@@ -102,10 +102,9 @@ public object IdentifiedConnectionKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addVersions")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.add(value: ibc.core.connection.v1.Connection.Version) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.add(value: ibc.core.connection.v1.Connection.Version) {
       _builder.addVersions(value)
-    }
-    /**
+    }/**
      * <pre>
      * IBC version which can be utilised to determine encodings or protocols for
      * channels or packets utilising this connection
@@ -116,11 +115,9 @@ public object IdentifiedConnectionKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignVersions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.plusAssign(value: ibc.core.connection.v1.Connection.Version) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.plusAssign(value: ibc.core.connection.v1.Connection.Version) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * IBC version which can be utilised to determine encodings or protocols for
      * channels or packets utilising this connection
@@ -131,10 +128,9 @@ public object IdentifiedConnectionKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllVersions")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.Version>) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.Version>) {
       _builder.addAllVersions(values)
-    }
-    /**
+    }/**
      * <pre>
      * IBC version which can be utilised to determine encodings or protocols for
      * channels or packets utilising this connection
@@ -145,11 +141,9 @@ public object IdentifiedConnectionKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllVersions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.Version>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.Version>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * IBC version which can be utilised to determine encodings or protocols for
      * channels or packets utilising this connection
@@ -161,10 +155,9 @@ public object IdentifiedConnectionKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setVersions")
-    public operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.set(index: kotlin.Int, value: ibc.core.connection.v1.Connection.Version) {
+    operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.set(index: kotlin.Int, value: ibc.core.connection.v1.Connection.Version) {
       _builder.setVersions(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * IBC version which can be utilised to determine encodings or protocols for
      * channels or packets utilising this connection
@@ -174,11 +167,9 @@ public object IdentifiedConnectionKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearVersions")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.Version, VersionsProxy>.clear() {
       _builder.clearVersions()
     }
-
-
     /**
      * <pre>
      * current state of the connection end.
@@ -186,7 +177,7 @@ public object IdentifiedConnectionKt {
      *
      * <code>.ibc.core.connection.v1.State state = 4;</code>
      */
-    public var state: ibc.core.connection.v1.Connection.State
+    var state: ibc.core.connection.v1.Connection.State
       @JvmName("getState")
       get() = _builder.getState()
       @JvmName("setState")
@@ -200,7 +191,7 @@ public object IdentifiedConnectionKt {
      *
      * <code>.ibc.core.connection.v1.State state = 4;</code>
      */
-    public fun clearState() {
+    fun clearState() {
       _builder.clearState()
     }
 
@@ -211,7 +202,7 @@ public object IdentifiedConnectionKt {
      *
      * <code>.ibc.core.connection.v1.Counterparty counterparty = 5 [(.gogoproto.nullable) = false];</code>
      */
-    public var counterparty: ibc.core.connection.v1.Connection.Counterparty
+    var counterparty: ibc.core.connection.v1.Connection.Counterparty
       @JvmName("getCounterparty")
       get() = _builder.getCounterparty()
       @JvmName("setCounterparty")
@@ -225,7 +216,7 @@ public object IdentifiedConnectionKt {
      *
      * <code>.ibc.core.connection.v1.Counterparty counterparty = 5 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearCounterparty() {
+    fun clearCounterparty() {
       _builder.clearCounterparty()
     }
     /**
@@ -236,7 +227,7 @@ public object IdentifiedConnectionKt {
      * <code>.ibc.core.connection.v1.Counterparty counterparty = 5 [(.gogoproto.nullable) = false];</code>
      * @return Whether the counterparty field is set.
      */
-    public fun hasCounterparty(): kotlin.Boolean {
+    fun hasCounterparty(): kotlin.Boolean {
       return _builder.hasCounterparty()
     }
 
@@ -247,7 +238,7 @@ public object IdentifiedConnectionKt {
      *
      * <code>uint64 delay_period = 6 [(.gogoproto.moretags) = "yaml:&#92;"delay_period&#92;""];</code>
      */
-    public var delayPeriod: kotlin.Long
+    var delayPeriod: kotlin.Long
       @JvmName("getDelayPeriod")
       get() = _builder.getDelayPeriod()
       @JvmName("setDelayPeriod")
@@ -261,15 +252,11 @@ public object IdentifiedConnectionKt {
      *
      * <code>uint64 delay_period = 6 [(.gogoproto.moretags) = "yaml:&#92;"delay_period&#92;""];</code>
      */
-    public fun clearDelayPeriod() {
+    fun clearDelayPeriod() {
       _builder.clearDelayPeriod()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.connection.v1.Connection.IdentifiedConnection.copy(block: ibc.core.connection.v1.IdentifiedConnectionKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Connection.IdentifiedConnection =
+inline fun ibc.core.connection.v1.Connection.IdentifiedConnection.copy(block: ibc.core.connection.v1.IdentifiedConnectionKt.Dsl.() -> Unit): ibc.core.connection.v1.Connection.IdentifiedConnection =
   ibc.core.connection.v1.IdentifiedConnectionKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.connection.v1.Connection.IdentifiedConnectionOrBuilder.counterpartyOrNull: ibc.core.connection.v1.Connection.Counterparty?
-  get() = if (hasCounterparty()) getCounterparty() else null
-

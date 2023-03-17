@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryExchangeRateRequest")
-public inline fun queryExchangeRateRequest(block: terra.oracle.v1beta1.QueryExchangeRateRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryExchangeRateRequest(block: terra.oracle.v1beta1.QueryExchangeRateRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest =
   terra.oracle.v1beta1.QueryExchangeRateRequestKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest.newBuilder()).apply { block() }._build()
-public object QueryExchangeRateRequestKt {
+object QueryExchangeRateRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryExchangeRateRequestKt {
      *
      * <code>string denom = 1;</code>
      */
-    public var denom: kotlin.String
+    var denom: kotlin.String
       @JvmName("getDenom")
       get() = _builder.getDenom()
       @JvmName("setDenom")
@@ -43,12 +43,11 @@ public object QueryExchangeRateRequestKt {
      *
      * <code>string denom = 1;</code>
      */
-    public fun clearDenom() {
+    fun clearDenom() {
       _builder.clearDenom()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest.copy(block: terra.oracle.v1beta1.QueryExchangeRateRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest.copy(block: terra.oracle.v1beta1.QueryExchangeRateRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateRequest =
   terra.oracle.v1beta1.QueryExchangeRateRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

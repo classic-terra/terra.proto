@@ -3,16 +3,16 @@
 
 package ibc.core.connection.v1;
 
-@kotlin.jvm.JvmName("-initializequeryConnectionConsensusStateRequest")
-public inline fun queryConnectionConsensusStateRequest(block: ibc.core.connection.v1.QueryConnectionConsensusStateRequestKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryConnectionConsensusStateRequest(block: ibc.core.connection.v1.QueryConnectionConsensusStateRequestKt.Dsl.() -> Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateRequest =
   ibc.core.connection.v1.QueryConnectionConsensusStateRequestKt.Dsl._create(ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateRequest.newBuilder()).apply { block() }._build()
-public object QueryConnectionConsensusStateRequestKt {
+object QueryConnectionConsensusStateRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryConnectionConsensusStateRequestKt {
      *
      * <code>string connection_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"connection_id&#92;""];</code>
      */
-    public var connectionId: kotlin.String
+    var connectionId: kotlin.String
       @JvmName("getConnectionId")
       get() = _builder.getConnectionId()
       @JvmName("setConnectionId")
@@ -43,14 +43,14 @@ public object QueryConnectionConsensusStateRequestKt {
      *
      * <code>string connection_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"connection_id&#92;""];</code>
      */
-    public fun clearConnectionId() {
+    fun clearConnectionId() {
       _builder.clearConnectionId()
     }
 
     /**
      * <code>uint64 revision_number = 2;</code>
      */
-    public var revisionNumber: kotlin.Long
+    var revisionNumber: kotlin.Long
       @JvmName("getRevisionNumber")
       get() = _builder.getRevisionNumber()
       @JvmName("setRevisionNumber")
@@ -60,14 +60,14 @@ public object QueryConnectionConsensusStateRequestKt {
     /**
      * <code>uint64 revision_number = 2;</code>
      */
-    public fun clearRevisionNumber() {
+    fun clearRevisionNumber() {
       _builder.clearRevisionNumber()
     }
 
     /**
      * <code>uint64 revision_height = 3;</code>
      */
-    public var revisionHeight: kotlin.Long
+    var revisionHeight: kotlin.Long
       @JvmName("getRevisionHeight")
       get() = _builder.getRevisionHeight()
       @JvmName("setRevisionHeight")
@@ -77,12 +77,11 @@ public object QueryConnectionConsensusStateRequestKt {
     /**
      * <code>uint64 revision_height = 3;</code>
      */
-    public fun clearRevisionHeight() {
+    fun clearRevisionHeight() {
       _builder.clearRevisionHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateRequest.copy(block: ibc.core.connection.v1.QueryConnectionConsensusStateRequestKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateRequest =
+inline fun ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateRequest.copy(block: ibc.core.connection.v1.QueryConnectionConsensusStateRequestKt.Dsl.() -> Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionConsensusStateRequest =
   ibc.core.connection.v1.QueryConnectionConsensusStateRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

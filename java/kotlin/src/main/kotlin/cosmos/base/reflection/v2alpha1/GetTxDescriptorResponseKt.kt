@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializegetTxDescriptorResponse")
-public inline fun getTxDescriptorResponse(block: cosmos.base.reflection.v2alpha1.GetTxDescriptorResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun getTxDescriptorResponse(block: cosmos.base.reflection.v2alpha1.GetTxDescriptorResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorResponse =
   cosmos.base.reflection.v2alpha1.GetTxDescriptorResponseKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorResponse.newBuilder()).apply { block() }._build()
-public object GetTxDescriptorResponseKt {
+object GetTxDescriptorResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorResponse.Builder): Dsl = Dsl(builder)
@@ -30,7 +30,7 @@ public object GetTxDescriptorResponseKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.TxDescriptor tx = 1;</code>
      */
-    public var tx: cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor
+    var tx: cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor
       @JvmName("getTx")
       get() = _builder.getTx()
       @JvmName("setTx")
@@ -45,7 +45,7 @@ public object GetTxDescriptorResponseKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.TxDescriptor tx = 1;</code>
      */
-    public fun clearTx() {
+    fun clearTx() {
       _builder.clearTx()
     }
     /**
@@ -57,15 +57,11 @@ public object GetTxDescriptorResponseKt {
      * <code>.cosmos.base.reflection.v2alpha1.TxDescriptor tx = 1;</code>
      * @return Whether the tx field is set.
      */
-    public fun hasTx(): kotlin.Boolean {
+    fun hasTx(): kotlin.Boolean {
       return _builder.hasTx()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorResponse.copy(block: cosmos.base.reflection.v2alpha1.GetTxDescriptorResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorResponse =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorResponse.copy(block: cosmos.base.reflection.v2alpha1.GetTxDescriptorResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorResponse =
   cosmos.base.reflection.v2alpha1.GetTxDescriptorResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.reflection.v2alpha1.Reflection.GetTxDescriptorResponseOrBuilder.txOrNull: cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor?
-  get() = if (hasTx()) getTx() else null
-

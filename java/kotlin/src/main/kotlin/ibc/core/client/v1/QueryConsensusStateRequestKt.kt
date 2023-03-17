@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializequeryConsensusStateRequest")
-public inline fun queryConsensusStateRequest(block: ibc.core.client.v1.QueryConsensusStateRequestKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryConsensusStateRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryConsensusStateRequest(block: ibc.core.client.v1.QueryConsensusStateRequestKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryConsensusStateRequest =
   ibc.core.client.v1.QueryConsensusStateRequestKt.Dsl._create(ibc.core.client.v1.QueryOuterClass.QueryConsensusStateRequest.newBuilder()).apply { block() }._build()
-public object QueryConsensusStateRequestKt {
+object QueryConsensusStateRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.QueryOuterClass.QueryConsensusStateRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.QueryOuterClass.QueryConsensusStateRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.QueryOuterClass.QueryConsensusStateRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryConsensusStateRequestKt {
      *
      * <code>string client_id = 1;</code>
      */
-    public var clientId: kotlin.String
+    var clientId: kotlin.String
       @JvmName("getClientId")
       get() = _builder.getClientId()
       @JvmName("setClientId")
@@ -43,7 +43,7 @@ public object QueryConsensusStateRequestKt {
      *
      * <code>string client_id = 1;</code>
      */
-    public fun clearClientId() {
+    fun clearClientId() {
       _builder.clearClientId()
     }
 
@@ -54,7 +54,7 @@ public object QueryConsensusStateRequestKt {
      *
      * <code>uint64 revision_number = 2;</code>
      */
-    public var revisionNumber: kotlin.Long
+    var revisionNumber: kotlin.Long
       @JvmName("getRevisionNumber")
       get() = _builder.getRevisionNumber()
       @JvmName("setRevisionNumber")
@@ -68,7 +68,7 @@ public object QueryConsensusStateRequestKt {
      *
      * <code>uint64 revision_number = 2;</code>
      */
-    public fun clearRevisionNumber() {
+    fun clearRevisionNumber() {
       _builder.clearRevisionNumber()
     }
 
@@ -79,7 +79,7 @@ public object QueryConsensusStateRequestKt {
      *
      * <code>uint64 revision_height = 3;</code>
      */
-    public var revisionHeight: kotlin.Long
+    var revisionHeight: kotlin.Long
       @JvmName("getRevisionHeight")
       get() = _builder.getRevisionHeight()
       @JvmName("setRevisionHeight")
@@ -93,7 +93,7 @@ public object QueryConsensusStateRequestKt {
      *
      * <code>uint64 revision_height = 3;</code>
      */
-    public fun clearRevisionHeight() {
+    fun clearRevisionHeight() {
       _builder.clearRevisionHeight()
     }
 
@@ -105,7 +105,7 @@ public object QueryConsensusStateRequestKt {
      *
      * <code>bool latest_height = 4;</code>
      */
-    public var latestHeight: kotlin.Boolean
+    var latestHeight: kotlin.Boolean
       @JvmName("getLatestHeight")
       get() = _builder.getLatestHeight()
       @JvmName("setLatestHeight")
@@ -120,12 +120,11 @@ public object QueryConsensusStateRequestKt {
      *
      * <code>bool latest_height = 4;</code>
      */
-    public fun clearLatestHeight() {
+    fun clearLatestHeight() {
       _builder.clearLatestHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.QueryOuterClass.QueryConsensusStateRequest.copy(block: ibc.core.client.v1.QueryConsensusStateRequestKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryConsensusStateRequest =
+inline fun ibc.core.client.v1.QueryOuterClass.QueryConsensusStateRequest.copy(block: ibc.core.client.v1.QueryConsensusStateRequestKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryConsensusStateRequest =
   ibc.core.client.v1.QueryConsensusStateRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

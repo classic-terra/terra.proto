@@ -3,16 +3,16 @@
 
 package cosmos.base.store.v1beta1;
 
-@kotlin.jvm.JvmName("-initializesnapshotIAVLItem")
-public inline fun snapshotIAVLItem(block: cosmos.base.store.v1beta1.SnapshotIAVLItemKt.Dsl.() -> kotlin.Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem =
+@kotlin.jvm.JvmSynthetic
+inline fun snapshotIAVLItem(block: cosmos.base.store.v1beta1.SnapshotIAVLItemKt.Dsl.() -> Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem =
   cosmos.base.store.v1beta1.SnapshotIAVLItemKt.Dsl._create(cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem.newBuilder()).apply { block() }._build()
-public object SnapshotIAVLItemKt {
+object SnapshotIAVLItemKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object SnapshotIAVLItemKt {
     /**
      * <code>bytes key = 1;</code>
      */
-    public var key: com.google.protobuf.ByteString
+    var key: com.google.protobuf.ByteString
       @JvmName("getKey")
       get() = _builder.getKey()
       @JvmName("setKey")
@@ -35,14 +35,14 @@ public object SnapshotIAVLItemKt {
     /**
      * <code>bytes key = 1;</code>
      */
-    public fun clearKey() {
+    fun clearKey() {
       _builder.clearKey()
     }
 
     /**
      * <code>bytes value = 2;</code>
      */
-    public var value: com.google.protobuf.ByteString
+    var value: com.google.protobuf.ByteString
       @JvmName("getValue")
       get() = _builder.getValue()
       @JvmName("setValue")
@@ -52,14 +52,14 @@ public object SnapshotIAVLItemKt {
     /**
      * <code>bytes value = 2;</code>
      */
-    public fun clearValue() {
+    fun clearValue() {
       _builder.clearValue()
     }
 
     /**
      * <code>int64 version = 3;</code>
      */
-    public var version: kotlin.Long
+    var version: kotlin.Long
       @JvmName("getVersion")
       get() = _builder.getVersion()
       @JvmName("setVersion")
@@ -69,14 +69,14 @@ public object SnapshotIAVLItemKt {
     /**
      * <code>int64 version = 3;</code>
      */
-    public fun clearVersion() {
+    fun clearVersion() {
       _builder.clearVersion()
     }
 
     /**
      * <code>int32 height = 4;</code>
      */
-    public var height: kotlin.Int
+    var height: kotlin.Int
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -86,12 +86,11 @@ public object SnapshotIAVLItemKt {
     /**
      * <code>int32 height = 4;</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem.copy(block: cosmos.base.store.v1beta1.SnapshotIAVLItemKt.Dsl.() -> kotlin.Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem =
+inline fun cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem.copy(block: cosmos.base.store.v1beta1.SnapshotIAVLItemKt.Dsl.() -> Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem =
   cosmos.base.store.v1beta1.SnapshotIAVLItemKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

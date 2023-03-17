@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializequeryChannelsResponse")
-public inline fun queryChannelsResponse(block: ibc.core.channel.v1.QueryChannelsResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryChannelsResponse(block: ibc.core.channel.v1.QueryChannelsResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse =
   ibc.core.channel.v1.QueryChannelsResponseKt.Dsl._create(ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse.newBuilder()).apply { block() }._build()
-public object QueryChannelsResponseKt {
+object QueryChannelsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryChannelsResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ChannelsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ChannelsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * list of stored channels of the chain.
@@ -35,7 +35,7 @@ public object QueryChannelsResponseKt {
      *
      * <code>repeated .ibc.core.channel.v1.IdentifiedChannel channels = 1;</code>
      */
-     public val channels: com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>
+     val channels: com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getChannelsList()
@@ -50,10 +50,9 @@ public object QueryChannelsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addChannels")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.add(value: ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.add(value: ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel) {
       _builder.addChannels(value)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored channels of the chain.
      * </pre>
@@ -63,11 +62,9 @@ public object QueryChannelsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignChannels")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.plusAssign(value: ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.plusAssign(value: ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored channels of the chain.
      * </pre>
@@ -77,10 +74,9 @@ public object QueryChannelsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllChannels")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel>) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel>) {
       _builder.addAllChannels(values)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored channels of the chain.
      * </pre>
@@ -90,11 +86,9 @@ public object QueryChannelsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllChannels")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored channels of the chain.
      * </pre>
@@ -105,10 +99,9 @@ public object QueryChannelsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setChannels")
-    public operator fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.set(index: kotlin.Int, value: ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel) {
+    operator fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.set(index: kotlin.Int, value: ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel) {
       _builder.setChannels(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored channels of the chain.
      * </pre>
@@ -117,11 +110,9 @@ public object QueryChannelsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearChannels")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel, ChannelsProxy>.clear() {
       _builder.clearChannels()
     }
-
-
     /**
      * <pre>
      * pagination response
@@ -129,7 +120,7 @@ public object QueryChannelsResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -143,7 +134,7 @@ public object QueryChannelsResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -154,7 +145,7 @@ public object QueryChannelsResponseKt {
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
 
@@ -165,7 +156,7 @@ public object QueryChannelsResponseKt {
      *
      * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public var height: ibc.core.client.v1.Client.Height
+    var height: ibc.core.client.v1.Client.Height
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -179,7 +170,7 @@ public object QueryChannelsResponseKt {
      *
      * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
     /**
@@ -190,18 +181,11 @@ public object QueryChannelsResponseKt {
      * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
      * @return Whether the height field is set.
      */
-    public fun hasHeight(): kotlin.Boolean {
+    fun hasHeight(): kotlin.Boolean {
       return _builder.hasHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse.copy(block: ibc.core.channel.v1.QueryChannelsResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse =
+inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse.copy(block: ibc.core.channel.v1.QueryChannelsResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse =
   ibc.core.channel.v1.QueryChannelsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponseOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageResponse?
-  get() = if (hasPagination()) getPagination() else null
-
-public val ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponseOrBuilder.heightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasHeight()) getHeight() else null
-

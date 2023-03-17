@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTaxProceedsResponse")
-public inline fun queryTaxProceedsResponse(block: terra.treasury.v1beta1.QueryTaxProceedsResponseKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTaxProceedsResponse(block: terra.treasury.v1beta1.QueryTaxProceedsResponseKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsResponse =
   terra.treasury.v1beta1.QueryTaxProceedsResponseKt.Dsl._create(terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsResponse.newBuilder()).apply { block() }._build()
-public object QueryTaxProceedsResponseKt {
+object QueryTaxProceedsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsResponse.Builder): Dsl = Dsl(builder)
@@ -27,11 +27,11 @@ public object QueryTaxProceedsResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class TaxProceedsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class TaxProceedsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .cosmos.base.v1beta1.Coin tax_proceeds = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
-     public val taxProceeds: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>
+     val taxProceeds: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getTaxProceedsList()
@@ -42,60 +42,50 @@ public object QueryTaxProceedsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addTaxProceeds")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.addTaxProceeds(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin tax_proceeds = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param value The taxProceeds to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignTaxProceeds")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin tax_proceeds = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param values The taxProceeds to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllTaxProceeds")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       _builder.addAllTaxProceeds(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin tax_proceeds = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param values The taxProceeds to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllTaxProceeds")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin tax_proceeds = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param index The index to set the value at.
      * @param value The taxProceeds to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setTaxProceeds")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.setTaxProceeds(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin tax_proceeds = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearTaxProceeds")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxProceedsProxy>.clear() {
       _builder.clearTaxProceeds()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsResponse.copy(block: terra.treasury.v1beta1.QueryTaxProceedsResponseKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsResponse =
+inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsResponse.copy(block: terra.treasury.v1beta1.QueryTaxProceedsResponseKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsResponse =
   terra.treasury.v1beta1.QueryTaxProceedsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

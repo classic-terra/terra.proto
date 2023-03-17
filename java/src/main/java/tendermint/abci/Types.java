@@ -497,6 +497,253 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Request(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              tendermint.abci.Types.RequestEcho.Builder subBuilder = null;
+              if (valueCase_ == 1) {
+                subBuilder = ((tendermint.abci.Types.RequestEcho) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestEcho.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestEcho) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 1;
+              break;
+            }
+            case 18: {
+              tendermint.abci.Types.RequestFlush.Builder subBuilder = null;
+              if (valueCase_ == 2) {
+                subBuilder = ((tendermint.abci.Types.RequestFlush) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestFlush.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestFlush) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 2;
+              break;
+            }
+            case 26: {
+              tendermint.abci.Types.RequestInfo.Builder subBuilder = null;
+              if (valueCase_ == 3) {
+                subBuilder = ((tendermint.abci.Types.RequestInfo) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestInfo) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 3;
+              break;
+            }
+            case 34: {
+              tendermint.abci.Types.RequestSetOption.Builder subBuilder = null;
+              if (valueCase_ == 4) {
+                subBuilder = ((tendermint.abci.Types.RequestSetOption) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestSetOption.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestSetOption) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 4;
+              break;
+            }
+            case 42: {
+              tendermint.abci.Types.RequestInitChain.Builder subBuilder = null;
+              if (valueCase_ == 5) {
+                subBuilder = ((tendermint.abci.Types.RequestInitChain) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestInitChain.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestInitChain) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 5;
+              break;
+            }
+            case 50: {
+              tendermint.abci.Types.RequestQuery.Builder subBuilder = null;
+              if (valueCase_ == 6) {
+                subBuilder = ((tendermint.abci.Types.RequestQuery) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestQuery.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestQuery) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 6;
+              break;
+            }
+            case 58: {
+              tendermint.abci.Types.RequestBeginBlock.Builder subBuilder = null;
+              if (valueCase_ == 7) {
+                subBuilder = ((tendermint.abci.Types.RequestBeginBlock) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestBeginBlock.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestBeginBlock) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 7;
+              break;
+            }
+            case 66: {
+              tendermint.abci.Types.RequestCheckTx.Builder subBuilder = null;
+              if (valueCase_ == 8) {
+                subBuilder = ((tendermint.abci.Types.RequestCheckTx) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestCheckTx.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestCheckTx) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 8;
+              break;
+            }
+            case 74: {
+              tendermint.abci.Types.RequestDeliverTx.Builder subBuilder = null;
+              if (valueCase_ == 9) {
+                subBuilder = ((tendermint.abci.Types.RequestDeliverTx) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestDeliverTx.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestDeliverTx) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 9;
+              break;
+            }
+            case 82: {
+              tendermint.abci.Types.RequestEndBlock.Builder subBuilder = null;
+              if (valueCase_ == 10) {
+                subBuilder = ((tendermint.abci.Types.RequestEndBlock) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestEndBlock.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestEndBlock) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 10;
+              break;
+            }
+            case 90: {
+              tendermint.abci.Types.RequestCommit.Builder subBuilder = null;
+              if (valueCase_ == 11) {
+                subBuilder = ((tendermint.abci.Types.RequestCommit) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestCommit.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestCommit) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 11;
+              break;
+            }
+            case 98: {
+              tendermint.abci.Types.RequestListSnapshots.Builder subBuilder = null;
+              if (valueCase_ == 12) {
+                subBuilder = ((tendermint.abci.Types.RequestListSnapshots) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestListSnapshots.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestListSnapshots) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 12;
+              break;
+            }
+            case 106: {
+              tendermint.abci.Types.RequestOfferSnapshot.Builder subBuilder = null;
+              if (valueCase_ == 13) {
+                subBuilder = ((tendermint.abci.Types.RequestOfferSnapshot) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestOfferSnapshot.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestOfferSnapshot) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 13;
+              break;
+            }
+            case 114: {
+              tendermint.abci.Types.RequestLoadSnapshotChunk.Builder subBuilder = null;
+              if (valueCase_ == 14) {
+                subBuilder = ((tendermint.abci.Types.RequestLoadSnapshotChunk) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestLoadSnapshotChunk.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestLoadSnapshotChunk) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 14;
+              break;
+            }
+            case 122: {
+              tendermint.abci.Types.RequestApplySnapshotChunk.Builder subBuilder = null;
+              if (valueCase_ == 15) {
+                subBuilder = ((tendermint.abci.Types.RequestApplySnapshotChunk) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.RequestApplySnapshotChunk.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.RequestApplySnapshotChunk) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 15;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_Request_descriptor;
@@ -1101,7 +1348,7 @@ public final class Types {
       if (valueCase_ == 15) {
         output.writeMessage(15, (tendermint.abci.Types.RequestApplySnapshotChunk) value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1170,7 +1417,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(15, (tendermint.abci.Types.RequestApplySnapshotChunk) value_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1250,7 +1497,7 @@ public final class Types {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1325,7 +1572,7 @@ public final class Types {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1442,63 +1689,22 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.Request.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        if (echoBuilder_ != null) {
-          echoBuilder_.clear();
-        }
-        if (flushBuilder_ != null) {
-          flushBuilder_.clear();
-        }
-        if (infoBuilder_ != null) {
-          infoBuilder_.clear();
-        }
-        if (setOptionBuilder_ != null) {
-          setOptionBuilder_.clear();
-        }
-        if (initChainBuilder_ != null) {
-          initChainBuilder_.clear();
-        }
-        if (queryBuilder_ != null) {
-          queryBuilder_.clear();
-        }
-        if (beginBlockBuilder_ != null) {
-          beginBlockBuilder_.clear();
-        }
-        if (checkTxBuilder_ != null) {
-          checkTxBuilder_.clear();
-        }
-        if (deliverTxBuilder_ != null) {
-          deliverTxBuilder_.clear();
-        }
-        if (endBlockBuilder_ != null) {
-          endBlockBuilder_.clear();
-        }
-        if (commitBuilder_ != null) {
-          commitBuilder_.clear();
-        }
-        if (listSnapshotsBuilder_ != null) {
-          listSnapshotsBuilder_.clear();
-        }
-        if (offerSnapshotBuilder_ != null) {
-          offerSnapshotBuilder_.clear();
-        }
-        if (loadSnapshotChunkBuilder_ != null) {
-          loadSnapshotChunkBuilder_.clear();
-        }
-        if (applySnapshotChunkBuilder_ != null) {
-          applySnapshotChunkBuilder_.clear();
-        }
         valueCase_ = 0;
         value_ = null;
         return this;
@@ -1527,79 +1733,114 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.Request buildPartial() {
         tendermint.abci.Types.Request result = new tendermint.abci.Types.Request(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        if (valueCase_ == 1) {
+          if (echoBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = echoBuilder_.build();
+          }
+        }
+        if (valueCase_ == 2) {
+          if (flushBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = flushBuilder_.build();
+          }
+        }
+        if (valueCase_ == 3) {
+          if (infoBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = infoBuilder_.build();
+          }
+        }
+        if (valueCase_ == 4) {
+          if (setOptionBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = setOptionBuilder_.build();
+          }
+        }
+        if (valueCase_ == 5) {
+          if (initChainBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = initChainBuilder_.build();
+          }
+        }
+        if (valueCase_ == 6) {
+          if (queryBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = queryBuilder_.build();
+          }
+        }
+        if (valueCase_ == 7) {
+          if (beginBlockBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = beginBlockBuilder_.build();
+          }
+        }
+        if (valueCase_ == 8) {
+          if (checkTxBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = checkTxBuilder_.build();
+          }
+        }
+        if (valueCase_ == 9) {
+          if (deliverTxBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = deliverTxBuilder_.build();
+          }
+        }
+        if (valueCase_ == 10) {
+          if (endBlockBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = endBlockBuilder_.build();
+          }
+        }
+        if (valueCase_ == 11) {
+          if (commitBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = commitBuilder_.build();
+          }
+        }
+        if (valueCase_ == 12) {
+          if (listSnapshotsBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = listSnapshotsBuilder_.build();
+          }
+        }
+        if (valueCase_ == 13) {
+          if (offerSnapshotBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = offerSnapshotBuilder_.build();
+          }
+        }
+        if (valueCase_ == 14) {
+          if (loadSnapshotChunkBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = loadSnapshotChunkBuilder_.build();
+          }
+        }
+        if (valueCase_ == 15) {
+          if (applySnapshotChunkBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = applySnapshotChunkBuilder_.build();
+          }
+        }
+        result.valueCase_ = valueCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.Request result) {
-        int from_bitField0_ = bitField0_;
-      }
-
-      private void buildPartialOneofs(tendermint.abci.Types.Request result) {
-        result.valueCase_ = valueCase_;
-        result.value_ = this.value_;
-        if (valueCase_ == 1 &&
-            echoBuilder_ != null) {
-          result.value_ = echoBuilder_.build();
-        }
-        if (valueCase_ == 2 &&
-            flushBuilder_ != null) {
-          result.value_ = flushBuilder_.build();
-        }
-        if (valueCase_ == 3 &&
-            infoBuilder_ != null) {
-          result.value_ = infoBuilder_.build();
-        }
-        if (valueCase_ == 4 &&
-            setOptionBuilder_ != null) {
-          result.value_ = setOptionBuilder_.build();
-        }
-        if (valueCase_ == 5 &&
-            initChainBuilder_ != null) {
-          result.value_ = initChainBuilder_.build();
-        }
-        if (valueCase_ == 6 &&
-            queryBuilder_ != null) {
-          result.value_ = queryBuilder_.build();
-        }
-        if (valueCase_ == 7 &&
-            beginBlockBuilder_ != null) {
-          result.value_ = beginBlockBuilder_.build();
-        }
-        if (valueCase_ == 8 &&
-            checkTxBuilder_ != null) {
-          result.value_ = checkTxBuilder_.build();
-        }
-        if (valueCase_ == 9 &&
-            deliverTxBuilder_ != null) {
-          result.value_ = deliverTxBuilder_.build();
-        }
-        if (valueCase_ == 10 &&
-            endBlockBuilder_ != null) {
-          result.value_ = endBlockBuilder_.build();
-        }
-        if (valueCase_ == 11 &&
-            commitBuilder_ != null) {
-          result.value_ = commitBuilder_.build();
-        }
-        if (valueCase_ == 12 &&
-            listSnapshotsBuilder_ != null) {
-          result.value_ = listSnapshotsBuilder_.build();
-        }
-        if (valueCase_ == 13 &&
-            offerSnapshotBuilder_ != null) {
-          result.value_ = offerSnapshotBuilder_.build();
-        }
-        if (valueCase_ == 14 &&
-            loadSnapshotChunkBuilder_ != null) {
-          result.value_ = loadSnapshotChunkBuilder_.build();
-        }
-        if (valueCase_ == 15 &&
-            applySnapshotChunkBuilder_ != null) {
-          result.value_ = applySnapshotChunkBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -1711,7 +1952,7 @@ public final class Types {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1726,135 +1967,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.Request parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getEchoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 1;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getFlushFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 2;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 3;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getSetOptionFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 4;
-                break;
-              } // case 34
-              case 42: {
-                input.readMessage(
-                    getInitChainFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 5;
-                break;
-              } // case 42
-              case 50: {
-                input.readMessage(
-                    getQueryFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 6;
-                break;
-              } // case 50
-              case 58: {
-                input.readMessage(
-                    getBeginBlockFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 7;
-                break;
-              } // case 58
-              case 66: {
-                input.readMessage(
-                    getCheckTxFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 8;
-                break;
-              } // case 66
-              case 74: {
-                input.readMessage(
-                    getDeliverTxFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 9;
-                break;
-              } // case 74
-              case 82: {
-                input.readMessage(
-                    getEndBlockFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 10;
-                break;
-              } // case 82
-              case 90: {
-                input.readMessage(
-                    getCommitFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 11;
-                break;
-              } // case 90
-              case 98: {
-                input.readMessage(
-                    getListSnapshotsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 12;
-                break;
-              } // case 98
-              case 106: {
-                input.readMessage(
-                    getOfferSnapshotFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 13;
-                break;
-              } // case 106
-              case 114: {
-                input.readMessage(
-                    getLoadSnapshotChunkFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 14;
-                break;
-              } // case 114
-              case 122: {
-                input.readMessage(
-                    getApplySnapshotChunkFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 15;
-                break;
-              } // case 122
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.Request) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int valueCase_ = 0;
@@ -1872,7 +1995,6 @@ public final class Types {
         return this;
       }
 
-      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           tendermint.abci.Types.RequestEcho, tendermint.abci.Types.RequestEcho.Builder, tendermint.abci.Types.RequestEchoOrBuilder> echoBuilder_;
@@ -1948,9 +2070,8 @@ public final class Types {
         } else {
           if (valueCase_ == 1) {
             echoBuilder_.mergeFrom(value);
-          } else {
-            echoBuilder_.setMessage(value);
           }
+          echoBuilder_.setMessage(value);
         }
         valueCase_ = 1;
         return this;
@@ -2012,7 +2133,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 1;
-        onChanged();
+        onChanged();;
         return echoBuilder_;
       }
 
@@ -2090,9 +2211,8 @@ public final class Types {
         } else {
           if (valueCase_ == 2) {
             flushBuilder_.mergeFrom(value);
-          } else {
-            flushBuilder_.setMessage(value);
           }
+          flushBuilder_.setMessage(value);
         }
         valueCase_ = 2;
         return this;
@@ -2154,7 +2274,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 2;
-        onChanged();
+        onChanged();;
         return flushBuilder_;
       }
 
@@ -2232,9 +2352,8 @@ public final class Types {
         } else {
           if (valueCase_ == 3) {
             infoBuilder_.mergeFrom(value);
-          } else {
-            infoBuilder_.setMessage(value);
           }
+          infoBuilder_.setMessage(value);
         }
         valueCase_ = 3;
         return this;
@@ -2296,7 +2415,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 3;
-        onChanged();
+        onChanged();;
         return infoBuilder_;
       }
 
@@ -2374,9 +2493,8 @@ public final class Types {
         } else {
           if (valueCase_ == 4) {
             setOptionBuilder_.mergeFrom(value);
-          } else {
-            setOptionBuilder_.setMessage(value);
           }
+          setOptionBuilder_.setMessage(value);
         }
         valueCase_ = 4;
         return this;
@@ -2438,7 +2556,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 4;
-        onChanged();
+        onChanged();;
         return setOptionBuilder_;
       }
 
@@ -2516,9 +2634,8 @@ public final class Types {
         } else {
           if (valueCase_ == 5) {
             initChainBuilder_.mergeFrom(value);
-          } else {
-            initChainBuilder_.setMessage(value);
           }
+          initChainBuilder_.setMessage(value);
         }
         valueCase_ = 5;
         return this;
@@ -2580,7 +2697,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 5;
-        onChanged();
+        onChanged();;
         return initChainBuilder_;
       }
 
@@ -2658,9 +2775,8 @@ public final class Types {
         } else {
           if (valueCase_ == 6) {
             queryBuilder_.mergeFrom(value);
-          } else {
-            queryBuilder_.setMessage(value);
           }
+          queryBuilder_.setMessage(value);
         }
         valueCase_ = 6;
         return this;
@@ -2722,7 +2838,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 6;
-        onChanged();
+        onChanged();;
         return queryBuilder_;
       }
 
@@ -2800,9 +2916,8 @@ public final class Types {
         } else {
           if (valueCase_ == 7) {
             beginBlockBuilder_.mergeFrom(value);
-          } else {
-            beginBlockBuilder_.setMessage(value);
           }
+          beginBlockBuilder_.setMessage(value);
         }
         valueCase_ = 7;
         return this;
@@ -2864,7 +2979,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 7;
-        onChanged();
+        onChanged();;
         return beginBlockBuilder_;
       }
 
@@ -2942,9 +3057,8 @@ public final class Types {
         } else {
           if (valueCase_ == 8) {
             checkTxBuilder_.mergeFrom(value);
-          } else {
-            checkTxBuilder_.setMessage(value);
           }
+          checkTxBuilder_.setMessage(value);
         }
         valueCase_ = 8;
         return this;
@@ -3006,7 +3120,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 8;
-        onChanged();
+        onChanged();;
         return checkTxBuilder_;
       }
 
@@ -3084,9 +3198,8 @@ public final class Types {
         } else {
           if (valueCase_ == 9) {
             deliverTxBuilder_.mergeFrom(value);
-          } else {
-            deliverTxBuilder_.setMessage(value);
           }
+          deliverTxBuilder_.setMessage(value);
         }
         valueCase_ = 9;
         return this;
@@ -3148,7 +3261,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 9;
-        onChanged();
+        onChanged();;
         return deliverTxBuilder_;
       }
 
@@ -3226,9 +3339,8 @@ public final class Types {
         } else {
           if (valueCase_ == 10) {
             endBlockBuilder_.mergeFrom(value);
-          } else {
-            endBlockBuilder_.setMessage(value);
           }
+          endBlockBuilder_.setMessage(value);
         }
         valueCase_ = 10;
         return this;
@@ -3290,7 +3402,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 10;
-        onChanged();
+        onChanged();;
         return endBlockBuilder_;
       }
 
@@ -3368,9 +3480,8 @@ public final class Types {
         } else {
           if (valueCase_ == 11) {
             commitBuilder_.mergeFrom(value);
-          } else {
-            commitBuilder_.setMessage(value);
           }
+          commitBuilder_.setMessage(value);
         }
         valueCase_ = 11;
         return this;
@@ -3432,7 +3543,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 11;
-        onChanged();
+        onChanged();;
         return commitBuilder_;
       }
 
@@ -3510,9 +3621,8 @@ public final class Types {
         } else {
           if (valueCase_ == 12) {
             listSnapshotsBuilder_.mergeFrom(value);
-          } else {
-            listSnapshotsBuilder_.setMessage(value);
           }
+          listSnapshotsBuilder_.setMessage(value);
         }
         valueCase_ = 12;
         return this;
@@ -3574,7 +3684,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 12;
-        onChanged();
+        onChanged();;
         return listSnapshotsBuilder_;
       }
 
@@ -3652,9 +3762,8 @@ public final class Types {
         } else {
           if (valueCase_ == 13) {
             offerSnapshotBuilder_.mergeFrom(value);
-          } else {
-            offerSnapshotBuilder_.setMessage(value);
           }
+          offerSnapshotBuilder_.setMessage(value);
         }
         valueCase_ = 13;
         return this;
@@ -3716,7 +3825,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 13;
-        onChanged();
+        onChanged();;
         return offerSnapshotBuilder_;
       }
 
@@ -3794,9 +3903,8 @@ public final class Types {
         } else {
           if (valueCase_ == 14) {
             loadSnapshotChunkBuilder_.mergeFrom(value);
-          } else {
-            loadSnapshotChunkBuilder_.setMessage(value);
           }
+          loadSnapshotChunkBuilder_.setMessage(value);
         }
         valueCase_ = 14;
         return this;
@@ -3858,7 +3966,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 14;
-        onChanged();
+        onChanged();;
         return loadSnapshotChunkBuilder_;
       }
 
@@ -3936,9 +4044,8 @@ public final class Types {
         } else {
           if (valueCase_ == 15) {
             applySnapshotChunkBuilder_.mergeFrom(value);
-          } else {
-            applySnapshotChunkBuilder_.setMessage(value);
           }
+          applySnapshotChunkBuilder_.setMessage(value);
         }
         valueCase_ = 15;
         return this;
@@ -4000,7 +4107,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 15;
-        onChanged();
+        onChanged();;
         return applySnapshotChunkBuilder_;
       }
       @java.lang.Override
@@ -4036,18 +4143,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Request(input, extensionRegistry);
       }
     };
 
@@ -4111,6 +4207,49 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestEcho(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              message_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestEcho_descriptor;
@@ -4125,8 +4264,7 @@ public final class Types {
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object message_ = "";
+    private volatile java.lang.Object message_;
     /**
      * <code>string message = 1;</code>
      * @return The message.
@@ -4177,10 +4315,10 @@ public final class Types {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+      if (!getMessageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4189,10 +4327,10 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+      if (!getMessageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4209,7 +4347,7 @@ public final class Types {
 
       if (!getMessage()
           .equals(other.getMessage())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4222,7 +4360,7 @@ public final class Types {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4339,19 +4477,24 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestEcho.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         message_ = "";
+
         return this;
       }
 
@@ -4378,16 +4521,9 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestEcho buildPartial() {
         tendermint.abci.Types.RequestEcho result = new tendermint.abci.Types.RequestEcho(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.message_ = message_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestEcho result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.message_ = message_;
-        }
       }
 
       @java.lang.Override
@@ -4436,10 +4572,9 @@ public final class Types {
         if (other == tendermint.abci.Types.RequestEcho.getDefaultInstance()) return this;
         if (!other.getMessage().isEmpty()) {
           message_ = other.message_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4454,38 +4589,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestEcho parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                message_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestEcho) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object message_ = "";
       /**
@@ -4528,9 +4644,11 @@ public final class Types {
        */
       public Builder setMessage(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         message_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4539,8 +4657,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearMessage() {
+        
         message_ = getDefaultInstance().getMessage();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4551,10 +4669,12 @@ public final class Types {
        */
       public Builder setMessageBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         message_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4591,18 +4711,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestEcho(input, extensionRegistry);
       }
     };
 
@@ -4653,6 +4762,43 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestFlush(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestFlush_descriptor;
@@ -4680,7 +4826,7 @@ public final class Types {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4689,7 +4835,7 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4704,7 +4850,7 @@ public final class Types {
       }
       tendermint.abci.Types.RequestFlush other = (tendermint.abci.Types.RequestFlush) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4715,7 +4861,7 @@ public final class Types {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4832,13 +4978,18 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestFlush.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -4917,7 +5068,7 @@ public final class Types {
 
       public Builder mergeFrom(tendermint.abci.Types.RequestFlush other) {
         if (other == tendermint.abci.Types.RequestFlush.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4932,30 +5083,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestFlush parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestFlush) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -4991,18 +5129,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestFlush(input, extensionRegistry);
       }
     };
 
@@ -5078,6 +5205,59 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              version_ = s;
+              break;
+            }
+            case 16: {
+
+              blockVersion_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+
+              p2PVersion_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestInfo_descriptor;
@@ -5092,8 +5272,7 @@ public final class Types {
     }
 
     public static final int VERSION_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object version_ = "";
+    private volatile java.lang.Object version_;
     /**
      * <code>string version = 1;</code>
      * @return The version.
@@ -5131,7 +5310,7 @@ public final class Types {
     }
 
     public static final int BLOCK_VERSION_FIELD_NUMBER = 2;
-    private long blockVersion_ = 0L;
+    private long blockVersion_;
     /**
      * <code>uint64 block_version = 2;</code>
      * @return The blockVersion.
@@ -5142,7 +5321,7 @@ public final class Types {
     }
 
     public static final int P2P_VERSION_FIELD_NUMBER = 3;
-    private long p2PVersion_ = 0L;
+    private long p2PVersion_;
     /**
      * <code>uint64 p2p_version = 3;</code>
      * @return The p2pVersion.
@@ -5166,7 +5345,7 @@ public final class Types {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+      if (!getVersionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, version_);
       }
       if (blockVersion_ != 0L) {
@@ -5175,7 +5354,7 @@ public final class Types {
       if (p2PVersion_ != 0L) {
         output.writeUInt64(3, p2PVersion_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5184,7 +5363,7 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+      if (!getVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, version_);
       }
       if (blockVersion_ != 0L) {
@@ -5195,7 +5374,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, p2PVersion_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5216,7 +5395,7 @@ public final class Types {
           != other.getBlockVersion()) return false;
       if (getP2PVersion()
           != other.getP2PVersion()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5235,7 +5414,7 @@ public final class Types {
       hash = (37 * hash) + P2P_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getP2PVersion());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5352,21 +5531,28 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         version_ = "";
+
         blockVersion_ = 0L;
+
         p2PVersion_ = 0L;
+
         return this;
       }
 
@@ -5393,22 +5579,11 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestInfo buildPartial() {
         tendermint.abci.Types.RequestInfo result = new tendermint.abci.Types.RequestInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.version_ = version_;
+        result.blockVersion_ = blockVersion_;
+        result.p2PVersion_ = p2PVersion_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.version_ = version_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.blockVersion_ = blockVersion_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.p2PVersion_ = p2PVersion_;
-        }
       }
 
       @java.lang.Override
@@ -5457,7 +5632,6 @@ public final class Types {
         if (other == tendermint.abci.Types.RequestInfo.getDefaultInstance()) return this;
         if (!other.getVersion().isEmpty()) {
           version_ = other.version_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getBlockVersion() != 0L) {
@@ -5466,7 +5640,7 @@ public final class Types {
         if (other.getP2PVersion() != 0L) {
           setP2PVersion(other.getP2PVersion());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5481,48 +5655,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                version_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                blockVersion_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                p2PVersion_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object version_ = "";
       /**
@@ -5565,9 +5710,11 @@ public final class Types {
        */
       public Builder setVersion(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         version_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5576,8 +5723,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearVersion() {
+        
         version_ = getDefaultInstance().getVersion();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -5588,10 +5735,12 @@ public final class Types {
        */
       public Builder setVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         version_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5613,7 +5762,6 @@ public final class Types {
       public Builder setBlockVersion(long value) {
         
         blockVersion_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5622,7 +5770,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearBlockVersion() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         blockVersion_ = 0L;
         onChanged();
         return this;
@@ -5645,7 +5793,6 @@ public final class Types {
       public Builder setP2PVersion(long value) {
         
         p2PVersion_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5654,7 +5801,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearP2PVersion() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         p2PVersion_ = 0L;
         onChanged();
         return this;
@@ -5692,18 +5839,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestInfo(input, extensionRegistry);
       }
     };
 
@@ -5784,6 +5920,55 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestSetOption(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              key_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              value_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestSetOption_descriptor;
@@ -5798,8 +5983,7 @@ public final class Types {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object key_ = "";
+    private volatile java.lang.Object key_;
     /**
      * <code>string key = 1;</code>
      * @return The key.
@@ -5837,8 +6021,7 @@ public final class Types {
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object value_ = "";
+    private volatile java.lang.Object value_;
     /**
      * <code>string value = 2;</code>
      * @return The value.
@@ -5889,13 +6072,13 @@ public final class Types {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+      if (!getKeyBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+      if (!getValueBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5904,13 +6087,13 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+      if (!getKeyBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+      if (!getValueBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5929,7 +6112,7 @@ public final class Types {
           .equals(other.getKey())) return false;
       if (!getValue()
           .equals(other.getValue())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5944,7 +6127,7 @@ public final class Types {
       hash = (53 * hash) + getKey().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6065,20 +6248,26 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestSetOption.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         key_ = "";
+
         value_ = "";
+
         return this;
       }
 
@@ -6105,19 +6294,10 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestSetOption buildPartial() {
         tendermint.abci.Types.RequestSetOption result = new tendermint.abci.Types.RequestSetOption(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.key_ = key_;
+        result.value_ = value_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestSetOption result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.key_ = key_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.value_ = value_;
-        }
       }
 
       @java.lang.Override
@@ -6166,15 +6346,13 @@ public final class Types {
         if (other == tendermint.abci.Types.RequestSetOption.getDefaultInstance()) return this;
         if (!other.getKey().isEmpty()) {
           key_ = other.key_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getValue().isEmpty()) {
           value_ = other.value_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6189,43 +6367,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestSetOption parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                key_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                value_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestSetOption) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object key_ = "";
       /**
@@ -6268,9 +6422,11 @@ public final class Types {
        */
       public Builder setKey(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         key_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6279,8 +6435,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearKey() {
+        
         key_ = getDefaultInstance().getKey();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -6291,10 +6447,12 @@ public final class Types {
        */
       public Builder setKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         key_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6340,9 +6498,11 @@ public final class Types {
        */
       public Builder setValue(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         value_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6351,8 +6511,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearValue() {
+        
         value_ = getDefaultInstance().getValue();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -6363,10 +6523,12 @@ public final class Types {
        */
       public Builder setValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         value_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6403,18 +6565,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestSetOption(input, extensionRegistry);
       }
     };
 
@@ -6546,6 +6697,98 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestInitChain(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (time_ != null) {
+                subBuilder = time_.toBuilder();
+              }
+              time_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(time_);
+                time_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              chainId_ = s;
+              break;
+            }
+            case 26: {
+              tendermint.abci.Types.ConsensusParams.Builder subBuilder = null;
+              if (consensusParams_ != null) {
+                subBuilder = consensusParams_.toBuilder();
+              }
+              consensusParams_ = input.readMessage(tendermint.abci.Types.ConsensusParams.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(consensusParams_);
+                consensusParams_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                validators_ = new java.util.ArrayList<tendermint.abci.Types.ValidatorUpdate>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              validators_.add(
+                  input.readMessage(tendermint.abci.Types.ValidatorUpdate.parser(), extensionRegistry));
+              break;
+            }
+            case 42: {
+
+              appStateBytes_ = input.readBytes();
+              break;
+            }
+            case 48: {
+
+              initialHeight_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          validators_ = java.util.Collections.unmodifiableList(validators_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestInitChain_descriptor;
@@ -6582,12 +6825,11 @@ public final class Types {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
-      return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+      return getTime();
     }
 
     public static final int CHAIN_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object chainId_ = "";
+    private volatile java.lang.Object chainId_;
     /**
      * <code>string chain_id = 2;</code>
      * @return The chainId.
@@ -6647,11 +6889,10 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.abci.Types.ConsensusParamsOrBuilder getConsensusParamsOrBuilder() {
-      return consensusParams_ == null ? tendermint.abci.Types.ConsensusParams.getDefaultInstance() : consensusParams_;
+      return getConsensusParams();
     }
 
     public static final int VALIDATORS_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.ValidatorUpdate> validators_;
     /**
      * <code>repeated .tendermint.abci.ValidatorUpdate validators = 4 [(.gogoproto.nullable) = false];</code>
@@ -6692,7 +6933,7 @@ public final class Types {
     }
 
     public static final int APP_STATE_BYTES_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString appStateBytes_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString appStateBytes_;
     /**
      * <code>bytes app_state_bytes = 5;</code>
      * @return The appStateBytes.
@@ -6703,7 +6944,7 @@ public final class Types {
     }
 
     public static final int INITIAL_HEIGHT_FIELD_NUMBER = 6;
-    private long initialHeight_ = 0L;
+    private long initialHeight_;
     /**
      * <code>int64 initial_height = 6;</code>
      * @return The initialHeight.
@@ -6730,7 +6971,7 @@ public final class Types {
       if (time_ != null) {
         output.writeMessage(1, getTime());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chainId_)) {
+      if (!getChainIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, chainId_);
       }
       if (consensusParams_ != null) {
@@ -6745,7 +6986,7 @@ public final class Types {
       if (initialHeight_ != 0L) {
         output.writeInt64(6, initialHeight_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -6758,7 +6999,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getTime());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chainId_)) {
+      if (!getChainIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, chainId_);
       }
       if (consensusParams_ != null) {
@@ -6777,7 +7018,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, initialHeight_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6810,7 +7051,7 @@ public final class Types {
           .equals(other.getAppStateBytes())) return false;
       if (getInitialHeight()
           != other.getInitialHeight()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -6840,7 +7081,7 @@ public final class Types {
       hash = (37 * hash) + INITIAL_HEIGHT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getInitialHeight());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6957,38 +7198,47 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestInitChain.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getValidatorsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        time_ = null;
-        if (timeBuilder_ != null) {
-          timeBuilder_.dispose();
+        if (timeBuilder_ == null) {
+          time_ = null;
+        } else {
+          time_ = null;
           timeBuilder_ = null;
         }
         chainId_ = "";
-        consensusParams_ = null;
-        if (consensusParamsBuilder_ != null) {
-          consensusParamsBuilder_.dispose();
+
+        if (consensusParamsBuilder_ == null) {
+          consensusParams_ = null;
+        } else {
+          consensusParams_ = null;
           consensusParamsBuilder_ = null;
         }
         if (validatorsBuilder_ == null) {
           validators_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          validators_ = null;
           validatorsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
         appStateBytes_ = com.google.protobuf.ByteString.EMPTY;
+
         initialHeight_ = 0L;
+
         return this;
       }
 
@@ -7015,45 +7265,31 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestInitChain buildPartial() {
         tendermint.abci.Types.RequestInitChain result = new tendermint.abci.Types.RequestInitChain(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(tendermint.abci.Types.RequestInitChain result) {
+        int from_bitField0_ = bitField0_;
+        if (timeBuilder_ == null) {
+          result.time_ = time_;
+        } else {
+          result.time_ = timeBuilder_.build();
+        }
+        result.chainId_ = chainId_;
+        if (consensusParamsBuilder_ == null) {
+          result.consensusParams_ = consensusParams_;
+        } else {
+          result.consensusParams_ = consensusParamsBuilder_.build();
+        }
         if (validatorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             validators_ = java.util.Collections.unmodifiableList(validators_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.validators_ = validators_;
         } else {
           result.validators_ = validatorsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestInitChain result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.time_ = timeBuilder_ == null
-              ? time_
-              : timeBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.chainId_ = chainId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.consensusParams_ = consensusParamsBuilder_ == null
-              ? consensusParams_
-              : consensusParamsBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.appStateBytes_ = appStateBytes_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.initialHeight_ = initialHeight_;
-        }
+        result.appStateBytes_ = appStateBytes_;
+        result.initialHeight_ = initialHeight_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -7105,7 +7341,6 @@ public final class Types {
         }
         if (!other.getChainId().isEmpty()) {
           chainId_ = other.chainId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasConsensusParams()) {
@@ -7115,7 +7350,7 @@ public final class Types {
           if (!other.validators_.isEmpty()) {
             if (validators_.isEmpty()) {
               validators_ = other.validators_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureValidatorsIsMutable();
               validators_.addAll(other.validators_);
@@ -7128,7 +7363,7 @@ public final class Types {
               validatorsBuilder_.dispose();
               validatorsBuilder_ = null;
               validators_ = other.validators_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000001);
               validatorsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getValidatorsFieldBuilder() : null;
@@ -7143,7 +7378,7 @@ public final class Types {
         if (other.getInitialHeight() != 0L) {
           setInitialHeight(other.getInitialHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -7158,72 +7393,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestInitChain parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getTimeFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                chainId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getConsensusParamsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                tendermint.abci.Types.ValidatorUpdate m =
-                    input.readMessage(
-                        tendermint.abci.Types.ValidatorUpdate.parser(),
-                        extensionRegistry);
-                if (validatorsBuilder_ == null) {
-                  ensureValidatorsIsMutable();
-                  validators_.add(m);
-                } else {
-                  validatorsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 34
-              case 42: {
-                appStateBytes_ = input.readBytes();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              case 48: {
-                initialHeight_ = input.readInt64();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 48
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestInitChain) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -7236,7 +7416,7 @@ public final class Types {
        * @return Whether the time field is set.
        */
       public boolean hasTime() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return timeBuilder_ != null || time_ != null;
       }
       /**
        * <code>.google.protobuf.Timestamp time = 1 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
@@ -7258,11 +7438,11 @@ public final class Types {
             throw new NullPointerException();
           }
           time_ = value;
+          onChanged();
         } else {
           timeBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -7272,11 +7452,11 @@ public final class Types {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (timeBuilder_ == null) {
           time_ = builderForValue.build();
+          onChanged();
         } else {
           timeBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -7284,38 +7464,38 @@ public final class Types {
        */
       public Builder mergeTime(com.google.protobuf.Timestamp value) {
         if (timeBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            time_ != null &&
-            time_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-            getTimeBuilder().mergeFrom(value);
+          if (time_ != null) {
+            time_ =
+              com.google.protobuf.Timestamp.newBuilder(time_).mergeFrom(value).buildPartial();
           } else {
             time_ = value;
           }
+          onChanged();
         } else {
           timeBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp time = 1 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public Builder clearTime() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        time_ = null;
-        if (timeBuilder_ != null) {
-          timeBuilder_.dispose();
+        if (timeBuilder_ == null) {
+          time_ = null;
+          onChanged();
+        } else {
+          time_ = null;
           timeBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp time = 1 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getTimeFieldBuilder().getBuilder();
       }
@@ -7388,9 +7568,11 @@ public final class Types {
        */
       public Builder setChainId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         chainId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7399,8 +7581,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearChainId() {
+        
         chainId_ = getDefaultInstance().getChainId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -7411,10 +7593,12 @@ public final class Types {
        */
       public Builder setChainIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         chainId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7427,7 +7611,7 @@ public final class Types {
        * @return Whether the consensusParams field is set.
        */
       public boolean hasConsensusParams() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return consensusParamsBuilder_ != null || consensusParams_ != null;
       }
       /**
        * <code>.tendermint.abci.ConsensusParams consensus_params = 3;</code>
@@ -7449,11 +7633,11 @@ public final class Types {
             throw new NullPointerException();
           }
           consensusParams_ = value;
+          onChanged();
         } else {
           consensusParamsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -7463,11 +7647,11 @@ public final class Types {
           tendermint.abci.Types.ConsensusParams.Builder builderForValue) {
         if (consensusParamsBuilder_ == null) {
           consensusParams_ = builderForValue.build();
+          onChanged();
         } else {
           consensusParamsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -7475,38 +7659,38 @@ public final class Types {
        */
       public Builder mergeConsensusParams(tendermint.abci.Types.ConsensusParams value) {
         if (consensusParamsBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            consensusParams_ != null &&
-            consensusParams_ != tendermint.abci.Types.ConsensusParams.getDefaultInstance()) {
-            getConsensusParamsBuilder().mergeFrom(value);
+          if (consensusParams_ != null) {
+            consensusParams_ =
+              tendermint.abci.Types.ConsensusParams.newBuilder(consensusParams_).mergeFrom(value).buildPartial();
           } else {
             consensusParams_ = value;
           }
+          onChanged();
         } else {
           consensusParamsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.ConsensusParams consensus_params = 3;</code>
        */
       public Builder clearConsensusParams() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        consensusParams_ = null;
-        if (consensusParamsBuilder_ != null) {
-          consensusParamsBuilder_.dispose();
+        if (consensusParamsBuilder_ == null) {
+          consensusParams_ = null;
+          onChanged();
+        } else {
+          consensusParams_ = null;
           consensusParamsBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.ConsensusParams consensus_params = 3;</code>
        */
       public tendermint.abci.Types.ConsensusParams.Builder getConsensusParamsBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getConsensusParamsFieldBuilder().getBuilder();
       }
@@ -7541,9 +7725,9 @@ public final class Types {
       private java.util.List<tendermint.abci.Types.ValidatorUpdate> validators_ =
         java.util.Collections.emptyList();
       private void ensureValidatorsIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           validators_ = new java.util.ArrayList<tendermint.abci.Types.ValidatorUpdate>(validators_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -7693,7 +7877,7 @@ public final class Types {
       public Builder clearValidators() {
         if (validatorsBuilder_ == null) {
           validators_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           validatorsBuilder_.clear();
@@ -7770,7 +7954,7 @@ public final class Types {
           validatorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               tendermint.abci.Types.ValidatorUpdate, tendermint.abci.Types.ValidatorUpdate.Builder, tendermint.abci.Types.ValidatorUpdateOrBuilder>(
                   validators_,
-                  ((bitField0_ & 0x00000008) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           validators_ = null;
@@ -7793,9 +7977,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setAppStateBytes(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         appStateBytes_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -7804,7 +7990,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearAppStateBytes() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         appStateBytes_ = getDefaultInstance().getAppStateBytes();
         onChanged();
         return this;
@@ -7827,7 +8013,6 @@ public final class Types {
       public Builder setInitialHeight(long value) {
         
         initialHeight_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -7836,7 +8021,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearInitialHeight() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         initialHeight_ = 0L;
         onChanged();
         return this;
@@ -7874,18 +8059,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestInitChain(input, extensionRegistry);
       }
     };
 
@@ -7968,6 +8142,64 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestQuery(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              path_ = s;
+              break;
+            }
+            case 24: {
+
+              height_ = input.readInt64();
+              break;
+            }
+            case 32: {
+
+              prove_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestQuery_descriptor;
@@ -7982,7 +8214,7 @@ public final class Types {
     }
 
     public static final int DATA_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_;
     /**
      * <code>bytes data = 1;</code>
      * @return The data.
@@ -7993,8 +8225,7 @@ public final class Types {
     }
 
     public static final int PATH_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object path_ = "";
+    private volatile java.lang.Object path_;
     /**
      * <code>string path = 2;</code>
      * @return The path.
@@ -8032,7 +8263,7 @@ public final class Types {
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 3;
-    private long height_ = 0L;
+    private long height_;
     /**
      * <code>int64 height = 3;</code>
      * @return The height.
@@ -8043,7 +8274,7 @@ public final class Types {
     }
 
     public static final int PROVE_FIELD_NUMBER = 4;
-    private boolean prove_ = false;
+    private boolean prove_;
     /**
      * <code>bool prove = 4;</code>
      * @return The prove.
@@ -8070,7 +8301,7 @@ public final class Types {
       if (!data_.isEmpty()) {
         output.writeBytes(1, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+      if (!getPathBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, path_);
       }
       if (height_ != 0L) {
@@ -8079,7 +8310,7 @@ public final class Types {
       if (prove_ != false) {
         output.writeBool(4, prove_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -8092,7 +8323,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+      if (!getPathBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, path_);
       }
       if (height_ != 0L) {
@@ -8103,7 +8334,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, prove_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8126,7 +8357,7 @@ public final class Types {
           != other.getHeight()) return false;
       if (getProve()
           != other.getProve()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -8147,7 +8378,7 @@ public final class Types {
       hash = (37 * hash) + PROVE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getProve());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8264,22 +8495,30 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestQuery.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         data_ = com.google.protobuf.ByteString.EMPTY;
+
         path_ = "";
+
         height_ = 0L;
+
         prove_ = false;
+
         return this;
       }
 
@@ -8306,25 +8545,12 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestQuery buildPartial() {
         tendermint.abci.Types.RequestQuery result = new tendermint.abci.Types.RequestQuery(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.data_ = data_;
+        result.path_ = path_;
+        result.height_ = height_;
+        result.prove_ = prove_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestQuery result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.data_ = data_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.path_ = path_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.height_ = height_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.prove_ = prove_;
-        }
       }
 
       @java.lang.Override
@@ -8376,7 +8602,6 @@ public final class Types {
         }
         if (!other.getPath().isEmpty()) {
           path_ = other.path_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getHeight() != 0L) {
@@ -8385,7 +8610,7 @@ public final class Types {
         if (other.getProve() != false) {
           setProve(other.getProve());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -8400,53 +8625,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestQuery parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                path_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                height_ = input.readInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 32: {
-                prove_ = input.readBool();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestQuery) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -8463,9 +8654,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8474,7 +8667,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -8521,9 +8714,11 @@ public final class Types {
        */
       public Builder setPath(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         path_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -8532,8 +8727,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
+        
         path_ = getDefaultInstance().getPath();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -8544,10 +8739,12 @@ public final class Types {
        */
       public Builder setPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         path_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -8569,7 +8766,6 @@ public final class Types {
       public Builder setHeight(long value) {
         
         height_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8578,7 +8774,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         height_ = 0L;
         onChanged();
         return this;
@@ -8601,7 +8797,6 @@ public final class Types {
       public Builder setProve(boolean value) {
         
         prove_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -8610,7 +8805,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearProve() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         prove_ = false;
         onChanged();
         return this;
@@ -8648,18 +8843,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestQuery(input, extensionRegistry);
       }
     };
 
@@ -8772,6 +8956,87 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestBeginBlock(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              hash_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              tendermint.types.Types.Header.Builder subBuilder = null;
+              if (header_ != null) {
+                subBuilder = header_.toBuilder();
+              }
+              header_ = input.readMessage(tendermint.types.Types.Header.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header_);
+                header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              tendermint.abci.Types.LastCommitInfo.Builder subBuilder = null;
+              if (lastCommitInfo_ != null) {
+                subBuilder = lastCommitInfo_.toBuilder();
+              }
+              lastCommitInfo_ = input.readMessage(tendermint.abci.Types.LastCommitInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(lastCommitInfo_);
+                lastCommitInfo_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                byzantineValidators_ = new java.util.ArrayList<tendermint.abci.Types.Evidence>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              byzantineValidators_.add(
+                  input.readMessage(tendermint.abci.Types.Evidence.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          byzantineValidators_ = java.util.Collections.unmodifiableList(byzantineValidators_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestBeginBlock_descriptor;
@@ -8786,7 +9051,7 @@ public final class Types {
     }
 
     public static final int HASH_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString hash_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString hash_;
     /**
      * <code>bytes hash = 1;</code>
      * @return The hash.
@@ -8819,7 +9084,7 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.types.Types.HeaderOrBuilder getHeaderOrBuilder() {
-      return header_ == null ? tendermint.types.Types.Header.getDefaultInstance() : header_;
+      return getHeader();
     }
 
     public static final int LAST_COMMIT_INFO_FIELD_NUMBER = 3;
@@ -8845,11 +9110,10 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.abci.Types.LastCommitInfoOrBuilder getLastCommitInfoOrBuilder() {
-      return lastCommitInfo_ == null ? tendermint.abci.Types.LastCommitInfo.getDefaultInstance() : lastCommitInfo_;
+      return getLastCommitInfo();
     }
 
     public static final int BYZANTINE_VALIDATORS_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.Evidence> byzantineValidators_;
     /**
      * <code>repeated .tendermint.abci.Evidence byzantine_validators = 4 [(.gogoproto.nullable) = false];</code>
@@ -8915,7 +9179,7 @@ public final class Types {
       for (int i = 0; i < byzantineValidators_.size(); i++) {
         output.writeMessage(4, byzantineValidators_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -8940,7 +9204,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, byzantineValidators_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8969,7 +9233,7 @@ public final class Types {
       }
       if (!getByzantineValidatorsList()
           .equals(other.getByzantineValidatorsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -8994,7 +9258,7 @@ public final class Types {
         hash = (37 * hash) + BYZANTINE_VALIDATORS_FIELD_NUMBER;
         hash = (53 * hash) + getByzantineValidatorsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9111,36 +9375,43 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestBeginBlock.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getByzantineValidatorsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         hash_ = com.google.protobuf.ByteString.EMPTY;
-        header_ = null;
-        if (headerBuilder_ != null) {
-          headerBuilder_.dispose();
+
+        if (headerBuilder_ == null) {
+          header_ = null;
+        } else {
+          header_ = null;
           headerBuilder_ = null;
         }
-        lastCommitInfo_ = null;
-        if (lastCommitInfoBuilder_ != null) {
-          lastCommitInfoBuilder_.dispose();
+        if (lastCommitInfoBuilder_ == null) {
+          lastCommitInfo_ = null;
+        } else {
+          lastCommitInfo_ = null;
           lastCommitInfoBuilder_ = null;
         }
         if (byzantineValidatorsBuilder_ == null) {
           byzantineValidators_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          byzantineValidators_ = null;
           byzantineValidatorsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -9167,39 +9438,29 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestBeginBlock buildPartial() {
         tendermint.abci.Types.RequestBeginBlock result = new tendermint.abci.Types.RequestBeginBlock(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(tendermint.abci.Types.RequestBeginBlock result) {
+        int from_bitField0_ = bitField0_;
+        result.hash_ = hash_;
+        if (headerBuilder_ == null) {
+          result.header_ = header_;
+        } else {
+          result.header_ = headerBuilder_.build();
+        }
+        if (lastCommitInfoBuilder_ == null) {
+          result.lastCommitInfo_ = lastCommitInfo_;
+        } else {
+          result.lastCommitInfo_ = lastCommitInfoBuilder_.build();
+        }
         if (byzantineValidatorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             byzantineValidators_ = java.util.Collections.unmodifiableList(byzantineValidators_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.byzantineValidators_ = byzantineValidators_;
         } else {
           result.byzantineValidators_ = byzantineValidatorsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestBeginBlock result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.hash_ = hash_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.header_ = headerBuilder_ == null
-              ? header_
-              : headerBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.lastCommitInfo_ = lastCommitInfoBuilder_ == null
-              ? lastCommitInfo_
-              : lastCommitInfoBuilder_.build();
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -9259,7 +9520,7 @@ public final class Types {
           if (!other.byzantineValidators_.isEmpty()) {
             if (byzantineValidators_.isEmpty()) {
               byzantineValidators_ = other.byzantineValidators_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureByzantineValidatorsIsMutable();
               byzantineValidators_.addAll(other.byzantineValidators_);
@@ -9272,7 +9533,7 @@ public final class Types {
               byzantineValidatorsBuilder_.dispose();
               byzantineValidatorsBuilder_ = null;
               byzantineValidators_ = other.byzantineValidators_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000001);
               byzantineValidatorsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getByzantineValidatorsFieldBuilder() : null;
@@ -9281,7 +9542,7 @@ public final class Types {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -9296,62 +9557,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestBeginBlock parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                hash_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getHeaderFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getLastCommitInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                tendermint.abci.Types.Evidence m =
-                    input.readMessage(
-                        tendermint.abci.Types.Evidence.parser(),
-                        extensionRegistry);
-                if (byzantineValidatorsBuilder_ == null) {
-                  ensureByzantineValidatorsIsMutable();
-                  byzantineValidators_.add(m);
-                } else {
-                  byzantineValidatorsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestBeginBlock) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -9371,9 +9587,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setHash(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         hash_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9382,7 +9600,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearHash() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         hash_ = getDefaultInstance().getHash();
         onChanged();
         return this;
@@ -9396,7 +9614,7 @@ public final class Types {
        * @return Whether the header field is set.
        */
       public boolean hasHeader() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return headerBuilder_ != null || header_ != null;
       }
       /**
        * <code>.tendermint.types.Header header = 2 [(.gogoproto.nullable) = false];</code>
@@ -9418,11 +9636,11 @@ public final class Types {
             throw new NullPointerException();
           }
           header_ = value;
+          onChanged();
         } else {
           headerBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -9432,11 +9650,11 @@ public final class Types {
           tendermint.types.Types.Header.Builder builderForValue) {
         if (headerBuilder_ == null) {
           header_ = builderForValue.build();
+          onChanged();
         } else {
           headerBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -9444,38 +9662,38 @@ public final class Types {
        */
       public Builder mergeHeader(tendermint.types.Types.Header value) {
         if (headerBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            header_ != null &&
-            header_ != tendermint.types.Types.Header.getDefaultInstance()) {
-            getHeaderBuilder().mergeFrom(value);
+          if (header_ != null) {
+            header_ =
+              tendermint.types.Types.Header.newBuilder(header_).mergeFrom(value).buildPartial();
           } else {
             header_ = value;
           }
+          onChanged();
         } else {
           headerBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.Header header = 2 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearHeader() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        header_ = null;
-        if (headerBuilder_ != null) {
-          headerBuilder_.dispose();
+        if (headerBuilder_ == null) {
+          header_ = null;
+          onChanged();
+        } else {
+          header_ = null;
           headerBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.Header header = 2 [(.gogoproto.nullable) = false];</code>
        */
       public tendermint.types.Types.Header.Builder getHeaderBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getHeaderFieldBuilder().getBuilder();
       }
@@ -9515,7 +9733,7 @@ public final class Types {
        * @return Whether the lastCommitInfo field is set.
        */
       public boolean hasLastCommitInfo() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return lastCommitInfoBuilder_ != null || lastCommitInfo_ != null;
       }
       /**
        * <code>.tendermint.abci.LastCommitInfo last_commit_info = 3 [(.gogoproto.nullable) = false];</code>
@@ -9537,11 +9755,11 @@ public final class Types {
             throw new NullPointerException();
           }
           lastCommitInfo_ = value;
+          onChanged();
         } else {
           lastCommitInfoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -9551,11 +9769,11 @@ public final class Types {
           tendermint.abci.Types.LastCommitInfo.Builder builderForValue) {
         if (lastCommitInfoBuilder_ == null) {
           lastCommitInfo_ = builderForValue.build();
+          onChanged();
         } else {
           lastCommitInfoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -9563,38 +9781,38 @@ public final class Types {
        */
       public Builder mergeLastCommitInfo(tendermint.abci.Types.LastCommitInfo value) {
         if (lastCommitInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            lastCommitInfo_ != null &&
-            lastCommitInfo_ != tendermint.abci.Types.LastCommitInfo.getDefaultInstance()) {
-            getLastCommitInfoBuilder().mergeFrom(value);
+          if (lastCommitInfo_ != null) {
+            lastCommitInfo_ =
+              tendermint.abci.Types.LastCommitInfo.newBuilder(lastCommitInfo_).mergeFrom(value).buildPartial();
           } else {
             lastCommitInfo_ = value;
           }
+          onChanged();
         } else {
           lastCommitInfoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.LastCommitInfo last_commit_info = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearLastCommitInfo() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        lastCommitInfo_ = null;
-        if (lastCommitInfoBuilder_ != null) {
-          lastCommitInfoBuilder_.dispose();
+        if (lastCommitInfoBuilder_ == null) {
+          lastCommitInfo_ = null;
+          onChanged();
+        } else {
+          lastCommitInfo_ = null;
           lastCommitInfoBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.LastCommitInfo last_commit_info = 3 [(.gogoproto.nullable) = false];</code>
        */
       public tendermint.abci.Types.LastCommitInfo.Builder getLastCommitInfoBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getLastCommitInfoFieldBuilder().getBuilder();
       }
@@ -9629,9 +9847,9 @@ public final class Types {
       private java.util.List<tendermint.abci.Types.Evidence> byzantineValidators_ =
         java.util.Collections.emptyList();
       private void ensureByzantineValidatorsIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           byzantineValidators_ = new java.util.ArrayList<tendermint.abci.Types.Evidence>(byzantineValidators_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -9781,7 +9999,7 @@ public final class Types {
       public Builder clearByzantineValidators() {
         if (byzantineValidatorsBuilder_ == null) {
           byzantineValidators_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           byzantineValidatorsBuilder_.clear();
@@ -9858,7 +10076,7 @@ public final class Types {
           byzantineValidatorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               tendermint.abci.Types.Evidence, tendermint.abci.Types.Evidence.Builder, tendermint.abci.Types.EvidenceOrBuilder>(
                   byzantineValidators_,
-                  ((bitField0_ & 0x00000008) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           byzantineValidators_ = null;
@@ -9898,18 +10116,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestBeginBlock(input, extensionRegistry);
       }
     };
 
@@ -9979,6 +10186,54 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestCheckTx(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              tx_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              type_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestCheckTx_descriptor;
@@ -9993,7 +10248,7 @@ public final class Types {
     }
 
     public static final int TX_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString tx_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString tx_;
     /**
      * <code>bytes tx = 1;</code>
      * @return The tx.
@@ -10004,7 +10259,7 @@ public final class Types {
     }
 
     public static final int TYPE_FIELD_NUMBER = 2;
-    private int type_ = 0;
+    private int type_;
     /**
      * <code>.tendermint.abci.CheckTxType type = 2;</code>
      * @return The enum numeric value on the wire for type.
@@ -10017,7 +10272,8 @@ public final class Types {
      * @return The type.
      */
     @java.lang.Override public tendermint.abci.Types.CheckTxType getType() {
-      tendermint.abci.Types.CheckTxType result = tendermint.abci.Types.CheckTxType.forNumber(type_);
+      @SuppressWarnings("deprecation")
+      tendermint.abci.Types.CheckTxType result = tendermint.abci.Types.CheckTxType.valueOf(type_);
       return result == null ? tendermint.abci.Types.CheckTxType.UNRECOGNIZED : result;
     }
 
@@ -10041,7 +10297,7 @@ public final class Types {
       if (type_ != tendermint.abci.Types.CheckTxType.NEW.getNumber()) {
         output.writeEnum(2, type_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -10058,7 +10314,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, type_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10076,7 +10332,7 @@ public final class Types {
       if (!getTx()
           .equals(other.getTx())) return false;
       if (type_ != other.type_) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -10091,7 +10347,7 @@ public final class Types {
       hash = (53 * hash) + getTx().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10208,20 +10464,26 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestCheckTx.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         tx_ = com.google.protobuf.ByteString.EMPTY;
+
         type_ = 0;
+
         return this;
       }
 
@@ -10248,19 +10510,10 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestCheckTx buildPartial() {
         tendermint.abci.Types.RequestCheckTx result = new tendermint.abci.Types.RequestCheckTx(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.tx_ = tx_;
+        result.type_ = type_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestCheckTx result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.tx_ = tx_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.type_ = type_;
-        }
       }
 
       @java.lang.Override
@@ -10313,7 +10566,7 @@ public final class Types {
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -10328,43 +10581,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestCheckTx parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                tx_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                type_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestCheckTx) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString tx_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -10381,9 +10610,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setTx(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         tx_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10392,7 +10623,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearTx() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         tx_ = getDefaultInstance().getTx();
         onChanged();
         return this;
@@ -10412,8 +10643,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
+        
         type_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -10423,7 +10654,8 @@ public final class Types {
        */
       @java.lang.Override
       public tendermint.abci.Types.CheckTxType getType() {
-        tendermint.abci.Types.CheckTxType result = tendermint.abci.Types.CheckTxType.forNumber(type_);
+        @SuppressWarnings("deprecation")
+        tendermint.abci.Types.CheckTxType result = tendermint.abci.Types.CheckTxType.valueOf(type_);
         return result == null ? tendermint.abci.Types.CheckTxType.UNRECOGNIZED : result;
       }
       /**
@@ -10435,7 +10667,7 @@ public final class Types {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -10445,7 +10677,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         type_ = 0;
         onChanged();
         return this;
@@ -10483,18 +10715,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestCheckTx(input, extensionRegistry);
       }
     };
 
@@ -10552,6 +10773,48 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestDeliverTx(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              tx_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestDeliverTx_descriptor;
@@ -10566,7 +10829,7 @@ public final class Types {
     }
 
     public static final int TX_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString tx_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString tx_;
     /**
      * <code>bytes tx = 1;</code>
      * @return The tx.
@@ -10593,7 +10856,7 @@ public final class Types {
       if (!tx_.isEmpty()) {
         output.writeBytes(1, tx_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -10606,7 +10869,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, tx_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10623,7 +10886,7 @@ public final class Types {
 
       if (!getTx()
           .equals(other.getTx())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -10636,7 +10899,7 @@ public final class Types {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TX_FIELD_NUMBER;
       hash = (53 * hash) + getTx().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10753,19 +11016,24 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestDeliverTx.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         tx_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -10792,16 +11060,9 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestDeliverTx buildPartial() {
         tendermint.abci.Types.RequestDeliverTx result = new tendermint.abci.Types.RequestDeliverTx(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.tx_ = tx_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestDeliverTx result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.tx_ = tx_;
-        }
       }
 
       @java.lang.Override
@@ -10851,7 +11112,7 @@ public final class Types {
         if (other.getTx() != com.google.protobuf.ByteString.EMPTY) {
           setTx(other.getTx());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -10866,38 +11127,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestDeliverTx parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                tx_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestDeliverTx) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString tx_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -10914,9 +11156,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setTx(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         tx_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10925,7 +11169,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearTx() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         tx_ = getDefaultInstance().getTx();
         onChanged();
         return this;
@@ -10963,18 +11207,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestDeliverTx(input, extensionRegistry);
       }
     };
 
@@ -11031,6 +11264,48 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestEndBlock(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              height_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestEndBlock_descriptor;
@@ -11045,7 +11320,7 @@ public final class Types {
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 1;
-    private long height_ = 0L;
+    private long height_;
     /**
      * <code>int64 height = 1;</code>
      * @return The height.
@@ -11072,7 +11347,7 @@ public final class Types {
       if (height_ != 0L) {
         output.writeInt64(1, height_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -11085,7 +11360,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, height_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11102,7 +11377,7 @@ public final class Types {
 
       if (getHeight()
           != other.getHeight()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -11116,7 +11391,7 @@ public final class Types {
       hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getHeight());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11233,19 +11508,24 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestEndBlock.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         height_ = 0L;
+
         return this;
       }
 
@@ -11272,16 +11552,9 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestEndBlock buildPartial() {
         tendermint.abci.Types.RequestEndBlock result = new tendermint.abci.Types.RequestEndBlock(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.height_ = height_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestEndBlock result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.height_ = height_;
-        }
       }
 
       @java.lang.Override
@@ -11331,7 +11604,7 @@ public final class Types {
         if (other.getHeight() != 0L) {
           setHeight(other.getHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -11346,38 +11619,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestEndBlock parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                height_ = input.readInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestEndBlock) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long height_ ;
       /**
@@ -11396,7 +11650,6 @@ public final class Types {
       public Builder setHeight(long value) {
         
         height_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11405,7 +11658,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         height_ = 0L;
         onChanged();
         return this;
@@ -11443,18 +11696,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestEndBlock(input, extensionRegistry);
       }
     };
 
@@ -11505,6 +11747,43 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestCommit(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestCommit_descriptor;
@@ -11532,7 +11811,7 @@ public final class Types {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -11541,7 +11820,7 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11556,7 +11835,7 @@ public final class Types {
       }
       tendermint.abci.Types.RequestCommit other = (tendermint.abci.Types.RequestCommit) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -11567,7 +11846,7 @@ public final class Types {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11684,13 +11963,18 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestCommit.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -11769,7 +12053,7 @@ public final class Types {
 
       public Builder mergeFrom(tendermint.abci.Types.RequestCommit other) {
         if (other == tendermint.abci.Types.RequestCommit.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -11784,30 +12068,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestCommit parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestCommit) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -11843,18 +12114,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestCommit(input, extensionRegistry);
       }
     };
 
@@ -11909,6 +12169,43 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestListSnapshots(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestListSnapshots_descriptor;
@@ -11936,7 +12233,7 @@ public final class Types {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -11945,7 +12242,7 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11960,7 +12257,7 @@ public final class Types {
       }
       tendermint.abci.Types.RequestListSnapshots other = (tendermint.abci.Types.RequestListSnapshots) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -11971,7 +12268,7 @@ public final class Types {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -12092,13 +12389,18 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestListSnapshots.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -12177,7 +12479,7 @@ public final class Types {
 
       public Builder mergeFrom(tendermint.abci.Types.RequestListSnapshots other) {
         if (other == tendermint.abci.Types.RequestListSnapshots.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -12192,30 +12494,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestListSnapshots parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestListSnapshots) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -12251,18 +12540,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestListSnapshots(input, extensionRegistry);
       }
     };
 
@@ -12355,6 +12633,61 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestOfferSnapshot(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              tendermint.abci.Types.Snapshot.Builder subBuilder = null;
+              if (snapshot_ != null) {
+                subBuilder = snapshot_.toBuilder();
+              }
+              snapshot_ = input.readMessage(tendermint.abci.Types.Snapshot.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(snapshot_);
+                snapshot_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+
+              appHash_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestOfferSnapshot_descriptor;
@@ -12403,11 +12736,11 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.abci.Types.SnapshotOrBuilder getSnapshotOrBuilder() {
-      return snapshot_ == null ? tendermint.abci.Types.Snapshot.getDefaultInstance() : snapshot_;
+      return getSnapshot();
     }
 
     public static final int APP_HASH_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString appHash_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString appHash_;
     /**
      * <pre>
      * light client-verified app hash for snapshot height
@@ -12441,7 +12774,7 @@ public final class Types {
       if (!appHash_.isEmpty()) {
         output.writeBytes(2, appHash_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -12458,7 +12791,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, appHash_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -12480,7 +12813,7 @@ public final class Types {
       }
       if (!getAppHash()
           .equals(other.getAppHash())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -12497,7 +12830,7 @@ public final class Types {
       }
       hash = (37 * hash) + APP_HASH_FIELD_NUMBER;
       hash = (53 * hash) + getAppHash().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -12618,24 +12951,30 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestOfferSnapshot.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        snapshot_ = null;
-        if (snapshotBuilder_ != null) {
-          snapshotBuilder_.dispose();
+        if (snapshotBuilder_ == null) {
+          snapshot_ = null;
+        } else {
+          snapshot_ = null;
           snapshotBuilder_ = null;
         }
         appHash_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -12662,21 +13001,14 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestOfferSnapshot buildPartial() {
         tendermint.abci.Types.RequestOfferSnapshot result = new tendermint.abci.Types.RequestOfferSnapshot(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (snapshotBuilder_ == null) {
+          result.snapshot_ = snapshot_;
+        } else {
+          result.snapshot_ = snapshotBuilder_.build();
+        }
+        result.appHash_ = appHash_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestOfferSnapshot result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.snapshot_ = snapshotBuilder_ == null
-              ? snapshot_
-              : snapshotBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.appHash_ = appHash_;
-        }
       }
 
       @java.lang.Override
@@ -12729,7 +13061,7 @@ public final class Types {
         if (other.getAppHash() != com.google.protobuf.ByteString.EMPTY) {
           setAppHash(other.getAppHash());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -12744,45 +13076,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestOfferSnapshot parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getSnapshotFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                appHash_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestOfferSnapshot) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private tendermint.abci.Types.Snapshot snapshot_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -12796,7 +13102,7 @@ public final class Types {
        * @return Whether the snapshot field is set.
        */
       public boolean hasSnapshot() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return snapshotBuilder_ != null || snapshot_ != null;
       }
       /**
        * <pre>
@@ -12826,11 +13132,11 @@ public final class Types {
             throw new NullPointerException();
           }
           snapshot_ = value;
+          onChanged();
         } else {
           snapshotBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -12844,11 +13150,11 @@ public final class Types {
           tendermint.abci.Types.Snapshot.Builder builderForValue) {
         if (snapshotBuilder_ == null) {
           snapshot_ = builderForValue.build();
+          onChanged();
         } else {
           snapshotBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -12860,18 +13166,17 @@ public final class Types {
        */
       public Builder mergeSnapshot(tendermint.abci.Types.Snapshot value) {
         if (snapshotBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            snapshot_ != null &&
-            snapshot_ != tendermint.abci.Types.Snapshot.getDefaultInstance()) {
-            getSnapshotBuilder().mergeFrom(value);
+          if (snapshot_ != null) {
+            snapshot_ =
+              tendermint.abci.Types.Snapshot.newBuilder(snapshot_).mergeFrom(value).buildPartial();
           } else {
             snapshot_ = value;
           }
+          onChanged();
         } else {
           snapshotBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -12882,13 +13187,14 @@ public final class Types {
        * <code>.tendermint.abci.Snapshot snapshot = 1;</code>
        */
       public Builder clearSnapshot() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        snapshot_ = null;
-        if (snapshotBuilder_ != null) {
-          snapshotBuilder_.dispose();
+        if (snapshotBuilder_ == null) {
+          snapshot_ = null;
+          onChanged();
+        } else {
+          snapshot_ = null;
           snapshotBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -12899,7 +13205,7 @@ public final class Types {
        * <code>.tendermint.abci.Snapshot snapshot = 1;</code>
        */
       public tendermint.abci.Types.Snapshot.Builder getSnapshotBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getSnapshotFieldBuilder().getBuilder();
       }
@@ -12962,9 +13268,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setAppHash(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         appHash_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -12977,7 +13285,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearAppHash() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         appHash_ = getDefaultInstance().getAppHash();
         onChanged();
         return this;
@@ -13015,18 +13323,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestOfferSnapshot(input, extensionRegistry);
       }
     };
 
@@ -13099,6 +13396,58 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestLoadSnapshotChunk(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              height_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              format_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+
+              chunk_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestLoadSnapshotChunk_descriptor;
@@ -13113,7 +13462,7 @@ public final class Types {
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 1;
-    private long height_ = 0L;
+    private long height_;
     /**
      * <code>uint64 height = 1;</code>
      * @return The height.
@@ -13124,7 +13473,7 @@ public final class Types {
     }
 
     public static final int FORMAT_FIELD_NUMBER = 2;
-    private int format_ = 0;
+    private int format_;
     /**
      * <code>uint32 format = 2;</code>
      * @return The format.
@@ -13135,7 +13484,7 @@ public final class Types {
     }
 
     public static final int CHUNK_FIELD_NUMBER = 3;
-    private int chunk_ = 0;
+    private int chunk_;
     /**
      * <code>uint32 chunk = 3;</code>
      * @return The chunk.
@@ -13168,7 +13517,7 @@ public final class Types {
       if (chunk_ != 0) {
         output.writeUInt32(3, chunk_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -13189,7 +13538,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(3, chunk_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -13210,7 +13559,7 @@ public final class Types {
           != other.getFormat()) return false;
       if (getChunk()
           != other.getChunk()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -13228,7 +13577,7 @@ public final class Types {
       hash = (53 * hash) + getFormat();
       hash = (37 * hash) + CHUNK_FIELD_NUMBER;
       hash = (53 * hash) + getChunk();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -13349,21 +13698,28 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestLoadSnapshotChunk.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         height_ = 0L;
+
         format_ = 0;
+
         chunk_ = 0;
+
         return this;
       }
 
@@ -13390,22 +13746,11 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestLoadSnapshotChunk buildPartial() {
         tendermint.abci.Types.RequestLoadSnapshotChunk result = new tendermint.abci.Types.RequestLoadSnapshotChunk(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.height_ = height_;
+        result.format_ = format_;
+        result.chunk_ = chunk_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestLoadSnapshotChunk result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.height_ = height_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.format_ = format_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.chunk_ = chunk_;
-        }
       }
 
       @java.lang.Override
@@ -13461,7 +13806,7 @@ public final class Types {
         if (other.getChunk() != 0) {
           setChunk(other.getChunk());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -13476,48 +13821,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestLoadSnapshotChunk parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                height_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                format_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                chunk_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestLoadSnapshotChunk) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long height_ ;
       /**
@@ -13536,7 +13852,6 @@ public final class Types {
       public Builder setHeight(long value) {
         
         height_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -13545,7 +13860,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         height_ = 0L;
         onChanged();
         return this;
@@ -13568,7 +13883,6 @@ public final class Types {
       public Builder setFormat(int value) {
         
         format_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -13577,7 +13891,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearFormat() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         format_ = 0;
         onChanged();
         return this;
@@ -13600,7 +13914,6 @@ public final class Types {
       public Builder setChunk(int value) {
         
         chunk_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -13609,7 +13922,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearChunk() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         chunk_ = 0;
         onChanged();
         return this;
@@ -13647,18 +13960,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestLoadSnapshotChunk(input, extensionRegistry);
       }
     };
 
@@ -13739,6 +14041,59 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private RequestApplySnapshotChunk(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              index_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+
+              chunk_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sender_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_RequestApplySnapshotChunk_descriptor;
@@ -13753,7 +14108,7 @@ public final class Types {
     }
 
     public static final int INDEX_FIELD_NUMBER = 1;
-    private int index_ = 0;
+    private int index_;
     /**
      * <code>uint32 index = 1;</code>
      * @return The index.
@@ -13764,7 +14119,7 @@ public final class Types {
     }
 
     public static final int CHUNK_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString chunk_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString chunk_;
     /**
      * <code>bytes chunk = 2;</code>
      * @return The chunk.
@@ -13775,8 +14130,7 @@ public final class Types {
     }
 
     public static final int SENDER_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object sender_ = "";
+    private volatile java.lang.Object sender_;
     /**
      * <code>string sender = 3;</code>
      * @return The sender.
@@ -13833,10 +14187,10 @@ public final class Types {
       if (!chunk_.isEmpty()) {
         output.writeBytes(2, chunk_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sender_)) {
+      if (!getSenderBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, sender_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -13853,10 +14207,10 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, chunk_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sender_)) {
+      if (!getSenderBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, sender_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -13877,7 +14231,7 @@ public final class Types {
           .equals(other.getChunk())) return false;
       if (!getSender()
           .equals(other.getSender())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -13894,7 +14248,7 @@ public final class Types {
       hash = (53 * hash) + getChunk().hashCode();
       hash = (37 * hash) + SENDER_FIELD_NUMBER;
       hash = (53 * hash) + getSender().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -14015,21 +14369,28 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.RequestApplySnapshotChunk.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         index_ = 0;
+
         chunk_ = com.google.protobuf.ByteString.EMPTY;
+
         sender_ = "";
+
         return this;
       }
 
@@ -14056,22 +14417,11 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.RequestApplySnapshotChunk buildPartial() {
         tendermint.abci.Types.RequestApplySnapshotChunk result = new tendermint.abci.Types.RequestApplySnapshotChunk(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.index_ = index_;
+        result.chunk_ = chunk_;
+        result.sender_ = sender_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.RequestApplySnapshotChunk result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.index_ = index_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.chunk_ = chunk_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.sender_ = sender_;
-        }
       }
 
       @java.lang.Override
@@ -14126,10 +14476,9 @@ public final class Types {
         }
         if (!other.getSender().isEmpty()) {
           sender_ = other.sender_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -14144,48 +14493,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.RequestApplySnapshotChunk parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                index_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                chunk_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                sender_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.RequestApplySnapshotChunk) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int index_ ;
       /**
@@ -14204,7 +14524,6 @@ public final class Types {
       public Builder setIndex(int value) {
         
         index_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -14213,7 +14532,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearIndex() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         index_ = 0;
         onChanged();
         return this;
@@ -14234,9 +14553,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setChunk(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         chunk_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -14245,7 +14566,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearChunk() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         chunk_ = getDefaultInstance().getChunk();
         onChanged();
         return this;
@@ -14292,9 +14613,11 @@ public final class Types {
        */
       public Builder setSender(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         sender_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -14303,8 +14626,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearSender() {
+        
         sender_ = getDefaultInstance().getSender();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -14315,10 +14638,12 @@ public final class Types {
        */
       public Builder setSenderBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         sender_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -14355,18 +14680,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new RequestApplySnapshotChunk(input, extensionRegistry);
       }
     };
 
@@ -14658,6 +14972,267 @@ public final class Types {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private Response(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              tendermint.abci.Types.ResponseException.Builder subBuilder = null;
+              if (valueCase_ == 1) {
+                subBuilder = ((tendermint.abci.Types.ResponseException) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseException.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseException) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 1;
+              break;
+            }
+            case 18: {
+              tendermint.abci.Types.ResponseEcho.Builder subBuilder = null;
+              if (valueCase_ == 2) {
+                subBuilder = ((tendermint.abci.Types.ResponseEcho) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseEcho.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseEcho) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 2;
+              break;
+            }
+            case 26: {
+              tendermint.abci.Types.ResponseFlush.Builder subBuilder = null;
+              if (valueCase_ == 3) {
+                subBuilder = ((tendermint.abci.Types.ResponseFlush) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseFlush.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseFlush) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 3;
+              break;
+            }
+            case 34: {
+              tendermint.abci.Types.ResponseInfo.Builder subBuilder = null;
+              if (valueCase_ == 4) {
+                subBuilder = ((tendermint.abci.Types.ResponseInfo) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseInfo) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 4;
+              break;
+            }
+            case 42: {
+              tendermint.abci.Types.ResponseSetOption.Builder subBuilder = null;
+              if (valueCase_ == 5) {
+                subBuilder = ((tendermint.abci.Types.ResponseSetOption) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseSetOption.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseSetOption) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 5;
+              break;
+            }
+            case 50: {
+              tendermint.abci.Types.ResponseInitChain.Builder subBuilder = null;
+              if (valueCase_ == 6) {
+                subBuilder = ((tendermint.abci.Types.ResponseInitChain) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseInitChain.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseInitChain) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 6;
+              break;
+            }
+            case 58: {
+              tendermint.abci.Types.ResponseQuery.Builder subBuilder = null;
+              if (valueCase_ == 7) {
+                subBuilder = ((tendermint.abci.Types.ResponseQuery) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseQuery.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseQuery) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 7;
+              break;
+            }
+            case 66: {
+              tendermint.abci.Types.ResponseBeginBlock.Builder subBuilder = null;
+              if (valueCase_ == 8) {
+                subBuilder = ((tendermint.abci.Types.ResponseBeginBlock) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseBeginBlock.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseBeginBlock) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 8;
+              break;
+            }
+            case 74: {
+              tendermint.abci.Types.ResponseCheckTx.Builder subBuilder = null;
+              if (valueCase_ == 9) {
+                subBuilder = ((tendermint.abci.Types.ResponseCheckTx) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseCheckTx.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseCheckTx) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 9;
+              break;
+            }
+            case 82: {
+              tendermint.abci.Types.ResponseDeliverTx.Builder subBuilder = null;
+              if (valueCase_ == 10) {
+                subBuilder = ((tendermint.abci.Types.ResponseDeliverTx) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseDeliverTx.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseDeliverTx) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 10;
+              break;
+            }
+            case 90: {
+              tendermint.abci.Types.ResponseEndBlock.Builder subBuilder = null;
+              if (valueCase_ == 11) {
+                subBuilder = ((tendermint.abci.Types.ResponseEndBlock) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseEndBlock.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseEndBlock) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 11;
+              break;
+            }
+            case 98: {
+              tendermint.abci.Types.ResponseCommit.Builder subBuilder = null;
+              if (valueCase_ == 12) {
+                subBuilder = ((tendermint.abci.Types.ResponseCommit) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseCommit.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseCommit) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 12;
+              break;
+            }
+            case 106: {
+              tendermint.abci.Types.ResponseListSnapshots.Builder subBuilder = null;
+              if (valueCase_ == 13) {
+                subBuilder = ((tendermint.abci.Types.ResponseListSnapshots) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseListSnapshots.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseListSnapshots) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 13;
+              break;
+            }
+            case 114: {
+              tendermint.abci.Types.ResponseOfferSnapshot.Builder subBuilder = null;
+              if (valueCase_ == 14) {
+                subBuilder = ((tendermint.abci.Types.ResponseOfferSnapshot) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseOfferSnapshot.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseOfferSnapshot) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 14;
+              break;
+            }
+            case 122: {
+              tendermint.abci.Types.ResponseLoadSnapshotChunk.Builder subBuilder = null;
+              if (valueCase_ == 15) {
+                subBuilder = ((tendermint.abci.Types.ResponseLoadSnapshotChunk) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseLoadSnapshotChunk.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseLoadSnapshotChunk) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 15;
+              break;
+            }
+            case 130: {
+              tendermint.abci.Types.ResponseApplySnapshotChunk.Builder subBuilder = null;
+              if (valueCase_ == 16) {
+                subBuilder = ((tendermint.abci.Types.ResponseApplySnapshotChunk) value_).toBuilder();
+              }
+              value_ =
+                  input.readMessage(tendermint.abci.Types.ResponseApplySnapshotChunk.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((tendermint.abci.Types.ResponseApplySnapshotChunk) value_);
+                value_ = subBuilder.buildPartial();
+              }
+              valueCase_ = 16;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -15299,7 +15874,7 @@ public final class Types {
       if (valueCase_ == 16) {
         output.writeMessage(16, (tendermint.abci.Types.ResponseApplySnapshotChunk) value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -15372,7 +15947,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(16, (tendermint.abci.Types.ResponseApplySnapshotChunk) value_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -15456,7 +16031,7 @@ public final class Types {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -15535,7 +16110,7 @@ public final class Types {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -15652,66 +16227,22 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.Response.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        if (exceptionBuilder_ != null) {
-          exceptionBuilder_.clear();
-        }
-        if (echoBuilder_ != null) {
-          echoBuilder_.clear();
-        }
-        if (flushBuilder_ != null) {
-          flushBuilder_.clear();
-        }
-        if (infoBuilder_ != null) {
-          infoBuilder_.clear();
-        }
-        if (setOptionBuilder_ != null) {
-          setOptionBuilder_.clear();
-        }
-        if (initChainBuilder_ != null) {
-          initChainBuilder_.clear();
-        }
-        if (queryBuilder_ != null) {
-          queryBuilder_.clear();
-        }
-        if (beginBlockBuilder_ != null) {
-          beginBlockBuilder_.clear();
-        }
-        if (checkTxBuilder_ != null) {
-          checkTxBuilder_.clear();
-        }
-        if (deliverTxBuilder_ != null) {
-          deliverTxBuilder_.clear();
-        }
-        if (endBlockBuilder_ != null) {
-          endBlockBuilder_.clear();
-        }
-        if (commitBuilder_ != null) {
-          commitBuilder_.clear();
-        }
-        if (listSnapshotsBuilder_ != null) {
-          listSnapshotsBuilder_.clear();
-        }
-        if (offerSnapshotBuilder_ != null) {
-          offerSnapshotBuilder_.clear();
-        }
-        if (loadSnapshotChunkBuilder_ != null) {
-          loadSnapshotChunkBuilder_.clear();
-        }
-        if (applySnapshotChunkBuilder_ != null) {
-          applySnapshotChunkBuilder_.clear();
-        }
         valueCase_ = 0;
         value_ = null;
         return this;
@@ -15740,83 +16271,121 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.Response buildPartial() {
         tendermint.abci.Types.Response result = new tendermint.abci.Types.Response(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        if (valueCase_ == 1) {
+          if (exceptionBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = exceptionBuilder_.build();
+          }
+        }
+        if (valueCase_ == 2) {
+          if (echoBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = echoBuilder_.build();
+          }
+        }
+        if (valueCase_ == 3) {
+          if (flushBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = flushBuilder_.build();
+          }
+        }
+        if (valueCase_ == 4) {
+          if (infoBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = infoBuilder_.build();
+          }
+        }
+        if (valueCase_ == 5) {
+          if (setOptionBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = setOptionBuilder_.build();
+          }
+        }
+        if (valueCase_ == 6) {
+          if (initChainBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = initChainBuilder_.build();
+          }
+        }
+        if (valueCase_ == 7) {
+          if (queryBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = queryBuilder_.build();
+          }
+        }
+        if (valueCase_ == 8) {
+          if (beginBlockBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = beginBlockBuilder_.build();
+          }
+        }
+        if (valueCase_ == 9) {
+          if (checkTxBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = checkTxBuilder_.build();
+          }
+        }
+        if (valueCase_ == 10) {
+          if (deliverTxBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = deliverTxBuilder_.build();
+          }
+        }
+        if (valueCase_ == 11) {
+          if (endBlockBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = endBlockBuilder_.build();
+          }
+        }
+        if (valueCase_ == 12) {
+          if (commitBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = commitBuilder_.build();
+          }
+        }
+        if (valueCase_ == 13) {
+          if (listSnapshotsBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = listSnapshotsBuilder_.build();
+          }
+        }
+        if (valueCase_ == 14) {
+          if (offerSnapshotBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = offerSnapshotBuilder_.build();
+          }
+        }
+        if (valueCase_ == 15) {
+          if (loadSnapshotChunkBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = loadSnapshotChunkBuilder_.build();
+          }
+        }
+        if (valueCase_ == 16) {
+          if (applySnapshotChunkBuilder_ == null) {
+            result.value_ = value_;
+          } else {
+            result.value_ = applySnapshotChunkBuilder_.build();
+          }
+        }
+        result.valueCase_ = valueCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.Response result) {
-        int from_bitField0_ = bitField0_;
-      }
-
-      private void buildPartialOneofs(tendermint.abci.Types.Response result) {
-        result.valueCase_ = valueCase_;
-        result.value_ = this.value_;
-        if (valueCase_ == 1 &&
-            exceptionBuilder_ != null) {
-          result.value_ = exceptionBuilder_.build();
-        }
-        if (valueCase_ == 2 &&
-            echoBuilder_ != null) {
-          result.value_ = echoBuilder_.build();
-        }
-        if (valueCase_ == 3 &&
-            flushBuilder_ != null) {
-          result.value_ = flushBuilder_.build();
-        }
-        if (valueCase_ == 4 &&
-            infoBuilder_ != null) {
-          result.value_ = infoBuilder_.build();
-        }
-        if (valueCase_ == 5 &&
-            setOptionBuilder_ != null) {
-          result.value_ = setOptionBuilder_.build();
-        }
-        if (valueCase_ == 6 &&
-            initChainBuilder_ != null) {
-          result.value_ = initChainBuilder_.build();
-        }
-        if (valueCase_ == 7 &&
-            queryBuilder_ != null) {
-          result.value_ = queryBuilder_.build();
-        }
-        if (valueCase_ == 8 &&
-            beginBlockBuilder_ != null) {
-          result.value_ = beginBlockBuilder_.build();
-        }
-        if (valueCase_ == 9 &&
-            checkTxBuilder_ != null) {
-          result.value_ = checkTxBuilder_.build();
-        }
-        if (valueCase_ == 10 &&
-            deliverTxBuilder_ != null) {
-          result.value_ = deliverTxBuilder_.build();
-        }
-        if (valueCase_ == 11 &&
-            endBlockBuilder_ != null) {
-          result.value_ = endBlockBuilder_.build();
-        }
-        if (valueCase_ == 12 &&
-            commitBuilder_ != null) {
-          result.value_ = commitBuilder_.build();
-        }
-        if (valueCase_ == 13 &&
-            listSnapshotsBuilder_ != null) {
-          result.value_ = listSnapshotsBuilder_.build();
-        }
-        if (valueCase_ == 14 &&
-            offerSnapshotBuilder_ != null) {
-          result.value_ = offerSnapshotBuilder_.build();
-        }
-        if (valueCase_ == 15 &&
-            loadSnapshotChunkBuilder_ != null) {
-          result.value_ = loadSnapshotChunkBuilder_.build();
-        }
-        if (valueCase_ == 16 &&
-            applySnapshotChunkBuilder_ != null) {
-          result.value_ = applySnapshotChunkBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -15932,7 +16501,7 @@ public final class Types {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -15947,142 +16516,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.Response parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getExceptionFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 1;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getEchoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 2;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getFlushFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 3;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 4;
-                break;
-              } // case 34
-              case 42: {
-                input.readMessage(
-                    getSetOptionFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 5;
-                break;
-              } // case 42
-              case 50: {
-                input.readMessage(
-                    getInitChainFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 6;
-                break;
-              } // case 50
-              case 58: {
-                input.readMessage(
-                    getQueryFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 7;
-                break;
-              } // case 58
-              case 66: {
-                input.readMessage(
-                    getBeginBlockFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 8;
-                break;
-              } // case 66
-              case 74: {
-                input.readMessage(
-                    getCheckTxFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 9;
-                break;
-              } // case 74
-              case 82: {
-                input.readMessage(
-                    getDeliverTxFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 10;
-                break;
-              } // case 82
-              case 90: {
-                input.readMessage(
-                    getEndBlockFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 11;
-                break;
-              } // case 90
-              case 98: {
-                input.readMessage(
-                    getCommitFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 12;
-                break;
-              } // case 98
-              case 106: {
-                input.readMessage(
-                    getListSnapshotsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 13;
-                break;
-              } // case 106
-              case 114: {
-                input.readMessage(
-                    getOfferSnapshotFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 14;
-                break;
-              } // case 114
-              case 122: {
-                input.readMessage(
-                    getLoadSnapshotChunkFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 15;
-                break;
-              } // case 122
-              case 130: {
-                input.readMessage(
-                    getApplySnapshotChunkFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                valueCase_ = 16;
-                break;
-              } // case 130
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.Response) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int valueCase_ = 0;
@@ -16100,7 +16544,6 @@ public final class Types {
         return this;
       }
 
-      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           tendermint.abci.Types.ResponseException, tendermint.abci.Types.ResponseException.Builder, tendermint.abci.Types.ResponseExceptionOrBuilder> exceptionBuilder_;
@@ -16176,9 +16619,8 @@ public final class Types {
         } else {
           if (valueCase_ == 1) {
             exceptionBuilder_.mergeFrom(value);
-          } else {
-            exceptionBuilder_.setMessage(value);
           }
+          exceptionBuilder_.setMessage(value);
         }
         valueCase_ = 1;
         return this;
@@ -16240,7 +16682,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 1;
-        onChanged();
+        onChanged();;
         return exceptionBuilder_;
       }
 
@@ -16318,9 +16760,8 @@ public final class Types {
         } else {
           if (valueCase_ == 2) {
             echoBuilder_.mergeFrom(value);
-          } else {
-            echoBuilder_.setMessage(value);
           }
+          echoBuilder_.setMessage(value);
         }
         valueCase_ = 2;
         return this;
@@ -16382,7 +16823,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 2;
-        onChanged();
+        onChanged();;
         return echoBuilder_;
       }
 
@@ -16460,9 +16901,8 @@ public final class Types {
         } else {
           if (valueCase_ == 3) {
             flushBuilder_.mergeFrom(value);
-          } else {
-            flushBuilder_.setMessage(value);
           }
+          flushBuilder_.setMessage(value);
         }
         valueCase_ = 3;
         return this;
@@ -16524,7 +16964,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 3;
-        onChanged();
+        onChanged();;
         return flushBuilder_;
       }
 
@@ -16602,9 +17042,8 @@ public final class Types {
         } else {
           if (valueCase_ == 4) {
             infoBuilder_.mergeFrom(value);
-          } else {
-            infoBuilder_.setMessage(value);
           }
+          infoBuilder_.setMessage(value);
         }
         valueCase_ = 4;
         return this;
@@ -16666,7 +17105,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 4;
-        onChanged();
+        onChanged();;
         return infoBuilder_;
       }
 
@@ -16744,9 +17183,8 @@ public final class Types {
         } else {
           if (valueCase_ == 5) {
             setOptionBuilder_.mergeFrom(value);
-          } else {
-            setOptionBuilder_.setMessage(value);
           }
+          setOptionBuilder_.setMessage(value);
         }
         valueCase_ = 5;
         return this;
@@ -16808,7 +17246,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 5;
-        onChanged();
+        onChanged();;
         return setOptionBuilder_;
       }
 
@@ -16886,9 +17324,8 @@ public final class Types {
         } else {
           if (valueCase_ == 6) {
             initChainBuilder_.mergeFrom(value);
-          } else {
-            initChainBuilder_.setMessage(value);
           }
+          initChainBuilder_.setMessage(value);
         }
         valueCase_ = 6;
         return this;
@@ -16950,7 +17387,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 6;
-        onChanged();
+        onChanged();;
         return initChainBuilder_;
       }
 
@@ -17028,9 +17465,8 @@ public final class Types {
         } else {
           if (valueCase_ == 7) {
             queryBuilder_.mergeFrom(value);
-          } else {
-            queryBuilder_.setMessage(value);
           }
+          queryBuilder_.setMessage(value);
         }
         valueCase_ = 7;
         return this;
@@ -17092,7 +17528,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 7;
-        onChanged();
+        onChanged();;
         return queryBuilder_;
       }
 
@@ -17170,9 +17606,8 @@ public final class Types {
         } else {
           if (valueCase_ == 8) {
             beginBlockBuilder_.mergeFrom(value);
-          } else {
-            beginBlockBuilder_.setMessage(value);
           }
+          beginBlockBuilder_.setMessage(value);
         }
         valueCase_ = 8;
         return this;
@@ -17234,7 +17669,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 8;
-        onChanged();
+        onChanged();;
         return beginBlockBuilder_;
       }
 
@@ -17312,9 +17747,8 @@ public final class Types {
         } else {
           if (valueCase_ == 9) {
             checkTxBuilder_.mergeFrom(value);
-          } else {
-            checkTxBuilder_.setMessage(value);
           }
+          checkTxBuilder_.setMessage(value);
         }
         valueCase_ = 9;
         return this;
@@ -17376,7 +17810,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 9;
-        onChanged();
+        onChanged();;
         return checkTxBuilder_;
       }
 
@@ -17454,9 +17888,8 @@ public final class Types {
         } else {
           if (valueCase_ == 10) {
             deliverTxBuilder_.mergeFrom(value);
-          } else {
-            deliverTxBuilder_.setMessage(value);
           }
+          deliverTxBuilder_.setMessage(value);
         }
         valueCase_ = 10;
         return this;
@@ -17518,7 +17951,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 10;
-        onChanged();
+        onChanged();;
         return deliverTxBuilder_;
       }
 
@@ -17596,9 +18029,8 @@ public final class Types {
         } else {
           if (valueCase_ == 11) {
             endBlockBuilder_.mergeFrom(value);
-          } else {
-            endBlockBuilder_.setMessage(value);
           }
+          endBlockBuilder_.setMessage(value);
         }
         valueCase_ = 11;
         return this;
@@ -17660,7 +18092,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 11;
-        onChanged();
+        onChanged();;
         return endBlockBuilder_;
       }
 
@@ -17738,9 +18170,8 @@ public final class Types {
         } else {
           if (valueCase_ == 12) {
             commitBuilder_.mergeFrom(value);
-          } else {
-            commitBuilder_.setMessage(value);
           }
+          commitBuilder_.setMessage(value);
         }
         valueCase_ = 12;
         return this;
@@ -17802,7 +18233,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 12;
-        onChanged();
+        onChanged();;
         return commitBuilder_;
       }
 
@@ -17880,9 +18311,8 @@ public final class Types {
         } else {
           if (valueCase_ == 13) {
             listSnapshotsBuilder_.mergeFrom(value);
-          } else {
-            listSnapshotsBuilder_.setMessage(value);
           }
+          listSnapshotsBuilder_.setMessage(value);
         }
         valueCase_ = 13;
         return this;
@@ -17944,7 +18374,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 13;
-        onChanged();
+        onChanged();;
         return listSnapshotsBuilder_;
       }
 
@@ -18022,9 +18452,8 @@ public final class Types {
         } else {
           if (valueCase_ == 14) {
             offerSnapshotBuilder_.mergeFrom(value);
-          } else {
-            offerSnapshotBuilder_.setMessage(value);
           }
+          offerSnapshotBuilder_.setMessage(value);
         }
         valueCase_ = 14;
         return this;
@@ -18086,7 +18515,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 14;
-        onChanged();
+        onChanged();;
         return offerSnapshotBuilder_;
       }
 
@@ -18164,9 +18593,8 @@ public final class Types {
         } else {
           if (valueCase_ == 15) {
             loadSnapshotChunkBuilder_.mergeFrom(value);
-          } else {
-            loadSnapshotChunkBuilder_.setMessage(value);
           }
+          loadSnapshotChunkBuilder_.setMessage(value);
         }
         valueCase_ = 15;
         return this;
@@ -18228,7 +18656,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 15;
-        onChanged();
+        onChanged();;
         return loadSnapshotChunkBuilder_;
       }
 
@@ -18306,9 +18734,8 @@ public final class Types {
         } else {
           if (valueCase_ == 16) {
             applySnapshotChunkBuilder_.mergeFrom(value);
-          } else {
-            applySnapshotChunkBuilder_.setMessage(value);
           }
+          applySnapshotChunkBuilder_.setMessage(value);
         }
         valueCase_ = 16;
         return this;
@@ -18370,7 +18797,7 @@ public final class Types {
           value_ = null;
         }
         valueCase_ = 16;
-        onChanged();
+        onChanged();;
         return applySnapshotChunkBuilder_;
       }
       @java.lang.Override
@@ -18406,18 +18833,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Response(input, extensionRegistry);
       }
     };
 
@@ -18485,6 +18901,49 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseException(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              error_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseException_descriptor;
@@ -18499,8 +18958,7 @@ public final class Types {
     }
 
     public static final int ERROR_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object error_ = "";
+    private volatile java.lang.Object error_;
     /**
      * <code>string error = 1;</code>
      * @return The error.
@@ -18551,10 +19009,10 @@ public final class Types {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
+      if (!getErrorBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, error_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -18563,10 +19021,10 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
+      if (!getErrorBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, error_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -18583,7 +19041,7 @@ public final class Types {
 
       if (!getError()
           .equals(other.getError())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -18596,7 +19054,7 @@ public final class Types {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getError().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -18717,19 +19175,24 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseException.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         error_ = "";
+
         return this;
       }
 
@@ -18756,16 +19219,9 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseException buildPartial() {
         tendermint.abci.Types.ResponseException result = new tendermint.abci.Types.ResponseException(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.error_ = error_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseException result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.error_ = error_;
-        }
       }
 
       @java.lang.Override
@@ -18814,10 +19270,9 @@ public final class Types {
         if (other == tendermint.abci.Types.ResponseException.getDefaultInstance()) return this;
         if (!other.getError().isEmpty()) {
           error_ = other.error_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -18832,38 +19287,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseException parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                error_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseException) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object error_ = "";
       /**
@@ -18906,9 +19342,11 @@ public final class Types {
        */
       public Builder setError(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         error_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -18917,8 +19355,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearError() {
+        
         error_ = getDefaultInstance().getError();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -18929,10 +19367,12 @@ public final class Types {
        */
       public Builder setErrorBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         error_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -18969,18 +19409,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseException(input, extensionRegistry);
       }
     };
 
@@ -19044,6 +19473,49 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseEcho(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              message_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseEcho_descriptor;
@@ -19058,8 +19530,7 @@ public final class Types {
     }
 
     public static final int MESSAGE_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object message_ = "";
+    private volatile java.lang.Object message_;
     /**
      * <code>string message = 1;</code>
      * @return The message.
@@ -19110,10 +19581,10 @@ public final class Types {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+      if (!getMessageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -19122,10 +19593,10 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+      if (!getMessageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -19142,7 +19613,7 @@ public final class Types {
 
       if (!getMessage()
           .equals(other.getMessage())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -19155,7 +19626,7 @@ public final class Types {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -19272,19 +19743,24 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseEcho.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         message_ = "";
+
         return this;
       }
 
@@ -19311,16 +19787,9 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseEcho buildPartial() {
         tendermint.abci.Types.ResponseEcho result = new tendermint.abci.Types.ResponseEcho(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.message_ = message_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseEcho result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.message_ = message_;
-        }
       }
 
       @java.lang.Override
@@ -19369,10 +19838,9 @@ public final class Types {
         if (other == tendermint.abci.Types.ResponseEcho.getDefaultInstance()) return this;
         if (!other.getMessage().isEmpty()) {
           message_ = other.message_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -19387,38 +19855,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseEcho parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                message_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseEcho) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object message_ = "";
       /**
@@ -19461,9 +19910,11 @@ public final class Types {
        */
       public Builder setMessage(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         message_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -19472,8 +19923,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearMessage() {
+        
         message_ = getDefaultInstance().getMessage();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -19484,10 +19935,12 @@ public final class Types {
        */
       public Builder setMessageBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         message_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -19524,18 +19977,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseEcho(input, extensionRegistry);
       }
     };
 
@@ -19586,6 +20028,43 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseFlush(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseFlush_descriptor;
@@ -19613,7 +20092,7 @@ public final class Types {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -19622,7 +20101,7 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -19637,7 +20116,7 @@ public final class Types {
       }
       tendermint.abci.Types.ResponseFlush other = (tendermint.abci.Types.ResponseFlush) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -19648,7 +20127,7 @@ public final class Types {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -19765,13 +20244,18 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseFlush.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -19850,7 +20334,7 @@ public final class Types {
 
       public Builder mergeFrom(tendermint.abci.Types.ResponseFlush other) {
         if (other == tendermint.abci.Types.ResponseFlush.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -19865,30 +20349,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseFlush parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseFlush) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -19924,18 +20395,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseFlush(input, extensionRegistry);
       }
     };
 
@@ -20031,6 +20491,70 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              data_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              version_ = s;
+              break;
+            }
+            case 24: {
+
+              appVersion_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+
+              lastBlockHeight_ = input.readInt64();
+              break;
+            }
+            case 42: {
+
+              lastBlockAppHash_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseInfo_descriptor;
@@ -20045,8 +20569,7 @@ public final class Types {
     }
 
     public static final int DATA_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object data_ = "";
+    private volatile java.lang.Object data_;
     /**
      * <code>string data = 1;</code>
      * @return The data.
@@ -20084,8 +20607,7 @@ public final class Types {
     }
 
     public static final int VERSION_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object version_ = "";
+    private volatile java.lang.Object version_;
     /**
      * <code>string version = 2;</code>
      * @return The version.
@@ -20123,7 +20645,7 @@ public final class Types {
     }
 
     public static final int APP_VERSION_FIELD_NUMBER = 3;
-    private long appVersion_ = 0L;
+    private long appVersion_;
     /**
      * <code>uint64 app_version = 3;</code>
      * @return The appVersion.
@@ -20134,7 +20656,7 @@ public final class Types {
     }
 
     public static final int LAST_BLOCK_HEIGHT_FIELD_NUMBER = 4;
-    private long lastBlockHeight_ = 0L;
+    private long lastBlockHeight_;
     /**
      * <code>int64 last_block_height = 4;</code>
      * @return The lastBlockHeight.
@@ -20145,7 +20667,7 @@ public final class Types {
     }
 
     public static final int LAST_BLOCK_APP_HASH_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString lastBlockAppHash_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString lastBlockAppHash_;
     /**
      * <code>bytes last_block_app_hash = 5;</code>
      * @return The lastBlockAppHash.
@@ -20169,10 +20691,10 @@ public final class Types {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
+      if (!getDataBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+      if (!getVersionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, version_);
       }
       if (appVersion_ != 0L) {
@@ -20184,7 +20706,7 @@ public final class Types {
       if (!lastBlockAppHash_.isEmpty()) {
         output.writeBytes(5, lastBlockAppHash_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -20193,10 +20715,10 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
+      if (!getDataBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+      if (!getVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, version_);
       }
       if (appVersion_ != 0L) {
@@ -20211,7 +20733,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, lastBlockAppHash_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -20236,7 +20758,7 @@ public final class Types {
           != other.getLastBlockHeight()) return false;
       if (!getLastBlockAppHash()
           .equals(other.getLastBlockAppHash())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -20259,7 +20781,7 @@ public final class Types {
           getLastBlockHeight());
       hash = (37 * hash) + LAST_BLOCK_APP_HASH_FIELD_NUMBER;
       hash = (53 * hash) + getLastBlockAppHash().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -20376,23 +20898,32 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         data_ = "";
+
         version_ = "";
+
         appVersion_ = 0L;
+
         lastBlockHeight_ = 0L;
+
         lastBlockAppHash_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -20419,28 +20950,13 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseInfo buildPartial() {
         tendermint.abci.Types.ResponseInfo result = new tendermint.abci.Types.ResponseInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.data_ = data_;
+        result.version_ = version_;
+        result.appVersion_ = appVersion_;
+        result.lastBlockHeight_ = lastBlockHeight_;
+        result.lastBlockAppHash_ = lastBlockAppHash_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.data_ = data_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.version_ = version_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.appVersion_ = appVersion_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.lastBlockHeight_ = lastBlockHeight_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.lastBlockAppHash_ = lastBlockAppHash_;
-        }
       }
 
       @java.lang.Override
@@ -20489,12 +21005,10 @@ public final class Types {
         if (other == tendermint.abci.Types.ResponseInfo.getDefaultInstance()) return this;
         if (!other.getData().isEmpty()) {
           data_ = other.data_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getVersion().isEmpty()) {
           version_ = other.version_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getAppVersion() != 0L) {
@@ -20506,7 +21020,7 @@ public final class Types {
         if (other.getLastBlockAppHash() != com.google.protobuf.ByteString.EMPTY) {
           setLastBlockAppHash(other.getLastBlockAppHash());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -20521,58 +21035,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                data_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                version_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                appVersion_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 32: {
-                lastBlockHeight_ = input.readInt64();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 42: {
-                lastBlockAppHash_ = input.readBytes();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object data_ = "";
       /**
@@ -20615,9 +21090,11 @@ public final class Types {
        */
       public Builder setData(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -20626,8 +21103,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearData() {
+        
         data_ = getDefaultInstance().getData();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -20638,10 +21115,12 @@ public final class Types {
        */
       public Builder setDataBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         data_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -20687,9 +21166,11 @@ public final class Types {
        */
       public Builder setVersion(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         version_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -20698,8 +21179,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearVersion() {
+        
         version_ = getDefaultInstance().getVersion();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -20710,10 +21191,12 @@ public final class Types {
        */
       public Builder setVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         version_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -20735,7 +21218,6 @@ public final class Types {
       public Builder setAppVersion(long value) {
         
         appVersion_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -20744,7 +21226,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearAppVersion() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         appVersion_ = 0L;
         onChanged();
         return this;
@@ -20767,7 +21249,6 @@ public final class Types {
       public Builder setLastBlockHeight(long value) {
         
         lastBlockHeight_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -20776,7 +21257,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearLastBlockHeight() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         lastBlockHeight_ = 0L;
         onChanged();
         return this;
@@ -20797,9 +21278,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setLastBlockAppHash(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         lastBlockAppHash_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -20808,7 +21291,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearLastBlockAppHash() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         lastBlockAppHash_ = getDefaultInstance().getLastBlockAppHash();
         onChanged();
         return this;
@@ -20846,18 +21329,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseInfo(input, extensionRegistry);
       }
     };
 
@@ -20952,6 +21424,60 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseSetOption(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              log_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              info_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseSetOption_descriptor;
@@ -20966,7 +21492,7 @@ public final class Types {
     }
 
     public static final int CODE_FIELD_NUMBER = 1;
-    private int code_ = 0;
+    private int code_;
     /**
      * <code>uint32 code = 1;</code>
      * @return The code.
@@ -20977,8 +21503,7 @@ public final class Types {
     }
 
     public static final int LOG_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object log_ = "";
+    private volatile java.lang.Object log_;
     /**
      * <pre>
      * bytes data = 2;
@@ -21024,8 +21549,7 @@ public final class Types {
     }
 
     public static final int INFO_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object info_ = "";
+    private volatile java.lang.Object info_;
     /**
      * <code>string info = 4;</code>
      * @return The info.
@@ -21079,13 +21603,13 @@ public final class Types {
       if (code_ != 0) {
         output.writeUInt32(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, log_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
+      if (!getInfoBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, info_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -21098,13 +21622,13 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, log_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
+      if (!getInfoBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, info_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -21125,7 +21649,7 @@ public final class Types {
           .equals(other.getLog())) return false;
       if (!getInfo()
           .equals(other.getInfo())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -21142,7 +21666,7 @@ public final class Types {
       hash = (53 * hash) + getLog().hashCode();
       hash = (37 * hash) + INFO_FIELD_NUMBER;
       hash = (53 * hash) + getInfo().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -21263,21 +21787,28 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseSetOption.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         code_ = 0;
+
         log_ = "";
+
         info_ = "";
+
         return this;
       }
 
@@ -21304,22 +21835,11 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseSetOption buildPartial() {
         tendermint.abci.Types.ResponseSetOption result = new tendermint.abci.Types.ResponseSetOption(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.code_ = code_;
+        result.log_ = log_;
+        result.info_ = info_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseSetOption result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.code_ = code_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.log_ = log_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.info_ = info_;
-        }
       }
 
       @java.lang.Override
@@ -21371,15 +21891,13 @@ public final class Types {
         }
         if (!other.getLog().isEmpty()) {
           log_ = other.log_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getInfo().isEmpty()) {
           info_ = other.info_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -21394,48 +21912,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseSetOption parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                code_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 26: {
-                log_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 26
-              case 34: {
-                info_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseSetOption) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int code_ ;
       /**
@@ -21454,7 +21943,6 @@ public final class Types {
       public Builder setCode(int value) {
         
         code_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -21463,7 +21951,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearCode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         code_ = 0;
         onChanged();
         return this;
@@ -21522,9 +22010,11 @@ public final class Types {
        */
       public Builder setLog(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         log_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -21537,8 +22027,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearLog() {
+        
         log_ = getDefaultInstance().getLog();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -21553,10 +22043,12 @@ public final class Types {
        */
       public Builder setLogBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         log_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -21602,9 +22094,11 @@ public final class Types {
        */
       public Builder setInfo(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         info_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -21613,8 +22107,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearInfo() {
+        
         info_ = getDefaultInstance().getInfo();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -21625,10 +22119,12 @@ public final class Types {
        */
       public Builder setInfoBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         info_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -21665,18 +22161,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseSetOption(input, extensionRegistry);
       }
     };
 
@@ -21774,6 +22259,74 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseInitChain(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              tendermint.abci.Types.ConsensusParams.Builder subBuilder = null;
+              if (consensusParams_ != null) {
+                subBuilder = consensusParams_.toBuilder();
+              }
+              consensusParams_ = input.readMessage(tendermint.abci.Types.ConsensusParams.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(consensusParams_);
+                consensusParams_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                validators_ = new java.util.ArrayList<tendermint.abci.Types.ValidatorUpdate>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              validators_.add(
+                  input.readMessage(tendermint.abci.Types.ValidatorUpdate.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
+
+              appHash_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          validators_ = java.util.Collections.unmodifiableList(validators_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseInitChain_descriptor;
@@ -21810,11 +22363,10 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.abci.Types.ConsensusParamsOrBuilder getConsensusParamsOrBuilder() {
-      return consensusParams_ == null ? tendermint.abci.Types.ConsensusParams.getDefaultInstance() : consensusParams_;
+      return getConsensusParams();
     }
 
     public static final int VALIDATORS_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.ValidatorUpdate> validators_;
     /**
      * <code>repeated .tendermint.abci.ValidatorUpdate validators = 2 [(.gogoproto.nullable) = false];</code>
@@ -21855,7 +22407,7 @@ public final class Types {
     }
 
     public static final int APP_HASH_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString appHash_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString appHash_;
     /**
      * <code>bytes app_hash = 3;</code>
      * @return The appHash.
@@ -21888,7 +22440,7 @@ public final class Types {
       if (!appHash_.isEmpty()) {
         output.writeBytes(3, appHash_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -21909,7 +22461,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, appHash_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -21933,7 +22485,7 @@ public final class Types {
           .equals(other.getValidatorsList())) return false;
       if (!getAppHash()
           .equals(other.getAppHash())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -21954,7 +22506,7 @@ public final class Types {
       }
       hash = (37 * hash) + APP_HASH_FIELD_NUMBER;
       hash = (53 * hash) + getAppHash().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -22071,31 +22623,37 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseInitChain.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getValidatorsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        consensusParams_ = null;
-        if (consensusParamsBuilder_ != null) {
-          consensusParamsBuilder_.dispose();
+        if (consensusParamsBuilder_ == null) {
+          consensusParams_ = null;
+        } else {
+          consensusParams_ = null;
           consensusParamsBuilder_ = null;
         }
         if (validatorsBuilder_ == null) {
           validators_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          validators_ = null;
           validatorsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         appHash_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -22122,34 +22680,24 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseInitChain buildPartial() {
         tendermint.abci.Types.ResponseInitChain result = new tendermint.abci.Types.ResponseInitChain(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(tendermint.abci.Types.ResponseInitChain result) {
+        int from_bitField0_ = bitField0_;
+        if (consensusParamsBuilder_ == null) {
+          result.consensusParams_ = consensusParams_;
+        } else {
+          result.consensusParams_ = consensusParamsBuilder_.build();
+        }
         if (validatorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             validators_ = java.util.Collections.unmodifiableList(validators_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.validators_ = validators_;
         } else {
           result.validators_ = validatorsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseInitChain result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.consensusParams_ = consensusParamsBuilder_ == null
-              ? consensusParams_
-              : consensusParamsBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.appHash_ = appHash_;
-        }
+        result.appHash_ = appHash_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -22203,7 +22751,7 @@ public final class Types {
           if (!other.validators_.isEmpty()) {
             if (validators_.isEmpty()) {
               validators_ = other.validators_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureValidatorsIsMutable();
               validators_.addAll(other.validators_);
@@ -22216,7 +22764,7 @@ public final class Types {
               validatorsBuilder_.dispose();
               validatorsBuilder_ = null;
               validators_ = other.validators_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               validatorsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getValidatorsFieldBuilder() : null;
@@ -22228,7 +22776,7 @@ public final class Types {
         if (other.getAppHash() != com.google.protobuf.ByteString.EMPTY) {
           setAppHash(other.getAppHash());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -22243,55 +22791,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseInitChain parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getConsensusParamsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                tendermint.abci.Types.ValidatorUpdate m =
-                    input.readMessage(
-                        tendermint.abci.Types.ValidatorUpdate.parser(),
-                        extensionRegistry);
-                if (validatorsBuilder_ == null) {
-                  ensureValidatorsIsMutable();
-                  validators_.add(m);
-                } else {
-                  validatorsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 18
-              case 26: {
-                appHash_ = input.readBytes();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseInitChain) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -22304,7 +22814,7 @@ public final class Types {
        * @return Whether the consensusParams field is set.
        */
       public boolean hasConsensusParams() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return consensusParamsBuilder_ != null || consensusParams_ != null;
       }
       /**
        * <code>.tendermint.abci.ConsensusParams consensus_params = 1;</code>
@@ -22326,11 +22836,11 @@ public final class Types {
             throw new NullPointerException();
           }
           consensusParams_ = value;
+          onChanged();
         } else {
           consensusParamsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -22340,11 +22850,11 @@ public final class Types {
           tendermint.abci.Types.ConsensusParams.Builder builderForValue) {
         if (consensusParamsBuilder_ == null) {
           consensusParams_ = builderForValue.build();
+          onChanged();
         } else {
           consensusParamsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -22352,38 +22862,38 @@ public final class Types {
        */
       public Builder mergeConsensusParams(tendermint.abci.Types.ConsensusParams value) {
         if (consensusParamsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            consensusParams_ != null &&
-            consensusParams_ != tendermint.abci.Types.ConsensusParams.getDefaultInstance()) {
-            getConsensusParamsBuilder().mergeFrom(value);
+          if (consensusParams_ != null) {
+            consensusParams_ =
+              tendermint.abci.Types.ConsensusParams.newBuilder(consensusParams_).mergeFrom(value).buildPartial();
           } else {
             consensusParams_ = value;
           }
+          onChanged();
         } else {
           consensusParamsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.ConsensusParams consensus_params = 1;</code>
        */
       public Builder clearConsensusParams() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        consensusParams_ = null;
-        if (consensusParamsBuilder_ != null) {
-          consensusParamsBuilder_.dispose();
+        if (consensusParamsBuilder_ == null) {
+          consensusParams_ = null;
+          onChanged();
+        } else {
+          consensusParams_ = null;
           consensusParamsBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.ConsensusParams consensus_params = 1;</code>
        */
       public tendermint.abci.Types.ConsensusParams.Builder getConsensusParamsBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getConsensusParamsFieldBuilder().getBuilder();
       }
@@ -22418,9 +22928,9 @@ public final class Types {
       private java.util.List<tendermint.abci.Types.ValidatorUpdate> validators_ =
         java.util.Collections.emptyList();
       private void ensureValidatorsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           validators_ = new java.util.ArrayList<tendermint.abci.Types.ValidatorUpdate>(validators_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -22570,7 +23080,7 @@ public final class Types {
       public Builder clearValidators() {
         if (validatorsBuilder_ == null) {
           validators_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           validatorsBuilder_.clear();
@@ -22647,7 +23157,7 @@ public final class Types {
           validatorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               tendermint.abci.Types.ValidatorUpdate, tendermint.abci.Types.ValidatorUpdate.Builder, tendermint.abci.Types.ValidatorUpdateOrBuilder>(
                   validators_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           validators_ = null;
@@ -22670,9 +23180,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setAppHash(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         appHash_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -22681,7 +23193,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearAppHash() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         appHash_ = getDefaultInstance().getAppHash();
         onChanged();
         return this;
@@ -22719,18 +23231,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseInitChain(input, extensionRegistry);
       }
     };
 
@@ -22883,6 +23384,99 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseQuery(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              log_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              info_ = s;
+              break;
+            }
+            case 40: {
+
+              index_ = input.readInt64();
+              break;
+            }
+            case 50: {
+
+              key_ = input.readBytes();
+              break;
+            }
+            case 58: {
+
+              value_ = input.readBytes();
+              break;
+            }
+            case 66: {
+              tendermint.crypto.ProofOuterClass.ProofOps.Builder subBuilder = null;
+              if (proofOps_ != null) {
+                subBuilder = proofOps_.toBuilder();
+              }
+              proofOps_ = input.readMessage(tendermint.crypto.ProofOuterClass.ProofOps.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(proofOps_);
+                proofOps_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 72: {
+
+              height_ = input.readInt64();
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              codespace_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseQuery_descriptor;
@@ -22897,7 +23491,7 @@ public final class Types {
     }
 
     public static final int CODE_FIELD_NUMBER = 1;
-    private int code_ = 0;
+    private int code_;
     /**
      * <code>uint32 code = 1;</code>
      * @return The code.
@@ -22908,8 +23502,7 @@ public final class Types {
     }
 
     public static final int LOG_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object log_ = "";
+    private volatile java.lang.Object log_;
     /**
      * <pre>
      * bytes data = 2; // use "value" instead.
@@ -22955,8 +23548,7 @@ public final class Types {
     }
 
     public static final int INFO_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object info_ = "";
+    private volatile java.lang.Object info_;
     /**
      * <pre>
      * nondeterministic
@@ -23002,7 +23594,7 @@ public final class Types {
     }
 
     public static final int INDEX_FIELD_NUMBER = 5;
-    private long index_ = 0L;
+    private long index_;
     /**
      * <code>int64 index = 5;</code>
      * @return The index.
@@ -23013,7 +23605,7 @@ public final class Types {
     }
 
     public static final int KEY_FIELD_NUMBER = 6;
-    private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString key_;
     /**
      * <code>bytes key = 6;</code>
      * @return The key.
@@ -23024,7 +23616,7 @@ public final class Types {
     }
 
     public static final int VALUE_FIELD_NUMBER = 7;
-    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString value_;
     /**
      * <code>bytes value = 7;</code>
      * @return The value.
@@ -23057,11 +23649,11 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.crypto.ProofOuterClass.ProofOpsOrBuilder getProofOpsOrBuilder() {
-      return proofOps_ == null ? tendermint.crypto.ProofOuterClass.ProofOps.getDefaultInstance() : proofOps_;
+      return getProofOps();
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 9;
-    private long height_ = 0L;
+    private long height_;
     /**
      * <code>int64 height = 9;</code>
      * @return The height.
@@ -23072,8 +23664,7 @@ public final class Types {
     }
 
     public static final int CODESPACE_FIELD_NUMBER = 10;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object codespace_ = "";
+    private volatile java.lang.Object codespace_;
     /**
      * <code>string codespace = 10;</code>
      * @return The codespace.
@@ -23127,10 +23718,10 @@ public final class Types {
       if (code_ != 0) {
         output.writeUInt32(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, log_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
+      if (!getInfoBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, info_);
       }
       if (index_ != 0L) {
@@ -23148,10 +23739,10 @@ public final class Types {
       if (height_ != 0L) {
         output.writeInt64(9, height_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codespace_)) {
+      if (!getCodespaceBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 10, codespace_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -23164,10 +23755,10 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, log_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
+      if (!getInfoBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, info_);
       }
       if (index_ != 0L) {
@@ -23190,10 +23781,10 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(9, height_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codespace_)) {
+      if (!getCodespaceBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, codespace_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -23229,7 +23820,7 @@ public final class Types {
           != other.getHeight()) return false;
       if (!getCodespace()
           .equals(other.getCodespace())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -23262,7 +23853,7 @@ public final class Types {
           getHeight());
       hash = (37 * hash) + CODESPACE_FIELD_NUMBER;
       hash = (53 * hash) + getCodespace().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -23379,31 +23970,44 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseQuery.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         code_ = 0;
+
         log_ = "";
+
         info_ = "";
+
         index_ = 0L;
+
         key_ = com.google.protobuf.ByteString.EMPTY;
+
         value_ = com.google.protobuf.ByteString.EMPTY;
-        proofOps_ = null;
-        if (proofOpsBuilder_ != null) {
-          proofOpsBuilder_.dispose();
+
+        if (proofOpsBuilder_ == null) {
+          proofOps_ = null;
+        } else {
+          proofOps_ = null;
           proofOpsBuilder_ = null;
         }
         height_ = 0L;
+
         codespace_ = "";
+
         return this;
       }
 
@@ -23430,42 +24034,21 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseQuery buildPartial() {
         tendermint.abci.Types.ResponseQuery result = new tendermint.abci.Types.ResponseQuery(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.code_ = code_;
+        result.log_ = log_;
+        result.info_ = info_;
+        result.index_ = index_;
+        result.key_ = key_;
+        result.value_ = value_;
+        if (proofOpsBuilder_ == null) {
+          result.proofOps_ = proofOps_;
+        } else {
+          result.proofOps_ = proofOpsBuilder_.build();
+        }
+        result.height_ = height_;
+        result.codespace_ = codespace_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseQuery result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.code_ = code_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.log_ = log_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.info_ = info_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.index_ = index_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.key_ = key_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.value_ = value_;
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.proofOps_ = proofOpsBuilder_ == null
-              ? proofOps_
-              : proofOpsBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.height_ = height_;
-        }
-        if (((from_bitField0_ & 0x00000100) != 0)) {
-          result.codespace_ = codespace_;
-        }
       }
 
       @java.lang.Override
@@ -23517,12 +24100,10 @@ public final class Types {
         }
         if (!other.getLog().isEmpty()) {
           log_ = other.log_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getInfo().isEmpty()) {
           info_ = other.info_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getIndex() != 0L) {
@@ -23542,10 +24123,9 @@ public final class Types {
         }
         if (!other.getCodespace().isEmpty()) {
           codespace_ = other.codespace_;
-          bitField0_ |= 0x00000100;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -23560,80 +24140,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseQuery parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                code_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 26: {
-                log_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 26
-              case 34: {
-                info_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 34
-              case 40: {
-                index_ = input.readInt64();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 40
-              case 50: {
-                key_ = input.readBytes();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 50
-              case 58: {
-                value_ = input.readBytes();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 58
-              case 66: {
-                input.readMessage(
-                    getProofOpsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 66
-              case 72: {
-                height_ = input.readInt64();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 72
-              case 82: {
-                codespace_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000100;
-                break;
-              } // case 82
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseQuery) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int code_ ;
       /**
@@ -23652,7 +24171,6 @@ public final class Types {
       public Builder setCode(int value) {
         
         code_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -23661,7 +24179,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearCode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         code_ = 0;
         onChanged();
         return this;
@@ -23720,9 +24238,11 @@ public final class Types {
        */
       public Builder setLog(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         log_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -23735,8 +24255,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearLog() {
+        
         log_ = getDefaultInstance().getLog();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -23751,10 +24271,12 @@ public final class Types {
        */
       public Builder setLogBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         log_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -23812,9 +24334,11 @@ public final class Types {
        */
       public Builder setInfo(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         info_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -23827,8 +24351,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearInfo() {
+        
         info_ = getDefaultInstance().getInfo();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -23843,10 +24367,12 @@ public final class Types {
        */
       public Builder setInfoBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         info_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -23868,7 +24394,6 @@ public final class Types {
       public Builder setIndex(long value) {
         
         index_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -23877,7 +24402,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearIndex() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         index_ = 0L;
         onChanged();
         return this;
@@ -23898,9 +24423,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setKey(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         key_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -23909,7 +24436,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearKey() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         key_ = getDefaultInstance().getKey();
         onChanged();
         return this;
@@ -23930,9 +24457,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setValue(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         value_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -23941,7 +24470,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         value_ = getDefaultInstance().getValue();
         onChanged();
         return this;
@@ -23955,7 +24484,7 @@ public final class Types {
        * @return Whether the proofOps field is set.
        */
       public boolean hasProofOps() {
-        return ((bitField0_ & 0x00000040) != 0);
+        return proofOpsBuilder_ != null || proofOps_ != null;
       }
       /**
        * <code>.tendermint.crypto.ProofOps proof_ops = 8;</code>
@@ -23977,11 +24506,11 @@ public final class Types {
             throw new NullPointerException();
           }
           proofOps_ = value;
+          onChanged();
         } else {
           proofOpsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000040;
-        onChanged();
+
         return this;
       }
       /**
@@ -23991,11 +24520,11 @@ public final class Types {
           tendermint.crypto.ProofOuterClass.ProofOps.Builder builderForValue) {
         if (proofOpsBuilder_ == null) {
           proofOps_ = builderForValue.build();
+          onChanged();
         } else {
           proofOpsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000040;
-        onChanged();
+
         return this;
       }
       /**
@@ -24003,38 +24532,38 @@ public final class Types {
        */
       public Builder mergeProofOps(tendermint.crypto.ProofOuterClass.ProofOps value) {
         if (proofOpsBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) != 0) &&
-            proofOps_ != null &&
-            proofOps_ != tendermint.crypto.ProofOuterClass.ProofOps.getDefaultInstance()) {
-            getProofOpsBuilder().mergeFrom(value);
+          if (proofOps_ != null) {
+            proofOps_ =
+              tendermint.crypto.ProofOuterClass.ProofOps.newBuilder(proofOps_).mergeFrom(value).buildPartial();
           } else {
             proofOps_ = value;
           }
+          onChanged();
         } else {
           proofOpsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000040;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.crypto.ProofOps proof_ops = 8;</code>
        */
       public Builder clearProofOps() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        proofOps_ = null;
-        if (proofOpsBuilder_ != null) {
-          proofOpsBuilder_.dispose();
+        if (proofOpsBuilder_ == null) {
+          proofOps_ = null;
+          onChanged();
+        } else {
+          proofOps_ = null;
           proofOpsBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.crypto.ProofOps proof_ops = 8;</code>
        */
       public tendermint.crypto.ProofOuterClass.ProofOps.Builder getProofOpsBuilder() {
-        bitField0_ |= 0x00000040;
+        
         onChanged();
         return getProofOpsFieldBuilder().getBuilder();
       }
@@ -24083,7 +24612,6 @@ public final class Types {
       public Builder setHeight(long value) {
         
         height_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -24092,7 +24620,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        
         height_ = 0L;
         onChanged();
         return this;
@@ -24139,9 +24667,11 @@ public final class Types {
        */
       public Builder setCodespace(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         codespace_ = value;
-        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -24150,8 +24680,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearCodespace() {
+        
         codespace_ = getDefaultInstance().getCodespace();
-        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
         return this;
       }
@@ -24162,10 +24692,12 @@ public final class Types {
        */
       public Builder setCodespaceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         codespace_ = value;
-        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -24202,18 +24734,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseQuery(input, extensionRegistry);
       }
     };
 
@@ -24289,6 +24810,56 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseBeginBlock(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                events_ = new java.util.ArrayList<tendermint.abci.Types.Event>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              events_.add(
+                  input.readMessage(tendermint.abci.Types.Event.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          events_ = java.util.Collections.unmodifiableList(events_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseBeginBlock_descriptor;
@@ -24303,7 +24874,6 @@ public final class Types {
     }
 
     public static final int EVENTS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.Event> events_;
     /**
      * <code>repeated .tendermint.abci.Event events = 1 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "events,omitempty"];</code>
@@ -24360,7 +24930,7 @@ public final class Types {
       for (int i = 0; i < events_.size(); i++) {
         output.writeMessage(1, events_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -24373,7 +24943,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, events_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -24390,7 +24960,7 @@ public final class Types {
 
       if (!getEventsList()
           .equals(other.getEventsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -24405,7 +24975,7 @@ public final class Types {
         hash = (37 * hash) + EVENTS_FIELD_NUMBER;
         hash = (53 * hash) + getEventsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -24522,25 +25092,29 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseBeginBlock.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getEventsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          events_ = null;
           eventsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -24567,13 +25141,7 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseBeginBlock buildPartial() {
         tendermint.abci.Types.ResponseBeginBlock result = new tendermint.abci.Types.ResponseBeginBlock(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(tendermint.abci.Types.ResponseBeginBlock result) {
+        int from_bitField0_ = bitField0_;
         if (eventsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             events_ = java.util.Collections.unmodifiableList(events_);
@@ -24583,10 +25151,8 @@ public final class Types {
         } else {
           result.events_ = eventsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseBeginBlock result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -24659,7 +25225,7 @@ public final class Types {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -24674,43 +25240,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseBeginBlock parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                tendermint.abci.Types.Event m =
-                    input.readMessage(
-                        tendermint.abci.Types.Event.parser(),
-                        extensionRegistry);
-                if (eventsBuilder_ == null) {
-                  ensureEventsIsMutable();
-                  events_.add(m);
-                } else {
-                  eventsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseBeginBlock) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -24987,18 +25527,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseBeginBlock(input, extensionRegistry);
       }
     };
 
@@ -25154,6 +25683,94 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseCheckTx(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              log_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              info_ = s;
+              break;
+            }
+            case 40: {
+
+              gasWanted_ = input.readInt64();
+              break;
+            }
+            case 48: {
+
+              gasUsed_ = input.readInt64();
+              break;
+            }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                events_ = new java.util.ArrayList<tendermint.abci.Types.Event>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              events_.add(
+                  input.readMessage(tendermint.abci.Types.Event.parser(), extensionRegistry));
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              codespace_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          events_ = java.util.Collections.unmodifiableList(events_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseCheckTx_descriptor;
@@ -25168,7 +25785,7 @@ public final class Types {
     }
 
     public static final int CODE_FIELD_NUMBER = 1;
-    private int code_ = 0;
+    private int code_;
     /**
      * <code>uint32 code = 1;</code>
      * @return The code.
@@ -25179,7 +25796,7 @@ public final class Types {
     }
 
     public static final int DATA_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_;
     /**
      * <code>bytes data = 2;</code>
      * @return The data.
@@ -25190,8 +25807,7 @@ public final class Types {
     }
 
     public static final int LOG_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object log_ = "";
+    private volatile java.lang.Object log_;
     /**
      * <pre>
      * nondeterministic
@@ -25237,8 +25853,7 @@ public final class Types {
     }
 
     public static final int INFO_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object info_ = "";
+    private volatile java.lang.Object info_;
     /**
      * <pre>
      * nondeterministic
@@ -25284,7 +25899,7 @@ public final class Types {
     }
 
     public static final int GAS_WANTED_FIELD_NUMBER = 5;
-    private long gasWanted_ = 0L;
+    private long gasWanted_;
     /**
      * <code>int64 gas_wanted = 5 [json_name = "gas_wanted"];</code>
      * @return The gasWanted.
@@ -25295,7 +25910,7 @@ public final class Types {
     }
 
     public static final int GAS_USED_FIELD_NUMBER = 6;
-    private long gasUsed_ = 0L;
+    private long gasUsed_;
     /**
      * <code>int64 gas_used = 6 [json_name = "gas_used"];</code>
      * @return The gasUsed.
@@ -25306,7 +25921,6 @@ public final class Types {
     }
 
     public static final int EVENTS_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.Event> events_;
     /**
      * <code>repeated .tendermint.abci.Event events = 7 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "events,omitempty"];</code>
@@ -25347,8 +25961,7 @@ public final class Types {
     }
 
     public static final int CODESPACE_FIELD_NUMBER = 8;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object codespace_ = "";
+    private volatile java.lang.Object codespace_;
     /**
      * <code>string codespace = 8;</code>
      * @return The codespace.
@@ -25405,10 +26018,10 @@ public final class Types {
       if (!data_.isEmpty()) {
         output.writeBytes(2, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, log_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
+      if (!getInfoBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, info_);
       }
       if (gasWanted_ != 0L) {
@@ -25420,10 +26033,10 @@ public final class Types {
       for (int i = 0; i < events_.size(); i++) {
         output.writeMessage(7, events_.get(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codespace_)) {
+      if (!getCodespaceBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, codespace_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -25440,10 +26053,10 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, log_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
+      if (!getInfoBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, info_);
       }
       if (gasWanted_ != 0L) {
@@ -25458,10 +26071,10 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, events_.get(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codespace_)) {
+      if (!getCodespaceBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, codespace_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -25492,7 +26105,7 @@ public final class Types {
           .equals(other.getEventsList())) return false;
       if (!getCodespace()
           .equals(other.getCodespace())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -25523,7 +26136,7 @@ public final class Types {
       }
       hash = (37 * hash) + CODESPACE_FIELD_NUMBER;
       hash = (53 * hash) + getCodespace().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -25640,32 +26253,43 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseCheckTx.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getEventsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         code_ = 0;
+
         data_ = com.google.protobuf.ByteString.EMPTY;
+
         log_ = "";
+
         info_ = "";
+
         gasWanted_ = 0L;
+
         gasUsed_ = 0L;
+
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          events_ = null;
           eventsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000040);
         codespace_ = "";
+
         return this;
       }
 
@@ -25692,47 +26316,25 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseCheckTx buildPartial() {
         tendermint.abci.Types.ResponseCheckTx result = new tendermint.abci.Types.ResponseCheckTx(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(tendermint.abci.Types.ResponseCheckTx result) {
+        int from_bitField0_ = bitField0_;
+        result.code_ = code_;
+        result.data_ = data_;
+        result.log_ = log_;
+        result.info_ = info_;
+        result.gasWanted_ = gasWanted_;
+        result.gasUsed_ = gasUsed_;
         if (eventsBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             events_ = java.util.Collections.unmodifiableList(events_);
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.events_ = events_;
         } else {
           result.events_ = eventsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseCheckTx result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.code_ = code_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.data_ = data_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.log_ = log_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.info_ = info_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.gasWanted_ = gasWanted_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.gasUsed_ = gasUsed_;
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.codespace_ = codespace_;
-        }
+        result.codespace_ = codespace_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -25787,12 +26389,10 @@ public final class Types {
         }
         if (!other.getLog().isEmpty()) {
           log_ = other.log_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getInfo().isEmpty()) {
           info_ = other.info_;
-          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.getGasWanted() != 0L) {
@@ -25805,7 +26405,7 @@ public final class Types {
           if (!other.events_.isEmpty()) {
             if (events_.isEmpty()) {
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureEventsIsMutable();
               events_.addAll(other.events_);
@@ -25818,7 +26418,7 @@ public final class Types {
               eventsBuilder_.dispose();
               eventsBuilder_ = null;
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000001);
               eventsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getEventsFieldBuilder() : null;
@@ -25829,10 +26429,9 @@ public final class Types {
         }
         if (!other.getCodespace().isEmpty()) {
           codespace_ = other.codespace_;
-          bitField0_ |= 0x00000080;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -25847,78 +26446,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseCheckTx parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                code_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                log_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                info_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 40: {
-                gasWanted_ = input.readInt64();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              case 48: {
-                gasUsed_ = input.readInt64();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 48
-              case 58: {
-                tendermint.abci.Types.Event m =
-                    input.readMessage(
-                        tendermint.abci.Types.Event.parser(),
-                        extensionRegistry);
-                if (eventsBuilder_ == null) {
-                  ensureEventsIsMutable();
-                  events_.add(m);
-                } else {
-                  eventsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 58
-              case 66: {
-                codespace_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 66
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseCheckTx) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -25940,7 +26478,6 @@ public final class Types {
       public Builder setCode(int value) {
         
         code_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -25949,7 +26486,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearCode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         code_ = 0;
         onChanged();
         return this;
@@ -25970,9 +26507,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -25981,7 +26520,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -26040,9 +26579,11 @@ public final class Types {
        */
       public Builder setLog(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         log_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -26055,8 +26596,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearLog() {
+        
         log_ = getDefaultInstance().getLog();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -26071,10 +26612,12 @@ public final class Types {
        */
       public Builder setLogBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         log_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -26132,9 +26675,11 @@ public final class Types {
        */
       public Builder setInfo(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         info_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -26147,8 +26692,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearInfo() {
+        
         info_ = getDefaultInstance().getInfo();
-        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -26163,10 +26708,12 @@ public final class Types {
        */
       public Builder setInfoBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         info_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -26188,7 +26735,6 @@ public final class Types {
       public Builder setGasWanted(long value) {
         
         gasWanted_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -26197,7 +26743,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearGasWanted() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         gasWanted_ = 0L;
         onChanged();
         return this;
@@ -26220,7 +26766,6 @@ public final class Types {
       public Builder setGasUsed(long value) {
         
         gasUsed_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -26229,7 +26774,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearGasUsed() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         gasUsed_ = 0L;
         onChanged();
         return this;
@@ -26238,9 +26783,9 @@ public final class Types {
       private java.util.List<tendermint.abci.Types.Event> events_ =
         java.util.Collections.emptyList();
       private void ensureEventsIsMutable() {
-        if (!((bitField0_ & 0x00000040) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           events_ = new java.util.ArrayList<tendermint.abci.Types.Event>(events_);
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -26390,7 +26935,7 @@ public final class Types {
       public Builder clearEvents() {
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           eventsBuilder_.clear();
@@ -26467,7 +27012,7 @@ public final class Types {
           eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               tendermint.abci.Types.Event, tendermint.abci.Types.Event.Builder, tendermint.abci.Types.EventOrBuilder>(
                   events_,
-                  ((bitField0_ & 0x00000040) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           events_ = null;
@@ -26516,9 +27061,11 @@ public final class Types {
        */
       public Builder setCodespace(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         codespace_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -26527,8 +27074,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearCodespace() {
+        
         codespace_ = getDefaultInstance().getCodespace();
-        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -26539,10 +27086,12 @@ public final class Types {
        */
       public Builder setCodespaceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         codespace_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -26579,18 +27128,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseCheckTx(input, extensionRegistry);
       }
     };
 
@@ -26746,6 +27284,94 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseDeliverTx(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              log_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              info_ = s;
+              break;
+            }
+            case 40: {
+
+              gasWanted_ = input.readInt64();
+              break;
+            }
+            case 48: {
+
+              gasUsed_ = input.readInt64();
+              break;
+            }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                events_ = new java.util.ArrayList<tendermint.abci.Types.Event>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              events_.add(
+                  input.readMessage(tendermint.abci.Types.Event.parser(), extensionRegistry));
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              codespace_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          events_ = java.util.Collections.unmodifiableList(events_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseDeliverTx_descriptor;
@@ -26760,7 +27386,7 @@ public final class Types {
     }
 
     public static final int CODE_FIELD_NUMBER = 1;
-    private int code_ = 0;
+    private int code_;
     /**
      * <code>uint32 code = 1;</code>
      * @return The code.
@@ -26771,7 +27397,7 @@ public final class Types {
     }
 
     public static final int DATA_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_;
     /**
      * <code>bytes data = 2;</code>
      * @return The data.
@@ -26782,8 +27408,7 @@ public final class Types {
     }
 
     public static final int LOG_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object log_ = "";
+    private volatile java.lang.Object log_;
     /**
      * <pre>
      * nondeterministic
@@ -26829,8 +27454,7 @@ public final class Types {
     }
 
     public static final int INFO_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object info_ = "";
+    private volatile java.lang.Object info_;
     /**
      * <pre>
      * nondeterministic
@@ -26876,7 +27500,7 @@ public final class Types {
     }
 
     public static final int GAS_WANTED_FIELD_NUMBER = 5;
-    private long gasWanted_ = 0L;
+    private long gasWanted_;
     /**
      * <code>int64 gas_wanted = 5 [json_name = "gas_wanted"];</code>
      * @return The gasWanted.
@@ -26887,7 +27511,7 @@ public final class Types {
     }
 
     public static final int GAS_USED_FIELD_NUMBER = 6;
-    private long gasUsed_ = 0L;
+    private long gasUsed_;
     /**
      * <code>int64 gas_used = 6 [json_name = "gas_used"];</code>
      * @return The gasUsed.
@@ -26898,7 +27522,6 @@ public final class Types {
     }
 
     public static final int EVENTS_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.Event> events_;
     /**
      * <code>repeated .tendermint.abci.Event events = 7 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "events,omitempty"];</code>
@@ -26939,8 +27562,7 @@ public final class Types {
     }
 
     public static final int CODESPACE_FIELD_NUMBER = 8;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object codespace_ = "";
+    private volatile java.lang.Object codespace_;
     /**
      * <code>string codespace = 8;</code>
      * @return The codespace.
@@ -26997,10 +27619,10 @@ public final class Types {
       if (!data_.isEmpty()) {
         output.writeBytes(2, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, log_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
+      if (!getInfoBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, info_);
       }
       if (gasWanted_ != 0L) {
@@ -27012,10 +27634,10 @@ public final class Types {
       for (int i = 0; i < events_.size(); i++) {
         output.writeMessage(7, events_.get(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codespace_)) {
+      if (!getCodespaceBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, codespace_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -27032,10 +27654,10 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, log_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
+      if (!getInfoBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, info_);
       }
       if (gasWanted_ != 0L) {
@@ -27050,10 +27672,10 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, events_.get(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codespace_)) {
+      if (!getCodespaceBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, codespace_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -27084,7 +27706,7 @@ public final class Types {
           .equals(other.getEventsList())) return false;
       if (!getCodespace()
           .equals(other.getCodespace())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -27115,7 +27737,7 @@ public final class Types {
       }
       hash = (37 * hash) + CODESPACE_FIELD_NUMBER;
       hash = (53 * hash) + getCodespace().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -27232,32 +27854,43 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseDeliverTx.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getEventsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         code_ = 0;
+
         data_ = com.google.protobuf.ByteString.EMPTY;
+
         log_ = "";
+
         info_ = "";
+
         gasWanted_ = 0L;
+
         gasUsed_ = 0L;
+
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          events_ = null;
           eventsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000040);
         codespace_ = "";
+
         return this;
       }
 
@@ -27284,47 +27917,25 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseDeliverTx buildPartial() {
         tendermint.abci.Types.ResponseDeliverTx result = new tendermint.abci.Types.ResponseDeliverTx(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(tendermint.abci.Types.ResponseDeliverTx result) {
+        int from_bitField0_ = bitField0_;
+        result.code_ = code_;
+        result.data_ = data_;
+        result.log_ = log_;
+        result.info_ = info_;
+        result.gasWanted_ = gasWanted_;
+        result.gasUsed_ = gasUsed_;
         if (eventsBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             events_ = java.util.Collections.unmodifiableList(events_);
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.events_ = events_;
         } else {
           result.events_ = eventsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseDeliverTx result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.code_ = code_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.data_ = data_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.log_ = log_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.info_ = info_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.gasWanted_ = gasWanted_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.gasUsed_ = gasUsed_;
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.codespace_ = codespace_;
-        }
+        result.codespace_ = codespace_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -27379,12 +27990,10 @@ public final class Types {
         }
         if (!other.getLog().isEmpty()) {
           log_ = other.log_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getInfo().isEmpty()) {
           info_ = other.info_;
-          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.getGasWanted() != 0L) {
@@ -27397,7 +28006,7 @@ public final class Types {
           if (!other.events_.isEmpty()) {
             if (events_.isEmpty()) {
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureEventsIsMutable();
               events_.addAll(other.events_);
@@ -27410,7 +28019,7 @@ public final class Types {
               eventsBuilder_.dispose();
               eventsBuilder_ = null;
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000001);
               eventsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getEventsFieldBuilder() : null;
@@ -27421,10 +28030,9 @@ public final class Types {
         }
         if (!other.getCodespace().isEmpty()) {
           codespace_ = other.codespace_;
-          bitField0_ |= 0x00000080;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -27439,78 +28047,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseDeliverTx parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                code_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                log_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                info_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 40: {
-                gasWanted_ = input.readInt64();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              case 48: {
-                gasUsed_ = input.readInt64();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 48
-              case 58: {
-                tendermint.abci.Types.Event m =
-                    input.readMessage(
-                        tendermint.abci.Types.Event.parser(),
-                        extensionRegistry);
-                if (eventsBuilder_ == null) {
-                  ensureEventsIsMutable();
-                  events_.add(m);
-                } else {
-                  eventsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 58
-              case 66: {
-                codespace_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 66
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseDeliverTx) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -27532,7 +28079,6 @@ public final class Types {
       public Builder setCode(int value) {
         
         code_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -27541,7 +28087,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearCode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         code_ = 0;
         onChanged();
         return this;
@@ -27562,9 +28108,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -27573,7 +28121,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -27632,9 +28180,11 @@ public final class Types {
        */
       public Builder setLog(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         log_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -27647,8 +28197,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearLog() {
+        
         log_ = getDefaultInstance().getLog();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -27663,10 +28213,12 @@ public final class Types {
        */
       public Builder setLogBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         log_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -27724,9 +28276,11 @@ public final class Types {
        */
       public Builder setInfo(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         info_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -27739,8 +28293,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearInfo() {
+        
         info_ = getDefaultInstance().getInfo();
-        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -27755,10 +28309,12 @@ public final class Types {
        */
       public Builder setInfoBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         info_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -27780,7 +28336,6 @@ public final class Types {
       public Builder setGasWanted(long value) {
         
         gasWanted_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -27789,7 +28344,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearGasWanted() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         gasWanted_ = 0L;
         onChanged();
         return this;
@@ -27812,7 +28367,6 @@ public final class Types {
       public Builder setGasUsed(long value) {
         
         gasUsed_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -27821,7 +28375,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearGasUsed() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         gasUsed_ = 0L;
         onChanged();
         return this;
@@ -27830,9 +28384,9 @@ public final class Types {
       private java.util.List<tendermint.abci.Types.Event> events_ =
         java.util.Collections.emptyList();
       private void ensureEventsIsMutable() {
-        if (!((bitField0_ & 0x00000040) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           events_ = new java.util.ArrayList<tendermint.abci.Types.Event>(events_);
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -27982,7 +28536,7 @@ public final class Types {
       public Builder clearEvents() {
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           eventsBuilder_.clear();
@@ -28059,7 +28613,7 @@ public final class Types {
           eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               tendermint.abci.Types.Event, tendermint.abci.Types.Event.Builder, tendermint.abci.Types.EventOrBuilder>(
                   events_,
-                  ((bitField0_ & 0x00000040) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           events_ = null;
@@ -28108,9 +28662,11 @@ public final class Types {
        */
       public Builder setCodespace(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         codespace_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -28119,8 +28675,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearCodespace() {
+        
         codespace_ = getDefaultInstance().getCodespace();
-        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -28131,10 +28687,12 @@ public final class Types {
        */
       public Builder setCodespaceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         codespace_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -28171,18 +28729,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseDeliverTx(input, extensionRegistry);
       }
     };
 
@@ -28298,6 +28845,81 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseEndBlock(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                validatorUpdates_ = new java.util.ArrayList<tendermint.abci.Types.ValidatorUpdate>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              validatorUpdates_.add(
+                  input.readMessage(tendermint.abci.Types.ValidatorUpdate.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              tendermint.abci.Types.ConsensusParams.Builder subBuilder = null;
+              if (consensusParamUpdates_ != null) {
+                subBuilder = consensusParamUpdates_.toBuilder();
+              }
+              consensusParamUpdates_ = input.readMessage(tendermint.abci.Types.ConsensusParams.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(consensusParamUpdates_);
+                consensusParamUpdates_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                events_ = new java.util.ArrayList<tendermint.abci.Types.Event>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              events_.add(
+                  input.readMessage(tendermint.abci.Types.Event.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          validatorUpdates_ = java.util.Collections.unmodifiableList(validatorUpdates_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          events_ = java.util.Collections.unmodifiableList(events_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseEndBlock_descriptor;
@@ -28312,7 +28934,6 @@ public final class Types {
     }
 
     public static final int VALIDATOR_UPDATES_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.ValidatorUpdate> validatorUpdates_;
     /**
      * <code>repeated .tendermint.abci.ValidatorUpdate validator_updates = 1 [(.gogoproto.nullable) = false];</code>
@@ -28375,11 +28996,10 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.abci.Types.ConsensusParamsOrBuilder getConsensusParamUpdatesOrBuilder() {
-      return consensusParamUpdates_ == null ? tendermint.abci.Types.ConsensusParams.getDefaultInstance() : consensusParamUpdates_;
+      return getConsensusParamUpdates();
     }
 
     public static final int EVENTS_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.Event> events_;
     /**
      * <code>repeated .tendermint.abci.Event events = 3 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "events,omitempty"];</code>
@@ -28442,7 +29062,7 @@ public final class Types {
       for (int i = 0; i < events_.size(); i++) {
         output.writeMessage(3, events_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -28463,7 +29083,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, events_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -28487,7 +29107,7 @@ public final class Types {
       }
       if (!getEventsList()
           .equals(other.getEventsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -28510,7 +29130,7 @@ public final class Types {
         hash = (37 * hash) + EVENTS_FIELD_NUMBER;
         hash = (53 * hash) + getEventsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -28627,37 +29247,42 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseEndBlock.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getValidatorUpdatesFieldBuilder();
+          getEventsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (validatorUpdatesBuilder_ == null) {
           validatorUpdates_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          validatorUpdates_ = null;
           validatorUpdatesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        consensusParamUpdates_ = null;
-        if (consensusParamUpdatesBuilder_ != null) {
-          consensusParamUpdatesBuilder_.dispose();
+        if (consensusParamUpdatesBuilder_ == null) {
+          consensusParamUpdates_ = null;
+        } else {
+          consensusParamUpdates_ = null;
           consensusParamUpdatesBuilder_ = null;
         }
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
-          events_ = null;
           eventsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -28684,13 +29309,7 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseEndBlock buildPartial() {
         tendermint.abci.Types.ResponseEndBlock result = new tendermint.abci.Types.ResponseEndBlock(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(tendermint.abci.Types.ResponseEndBlock result) {
+        int from_bitField0_ = bitField0_;
         if (validatorUpdatesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             validatorUpdates_ = java.util.Collections.unmodifiableList(validatorUpdates_);
@@ -28700,24 +29319,22 @@ public final class Types {
         } else {
           result.validatorUpdates_ = validatorUpdatesBuilder_.build();
         }
+        if (consensusParamUpdatesBuilder_ == null) {
+          result.consensusParamUpdates_ = consensusParamUpdates_;
+        } else {
+          result.consensusParamUpdates_ = consensusParamUpdatesBuilder_.build();
+        }
         if (eventsBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             events_ = java.util.Collections.unmodifiableList(events_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.events_ = events_;
         } else {
           result.events_ = eventsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseEndBlock result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.consensusParamUpdates_ = consensusParamUpdatesBuilder_ == null
-              ? consensusParamUpdates_
-              : consensusParamUpdatesBuilder_.build();
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -28797,7 +29414,7 @@ public final class Types {
           if (!other.events_.isEmpty()) {
             if (events_.isEmpty()) {
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureEventsIsMutable();
               events_.addAll(other.events_);
@@ -28810,7 +29427,7 @@ public final class Types {
               eventsBuilder_.dispose();
               eventsBuilder_ = null;
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
               eventsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getEventsFieldBuilder() : null;
@@ -28819,7 +29436,7 @@ public final class Types {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -28834,63 +29451,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseEndBlock parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                tendermint.abci.Types.ValidatorUpdate m =
-                    input.readMessage(
-                        tendermint.abci.Types.ValidatorUpdate.parser(),
-                        extensionRegistry);
-                if (validatorUpdatesBuilder_ == null) {
-                  ensureValidatorUpdatesIsMutable();
-                  validatorUpdates_.add(m);
-                } else {
-                  validatorUpdatesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getConsensusParamUpdatesFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                tendermint.abci.Types.Event m =
-                    input.readMessage(
-                        tendermint.abci.Types.Event.parser(),
-                        extensionRegistry);
-                if (eventsBuilder_ == null) {
-                  ensureEventsIsMutable();
-                  events_.add(m);
-                } else {
-                  eventsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseEndBlock) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -29143,7 +29714,7 @@ public final class Types {
        * @return Whether the consensusParamUpdates field is set.
        */
       public boolean hasConsensusParamUpdates() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return consensusParamUpdatesBuilder_ != null || consensusParamUpdates_ != null;
       }
       /**
        * <code>.tendermint.abci.ConsensusParams consensus_param_updates = 2;</code>
@@ -29165,11 +29736,11 @@ public final class Types {
             throw new NullPointerException();
           }
           consensusParamUpdates_ = value;
+          onChanged();
         } else {
           consensusParamUpdatesBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -29179,11 +29750,11 @@ public final class Types {
           tendermint.abci.Types.ConsensusParams.Builder builderForValue) {
         if (consensusParamUpdatesBuilder_ == null) {
           consensusParamUpdates_ = builderForValue.build();
+          onChanged();
         } else {
           consensusParamUpdatesBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -29191,38 +29762,38 @@ public final class Types {
        */
       public Builder mergeConsensusParamUpdates(tendermint.abci.Types.ConsensusParams value) {
         if (consensusParamUpdatesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            consensusParamUpdates_ != null &&
-            consensusParamUpdates_ != tendermint.abci.Types.ConsensusParams.getDefaultInstance()) {
-            getConsensusParamUpdatesBuilder().mergeFrom(value);
+          if (consensusParamUpdates_ != null) {
+            consensusParamUpdates_ =
+              tendermint.abci.Types.ConsensusParams.newBuilder(consensusParamUpdates_).mergeFrom(value).buildPartial();
           } else {
             consensusParamUpdates_ = value;
           }
+          onChanged();
         } else {
           consensusParamUpdatesBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.ConsensusParams consensus_param_updates = 2;</code>
        */
       public Builder clearConsensusParamUpdates() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        consensusParamUpdates_ = null;
-        if (consensusParamUpdatesBuilder_ != null) {
-          consensusParamUpdatesBuilder_.dispose();
+        if (consensusParamUpdatesBuilder_ == null) {
+          consensusParamUpdates_ = null;
+          onChanged();
+        } else {
+          consensusParamUpdates_ = null;
           consensusParamUpdatesBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.ConsensusParams consensus_param_updates = 2;</code>
        */
       public tendermint.abci.Types.ConsensusParams.Builder getConsensusParamUpdatesBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getConsensusParamUpdatesFieldBuilder().getBuilder();
       }
@@ -29257,9 +29828,9 @@ public final class Types {
       private java.util.List<tendermint.abci.Types.Event> events_ =
         java.util.Collections.emptyList();
       private void ensureEventsIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           events_ = new java.util.ArrayList<tendermint.abci.Types.Event>(events_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -29409,7 +29980,7 @@ public final class Types {
       public Builder clearEvents() {
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           eventsBuilder_.clear();
@@ -29486,7 +30057,7 @@ public final class Types {
           eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               tendermint.abci.Types.Event, tendermint.abci.Types.Event.Builder, tendermint.abci.Types.EventOrBuilder>(
                   events_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           events_ = null;
@@ -29526,18 +30097,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseEndBlock(input, extensionRegistry);
       }
     };
 
@@ -29605,6 +30165,53 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseCommit(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            case 24: {
+
+              retainHeight_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseCommit_descriptor;
@@ -29619,7 +30226,7 @@ public final class Types {
     }
 
     public static final int DATA_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_;
     /**
      * <pre>
      * reserve 1
@@ -29634,7 +30241,7 @@ public final class Types {
     }
 
     public static final int RETAIN_HEIGHT_FIELD_NUMBER = 3;
-    private long retainHeight_ = 0L;
+    private long retainHeight_;
     /**
      * <code>int64 retain_height = 3;</code>
      * @return The retainHeight.
@@ -29664,7 +30271,7 @@ public final class Types {
       if (retainHeight_ != 0L) {
         output.writeInt64(3, retainHeight_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -29681,7 +30288,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, retainHeight_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -29700,7 +30307,7 @@ public final class Types {
           .equals(other.getData())) return false;
       if (getRetainHeight()
           != other.getRetainHeight()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -29716,7 +30323,7 @@ public final class Types {
       hash = (37 * hash) + RETAIN_HEIGHT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRetainHeight());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -29833,20 +30440,26 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseCommit.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         data_ = com.google.protobuf.ByteString.EMPTY;
+
         retainHeight_ = 0L;
+
         return this;
       }
 
@@ -29873,19 +30486,10 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseCommit buildPartial() {
         tendermint.abci.Types.ResponseCommit result = new tendermint.abci.Types.ResponseCommit(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.data_ = data_;
+        result.retainHeight_ = retainHeight_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseCommit result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.data_ = data_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.retainHeight_ = retainHeight_;
-        }
       }
 
       @java.lang.Override
@@ -29938,7 +30542,7 @@ public final class Types {
         if (other.getRetainHeight() != 0L) {
           setRetainHeight(other.getRetainHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -29953,43 +30557,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseCommit parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 18: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 18
-              case 24: {
-                retainHeight_ = input.readInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseCommit) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -30014,9 +30594,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -30029,7 +30611,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -30052,7 +30634,6 @@ public final class Types {
       public Builder setRetainHeight(long value) {
         
         retainHeight_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -30061,7 +30642,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearRetainHeight() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         retainHeight_ = 0L;
         onChanged();
         return this;
@@ -30099,18 +30680,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseCommit(input, extensionRegistry);
       }
     };
 
@@ -30186,6 +30756,56 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseListSnapshots(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                snapshots_ = new java.util.ArrayList<tendermint.abci.Types.Snapshot>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              snapshots_.add(
+                  input.readMessage(tendermint.abci.Types.Snapshot.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          snapshots_ = java.util.Collections.unmodifiableList(snapshots_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseListSnapshots_descriptor;
@@ -30200,7 +30820,6 @@ public final class Types {
     }
 
     public static final int SNAPSHOTS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.Snapshot> snapshots_;
     /**
      * <code>repeated .tendermint.abci.Snapshot snapshots = 1;</code>
@@ -30257,7 +30876,7 @@ public final class Types {
       for (int i = 0; i < snapshots_.size(); i++) {
         output.writeMessage(1, snapshots_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -30270,7 +30889,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, snapshots_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -30287,7 +30906,7 @@ public final class Types {
 
       if (!getSnapshotsList()
           .equals(other.getSnapshotsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -30302,7 +30921,7 @@ public final class Types {
         hash = (37 * hash) + SNAPSHOTS_FIELD_NUMBER;
         hash = (53 * hash) + getSnapshotsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -30419,25 +31038,29 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseListSnapshots.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getSnapshotsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (snapshotsBuilder_ == null) {
           snapshots_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          snapshots_ = null;
           snapshotsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -30464,13 +31087,7 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseListSnapshots buildPartial() {
         tendermint.abci.Types.ResponseListSnapshots result = new tendermint.abci.Types.ResponseListSnapshots(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(tendermint.abci.Types.ResponseListSnapshots result) {
+        int from_bitField0_ = bitField0_;
         if (snapshotsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             snapshots_ = java.util.Collections.unmodifiableList(snapshots_);
@@ -30480,10 +31097,8 @@ public final class Types {
         } else {
           result.snapshots_ = snapshotsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseListSnapshots result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -30556,7 +31171,7 @@ public final class Types {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -30571,43 +31186,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseListSnapshots parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                tendermint.abci.Types.Snapshot m =
-                    input.readMessage(
-                        tendermint.abci.Types.Snapshot.parser(),
-                        extensionRegistry);
-                if (snapshotsBuilder_ == null) {
-                  ensureSnapshotsIsMutable();
-                  snapshots_.add(m);
-                } else {
-                  snapshotsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseListSnapshots) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -30884,18 +31473,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseListSnapshots(input, extensionRegistry);
       }
     };
 
@@ -30957,6 +31535,49 @@ public final class Types {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private ResponseOfferSnapshot(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              result_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -31164,7 +31785,7 @@ public final class Types {
     }
 
     public static final int RESULT_FIELD_NUMBER = 1;
-    private int result_ = 0;
+    private int result_;
     /**
      * <code>.tendermint.abci.ResponseOfferSnapshot.Result result = 1;</code>
      * @return The enum numeric value on the wire for result.
@@ -31177,7 +31798,8 @@ public final class Types {
      * @return The result.
      */
     @java.lang.Override public tendermint.abci.Types.ResponseOfferSnapshot.Result getResult() {
-      tendermint.abci.Types.ResponseOfferSnapshot.Result result = tendermint.abci.Types.ResponseOfferSnapshot.Result.forNumber(result_);
+      @SuppressWarnings("deprecation")
+      tendermint.abci.Types.ResponseOfferSnapshot.Result result = tendermint.abci.Types.ResponseOfferSnapshot.Result.valueOf(result_);
       return result == null ? tendermint.abci.Types.ResponseOfferSnapshot.Result.UNRECOGNIZED : result;
     }
 
@@ -31198,7 +31820,7 @@ public final class Types {
       if (result_ != tendermint.abci.Types.ResponseOfferSnapshot.Result.UNKNOWN.getNumber()) {
         output.writeEnum(1, result_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -31211,7 +31833,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, result_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -31227,7 +31849,7 @@ public final class Types {
       tendermint.abci.Types.ResponseOfferSnapshot other = (tendermint.abci.Types.ResponseOfferSnapshot) obj;
 
       if (result_ != other.result_) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -31240,7 +31862,7 @@ public final class Types {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + RESULT_FIELD_NUMBER;
       hash = (53 * hash) + result_;
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -31357,19 +31979,24 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseOfferSnapshot.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         result_ = 0;
+
         return this;
       }
 
@@ -31396,16 +32023,9 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseOfferSnapshot buildPartial() {
         tendermint.abci.Types.ResponseOfferSnapshot result = new tendermint.abci.Types.ResponseOfferSnapshot(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.result_ = result_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseOfferSnapshot result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.result_ = result_;
-        }
       }
 
       @java.lang.Override
@@ -31455,7 +32075,7 @@ public final class Types {
         if (other.result_ != 0) {
           setResultValue(other.getResultValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -31470,38 +32090,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseOfferSnapshot parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                result_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseOfferSnapshot) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int result_ = 0;
       /**
@@ -31517,8 +32118,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setResultValue(int value) {
+        
         result_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -31528,7 +32129,8 @@ public final class Types {
        */
       @java.lang.Override
       public tendermint.abci.Types.ResponseOfferSnapshot.Result getResult() {
-        tendermint.abci.Types.ResponseOfferSnapshot.Result result = tendermint.abci.Types.ResponseOfferSnapshot.Result.forNumber(result_);
+        @SuppressWarnings("deprecation")
+        tendermint.abci.Types.ResponseOfferSnapshot.Result result = tendermint.abci.Types.ResponseOfferSnapshot.Result.valueOf(result_);
         return result == null ? tendermint.abci.Types.ResponseOfferSnapshot.Result.UNRECOGNIZED : result;
       }
       /**
@@ -31540,7 +32142,7 @@ public final class Types {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         result_ = value.getNumber();
         onChanged();
         return this;
@@ -31550,7 +32152,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearResult() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         result_ = 0;
         onChanged();
         return this;
@@ -31588,18 +32190,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseOfferSnapshot(input, extensionRegistry);
       }
     };
 
@@ -31657,6 +32248,48 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ResponseLoadSnapshotChunk(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              chunk_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ResponseLoadSnapshotChunk_descriptor;
@@ -31671,7 +32304,7 @@ public final class Types {
     }
 
     public static final int CHUNK_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString chunk_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString chunk_;
     /**
      * <code>bytes chunk = 1;</code>
      * @return The chunk.
@@ -31698,7 +32331,7 @@ public final class Types {
       if (!chunk_.isEmpty()) {
         output.writeBytes(1, chunk_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -31711,7 +32344,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, chunk_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -31728,7 +32361,7 @@ public final class Types {
 
       if (!getChunk()
           .equals(other.getChunk())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -31741,7 +32374,7 @@ public final class Types {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CHUNK_FIELD_NUMBER;
       hash = (53 * hash) + getChunk().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -31858,19 +32491,24 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseLoadSnapshotChunk.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         chunk_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -31897,16 +32535,9 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseLoadSnapshotChunk buildPartial() {
         tendermint.abci.Types.ResponseLoadSnapshotChunk result = new tendermint.abci.Types.ResponseLoadSnapshotChunk(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.chunk_ = chunk_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseLoadSnapshotChunk result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.chunk_ = chunk_;
-        }
       }
 
       @java.lang.Override
@@ -31956,7 +32587,7 @@ public final class Types {
         if (other.getChunk() != com.google.protobuf.ByteString.EMPTY) {
           setChunk(other.getChunk());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -31971,38 +32602,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseLoadSnapshotChunk parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                chunk_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseLoadSnapshotChunk) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString chunk_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -32019,9 +32631,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setChunk(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         chunk_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -32030,7 +32644,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearChunk() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         chunk_ = getDefaultInstance().getChunk();
         onChanged();
         return this;
@@ -32068,18 +32682,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseLoadSnapshotChunk(input, extensionRegistry);
       }
     };
 
@@ -32213,6 +32816,86 @@ public final class Types {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private ResponseApplySnapshotChunk(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              result_ = rawValue;
+              break;
+            }
+            case 16: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                refetchChunks_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              refetchChunks_.addInt(input.readUInt32());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                refetchChunks_ = newIntList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                refetchChunks_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                rejectSenders_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              rejectSenders_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          refetchChunks_.makeImmutable(); // C
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          rejectSenders_ = rejectSenders_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -32420,7 +33103,7 @@ public final class Types {
     }
 
     public static final int RESULT_FIELD_NUMBER = 1;
-    private int result_ = 0;
+    private int result_;
     /**
      * <code>.tendermint.abci.ResponseApplySnapshotChunk.Result result = 1;</code>
      * @return The enum numeric value on the wire for result.
@@ -32433,12 +33116,12 @@ public final class Types {
      * @return The result.
      */
     @java.lang.Override public tendermint.abci.Types.ResponseApplySnapshotChunk.Result getResult() {
-      tendermint.abci.Types.ResponseApplySnapshotChunk.Result result = tendermint.abci.Types.ResponseApplySnapshotChunk.Result.forNumber(result_);
+      @SuppressWarnings("deprecation")
+      tendermint.abci.Types.ResponseApplySnapshotChunk.Result result = tendermint.abci.Types.ResponseApplySnapshotChunk.Result.valueOf(result_);
       return result == null ? tendermint.abci.Types.ResponseApplySnapshotChunk.Result.UNRECOGNIZED : result;
     }
 
     public static final int REFETCH_CHUNKS_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList refetchChunks_;
     /**
      * <pre>
@@ -32479,7 +33162,6 @@ public final class Types {
     private int refetchChunksMemoizedSerializedSize = -1;
 
     public static final int REJECT_SENDERS_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList rejectSenders_;
     /**
      * <pre>
@@ -32558,7 +33240,7 @@ public final class Types {
       for (int i = 0; i < rejectSenders_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, rejectSenders_.getRaw(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -32593,7 +33275,7 @@ public final class Types {
         size += dataSize;
         size += 1 * getRejectSendersList().size();
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -32613,7 +33295,7 @@ public final class Types {
           .equals(other.getRefetchChunksList())) return false;
       if (!getRejectSendersList()
           .equals(other.getRejectSendersList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -32634,7 +33316,7 @@ public final class Types {
         hash = (37 * hash) + REJECT_SENDERS_FIELD_NUMBER;
         hash = (53 * hash) + getRejectSendersList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -32751,22 +33433,28 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ResponseApplySnapshotChunk.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         result_ = 0;
+
         refetchChunks_ = emptyIntList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         rejectSenders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -32793,30 +33481,20 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ResponseApplySnapshotChunk buildPartial() {
         tendermint.abci.Types.ResponseApplySnapshotChunk result = new tendermint.abci.Types.ResponseApplySnapshotChunk(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(tendermint.abci.Types.ResponseApplySnapshotChunk result) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.result_ = result_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           refetchChunks_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.refetchChunks_ = refetchChunks_;
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           rejectSenders_ = rejectSenders_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.rejectSenders_ = rejectSenders_;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ResponseApplySnapshotChunk result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.result_ = result_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -32869,7 +33547,7 @@ public final class Types {
         if (!other.refetchChunks_.isEmpty()) {
           if (refetchChunks_.isEmpty()) {
             refetchChunks_ = other.refetchChunks_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureRefetchChunksIsMutable();
             refetchChunks_.addAll(other.refetchChunks_);
@@ -32879,14 +33557,14 @@ public final class Types {
         if (!other.rejectSenders_.isEmpty()) {
           if (rejectSenders_.isEmpty()) {
             rejectSenders_ = other.rejectSenders_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureRejectSendersIsMutable();
             rejectSenders_.addAll(other.rejectSenders_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -32901,57 +33579,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ResponseApplySnapshotChunk parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                result_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                int v = input.readUInt32();
-                ensureRefetchChunksIsMutable();
-                refetchChunks_.addInt(v);
-                break;
-              } // case 16
-              case 18: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureRefetchChunksIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  refetchChunks_.addInt(input.readUInt32());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 18
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
-                ensureRejectSendersIsMutable();
-                rejectSenders_.add(s);
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ResponseApplySnapshotChunk) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -32970,8 +33608,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setResultValue(int value) {
+        
         result_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -32981,7 +33619,8 @@ public final class Types {
        */
       @java.lang.Override
       public tendermint.abci.Types.ResponseApplySnapshotChunk.Result getResult() {
-        tendermint.abci.Types.ResponseApplySnapshotChunk.Result result = tendermint.abci.Types.ResponseApplySnapshotChunk.Result.forNumber(result_);
+        @SuppressWarnings("deprecation")
+        tendermint.abci.Types.ResponseApplySnapshotChunk.Result result = tendermint.abci.Types.ResponseApplySnapshotChunk.Result.valueOf(result_);
         return result == null ? tendermint.abci.Types.ResponseApplySnapshotChunk.Result.UNRECOGNIZED : result;
       }
       /**
@@ -32993,7 +33632,7 @@ public final class Types {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         result_ = value.getNumber();
         onChanged();
         return this;
@@ -33003,7 +33642,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearResult() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         result_ = 0;
         onChanged();
         return this;
@@ -33011,10 +33650,10 @@ public final class Types {
 
       private com.google.protobuf.Internal.IntList refetchChunks_ = emptyIntList();
       private void ensureRefetchChunksIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           refetchChunks_ = mutableCopy(refetchChunks_);
-          bitField0_ |= 0x00000002;
-        }
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
        * <pre>
@@ -33026,7 +33665,7 @@ public final class Types {
        */
       public java.util.List<java.lang.Integer>
           getRefetchChunksList() {
-        return ((bitField0_ & 0x00000002) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(refetchChunks_) : refetchChunks_;
       }
       /**
@@ -33064,7 +33703,6 @@ public final class Types {
        */
       public Builder setRefetchChunks(
           int index, int value) {
-        
         ensureRefetchChunksIsMutable();
         refetchChunks_.setInt(index, value);
         onChanged();
@@ -33080,7 +33718,6 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder addRefetchChunks(int value) {
-        
         ensureRefetchChunksIsMutable();
         refetchChunks_.addInt(value);
         onChanged();
@@ -33113,16 +33750,16 @@ public final class Types {
        */
       public Builder clearRefetchChunks() {
         refetchChunks_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList rejectSenders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureRejectSendersIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           rejectSenders_ = new com.google.protobuf.LazyStringArrayList(rejectSenders_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
@@ -33185,8 +33822,10 @@ public final class Types {
        */
       public Builder setRejectSenders(
           int index, java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureRejectSendersIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRejectSendersIsMutable();
         rejectSenders_.set(index, value);
         onChanged();
         return this;
@@ -33202,8 +33841,10 @@ public final class Types {
        */
       public Builder addRejectSenders(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureRejectSendersIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureRejectSendersIsMutable();
         rejectSenders_.add(value);
         onChanged();
         return this;
@@ -33235,7 +33876,7 @@ public final class Types {
        */
       public Builder clearRejectSenders() {
         rejectSenders_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -33250,8 +33891,10 @@ public final class Types {
        */
       public Builder addRejectSendersBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         ensureRejectSendersIsMutable();
         rejectSenders_.add(value);
         onChanged();
@@ -33290,18 +33933,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ResponseApplySnapshotChunk(input, extensionRegistry);
       }
     };
 
@@ -33417,6 +34049,95 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ConsensusParams(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              tendermint.abci.Types.BlockParams.Builder subBuilder = null;
+              if (block_ != null) {
+                subBuilder = block_.toBuilder();
+              }
+              block_ = input.readMessage(tendermint.abci.Types.BlockParams.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(block_);
+                block_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              tendermint.types.Params.EvidenceParams.Builder subBuilder = null;
+              if (evidence_ != null) {
+                subBuilder = evidence_.toBuilder();
+              }
+              evidence_ = input.readMessage(tendermint.types.Params.EvidenceParams.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(evidence_);
+                evidence_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              tendermint.types.Params.ValidatorParams.Builder subBuilder = null;
+              if (validator_ != null) {
+                subBuilder = validator_.toBuilder();
+              }
+              validator_ = input.readMessage(tendermint.types.Params.ValidatorParams.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(validator_);
+                validator_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              tendermint.types.Params.VersionParams.Builder subBuilder = null;
+              if (version_ != null) {
+                subBuilder = version_.toBuilder();
+              }
+              version_ = input.readMessage(tendermint.types.Params.VersionParams.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(version_);
+                version_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ConsensusParams_descriptor;
@@ -33453,7 +34174,7 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.abci.Types.BlockParamsOrBuilder getBlockOrBuilder() {
-      return block_ == null ? tendermint.abci.Types.BlockParams.getDefaultInstance() : block_;
+      return getBlock();
     }
 
     public static final int EVIDENCE_FIELD_NUMBER = 2;
@@ -33479,7 +34200,7 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.types.Params.EvidenceParamsOrBuilder getEvidenceOrBuilder() {
-      return evidence_ == null ? tendermint.types.Params.EvidenceParams.getDefaultInstance() : evidence_;
+      return getEvidence();
     }
 
     public static final int VALIDATOR_FIELD_NUMBER = 3;
@@ -33505,7 +34226,7 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.types.Params.ValidatorParamsOrBuilder getValidatorOrBuilder() {
-      return validator_ == null ? tendermint.types.Params.ValidatorParams.getDefaultInstance() : validator_;
+      return getValidator();
     }
 
     public static final int VERSION_FIELD_NUMBER = 4;
@@ -33531,7 +34252,7 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.types.Params.VersionParamsOrBuilder getVersionOrBuilder() {
-      return version_ == null ? tendermint.types.Params.VersionParams.getDefaultInstance() : version_;
+      return getVersion();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -33560,7 +34281,7 @@ public final class Types {
       if (version_ != null) {
         output.writeMessage(4, getVersion());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -33585,7 +34306,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getVersion());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -33620,7 +34341,7 @@ public final class Types {
         if (!getVersion()
             .equals(other.getVersion())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -33647,7 +34368,7 @@ public final class Types {
         hash = (37 * hash) + VERSION_FIELD_NUMBER;
         hash = (53 * hash) + getVersion().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -33769,36 +34490,44 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ConsensusParams.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        block_ = null;
-        if (blockBuilder_ != null) {
-          blockBuilder_.dispose();
+        if (blockBuilder_ == null) {
+          block_ = null;
+        } else {
+          block_ = null;
           blockBuilder_ = null;
         }
-        evidence_ = null;
-        if (evidenceBuilder_ != null) {
-          evidenceBuilder_.dispose();
+        if (evidenceBuilder_ == null) {
+          evidence_ = null;
+        } else {
+          evidence_ = null;
           evidenceBuilder_ = null;
         }
-        validator_ = null;
-        if (validatorBuilder_ != null) {
-          validatorBuilder_.dispose();
+        if (validatorBuilder_ == null) {
+          validator_ = null;
+        } else {
+          validator_ = null;
           validatorBuilder_ = null;
         }
-        version_ = null;
-        if (versionBuilder_ != null) {
-          versionBuilder_.dispose();
+        if (versionBuilder_ == null) {
+          version_ = null;
+        } else {
+          version_ = null;
           versionBuilder_ = null;
         }
         return this;
@@ -33827,33 +34556,28 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ConsensusParams buildPartial() {
         tendermint.abci.Types.ConsensusParams result = new tendermint.abci.Types.ConsensusParams(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (blockBuilder_ == null) {
+          result.block_ = block_;
+        } else {
+          result.block_ = blockBuilder_.build();
+        }
+        if (evidenceBuilder_ == null) {
+          result.evidence_ = evidence_;
+        } else {
+          result.evidence_ = evidenceBuilder_.build();
+        }
+        if (validatorBuilder_ == null) {
+          result.validator_ = validator_;
+        } else {
+          result.validator_ = validatorBuilder_.build();
+        }
+        if (versionBuilder_ == null) {
+          result.version_ = version_;
+        } else {
+          result.version_ = versionBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ConsensusParams result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.block_ = blockBuilder_ == null
-              ? block_
-              : blockBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.evidence_ = evidenceBuilder_ == null
-              ? evidence_
-              : evidenceBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.validator_ = validatorBuilder_ == null
-              ? validator_
-              : validatorBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.version_ = versionBuilder_ == null
-              ? version_
-              : versionBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -33912,7 +34636,7 @@ public final class Types {
         if (other.hasVersion()) {
           mergeVersion(other.getVersion());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -33927,61 +34651,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ConsensusParams parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getBlockFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getEvidenceFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getValidatorFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getVersionFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ConsensusParams) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private tendermint.abci.Types.BlockParams block_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -33991,7 +34673,7 @@ public final class Types {
        * @return Whether the block field is set.
        */
       public boolean hasBlock() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return blockBuilder_ != null || block_ != null;
       }
       /**
        * <code>.tendermint.abci.BlockParams block = 1;</code>
@@ -34013,11 +34695,11 @@ public final class Types {
             throw new NullPointerException();
           }
           block_ = value;
+          onChanged();
         } else {
           blockBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -34027,11 +34709,11 @@ public final class Types {
           tendermint.abci.Types.BlockParams.Builder builderForValue) {
         if (blockBuilder_ == null) {
           block_ = builderForValue.build();
+          onChanged();
         } else {
           blockBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -34039,38 +34721,38 @@ public final class Types {
        */
       public Builder mergeBlock(tendermint.abci.Types.BlockParams value) {
         if (blockBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            block_ != null &&
-            block_ != tendermint.abci.Types.BlockParams.getDefaultInstance()) {
-            getBlockBuilder().mergeFrom(value);
+          if (block_ != null) {
+            block_ =
+              tendermint.abci.Types.BlockParams.newBuilder(block_).mergeFrom(value).buildPartial();
           } else {
             block_ = value;
           }
+          onChanged();
         } else {
           blockBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.BlockParams block = 1;</code>
        */
       public Builder clearBlock() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        block_ = null;
-        if (blockBuilder_ != null) {
-          blockBuilder_.dispose();
+        if (blockBuilder_ == null) {
+          block_ = null;
+          onChanged();
+        } else {
+          block_ = null;
           blockBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.BlockParams block = 1;</code>
        */
       public tendermint.abci.Types.BlockParams.Builder getBlockBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getBlockFieldBuilder().getBuilder();
       }
@@ -34110,7 +34792,7 @@ public final class Types {
        * @return Whether the evidence field is set.
        */
       public boolean hasEvidence() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return evidenceBuilder_ != null || evidence_ != null;
       }
       /**
        * <code>.tendermint.types.EvidenceParams evidence = 2;</code>
@@ -34132,11 +34814,11 @@ public final class Types {
             throw new NullPointerException();
           }
           evidence_ = value;
+          onChanged();
         } else {
           evidenceBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -34146,11 +34828,11 @@ public final class Types {
           tendermint.types.Params.EvidenceParams.Builder builderForValue) {
         if (evidenceBuilder_ == null) {
           evidence_ = builderForValue.build();
+          onChanged();
         } else {
           evidenceBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -34158,38 +34840,38 @@ public final class Types {
        */
       public Builder mergeEvidence(tendermint.types.Params.EvidenceParams value) {
         if (evidenceBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            evidence_ != null &&
-            evidence_ != tendermint.types.Params.EvidenceParams.getDefaultInstance()) {
-            getEvidenceBuilder().mergeFrom(value);
+          if (evidence_ != null) {
+            evidence_ =
+              tendermint.types.Params.EvidenceParams.newBuilder(evidence_).mergeFrom(value).buildPartial();
           } else {
             evidence_ = value;
           }
+          onChanged();
         } else {
           evidenceBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.EvidenceParams evidence = 2;</code>
        */
       public Builder clearEvidence() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        evidence_ = null;
-        if (evidenceBuilder_ != null) {
-          evidenceBuilder_.dispose();
+        if (evidenceBuilder_ == null) {
+          evidence_ = null;
+          onChanged();
+        } else {
+          evidence_ = null;
           evidenceBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.EvidenceParams evidence = 2;</code>
        */
       public tendermint.types.Params.EvidenceParams.Builder getEvidenceBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getEvidenceFieldBuilder().getBuilder();
       }
@@ -34229,7 +34911,7 @@ public final class Types {
        * @return Whether the validator field is set.
        */
       public boolean hasValidator() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return validatorBuilder_ != null || validator_ != null;
       }
       /**
        * <code>.tendermint.types.ValidatorParams validator = 3;</code>
@@ -34251,11 +34933,11 @@ public final class Types {
             throw new NullPointerException();
           }
           validator_ = value;
+          onChanged();
         } else {
           validatorBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -34265,11 +34947,11 @@ public final class Types {
           tendermint.types.Params.ValidatorParams.Builder builderForValue) {
         if (validatorBuilder_ == null) {
           validator_ = builderForValue.build();
+          onChanged();
         } else {
           validatorBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -34277,38 +34959,38 @@ public final class Types {
        */
       public Builder mergeValidator(tendermint.types.Params.ValidatorParams value) {
         if (validatorBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            validator_ != null &&
-            validator_ != tendermint.types.Params.ValidatorParams.getDefaultInstance()) {
-            getValidatorBuilder().mergeFrom(value);
+          if (validator_ != null) {
+            validator_ =
+              tendermint.types.Params.ValidatorParams.newBuilder(validator_).mergeFrom(value).buildPartial();
           } else {
             validator_ = value;
           }
+          onChanged();
         } else {
           validatorBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.ValidatorParams validator = 3;</code>
        */
       public Builder clearValidator() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        validator_ = null;
-        if (validatorBuilder_ != null) {
-          validatorBuilder_.dispose();
+        if (validatorBuilder_ == null) {
+          validator_ = null;
+          onChanged();
+        } else {
+          validator_ = null;
           validatorBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.ValidatorParams validator = 3;</code>
        */
       public tendermint.types.Params.ValidatorParams.Builder getValidatorBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getValidatorFieldBuilder().getBuilder();
       }
@@ -34348,7 +35030,7 @@ public final class Types {
        * @return Whether the version field is set.
        */
       public boolean hasVersion() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return versionBuilder_ != null || version_ != null;
       }
       /**
        * <code>.tendermint.types.VersionParams version = 4;</code>
@@ -34370,11 +35052,11 @@ public final class Types {
             throw new NullPointerException();
           }
           version_ = value;
+          onChanged();
         } else {
           versionBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -34384,11 +35066,11 @@ public final class Types {
           tendermint.types.Params.VersionParams.Builder builderForValue) {
         if (versionBuilder_ == null) {
           version_ = builderForValue.build();
+          onChanged();
         } else {
           versionBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -34396,38 +35078,38 @@ public final class Types {
        */
       public Builder mergeVersion(tendermint.types.Params.VersionParams value) {
         if (versionBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            version_ != null &&
-            version_ != tendermint.types.Params.VersionParams.getDefaultInstance()) {
-            getVersionBuilder().mergeFrom(value);
+          if (version_ != null) {
+            version_ =
+              tendermint.types.Params.VersionParams.newBuilder(version_).mergeFrom(value).buildPartial();
           } else {
             version_ = value;
           }
+          onChanged();
         } else {
           versionBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.VersionParams version = 4;</code>
        */
       public Builder clearVersion() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        version_ = null;
-        if (versionBuilder_ != null) {
-          versionBuilder_.dispose();
+        if (versionBuilder_ == null) {
+          version_ = null;
+          onChanged();
+        } else {
+          version_ = null;
           versionBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.VersionParams version = 4;</code>
        */
       public tendermint.types.Params.VersionParams.Builder getVersionBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getVersionFieldBuilder().getBuilder();
       }
@@ -34491,18 +35173,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ConsensusParams(input, extensionRegistry);
       }
     };
 
@@ -34577,6 +35248,53 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private BlockParams(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              maxBytes_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              maxGas_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_BlockParams_descriptor;
@@ -34591,7 +35309,7 @@ public final class Types {
     }
 
     public static final int MAX_BYTES_FIELD_NUMBER = 1;
-    private long maxBytes_ = 0L;
+    private long maxBytes_;
     /**
      * <pre>
      * Note: must be greater than 0
@@ -34606,7 +35324,7 @@ public final class Types {
     }
 
     public static final int MAX_GAS_FIELD_NUMBER = 2;
-    private long maxGas_ = 0L;
+    private long maxGas_;
     /**
      * <pre>
      * Note: must be greater or equal to -1
@@ -34640,7 +35358,7 @@ public final class Types {
       if (maxGas_ != 0L) {
         output.writeInt64(2, maxGas_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -34657,7 +35375,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, maxGas_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -34676,7 +35394,7 @@ public final class Types {
           != other.getMaxBytes()) return false;
       if (getMaxGas()
           != other.getMaxGas()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -34693,7 +35411,7 @@ public final class Types {
       hash = (37 * hash) + MAX_GAS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMaxGas());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -34814,20 +35532,26 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.BlockParams.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         maxBytes_ = 0L;
+
         maxGas_ = 0L;
+
         return this;
       }
 
@@ -34854,19 +35578,10 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.BlockParams buildPartial() {
         tendermint.abci.Types.BlockParams result = new tendermint.abci.Types.BlockParams(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.maxBytes_ = maxBytes_;
+        result.maxGas_ = maxGas_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.BlockParams result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.maxBytes_ = maxBytes_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.maxGas_ = maxGas_;
-        }
       }
 
       @java.lang.Override
@@ -34919,7 +35634,7 @@ public final class Types {
         if (other.getMaxGas() != 0L) {
           setMaxGas(other.getMaxGas());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -34934,43 +35649,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.BlockParams parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                maxBytes_ = input.readInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                maxGas_ = input.readInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.BlockParams) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long maxBytes_ ;
       /**
@@ -34997,7 +35688,6 @@ public final class Types {
       public Builder setMaxBytes(long value) {
         
         maxBytes_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -35010,7 +35700,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearMaxBytes() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         maxBytes_ = 0L;
         onChanged();
         return this;
@@ -35041,7 +35731,6 @@ public final class Types {
       public Builder setMaxGas(long value) {
         
         maxGas_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -35054,7 +35743,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearMaxGas() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         maxGas_ = 0L;
         onChanged();
         return this;
@@ -35092,18 +35781,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new BlockParams(input, extensionRegistry);
       }
     };
 
@@ -35185,6 +35863,61 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private LastCommitInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              round_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                votes_ = new java.util.ArrayList<tendermint.abci.Types.VoteInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              votes_.add(
+                  input.readMessage(tendermint.abci.Types.VoteInfo.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          votes_ = java.util.Collections.unmodifiableList(votes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_LastCommitInfo_descriptor;
@@ -35199,7 +35932,7 @@ public final class Types {
     }
 
     public static final int ROUND_FIELD_NUMBER = 1;
-    private int round_ = 0;
+    private int round_;
     /**
      * <code>int32 round = 1;</code>
      * @return The round.
@@ -35210,7 +35943,6 @@ public final class Types {
     }
 
     public static final int VOTES_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.VoteInfo> votes_;
     /**
      * <code>repeated .tendermint.abci.VoteInfo votes = 2 [(.gogoproto.nullable) = false];</code>
@@ -35270,7 +36002,7 @@ public final class Types {
       for (int i = 0; i < votes_.size(); i++) {
         output.writeMessage(2, votes_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -35287,7 +36019,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, votes_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -35306,7 +36038,7 @@ public final class Types {
           != other.getRound()) return false;
       if (!getVotesList()
           .equals(other.getVotesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -35323,7 +36055,7 @@ public final class Types {
         hash = (37 * hash) + VOTES_FIELD_NUMBER;
         hash = (53 * hash) + getVotesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -35440,26 +36172,31 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.LastCommitInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getVotesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         round_ = 0;
+
         if (votesBuilder_ == null) {
           votes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          votes_ = null;
           votesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -35486,29 +36223,19 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.LastCommitInfo buildPartial() {
         tendermint.abci.Types.LastCommitInfo result = new tendermint.abci.Types.LastCommitInfo(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(tendermint.abci.Types.LastCommitInfo result) {
+        int from_bitField0_ = bitField0_;
+        result.round_ = round_;
         if (votesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             votes_ = java.util.Collections.unmodifiableList(votes_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.votes_ = votes_;
         } else {
           result.votes_ = votesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(tendermint.abci.Types.LastCommitInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.round_ = round_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -35562,7 +36289,7 @@ public final class Types {
           if (!other.votes_.isEmpty()) {
             if (votes_.isEmpty()) {
               votes_ = other.votes_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureVotesIsMutable();
               votes_.addAll(other.votes_);
@@ -35575,7 +36302,7 @@ public final class Types {
               votesBuilder_.dispose();
               votesBuilder_ = null;
               votes_ = other.votes_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               votesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getVotesFieldBuilder() : null;
@@ -35584,7 +36311,7 @@ public final class Types {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -35599,48 +36326,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.LastCommitInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                round_ = input.readInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                tendermint.abci.Types.VoteInfo m =
-                    input.readMessage(
-                        tendermint.abci.Types.VoteInfo.parser(),
-                        extensionRegistry);
-                if (votesBuilder_ == null) {
-                  ensureVotesIsMutable();
-                  votes_.add(m);
-                } else {
-                  votesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.LastCommitInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -35662,7 +36358,6 @@ public final class Types {
       public Builder setRound(int value) {
         
         round_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -35671,7 +36366,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearRound() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         round_ = 0;
         onChanged();
         return this;
@@ -35680,9 +36375,9 @@ public final class Types {
       private java.util.List<tendermint.abci.Types.VoteInfo> votes_ =
         java.util.Collections.emptyList();
       private void ensureVotesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           votes_ = new java.util.ArrayList<tendermint.abci.Types.VoteInfo>(votes_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -35832,7 +36527,7 @@ public final class Types {
       public Builder clearVotes() {
         if (votesBuilder_ == null) {
           votes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           votesBuilder_.clear();
@@ -35909,7 +36604,7 @@ public final class Types {
           votesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               tendermint.abci.Types.VoteInfo, tendermint.abci.Types.VoteInfo.Builder, tendermint.abci.Types.VoteInfoOrBuilder>(
                   votes_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           votes_ = null;
@@ -35949,18 +36644,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new LastCommitInfo(input, extensionRegistry);
       }
     };
 
@@ -36055,6 +36739,62 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Event(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              type_ = s;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                attributes_ = new java.util.ArrayList<tendermint.abci.Types.EventAttribute>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              attributes_.add(
+                  input.readMessage(tendermint.abci.Types.EventAttribute.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          attributes_ = java.util.Collections.unmodifiableList(attributes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_Event_descriptor;
@@ -36069,8 +36809,7 @@ public final class Types {
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object type_ = "";
+    private volatile java.lang.Object type_;
     /**
      * <code>string type = 1;</code>
      * @return The type.
@@ -36108,7 +36847,6 @@ public final class Types {
     }
 
     public static final int ATTRIBUTES_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.EventAttribute> attributes_;
     /**
      * <code>repeated .tendermint.abci.EventAttribute attributes = 2 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "attributes,omitempty"];</code>
@@ -36162,13 +36900,13 @@ public final class Types {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
+      if (!getTypeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
       }
       for (int i = 0; i < attributes_.size(); i++) {
         output.writeMessage(2, attributes_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -36177,14 +36915,14 @@ public final class Types {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
+      if (!getTypeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
       }
       for (int i = 0; i < attributes_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, attributes_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -36203,7 +36941,7 @@ public final class Types {
           .equals(other.getType())) return false;
       if (!getAttributesList()
           .equals(other.getAttributesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -36220,7 +36958,7 @@ public final class Types {
         hash = (37 * hash) + ATTRIBUTES_FIELD_NUMBER;
         hash = (53 * hash) + getAttributesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -36343,26 +37081,31 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.Event.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getAttributesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         type_ = "";
+
         if (attributesBuilder_ == null) {
           attributes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          attributes_ = null;
           attributesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -36389,29 +37132,19 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.Event buildPartial() {
         tendermint.abci.Types.Event result = new tendermint.abci.Types.Event(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(tendermint.abci.Types.Event result) {
+        int from_bitField0_ = bitField0_;
+        result.type_ = type_;
         if (attributesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             attributes_ = java.util.Collections.unmodifiableList(attributes_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.attributes_ = attributes_;
         } else {
           result.attributes_ = attributesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(tendermint.abci.Types.Event result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.type_ = type_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -36460,14 +37193,13 @@ public final class Types {
         if (other == tendermint.abci.Types.Event.getDefaultInstance()) return this;
         if (!other.getType().isEmpty()) {
           type_ = other.type_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (attributesBuilder_ == null) {
           if (!other.attributes_.isEmpty()) {
             if (attributes_.isEmpty()) {
               attributes_ = other.attributes_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureAttributesIsMutable();
               attributes_.addAll(other.attributes_);
@@ -36480,7 +37212,7 @@ public final class Types {
               attributesBuilder_.dispose();
               attributesBuilder_ = null;
               attributes_ = other.attributes_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               attributesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAttributesFieldBuilder() : null;
@@ -36489,7 +37221,7 @@ public final class Types {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -36504,48 +37236,17 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.Event parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                type_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                tendermint.abci.Types.EventAttribute m =
-                    input.readMessage(
-                        tendermint.abci.Types.EventAttribute.parser(),
-                        extensionRegistry);
-                if (attributesBuilder_ == null) {
-                  ensureAttributesIsMutable();
-                  attributes_.add(m);
-                } else {
-                  attributesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.Event) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -36591,9 +37292,11 @@ public final class Types {
        */
       public Builder setType(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         type_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -36602,8 +37305,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearType() {
+        
         type_ = getDefaultInstance().getType();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -36614,10 +37317,12 @@ public final class Types {
        */
       public Builder setTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         type_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -36625,9 +37330,9 @@ public final class Types {
       private java.util.List<tendermint.abci.Types.EventAttribute> attributes_ =
         java.util.Collections.emptyList();
       private void ensureAttributesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           attributes_ = new java.util.ArrayList<tendermint.abci.Types.EventAttribute>(attributes_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -36777,7 +37482,7 @@ public final class Types {
       public Builder clearAttributes() {
         if (attributesBuilder_ == null) {
           attributes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           attributesBuilder_.clear();
@@ -36854,7 +37559,7 @@ public final class Types {
           attributesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               tendermint.abci.Types.EventAttribute, tendermint.abci.Types.EventAttribute.Builder, tendermint.abci.Types.EventAttributeOrBuilder>(
                   attributes_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           attributes_ = null;
@@ -36894,18 +37599,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Event(input, extensionRegistry);
       }
     };
 
@@ -36984,6 +37678,58 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private EventAttribute(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              key_ = input.readBytes();
+              break;
+            }
+            case 18: {
+
+              value_ = input.readBytes();
+              break;
+            }
+            case 24: {
+
+              index_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_EventAttribute_descriptor;
@@ -36998,7 +37744,7 @@ public final class Types {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString key_;
     /**
      * <code>bytes key = 1;</code>
      * @return The key.
@@ -37009,7 +37755,7 @@ public final class Types {
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString value_;
     /**
      * <code>bytes value = 2;</code>
      * @return The value.
@@ -37020,7 +37766,7 @@ public final class Types {
     }
 
     public static final int INDEX_FIELD_NUMBER = 3;
-    private boolean index_ = false;
+    private boolean index_;
     /**
      * <pre>
      * nondeterministic
@@ -37057,7 +37803,7 @@ public final class Types {
       if (index_ != false) {
         output.writeBool(3, index_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -37078,7 +37824,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, index_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -37099,7 +37845,7 @@ public final class Types {
           .equals(other.getValue())) return false;
       if (getIndex()
           != other.getIndex()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -37117,7 +37863,7 @@ public final class Types {
       hash = (37 * hash) + INDEX_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIndex());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -37238,21 +37984,28 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.EventAttribute.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         key_ = com.google.protobuf.ByteString.EMPTY;
+
         value_ = com.google.protobuf.ByteString.EMPTY;
+
         index_ = false;
+
         return this;
       }
 
@@ -37279,22 +38032,11 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.EventAttribute buildPartial() {
         tendermint.abci.Types.EventAttribute result = new tendermint.abci.Types.EventAttribute(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.key_ = key_;
+        result.value_ = value_;
+        result.index_ = index_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.EventAttribute result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.key_ = key_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.value_ = value_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.index_ = index_;
-        }
       }
 
       @java.lang.Override
@@ -37350,7 +38092,7 @@ public final class Types {
         if (other.getIndex() != false) {
           setIndex(other.getIndex());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -37365,48 +38107,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.EventAttribute parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                key_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                value_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                index_ = input.readBool();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.EventAttribute) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -37423,9 +38136,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setKey(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         key_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -37434,7 +38149,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearKey() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         key_ = getDefaultInstance().getKey();
         onChanged();
         return this;
@@ -37455,9 +38170,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setValue(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         value_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -37466,7 +38183,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         value_ = getDefaultInstance().getValue();
         onChanged();
         return this;
@@ -37497,7 +38214,6 @@ public final class Types {
       public Builder setIndex(boolean value) {
         
         index_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -37510,7 +38226,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearIndex() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         index_ = false;
         onChanged();
         return this;
@@ -37548,18 +38264,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new EventAttribute(input, extensionRegistry);
       }
     };
 
@@ -37649,6 +38354,71 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TxResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              height_ = input.readInt64();
+              break;
+            }
+            case 16: {
+
+              index_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+
+              tx_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              tendermint.abci.Types.ResponseDeliverTx.Builder subBuilder = null;
+              if (result_ != null) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(tendermint.abci.Types.ResponseDeliverTx.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_TxResult_descriptor;
@@ -37663,7 +38433,7 @@ public final class Types {
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 1;
-    private long height_ = 0L;
+    private long height_;
     /**
      * <code>int64 height = 1;</code>
      * @return The height.
@@ -37674,7 +38444,7 @@ public final class Types {
     }
 
     public static final int INDEX_FIELD_NUMBER = 2;
-    private int index_ = 0;
+    private int index_;
     /**
      * <code>uint32 index = 2;</code>
      * @return The index.
@@ -37685,7 +38455,7 @@ public final class Types {
     }
 
     public static final int TX_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString tx_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString tx_;
     /**
      * <code>bytes tx = 3;</code>
      * @return The tx.
@@ -37718,7 +38488,7 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.abci.Types.ResponseDeliverTxOrBuilder getResultOrBuilder() {
-      return result_ == null ? tendermint.abci.Types.ResponseDeliverTx.getDefaultInstance() : result_;
+      return getResult();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -37747,7 +38517,7 @@ public final class Types {
       if (result_ != null) {
         output.writeMessage(4, getResult());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -37772,7 +38542,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getResult());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -37798,7 +38568,7 @@ public final class Types {
         if (!getResult()
             .equals(other.getResult())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -37820,7 +38590,7 @@ public final class Types {
         hash = (37 * hash) + RESULT_FIELD_NUMBER;
         hash = (53 * hash) + getResult().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -37942,24 +38712,32 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.TxResult.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         height_ = 0L;
+
         index_ = 0;
+
         tx_ = com.google.protobuf.ByteString.EMPTY;
-        result_ = null;
-        if (resultBuilder_ != null) {
-          resultBuilder_.dispose();
+
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          result_ = null;
           resultBuilder_ = null;
         }
         return this;
@@ -37988,27 +38766,16 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.TxResult buildPartial() {
         tendermint.abci.Types.TxResult result = new tendermint.abci.Types.TxResult(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.height_ = height_;
+        result.index_ = index_;
+        result.tx_ = tx_;
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.TxResult result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.height_ = height_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.index_ = index_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.tx_ = tx_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.result_ = resultBuilder_ == null
-              ? result_
-              : resultBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -38067,7 +38834,7 @@ public final class Types {
         if (other.hasResult()) {
           mergeResult(other.getResult());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -38082,55 +38849,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.TxResult parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                height_ = input.readInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                index_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                tx_ = input.readBytes();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getResultFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.TxResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long height_ ;
       /**
@@ -38149,7 +38880,6 @@ public final class Types {
       public Builder setHeight(long value) {
         
         height_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -38158,7 +38888,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         height_ = 0L;
         onChanged();
         return this;
@@ -38181,7 +38911,6 @@ public final class Types {
       public Builder setIndex(int value) {
         
         index_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -38190,7 +38919,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearIndex() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         index_ = 0;
         onChanged();
         return this;
@@ -38211,9 +38940,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setTx(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         tx_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -38222,7 +38953,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearTx() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         tx_ = getDefaultInstance().getTx();
         onChanged();
         return this;
@@ -38236,7 +38967,7 @@ public final class Types {
        * @return Whether the result field is set.
        */
       public boolean hasResult() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return resultBuilder_ != null || result_ != null;
       }
       /**
        * <code>.tendermint.abci.ResponseDeliverTx result = 4 [(.gogoproto.nullable) = false];</code>
@@ -38258,11 +38989,11 @@ public final class Types {
             throw new NullPointerException();
           }
           result_ = value;
+          onChanged();
         } else {
           resultBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -38272,11 +39003,11 @@ public final class Types {
           tendermint.abci.Types.ResponseDeliverTx.Builder builderForValue) {
         if (resultBuilder_ == null) {
           result_ = builderForValue.build();
+          onChanged();
         } else {
           resultBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -38284,38 +39015,38 @@ public final class Types {
        */
       public Builder mergeResult(tendermint.abci.Types.ResponseDeliverTx value) {
         if (resultBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            result_ != null &&
-            result_ != tendermint.abci.Types.ResponseDeliverTx.getDefaultInstance()) {
-            getResultBuilder().mergeFrom(value);
+          if (result_ != null) {
+            result_ =
+              tendermint.abci.Types.ResponseDeliverTx.newBuilder(result_).mergeFrom(value).buildPartial();
           } else {
             result_ = value;
           }
+          onChanged();
         } else {
           resultBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.ResponseDeliverTx result = 4 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearResult() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        result_ = null;
-        if (resultBuilder_ != null) {
-          resultBuilder_.dispose();
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          result_ = null;
           resultBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.ResponseDeliverTx result = 4 [(.gogoproto.nullable) = false];</code>
        */
       public tendermint.abci.Types.ResponseDeliverTx.Builder getResultBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getResultFieldBuilder().getBuilder();
       }
@@ -38379,18 +39110,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TxResult(input, extensionRegistry);
       }
     };
 
@@ -38466,6 +39186,53 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Validator(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              address_ = input.readBytes();
+              break;
+            }
+            case 24: {
+
+              power_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_Validator_descriptor;
@@ -38480,7 +39247,7 @@ public final class Types {
     }
 
     public static final int ADDRESS_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString address_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString address_;
     /**
      * <pre>
      * The first 20 bytes of SHA256(public key)
@@ -38495,7 +39262,7 @@ public final class Types {
     }
 
     public static final int POWER_FIELD_NUMBER = 3;
-    private long power_ = 0L;
+    private long power_;
     /**
      * <pre>
      * PubKey pub_key = 2 [(gogoproto.nullable)=false];
@@ -38529,7 +39296,7 @@ public final class Types {
       if (power_ != 0L) {
         output.writeInt64(3, power_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -38546,7 +39313,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, power_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -38565,7 +39332,7 @@ public final class Types {
           .equals(other.getAddress())) return false;
       if (getPower()
           != other.getPower()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -38581,7 +39348,7 @@ public final class Types {
       hash = (37 * hash) + POWER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getPower());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -38702,20 +39469,26 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.Validator.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         address_ = com.google.protobuf.ByteString.EMPTY;
+
         power_ = 0L;
+
         return this;
       }
 
@@ -38742,19 +39515,10 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.Validator buildPartial() {
         tendermint.abci.Types.Validator result = new tendermint.abci.Types.Validator(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.address_ = address_;
+        result.power_ = power_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.Validator result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.address_ = address_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.power_ = power_;
-        }
       }
 
       @java.lang.Override
@@ -38807,7 +39571,7 @@ public final class Types {
         if (other.getPower() != 0L) {
           setPower(other.getPower());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -38822,43 +39586,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.Validator parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                address_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 24: {
-                power_ = input.readInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.Validator) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString address_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -38883,9 +39623,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setAddress(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         address_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -38898,7 +39640,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearAddress() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         address_ = getDefaultInstance().getAddress();
         onChanged();
         return this;
@@ -38929,7 +39671,6 @@ public final class Types {
       public Builder setPower(long value) {
         
         power_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -38942,7 +39683,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearPower() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         power_ = 0L;
         onChanged();
         return this;
@@ -38980,18 +39721,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Validator(input, extensionRegistry);
       }
     };
 
@@ -39067,6 +39797,61 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ValidatorUpdate(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              tendermint.crypto.Keys.PublicKey.Builder subBuilder = null;
+              if (pubKey_ != null) {
+                subBuilder = pubKey_.toBuilder();
+              }
+              pubKey_ = input.readMessage(tendermint.crypto.Keys.PublicKey.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pubKey_);
+                pubKey_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 16: {
+
+              power_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_ValidatorUpdate_descriptor;
@@ -39103,11 +39888,11 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.crypto.Keys.PublicKeyOrBuilder getPubKeyOrBuilder() {
-      return pubKey_ == null ? tendermint.crypto.Keys.PublicKey.getDefaultInstance() : pubKey_;
+      return getPubKey();
     }
 
     public static final int POWER_FIELD_NUMBER = 2;
-    private long power_ = 0L;
+    private long power_;
     /**
      * <code>int64 power = 2;</code>
      * @return The power.
@@ -39137,7 +39922,7 @@ public final class Types {
       if (power_ != 0L) {
         output.writeInt64(2, power_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -39154,7 +39939,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, power_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -39176,7 +39961,7 @@ public final class Types {
       }
       if (getPower()
           != other.getPower()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -39194,7 +39979,7 @@ public final class Types {
       hash = (37 * hash) + POWER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getPower());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -39315,24 +40100,30 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.ValidatorUpdate.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        pubKey_ = null;
-        if (pubKeyBuilder_ != null) {
-          pubKeyBuilder_.dispose();
+        if (pubKeyBuilder_ == null) {
+          pubKey_ = null;
+        } else {
+          pubKey_ = null;
           pubKeyBuilder_ = null;
         }
         power_ = 0L;
+
         return this;
       }
 
@@ -39359,21 +40150,14 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.ValidatorUpdate buildPartial() {
         tendermint.abci.Types.ValidatorUpdate result = new tendermint.abci.Types.ValidatorUpdate(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (pubKeyBuilder_ == null) {
+          result.pubKey_ = pubKey_;
+        } else {
+          result.pubKey_ = pubKeyBuilder_.build();
+        }
+        result.power_ = power_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.ValidatorUpdate result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.pubKey_ = pubKeyBuilder_ == null
-              ? pubKey_
-              : pubKeyBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.power_ = power_;
-        }
       }
 
       @java.lang.Override
@@ -39426,7 +40210,7 @@ public final class Types {
         if (other.getPower() != 0L) {
           setPower(other.getPower());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -39441,45 +40225,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.ValidatorUpdate parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getPubKeyFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                power_ = input.readInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.ValidatorUpdate) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private tendermint.crypto.Keys.PublicKey pubKey_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -39489,7 +40247,7 @@ public final class Types {
        * @return Whether the pubKey field is set.
        */
       public boolean hasPubKey() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return pubKeyBuilder_ != null || pubKey_ != null;
       }
       /**
        * <code>.tendermint.crypto.PublicKey pub_key = 1 [(.gogoproto.nullable) = false];</code>
@@ -39511,11 +40269,11 @@ public final class Types {
             throw new NullPointerException();
           }
           pubKey_ = value;
+          onChanged();
         } else {
           pubKeyBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -39525,11 +40283,11 @@ public final class Types {
           tendermint.crypto.Keys.PublicKey.Builder builderForValue) {
         if (pubKeyBuilder_ == null) {
           pubKey_ = builderForValue.build();
+          onChanged();
         } else {
           pubKeyBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -39537,38 +40295,38 @@ public final class Types {
        */
       public Builder mergePubKey(tendermint.crypto.Keys.PublicKey value) {
         if (pubKeyBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            pubKey_ != null &&
-            pubKey_ != tendermint.crypto.Keys.PublicKey.getDefaultInstance()) {
-            getPubKeyBuilder().mergeFrom(value);
+          if (pubKey_ != null) {
+            pubKey_ =
+              tendermint.crypto.Keys.PublicKey.newBuilder(pubKey_).mergeFrom(value).buildPartial();
           } else {
             pubKey_ = value;
           }
+          onChanged();
         } else {
           pubKeyBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.crypto.PublicKey pub_key = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearPubKey() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        pubKey_ = null;
-        if (pubKeyBuilder_ != null) {
-          pubKeyBuilder_.dispose();
+        if (pubKeyBuilder_ == null) {
+          pubKey_ = null;
+          onChanged();
+        } else {
+          pubKey_ = null;
           pubKeyBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.crypto.PublicKey pub_key = 1 [(.gogoproto.nullable) = false];</code>
        */
       public tendermint.crypto.Keys.PublicKey.Builder getPubKeyBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getPubKeyFieldBuilder().getBuilder();
       }
@@ -39617,7 +40375,6 @@ public final class Types {
       public Builder setPower(long value) {
         
         power_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -39626,7 +40383,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearPower() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         power_ = 0L;
         onChanged();
         return this;
@@ -39664,18 +40421,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ValidatorUpdate(input, extensionRegistry);
       }
     };
 
@@ -39751,6 +40497,61 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private VoteInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              tendermint.abci.Types.Validator.Builder subBuilder = null;
+              if (validator_ != null) {
+                subBuilder = validator_.toBuilder();
+              }
+              validator_ = input.readMessage(tendermint.abci.Types.Validator.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(validator_);
+                validator_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 16: {
+
+              signedLastBlock_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_VoteInfo_descriptor;
@@ -39787,11 +40588,11 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.abci.Types.ValidatorOrBuilder getValidatorOrBuilder() {
-      return validator_ == null ? tendermint.abci.Types.Validator.getDefaultInstance() : validator_;
+      return getValidator();
     }
 
     public static final int SIGNED_LAST_BLOCK_FIELD_NUMBER = 2;
-    private boolean signedLastBlock_ = false;
+    private boolean signedLastBlock_;
     /**
      * <code>bool signed_last_block = 2;</code>
      * @return The signedLastBlock.
@@ -39821,7 +40622,7 @@ public final class Types {
       if (signedLastBlock_ != false) {
         output.writeBool(2, signedLastBlock_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -39838,7 +40639,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, signedLastBlock_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -39860,7 +40661,7 @@ public final class Types {
       }
       if (getSignedLastBlock()
           != other.getSignedLastBlock()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -39878,7 +40679,7 @@ public final class Types {
       hash = (37 * hash) + SIGNED_LAST_BLOCK_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getSignedLastBlock());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -39999,24 +40800,30 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.VoteInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        validator_ = null;
-        if (validatorBuilder_ != null) {
-          validatorBuilder_.dispose();
+        if (validatorBuilder_ == null) {
+          validator_ = null;
+        } else {
+          validator_ = null;
           validatorBuilder_ = null;
         }
         signedLastBlock_ = false;
+
         return this;
       }
 
@@ -40043,21 +40850,14 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.VoteInfo buildPartial() {
         tendermint.abci.Types.VoteInfo result = new tendermint.abci.Types.VoteInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (validatorBuilder_ == null) {
+          result.validator_ = validator_;
+        } else {
+          result.validator_ = validatorBuilder_.build();
+        }
+        result.signedLastBlock_ = signedLastBlock_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.VoteInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.validator_ = validatorBuilder_ == null
-              ? validator_
-              : validatorBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.signedLastBlock_ = signedLastBlock_;
-        }
       }
 
       @java.lang.Override
@@ -40110,7 +40910,7 @@ public final class Types {
         if (other.getSignedLastBlock() != false) {
           setSignedLastBlock(other.getSignedLastBlock());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -40125,45 +40925,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.VoteInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getValidatorFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                signedLastBlock_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.VoteInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private tendermint.abci.Types.Validator validator_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -40173,7 +40947,7 @@ public final class Types {
        * @return Whether the validator field is set.
        */
       public boolean hasValidator() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return validatorBuilder_ != null || validator_ != null;
       }
       /**
        * <code>.tendermint.abci.Validator validator = 1 [(.gogoproto.nullable) = false];</code>
@@ -40195,11 +40969,11 @@ public final class Types {
             throw new NullPointerException();
           }
           validator_ = value;
+          onChanged();
         } else {
           validatorBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -40209,11 +40983,11 @@ public final class Types {
           tendermint.abci.Types.Validator.Builder builderForValue) {
         if (validatorBuilder_ == null) {
           validator_ = builderForValue.build();
+          onChanged();
         } else {
           validatorBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -40221,38 +40995,38 @@ public final class Types {
        */
       public Builder mergeValidator(tendermint.abci.Types.Validator value) {
         if (validatorBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            validator_ != null &&
-            validator_ != tendermint.abci.Types.Validator.getDefaultInstance()) {
-            getValidatorBuilder().mergeFrom(value);
+          if (validator_ != null) {
+            validator_ =
+              tendermint.abci.Types.Validator.newBuilder(validator_).mergeFrom(value).buildPartial();
           } else {
             validator_ = value;
           }
+          onChanged();
         } else {
           validatorBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.Validator validator = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearValidator() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        validator_ = null;
-        if (validatorBuilder_ != null) {
-          validatorBuilder_.dispose();
+        if (validatorBuilder_ == null) {
+          validator_ = null;
+          onChanged();
+        } else {
+          validator_ = null;
           validatorBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.abci.Validator validator = 1 [(.gogoproto.nullable) = false];</code>
        */
       public tendermint.abci.Types.Validator.Builder getValidatorBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getValidatorFieldBuilder().getBuilder();
       }
@@ -40301,7 +41075,6 @@ public final class Types {
       public Builder setSignedLastBlock(boolean value) {
         
         signedLastBlock_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -40310,7 +41083,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearSignedLastBlock() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         signedLastBlock_ = false;
         onChanged();
         return this;
@@ -40348,18 +41121,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new VoteInfo(input, extensionRegistry);
       }
     };
 
@@ -40498,6 +41260,85 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Evidence(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              type_ = rawValue;
+              break;
+            }
+            case 18: {
+              tendermint.abci.Types.Validator.Builder subBuilder = null;
+              if (validator_ != null) {
+                subBuilder = validator_.toBuilder();
+              }
+              validator_ = input.readMessage(tendermint.abci.Types.Validator.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(validator_);
+                validator_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 24: {
+
+              height_ = input.readInt64();
+              break;
+            }
+            case 34: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (time_ != null) {
+                subBuilder = time_.toBuilder();
+              }
+              time_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(time_);
+                time_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 40: {
+
+              totalVotingPower_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_Evidence_descriptor;
@@ -40512,7 +41353,7 @@ public final class Types {
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_ = 0;
+    private int type_;
     /**
      * <code>.tendermint.abci.EvidenceType type = 1;</code>
      * @return The enum numeric value on the wire for type.
@@ -40525,7 +41366,8 @@ public final class Types {
      * @return The type.
      */
     @java.lang.Override public tendermint.abci.Types.EvidenceType getType() {
-      tendermint.abci.Types.EvidenceType result = tendermint.abci.Types.EvidenceType.forNumber(type_);
+      @SuppressWarnings("deprecation")
+      tendermint.abci.Types.EvidenceType result = tendermint.abci.Types.EvidenceType.valueOf(type_);
       return result == null ? tendermint.abci.Types.EvidenceType.UNRECOGNIZED : result;
     }
 
@@ -40564,11 +41406,11 @@ public final class Types {
      */
     @java.lang.Override
     public tendermint.abci.Types.ValidatorOrBuilder getValidatorOrBuilder() {
-      return validator_ == null ? tendermint.abci.Types.Validator.getDefaultInstance() : validator_;
+      return getValidator();
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 3;
-    private long height_ = 0L;
+    private long height_;
     /**
      * <pre>
      * The height when the offense occurred
@@ -40617,11 +41459,11 @@ public final class Types {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
-      return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+      return getTime();
     }
 
     public static final int TOTAL_VOTING_POWER_FIELD_NUMBER = 5;
-    private long totalVotingPower_ = 0L;
+    private long totalVotingPower_;
     /**
      * <pre>
      * Total voting power of the validator set in case the ABCI application does
@@ -40666,7 +41508,7 @@ public final class Types {
       if (totalVotingPower_ != 0L) {
         output.writeInt64(5, totalVotingPower_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -40695,7 +41537,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(5, totalVotingPower_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -40725,7 +41567,7 @@ public final class Types {
       }
       if (getTotalVotingPower()
           != other.getTotalVotingPower()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -40752,7 +41594,7 @@ public final class Types {
       hash = (37 * hash) + TOTAL_VOTING_POWER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTotalVotingPower());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -40869,31 +41711,40 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.Evidence.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         type_ = 0;
-        validator_ = null;
-        if (validatorBuilder_ != null) {
-          validatorBuilder_.dispose();
+
+        if (validatorBuilder_ == null) {
+          validator_ = null;
+        } else {
+          validator_ = null;
           validatorBuilder_ = null;
         }
         height_ = 0L;
-        time_ = null;
-        if (timeBuilder_ != null) {
-          timeBuilder_.dispose();
+
+        if (timeBuilder_ == null) {
+          time_ = null;
+        } else {
+          time_ = null;
           timeBuilder_ = null;
         }
         totalVotingPower_ = 0L;
+
         return this;
       }
 
@@ -40920,32 +41771,21 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.Evidence buildPartial() {
         tendermint.abci.Types.Evidence result = new tendermint.abci.Types.Evidence(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.type_ = type_;
+        if (validatorBuilder_ == null) {
+          result.validator_ = validator_;
+        } else {
+          result.validator_ = validatorBuilder_.build();
+        }
+        result.height_ = height_;
+        if (timeBuilder_ == null) {
+          result.time_ = time_;
+        } else {
+          result.time_ = timeBuilder_.build();
+        }
+        result.totalVotingPower_ = totalVotingPower_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.Evidence result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.type_ = type_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.validator_ = validatorBuilder_ == null
-              ? validator_
-              : validatorBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.height_ = height_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.time_ = timeBuilder_ == null
-              ? time_
-              : timeBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.totalVotingPower_ = totalVotingPower_;
-        }
       }
 
       @java.lang.Override
@@ -41007,7 +41847,7 @@ public final class Types {
         if (other.getTotalVotingPower() != 0L) {
           setTotalVotingPower(other.getTotalVotingPower());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -41022,62 +41862,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.Evidence parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                type_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                input.readMessage(
-                    getValidatorFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                height_ = input.readInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 34: {
-                input.readMessage(
-                    getTimeFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 40: {
-                totalVotingPower_ = input.readInt64();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.Evidence) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private int type_ = 0;
       /**
@@ -41093,8 +41890,8 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
+        
         type_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -41104,7 +41901,8 @@ public final class Types {
        */
       @java.lang.Override
       public tendermint.abci.Types.EvidenceType getType() {
-        tendermint.abci.Types.EvidenceType result = tendermint.abci.Types.EvidenceType.forNumber(type_);
+        @SuppressWarnings("deprecation")
+        tendermint.abci.Types.EvidenceType result = tendermint.abci.Types.EvidenceType.valueOf(type_);
         return result == null ? tendermint.abci.Types.EvidenceType.UNRECOGNIZED : result;
       }
       /**
@@ -41116,7 +41914,7 @@ public final class Types {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -41126,7 +41924,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         type_ = 0;
         onChanged();
         return this;
@@ -41144,7 +41942,7 @@ public final class Types {
        * @return Whether the validator field is set.
        */
       public boolean hasValidator() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return validatorBuilder_ != null || validator_ != null;
       }
       /**
        * <pre>
@@ -41174,11 +41972,11 @@ public final class Types {
             throw new NullPointerException();
           }
           validator_ = value;
+          onChanged();
         } else {
           validatorBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -41192,11 +41990,11 @@ public final class Types {
           tendermint.abci.Types.Validator.Builder builderForValue) {
         if (validatorBuilder_ == null) {
           validator_ = builderForValue.build();
+          onChanged();
         } else {
           validatorBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -41208,18 +42006,17 @@ public final class Types {
        */
       public Builder mergeValidator(tendermint.abci.Types.Validator value) {
         if (validatorBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            validator_ != null &&
-            validator_ != tendermint.abci.Types.Validator.getDefaultInstance()) {
-            getValidatorBuilder().mergeFrom(value);
+          if (validator_ != null) {
+            validator_ =
+              tendermint.abci.Types.Validator.newBuilder(validator_).mergeFrom(value).buildPartial();
           } else {
             validator_ = value;
           }
+          onChanged();
         } else {
           validatorBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -41230,13 +42027,14 @@ public final class Types {
        * <code>.tendermint.abci.Validator validator = 2 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearValidator() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        validator_ = null;
-        if (validatorBuilder_ != null) {
-          validatorBuilder_.dispose();
+        if (validatorBuilder_ == null) {
+          validator_ = null;
+          onChanged();
+        } else {
+          validator_ = null;
           validatorBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -41247,7 +42045,7 @@ public final class Types {
        * <code>.tendermint.abci.Validator validator = 2 [(.gogoproto.nullable) = false];</code>
        */
       public tendermint.abci.Types.Validator.Builder getValidatorBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getValidatorFieldBuilder().getBuilder();
       }
@@ -41312,7 +42110,6 @@ public final class Types {
       public Builder setHeight(long value) {
         
         height_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -41325,7 +42122,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         height_ = 0L;
         onChanged();
         return this;
@@ -41343,7 +42140,7 @@ public final class Types {
        * @return Whether the time field is set.
        */
       public boolean hasTime() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return timeBuilder_ != null || time_ != null;
       }
       /**
        * <pre>
@@ -41373,11 +42170,11 @@ public final class Types {
             throw new NullPointerException();
           }
           time_ = value;
+          onChanged();
         } else {
           timeBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -41391,11 +42188,11 @@ public final class Types {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (timeBuilder_ == null) {
           time_ = builderForValue.build();
+          onChanged();
         } else {
           timeBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -41407,18 +42204,17 @@ public final class Types {
        */
       public Builder mergeTime(com.google.protobuf.Timestamp value) {
         if (timeBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            time_ != null &&
-            time_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-            getTimeBuilder().mergeFrom(value);
+          if (time_ != null) {
+            time_ =
+              com.google.protobuf.Timestamp.newBuilder(time_).mergeFrom(value).buildPartial();
           } else {
             time_ = value;
           }
+          onChanged();
         } else {
           timeBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -41429,13 +42225,14 @@ public final class Types {
        * <code>.google.protobuf.Timestamp time = 4 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public Builder clearTime() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        time_ = null;
-        if (timeBuilder_ != null) {
-          timeBuilder_.dispose();
+        if (timeBuilder_ == null) {
+          time_ = null;
+          onChanged();
+        } else {
+          time_ = null;
           timeBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -41446,7 +42243,7 @@ public final class Types {
        * <code>.google.protobuf.Timestamp time = 4 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getTimeFieldBuilder().getBuilder();
       }
@@ -41515,7 +42312,6 @@ public final class Types {
       public Builder setTotalVotingPower(long value) {
         
         totalVotingPower_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -41530,7 +42326,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearTotalVotingPower() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         totalVotingPower_ = 0L;
         onChanged();
         return this;
@@ -41568,18 +42364,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Evidence(input, extensionRegistry);
       }
     };
 
@@ -41682,6 +42467,68 @@ public final class Types {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Snapshot(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              height_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              format_ = input.readUInt32();
+              break;
+            }
+            case 24: {
+
+              chunks_ = input.readUInt32();
+              break;
+            }
+            case 34: {
+
+              hash_ = input.readBytes();
+              break;
+            }
+            case 42: {
+
+              metadata_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.abci.Types.internal_static_tendermint_abci_Snapshot_descriptor;
@@ -41696,7 +42543,7 @@ public final class Types {
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 1;
-    private long height_ = 0L;
+    private long height_;
     /**
      * <pre>
      * The height at which the snapshot was taken
@@ -41711,7 +42558,7 @@ public final class Types {
     }
 
     public static final int FORMAT_FIELD_NUMBER = 2;
-    private int format_ = 0;
+    private int format_;
     /**
      * <pre>
      * The application-specific snapshot format
@@ -41726,7 +42573,7 @@ public final class Types {
     }
 
     public static final int CHUNKS_FIELD_NUMBER = 3;
-    private int chunks_ = 0;
+    private int chunks_;
     /**
      * <pre>
      * Number of chunks in the snapshot
@@ -41741,7 +42588,7 @@ public final class Types {
     }
 
     public static final int HASH_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString hash_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString hash_;
     /**
      * <pre>
      * Arbitrary snapshot hash, equal only if identical
@@ -41756,7 +42603,7 @@ public final class Types {
     }
 
     public static final int METADATA_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString metadata_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString metadata_;
     /**
      * <pre>
      * Arbitrary application metadata
@@ -41799,7 +42646,7 @@ public final class Types {
       if (!metadata_.isEmpty()) {
         output.writeBytes(5, metadata_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -41828,7 +42675,7 @@ public final class Types {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, metadata_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -41853,7 +42700,7 @@ public final class Types {
           .equals(other.getHash())) return false;
       if (!getMetadata()
           .equals(other.getMetadata())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -41875,7 +42722,7 @@ public final class Types {
       hash = (53 * hash) + getHash().hashCode();
       hash = (37 * hash) + METADATA_FIELD_NUMBER;
       hash = (53 * hash) + getMetadata().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -41992,23 +42839,32 @@ public final class Types {
 
       // Construct using tendermint.abci.Types.Snapshot.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         height_ = 0L;
+
         format_ = 0;
+
         chunks_ = 0;
+
         hash_ = com.google.protobuf.ByteString.EMPTY;
+
         metadata_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -42035,28 +42891,13 @@ public final class Types {
       @java.lang.Override
       public tendermint.abci.Types.Snapshot buildPartial() {
         tendermint.abci.Types.Snapshot result = new tendermint.abci.Types.Snapshot(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.height_ = height_;
+        result.format_ = format_;
+        result.chunks_ = chunks_;
+        result.hash_ = hash_;
+        result.metadata_ = metadata_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.abci.Types.Snapshot result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.height_ = height_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.format_ = format_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.chunks_ = chunks_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.hash_ = hash_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.metadata_ = metadata_;
-        }
       }
 
       @java.lang.Override
@@ -42118,7 +42959,7 @@ public final class Types {
         if (other.getMetadata() != com.google.protobuf.ByteString.EMPTY) {
           setMetadata(other.getMetadata());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -42133,58 +42974,19 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.abci.Types.Snapshot parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                height_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                format_ = input.readUInt32();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                chunks_ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 34: {
-                hash_ = input.readBytes();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 42: {
-                metadata_ = input.readBytes();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.abci.Types.Snapshot) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long height_ ;
       /**
@@ -42211,7 +43013,6 @@ public final class Types {
       public Builder setHeight(long value) {
         
         height_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -42224,7 +43025,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         height_ = 0L;
         onChanged();
         return this;
@@ -42255,7 +43056,6 @@ public final class Types {
       public Builder setFormat(int value) {
         
         format_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -42268,7 +43068,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearFormat() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         format_ = 0;
         onChanged();
         return this;
@@ -42299,7 +43099,6 @@ public final class Types {
       public Builder setChunks(int value) {
         
         chunks_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -42312,7 +43111,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearChunks() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         chunks_ = 0;
         onChanged();
         return this;
@@ -42341,9 +43140,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setHash(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         hash_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -42356,7 +43157,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearHash() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         hash_ = getDefaultInstance().getHash();
         onChanged();
         return this;
@@ -42385,9 +43186,11 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder setMetadata(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         metadata_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -42400,7 +43203,7 @@ public final class Types {
        * @return This builder for chaining.
        */
       public Builder clearMetadata() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         metadata_ = getDefaultInstance().getMetadata();
         onChanged();
         return this;
@@ -42438,18 +43241,7 @@ public final class Types {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Snapshot(input, extensionRegistry);
       }
     };
 

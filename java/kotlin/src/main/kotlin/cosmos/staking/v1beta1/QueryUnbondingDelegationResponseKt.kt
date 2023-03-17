@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryUnbondingDelegationResponse")
-public inline fun queryUnbondingDelegationResponse(block: cosmos.staking.v1beta1.QueryUnbondingDelegationResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryUnbondingDelegationResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryUnbondingDelegationResponse(block: cosmos.staking.v1beta1.QueryUnbondingDelegationResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryUnbondingDelegationResponse =
   cosmos.staking.v1beta1.QueryUnbondingDelegationResponseKt.Dsl._create(cosmos.staking.v1beta1.QueryOuterClass.QueryUnbondingDelegationResponse.newBuilder()).apply { block() }._build()
-public object QueryUnbondingDelegationResponseKt {
+object QueryUnbondingDelegationResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryUnbondingDelegationResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryUnbondingDelegationResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.QueryOuterClass.QueryUnbondingDelegationResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryUnbondingDelegationResponseKt {
      *
      * <code>.cosmos.staking.v1beta1.UnbondingDelegation unbond = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var unbond: cosmos.staking.v1beta1.Staking.UnbondingDelegation
+    var unbond: cosmos.staking.v1beta1.Staking.UnbondingDelegation
       @JvmName("getUnbond")
       get() = _builder.getUnbond()
       @JvmName("setUnbond")
@@ -43,7 +43,7 @@ public object QueryUnbondingDelegationResponseKt {
      *
      * <code>.cosmos.staking.v1beta1.UnbondingDelegation unbond = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearUnbond() {
+    fun clearUnbond() {
       _builder.clearUnbond()
     }
     /**
@@ -54,15 +54,11 @@ public object QueryUnbondingDelegationResponseKt {
      * <code>.cosmos.staking.v1beta1.UnbondingDelegation unbond = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the unbond field is set.
      */
-    public fun hasUnbond(): kotlin.Boolean {
+    fun hasUnbond(): kotlin.Boolean {
       return _builder.hasUnbond()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryUnbondingDelegationResponse.copy(block: cosmos.staking.v1beta1.QueryUnbondingDelegationResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryUnbondingDelegationResponse =
+inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryUnbondingDelegationResponse.copy(block: cosmos.staking.v1beta1.QueryUnbondingDelegationResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryUnbondingDelegationResponse =
   cosmos.staking.v1beta1.QueryUnbondingDelegationResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.QueryOuterClass.QueryUnbondingDelegationResponseOrBuilder.unbondOrNull: cosmos.staking.v1beta1.Staking.UnbondingDelegation?
-  get() = if (hasUnbond()) getUnbond() else null
-

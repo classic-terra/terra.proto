@@ -28,32 +28,30 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for cosmos.staking.v1beta1.Msg.
  */
-public object MsgGrpcKt {
-  public const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
+object MsgGrpcKt {
+  const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = MsgGrpc.getServiceDescriptor()
 
-  public val createValidatorMethod:
-      MethodDescriptor<Tx.MsgCreateValidator, Tx.MsgCreateValidatorResponse>
+  val createValidatorMethod: MethodDescriptor<Tx.MsgCreateValidator, Tx.MsgCreateValidatorResponse>
     @JvmStatic
     get() = MsgGrpc.getCreateValidatorMethod()
 
-  public val editValidatorMethod: MethodDescriptor<Tx.MsgEditValidator, Tx.MsgEditValidatorResponse>
+  val editValidatorMethod: MethodDescriptor<Tx.MsgEditValidator, Tx.MsgEditValidatorResponse>
     @JvmStatic
     get() = MsgGrpc.getEditValidatorMethod()
 
-  public val delegateMethod: MethodDescriptor<Tx.MsgDelegate, Tx.MsgDelegateResponse>
+  val delegateMethod: MethodDescriptor<Tx.MsgDelegate, Tx.MsgDelegateResponse>
     @JvmStatic
     get() = MsgGrpc.getDelegateMethod()
 
-  public val beginRedelegateMethod:
-      MethodDescriptor<Tx.MsgBeginRedelegate, Tx.MsgBeginRedelegateResponse>
+  val beginRedelegateMethod: MethodDescriptor<Tx.MsgBeginRedelegate, Tx.MsgBeginRedelegateResponse>
     @JvmStatic
     get() = MsgGrpc.getBeginRedelegateMethod()
 
-  public val undelegateMethod: MethodDescriptor<Tx.MsgUndelegate, Tx.MsgUndelegateResponse>
+  val undelegateMethod: MethodDescriptor<Tx.MsgUndelegate, Tx.MsgUndelegateResponse>
     @JvmStatic
     get() = MsgGrpc.getUndelegateMethod()
 
@@ -61,11 +59,11 @@ public object MsgGrpcKt {
    * A stub for issuing RPCs to a(n) cosmos.staking.v1beta1.Msg service as suspending coroutines.
    */
   @StubFor(MsgGrpc::class)
-  public class MsgCoroutineStub @JvmOverloads constructor(
+  class MsgCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<MsgCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
         MsgCoroutineStub(channel, callOptions)
 
     /**
@@ -76,19 +74,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun createValidator(request: Tx.MsgCreateValidator, headers: Metadata =
-        Metadata()): Tx.MsgCreateValidatorResponse = unaryRpc(
+    suspend fun createValidator(request: Tx.MsgCreateValidator): Tx.MsgCreateValidatorResponse =
+        unaryRpc(
       channel,
       MsgGrpc.getCreateValidatorMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -97,19 +92,15 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun editValidator(request: Tx.MsgEditValidator, headers: Metadata = Metadata()):
-        Tx.MsgEditValidatorResponse = unaryRpc(
+    suspend fun editValidator(request: Tx.MsgEditValidator): Tx.MsgEditValidatorResponse = unaryRpc(
       channel,
       MsgGrpc.getEditValidatorMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -118,19 +109,15 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun `delegate`(request: Tx.MsgDelegate, headers: Metadata = Metadata()):
-        Tx.MsgDelegateResponse = unaryRpc(
+    suspend fun delegate(request: Tx.MsgDelegate): Tx.MsgDelegateResponse = unaryRpc(
       channel,
       MsgGrpc.getDelegateMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -139,19 +126,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun beginRedelegate(request: Tx.MsgBeginRedelegate, headers: Metadata =
-        Metadata()): Tx.MsgBeginRedelegateResponse = unaryRpc(
+    suspend fun beginRedelegate(request: Tx.MsgBeginRedelegate): Tx.MsgBeginRedelegateResponse =
+        unaryRpc(
       channel,
       MsgGrpc.getBeginRedelegateMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -160,25 +144,21 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun undelegate(request: Tx.MsgUndelegate, headers: Metadata = Metadata()):
-        Tx.MsgUndelegateResponse = unaryRpc(
+    suspend fun undelegate(request: Tx.MsgUndelegate): Tx.MsgUndelegateResponse = unaryRpc(
       channel,
       MsgGrpc.getUndelegateMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.staking.v1beta1.Msg service based on Kotlin coroutines.
    */
-  public abstract class MsgCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class MsgCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for cosmos.staking.v1beta1.Msg.CreateValidator.
@@ -191,8 +171,8 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun createValidator(request: Tx.MsgCreateValidator):
-        Tx.MsgCreateValidatorResponse = throw
+    open suspend fun createValidator(request: Tx.MsgCreateValidator): Tx.MsgCreateValidatorResponse
+        = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.staking.v1beta1.Msg.CreateValidator is unimplemented"))
 
     /**
@@ -206,8 +186,8 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun editValidator(request: Tx.MsgEditValidator): Tx.MsgEditValidatorResponse
-        = throw
+    open suspend fun editValidator(request: Tx.MsgEditValidator): Tx.MsgEditValidatorResponse =
+        throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.staking.v1beta1.Msg.EditValidator is unimplemented"))
 
     /**
@@ -221,7 +201,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun `delegate`(request: Tx.MsgDelegate): Tx.MsgDelegateResponse = throw
+    open suspend fun delegate(request: Tx.MsgDelegate): Tx.MsgDelegateResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.staking.v1beta1.Msg.Delegate is unimplemented"))
 
     /**
@@ -235,8 +215,8 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun beginRedelegate(request: Tx.MsgBeginRedelegate):
-        Tx.MsgBeginRedelegateResponse = throw
+    open suspend fun beginRedelegate(request: Tx.MsgBeginRedelegate): Tx.MsgBeginRedelegateResponse
+        = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.staking.v1beta1.Msg.BeginRedelegate is unimplemented"))
 
     /**
@@ -250,11 +230,10 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun undelegate(request: Tx.MsgUndelegate): Tx.MsgUndelegateResponse = throw
+    open suspend fun undelegate(request: Tx.MsgUndelegate): Tx.MsgUndelegateResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.staking.v1beta1.Msg.Undelegate is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = MsgGrpc.getCreateValidatorMethod(),
@@ -268,7 +247,7 @@ public object MsgGrpcKt {
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = MsgGrpc.getDelegateMethod(),
-      implementation = ::`delegate`
+      implementation = ::delegate
     ))
       .addMethod(unaryServerMethodDefinition(
       context = this.context,

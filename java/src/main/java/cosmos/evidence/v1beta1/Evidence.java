@@ -90,6 +90,72 @@ public final class Evidence {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Equivocation(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              height_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (time_ != null) {
+                subBuilder = time_.toBuilder();
+              }
+              time_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(time_);
+                time_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 24: {
+
+              power_ = input.readInt64();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              consensusAddress_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.evidence.v1beta1.Evidence.internal_static_cosmos_evidence_v1beta1_Equivocation_descriptor;
@@ -104,7 +170,7 @@ public final class Evidence {
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 1;
-    private long height_ = 0L;
+    private long height_;
     /**
      * <code>int64 height = 1;</code>
      * @return The height.
@@ -137,11 +203,11 @@ public final class Evidence {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
-      return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+      return getTime();
     }
 
     public static final int POWER_FIELD_NUMBER = 3;
-    private long power_ = 0L;
+    private long power_;
     /**
      * <code>int64 power = 3;</code>
      * @return The power.
@@ -152,8 +218,7 @@ public final class Evidence {
     }
 
     public static final int CONSENSUS_ADDRESS_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object consensusAddress_ = "";
+    private volatile java.lang.Object consensusAddress_;
     /**
      * <code>string consensus_address = 4 [(.gogoproto.moretags) = "yaml:&#92;"consensus_address&#92;""];</code>
      * @return The consensusAddress.
@@ -213,10 +278,10 @@ public final class Evidence {
       if (power_ != 0L) {
         output.writeInt64(3, power_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(consensusAddress_)) {
+      if (!getConsensusAddressBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, consensusAddress_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -237,10 +302,10 @@ public final class Evidence {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, power_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(consensusAddress_)) {
+      if (!getConsensusAddressBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, consensusAddress_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -266,7 +331,7 @@ public final class Evidence {
           != other.getPower()) return false;
       if (!getConsensusAddress()
           .equals(other.getConsensusAddress())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -289,7 +354,7 @@ public final class Evidence {
           getPower());
       hash = (37 * hash) + CONSENSUS_ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getConsensusAddress().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -411,26 +476,34 @@ public final class Evidence {
 
       // Construct using cosmos.evidence.v1beta1.Evidence.Equivocation.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         height_ = 0L;
-        time_ = null;
-        if (timeBuilder_ != null) {
-          timeBuilder_.dispose();
+
+        if (timeBuilder_ == null) {
+          time_ = null;
+        } else {
+          time_ = null;
           timeBuilder_ = null;
         }
         power_ = 0L;
+
         consensusAddress_ = "";
+
         return this;
       }
 
@@ -457,27 +530,16 @@ public final class Evidence {
       @java.lang.Override
       public cosmos.evidence.v1beta1.Evidence.Equivocation buildPartial() {
         cosmos.evidence.v1beta1.Evidence.Equivocation result = new cosmos.evidence.v1beta1.Evidence.Equivocation(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.height_ = height_;
+        if (timeBuilder_ == null) {
+          result.time_ = time_;
+        } else {
+          result.time_ = timeBuilder_.build();
+        }
+        result.power_ = power_;
+        result.consensusAddress_ = consensusAddress_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.evidence.v1beta1.Evidence.Equivocation result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.height_ = height_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.time_ = timeBuilder_ == null
-              ? time_
-              : timeBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.power_ = power_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.consensusAddress_ = consensusAddress_;
-        }
       }
 
       @java.lang.Override
@@ -535,10 +597,9 @@ public final class Evidence {
         }
         if (!other.getConsensusAddress().isEmpty()) {
           consensusAddress_ = other.consensusAddress_;
-          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -553,55 +614,19 @@ public final class Evidence {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.evidence.v1beta1.Evidence.Equivocation parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                height_ = input.readInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                input.readMessage(
-                    getTimeFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                power_ = input.readInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 34: {
-                consensusAddress_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.evidence.v1beta1.Evidence.Equivocation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long height_ ;
       /**
@@ -620,7 +645,6 @@ public final class Evidence {
       public Builder setHeight(long value) {
         
         height_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -629,7 +653,7 @@ public final class Evidence {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         height_ = 0L;
         onChanged();
         return this;
@@ -643,7 +667,7 @@ public final class Evidence {
        * @return Whether the time field is set.
        */
       public boolean hasTime() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return timeBuilder_ != null || time_ != null;
       }
       /**
        * <code>.google.protobuf.Timestamp time = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
@@ -665,11 +689,11 @@ public final class Evidence {
             throw new NullPointerException();
           }
           time_ = value;
+          onChanged();
         } else {
           timeBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -679,11 +703,11 @@ public final class Evidence {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (timeBuilder_ == null) {
           time_ = builderForValue.build();
+          onChanged();
         } else {
           timeBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -691,38 +715,38 @@ public final class Evidence {
        */
       public Builder mergeTime(com.google.protobuf.Timestamp value) {
         if (timeBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            time_ != null &&
-            time_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-            getTimeBuilder().mergeFrom(value);
+          if (time_ != null) {
+            time_ =
+              com.google.protobuf.Timestamp.newBuilder(time_).mergeFrom(value).buildPartial();
           } else {
             time_ = value;
           }
+          onChanged();
         } else {
           timeBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp time = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public Builder clearTime() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        time_ = null;
-        if (timeBuilder_ != null) {
-          timeBuilder_.dispose();
+        if (timeBuilder_ == null) {
+          time_ = null;
+          onChanged();
+        } else {
+          time_ = null;
           timeBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp time = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getTimeFieldBuilder().getBuilder();
       }
@@ -771,7 +795,6 @@ public final class Evidence {
       public Builder setPower(long value) {
         
         power_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -780,7 +803,7 @@ public final class Evidence {
        * @return This builder for chaining.
        */
       public Builder clearPower() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         power_ = 0L;
         onChanged();
         return this;
@@ -827,9 +850,11 @@ public final class Evidence {
        */
       public Builder setConsensusAddress(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         consensusAddress_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -838,8 +863,8 @@ public final class Evidence {
        * @return This builder for chaining.
        */
       public Builder clearConsensusAddress() {
+        
         consensusAddress_ = getDefaultInstance().getConsensusAddress();
-        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -850,10 +875,12 @@ public final class Evidence {
        */
       public Builder setConsensusAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         consensusAddress_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -890,18 +917,7 @@ public final class Evidence {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Equivocation(input, extensionRegistry);
       }
     };
 

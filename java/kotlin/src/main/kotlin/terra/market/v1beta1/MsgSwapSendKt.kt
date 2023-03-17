@@ -3,16 +3,16 @@
 
 package terra.market.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgSwapSend")
-public inline fun msgSwapSend(block: terra.market.v1beta1.MsgSwapSendKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.Tx.MsgSwapSend =
+@kotlin.jvm.JvmSynthetic
+inline fun msgSwapSend(block: terra.market.v1beta1.MsgSwapSendKt.Dsl.() -> Unit): terra.market.v1beta1.Tx.MsgSwapSend =
   terra.market.v1beta1.MsgSwapSendKt.Dsl._create(terra.market.v1beta1.Tx.MsgSwapSend.newBuilder()).apply { block() }._build()
-public object MsgSwapSendKt {
+object MsgSwapSendKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.market.v1beta1.Tx.MsgSwapSend.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.market.v1beta1.Tx.MsgSwapSend.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.market.v1beta1.Tx.MsgSwapSend.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgSwapSendKt {
     /**
      * <code>string from_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"from_address&#92;""];</code>
      */
-    public var fromAddress: kotlin.String
+    var fromAddress: kotlin.String
       @JvmName("getFromAddress")
       get() = _builder.getFromAddress()
       @JvmName("setFromAddress")
@@ -35,14 +35,14 @@ public object MsgSwapSendKt {
     /**
      * <code>string from_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"from_address&#92;""];</code>
      */
-    public fun clearFromAddress() {
+    fun clearFromAddress() {
       _builder.clearFromAddress()
     }
 
     /**
      * <code>string to_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"to_address&#92;""];</code>
      */
-    public var toAddress: kotlin.String
+    var toAddress: kotlin.String
       @JvmName("getToAddress")
       get() = _builder.getToAddress()
       @JvmName("setToAddress")
@@ -52,14 +52,14 @@ public object MsgSwapSendKt {
     /**
      * <code>string to_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"to_address&#92;""];</code>
      */
-    public fun clearToAddress() {
+    fun clearToAddress() {
       _builder.clearToAddress()
     }
 
     /**
      * <code>.cosmos.base.v1beta1.Coin offer_coin = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
      */
-    public var offerCoin: cosmos.base.v1beta1.CoinOuterClass.Coin
+    var offerCoin: cosmos.base.v1beta1.CoinOuterClass.Coin
       @JvmName("getOfferCoin")
       get() = _builder.getOfferCoin()
       @JvmName("setOfferCoin")
@@ -69,21 +69,21 @@ public object MsgSwapSendKt {
     /**
      * <code>.cosmos.base.v1beta1.Coin offer_coin = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
      */
-    public fun clearOfferCoin() {
+    fun clearOfferCoin() {
       _builder.clearOfferCoin()
     }
     /**
      * <code>.cosmos.base.v1beta1.Coin offer_coin = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
      * @return Whether the offerCoin field is set.
      */
-    public fun hasOfferCoin(): kotlin.Boolean {
+    fun hasOfferCoin(): kotlin.Boolean {
       return _builder.hasOfferCoin()
     }
 
     /**
      * <code>string ask_denom = 4 [(.gogoproto.moretags) = "yaml:&#92;"ask_denom&#92;""];</code>
      */
-    public var askDenom: kotlin.String
+    var askDenom: kotlin.String
       @JvmName("getAskDenom")
       get() = _builder.getAskDenom()
       @JvmName("setAskDenom")
@@ -93,15 +93,11 @@ public object MsgSwapSendKt {
     /**
      * <code>string ask_denom = 4 [(.gogoproto.moretags) = "yaml:&#92;"ask_denom&#92;""];</code>
      */
-    public fun clearAskDenom() {
+    fun clearAskDenom() {
       _builder.clearAskDenom()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.market.v1beta1.Tx.MsgSwapSend.copy(block: terra.market.v1beta1.MsgSwapSendKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.Tx.MsgSwapSend =
+inline fun terra.market.v1beta1.Tx.MsgSwapSend.copy(block: terra.market.v1beta1.MsgSwapSendKt.Dsl.() -> Unit): terra.market.v1beta1.Tx.MsgSwapSend =
   terra.market.v1beta1.MsgSwapSendKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.market.v1beta1.Tx.MsgSwapSendOrBuilder.offerCoinOrNull: cosmos.base.v1beta1.CoinOuterClass.Coin?
-  get() = if (hasOfferCoin()) getOfferCoin() else null
-

@@ -3,16 +3,16 @@
 
 package cosmos.mint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeparams")
-public inline fun params(block: cosmos.mint.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): cosmos.mint.v1beta1.Mint.Params =
+@kotlin.jvm.JvmSynthetic
+inline fun params(block: cosmos.mint.v1beta1.ParamsKt.Dsl.() -> Unit): cosmos.mint.v1beta1.Mint.Params =
   cosmos.mint.v1beta1.ParamsKt.Dsl._create(cosmos.mint.v1beta1.Mint.Params.newBuilder()).apply { block() }._build()
-public object ParamsKt {
+object ParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.mint.v1beta1.Mint.Params.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.mint.v1beta1.Mint.Params.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.mint.v1beta1.Mint.Params.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ParamsKt {
      *
      * <code>string mint_denom = 1;</code>
      */
-    public var mintDenom: kotlin.String
+    var mintDenom: kotlin.String
       @JvmName("getMintDenom")
       get() = _builder.getMintDenom()
       @JvmName("setMintDenom")
@@ -43,7 +43,7 @@ public object ParamsKt {
      *
      * <code>string mint_denom = 1;</code>
      */
-    public fun clearMintDenom() {
+    fun clearMintDenom() {
       _builder.clearMintDenom()
     }
 
@@ -54,7 +54,7 @@ public object ParamsKt {
      *
      * <code>string inflation_rate_change = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"inflation_rate_change&#92;""];</code>
      */
-    public var inflationRateChange: kotlin.String
+    var inflationRateChange: kotlin.String
       @JvmName("getInflationRateChange")
       get() = _builder.getInflationRateChange()
       @JvmName("setInflationRateChange")
@@ -68,7 +68,7 @@ public object ParamsKt {
      *
      * <code>string inflation_rate_change = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"inflation_rate_change&#92;""];</code>
      */
-    public fun clearInflationRateChange() {
+    fun clearInflationRateChange() {
       _builder.clearInflationRateChange()
     }
 
@@ -79,7 +79,7 @@ public object ParamsKt {
      *
      * <code>string inflation_max = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"inflation_max&#92;""];</code>
      */
-    public var inflationMax: kotlin.String
+    var inflationMax: kotlin.String
       @JvmName("getInflationMax")
       get() = _builder.getInflationMax()
       @JvmName("setInflationMax")
@@ -93,7 +93,7 @@ public object ParamsKt {
      *
      * <code>string inflation_max = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"inflation_max&#92;""];</code>
      */
-    public fun clearInflationMax() {
+    fun clearInflationMax() {
       _builder.clearInflationMax()
     }
 
@@ -104,7 +104,7 @@ public object ParamsKt {
      *
      * <code>string inflation_min = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"inflation_min&#92;""];</code>
      */
-    public var inflationMin: kotlin.String
+    var inflationMin: kotlin.String
       @JvmName("getInflationMin")
       get() = _builder.getInflationMin()
       @JvmName("setInflationMin")
@@ -118,7 +118,7 @@ public object ParamsKt {
      *
      * <code>string inflation_min = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"inflation_min&#92;""];</code>
      */
-    public fun clearInflationMin() {
+    fun clearInflationMin() {
       _builder.clearInflationMin()
     }
 
@@ -129,7 +129,7 @@ public object ParamsKt {
      *
      * <code>string goal_bonded = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"goal_bonded&#92;""];</code>
      */
-    public var goalBonded: kotlin.String
+    var goalBonded: kotlin.String
       @JvmName("getGoalBonded")
       get() = _builder.getGoalBonded()
       @JvmName("setGoalBonded")
@@ -143,7 +143,7 @@ public object ParamsKt {
      *
      * <code>string goal_bonded = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"goal_bonded&#92;""];</code>
      */
-    public fun clearGoalBonded() {
+    fun clearGoalBonded() {
       _builder.clearGoalBonded()
     }
 
@@ -154,7 +154,7 @@ public object ParamsKt {
      *
      * <code>uint64 blocks_per_year = 6 [(.gogoproto.moretags) = "yaml:&#92;"blocks_per_year&#92;""];</code>
      */
-    public var blocksPerYear: kotlin.Long
+    var blocksPerYear: kotlin.Long
       @JvmName("getBlocksPerYear")
       get() = _builder.getBlocksPerYear()
       @JvmName("setBlocksPerYear")
@@ -168,12 +168,11 @@ public object ParamsKt {
      *
      * <code>uint64 blocks_per_year = 6 [(.gogoproto.moretags) = "yaml:&#92;"blocks_per_year&#92;""];</code>
      */
-    public fun clearBlocksPerYear() {
+    fun clearBlocksPerYear() {
       _builder.clearBlocksPerYear()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.mint.v1beta1.Mint.Params.copy(block: cosmos.mint.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): cosmos.mint.v1beta1.Mint.Params =
+inline fun cosmos.mint.v1beta1.Mint.Params.copy(block: cosmos.mint.v1beta1.ParamsKt.Dsl.() -> Unit): cosmos.mint.v1beta1.Mint.Params =
   cosmos.mint.v1beta1.ParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

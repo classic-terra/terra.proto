@@ -3,16 +3,16 @@
 
 package cosmos.capability.v1beta1;
 
-@kotlin.jvm.JvmName("-initializecapability")
-public inline fun capability(block: cosmos.capability.v1beta1.CapabilityKt.Dsl.() -> kotlin.Unit): cosmos.capability.v1beta1.CapabilityOuterClass.Capability =
+@kotlin.jvm.JvmSynthetic
+inline fun capability(block: cosmos.capability.v1beta1.CapabilityKt.Dsl.() -> Unit): cosmos.capability.v1beta1.CapabilityOuterClass.Capability =
   cosmos.capability.v1beta1.CapabilityKt.Dsl._create(cosmos.capability.v1beta1.CapabilityOuterClass.Capability.newBuilder()).apply { block() }._build()
-public object CapabilityKt {
+object CapabilityKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.capability.v1beta1.CapabilityOuterClass.Capability.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.capability.v1beta1.CapabilityOuterClass.Capability.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.capability.v1beta1.CapabilityOuterClass.Capability.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object CapabilityKt {
     /**
      * <code>uint64 index = 1 [(.gogoproto.moretags) = "yaml:&#92;"index&#92;""];</code>
      */
-    public var index: kotlin.Long
+    var index: kotlin.Long
       @JvmName("getIndex")
       get() = _builder.getIndex()
       @JvmName("setIndex")
@@ -35,12 +35,11 @@ public object CapabilityKt {
     /**
      * <code>uint64 index = 1 [(.gogoproto.moretags) = "yaml:&#92;"index&#92;""];</code>
      */
-    public fun clearIndex() {
+    fun clearIndex() {
       _builder.clearIndex()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.capability.v1beta1.CapabilityOuterClass.Capability.copy(block: cosmos.capability.v1beta1.CapabilityKt.Dsl.() -> kotlin.Unit): cosmos.capability.v1beta1.CapabilityOuterClass.Capability =
+inline fun cosmos.capability.v1beta1.CapabilityOuterClass.Capability.copy(block: cosmos.capability.v1beta1.CapabilityKt.Dsl.() -> Unit): cosmos.capability.v1beta1.CapabilityOuterClass.Capability =
   cosmos.capability.v1beta1.CapabilityKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

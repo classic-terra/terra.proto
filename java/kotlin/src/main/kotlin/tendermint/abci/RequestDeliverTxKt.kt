@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializerequestDeliverTx")
-public inline fun requestDeliverTx(block: tendermint.abci.RequestDeliverTxKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.RequestDeliverTx =
+@kotlin.jvm.JvmSynthetic
+inline fun requestDeliverTx(block: tendermint.abci.RequestDeliverTxKt.Dsl.() -> Unit): tendermint.abci.Types.RequestDeliverTx =
   tendermint.abci.RequestDeliverTxKt.Dsl._create(tendermint.abci.Types.RequestDeliverTx.newBuilder()).apply { block() }._build()
-public object RequestDeliverTxKt {
+object RequestDeliverTxKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.RequestDeliverTx.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.RequestDeliverTx.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.RequestDeliverTx.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object RequestDeliverTxKt {
     /**
      * <code>bytes tx = 1;</code>
      */
-    public var tx: com.google.protobuf.ByteString
+    var tx: com.google.protobuf.ByteString
       @JvmName("getTx")
       get() = _builder.getTx()
       @JvmName("setTx")
@@ -35,12 +35,11 @@ public object RequestDeliverTxKt {
     /**
      * <code>bytes tx = 1;</code>
      */
-    public fun clearTx() {
+    fun clearTx() {
       _builder.clearTx()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.RequestDeliverTx.copy(block: tendermint.abci.RequestDeliverTxKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.RequestDeliverTx =
+inline fun tendermint.abci.Types.RequestDeliverTx.copy(block: tendermint.abci.RequestDeliverTxKt.Dsl.() -> Unit): tendermint.abci.Types.RequestDeliverTx =
   tendermint.abci.RequestDeliverTxKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

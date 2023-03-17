@@ -3,16 +3,16 @@
 
 package ibc.core.commitment.v1;
 
-@kotlin.jvm.JvmName("-initializemerkleProof")
-public inline fun merkleProof(block: ibc.core.commitment.v1.MerkleProofKt.Dsl.() -> kotlin.Unit): ibc.core.commitment.v1.Commitment.MerkleProof =
+@kotlin.jvm.JvmSynthetic
+inline fun merkleProof(block: ibc.core.commitment.v1.MerkleProofKt.Dsl.() -> Unit): ibc.core.commitment.v1.Commitment.MerkleProof =
   ibc.core.commitment.v1.MerkleProofKt.Dsl._create(ibc.core.commitment.v1.Commitment.MerkleProof.newBuilder()).apply { block() }._build()
-public object MerkleProofKt {
+object MerkleProofKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.commitment.v1.Commitment.MerkleProof.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.commitment.v1.Commitment.MerkleProof.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.commitment.v1.Commitment.MerkleProof.Builder): Dsl = Dsl(builder)
@@ -27,11 +27,11 @@ public object MerkleProofKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ProofsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ProofsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .ics23.CommitmentProof proofs = 1;</code>
      */
-     public val proofs: com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>
+     val proofs: com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getProofsList()
@@ -42,60 +42,50 @@ public object MerkleProofKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addProofs")
-    public fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.add(value: ics23.Proofs.CommitmentProof) {
+    fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.add(value: ics23.Proofs.CommitmentProof) {
       _builder.addProofs(value)
-    }
-    /**
+    }/**
      * <code>repeated .ics23.CommitmentProof proofs = 1;</code>
      * @param value The proofs to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignProofs")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.plusAssign(value: ics23.Proofs.CommitmentProof) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.plusAssign(value: ics23.Proofs.CommitmentProof) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .ics23.CommitmentProof proofs = 1;</code>
      * @param values The proofs to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllProofs")
-    public fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.addAll(values: kotlin.collections.Iterable<ics23.Proofs.CommitmentProof>) {
+    fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.addAll(values: kotlin.collections.Iterable<ics23.Proofs.CommitmentProof>) {
       _builder.addAllProofs(values)
-    }
-    /**
+    }/**
      * <code>repeated .ics23.CommitmentProof proofs = 1;</code>
      * @param values The proofs to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllProofs")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.plusAssign(values: kotlin.collections.Iterable<ics23.Proofs.CommitmentProof>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.plusAssign(values: kotlin.collections.Iterable<ics23.Proofs.CommitmentProof>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .ics23.CommitmentProof proofs = 1;</code>
      * @param index The index to set the value at.
      * @param value The proofs to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setProofs")
-    public operator fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.set(index: kotlin.Int, value: ics23.Proofs.CommitmentProof) {
+    operator fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.set(index: kotlin.Int, value: ics23.Proofs.CommitmentProof) {
       _builder.setProofs(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .ics23.CommitmentProof proofs = 1;</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearProofs")
-    public fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<ics23.Proofs.CommitmentProof, ProofsProxy>.clear() {
       _builder.clearProofs()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.commitment.v1.Commitment.MerkleProof.copy(block: ibc.core.commitment.v1.MerkleProofKt.Dsl.() -> kotlin.Unit): ibc.core.commitment.v1.Commitment.MerkleProof =
+inline fun ibc.core.commitment.v1.Commitment.MerkleProof.copy(block: ibc.core.commitment.v1.MerkleProofKt.Dsl.() -> Unit): ibc.core.commitment.v1.Commitment.MerkleProof =
   ibc.core.commitment.v1.MerkleProofKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

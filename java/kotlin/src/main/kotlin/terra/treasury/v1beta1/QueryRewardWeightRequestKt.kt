@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryRewardWeightRequest")
-public inline fun queryRewardWeightRequest(block: terra.treasury.v1beta1.QueryRewardWeightRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryRewardWeightRequest(block: terra.treasury.v1beta1.QueryRewardWeightRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightRequest =
   terra.treasury.v1beta1.QueryRewardWeightRequestKt.Dsl._create(terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightRequest.newBuilder()).apply { block() }._build()
-public object QueryRewardWeightRequestKt {
+object QueryRewardWeightRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryRewardWeightRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightRequest.copy(block: terra.treasury.v1beta1.QueryRewardWeightRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightRequest =
+inline fun terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightRequest.copy(block: terra.treasury.v1beta1.QueryRewardWeightRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightRequest =
   terra.treasury.v1beta1.QueryRewardWeightRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

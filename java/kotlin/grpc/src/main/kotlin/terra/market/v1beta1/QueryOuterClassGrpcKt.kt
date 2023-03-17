@@ -28,25 +28,25 @@ import terra.market.v1beta1.QueryGrpc.getServiceDescriptor
 /**
  * Holder for Kotlin coroutine-based client and server APIs for terra.market.v1beta1.Query.
  */
-public object QueryGrpcKt {
-  public const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
+object QueryGrpcKt {
+  const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = QueryGrpc.getServiceDescriptor()
 
-  public val swapMethod:
-      MethodDescriptor<QueryOuterClass.QuerySwapRequest, QueryOuterClass.QuerySwapResponse>
+  val swapMethod: MethodDescriptor<QueryOuterClass.QuerySwapRequest,
+      QueryOuterClass.QuerySwapResponse>
     @JvmStatic
     get() = QueryGrpc.getSwapMethod()
 
-  public val terraPoolDeltaMethod:
-      MethodDescriptor<QueryOuterClass.QueryTerraPoolDeltaRequest, QueryOuterClass.QueryTerraPoolDeltaResponse>
+  val terraPoolDeltaMethod: MethodDescriptor<QueryOuterClass.QueryTerraPoolDeltaRequest,
+      QueryOuterClass.QueryTerraPoolDeltaResponse>
     @JvmStatic
     get() = QueryGrpc.getTerraPoolDeltaMethod()
 
-  public val paramsMethod:
-      MethodDescriptor<QueryOuterClass.QueryParamsRequest, QueryOuterClass.QueryParamsResponse>
+  val paramsMethod: MethodDescriptor<QueryOuterClass.QueryParamsRequest,
+      QueryOuterClass.QueryParamsResponse>
     @JvmStatic
     get() = QueryGrpc.getParamsMethod()
 
@@ -54,11 +54,11 @@ public object QueryGrpcKt {
    * A stub for issuing RPCs to a(n) terra.market.v1beta1.Query service as suspending coroutines.
    */
   @StubFor(QueryGrpc::class)
-  public class QueryCoroutineStub @JvmOverloads constructor(
+  class QueryCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<QueryCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
         QueryCoroutineStub(channel, callOptions)
 
     /**
@@ -69,19 +69,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun swap(request: QueryOuterClass.QuerySwapRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QuerySwapResponse = unaryRpc(
+    suspend fun swap(request: QueryOuterClass.QuerySwapRequest): QueryOuterClass.QuerySwapResponse =
+        unaryRpc(
       channel,
       QueryGrpc.getSwapMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -90,19 +87,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun terraPoolDelta(request: QueryOuterClass.QueryTerraPoolDeltaRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryTerraPoolDeltaResponse = unaryRpc(
+    suspend fun terraPoolDelta(request: QueryOuterClass.QueryTerraPoolDeltaRequest):
+        QueryOuterClass.QueryTerraPoolDeltaResponse = unaryRpc(
       channel,
       QueryGrpc.getTerraPoolDeltaMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -111,25 +105,22 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun params(request: QueryOuterClass.QueryParamsRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryParamsResponse = unaryRpc(
+    suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+        QueryOuterClass.QueryParamsResponse = unaryRpc(
       channel,
       QueryGrpc.getParamsMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the terra.market.v1beta1.Query service based on Kotlin coroutines.
    */
-  public abstract class QueryCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class QueryCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for terra.market.v1beta1.Query.Swap.
@@ -142,7 +133,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun swap(request: QueryOuterClass.QuerySwapRequest):
+    open suspend fun swap(request: QueryOuterClass.QuerySwapRequest):
         QueryOuterClass.QuerySwapResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.market.v1beta1.Query.Swap is unimplemented"))
 
@@ -157,7 +148,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun terraPoolDelta(request: QueryOuterClass.QueryTerraPoolDeltaRequest):
+    open suspend fun terraPoolDelta(request: QueryOuterClass.QueryTerraPoolDeltaRequest):
         QueryOuterClass.QueryTerraPoolDeltaResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.market.v1beta1.Query.TerraPoolDelta is unimplemented"))
 
@@ -172,12 +163,11 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+    open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
         QueryOuterClass.QueryParamsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.market.v1beta1.Query.Params is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = QueryGrpc.getSwapMethod(),

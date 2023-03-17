@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeweightedVoteOption")
-public inline fun weightedVoteOption(block: cosmos.gov.v1beta1.WeightedVoteOptionKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Gov.WeightedVoteOption =
+@kotlin.jvm.JvmSynthetic
+inline fun weightedVoteOption(block: cosmos.gov.v1beta1.WeightedVoteOptionKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Gov.WeightedVoteOption =
   cosmos.gov.v1beta1.WeightedVoteOptionKt.Dsl._create(cosmos.gov.v1beta1.Gov.WeightedVoteOption.newBuilder()).apply { block() }._build()
-public object WeightedVoteOptionKt {
+object WeightedVoteOptionKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.Gov.WeightedVoteOption.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.Gov.WeightedVoteOption.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.Gov.WeightedVoteOption.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object WeightedVoteOptionKt {
     /**
      * <code>.cosmos.gov.v1beta1.VoteOption option = 1;</code>
      */
-    public var option: cosmos.gov.v1beta1.Gov.VoteOption
+    var option: cosmos.gov.v1beta1.Gov.VoteOption
       @JvmName("getOption")
       get() = _builder.getOption()
       @JvmName("setOption")
@@ -35,14 +35,14 @@ public object WeightedVoteOptionKt {
     /**
      * <code>.cosmos.gov.v1beta1.VoteOption option = 1;</code>
      */
-    public fun clearOption() {
+    fun clearOption() {
       _builder.clearOption()
     }
 
     /**
      * <code>string weight = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"weight&#92;""];</code>
      */
-    public var weight: kotlin.String
+    var weight: kotlin.String
       @JvmName("getWeight")
       get() = _builder.getWeight()
       @JvmName("setWeight")
@@ -52,12 +52,11 @@ public object WeightedVoteOptionKt {
     /**
      * <code>string weight = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"weight&#92;""];</code>
      */
-    public fun clearWeight() {
+    fun clearWeight() {
       _builder.clearWeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.Gov.WeightedVoteOption.copy(block: cosmos.gov.v1beta1.WeightedVoteOptionKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Gov.WeightedVoteOption =
+inline fun cosmos.gov.v1beta1.Gov.WeightedVoteOption.copy(block: cosmos.gov.v1beta1.WeightedVoteOptionKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Gov.WeightedVoteOption =
   cosmos.gov.v1beta1.WeightedVoteOptionKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

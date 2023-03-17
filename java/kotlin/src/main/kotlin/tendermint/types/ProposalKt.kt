@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializeproposal")
-public inline fun proposal(block: tendermint.types.ProposalKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.Proposal =
+@kotlin.jvm.JvmSynthetic
+inline fun proposal(block: tendermint.types.ProposalKt.Dsl.() -> Unit): tendermint.types.Types.Proposal =
   tendermint.types.ProposalKt.Dsl._create(tendermint.types.Types.Proposal.newBuilder()).apply { block() }._build()
-public object ProposalKt {
+object ProposalKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.Types.Proposal.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.Types.Proposal.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.Types.Proposal.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ProposalKt {
     /**
      * <code>.tendermint.types.SignedMsgType type = 1;</code>
      */
-    public var type: tendermint.types.Types.SignedMsgType
+    var type: tendermint.types.Types.SignedMsgType
       @JvmName("getType")
       get() = _builder.getType()
       @JvmName("setType")
@@ -35,14 +35,14 @@ public object ProposalKt {
     /**
      * <code>.tendermint.types.SignedMsgType type = 1;</code>
      */
-    public fun clearType() {
+    fun clearType() {
       _builder.clearType()
     }
 
     /**
      * <code>int64 height = 2;</code>
      */
-    public var height: kotlin.Long
+    var height: kotlin.Long
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -52,14 +52,14 @@ public object ProposalKt {
     /**
      * <code>int64 height = 2;</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
 
     /**
      * <code>int32 round = 3;</code>
      */
-    public var round: kotlin.Int
+    var round: kotlin.Int
       @JvmName("getRound")
       get() = _builder.getRound()
       @JvmName("setRound")
@@ -69,14 +69,14 @@ public object ProposalKt {
     /**
      * <code>int32 round = 3;</code>
      */
-    public fun clearRound() {
+    fun clearRound() {
       _builder.clearRound()
     }
 
     /**
      * <code>int32 pol_round = 4;</code>
      */
-    public var polRound: kotlin.Int
+    var polRound: kotlin.Int
       @JvmName("getPolRound")
       get() = _builder.getPolRound()
       @JvmName("setPolRound")
@@ -86,14 +86,14 @@ public object ProposalKt {
     /**
      * <code>int32 pol_round = 4;</code>
      */
-    public fun clearPolRound() {
+    fun clearPolRound() {
       _builder.clearPolRound()
     }
 
     /**
      * <code>.tendermint.types.BlockID block_id = 5 [(.gogoproto.nullable) = false, (.gogoproto.customname) = "BlockID"];</code>
      */
-    public var blockId: tendermint.types.Types.BlockID
+    var blockId: tendermint.types.Types.BlockID
       @JvmName("getBlockId")
       get() = _builder.getBlockId()
       @JvmName("setBlockId")
@@ -103,21 +103,21 @@ public object ProposalKt {
     /**
      * <code>.tendermint.types.BlockID block_id = 5 [(.gogoproto.nullable) = false, (.gogoproto.customname) = "BlockID"];</code>
      */
-    public fun clearBlockId() {
+    fun clearBlockId() {
       _builder.clearBlockId()
     }
     /**
      * <code>.tendermint.types.BlockID block_id = 5 [(.gogoproto.nullable) = false, (.gogoproto.customname) = "BlockID"];</code>
      * @return Whether the blockId field is set.
      */
-    public fun hasBlockId(): kotlin.Boolean {
+    fun hasBlockId(): kotlin.Boolean {
       return _builder.hasBlockId()
     }
 
     /**
      * <code>.google.protobuf.Timestamp timestamp = 6 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public var timestamp: com.google.protobuf.Timestamp
+    var timestamp: com.google.protobuf.Timestamp
       @JvmName("getTimestamp")
       get() = _builder.getTimestamp()
       @JvmName("setTimestamp")
@@ -127,21 +127,21 @@ public object ProposalKt {
     /**
      * <code>.google.protobuf.Timestamp timestamp = 6 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearTimestamp() {
+    fun clearTimestamp() {
       _builder.clearTimestamp()
     }
     /**
      * <code>.google.protobuf.Timestamp timestamp = 6 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      * @return Whether the timestamp field is set.
      */
-    public fun hasTimestamp(): kotlin.Boolean {
+    fun hasTimestamp(): kotlin.Boolean {
       return _builder.hasTimestamp()
     }
 
     /**
      * <code>bytes signature = 7;</code>
      */
-    public var signature: com.google.protobuf.ByteString
+    var signature: com.google.protobuf.ByteString
       @JvmName("getSignature")
       get() = _builder.getSignature()
       @JvmName("setSignature")
@@ -151,18 +151,11 @@ public object ProposalKt {
     /**
      * <code>bytes signature = 7;</code>
      */
-    public fun clearSignature() {
+    fun clearSignature() {
       _builder.clearSignature()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.Types.Proposal.copy(block: tendermint.types.ProposalKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.Proposal =
+inline fun tendermint.types.Types.Proposal.copy(block: tendermint.types.ProposalKt.Dsl.() -> Unit): tendermint.types.Types.Proposal =
   tendermint.types.ProposalKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.Types.ProposalOrBuilder.blockIdOrNull: tendermint.types.Types.BlockID?
-  get() = if (hasBlockId()) getBlockId() else null
-
-public val tendermint.types.Types.ProposalOrBuilder.timestampOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasTimestamp()) getTimestamp() else null
-

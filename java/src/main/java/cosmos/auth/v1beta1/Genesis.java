@@ -121,6 +121,69 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GenesisState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cosmos.auth.v1beta1.Auth.Params.Builder subBuilder = null;
+              if (params_ != null) {
+                subBuilder = params_.toBuilder();
+              }
+              params_ = input.readMessage(cosmos.auth.v1beta1.Auth.Params.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(params_);
+                params_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                accounts_ = new java.util.ArrayList<com.google.protobuf.Any>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              accounts_.add(
+                  input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          accounts_ = java.util.Collections.unmodifiableList(accounts_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.auth.v1beta1.Genesis.internal_static_cosmos_auth_v1beta1_GenesisState_descriptor;
@@ -169,11 +232,10 @@ public final class Genesis {
      */
     @java.lang.Override
     public cosmos.auth.v1beta1.Auth.ParamsOrBuilder getParamsOrBuilder() {
-      return params_ == null ? cosmos.auth.v1beta1.Auth.Params.getDefaultInstance() : params_;
+      return getParams();
     }
 
     public static final int ACCOUNTS_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private java.util.List<com.google.protobuf.Any> accounts_;
     /**
      * <pre>
@@ -253,7 +315,7 @@ public final class Genesis {
       for (int i = 0; i < accounts_.size(); i++) {
         output.writeMessage(2, accounts_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -270,7 +332,7 @@ public final class Genesis {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, accounts_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -292,7 +354,7 @@ public final class Genesis {
       }
       if (!getAccountsList()
           .equals(other.getAccountsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -311,7 +373,7 @@ public final class Genesis {
         hash = (37 * hash) + ACCOUNTS_FIELD_NUMBER;
         hash = (53 * hash) + getAccountsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -432,30 +494,35 @@ public final class Genesis {
 
       // Construct using cosmos.auth.v1beta1.Genesis.GenesisState.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getAccountsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        params_ = null;
-        if (paramsBuilder_ != null) {
-          paramsBuilder_.dispose();
+        if (paramsBuilder_ == null) {
+          params_ = null;
+        } else {
+          params_ = null;
           paramsBuilder_ = null;
         }
         if (accountsBuilder_ == null) {
           accounts_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          accounts_ = null;
           accountsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -482,31 +549,23 @@ public final class Genesis {
       @java.lang.Override
       public cosmos.auth.v1beta1.Genesis.GenesisState buildPartial() {
         cosmos.auth.v1beta1.Genesis.GenesisState result = new cosmos.auth.v1beta1.Genesis.GenesisState(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(cosmos.auth.v1beta1.Genesis.GenesisState result) {
+        int from_bitField0_ = bitField0_;
+        if (paramsBuilder_ == null) {
+          result.params_ = params_;
+        } else {
+          result.params_ = paramsBuilder_.build();
+        }
         if (accountsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             accounts_ = java.util.Collections.unmodifiableList(accounts_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.accounts_ = accounts_;
         } else {
           result.accounts_ = accountsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(cosmos.auth.v1beta1.Genesis.GenesisState result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.params_ = paramsBuilder_ == null
-              ? params_
-              : paramsBuilder_.build();
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -560,7 +619,7 @@ public final class Genesis {
           if (!other.accounts_.isEmpty()) {
             if (accounts_.isEmpty()) {
               accounts_ = other.accounts_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureAccountsIsMutable();
               accounts_.addAll(other.accounts_);
@@ -573,7 +632,7 @@ public final class Genesis {
               accountsBuilder_.dispose();
               accountsBuilder_ = null;
               accounts_ = other.accounts_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               accountsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAccountsFieldBuilder() : null;
@@ -582,7 +641,7 @@ public final class Genesis {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -597,50 +656,17 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.auth.v1beta1.Genesis.GenesisState parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getParamsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                com.google.protobuf.Any m =
-                    input.readMessage(
-                        com.google.protobuf.Any.parser(),
-                        extensionRegistry);
-                if (accountsBuilder_ == null) {
-                  ensureAccountsIsMutable();
-                  accounts_.add(m);
-                } else {
-                  accountsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.auth.v1beta1.Genesis.GenesisState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -657,7 +683,7 @@ public final class Genesis {
        * @return Whether the params field is set.
        */
       public boolean hasParams() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return paramsBuilder_ != null || params_ != null;
       }
       /**
        * <pre>
@@ -687,11 +713,11 @@ public final class Genesis {
             throw new NullPointerException();
           }
           params_ = value;
+          onChanged();
         } else {
           paramsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -705,11 +731,11 @@ public final class Genesis {
           cosmos.auth.v1beta1.Auth.Params.Builder builderForValue) {
         if (paramsBuilder_ == null) {
           params_ = builderForValue.build();
+          onChanged();
         } else {
           paramsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -721,18 +747,17 @@ public final class Genesis {
        */
       public Builder mergeParams(cosmos.auth.v1beta1.Auth.Params value) {
         if (paramsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            params_ != null &&
-            params_ != cosmos.auth.v1beta1.Auth.Params.getDefaultInstance()) {
-            getParamsBuilder().mergeFrom(value);
+          if (params_ != null) {
+            params_ =
+              cosmos.auth.v1beta1.Auth.Params.newBuilder(params_).mergeFrom(value).buildPartial();
           } else {
             params_ = value;
           }
+          onChanged();
         } else {
           paramsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -743,13 +768,14 @@ public final class Genesis {
        * <code>.cosmos.auth.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearParams() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        params_ = null;
-        if (paramsBuilder_ != null) {
-          paramsBuilder_.dispose();
+        if (paramsBuilder_ == null) {
+          params_ = null;
+          onChanged();
+        } else {
+          params_ = null;
           paramsBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -760,7 +786,7 @@ public final class Genesis {
        * <code>.cosmos.auth.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
        */
       public cosmos.auth.v1beta1.Auth.Params.Builder getParamsBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getParamsFieldBuilder().getBuilder();
       }
@@ -803,9 +829,9 @@ public final class Genesis {
       private java.util.List<com.google.protobuf.Any> accounts_ =
         java.util.Collections.emptyList();
       private void ensureAccountsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           accounts_ = new java.util.ArrayList<com.google.protobuf.Any>(accounts_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -999,7 +1025,7 @@ public final class Genesis {
       public Builder clearAccounts() {
         if (accountsBuilder_ == null) {
           accounts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           accountsBuilder_.clear();
@@ -1104,7 +1130,7 @@ public final class Genesis {
           accountsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
                   accounts_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           accounts_ = null;
@@ -1144,18 +1170,7 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GenesisState(input, extensionRegistry);
       }
     };
 

@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializestakeAuthorization")
-public inline fun stakeAuthorization(block: cosmos.staking.v1beta1.StakeAuthorizationKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Authz.StakeAuthorization =
+@kotlin.jvm.JvmSynthetic
+inline fun stakeAuthorization(block: cosmos.staking.v1beta1.StakeAuthorizationKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Authz.StakeAuthorization =
   cosmos.staking.v1beta1.StakeAuthorizationKt.Dsl._create(cosmos.staking.v1beta1.Authz.StakeAuthorization.newBuilder()).apply { block() }._build()
-public object StakeAuthorizationKt {
+object StakeAuthorizationKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Authz.StakeAuthorization.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Authz.StakeAuthorization.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Authz.StakeAuthorization.Builder): Dsl = Dsl(builder)
@@ -30,7 +30,7 @@ public object StakeAuthorizationKt {
      *
      * <code>.cosmos.base.v1beta1.Coin max_tokens = 1 [(.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coin"];</code>
      */
-    public var maxTokens: cosmos.base.v1beta1.CoinOuterClass.Coin
+    var maxTokens: cosmos.base.v1beta1.CoinOuterClass.Coin
       @JvmName("getMaxTokens")
       get() = _builder.getMaxTokens()
       @JvmName("setMaxTokens")
@@ -45,7 +45,7 @@ public object StakeAuthorizationKt {
      *
      * <code>.cosmos.base.v1beta1.Coin max_tokens = 1 [(.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coin"];</code>
      */
-    public fun clearMaxTokens() {
+    fun clearMaxTokens() {
       _builder.clearMaxTokens()
     }
     /**
@@ -57,7 +57,7 @@ public object StakeAuthorizationKt {
      * <code>.cosmos.base.v1beta1.Coin max_tokens = 1 [(.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coin"];</code>
      * @return Whether the maxTokens field is set.
      */
-    public fun hasMaxTokens(): kotlin.Boolean {
+    fun hasMaxTokens(): kotlin.Boolean {
       return _builder.hasMaxTokens()
     }
 
@@ -69,7 +69,7 @@ public object StakeAuthorizationKt {
      *
      * <code>.cosmos.staking.v1beta1.StakeAuthorization.Validators allow_list = 2;</code>
      */
-    public var allowList: cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators
+    var allowList: cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators
       @JvmName("getAllowList")
       get() = _builder.getAllowList()
       @JvmName("setAllowList")
@@ -84,7 +84,7 @@ public object StakeAuthorizationKt {
      *
      * <code>.cosmos.staking.v1beta1.StakeAuthorization.Validators allow_list = 2;</code>
      */
-    public fun clearAllowList() {
+    fun clearAllowList() {
       _builder.clearAllowList()
     }
     /**
@@ -96,7 +96,7 @@ public object StakeAuthorizationKt {
      * <code>.cosmos.staking.v1beta1.StakeAuthorization.Validators allow_list = 2;</code>
      * @return Whether the allowList field is set.
      */
-    public fun hasAllowList(): kotlin.Boolean {
+    fun hasAllowList(): kotlin.Boolean {
       return _builder.hasAllowList()
     }
 
@@ -107,7 +107,7 @@ public object StakeAuthorizationKt {
      *
      * <code>.cosmos.staking.v1beta1.StakeAuthorization.Validators deny_list = 3;</code>
      */
-    public var denyList: cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators
+    var denyList: cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators
       @JvmName("getDenyList")
       get() = _builder.getDenyList()
       @JvmName("setDenyList")
@@ -121,7 +121,7 @@ public object StakeAuthorizationKt {
      *
      * <code>.cosmos.staking.v1beta1.StakeAuthorization.Validators deny_list = 3;</code>
      */
-    public fun clearDenyList() {
+    fun clearDenyList() {
       _builder.clearDenyList()
     }
     /**
@@ -132,7 +132,7 @@ public object StakeAuthorizationKt {
      * <code>.cosmos.staking.v1beta1.StakeAuthorization.Validators deny_list = 3;</code>
      * @return Whether the denyList field is set.
      */
-    public fun hasDenyList(): kotlin.Boolean {
+    fun hasDenyList(): kotlin.Boolean {
       return _builder.hasDenyList()
     }
 
@@ -143,7 +143,7 @@ public object StakeAuthorizationKt {
      *
      * <code>.cosmos.staking.v1beta1.AuthorizationType authorization_type = 4;</code>
      */
-    public var authorizationType: cosmos.staking.v1beta1.Authz.AuthorizationType
+    var authorizationType: cosmos.staking.v1beta1.Authz.AuthorizationType
       @JvmName("getAuthorizationType")
       get() = _builder.getAuthorizationType()
       @JvmName("setAuthorizationType")
@@ -157,27 +157,27 @@ public object StakeAuthorizationKt {
      *
      * <code>.cosmos.staking.v1beta1.AuthorizationType authorization_type = 4;</code>
      */
-    public fun clearAuthorizationType() {
+    fun clearAuthorizationType() {
       _builder.clearAuthorizationType()
     }
-    public val validatorsCase: cosmos.staking.v1beta1.Authz.StakeAuthorization.ValidatorsCase
+    val validatorsCase: cosmos.staking.v1beta1.Authz.StakeAuthorization.ValidatorsCase
       @JvmName("getValidatorsCase")
       get() = _builder.getValidatorsCase()
 
-    public fun clearValidators() {
+    fun clearValidators() {
       _builder.clearValidators()
     }
   }
-  @kotlin.jvm.JvmName("-initializevalidators")
-  public inline fun validators(block: cosmos.staking.v1beta1.StakeAuthorizationKt.ValidatorsKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators =
+  @kotlin.jvm.JvmSynthetic
+  inline fun validators(block: cosmos.staking.v1beta1.StakeAuthorizationKt.ValidatorsKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators =
     cosmos.staking.v1beta1.StakeAuthorizationKt.ValidatorsKt.Dsl._create(cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators.newBuilder()).apply { block() }._build()
-  public object ValidatorsKt {
+  object ValidatorsKt {
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
     @com.google.protobuf.kotlin.ProtoDslMarker
-    public class Dsl private constructor(
-      private val _builder: cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators.Builder
+    class Dsl private constructor(
+      @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators.Builder
     ) {
-      public companion object {
+      companion object {
         @kotlin.jvm.JvmSynthetic
         @kotlin.PublishedApi
         internal fun _create(builder: cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators.Builder): Dsl = Dsl(builder)
@@ -192,13 +192,13 @@ public object StakeAuthorizationKt {
        * generics.
        */
       @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-      public class AddressProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+      class AddressProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
       /**
        * <code>repeated string address = 1;</code>
        * @return A list containing the address.
        */
-      public val address: com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>
-        @kotlin.jvm.JvmSynthetic
+      val address: com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>
+        @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
         get() = com.google.protobuf.kotlin.DslList(
           _builder.getAddressList()
         )
@@ -208,7 +208,7 @@ public object StakeAuthorizationKt {
        */
       @kotlin.jvm.JvmSynthetic
       @kotlin.jvm.JvmName("addAddress")
-      public fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.add(value: kotlin.String) {
+      fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.add(value: kotlin.String) {
         _builder.addAddress(value)
       }
       /**
@@ -217,9 +217,8 @@ public object StakeAuthorizationKt {
        */
       @kotlin.jvm.JvmSynthetic
       @kotlin.jvm.JvmName("plusAssignAddress")
-      @Suppress("NOTHING_TO_INLINE")
-      public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.plusAssign(value: kotlin.String) {
-        add(value)
+      operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.plusAssign(value: kotlin.String) {
+        _builder.addAddress(value)
       }
       /**
        * <code>repeated string address = 1;</code>
@@ -227,7 +226,7 @@ public object StakeAuthorizationKt {
        */
       @kotlin.jvm.JvmSynthetic
       @kotlin.jvm.JvmName("addAllAddress")
-      public fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
+      fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
         _builder.addAllAddress(values)
       }
       /**
@@ -236,9 +235,8 @@ public object StakeAuthorizationKt {
        */
       @kotlin.jvm.JvmSynthetic
       @kotlin.jvm.JvmName("plusAssignAllAddress")
-      @Suppress("NOTHING_TO_INLINE")
-      public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
-        addAll(values)
+      operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
+        _builder.addAllAddress(values)
       }
       /**
        * <code>repeated string address = 1;</code>
@@ -247,32 +245,21 @@ public object StakeAuthorizationKt {
        */
       @kotlin.jvm.JvmSynthetic
       @kotlin.jvm.JvmName("setAddress")
-      public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.set(index: kotlin.Int, value: kotlin.String) {
+      operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.set(index: kotlin.Int, value: kotlin.String) {
         _builder.setAddress(index, value)
       }/**
        * <code>repeated string address = 1;</code>
        */
       @kotlin.jvm.JvmSynthetic
       @kotlin.jvm.JvmName("clearAddress")
-      public fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.clear() {
+      fun com.google.protobuf.kotlin.DslList<kotlin.String, AddressProxy>.clear() {
         _builder.clearAddress()
       }}
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Authz.StakeAuthorization.copy(block: cosmos.staking.v1beta1.StakeAuthorizationKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Authz.StakeAuthorization =
+inline fun cosmos.staking.v1beta1.Authz.StakeAuthorization.copy(block: cosmos.staking.v1beta1.StakeAuthorizationKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Authz.StakeAuthorization =
   cosmos.staking.v1beta1.StakeAuthorizationKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators.copy(block: cosmos.staking.v1beta1.StakeAuthorizationKt.ValidatorsKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators =
+inline fun cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators.copy(block: cosmos.staking.v1beta1.StakeAuthorizationKt.ValidatorsKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators =
   cosmos.staking.v1beta1.StakeAuthorizationKt.ValidatorsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.Authz.StakeAuthorizationOrBuilder.maxTokensOrNull: cosmos.base.v1beta1.CoinOuterClass.Coin?
-  get() = if (hasMaxTokens()) getMaxTokens() else null
-
-public val cosmos.staking.v1beta1.Authz.StakeAuthorizationOrBuilder.allowListOrNull: cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators?
-  get() = if (hasAllowList()) getAllowList() else null
-
-public val cosmos.staking.v1beta1.Authz.StakeAuthorizationOrBuilder.denyListOrNull: cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators?
-  get() = if (hasDenyList()) getDenyList() else null
-

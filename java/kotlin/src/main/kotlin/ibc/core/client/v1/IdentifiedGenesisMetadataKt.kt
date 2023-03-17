@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializeidentifiedGenesisMetadata")
-public inline fun identifiedGenesisMetadata(block: ibc.core.client.v1.IdentifiedGenesisMetadataKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Genesis.IdentifiedGenesisMetadata =
+@kotlin.jvm.JvmSynthetic
+inline fun identifiedGenesisMetadata(block: ibc.core.client.v1.IdentifiedGenesisMetadataKt.Dsl.() -> Unit): ibc.core.client.v1.Genesis.IdentifiedGenesisMetadata =
   ibc.core.client.v1.IdentifiedGenesisMetadataKt.Dsl._create(ibc.core.client.v1.Genesis.IdentifiedGenesisMetadata.newBuilder()).apply { block() }._build()
-public object IdentifiedGenesisMetadataKt {
+object IdentifiedGenesisMetadataKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.Genesis.IdentifiedGenesisMetadata.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.Genesis.IdentifiedGenesisMetadata.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.Genesis.IdentifiedGenesisMetadata.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object IdentifiedGenesisMetadataKt {
     /**
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public var clientId: kotlin.String
+    var clientId: kotlin.String
       @JvmName("getClientId")
       get() = _builder.getClientId()
       @JvmName("setClientId")
@@ -35,7 +35,7 @@ public object IdentifiedGenesisMetadataKt {
     /**
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public fun clearClientId() {
+    fun clearClientId() {
       _builder.clearClientId()
     }
 
@@ -44,11 +44,11 @@ public object IdentifiedGenesisMetadataKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ClientMetadataProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ClientMetadataProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .ibc.core.client.v1.GenesisMetadata client_metadata = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_metadata&#92;""];</code>
      */
-     public val clientMetadata: com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>
+     val clientMetadata: com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getClientMetadataList()
@@ -59,60 +59,50 @@ public object IdentifiedGenesisMetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addClientMetadata")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.add(value: ibc.core.client.v1.Genesis.GenesisMetadata) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.add(value: ibc.core.client.v1.Genesis.GenesisMetadata) {
       _builder.addClientMetadata(value)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.client.v1.GenesisMetadata client_metadata = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_metadata&#92;""];</code>
      * @param value The clientMetadata to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignClientMetadata")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.plusAssign(value: ibc.core.client.v1.Genesis.GenesisMetadata) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.plusAssign(value: ibc.core.client.v1.Genesis.GenesisMetadata) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.client.v1.GenesisMetadata client_metadata = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_metadata&#92;""];</code>
      * @param values The clientMetadata to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllClientMetadata")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.client.v1.Genesis.GenesisMetadata>) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.client.v1.Genesis.GenesisMetadata>) {
       _builder.addAllClientMetadata(values)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.client.v1.GenesisMetadata client_metadata = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_metadata&#92;""];</code>
      * @param values The clientMetadata to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllClientMetadata")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.client.v1.Genesis.GenesisMetadata>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.client.v1.Genesis.GenesisMetadata>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.client.v1.GenesisMetadata client_metadata = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_metadata&#92;""];</code>
      * @param index The index to set the value at.
      * @param value The clientMetadata to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setClientMetadata")
-    public operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.set(index: kotlin.Int, value: ibc.core.client.v1.Genesis.GenesisMetadata) {
+    operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.set(index: kotlin.Int, value: ibc.core.client.v1.Genesis.GenesisMetadata) {
       _builder.setClientMetadata(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.client.v1.GenesisMetadata client_metadata = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_metadata&#92;""];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearClientMetadata")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Genesis.GenesisMetadata, ClientMetadataProxy>.clear() {
       _builder.clearClientMetadata()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.Genesis.IdentifiedGenesisMetadata.copy(block: ibc.core.client.v1.IdentifiedGenesisMetadataKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Genesis.IdentifiedGenesisMetadata =
+inline fun ibc.core.client.v1.Genesis.IdentifiedGenesisMetadata.copy(block: ibc.core.client.v1.IdentifiedGenesisMetadataKt.Dsl.() -> Unit): ibc.core.client.v1.Genesis.IdentifiedGenesisMetadata =
   ibc.core.client.v1.IdentifiedGenesisMetadataKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

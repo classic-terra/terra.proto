@@ -3,16 +3,16 @@
 
 package ibc.core.connection.v1;
 
-@kotlin.jvm.JvmName("-initializecounterparty")
-public inline fun counterparty(block: ibc.core.connection.v1.CounterpartyKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Connection.Counterparty =
+@kotlin.jvm.JvmSynthetic
+inline fun counterparty(block: ibc.core.connection.v1.CounterpartyKt.Dsl.() -> Unit): ibc.core.connection.v1.Connection.Counterparty =
   ibc.core.connection.v1.CounterpartyKt.Dsl._create(ibc.core.connection.v1.Connection.Counterparty.newBuilder()).apply { block() }._build()
-public object CounterpartyKt {
+object CounterpartyKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.connection.v1.Connection.Counterparty.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.connection.v1.Connection.Counterparty.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.connection.v1.Connection.Counterparty.Builder): Dsl = Dsl(builder)
@@ -30,7 +30,7 @@ public object CounterpartyKt {
      *
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public var clientId: kotlin.String
+    var clientId: kotlin.String
       @JvmName("getClientId")
       get() = _builder.getClientId()
       @JvmName("setClientId")
@@ -45,7 +45,7 @@ public object CounterpartyKt {
      *
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public fun clearClientId() {
+    fun clearClientId() {
       _builder.clearClientId()
     }
 
@@ -57,7 +57,7 @@ public object CounterpartyKt {
      *
      * <code>string connection_id = 2 [(.gogoproto.moretags) = "yaml:&#92;"connection_id&#92;""];</code>
      */
-    public var connectionId: kotlin.String
+    var connectionId: kotlin.String
       @JvmName("getConnectionId")
       get() = _builder.getConnectionId()
       @JvmName("setConnectionId")
@@ -72,7 +72,7 @@ public object CounterpartyKt {
      *
      * <code>string connection_id = 2 [(.gogoproto.moretags) = "yaml:&#92;"connection_id&#92;""];</code>
      */
-    public fun clearConnectionId() {
+    fun clearConnectionId() {
       _builder.clearConnectionId()
     }
 
@@ -83,7 +83,7 @@ public object CounterpartyKt {
      *
      * <code>.ibc.core.commitment.v1.MerklePrefix prefix = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public var prefix: ibc.core.commitment.v1.Commitment.MerklePrefix
+    var prefix: ibc.core.commitment.v1.Commitment.MerklePrefix
       @JvmName("getPrefix")
       get() = _builder.getPrefix()
       @JvmName("setPrefix")
@@ -97,7 +97,7 @@ public object CounterpartyKt {
      *
      * <code>.ibc.core.commitment.v1.MerklePrefix prefix = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearPrefix() {
+    fun clearPrefix() {
       _builder.clearPrefix()
     }
     /**
@@ -108,15 +108,11 @@ public object CounterpartyKt {
      * <code>.ibc.core.commitment.v1.MerklePrefix prefix = 3 [(.gogoproto.nullable) = false];</code>
      * @return Whether the prefix field is set.
      */
-    public fun hasPrefix(): kotlin.Boolean {
+    fun hasPrefix(): kotlin.Boolean {
       return _builder.hasPrefix()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.connection.v1.Connection.Counterparty.copy(block: ibc.core.connection.v1.CounterpartyKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Connection.Counterparty =
+inline fun ibc.core.connection.v1.Connection.Counterparty.copy(block: ibc.core.connection.v1.CounterpartyKt.Dsl.() -> Unit): ibc.core.connection.v1.Connection.Counterparty =
   ibc.core.connection.v1.CounterpartyKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.connection.v1.Connection.CounterpartyOrBuilder.prefixOrNull: ibc.core.commitment.v1.Commitment.MerklePrefix?
-  get() = if (hasPrefix()) getPrefix() else null
-

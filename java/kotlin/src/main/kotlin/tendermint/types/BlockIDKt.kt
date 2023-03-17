@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializeblockID")
-public inline fun blockID(block: tendermint.types.BlockIDKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.BlockID =
+@kotlin.jvm.JvmSynthetic
+inline fun blockID(block: tendermint.types.BlockIDKt.Dsl.() -> Unit): tendermint.types.Types.BlockID =
   tendermint.types.BlockIDKt.Dsl._create(tendermint.types.Types.BlockID.newBuilder()).apply { block() }._build()
-public object BlockIDKt {
+object BlockIDKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.Types.BlockID.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.Types.BlockID.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.Types.BlockID.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object BlockIDKt {
     /**
      * <code>bytes hash = 1;</code>
      */
-    public var hash: com.google.protobuf.ByteString
+    var hash: com.google.protobuf.ByteString
       @JvmName("getHash")
       get() = _builder.getHash()
       @JvmName("setHash")
@@ -35,14 +35,14 @@ public object BlockIDKt {
     /**
      * <code>bytes hash = 1;</code>
      */
-    public fun clearHash() {
+    fun clearHash() {
       _builder.clearHash()
     }
 
     /**
      * <code>.tendermint.types.PartSetHeader part_set_header = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public var partSetHeader: tendermint.types.Types.PartSetHeader
+    var partSetHeader: tendermint.types.Types.PartSetHeader
       @JvmName("getPartSetHeader")
       get() = _builder.getPartSetHeader()
       @JvmName("setPartSetHeader")
@@ -52,22 +52,18 @@ public object BlockIDKt {
     /**
      * <code>.tendermint.types.PartSetHeader part_set_header = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearPartSetHeader() {
+    fun clearPartSetHeader() {
       _builder.clearPartSetHeader()
     }
     /**
      * <code>.tendermint.types.PartSetHeader part_set_header = 2 [(.gogoproto.nullable) = false];</code>
      * @return Whether the partSetHeader field is set.
      */
-    public fun hasPartSetHeader(): kotlin.Boolean {
+    fun hasPartSetHeader(): kotlin.Boolean {
       return _builder.hasPartSetHeader()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.Types.BlockID.copy(block: tendermint.types.BlockIDKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.BlockID =
+inline fun tendermint.types.Types.BlockID.copy(block: tendermint.types.BlockIDKt.Dsl.() -> Unit): tendermint.types.Types.BlockID =
   tendermint.types.BlockIDKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.Types.BlockIDOrBuilder.partSetHeaderOrNull: tendermint.types.Types.PartSetHeader?
-  get() = if (hasPartSetHeader()) getPartSetHeader() else null
-

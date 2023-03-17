@@ -98,6 +98,62 @@ public final class Localhost {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ClientState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              chainId_ = s;
+              break;
+            }
+            case 18: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (height_ != null) {
+                subBuilder = height_.toBuilder();
+              }
+              height_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(height_);
+                height_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.localhost.v1.Localhost.internal_static_ibc_lightclients_localhost_v1_ClientState_descriptor;
@@ -112,8 +168,7 @@ public final class Localhost {
     }
 
     public static final int CHAIN_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object chainId_ = "";
+    private volatile java.lang.Object chainId_;
     /**
      * <pre>
      * self chain ID
@@ -193,7 +248,7 @@ public final class Localhost {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getHeightOrBuilder() {
-      return height_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : height_;
+      return getHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -210,13 +265,13 @@ public final class Localhost {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chainId_)) {
+      if (!getChainIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, chainId_);
       }
       if (height_ != null) {
         output.writeMessage(2, getHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -225,14 +280,14 @@ public final class Localhost {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(chainId_)) {
+      if (!getChainIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, chainId_);
       }
       if (height_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -254,7 +309,7 @@ public final class Localhost {
         if (!getHeight()
             .equals(other.getHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -271,7 +326,7 @@ public final class Localhost {
         hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -393,22 +448,28 @@ public final class Localhost {
 
       // Construct using ibc.lightclients.localhost.v1.Localhost.ClientState.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         chainId_ = "";
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+
+        if (heightBuilder_ == null) {
+          height_ = null;
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
         return this;
@@ -437,21 +498,14 @@ public final class Localhost {
       @java.lang.Override
       public ibc.lightclients.localhost.v1.Localhost.ClientState buildPartial() {
         ibc.lightclients.localhost.v1.Localhost.ClientState result = new ibc.lightclients.localhost.v1.Localhost.ClientState(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.chainId_ = chainId_;
+        if (heightBuilder_ == null) {
+          result.height_ = height_;
+        } else {
+          result.height_ = heightBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.localhost.v1.Localhost.ClientState result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.chainId_ = chainId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.height_ = heightBuilder_ == null
-              ? height_
-              : heightBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -500,13 +554,12 @@ public final class Localhost {
         if (other == ibc.lightclients.localhost.v1.Localhost.ClientState.getDefaultInstance()) return this;
         if (!other.getChainId().isEmpty()) {
           chainId_ = other.chainId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasHeight()) {
           mergeHeight(other.getHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -521,45 +574,19 @@ public final class Localhost {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.localhost.v1.Localhost.ClientState parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                chainId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.localhost.v1.Localhost.ClientState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object chainId_ = "";
       /**
@@ -614,9 +641,11 @@ public final class Localhost {
        */
       public Builder setChainId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         chainId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -629,8 +658,8 @@ public final class Localhost {
        * @return This builder for chaining.
        */
       public Builder clearChainId() {
+        
         chainId_ = getDefaultInstance().getChainId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -645,10 +674,12 @@ public final class Localhost {
        */
       public Builder setChainIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         chainId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -665,7 +696,7 @@ public final class Localhost {
        * @return Whether the height field is set.
        */
       public boolean hasHeight() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return heightBuilder_ != null || height_ != null;
       }
       /**
        * <pre>
@@ -695,11 +726,11 @@ public final class Localhost {
             throw new NullPointerException();
           }
           height_ = value;
+          onChanged();
         } else {
           heightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -713,11 +744,11 @@ public final class Localhost {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (heightBuilder_ == null) {
           height_ = builderForValue.build();
+          onChanged();
         } else {
           heightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -729,18 +760,17 @@ public final class Localhost {
        */
       public Builder mergeHeight(ibc.core.client.v1.Client.Height value) {
         if (heightBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            height_ != null &&
-            height_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getHeightBuilder().mergeFrom(value);
+          if (height_ != null) {
+            height_ =
+              ibc.core.client.v1.Client.Height.newBuilder(height_).mergeFrom(value).buildPartial();
           } else {
             height_ = value;
           }
+          onChanged();
         } else {
           heightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -751,13 +781,14 @@ public final class Localhost {
        * <code>.ibc.core.client.v1.Height height = 2 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+          onChanged();
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -768,7 +799,7 @@ public final class Localhost {
        * <code>.ibc.core.client.v1.Height height = 2 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getHeightBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getHeightFieldBuilder().getBuilder();
       }
@@ -840,18 +871,7 @@ public final class Localhost {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ClientState(input, extensionRegistry);
       }
     };
 

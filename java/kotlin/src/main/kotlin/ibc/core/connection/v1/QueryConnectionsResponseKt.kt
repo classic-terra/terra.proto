@@ -3,16 +3,16 @@
 
 package ibc.core.connection.v1;
 
-@kotlin.jvm.JvmName("-initializequeryConnectionsResponse")
-public inline fun queryConnectionsResponse(block: ibc.core.connection.v1.QueryConnectionsResponseKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryConnectionsResponse(block: ibc.core.connection.v1.QueryConnectionsResponseKt.Dsl.() -> Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponse =
   ibc.core.connection.v1.QueryConnectionsResponseKt.Dsl._create(ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponse.newBuilder()).apply { block() }._build()
-public object QueryConnectionsResponseKt {
+object QueryConnectionsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryConnectionsResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ConnectionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ConnectionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * list of stored connections of the chain.
@@ -35,7 +35,7 @@ public object QueryConnectionsResponseKt {
      *
      * <code>repeated .ibc.core.connection.v1.IdentifiedConnection connections = 1;</code>
      */
-     public val connections: com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>
+     val connections: com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getConnectionsList()
@@ -50,10 +50,9 @@ public object QueryConnectionsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addConnections")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.add(value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.add(value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
       _builder.addConnections(value)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored connections of the chain.
      * </pre>
@@ -63,11 +62,9 @@ public object QueryConnectionsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignConnections")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.plusAssign(value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.plusAssign(value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored connections of the chain.
      * </pre>
@@ -77,10 +74,9 @@ public object QueryConnectionsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllConnections")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.IdentifiedConnection>) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.IdentifiedConnection>) {
       _builder.addAllConnections(values)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored connections of the chain.
      * </pre>
@@ -90,11 +86,9 @@ public object QueryConnectionsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllConnections")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.IdentifiedConnection>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.IdentifiedConnection>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored connections of the chain.
      * </pre>
@@ -105,10 +99,9 @@ public object QueryConnectionsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setConnections")
-    public operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.set(index: kotlin.Int, value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
+    operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.set(index: kotlin.Int, value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
       _builder.setConnections(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored connections of the chain.
      * </pre>
@@ -117,11 +110,9 @@ public object QueryConnectionsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearConnections")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.clear() {
       _builder.clearConnections()
     }
-
-
     /**
      * <pre>
      * pagination response
@@ -129,7 +120,7 @@ public object QueryConnectionsResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -143,7 +134,7 @@ public object QueryConnectionsResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -154,7 +145,7 @@ public object QueryConnectionsResponseKt {
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
 
@@ -165,7 +156,7 @@ public object QueryConnectionsResponseKt {
      *
      * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public var height: ibc.core.client.v1.Client.Height
+    var height: ibc.core.client.v1.Client.Height
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -179,7 +170,7 @@ public object QueryConnectionsResponseKt {
      *
      * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
     /**
@@ -190,18 +181,11 @@ public object QueryConnectionsResponseKt {
      * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
      * @return Whether the height field is set.
      */
-    public fun hasHeight(): kotlin.Boolean {
+    fun hasHeight(): kotlin.Boolean {
       return _builder.hasHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponse.copy(block: ibc.core.connection.v1.QueryConnectionsResponseKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponse =
+inline fun ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponse.copy(block: ibc.core.connection.v1.QueryConnectionsResponseKt.Dsl.() -> Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponse =
   ibc.core.connection.v1.QueryConnectionsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponseOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageResponse?
-  get() = if (hasPagination()) getPagination() else null
-
-public val ibc.core.connection.v1.QueryOuterClass.QueryConnectionsResponseOrBuilder.heightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasHeight()) getHeight() else null
-

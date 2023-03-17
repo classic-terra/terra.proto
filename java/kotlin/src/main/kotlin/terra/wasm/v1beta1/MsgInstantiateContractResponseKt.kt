@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgInstantiateContractResponse")
-public inline fun msgInstantiateContractResponse(block: terra.wasm.v1beta1.MsgInstantiateContractResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgInstantiateContractResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgInstantiateContractResponse(block: terra.wasm.v1beta1.MsgInstantiateContractResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgInstantiateContractResponse =
   terra.wasm.v1beta1.MsgInstantiateContractResponseKt.Dsl._create(terra.wasm.v1beta1.Tx.MsgInstantiateContractResponse.newBuilder()).apply { block() }._build()
-public object MsgInstantiateContractResponseKt {
+object MsgInstantiateContractResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Tx.MsgInstantiateContractResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Tx.MsgInstantiateContractResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Tx.MsgInstantiateContractResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MsgInstantiateContractResponseKt {
      *
      * <code>string contract_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"contract_address&#92;""];</code>
      */
-    public var contractAddress: kotlin.String
+    var contractAddress: kotlin.String
       @JvmName("getContractAddress")
       get() = _builder.getContractAddress()
       @JvmName("setContractAddress")
@@ -43,7 +43,7 @@ public object MsgInstantiateContractResponseKt {
      *
      * <code>string contract_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"contract_address&#92;""];</code>
      */
-    public fun clearContractAddress() {
+    fun clearContractAddress() {
       _builder.clearContractAddress()
     }
 
@@ -54,7 +54,7 @@ public object MsgInstantiateContractResponseKt {
      *
      * <code>bytes data = 2 [(.gogoproto.moretags) = "yaml:&#92;"data&#92;""];</code>
      */
-    public var data: com.google.protobuf.ByteString
+    var data: com.google.protobuf.ByteString
       @JvmName("getData")
       get() = _builder.getData()
       @JvmName("setData")
@@ -68,12 +68,11 @@ public object MsgInstantiateContractResponseKt {
      *
      * <code>bytes data = 2 [(.gogoproto.moretags) = "yaml:&#92;"data&#92;""];</code>
      */
-    public fun clearData() {
+    fun clearData() {
       _builder.clearData()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Tx.MsgInstantiateContractResponse.copy(block: terra.wasm.v1beta1.MsgInstantiateContractResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgInstantiateContractResponse =
+inline fun terra.wasm.v1beta1.Tx.MsgInstantiateContractResponse.copy(block: terra.wasm.v1beta1.MsgInstantiateContractResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgInstantiateContractResponse =
   terra.wasm.v1beta1.MsgInstantiateContractResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

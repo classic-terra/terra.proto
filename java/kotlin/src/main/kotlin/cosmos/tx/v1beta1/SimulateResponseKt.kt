@@ -3,16 +3,16 @@
 
 package cosmos.tx.v1beta1;
 
-@kotlin.jvm.JvmName("-initializesimulateResponse")
-public inline fun simulateResponse(block: cosmos.tx.v1beta1.SimulateResponseKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun simulateResponse(block: cosmos.tx.v1beta1.SimulateResponseKt.Dsl.() -> Unit): cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponse =
   cosmos.tx.v1beta1.SimulateResponseKt.Dsl._create(cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponse.newBuilder()).apply { block() }._build()
-public object SimulateResponseKt {
+object SimulateResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object SimulateResponseKt {
      *
      * <code>.cosmos.base.abci.v1beta1.GasInfo gas_info = 1;</code>
      */
-    public var gasInfo: cosmos.base.abci.v1beta1.Abci.GasInfo
+    var gasInfo: cosmos.base.abci.v1beta1.Abci.GasInfo
       @JvmName("getGasInfo")
       get() = _builder.getGasInfo()
       @JvmName("setGasInfo")
@@ -43,7 +43,7 @@ public object SimulateResponseKt {
      *
      * <code>.cosmos.base.abci.v1beta1.GasInfo gas_info = 1;</code>
      */
-    public fun clearGasInfo() {
+    fun clearGasInfo() {
       _builder.clearGasInfo()
     }
     /**
@@ -54,7 +54,7 @@ public object SimulateResponseKt {
      * <code>.cosmos.base.abci.v1beta1.GasInfo gas_info = 1;</code>
      * @return Whether the gasInfo field is set.
      */
-    public fun hasGasInfo(): kotlin.Boolean {
+    fun hasGasInfo(): kotlin.Boolean {
       return _builder.hasGasInfo()
     }
 
@@ -65,7 +65,7 @@ public object SimulateResponseKt {
      *
      * <code>.cosmos.base.abci.v1beta1.Result result = 2;</code>
      */
-    public var result: cosmos.base.abci.v1beta1.Abci.Result
+    var result: cosmos.base.abci.v1beta1.Abci.Result
       @JvmName("getResult")
       get() = _builder.getResult()
       @JvmName("setResult")
@@ -79,7 +79,7 @@ public object SimulateResponseKt {
      *
      * <code>.cosmos.base.abci.v1beta1.Result result = 2;</code>
      */
-    public fun clearResult() {
+    fun clearResult() {
       _builder.clearResult()
     }
     /**
@@ -90,18 +90,11 @@ public object SimulateResponseKt {
      * <code>.cosmos.base.abci.v1beta1.Result result = 2;</code>
      * @return Whether the result field is set.
      */
-    public fun hasResult(): kotlin.Boolean {
+    fun hasResult(): kotlin.Boolean {
       return _builder.hasResult()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponse.copy(block: cosmos.tx.v1beta1.SimulateResponseKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponse =
+inline fun cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponse.copy(block: cosmos.tx.v1beta1.SimulateResponseKt.Dsl.() -> Unit): cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponse =
   cosmos.tx.v1beta1.SimulateResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponseOrBuilder.gasInfoOrNull: cosmos.base.abci.v1beta1.Abci.GasInfo?
-  get() = if (hasGasInfo()) getGasInfo() else null
-
-public val cosmos.tx.v1beta1.ServiceOuterClass.SimulateResponseOrBuilder.resultOrNull: cosmos.base.abci.v1beta1.Abci.Result?
-  get() = if (hasResult()) getResult() else null
-

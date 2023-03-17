@@ -25,15 +25,14 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for cosmos.evidence.v1beta1.Msg.
  */
-public object MsgGrpcKt {
-  public const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
+object MsgGrpcKt {
+  const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = MsgGrpc.getServiceDescriptor()
 
-  public val submitEvidenceMethod:
-      MethodDescriptor<Tx.MsgSubmitEvidence, Tx.MsgSubmitEvidenceResponse>
+  val submitEvidenceMethod: MethodDescriptor<Tx.MsgSubmitEvidence, Tx.MsgSubmitEvidenceResponse>
     @JvmStatic
     get() = MsgGrpc.getSubmitEvidenceMethod()
 
@@ -41,11 +40,11 @@ public object MsgGrpcKt {
    * A stub for issuing RPCs to a(n) cosmos.evidence.v1beta1.Msg service as suspending coroutines.
    */
   @StubFor(MsgGrpc::class)
-  public class MsgCoroutineStub @JvmOverloads constructor(
+  class MsgCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<MsgCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
         MsgCoroutineStub(channel, callOptions)
 
     /**
@@ -57,25 +56,22 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun submitEvidence(request: Tx.MsgSubmitEvidence, headers: Metadata =
-        Metadata()): Tx.MsgSubmitEvidenceResponse = unaryRpc(
+    suspend fun submitEvidence(request: Tx.MsgSubmitEvidence): Tx.MsgSubmitEvidenceResponse =
+        unaryRpc(
       channel,
       MsgGrpc.getSubmitEvidenceMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.evidence.v1beta1.Msg service based on Kotlin coroutines.
    */
-  public abstract class MsgCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class MsgCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for cosmos.evidence.v1beta1.Msg.SubmitEvidence.
@@ -88,12 +84,11 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun submitEvidence(request: Tx.MsgSubmitEvidence):
-        Tx.MsgSubmitEvidenceResponse = throw
+    open suspend fun submitEvidence(request: Tx.MsgSubmitEvidence): Tx.MsgSubmitEvidenceResponse =
+        throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.evidence.v1beta1.Msg.SubmitEvidence is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = MsgGrpc.getSubmitEvidenceMethod(),

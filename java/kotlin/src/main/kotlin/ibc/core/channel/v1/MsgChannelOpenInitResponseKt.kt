@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializemsgChannelOpenInitResponse")
-public inline fun msgChannelOpenInitResponse(block: ibc.core.channel.v1.MsgChannelOpenInitResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgChannelOpenInitResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgChannelOpenInitResponse(block: ibc.core.channel.v1.MsgChannelOpenInitResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgChannelOpenInitResponse =
   ibc.core.channel.v1.MsgChannelOpenInitResponseKt.Dsl._create(ibc.core.channel.v1.Tx.MsgChannelOpenInitResponse.newBuilder()).apply { block() }._build()
-public object MsgChannelOpenInitResponseKt {
+object MsgChannelOpenInitResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.Tx.MsgChannelOpenInitResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.Tx.MsgChannelOpenInitResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.Tx.MsgChannelOpenInitResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgChannelOpenInitResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.Tx.MsgChannelOpenInitResponse.copy(block: ibc.core.channel.v1.MsgChannelOpenInitResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgChannelOpenInitResponse =
+inline fun ibc.core.channel.v1.Tx.MsgChannelOpenInitResponse.copy(block: ibc.core.channel.v1.MsgChannelOpenInitResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgChannelOpenInitResponse =
   ibc.core.channel.v1.MsgChannelOpenInitResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

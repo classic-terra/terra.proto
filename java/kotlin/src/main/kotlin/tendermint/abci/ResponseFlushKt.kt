@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializeresponseFlush")
-public inline fun responseFlush(block: tendermint.abci.ResponseFlushKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseFlush =
+@kotlin.jvm.JvmSynthetic
+inline fun responseFlush(block: tendermint.abci.ResponseFlushKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseFlush =
   tendermint.abci.ResponseFlushKt.Dsl._create(tendermint.abci.Types.ResponseFlush.newBuilder()).apply { block() }._build()
-public object ResponseFlushKt {
+object ResponseFlushKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.ResponseFlush.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.ResponseFlush.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.ResponseFlush.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object ResponseFlushKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.ResponseFlush.copy(block: tendermint.abci.ResponseFlushKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseFlush =
+inline fun tendermint.abci.Types.ResponseFlush.copy(block: tendermint.abci.ResponseFlushKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseFlush =
   tendermint.abci.ResponseFlushKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

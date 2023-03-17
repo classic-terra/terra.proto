@@ -3,16 +3,16 @@
 
 package cosmos.tx.v1beta1;
 
-@kotlin.jvm.JvmName("-initializesignerInfo")
-public inline fun signerInfo(block: cosmos.tx.v1beta1.SignerInfoKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.TxOuterClass.SignerInfo =
+@kotlin.jvm.JvmSynthetic
+inline fun signerInfo(block: cosmos.tx.v1beta1.SignerInfoKt.Dsl.() -> Unit): cosmos.tx.v1beta1.TxOuterClass.SignerInfo =
   cosmos.tx.v1beta1.SignerInfoKt.Dsl._create(cosmos.tx.v1beta1.TxOuterClass.SignerInfo.newBuilder()).apply { block() }._build()
-public object SignerInfoKt {
+object SignerInfoKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.tx.v1beta1.TxOuterClass.SignerInfo.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.tx.v1beta1.TxOuterClass.SignerInfo.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.tx.v1beta1.TxOuterClass.SignerInfo.Builder): Dsl = Dsl(builder)
@@ -31,7 +31,7 @@ public object SignerInfoKt {
      *
      * <code>.google.protobuf.Any public_key = 1;</code>
      */
-    public var publicKey: com.google.protobuf.Any
+    var publicKey: com.google.protobuf.Any
       @JvmName("getPublicKey")
       get() = _builder.getPublicKey()
       @JvmName("setPublicKey")
@@ -47,7 +47,7 @@ public object SignerInfoKt {
      *
      * <code>.google.protobuf.Any public_key = 1;</code>
      */
-    public fun clearPublicKey() {
+    fun clearPublicKey() {
       _builder.clearPublicKey()
     }
     /**
@@ -60,7 +60,7 @@ public object SignerInfoKt {
      * <code>.google.protobuf.Any public_key = 1;</code>
      * @return Whether the publicKey field is set.
      */
-    public fun hasPublicKey(): kotlin.Boolean {
+    fun hasPublicKey(): kotlin.Boolean {
       return _builder.hasPublicKey()
     }
 
@@ -72,7 +72,7 @@ public object SignerInfoKt {
      *
      * <code>.cosmos.tx.v1beta1.ModeInfo mode_info = 2;</code>
      */
-    public var modeInfo: cosmos.tx.v1beta1.TxOuterClass.ModeInfo
+    var modeInfo: cosmos.tx.v1beta1.TxOuterClass.ModeInfo
       @JvmName("getModeInfo")
       get() = _builder.getModeInfo()
       @JvmName("setModeInfo")
@@ -87,7 +87,7 @@ public object SignerInfoKt {
      *
      * <code>.cosmos.tx.v1beta1.ModeInfo mode_info = 2;</code>
      */
-    public fun clearModeInfo() {
+    fun clearModeInfo() {
       _builder.clearModeInfo()
     }
     /**
@@ -99,7 +99,7 @@ public object SignerInfoKt {
      * <code>.cosmos.tx.v1beta1.ModeInfo mode_info = 2;</code>
      * @return Whether the modeInfo field is set.
      */
-    public fun hasModeInfo(): kotlin.Boolean {
+    fun hasModeInfo(): kotlin.Boolean {
       return _builder.hasModeInfo()
     }
 
@@ -112,7 +112,7 @@ public object SignerInfoKt {
      *
      * <code>uint64 sequence = 3;</code>
      */
-    public var sequence: kotlin.Long
+    var sequence: kotlin.Long
       @JvmName("getSequence")
       get() = _builder.getSequence()
       @JvmName("setSequence")
@@ -128,18 +128,11 @@ public object SignerInfoKt {
      *
      * <code>uint64 sequence = 3;</code>
      */
-    public fun clearSequence() {
+    fun clearSequence() {
       _builder.clearSequence()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.tx.v1beta1.TxOuterClass.SignerInfo.copy(block: cosmos.tx.v1beta1.SignerInfoKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.TxOuterClass.SignerInfo =
+inline fun cosmos.tx.v1beta1.TxOuterClass.SignerInfo.copy(block: cosmos.tx.v1beta1.SignerInfoKt.Dsl.() -> Unit): cosmos.tx.v1beta1.TxOuterClass.SignerInfo =
   cosmos.tx.v1beta1.SignerInfoKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.tx.v1beta1.TxOuterClass.SignerInfoOrBuilder.publicKeyOrNull: com.google.protobuf.Any?
-  get() = if (hasPublicKey()) getPublicKey() else null
-
-public val cosmos.tx.v1beta1.TxOuterClass.SignerInfoOrBuilder.modeInfoOrNull: cosmos.tx.v1beta1.TxOuterClass.ModeInfo?
-  get() = if (hasModeInfo()) getModeInfo() else null
-

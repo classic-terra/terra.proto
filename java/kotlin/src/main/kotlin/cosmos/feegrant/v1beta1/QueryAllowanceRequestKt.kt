@@ -3,16 +3,16 @@
 
 package cosmos.feegrant.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryAllowanceRequest")
-public inline fun queryAllowanceRequest(block: cosmos.feegrant.v1beta1.QueryAllowanceRequestKt.Dsl.() -> kotlin.Unit): cosmos.feegrant.v1beta1.QueryOuterClass.QueryAllowanceRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryAllowanceRequest(block: cosmos.feegrant.v1beta1.QueryAllowanceRequestKt.Dsl.() -> Unit): cosmos.feegrant.v1beta1.QueryOuterClass.QueryAllowanceRequest =
   cosmos.feegrant.v1beta1.QueryAllowanceRequestKt.Dsl._create(cosmos.feegrant.v1beta1.QueryOuterClass.QueryAllowanceRequest.newBuilder()).apply { block() }._build()
-public object QueryAllowanceRequestKt {
+object QueryAllowanceRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.feegrant.v1beta1.QueryOuterClass.QueryAllowanceRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.feegrant.v1beta1.QueryOuterClass.QueryAllowanceRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.feegrant.v1beta1.QueryOuterClass.QueryAllowanceRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryAllowanceRequestKt {
      *
      * <code>string granter = 1;</code>
      */
-    public var granter: kotlin.String
+    var granter: kotlin.String
       @JvmName("getGranter")
       get() = _builder.getGranter()
       @JvmName("setGranter")
@@ -43,7 +43,7 @@ public object QueryAllowanceRequestKt {
      *
      * <code>string granter = 1;</code>
      */
-    public fun clearGranter() {
+    fun clearGranter() {
       _builder.clearGranter()
     }
 
@@ -54,7 +54,7 @@ public object QueryAllowanceRequestKt {
      *
      * <code>string grantee = 2;</code>
      */
-    public var grantee: kotlin.String
+    var grantee: kotlin.String
       @JvmName("getGrantee")
       get() = _builder.getGrantee()
       @JvmName("setGrantee")
@@ -68,12 +68,11 @@ public object QueryAllowanceRequestKt {
      *
      * <code>string grantee = 2;</code>
      */
-    public fun clearGrantee() {
+    fun clearGrantee() {
       _builder.clearGrantee()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.feegrant.v1beta1.QueryOuterClass.QueryAllowanceRequest.copy(block: cosmos.feegrant.v1beta1.QueryAllowanceRequestKt.Dsl.() -> kotlin.Unit): cosmos.feegrant.v1beta1.QueryOuterClass.QueryAllowanceRequest =
+inline fun cosmos.feegrant.v1beta1.QueryOuterClass.QueryAllowanceRequest.copy(block: cosmos.feegrant.v1beta1.QueryAllowanceRequestKt.Dsl.() -> Unit): cosmos.feegrant.v1beta1.QueryOuterClass.QueryAllowanceRequest =
   cosmos.feegrant.v1beta1.QueryAllowanceRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

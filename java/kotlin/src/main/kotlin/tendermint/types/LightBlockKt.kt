@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializelightBlock")
-public inline fun lightBlock(block: tendermint.types.LightBlockKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.LightBlock =
+@kotlin.jvm.JvmSynthetic
+inline fun lightBlock(block: tendermint.types.LightBlockKt.Dsl.() -> Unit): tendermint.types.Types.LightBlock =
   tendermint.types.LightBlockKt.Dsl._create(tendermint.types.Types.LightBlock.newBuilder()).apply { block() }._build()
-public object LightBlockKt {
+object LightBlockKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.Types.LightBlock.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.Types.LightBlock.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.Types.LightBlock.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object LightBlockKt {
     /**
      * <code>.tendermint.types.SignedHeader signed_header = 1;</code>
      */
-    public var signedHeader: tendermint.types.Types.SignedHeader
+    var signedHeader: tendermint.types.Types.SignedHeader
       @JvmName("getSignedHeader")
       get() = _builder.getSignedHeader()
       @JvmName("setSignedHeader")
@@ -35,21 +35,21 @@ public object LightBlockKt {
     /**
      * <code>.tendermint.types.SignedHeader signed_header = 1;</code>
      */
-    public fun clearSignedHeader() {
+    fun clearSignedHeader() {
       _builder.clearSignedHeader()
     }
     /**
      * <code>.tendermint.types.SignedHeader signed_header = 1;</code>
      * @return Whether the signedHeader field is set.
      */
-    public fun hasSignedHeader(): kotlin.Boolean {
+    fun hasSignedHeader(): kotlin.Boolean {
       return _builder.hasSignedHeader()
     }
 
     /**
      * <code>.tendermint.types.ValidatorSet validator_set = 2;</code>
      */
-    public var validatorSet: tendermint.types.ValidatorOuterClass.ValidatorSet
+    var validatorSet: tendermint.types.ValidatorOuterClass.ValidatorSet
       @JvmName("getValidatorSet")
       get() = _builder.getValidatorSet()
       @JvmName("setValidatorSet")
@@ -59,25 +59,18 @@ public object LightBlockKt {
     /**
      * <code>.tendermint.types.ValidatorSet validator_set = 2;</code>
      */
-    public fun clearValidatorSet() {
+    fun clearValidatorSet() {
       _builder.clearValidatorSet()
     }
     /**
      * <code>.tendermint.types.ValidatorSet validator_set = 2;</code>
      * @return Whether the validatorSet field is set.
      */
-    public fun hasValidatorSet(): kotlin.Boolean {
+    fun hasValidatorSet(): kotlin.Boolean {
       return _builder.hasValidatorSet()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.Types.LightBlock.copy(block: tendermint.types.LightBlockKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.LightBlock =
+inline fun tendermint.types.Types.LightBlock.copy(block: tendermint.types.LightBlockKt.Dsl.() -> Unit): tendermint.types.Types.LightBlock =
   tendermint.types.LightBlockKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.Types.LightBlockOrBuilder.signedHeaderOrNull: tendermint.types.Types.SignedHeader?
-  get() = if (hasSignedHeader()) getSignedHeader() else null
-
-public val tendermint.types.Types.LightBlockOrBuilder.validatorSetOrNull: tendermint.types.ValidatorOuterClass.ValidatorSet?
-  get() = if (hasValidatorSet()) getValidatorSet() else null
-

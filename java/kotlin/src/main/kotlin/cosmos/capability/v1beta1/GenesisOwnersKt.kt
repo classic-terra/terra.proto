@@ -3,16 +3,16 @@
 
 package cosmos.capability.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegenesisOwners")
-public inline fun genesisOwners(block: cosmos.capability.v1beta1.GenesisOwnersKt.Dsl.() -> kotlin.Unit): cosmos.capability.v1beta1.Genesis.GenesisOwners =
+@kotlin.jvm.JvmSynthetic
+inline fun genesisOwners(block: cosmos.capability.v1beta1.GenesisOwnersKt.Dsl.() -> Unit): cosmos.capability.v1beta1.Genesis.GenesisOwners =
   cosmos.capability.v1beta1.GenesisOwnersKt.Dsl._create(cosmos.capability.v1beta1.Genesis.GenesisOwners.newBuilder()).apply { block() }._build()
-public object GenesisOwnersKt {
+object GenesisOwnersKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.capability.v1beta1.Genesis.GenesisOwners.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.capability.v1beta1.Genesis.GenesisOwners.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.capability.v1beta1.Genesis.GenesisOwners.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object GenesisOwnersKt {
      *
      * <code>uint64 index = 1;</code>
      */
-    public var index: kotlin.Long
+    var index: kotlin.Long
       @JvmName("getIndex")
       get() = _builder.getIndex()
       @JvmName("setIndex")
@@ -43,7 +43,7 @@ public object GenesisOwnersKt {
      *
      * <code>uint64 index = 1;</code>
      */
-    public fun clearIndex() {
+    fun clearIndex() {
       _builder.clearIndex()
     }
 
@@ -54,7 +54,7 @@ public object GenesisOwnersKt {
      *
      * <code>.cosmos.capability.v1beta1.CapabilityOwners index_owners = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"index_owners&#92;""];</code>
      */
-    public var indexOwners: cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners
+    var indexOwners: cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners
       @JvmName("getIndexOwners")
       get() = _builder.getIndexOwners()
       @JvmName("setIndexOwners")
@@ -68,7 +68,7 @@ public object GenesisOwnersKt {
      *
      * <code>.cosmos.capability.v1beta1.CapabilityOwners index_owners = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"index_owners&#92;""];</code>
      */
-    public fun clearIndexOwners() {
+    fun clearIndexOwners() {
       _builder.clearIndexOwners()
     }
     /**
@@ -79,15 +79,11 @@ public object GenesisOwnersKt {
      * <code>.cosmos.capability.v1beta1.CapabilityOwners index_owners = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"index_owners&#92;""];</code>
      * @return Whether the indexOwners field is set.
      */
-    public fun hasIndexOwners(): kotlin.Boolean {
+    fun hasIndexOwners(): kotlin.Boolean {
       return _builder.hasIndexOwners()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.capability.v1beta1.Genesis.GenesisOwners.copy(block: cosmos.capability.v1beta1.GenesisOwnersKt.Dsl.() -> kotlin.Unit): cosmos.capability.v1beta1.Genesis.GenesisOwners =
+inline fun cosmos.capability.v1beta1.Genesis.GenesisOwners.copy(block: cosmos.capability.v1beta1.GenesisOwnersKt.Dsl.() -> Unit): cosmos.capability.v1beta1.Genesis.GenesisOwners =
   cosmos.capability.v1beta1.GenesisOwnersKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.capability.v1beta1.Genesis.GenesisOwnersOrBuilder.indexOwnersOrNull: cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners?
-  get() = if (hasIndexOwners()) getIndexOwners() else null
-

@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgVoteResponse")
-public inline fun msgVoteResponse(block: cosmos.gov.v1beta1.MsgVoteResponseKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Tx.MsgVoteResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgVoteResponse(block: cosmos.gov.v1beta1.MsgVoteResponseKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Tx.MsgVoteResponse =
   cosmos.gov.v1beta1.MsgVoteResponseKt.Dsl._create(cosmos.gov.v1beta1.Tx.MsgVoteResponse.newBuilder()).apply { block() }._build()
-public object MsgVoteResponseKt {
+object MsgVoteResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.Tx.MsgVoteResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.Tx.MsgVoteResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.Tx.MsgVoteResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgVoteResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.Tx.MsgVoteResponse.copy(block: cosmos.gov.v1beta1.MsgVoteResponseKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Tx.MsgVoteResponse =
+inline fun cosmos.gov.v1beta1.Tx.MsgVoteResponse.copy(block: cosmos.gov.v1beta1.MsgVoteResponseKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Tx.MsgVoteResponse =
   cosmos.gov.v1beta1.MsgVoteResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

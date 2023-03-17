@@ -3,16 +3,16 @@
 
 package cosmos.authz.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegenericAuthorization")
-public inline fun genericAuthorization(block: cosmos.authz.v1beta1.GenericAuthorizationKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Authz.GenericAuthorization =
+@kotlin.jvm.JvmSynthetic
+inline fun genericAuthorization(block: cosmos.authz.v1beta1.GenericAuthorizationKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Authz.GenericAuthorization =
   cosmos.authz.v1beta1.GenericAuthorizationKt.Dsl._create(cosmos.authz.v1beta1.Authz.GenericAuthorization.newBuilder()).apply { block() }._build()
-public object GenericAuthorizationKt {
+object GenericAuthorizationKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.authz.v1beta1.Authz.GenericAuthorization.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.authz.v1beta1.Authz.GenericAuthorization.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.authz.v1beta1.Authz.GenericAuthorization.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object GenericAuthorizationKt {
      *
      * <code>string msg = 1;</code>
      */
-    public var msg: kotlin.String
+    var msg: kotlin.String
       @JvmName("getMsg")
       get() = _builder.getMsg()
       @JvmName("setMsg")
@@ -43,12 +43,11 @@ public object GenericAuthorizationKt {
      *
      * <code>string msg = 1;</code>
      */
-    public fun clearMsg() {
+    fun clearMsg() {
       _builder.clearMsg()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.authz.v1beta1.Authz.GenericAuthorization.copy(block: cosmos.authz.v1beta1.GenericAuthorizationKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Authz.GenericAuthorization =
+inline fun cosmos.authz.v1beta1.Authz.GenericAuthorization.copy(block: cosmos.authz.v1beta1.GenericAuthorizationKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Authz.GenericAuthorization =
   cosmos.authz.v1beta1.GenericAuthorizationKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

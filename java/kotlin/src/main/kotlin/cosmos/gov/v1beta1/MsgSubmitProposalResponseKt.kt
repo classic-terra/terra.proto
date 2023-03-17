@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgSubmitProposalResponse")
-public inline fun msgSubmitProposalResponse(block: cosmos.gov.v1beta1.MsgSubmitProposalResponseKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Tx.MsgSubmitProposalResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgSubmitProposalResponse(block: cosmos.gov.v1beta1.MsgSubmitProposalResponseKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Tx.MsgSubmitProposalResponse =
   cosmos.gov.v1beta1.MsgSubmitProposalResponseKt.Dsl._create(cosmos.gov.v1beta1.Tx.MsgSubmitProposalResponse.newBuilder()).apply { block() }._build()
-public object MsgSubmitProposalResponseKt {
+object MsgSubmitProposalResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.Tx.MsgSubmitProposalResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.Tx.MsgSubmitProposalResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.Tx.MsgSubmitProposalResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgSubmitProposalResponseKt {
     /**
      * <code>uint64 proposal_id = 1 [(.gogoproto.jsontag) = "proposal_id", (.gogoproto.moretags) = "yaml:&#92;"proposal_id&#92;""];</code>
      */
-    public var proposalId: kotlin.Long
+    var proposalId: kotlin.Long
       @JvmName("getProposalId")
       get() = _builder.getProposalId()
       @JvmName("setProposalId")
@@ -35,12 +35,11 @@ public object MsgSubmitProposalResponseKt {
     /**
      * <code>uint64 proposal_id = 1 [(.gogoproto.jsontag) = "proposal_id", (.gogoproto.moretags) = "yaml:&#92;"proposal_id&#92;""];</code>
      */
-    public fun clearProposalId() {
+    fun clearProposalId() {
       _builder.clearProposalId()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.Tx.MsgSubmitProposalResponse.copy(block: cosmos.gov.v1beta1.MsgSubmitProposalResponseKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Tx.MsgSubmitProposalResponse =
+inline fun cosmos.gov.v1beta1.Tx.MsgSubmitProposalResponse.copy(block: cosmos.gov.v1beta1.MsgSubmitProposalResponseKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Tx.MsgSubmitProposalResponse =
   cosmos.gov.v1beta1.MsgSubmitProposalResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

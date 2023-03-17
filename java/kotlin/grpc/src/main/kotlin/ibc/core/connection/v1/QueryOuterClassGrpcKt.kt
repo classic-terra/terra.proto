@@ -28,35 +28,37 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for ibc.core.connection.v1.Query.
  */
-public object QueryGrpcKt {
-  public const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
+object QueryGrpcKt {
+  const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = QueryGrpc.getServiceDescriptor()
 
-  public val connectionMethod:
-      MethodDescriptor<QueryOuterClass.QueryConnectionRequest, QueryOuterClass.QueryConnectionResponse>
+  val connectionMethod: MethodDescriptor<QueryOuterClass.QueryConnectionRequest,
+      QueryOuterClass.QueryConnectionResponse>
     @JvmStatic
     get() = QueryGrpc.getConnectionMethod()
 
-  public val connectionsMethod:
-      MethodDescriptor<QueryOuterClass.QueryConnectionsRequest, QueryOuterClass.QueryConnectionsResponse>
+  val connectionsMethod: MethodDescriptor<QueryOuterClass.QueryConnectionsRequest,
+      QueryOuterClass.QueryConnectionsResponse>
     @JvmStatic
     get() = QueryGrpc.getConnectionsMethod()
 
-  public val clientConnectionsMethod:
-      MethodDescriptor<QueryOuterClass.QueryClientConnectionsRequest, QueryOuterClass.QueryClientConnectionsResponse>
+  val clientConnectionsMethod: MethodDescriptor<QueryOuterClass.QueryClientConnectionsRequest,
+      QueryOuterClass.QueryClientConnectionsResponse>
     @JvmStatic
     get() = QueryGrpc.getClientConnectionsMethod()
 
-  public val connectionClientStateMethod:
-      MethodDescriptor<QueryOuterClass.QueryConnectionClientStateRequest, QueryOuterClass.QueryConnectionClientStateResponse>
+  val connectionClientStateMethod:
+      MethodDescriptor<QueryOuterClass.QueryConnectionClientStateRequest,
+      QueryOuterClass.QueryConnectionClientStateResponse>
     @JvmStatic
     get() = QueryGrpc.getConnectionClientStateMethod()
 
-  public val connectionConsensusStateMethod:
-      MethodDescriptor<QueryOuterClass.QueryConnectionConsensusStateRequest, QueryOuterClass.QueryConnectionConsensusStateResponse>
+  val connectionConsensusStateMethod:
+      MethodDescriptor<QueryOuterClass.QueryConnectionConsensusStateRequest,
+      QueryOuterClass.QueryConnectionConsensusStateResponse>
     @JvmStatic
     get() = QueryGrpc.getConnectionConsensusStateMethod()
 
@@ -64,11 +66,11 @@ public object QueryGrpcKt {
    * A stub for issuing RPCs to a(n) ibc.core.connection.v1.Query service as suspending coroutines.
    */
   @StubFor(QueryGrpc::class)
-  public class QueryCoroutineStub @JvmOverloads constructor(
+  class QueryCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<QueryCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
         QueryCoroutineStub(channel, callOptions)
 
     /**
@@ -79,19 +81,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun connection(request: QueryOuterClass.QueryConnectionRequest, headers: Metadata
-        = Metadata()): QueryOuterClass.QueryConnectionResponse = unaryRpc(
+    suspend fun connection(request: QueryOuterClass.QueryConnectionRequest):
+        QueryOuterClass.QueryConnectionResponse = unaryRpc(
       channel,
       QueryGrpc.getConnectionMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -100,19 +99,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun connections(request: QueryOuterClass.QueryConnectionsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryConnectionsResponse = unaryRpc(
+    suspend fun connections(request: QueryOuterClass.QueryConnectionsRequest):
+        QueryOuterClass.QueryConnectionsResponse = unaryRpc(
       channel,
       QueryGrpc.getConnectionsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -121,19 +117,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun clientConnections(request: QueryOuterClass.QueryClientConnectionsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryClientConnectionsResponse = unaryRpc(
+    suspend fun clientConnections(request: QueryOuterClass.QueryClientConnectionsRequest):
+        QueryOuterClass.QueryClientConnectionsResponse = unaryRpc(
       channel,
       QueryGrpc.getClientConnectionsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -142,21 +135,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend
-        fun connectionClientState(request: QueryOuterClass.QueryConnectionClientStateRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryConnectionClientStateResponse =
-        unaryRpc(
+    suspend fun connectionClientState(request: QueryOuterClass.QueryConnectionClientStateRequest):
+        QueryOuterClass.QueryConnectionClientStateResponse = unaryRpc(
       channel,
       QueryGrpc.getConnectionClientStateMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -165,27 +153,23 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend
-        fun connectionConsensusState(request: QueryOuterClass.QueryConnectionConsensusStateRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryConnectionConsensusStateResponse =
-        unaryRpc(
+    suspend
+        fun connectionConsensusState(request: QueryOuterClass.QueryConnectionConsensusStateRequest):
+        QueryOuterClass.QueryConnectionConsensusStateResponse = unaryRpc(
       channel,
       QueryGrpc.getConnectionConsensusStateMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the ibc.core.connection.v1.Query service based on Kotlin coroutines.
    */
-  public abstract class QueryCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class QueryCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for ibc.core.connection.v1.Query.Connection.
@@ -198,7 +182,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun connection(request: QueryOuterClass.QueryConnectionRequest):
+    open suspend fun connection(request: QueryOuterClass.QueryConnectionRequest):
         QueryOuterClass.QueryConnectionResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.connection.v1.Query.Connection is unimplemented"))
 
@@ -213,7 +197,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun connections(request: QueryOuterClass.QueryConnectionsRequest):
+    open suspend fun connections(request: QueryOuterClass.QueryConnectionsRequest):
         QueryOuterClass.QueryConnectionsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.connection.v1.Query.Connections is unimplemented"))
 
@@ -228,8 +212,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
-        fun clientConnections(request: QueryOuterClass.QueryClientConnectionsRequest):
+    open suspend fun clientConnections(request: QueryOuterClass.QueryClientConnectionsRequest):
         QueryOuterClass.QueryClientConnectionsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.connection.v1.Query.ClientConnections is unimplemented"))
 
@@ -244,7 +227,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
+    open suspend
         fun connectionClientState(request: QueryOuterClass.QueryConnectionClientStateRequest):
         QueryOuterClass.QueryConnectionClientStateResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.connection.v1.Query.ConnectionClientState is unimplemented"))
@@ -260,13 +243,12 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
+    open suspend
         fun connectionConsensusState(request: QueryOuterClass.QueryConnectionConsensusStateRequest):
         QueryOuterClass.QueryConnectionConsensusStateResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.connection.v1.Query.ConnectionConsensusState is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = QueryGrpc.getConnectionMethod(),

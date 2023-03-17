@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializeresponseApplySnapshotChunk")
-public inline fun responseApplySnapshotChunk(block: tendermint.abci.ResponseApplySnapshotChunkKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseApplySnapshotChunk =
+@kotlin.jvm.JvmSynthetic
+inline fun responseApplySnapshotChunk(block: tendermint.abci.ResponseApplySnapshotChunkKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseApplySnapshotChunk =
   tendermint.abci.ResponseApplySnapshotChunkKt.Dsl._create(tendermint.abci.Types.ResponseApplySnapshotChunk.newBuilder()).apply { block() }._build()
-public object ResponseApplySnapshotChunkKt {
+object ResponseApplySnapshotChunkKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.ResponseApplySnapshotChunk.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.ResponseApplySnapshotChunk.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.ResponseApplySnapshotChunk.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ResponseApplySnapshotChunkKt {
     /**
      * <code>.tendermint.abci.ResponseApplySnapshotChunk.Result result = 1;</code>
      */
-    public var result: tendermint.abci.Types.ResponseApplySnapshotChunk.Result
+    var result: tendermint.abci.Types.ResponseApplySnapshotChunk.Result
       @JvmName("getResult")
       get() = _builder.getResult()
       @JvmName("setResult")
@@ -35,7 +35,7 @@ public object ResponseApplySnapshotChunkKt {
     /**
      * <code>.tendermint.abci.ResponseApplySnapshotChunk.Result result = 1;</code>
      */
-    public fun clearResult() {
+    fun clearResult() {
       _builder.clearResult()
     }
 
@@ -44,7 +44,7 @@ public object ResponseApplySnapshotChunkKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class RefetchChunksProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class RefetchChunksProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * Chunks to refetch and reapply
@@ -52,7 +52,7 @@ public object ResponseApplySnapshotChunkKt {
      *
      * <code>repeated uint32 refetch_chunks = 2;</code>
      */
-     public val refetchChunks: com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>
+     val refetchChunks: com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getRefetchChunksList()
@@ -67,7 +67,7 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addRefetchChunks")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.add(value: kotlin.Int) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.add(value: kotlin.Int) {
       _builder.addRefetchChunks(value)
     }/**
      * <pre>
@@ -79,8 +79,7 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignRefetchChunks")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.plusAssign(value: kotlin.Int) {
+    inline operator fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.plusAssign(value: kotlin.Int) {
       add(value)
     }/**
      * <pre>
@@ -92,7 +91,7 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllRefetchChunks")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.addAll(values: kotlin.collections.Iterable<kotlin.Int>) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.addAll(values: kotlin.collections.Iterable<kotlin.Int>) {
       _builder.addAllRefetchChunks(values)
     }/**
      * <pre>
@@ -104,8 +103,7 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllRefetchChunks")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.Int>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.Int>) {
       addAll(values)
     }/**
      * <pre>
@@ -118,7 +116,7 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setRefetchChunks")
-    public operator fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.set(index: kotlin.Int, value: kotlin.Int) {
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.set(index: kotlin.Int, value: kotlin.Int) {
       _builder.setRefetchChunks(index, value)
     }/**
      * <pre>
@@ -129,7 +127,7 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearRefetchChunks")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<kotlin.Int, RefetchChunksProxy>.clear() {
       _builder.clearRefetchChunks()
     }
     /**
@@ -137,7 +135,7 @@ public object ResponseApplySnapshotChunkKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class RejectSendersProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class RejectSendersProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * Chunk senders to reject and ban
@@ -146,8 +144,8 @@ public object ResponseApplySnapshotChunkKt {
      * <code>repeated string reject_senders = 3;</code>
      * @return A list containing the rejectSenders.
      */
-    public val rejectSenders: com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>
-      @kotlin.jvm.JvmSynthetic
+    val rejectSenders: com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>
+      @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getRejectSendersList()
       )
@@ -161,7 +159,7 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addRejectSenders")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.add(value: kotlin.String) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.add(value: kotlin.String) {
       _builder.addRejectSenders(value)
     }
     /**
@@ -174,9 +172,8 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignRejectSenders")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.plusAssign(value: kotlin.String) {
-      add(value)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.plusAssign(value: kotlin.String) {
+      _builder.addRejectSenders(value)
     }
     /**
      * <pre>
@@ -188,7 +185,7 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllRejectSenders")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllRejectSenders(values)
     }
     /**
@@ -201,9 +198,8 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllRejectSenders")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
-      addAll(values)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
+      _builder.addAllRejectSenders(values)
     }
     /**
      * <pre>
@@ -216,7 +212,7 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setRejectSenders")
-    public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.set(index: kotlin.Int, value: kotlin.String) {
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setRejectSenders(index, value)
     }/**
      * <pre>
@@ -227,11 +223,10 @@ public object ResponseApplySnapshotChunkKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearRejectSenders")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, RejectSendersProxy>.clear() {
       _builder.clearRejectSenders()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.ResponseApplySnapshotChunk.copy(block: tendermint.abci.ResponseApplySnapshotChunkKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseApplySnapshotChunk =
+inline fun tendermint.abci.Types.ResponseApplySnapshotChunk.copy(block: tendermint.abci.ResponseApplySnapshotChunkKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseApplySnapshotChunk =
   tendermint.abci.ResponseApplySnapshotChunkKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -100,6 +100,68 @@ public final class Params {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ParameterChangeProposal(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              title_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                changes_ = new java.util.ArrayList<cosmos.params.v1beta1.Params.ParamChange>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              changes_.add(
+                  input.readMessage(cosmos.params.v1beta1.Params.ParamChange.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          changes_ = java.util.Collections.unmodifiableList(changes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.params.v1beta1.Params.internal_static_cosmos_params_v1beta1_ParameterChangeProposal_descriptor;
@@ -114,8 +176,7 @@ public final class Params {
     }
 
     public static final int TITLE_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object title_ = "";
+    private volatile java.lang.Object title_;
     /**
      * <code>string title = 1;</code>
      * @return The title.
@@ -153,8 +214,7 @@ public final class Params {
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object description_ = "";
+    private volatile java.lang.Object description_;
     /**
      * <code>string description = 2;</code>
      * @return The description.
@@ -192,7 +252,6 @@ public final class Params {
     }
 
     public static final int CHANGES_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private java.util.List<cosmos.params.v1beta1.Params.ParamChange> changes_;
     /**
      * <code>repeated .cosmos.params.v1beta1.ParamChange changes = 3 [(.gogoproto.nullable) = false];</code>
@@ -246,16 +305,16 @@ public final class Params {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+      if (!getTitleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, title_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
       for (int i = 0; i < changes_.size(); i++) {
         output.writeMessage(3, changes_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -264,17 +323,17 @@ public final class Params {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+      if (!getTitleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, title_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
       for (int i = 0; i < changes_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, changes_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -295,7 +354,7 @@ public final class Params {
           .equals(other.getDescription())) return false;
       if (!getChangesList()
           .equals(other.getChangesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -314,7 +373,7 @@ public final class Params {
         hash = (37 * hash) + CHANGES_FIELD_NUMBER;
         hash = (53 * hash) + getChangesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -435,27 +494,33 @@ public final class Params {
 
       // Construct using cosmos.params.v1beta1.Params.ParameterChangeProposal.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getChangesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         title_ = "";
+
         description_ = "";
+
         if (changesBuilder_ == null) {
           changes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          changes_ = null;
           changesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -482,32 +547,20 @@ public final class Params {
       @java.lang.Override
       public cosmos.params.v1beta1.Params.ParameterChangeProposal buildPartial() {
         cosmos.params.v1beta1.Params.ParameterChangeProposal result = new cosmos.params.v1beta1.Params.ParameterChangeProposal(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(cosmos.params.v1beta1.Params.ParameterChangeProposal result) {
+        int from_bitField0_ = bitField0_;
+        result.title_ = title_;
+        result.description_ = description_;
         if (changesBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             changes_ = java.util.Collections.unmodifiableList(changes_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.changes_ = changes_;
         } else {
           result.changes_ = changesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(cosmos.params.v1beta1.Params.ParameterChangeProposal result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.title_ = title_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.description_ = description_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -556,19 +609,17 @@ public final class Params {
         if (other == cosmos.params.v1beta1.Params.ParameterChangeProposal.getDefaultInstance()) return this;
         if (!other.getTitle().isEmpty()) {
           title_ = other.title_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (changesBuilder_ == null) {
           if (!other.changes_.isEmpty()) {
             if (changes_.isEmpty()) {
               changes_ = other.changes_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureChangesIsMutable();
               changes_.addAll(other.changes_);
@@ -581,7 +632,7 @@ public final class Params {
               changesBuilder_.dispose();
               changesBuilder_ = null;
               changes_ = other.changes_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
               changesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getChangesFieldBuilder() : null;
@@ -590,7 +641,7 @@ public final class Params {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -605,53 +656,17 @@ public final class Params {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.params.v1beta1.Params.ParameterChangeProposal parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                title_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                description_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                cosmos.params.v1beta1.Params.ParamChange m =
-                    input.readMessage(
-                        cosmos.params.v1beta1.Params.ParamChange.parser(),
-                        extensionRegistry);
-                if (changesBuilder_ == null) {
-                  ensureChangesIsMutable();
-                  changes_.add(m);
-                } else {
-                  changesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.params.v1beta1.Params.ParameterChangeProposal) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -697,9 +712,11 @@ public final class Params {
        */
       public Builder setTitle(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         title_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -708,8 +725,8 @@ public final class Params {
        * @return This builder for chaining.
        */
       public Builder clearTitle() {
+        
         title_ = getDefaultInstance().getTitle();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -720,10 +737,12 @@ public final class Params {
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         title_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -769,9 +788,11 @@ public final class Params {
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         description_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -780,8 +801,8 @@ public final class Params {
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
+        
         description_ = getDefaultInstance().getDescription();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -792,10 +813,12 @@ public final class Params {
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         description_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -803,9 +826,9 @@ public final class Params {
       private java.util.List<cosmos.params.v1beta1.Params.ParamChange> changes_ =
         java.util.Collections.emptyList();
       private void ensureChangesIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           changes_ = new java.util.ArrayList<cosmos.params.v1beta1.Params.ParamChange>(changes_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -955,7 +978,7 @@ public final class Params {
       public Builder clearChanges() {
         if (changesBuilder_ == null) {
           changes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           changesBuilder_.clear();
@@ -1032,7 +1055,7 @@ public final class Params {
           changesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               cosmos.params.v1beta1.Params.ParamChange, cosmos.params.v1beta1.Params.ParamChange.Builder, cosmos.params.v1beta1.Params.ParamChangeOrBuilder>(
                   changes_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           changes_ = null;
@@ -1072,18 +1095,7 @@ public final class Params {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ParameterChangeProposal(input, extensionRegistry);
       }
     };
 
@@ -1178,6 +1190,61 @@ public final class Params {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ParamChange(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              subspace_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              key_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              value_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.params.v1beta1.Params.internal_static_cosmos_params_v1beta1_ParamChange_descriptor;
@@ -1192,8 +1259,7 @@ public final class Params {
     }
 
     public static final int SUBSPACE_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object subspace_ = "";
+    private volatile java.lang.Object subspace_;
     /**
      * <code>string subspace = 1;</code>
      * @return The subspace.
@@ -1231,8 +1297,7 @@ public final class Params {
     }
 
     public static final int KEY_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object key_ = "";
+    private volatile java.lang.Object key_;
     /**
      * <code>string key = 2;</code>
      * @return The key.
@@ -1270,8 +1335,7 @@ public final class Params {
     }
 
     public static final int VALUE_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object value_ = "";
+    private volatile java.lang.Object value_;
     /**
      * <code>string value = 3;</code>
      * @return The value.
@@ -1322,16 +1386,16 @@ public final class Params {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(subspace_)) {
+      if (!getSubspaceBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, subspace_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+      if (!getKeyBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, key_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+      if (!getValueBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1340,16 +1404,16 @@ public final class Params {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(subspace_)) {
+      if (!getSubspaceBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, subspace_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+      if (!getKeyBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, key_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+      if (!getValueBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, value_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1370,7 +1434,7 @@ public final class Params {
           .equals(other.getKey())) return false;
       if (!getValue()
           .equals(other.getValue())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1387,7 +1451,7 @@ public final class Params {
       hash = (53 * hash) + getKey().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1509,21 +1573,28 @@ public final class Params {
 
       // Construct using cosmos.params.v1beta1.Params.ParamChange.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         subspace_ = "";
+
         key_ = "";
+
         value_ = "";
+
         return this;
       }
 
@@ -1550,22 +1621,11 @@ public final class Params {
       @java.lang.Override
       public cosmos.params.v1beta1.Params.ParamChange buildPartial() {
         cosmos.params.v1beta1.Params.ParamChange result = new cosmos.params.v1beta1.Params.ParamChange(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.subspace_ = subspace_;
+        result.key_ = key_;
+        result.value_ = value_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.params.v1beta1.Params.ParamChange result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.subspace_ = subspace_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.key_ = key_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.value_ = value_;
-        }
       }
 
       @java.lang.Override
@@ -1614,20 +1674,17 @@ public final class Params {
         if (other == cosmos.params.v1beta1.Params.ParamChange.getDefaultInstance()) return this;
         if (!other.getSubspace().isEmpty()) {
           subspace_ = other.subspace_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getKey().isEmpty()) {
           key_ = other.key_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getValue().isEmpty()) {
           value_ = other.value_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1642,48 +1699,19 @@ public final class Params {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.params.v1beta1.Params.ParamChange parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                subspace_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                key_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                value_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.params.v1beta1.Params.ParamChange) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object subspace_ = "";
       /**
@@ -1726,9 +1754,11 @@ public final class Params {
        */
       public Builder setSubspace(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         subspace_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1737,8 +1767,8 @@ public final class Params {
        * @return This builder for chaining.
        */
       public Builder clearSubspace() {
+        
         subspace_ = getDefaultInstance().getSubspace();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1749,10 +1779,12 @@ public final class Params {
        */
       public Builder setSubspaceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         subspace_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1798,9 +1830,11 @@ public final class Params {
        */
       public Builder setKey(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         key_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1809,8 +1843,8 @@ public final class Params {
        * @return This builder for chaining.
        */
       public Builder clearKey() {
+        
         key_ = getDefaultInstance().getKey();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1821,10 +1855,12 @@ public final class Params {
        */
       public Builder setKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         key_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1870,9 +1906,11 @@ public final class Params {
        */
       public Builder setValue(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         value_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1881,8 +1919,8 @@ public final class Params {
        * @return This builder for chaining.
        */
       public Builder clearValue() {
+        
         value_ = getDefaultInstance().getValue();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1893,10 +1931,12 @@ public final class Params {
        */
       public Builder setValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         value_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1933,18 +1973,7 @@ public final class Params {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ParamChange(input, extensionRegistry);
       }
     };
 

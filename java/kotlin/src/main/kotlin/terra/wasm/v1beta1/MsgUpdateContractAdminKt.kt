@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgUpdateContractAdmin")
-public inline fun msgUpdateContractAdmin(block: terra.wasm.v1beta1.MsgUpdateContractAdminKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgUpdateContractAdmin =
+@kotlin.jvm.JvmSynthetic
+inline fun msgUpdateContractAdmin(block: terra.wasm.v1beta1.MsgUpdateContractAdminKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgUpdateContractAdmin =
   terra.wasm.v1beta1.MsgUpdateContractAdminKt.Dsl._create(terra.wasm.v1beta1.Tx.MsgUpdateContractAdmin.newBuilder()).apply { block() }._build()
-public object MsgUpdateContractAdminKt {
+object MsgUpdateContractAdminKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Tx.MsgUpdateContractAdmin.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Tx.MsgUpdateContractAdmin.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Tx.MsgUpdateContractAdmin.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MsgUpdateContractAdminKt {
      *
      * <code>string admin = 1 [(.gogoproto.moretags) = "yaml:&#92;"admin&#92;""];</code>
      */
-    public var admin: kotlin.String
+    var admin: kotlin.String
       @JvmName("getAdmin")
       get() = _builder.getAdmin()
       @JvmName("setAdmin")
@@ -43,7 +43,7 @@ public object MsgUpdateContractAdminKt {
      *
      * <code>string admin = 1 [(.gogoproto.moretags) = "yaml:&#92;"admin&#92;""];</code>
      */
-    public fun clearAdmin() {
+    fun clearAdmin() {
       _builder.clearAdmin()
     }
 
@@ -54,7 +54,7 @@ public object MsgUpdateContractAdminKt {
      *
      * <code>string new_admin = 2 [(.gogoproto.moretags) = "yaml:&#92;"new_admin&#92;""];</code>
      */
-    public var newAdmin: kotlin.String
+    var newAdmin: kotlin.String
       @JvmName("getNewAdmin")
       get() = _builder.getNewAdmin()
       @JvmName("setNewAdmin")
@@ -68,7 +68,7 @@ public object MsgUpdateContractAdminKt {
      *
      * <code>string new_admin = 2 [(.gogoproto.moretags) = "yaml:&#92;"new_admin&#92;""];</code>
      */
-    public fun clearNewAdmin() {
+    fun clearNewAdmin() {
       _builder.clearNewAdmin()
     }
 
@@ -79,7 +79,7 @@ public object MsgUpdateContractAdminKt {
      *
      * <code>string contract = 3 [(.gogoproto.moretags) = "yaml:&#92;"contract&#92;""];</code>
      */
-    public var contract: kotlin.String
+    var contract: kotlin.String
       @JvmName("getContract")
       get() = _builder.getContract()
       @JvmName("setContract")
@@ -93,12 +93,11 @@ public object MsgUpdateContractAdminKt {
      *
      * <code>string contract = 3 [(.gogoproto.moretags) = "yaml:&#92;"contract&#92;""];</code>
      */
-    public fun clearContract() {
+    fun clearContract() {
       _builder.clearContract()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Tx.MsgUpdateContractAdmin.copy(block: terra.wasm.v1beta1.MsgUpdateContractAdminKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgUpdateContractAdmin =
+inline fun terra.wasm.v1beta1.Tx.MsgUpdateContractAdmin.copy(block: terra.wasm.v1beta1.MsgUpdateContractAdminKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgUpdateContractAdmin =
   terra.wasm.v1beta1.MsgUpdateContractAdminKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -8,7 +8,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
  * </pre>
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.50.0)",
+    value = "by gRPC proto compiler (version 1.40.1)",
     comments = "Source: terra/treasury/v1beta1/query.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class QueryGrpc {
@@ -235,37 +235,6 @@ public final class QueryGrpc {
     return getIndicatorsMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest,
-      terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse> getBurnTaxExemptionListMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "BurnTaxExemptionList",
-      requestType = terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest.class,
-      responseType = terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest,
-      terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse> getBurnTaxExemptionListMethod() {
-    io.grpc.MethodDescriptor<terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest, terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse> getBurnTaxExemptionListMethod;
-    if ((getBurnTaxExemptionListMethod = QueryGrpc.getBurnTaxExemptionListMethod) == null) {
-      synchronized (QueryGrpc.class) {
-        if ((getBurnTaxExemptionListMethod = QueryGrpc.getBurnTaxExemptionListMethod) == null) {
-          QueryGrpc.getBurnTaxExemptionListMethod = getBurnTaxExemptionListMethod =
-              io.grpc.MethodDescriptor.<terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest, terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "BurnTaxExemptionList"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new QueryMethodDescriptorSupplier("BurnTaxExemptionList"))
-              .build();
-        }
-      }
-    }
-    return getBurnTaxExemptionListMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<terra.treasury.v1beta1.QueryOuterClass.QueryParamsRequest,
       terra.treasury.v1beta1.QueryOuterClass.QueryParamsResponse> getParamsMethod;
 
@@ -420,16 +389,6 @@ public final class QueryGrpc {
 
     /**
      * <pre>
-     * BurnTaxExemptionList returns all registered burn tax exemption addresses
-     * </pre>
-     */
-    public void burnTaxExemptionList(terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest request,
-        io.grpc.stub.StreamObserver<terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getBurnTaxExemptionListMethod(), responseObserver);
-    }
-
-    /**
-     * <pre>
      * Params queries all parameters.
      * </pre>
      */
@@ -489,13 +448,6 @@ public final class QueryGrpc {
                 terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest,
                 terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse>(
                   this, METHODID_INDICATORS)))
-          .addMethod(
-            getBurnTaxExemptionListMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest,
-                terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse>(
-                  this, METHODID_BURN_TAX_EXEMPTION_LIST)))
           .addMethod(
             getParamsMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -603,17 +555,6 @@ public final class QueryGrpc {
 
     /**
      * <pre>
-     * BurnTaxExemptionList returns all registered burn tax exemption addresses
-     * </pre>
-     */
-    public void burnTaxExemptionList(terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest request,
-        io.grpc.stub.StreamObserver<terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getBurnTaxExemptionListMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     * <pre>
      * Params queries all parameters.
      * </pre>
      */
@@ -709,16 +650,6 @@ public final class QueryGrpc {
     public terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse indicators(terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getIndicatorsMethod(), getCallOptions(), request);
-    }
-
-    /**
-     * <pre>
-     * BurnTaxExemptionList returns all registered burn tax exemption addresses
-     * </pre>
-     */
-    public terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse burnTaxExemptionList(terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getBurnTaxExemptionListMethod(), getCallOptions(), request);
     }
 
     /**
@@ -828,17 +759,6 @@ public final class QueryGrpc {
 
     /**
      * <pre>
-     * BurnTaxExemptionList returns all registered burn tax exemption addresses
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse> burnTaxExemptionList(
-        terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getBurnTaxExemptionListMethod(), getCallOptions()), request);
-    }
-
-    /**
-     * <pre>
      * Params queries all parameters.
      * </pre>
      */
@@ -856,8 +776,7 @@ public final class QueryGrpc {
   private static final int METHODID_SEIGNIORAGE_PROCEEDS = 4;
   private static final int METHODID_TAX_PROCEEDS = 5;
   private static final int METHODID_INDICATORS = 6;
-  private static final int METHODID_BURN_TAX_EXEMPTION_LIST = 7;
-  private static final int METHODID_PARAMS = 8;
+  private static final int METHODID_PARAMS = 7;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -903,10 +822,6 @@ public final class QueryGrpc {
         case METHODID_INDICATORS:
           serviceImpl.indicators((terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest) request,
               (io.grpc.stub.StreamObserver<terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse>) responseObserver);
-          break;
-        case METHODID_BURN_TAX_EXEMPTION_LIST:
-          serviceImpl.burnTaxExemptionList((terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListRequest) request,
-              (io.grpc.stub.StreamObserver<terra.treasury.v1beta1.QueryOuterClass.QueryBurnTaxExemptionListResponse>) responseObserver);
           break;
         case METHODID_PARAMS:
           serviceImpl.params((terra.treasury.v1beta1.QueryOuterClass.QueryParamsRequest) request,
@@ -980,7 +895,6 @@ public final class QueryGrpc {
               .addMethod(getSeigniorageProceedsMethod())
               .addMethod(getTaxProceedsMethod())
               .addMethod(getIndicatorsMethod())
-              .addMethod(getBurnTaxExemptionListMethod())
               .addMethod(getParamsMethod())
               .build();
         }

@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v1beta1;
 
-@kotlin.jvm.JvmName("-initializelistImplementationsResponse")
-public inline fun listImplementationsResponse(block: cosmos.base.reflection.v1beta1.ListImplementationsResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v1beta1.Reflection.ListImplementationsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun listImplementationsResponse(block: cosmos.base.reflection.v1beta1.ListImplementationsResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v1beta1.Reflection.ListImplementationsResponse =
   cosmos.base.reflection.v1beta1.ListImplementationsResponseKt.Dsl._create(cosmos.base.reflection.v1beta1.Reflection.ListImplementationsResponse.newBuilder()).apply { block() }._build()
-public object ListImplementationsResponseKt {
+object ListImplementationsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v1beta1.Reflection.ListImplementationsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v1beta1.Reflection.ListImplementationsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v1beta1.Reflection.ListImplementationsResponse.Builder): Dsl = Dsl(builder)
@@ -27,13 +27,13 @@ public object ListImplementationsResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ImplementationMessageNamesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ImplementationMessageNamesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated string implementation_message_names = 1;</code>
      * @return A list containing the implementationMessageNames.
      */
-    public val implementationMessageNames: com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>
-      @kotlin.jvm.JvmSynthetic
+    val implementationMessageNames: com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>
+      @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getImplementationMessageNamesList()
       )
@@ -43,7 +43,7 @@ public object ListImplementationsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addImplementationMessageNames")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.add(value: kotlin.String) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.add(value: kotlin.String) {
       _builder.addImplementationMessageNames(value)
     }
     /**
@@ -52,9 +52,8 @@ public object ListImplementationsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignImplementationMessageNames")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.plusAssign(value: kotlin.String) {
-      add(value)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.plusAssign(value: kotlin.String) {
+      _builder.addImplementationMessageNames(value)
     }
     /**
      * <code>repeated string implementation_message_names = 1;</code>
@@ -62,7 +61,7 @@ public object ListImplementationsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllImplementationMessageNames")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllImplementationMessageNames(values)
     }
     /**
@@ -71,9 +70,8 @@ public object ListImplementationsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllImplementationMessageNames")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
-      addAll(values)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
+      _builder.addAllImplementationMessageNames(values)
     }
     /**
      * <code>repeated string implementation_message_names = 1;</code>
@@ -82,18 +80,17 @@ public object ListImplementationsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setImplementationMessageNames")
-    public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.set(index: kotlin.Int, value: kotlin.String) {
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setImplementationMessageNames(index, value)
     }/**
      * <code>repeated string implementation_message_names = 1;</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearImplementationMessageNames")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, ImplementationMessageNamesProxy>.clear() {
       _builder.clearImplementationMessageNames()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v1beta1.Reflection.ListImplementationsResponse.copy(block: cosmos.base.reflection.v1beta1.ListImplementationsResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v1beta1.Reflection.ListImplementationsResponse =
+inline fun cosmos.base.reflection.v1beta1.Reflection.ListImplementationsResponse.copy(block: cosmos.base.reflection.v1beta1.ListImplementationsResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v1beta1.Reflection.ListImplementationsResponse =
   cosmos.base.reflection.v1beta1.ListImplementationsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

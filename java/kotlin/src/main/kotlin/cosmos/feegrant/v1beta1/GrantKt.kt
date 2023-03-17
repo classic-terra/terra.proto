@@ -3,16 +3,16 @@
 
 package cosmos.feegrant.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegrant")
-public inline fun grant(block: cosmos.feegrant.v1beta1.GrantKt.Dsl.() -> kotlin.Unit): cosmos.feegrant.v1beta1.Feegrant.Grant =
+@kotlin.jvm.JvmSynthetic
+inline fun grant(block: cosmos.feegrant.v1beta1.GrantKt.Dsl.() -> Unit): cosmos.feegrant.v1beta1.Feegrant.Grant =
   cosmos.feegrant.v1beta1.GrantKt.Dsl._create(cosmos.feegrant.v1beta1.Feegrant.Grant.newBuilder()).apply { block() }._build()
-public object GrantKt {
+object GrantKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.feegrant.v1beta1.Feegrant.Grant.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.feegrant.v1beta1.Feegrant.Grant.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.feegrant.v1beta1.Feegrant.Grant.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object GrantKt {
      *
      * <code>string granter = 1;</code>
      */
-    public var granter: kotlin.String
+    var granter: kotlin.String
       @JvmName("getGranter")
       get() = _builder.getGranter()
       @JvmName("setGranter")
@@ -43,7 +43,7 @@ public object GrantKt {
      *
      * <code>string granter = 1;</code>
      */
-    public fun clearGranter() {
+    fun clearGranter() {
       _builder.clearGranter()
     }
 
@@ -54,7 +54,7 @@ public object GrantKt {
      *
      * <code>string grantee = 2;</code>
      */
-    public var grantee: kotlin.String
+    var grantee: kotlin.String
       @JvmName("getGrantee")
       get() = _builder.getGrantee()
       @JvmName("setGrantee")
@@ -68,7 +68,7 @@ public object GrantKt {
      *
      * <code>string grantee = 2;</code>
      */
-    public fun clearGrantee() {
+    fun clearGrantee() {
       _builder.clearGrantee()
     }
 
@@ -79,7 +79,7 @@ public object GrantKt {
      *
      * <code>.google.protobuf.Any allowance = 3 [(.cosmos_proto.accepts_interface) = "FeeAllowanceI"];</code>
      */
-    public var allowance: com.google.protobuf.Any
+    var allowance: com.google.protobuf.Any
       @JvmName("getAllowance")
       get() = _builder.getAllowance()
       @JvmName("setAllowance")
@@ -93,7 +93,7 @@ public object GrantKt {
      *
      * <code>.google.protobuf.Any allowance = 3 [(.cosmos_proto.accepts_interface) = "FeeAllowanceI"];</code>
      */
-    public fun clearAllowance() {
+    fun clearAllowance() {
       _builder.clearAllowance()
     }
     /**
@@ -104,15 +104,11 @@ public object GrantKt {
      * <code>.google.protobuf.Any allowance = 3 [(.cosmos_proto.accepts_interface) = "FeeAllowanceI"];</code>
      * @return Whether the allowance field is set.
      */
-    public fun hasAllowance(): kotlin.Boolean {
+    fun hasAllowance(): kotlin.Boolean {
       return _builder.hasAllowance()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.feegrant.v1beta1.Feegrant.Grant.copy(block: cosmos.feegrant.v1beta1.GrantKt.Dsl.() -> kotlin.Unit): cosmos.feegrant.v1beta1.Feegrant.Grant =
+inline fun cosmos.feegrant.v1beta1.Feegrant.Grant.copy(block: cosmos.feegrant.v1beta1.GrantKt.Dsl.() -> Unit): cosmos.feegrant.v1beta1.Feegrant.Grant =
   cosmos.feegrant.v1beta1.GrantKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.feegrant.v1beta1.Feegrant.GrantOrBuilder.allowanceOrNull: com.google.protobuf.Any?
-  get() = if (hasAllowance()) getAllowance() else null
-

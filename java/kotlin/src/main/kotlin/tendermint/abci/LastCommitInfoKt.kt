@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializelastCommitInfo")
-public inline fun lastCommitInfo(block: tendermint.abci.LastCommitInfoKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.LastCommitInfo =
+@kotlin.jvm.JvmSynthetic
+inline fun lastCommitInfo(block: tendermint.abci.LastCommitInfoKt.Dsl.() -> Unit): tendermint.abci.Types.LastCommitInfo =
   tendermint.abci.LastCommitInfoKt.Dsl._create(tendermint.abci.Types.LastCommitInfo.newBuilder()).apply { block() }._build()
-public object LastCommitInfoKt {
+object LastCommitInfoKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.LastCommitInfo.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.LastCommitInfo.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.LastCommitInfo.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object LastCommitInfoKt {
     /**
      * <code>int32 round = 1;</code>
      */
-    public var round: kotlin.Int
+    var round: kotlin.Int
       @JvmName("getRound")
       get() = _builder.getRound()
       @JvmName("setRound")
@@ -35,7 +35,7 @@ public object LastCommitInfoKt {
     /**
      * <code>int32 round = 1;</code>
      */
-    public fun clearRound() {
+    fun clearRound() {
       _builder.clearRound()
     }
 
@@ -44,11 +44,11 @@ public object LastCommitInfoKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class VotesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class VotesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .tendermint.abci.VoteInfo votes = 2 [(.gogoproto.nullable) = false];</code>
      */
-     public val votes: com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>
+     val votes: com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getVotesList()
@@ -59,60 +59,50 @@ public object LastCommitInfoKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addVotes")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.add(value: tendermint.abci.Types.VoteInfo) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.add(value: tendermint.abci.Types.VoteInfo) {
       _builder.addVotes(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.VoteInfo votes = 2 [(.gogoproto.nullable) = false];</code>
      * @param value The votes to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignVotes")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.plusAssign(value: tendermint.abci.Types.VoteInfo) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.plusAssign(value: tendermint.abci.Types.VoteInfo) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.VoteInfo votes = 2 [(.gogoproto.nullable) = false];</code>
      * @param values The votes to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllVotes")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.addAll(values: kotlin.collections.Iterable<tendermint.abci.Types.VoteInfo>) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.addAll(values: kotlin.collections.Iterable<tendermint.abci.Types.VoteInfo>) {
       _builder.addAllVotes(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.VoteInfo votes = 2 [(.gogoproto.nullable) = false];</code>
      * @param values The votes to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllVotes")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.abci.Types.VoteInfo>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.abci.Types.VoteInfo>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.VoteInfo votes = 2 [(.gogoproto.nullable) = false];</code>
      * @param index The index to set the value at.
      * @param value The votes to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setVotes")
-    public operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.set(index: kotlin.Int, value: tendermint.abci.Types.VoteInfo) {
+    operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.set(index: kotlin.Int, value: tendermint.abci.Types.VoteInfo) {
       _builder.setVotes(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.VoteInfo votes = 2 [(.gogoproto.nullable) = false];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearVotes")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.VoteInfo, VotesProxy>.clear() {
       _builder.clearVotes()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.LastCommitInfo.copy(block: tendermint.abci.LastCommitInfoKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.LastCommitInfo =
+inline fun tendermint.abci.Types.LastCommitInfo.copy(block: tendermint.abci.LastCommitInfoKt.Dsl.() -> Unit): tendermint.abci.Types.LastCommitInfo =
   tendermint.abci.LastCommitInfoKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

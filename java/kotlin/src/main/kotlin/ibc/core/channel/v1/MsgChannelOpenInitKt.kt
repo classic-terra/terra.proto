@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializemsgChannelOpenInit")
-public inline fun msgChannelOpenInit(block: ibc.core.channel.v1.MsgChannelOpenInitKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgChannelOpenInit =
+@kotlin.jvm.JvmSynthetic
+inline fun msgChannelOpenInit(block: ibc.core.channel.v1.MsgChannelOpenInitKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgChannelOpenInit =
   ibc.core.channel.v1.MsgChannelOpenInitKt.Dsl._create(ibc.core.channel.v1.Tx.MsgChannelOpenInit.newBuilder()).apply { block() }._build()
-public object MsgChannelOpenInitKt {
+object MsgChannelOpenInitKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.Tx.MsgChannelOpenInit.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.Tx.MsgChannelOpenInit.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.Tx.MsgChannelOpenInit.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgChannelOpenInitKt {
     /**
      * <code>string port_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"port_id&#92;""];</code>
      */
-    public var portId: kotlin.String
+    var portId: kotlin.String
       @JvmName("getPortId")
       get() = _builder.getPortId()
       @JvmName("setPortId")
@@ -35,14 +35,14 @@ public object MsgChannelOpenInitKt {
     /**
      * <code>string port_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"port_id&#92;""];</code>
      */
-    public fun clearPortId() {
+    fun clearPortId() {
       _builder.clearPortId()
     }
 
     /**
      * <code>.ibc.core.channel.v1.Channel channel = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public var channel: ibc.core.channel.v1.ChannelOuterClass.Channel
+    var channel: ibc.core.channel.v1.ChannelOuterClass.Channel
       @JvmName("getChannel")
       get() = _builder.getChannel()
       @JvmName("setChannel")
@@ -52,21 +52,21 @@ public object MsgChannelOpenInitKt {
     /**
      * <code>.ibc.core.channel.v1.Channel channel = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearChannel() {
+    fun clearChannel() {
       _builder.clearChannel()
     }
     /**
      * <code>.ibc.core.channel.v1.Channel channel = 2 [(.gogoproto.nullable) = false];</code>
      * @return Whether the channel field is set.
      */
-    public fun hasChannel(): kotlin.Boolean {
+    fun hasChannel(): kotlin.Boolean {
       return _builder.hasChannel()
     }
 
     /**
      * <code>string signer = 3;</code>
      */
-    public var signer: kotlin.String
+    var signer: kotlin.String
       @JvmName("getSigner")
       get() = _builder.getSigner()
       @JvmName("setSigner")
@@ -76,15 +76,11 @@ public object MsgChannelOpenInitKt {
     /**
      * <code>string signer = 3;</code>
      */
-    public fun clearSigner() {
+    fun clearSigner() {
       _builder.clearSigner()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.Tx.MsgChannelOpenInit.copy(block: ibc.core.channel.v1.MsgChannelOpenInitKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgChannelOpenInit =
+inline fun ibc.core.channel.v1.Tx.MsgChannelOpenInit.copy(block: ibc.core.channel.v1.MsgChannelOpenInitKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgChannelOpenInit =
   ibc.core.channel.v1.MsgChannelOpenInitKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.channel.v1.Tx.MsgChannelOpenInitOrBuilder.channelOrNull: ibc.core.channel.v1.ChannelOuterClass.Channel?
-  get() = if (hasChannel()) getChannel() else null
-

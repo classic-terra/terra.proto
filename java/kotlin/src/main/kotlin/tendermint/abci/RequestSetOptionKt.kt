@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializerequestSetOption")
-public inline fun requestSetOption(block: tendermint.abci.RequestSetOptionKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.RequestSetOption =
+@kotlin.jvm.JvmSynthetic
+inline fun requestSetOption(block: tendermint.abci.RequestSetOptionKt.Dsl.() -> Unit): tendermint.abci.Types.RequestSetOption =
   tendermint.abci.RequestSetOptionKt.Dsl._create(tendermint.abci.Types.RequestSetOption.newBuilder()).apply { block() }._build()
-public object RequestSetOptionKt {
+object RequestSetOptionKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.RequestSetOption.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.RequestSetOption.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.RequestSetOption.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object RequestSetOptionKt {
     /**
      * <code>string key = 1;</code>
      */
-    public var key: kotlin.String
+    var key: kotlin.String
       @JvmName("getKey")
       get() = _builder.getKey()
       @JvmName("setKey")
@@ -35,14 +35,14 @@ public object RequestSetOptionKt {
     /**
      * <code>string key = 1;</code>
      */
-    public fun clearKey() {
+    fun clearKey() {
       _builder.clearKey()
     }
 
     /**
      * <code>string value = 2;</code>
      */
-    public var value: kotlin.String
+    var value: kotlin.String
       @JvmName("getValue")
       get() = _builder.getValue()
       @JvmName("setValue")
@@ -52,12 +52,11 @@ public object RequestSetOptionKt {
     /**
      * <code>string value = 2;</code>
      */
-    public fun clearValue() {
+    fun clearValue() {
       _builder.clearValue()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.RequestSetOption.copy(block: tendermint.abci.RequestSetOptionKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.RequestSetOption =
+inline fun tendermint.abci.Types.RequestSetOption.copy(block: tendermint.abci.RequestSetOptionKt.Dsl.() -> Unit): tendermint.abci.Types.RequestSetOption =
   tendermint.abci.RequestSetOptionKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.authz.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryGrantsRequest")
-public inline fun queryGrantsRequest(block: cosmos.authz.v1beta1.QueryGrantsRequestKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.QueryOuterClass.QueryGrantsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryGrantsRequest(block: cosmos.authz.v1beta1.QueryGrantsRequestKt.Dsl.() -> Unit): cosmos.authz.v1beta1.QueryOuterClass.QueryGrantsRequest =
   cosmos.authz.v1beta1.QueryGrantsRequestKt.Dsl._create(cosmos.authz.v1beta1.QueryOuterClass.QueryGrantsRequest.newBuilder()).apply { block() }._build()
-public object QueryGrantsRequestKt {
+object QueryGrantsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.authz.v1beta1.QueryOuterClass.QueryGrantsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.authz.v1beta1.QueryOuterClass.QueryGrantsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.authz.v1beta1.QueryOuterClass.QueryGrantsRequest.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryGrantsRequestKt {
     /**
      * <code>string granter = 1;</code>
      */
-    public var granter: kotlin.String
+    var granter: kotlin.String
       @JvmName("getGranter")
       get() = _builder.getGranter()
       @JvmName("setGranter")
@@ -35,14 +35,14 @@ public object QueryGrantsRequestKt {
     /**
      * <code>string granter = 1;</code>
      */
-    public fun clearGranter() {
+    fun clearGranter() {
       _builder.clearGranter()
     }
 
     /**
      * <code>string grantee = 2;</code>
      */
-    public var grantee: kotlin.String
+    var grantee: kotlin.String
       @JvmName("getGrantee")
       get() = _builder.getGrantee()
       @JvmName("setGrantee")
@@ -52,7 +52,7 @@ public object QueryGrantsRequestKt {
     /**
      * <code>string grantee = 2;</code>
      */
-    public fun clearGrantee() {
+    fun clearGrantee() {
       _builder.clearGrantee()
     }
 
@@ -63,7 +63,7 @@ public object QueryGrantsRequestKt {
      *
      * <code>string msg_type_url = 3;</code>
      */
-    public var msgTypeUrl: kotlin.String
+    var msgTypeUrl: kotlin.String
       @JvmName("getMsgTypeUrl")
       get() = _builder.getMsgTypeUrl()
       @JvmName("setMsgTypeUrl")
@@ -77,7 +77,7 @@ public object QueryGrantsRequestKt {
      *
      * <code>string msg_type_url = 3;</code>
      */
-    public fun clearMsgTypeUrl() {
+    fun clearMsgTypeUrl() {
       _builder.clearMsgTypeUrl()
     }
 
@@ -88,7 +88,7 @@ public object QueryGrantsRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 4;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -102,7 +102,7 @@ public object QueryGrantsRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 4;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -113,15 +113,11 @@ public object QueryGrantsRequestKt {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 4;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.authz.v1beta1.QueryOuterClass.QueryGrantsRequest.copy(block: cosmos.authz.v1beta1.QueryGrantsRequestKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.QueryOuterClass.QueryGrantsRequest =
+inline fun cosmos.authz.v1beta1.QueryOuterClass.QueryGrantsRequest.copy(block: cosmos.authz.v1beta1.QueryGrantsRequestKt.Dsl.() -> Unit): cosmos.authz.v1beta1.QueryOuterClass.QueryGrantsRequest =
   cosmos.authz.v1beta1.QueryGrantsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.authz.v1beta1.QueryOuterClass.QueryGrantsRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

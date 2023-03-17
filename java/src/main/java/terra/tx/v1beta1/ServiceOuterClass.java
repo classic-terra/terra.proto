@@ -25,8 +25,6 @@ public final class ServiceOuterClass {
      * </pre>
      *
      * <code>.cosmos.tx.v1beta1.Tx tx = 1 [deprecated = true];</code>
-     * @deprecated terra.tx.v1beta1.ComputeTaxRequest.tx is deprecated.
-     *     See terra/tx/v1beta1/service.proto;l=27
      * @return Whether the tx field is set.
      */
     @java.lang.Deprecated boolean hasTx();
@@ -37,8 +35,6 @@ public final class ServiceOuterClass {
      * </pre>
      *
      * <code>.cosmos.tx.v1beta1.Tx tx = 1 [deprecated = true];</code>
-     * @deprecated terra.tx.v1beta1.ComputeTaxRequest.tx is deprecated.
-     *     See terra/tx/v1beta1/service.proto;l=27
      * @return The tx.
      */
     @java.lang.Deprecated cosmos.tx.v1beta1.TxOuterClass.Tx getTx();
@@ -95,6 +91,61 @@ public final class ServiceOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ComputeTaxRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cosmos.tx.v1beta1.TxOuterClass.Tx.Builder subBuilder = null;
+              if (tx_ != null) {
+                subBuilder = tx_.toBuilder();
+              }
+              tx_ = input.readMessage(cosmos.tx.v1beta1.TxOuterClass.Tx.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tx_);
+                tx_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+
+              txBytes_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.tx.v1beta1.ServiceOuterClass.internal_static_terra_tx_v1beta1_ComputeTaxRequest_descriptor;
@@ -117,8 +168,6 @@ public final class ServiceOuterClass {
      * </pre>
      *
      * <code>.cosmos.tx.v1beta1.Tx tx = 1 [deprecated = true];</code>
-     * @deprecated terra.tx.v1beta1.ComputeTaxRequest.tx is deprecated.
-     *     See terra/tx/v1beta1/service.proto;l=27
      * @return Whether the tx field is set.
      */
     @java.lang.Override
@@ -132,8 +181,6 @@ public final class ServiceOuterClass {
      * </pre>
      *
      * <code>.cosmos.tx.v1beta1.Tx tx = 1 [deprecated = true];</code>
-     * @deprecated terra.tx.v1beta1.ComputeTaxRequest.tx is deprecated.
-     *     See terra/tx/v1beta1/service.proto;l=27
      * @return The tx.
      */
     @java.lang.Override
@@ -150,11 +197,11 @@ public final class ServiceOuterClass {
      */
     @java.lang.Override
     @java.lang.Deprecated public cosmos.tx.v1beta1.TxOuterClass.TxOrBuilder getTxOrBuilder() {
-      return tx_ == null ? cosmos.tx.v1beta1.TxOuterClass.Tx.getDefaultInstance() : tx_;
+      return getTx();
     }
 
     public static final int TX_BYTES_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString txBytes_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString txBytes_;
     /**
      * <pre>
      * tx_bytes is the raw transaction.
@@ -188,7 +235,7 @@ public final class ServiceOuterClass {
       if (!txBytes_.isEmpty()) {
         output.writeBytes(2, txBytes_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -205,7 +252,7 @@ public final class ServiceOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, txBytes_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -227,7 +274,7 @@ public final class ServiceOuterClass {
       }
       if (!getTxBytes()
           .equals(other.getTxBytes())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -244,7 +291,7 @@ public final class ServiceOuterClass {
       }
       hash = (37 * hash) + TX_BYTES_FIELD_NUMBER;
       hash = (53 * hash) + getTxBytes().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -366,24 +413,30 @@ public final class ServiceOuterClass {
 
       // Construct using terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        tx_ = null;
-        if (txBuilder_ != null) {
-          txBuilder_.dispose();
+        if (txBuilder_ == null) {
+          tx_ = null;
+        } else {
+          tx_ = null;
           txBuilder_ = null;
         }
         txBytes_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -410,21 +463,14 @@ public final class ServiceOuterClass {
       @java.lang.Override
       public terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest buildPartial() {
         terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest result = new terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (txBuilder_ == null) {
+          result.tx_ = tx_;
+        } else {
+          result.tx_ = txBuilder_.build();
+        }
+        result.txBytes_ = txBytes_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.tx_ = txBuilder_ == null
-              ? tx_
-              : txBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.txBytes_ = txBytes_;
-        }
       }
 
       @java.lang.Override
@@ -477,7 +523,7 @@ public final class ServiceOuterClass {
         if (other.getTxBytes() != com.google.protobuf.ByteString.EMPTY) {
           setTxBytes(other.getTxBytes());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -492,45 +538,19 @@ public final class ServiceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getTxFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                txBytes_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private cosmos.tx.v1beta1.TxOuterClass.Tx tx_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -542,12 +562,10 @@ public final class ServiceOuterClass {
        * </pre>
        *
        * <code>.cosmos.tx.v1beta1.Tx tx = 1 [deprecated = true];</code>
-       * @deprecated terra.tx.v1beta1.ComputeTaxRequest.tx is deprecated.
-       *     See terra/tx/v1beta1/service.proto;l=27
        * @return Whether the tx field is set.
        */
       @java.lang.Deprecated public boolean hasTx() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return txBuilder_ != null || tx_ != null;
       }
       /**
        * <pre>
@@ -556,8 +574,6 @@ public final class ServiceOuterClass {
        * </pre>
        *
        * <code>.cosmos.tx.v1beta1.Tx tx = 1 [deprecated = true];</code>
-       * @deprecated terra.tx.v1beta1.ComputeTaxRequest.tx is deprecated.
-       *     See terra/tx/v1beta1/service.proto;l=27
        * @return The tx.
        */
       @java.lang.Deprecated public cosmos.tx.v1beta1.TxOuterClass.Tx getTx() {
@@ -581,11 +597,11 @@ public final class ServiceOuterClass {
             throw new NullPointerException();
           }
           tx_ = value;
+          onChanged();
         } else {
           txBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -600,11 +616,11 @@ public final class ServiceOuterClass {
           cosmos.tx.v1beta1.TxOuterClass.Tx.Builder builderForValue) {
         if (txBuilder_ == null) {
           tx_ = builderForValue.build();
+          onChanged();
         } else {
           txBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -617,18 +633,17 @@ public final class ServiceOuterClass {
        */
       @java.lang.Deprecated public Builder mergeTx(cosmos.tx.v1beta1.TxOuterClass.Tx value) {
         if (txBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            tx_ != null &&
-            tx_ != cosmos.tx.v1beta1.TxOuterClass.Tx.getDefaultInstance()) {
-            getTxBuilder().mergeFrom(value);
+          if (tx_ != null) {
+            tx_ =
+              cosmos.tx.v1beta1.TxOuterClass.Tx.newBuilder(tx_).mergeFrom(value).buildPartial();
           } else {
             tx_ = value;
           }
+          onChanged();
         } else {
           txBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -640,13 +655,14 @@ public final class ServiceOuterClass {
        * <code>.cosmos.tx.v1beta1.Tx tx = 1 [deprecated = true];</code>
        */
       @java.lang.Deprecated public Builder clearTx() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        tx_ = null;
-        if (txBuilder_ != null) {
-          txBuilder_.dispose();
+        if (txBuilder_ == null) {
+          tx_ = null;
+          onChanged();
+        } else {
+          tx_ = null;
           txBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -658,7 +674,7 @@ public final class ServiceOuterClass {
        * <code>.cosmos.tx.v1beta1.Tx tx = 1 [deprecated = true];</code>
        */
       @java.lang.Deprecated public cosmos.tx.v1beta1.TxOuterClass.Tx.Builder getTxBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getTxFieldBuilder().getBuilder();
       }
@@ -723,9 +739,11 @@ public final class ServiceOuterClass {
        * @return This builder for chaining.
        */
       public Builder setTxBytes(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         txBytes_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -738,7 +756,7 @@ public final class ServiceOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTxBytes() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         txBytes_ = getDefaultInstance().getTxBytes();
         onChanged();
         return this;
@@ -776,18 +794,7 @@ public final class ServiceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ComputeTaxRequest(input, extensionRegistry);
       }
     };
 
@@ -888,6 +895,56 @@ public final class ServiceOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ComputeTaxResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                taxAmount_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.Coin>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              taxAmount_.add(
+                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          taxAmount_ = java.util.Collections.unmodifiableList(taxAmount_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.tx.v1beta1.ServiceOuterClass.internal_static_terra_tx_v1beta1_ComputeTaxResponse_descriptor;
@@ -902,7 +959,6 @@ public final class ServiceOuterClass {
     }
 
     public static final int TAX_AMOUNT_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.Coin> taxAmount_;
     /**
      * <pre>
@@ -979,7 +1035,7 @@ public final class ServiceOuterClass {
       for (int i = 0; i < taxAmount_.size(); i++) {
         output.writeMessage(1, taxAmount_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -992,7 +1048,7 @@ public final class ServiceOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, taxAmount_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1009,7 +1065,7 @@ public final class ServiceOuterClass {
 
       if (!getTaxAmountList()
           .equals(other.getTaxAmountList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1024,7 +1080,7 @@ public final class ServiceOuterClass {
         hash = (37 * hash) + TAX_AMOUNT_FIELD_NUMBER;
         hash = (53 * hash) + getTaxAmountList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1146,25 +1202,29 @@ public final class ServiceOuterClass {
 
       // Construct using terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getTaxAmountFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (taxAmountBuilder_ == null) {
           taxAmount_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          taxAmount_ = null;
           taxAmountBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1191,13 +1251,7 @@ public final class ServiceOuterClass {
       @java.lang.Override
       public terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse buildPartial() {
         terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse result = new terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse result) {
+        int from_bitField0_ = bitField0_;
         if (taxAmountBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             taxAmount_ = java.util.Collections.unmodifiableList(taxAmount_);
@@ -1207,10 +1261,8 @@ public final class ServiceOuterClass {
         } else {
           result.taxAmount_ = taxAmountBuilder_.build();
         }
-      }
-
-      private void buildPartial0(terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -1283,7 +1335,7 @@ public final class ServiceOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1298,43 +1350,17 @@ public final class ServiceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                cosmos.base.v1beta1.CoinOuterClass.Coin m =
-                    input.readMessage(
-                        cosmos.base.v1beta1.CoinOuterClass.Coin.parser(),
-                        extensionRegistry);
-                if (taxAmountBuilder_ == null) {
-                  ensureTaxAmountIsMutable();
-                  taxAmount_.add(m);
-                } else {
-                  taxAmountBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -1683,18 +1709,7 @@ public final class ServiceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ComputeTaxResponse(input, extensionRegistry);
       }
     };
 
@@ -1745,9 +1760,9 @@ public final class ServiceOuterClass {
       "\215\001\n\007Service\022\201\001\n\nComputeTax\022#.terra.tx.v1" +
       "beta1.ComputeTaxRequest\032$.terra.tx.v1bet" +
       "a1.ComputeTaxResponse\"(\202\323\344\223\002\"\"\035/terra/tx" +
-      "/v1beta1/compute_tax:\001*B2Z,github.com/cl" +
-      "assic-terra/core/custom/auth/tx\300\343\036\001b\006pro" +
-      "to3"
+      "/v1beta1/compute_tax:\001*B0Z*github.com/te" +
+      "rra-money/core/custom/auth/tx\300\343\036\001b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

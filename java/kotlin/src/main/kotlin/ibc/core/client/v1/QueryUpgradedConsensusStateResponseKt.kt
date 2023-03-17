@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializequeryUpgradedConsensusStateResponse")
-public inline fun queryUpgradedConsensusStateResponse(block: ibc.core.client.v1.QueryUpgradedConsensusStateResponseKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryUpgradedConsensusStateResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryUpgradedConsensusStateResponse(block: ibc.core.client.v1.QueryUpgradedConsensusStateResponseKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryUpgradedConsensusStateResponse =
   ibc.core.client.v1.QueryUpgradedConsensusStateResponseKt.Dsl._create(ibc.core.client.v1.QueryOuterClass.QueryUpgradedConsensusStateResponse.newBuilder()).apply { block() }._build()
-public object QueryUpgradedConsensusStateResponseKt {
+object QueryUpgradedConsensusStateResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.QueryOuterClass.QueryUpgradedConsensusStateResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.QueryOuterClass.QueryUpgradedConsensusStateResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.QueryOuterClass.QueryUpgradedConsensusStateResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryUpgradedConsensusStateResponseKt {
      *
      * <code>.google.protobuf.Any upgraded_consensus_state = 1;</code>
      */
-    public var upgradedConsensusState: com.google.protobuf.Any
+    var upgradedConsensusState: com.google.protobuf.Any
       @JvmName("getUpgradedConsensusState")
       get() = _builder.getUpgradedConsensusState()
       @JvmName("setUpgradedConsensusState")
@@ -43,7 +43,7 @@ public object QueryUpgradedConsensusStateResponseKt {
      *
      * <code>.google.protobuf.Any upgraded_consensus_state = 1;</code>
      */
-    public fun clearUpgradedConsensusState() {
+    fun clearUpgradedConsensusState() {
       _builder.clearUpgradedConsensusState()
     }
     /**
@@ -54,15 +54,11 @@ public object QueryUpgradedConsensusStateResponseKt {
      * <code>.google.protobuf.Any upgraded_consensus_state = 1;</code>
      * @return Whether the upgradedConsensusState field is set.
      */
-    public fun hasUpgradedConsensusState(): kotlin.Boolean {
+    fun hasUpgradedConsensusState(): kotlin.Boolean {
       return _builder.hasUpgradedConsensusState()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.QueryOuterClass.QueryUpgradedConsensusStateResponse.copy(block: ibc.core.client.v1.QueryUpgradedConsensusStateResponseKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryUpgradedConsensusStateResponse =
+inline fun ibc.core.client.v1.QueryOuterClass.QueryUpgradedConsensusStateResponse.copy(block: ibc.core.client.v1.QueryUpgradedConsensusStateResponseKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryUpgradedConsensusStateResponse =
   ibc.core.client.v1.QueryUpgradedConsensusStateResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.client.v1.QueryOuterClass.QueryUpgradedConsensusStateResponseOrBuilder.upgradedConsensusStateOrNull: com.google.protobuf.Any?
-  get() = if (hasUpgradedConsensusState()) getUpgradedConsensusState() else null
-

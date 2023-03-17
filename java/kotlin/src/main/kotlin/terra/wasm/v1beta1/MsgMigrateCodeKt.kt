@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgMigrateCode")
-public inline fun msgMigrateCode(block: terra.wasm.v1beta1.MsgMigrateCodeKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgMigrateCode =
+@kotlin.jvm.JvmSynthetic
+inline fun msgMigrateCode(block: terra.wasm.v1beta1.MsgMigrateCodeKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgMigrateCode =
   terra.wasm.v1beta1.MsgMigrateCodeKt.Dsl._create(terra.wasm.v1beta1.Tx.MsgMigrateCode.newBuilder()).apply { block() }._build()
-public object MsgMigrateCodeKt {
+object MsgMigrateCodeKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Tx.MsgMigrateCode.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Tx.MsgMigrateCode.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Tx.MsgMigrateCode.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MsgMigrateCodeKt {
      *
      * <code>uint64 code_id = 1 [(.gogoproto.customname) = "CodeID", (.gogoproto.moretags) = "yaml:&#92;"code_id&#92;""];</code>
      */
-    public var codeId: kotlin.Long
+    var codeId: kotlin.Long
       @JvmName("getCodeId")
       get() = _builder.getCodeId()
       @JvmName("setCodeId")
@@ -43,7 +43,7 @@ public object MsgMigrateCodeKt {
      *
      * <code>uint64 code_id = 1 [(.gogoproto.customname) = "CodeID", (.gogoproto.moretags) = "yaml:&#92;"code_id&#92;""];</code>
      */
-    public fun clearCodeId() {
+    fun clearCodeId() {
       _builder.clearCodeId()
     }
 
@@ -54,7 +54,7 @@ public object MsgMigrateCodeKt {
      *
      * <code>string sender = 2 [(.gogoproto.moretags) = "yaml:&#92;"sender&#92;""];</code>
      */
-    public var sender: kotlin.String
+    var sender: kotlin.String
       @JvmName("getSender")
       get() = _builder.getSender()
       @JvmName("setSender")
@@ -68,7 +68,7 @@ public object MsgMigrateCodeKt {
      *
      * <code>string sender = 2 [(.gogoproto.moretags) = "yaml:&#92;"sender&#92;""];</code>
      */
-    public fun clearSender() {
+    fun clearSender() {
       _builder.clearSender()
     }
 
@@ -79,7 +79,7 @@ public object MsgMigrateCodeKt {
      *
      * <code>bytes wasm_byte_code = 3 [(.gogoproto.customname) = "WASMByteCode", (.gogoproto.moretags) = "yaml:&#92;"wasm_byte_code&#92;""];</code>
      */
-    public var wasmByteCode: com.google.protobuf.ByteString
+    var wasmByteCode: com.google.protobuf.ByteString
       @JvmName("getWasmByteCode")
       get() = _builder.getWasmByteCode()
       @JvmName("setWasmByteCode")
@@ -93,12 +93,11 @@ public object MsgMigrateCodeKt {
      *
      * <code>bytes wasm_byte_code = 3 [(.gogoproto.customname) = "WASMByteCode", (.gogoproto.moretags) = "yaml:&#92;"wasm_byte_code&#92;""];</code>
      */
-    public fun clearWasmByteCode() {
+    fun clearWasmByteCode() {
       _builder.clearWasmByteCode()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Tx.MsgMigrateCode.copy(block: terra.wasm.v1beta1.MsgMigrateCodeKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgMigrateCode =
+inline fun terra.wasm.v1beta1.Tx.MsgMigrateCode.copy(block: terra.wasm.v1beta1.MsgMigrateCodeKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgMigrateCode =
   terra.wasm.v1beta1.MsgMigrateCodeKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

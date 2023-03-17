@@ -3,16 +3,16 @@
 
 package tendermint.crypto;
 
-@kotlin.jvm.JvmName("-initializevalueOp")
-public inline fun valueOp(block: tendermint.crypto.ValueOpKt.Dsl.() -> kotlin.Unit): tendermint.crypto.ProofOuterClass.ValueOp =
+@kotlin.jvm.JvmSynthetic
+inline fun valueOp(block: tendermint.crypto.ValueOpKt.Dsl.() -> Unit): tendermint.crypto.ProofOuterClass.ValueOp =
   tendermint.crypto.ValueOpKt.Dsl._create(tendermint.crypto.ProofOuterClass.ValueOp.newBuilder()).apply { block() }._build()
-public object ValueOpKt {
+object ValueOpKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.crypto.ProofOuterClass.ValueOp.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.crypto.ProofOuterClass.ValueOp.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.crypto.ProofOuterClass.ValueOp.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ValueOpKt {
      *
      * <code>bytes key = 1;</code>
      */
-    public var key: com.google.protobuf.ByteString
+    var key: com.google.protobuf.ByteString
       @JvmName("getKey")
       get() = _builder.getKey()
       @JvmName("setKey")
@@ -43,7 +43,7 @@ public object ValueOpKt {
      *
      * <code>bytes key = 1;</code>
      */
-    public fun clearKey() {
+    fun clearKey() {
       _builder.clearKey()
     }
 
@@ -54,7 +54,7 @@ public object ValueOpKt {
      *
      * <code>.tendermint.crypto.Proof proof = 2;</code>
      */
-    public var proof: tendermint.crypto.ProofOuterClass.Proof
+    var proof: tendermint.crypto.ProofOuterClass.Proof
       @JvmName("getProof")
       get() = _builder.getProof()
       @JvmName("setProof")
@@ -68,7 +68,7 @@ public object ValueOpKt {
      *
      * <code>.tendermint.crypto.Proof proof = 2;</code>
      */
-    public fun clearProof() {
+    fun clearProof() {
       _builder.clearProof()
     }
     /**
@@ -79,15 +79,11 @@ public object ValueOpKt {
      * <code>.tendermint.crypto.Proof proof = 2;</code>
      * @return Whether the proof field is set.
      */
-    public fun hasProof(): kotlin.Boolean {
+    fun hasProof(): kotlin.Boolean {
       return _builder.hasProof()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.crypto.ProofOuterClass.ValueOp.copy(block: tendermint.crypto.ValueOpKt.Dsl.() -> kotlin.Unit): tendermint.crypto.ProofOuterClass.ValueOp =
+inline fun tendermint.crypto.ProofOuterClass.ValueOp.copy(block: tendermint.crypto.ValueOpKt.Dsl.() -> Unit): tendermint.crypto.ProofOuterClass.ValueOp =
   tendermint.crypto.ValueOpKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.crypto.ProofOuterClass.ValueOpOrBuilder.proofOrNull: tendermint.crypto.ProofOuterClass.Proof?
-  get() = if (hasProof()) getProof() else null
-

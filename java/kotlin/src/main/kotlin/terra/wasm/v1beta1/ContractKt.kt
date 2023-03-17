@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializecontract")
-public inline fun contract(block: terra.wasm.v1beta1.ContractKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Genesis.Contract =
+@kotlin.jvm.JvmSynthetic
+inline fun contract(block: terra.wasm.v1beta1.ContractKt.Dsl.() -> Unit): terra.wasm.v1beta1.Genesis.Contract =
   terra.wasm.v1beta1.ContractKt.Dsl._create(terra.wasm.v1beta1.Genesis.Contract.newBuilder()).apply { block() }._build()
-public object ContractKt {
+object ContractKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Genesis.Contract.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Genesis.Contract.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Genesis.Contract.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ContractKt {
     /**
      * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var contractInfo: terra.wasm.v1beta1.Wasm.ContractInfo
+    var contractInfo: terra.wasm.v1beta1.Wasm.ContractInfo
       @JvmName("getContractInfo")
       get() = _builder.getContractInfo()
       @JvmName("setContractInfo")
@@ -35,14 +35,14 @@ public object ContractKt {
     /**
      * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearContractInfo() {
+    fun clearContractInfo() {
       _builder.clearContractInfo()
     }
     /**
      * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the contractInfo field is set.
      */
-    public fun hasContractInfo(): kotlin.Boolean {
+    fun hasContractInfo(): kotlin.Boolean {
       return _builder.hasContractInfo()
     }
 
@@ -51,11 +51,11 @@ public object ContractKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ContractStoreProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ContractStoreProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .terra.wasm.v1beta1.Model contract_store = 2 [(.gogoproto.nullable) = false];</code>
      */
-     public val contractStore: com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>
+     val contractStore: com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getContractStoreList()
@@ -66,63 +66,50 @@ public object ContractKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addContractStore")
-    public fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.add(value: terra.wasm.v1beta1.Genesis.Model) {
+    fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.add(value: terra.wasm.v1beta1.Genesis.Model) {
       _builder.addContractStore(value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.wasm.v1beta1.Model contract_store = 2 [(.gogoproto.nullable) = false];</code>
      * @param value The contractStore to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignContractStore")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.plusAssign(value: terra.wasm.v1beta1.Genesis.Model) {
+    inline operator fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.plusAssign(value: terra.wasm.v1beta1.Genesis.Model) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.wasm.v1beta1.Model contract_store = 2 [(.gogoproto.nullable) = false];</code>
      * @param values The contractStore to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllContractStore")
-    public fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.addAll(values: kotlin.collections.Iterable<terra.wasm.v1beta1.Genesis.Model>) {
+    fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.addAll(values: kotlin.collections.Iterable<terra.wasm.v1beta1.Genesis.Model>) {
       _builder.addAllContractStore(values)
-    }
-    /**
+    }/**
      * <code>repeated .terra.wasm.v1beta1.Model contract_store = 2 [(.gogoproto.nullable) = false];</code>
      * @param values The contractStore to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllContractStore")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.plusAssign(values: kotlin.collections.Iterable<terra.wasm.v1beta1.Genesis.Model>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.plusAssign(values: kotlin.collections.Iterable<terra.wasm.v1beta1.Genesis.Model>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .terra.wasm.v1beta1.Model contract_store = 2 [(.gogoproto.nullable) = false];</code>
      * @param index The index to set the value at.
      * @param value The contractStore to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setContractStore")
-    public operator fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.set(index: kotlin.Int, value: terra.wasm.v1beta1.Genesis.Model) {
+    operator fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.set(index: kotlin.Int, value: terra.wasm.v1beta1.Genesis.Model) {
       _builder.setContractStore(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.wasm.v1beta1.Model contract_store = 2 [(.gogoproto.nullable) = false];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearContractStore")
-    public fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<terra.wasm.v1beta1.Genesis.Model, ContractStoreProxy>.clear() {
       _builder.clearContractStore()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Genesis.Contract.copy(block: terra.wasm.v1beta1.ContractKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Genesis.Contract =
+inline fun terra.wasm.v1beta1.Genesis.Contract.copy(block: terra.wasm.v1beta1.ContractKt.Dsl.() -> Unit): terra.wasm.v1beta1.Genesis.Contract =
   terra.wasm.v1beta1.ContractKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.wasm.v1beta1.Genesis.ContractOrBuilder.contractInfoOrNull: terra.wasm.v1beta1.Wasm.ContractInfo?
-  get() = if (hasContractInfo()) getContractInfo() else null
-

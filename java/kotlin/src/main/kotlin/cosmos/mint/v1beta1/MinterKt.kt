@@ -3,16 +3,16 @@
 
 package cosmos.mint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeminter")
-public inline fun minter(block: cosmos.mint.v1beta1.MinterKt.Dsl.() -> kotlin.Unit): cosmos.mint.v1beta1.Mint.Minter =
+@kotlin.jvm.JvmSynthetic
+inline fun minter(block: cosmos.mint.v1beta1.MinterKt.Dsl.() -> Unit): cosmos.mint.v1beta1.Mint.Minter =
   cosmos.mint.v1beta1.MinterKt.Dsl._create(cosmos.mint.v1beta1.Mint.Minter.newBuilder()).apply { block() }._build()
-public object MinterKt {
+object MinterKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.mint.v1beta1.Mint.Minter.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.mint.v1beta1.Mint.Minter.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.mint.v1beta1.Mint.Minter.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MinterKt {
      *
      * <code>string inflation = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var inflation: kotlin.String
+    var inflation: kotlin.String
       @JvmName("getInflation")
       get() = _builder.getInflation()
       @JvmName("setInflation")
@@ -43,7 +43,7 @@ public object MinterKt {
      *
      * <code>string inflation = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearInflation() {
+    fun clearInflation() {
       _builder.clearInflation()
     }
 
@@ -54,7 +54,7 @@ public object MinterKt {
      *
      * <code>string annual_provisions = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"annual_provisions&#92;""];</code>
      */
-    public var annualProvisions: kotlin.String
+    var annualProvisions: kotlin.String
       @JvmName("getAnnualProvisions")
       get() = _builder.getAnnualProvisions()
       @JvmName("setAnnualProvisions")
@@ -68,12 +68,11 @@ public object MinterKt {
      *
      * <code>string annual_provisions = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"annual_provisions&#92;""];</code>
      */
-    public fun clearAnnualProvisions() {
+    fun clearAnnualProvisions() {
       _builder.clearAnnualProvisions()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.mint.v1beta1.Mint.Minter.copy(block: cosmos.mint.v1beta1.MinterKt.Dsl.() -> kotlin.Unit): cosmos.mint.v1beta1.Mint.Minter =
+inline fun cosmos.mint.v1beta1.Mint.Minter.copy(block: cosmos.mint.v1beta1.MinterKt.Dsl.() -> Unit): cosmos.mint.v1beta1.Mint.Minter =
   cosmos.mint.v1beta1.MinterKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

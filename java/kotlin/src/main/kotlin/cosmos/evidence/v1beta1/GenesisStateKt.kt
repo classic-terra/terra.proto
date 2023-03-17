@@ -3,16 +3,16 @@
 
 package cosmos.evidence.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegenesisState")
-public inline fun genesisState(block: cosmos.evidence.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): cosmos.evidence.v1beta1.Genesis.GenesisState =
+@kotlin.jvm.JvmSynthetic
+inline fun genesisState(block: cosmos.evidence.v1beta1.GenesisStateKt.Dsl.() -> Unit): cosmos.evidence.v1beta1.Genesis.GenesisState =
   cosmos.evidence.v1beta1.GenesisStateKt.Dsl._create(cosmos.evidence.v1beta1.Genesis.GenesisState.newBuilder()).apply { block() }._build()
-public object GenesisStateKt {
+object GenesisStateKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.evidence.v1beta1.Genesis.GenesisState.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.evidence.v1beta1.Genesis.GenesisState.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.evidence.v1beta1.Genesis.GenesisState.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object GenesisStateKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class EvidenceProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class EvidenceProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * evidence defines all the evidence at genesis.
@@ -35,7 +35,7 @@ public object GenesisStateKt {
      *
      * <code>repeated .google.protobuf.Any evidence = 1;</code>
      */
-     public val evidence: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>
+     val evidence: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getEvidenceList()
@@ -50,10 +50,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addEvidence")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.add(value: com.google.protobuf.Any) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.add(value: com.google.protobuf.Any) {
       _builder.addEvidence(value)
-    }
-    /**
+    }/**
      * <pre>
      * evidence defines all the evidence at genesis.
      * </pre>
@@ -63,11 +62,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignEvidence")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.plusAssign(value: com.google.protobuf.Any) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.plusAssign(value: com.google.protobuf.Any) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * evidence defines all the evidence at genesis.
      * </pre>
@@ -77,10 +74,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllEvidence")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       _builder.addAllEvidence(values)
-    }
-    /**
+    }/**
      * <pre>
      * evidence defines all the evidence at genesis.
      * </pre>
@@ -90,11 +86,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllEvidence")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * evidence defines all the evidence at genesis.
      * </pre>
@@ -105,10 +99,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setEvidence")
-    public operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
+    operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
       _builder.setEvidence(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * evidence defines all the evidence at genesis.
      * </pre>
@@ -117,13 +110,10 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearEvidence")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.clear() {
       _builder.clearEvidence()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.evidence.v1beta1.Genesis.GenesisState.copy(block: cosmos.evidence.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): cosmos.evidence.v1beta1.Genesis.GenesisState =
+inline fun cosmos.evidence.v1beta1.Genesis.GenesisState.copy(block: cosmos.evidence.v1beta1.GenesisStateKt.Dsl.() -> Unit): cosmos.evidence.v1beta1.Genesis.GenesisState =
   cosmos.evidence.v1beta1.GenesisStateKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

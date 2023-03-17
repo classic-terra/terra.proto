@@ -134,6 +134,82 @@ public final class Slashing {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ValidatorSigningInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              address_ = s;
+              break;
+            }
+            case 16: {
+
+              startHeight_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              indexOffset_ = input.readInt64();
+              break;
+            }
+            case 34: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (jailedUntil_ != null) {
+                subBuilder = jailedUntil_.toBuilder();
+              }
+              jailedUntil_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(jailedUntil_);
+                jailedUntil_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 40: {
+
+              tombstoned_ = input.readBool();
+              break;
+            }
+            case 48: {
+
+              missedBlocksCounter_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.slashing.v1beta1.Slashing.internal_static_cosmos_slashing_v1beta1_ValidatorSigningInfo_descriptor;
@@ -148,8 +224,7 @@ public final class Slashing {
     }
 
     public static final int ADDRESS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object address_ = "";
+    private volatile java.lang.Object address_;
     /**
      * <code>string address = 1;</code>
      * @return The address.
@@ -187,7 +262,7 @@ public final class Slashing {
     }
 
     public static final int START_HEIGHT_FIELD_NUMBER = 2;
-    private long startHeight_ = 0L;
+    private long startHeight_;
     /**
      * <pre>
      * Height at which validator was first a candidate OR was unjailed
@@ -202,7 +277,7 @@ public final class Slashing {
     }
 
     public static final int INDEX_OFFSET_FIELD_NUMBER = 3;
-    private long indexOffset_ = 0L;
+    private long indexOffset_;
     /**
      * <pre>
      * Index which is incremented each time the validator was a bonded
@@ -253,11 +328,11 @@ public final class Slashing {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getJailedUntilOrBuilder() {
-      return jailedUntil_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : jailedUntil_;
+      return getJailedUntil();
     }
 
     public static final int TOMBSTONED_FIELD_NUMBER = 5;
-    private boolean tombstoned_ = false;
+    private boolean tombstoned_;
     /**
      * <pre>
      * Whether or not a validator has been tombstoned (killed out of validator set). It is set
@@ -273,7 +348,7 @@ public final class Slashing {
     }
 
     public static final int MISSED_BLOCKS_COUNTER_FIELD_NUMBER = 6;
-    private long missedBlocksCounter_ = 0L;
+    private long missedBlocksCounter_;
     /**
      * <pre>
      * A counter kept to avoid unnecessary array reads.
@@ -302,7 +377,7 @@ public final class Slashing {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+      if (!getAddressBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, address_);
       }
       if (startHeight_ != 0L) {
@@ -320,7 +395,7 @@ public final class Slashing {
       if (missedBlocksCounter_ != 0L) {
         output.writeInt64(6, missedBlocksCounter_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -329,7 +404,7 @@ public final class Slashing {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+      if (!getAddressBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, address_);
       }
       if (startHeight_ != 0L) {
@@ -352,7 +427,7 @@ public final class Slashing {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, missedBlocksCounter_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -382,7 +457,7 @@ public final class Slashing {
           != other.getTombstoned()) return false;
       if (getMissedBlocksCounter()
           != other.getMissedBlocksCounter()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -411,7 +486,7 @@ public final class Slashing {
       hash = (37 * hash) + MISSED_BLOCKS_COUNTER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMissedBlocksCounter());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -533,28 +608,38 @@ public final class Slashing {
 
       // Construct using cosmos.slashing.v1beta1.Slashing.ValidatorSigningInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         address_ = "";
+
         startHeight_ = 0L;
+
         indexOffset_ = 0L;
-        jailedUntil_ = null;
-        if (jailedUntilBuilder_ != null) {
-          jailedUntilBuilder_.dispose();
+
+        if (jailedUntilBuilder_ == null) {
+          jailedUntil_ = null;
+        } else {
+          jailedUntil_ = null;
           jailedUntilBuilder_ = null;
         }
         tombstoned_ = false;
+
         missedBlocksCounter_ = 0L;
+
         return this;
       }
 
@@ -581,33 +666,18 @@ public final class Slashing {
       @java.lang.Override
       public cosmos.slashing.v1beta1.Slashing.ValidatorSigningInfo buildPartial() {
         cosmos.slashing.v1beta1.Slashing.ValidatorSigningInfo result = new cosmos.slashing.v1beta1.Slashing.ValidatorSigningInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.address_ = address_;
+        result.startHeight_ = startHeight_;
+        result.indexOffset_ = indexOffset_;
+        if (jailedUntilBuilder_ == null) {
+          result.jailedUntil_ = jailedUntil_;
+        } else {
+          result.jailedUntil_ = jailedUntilBuilder_.build();
+        }
+        result.tombstoned_ = tombstoned_;
+        result.missedBlocksCounter_ = missedBlocksCounter_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.slashing.v1beta1.Slashing.ValidatorSigningInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.address_ = address_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.startHeight_ = startHeight_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.indexOffset_ = indexOffset_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.jailedUntil_ = jailedUntilBuilder_ == null
-              ? jailedUntil_
-              : jailedUntilBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.tombstoned_ = tombstoned_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.missedBlocksCounter_ = missedBlocksCounter_;
-        }
       }
 
       @java.lang.Override
@@ -656,7 +726,6 @@ public final class Slashing {
         if (other == cosmos.slashing.v1beta1.Slashing.ValidatorSigningInfo.getDefaultInstance()) return this;
         if (!other.getAddress().isEmpty()) {
           address_ = other.address_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getStartHeight() != 0L) {
@@ -674,7 +743,7 @@ public final class Slashing {
         if (other.getMissedBlocksCounter() != 0L) {
           setMissedBlocksCounter(other.getMissedBlocksCounter());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -689,65 +758,19 @@ public final class Slashing {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.slashing.v1beta1.Slashing.ValidatorSigningInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                address_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                startHeight_ = input.readInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                indexOffset_ = input.readInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 34: {
-                input.readMessage(
-                    getJailedUntilFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 40: {
-                tombstoned_ = input.readBool();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              case 48: {
-                missedBlocksCounter_ = input.readInt64();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 48
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.slashing.v1beta1.Slashing.ValidatorSigningInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object address_ = "";
       /**
@@ -790,9 +813,11 @@ public final class Slashing {
        */
       public Builder setAddress(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         address_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -801,8 +826,8 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder clearAddress() {
+        
         address_ = getDefaultInstance().getAddress();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -813,10 +838,12 @@ public final class Slashing {
        */
       public Builder setAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         address_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -846,7 +873,6 @@ public final class Slashing {
       public Builder setStartHeight(long value) {
         
         startHeight_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -859,7 +885,7 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder clearStartHeight() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         startHeight_ = 0L;
         onChanged();
         return this;
@@ -894,7 +920,6 @@ public final class Slashing {
       public Builder setIndexOffset(long value) {
         
         indexOffset_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -909,7 +934,7 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder clearIndexOffset() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         indexOffset_ = 0L;
         onChanged();
         return this;
@@ -927,7 +952,7 @@ public final class Slashing {
        * @return Whether the jailedUntil field is set.
        */
       public boolean hasJailedUntil() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return jailedUntilBuilder_ != null || jailedUntil_ != null;
       }
       /**
        * <pre>
@@ -957,11 +982,11 @@ public final class Slashing {
             throw new NullPointerException();
           }
           jailedUntil_ = value;
+          onChanged();
         } else {
           jailedUntilBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -975,11 +1000,11 @@ public final class Slashing {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (jailedUntilBuilder_ == null) {
           jailedUntil_ = builderForValue.build();
+          onChanged();
         } else {
           jailedUntilBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -991,18 +1016,17 @@ public final class Slashing {
        */
       public Builder mergeJailedUntil(com.google.protobuf.Timestamp value) {
         if (jailedUntilBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            jailedUntil_ != null &&
-            jailedUntil_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
-            getJailedUntilBuilder().mergeFrom(value);
+          if (jailedUntil_ != null) {
+            jailedUntil_ =
+              com.google.protobuf.Timestamp.newBuilder(jailedUntil_).mergeFrom(value).buildPartial();
           } else {
             jailedUntil_ = value;
           }
+          onChanged();
         } else {
           jailedUntilBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -1013,13 +1037,14 @@ public final class Slashing {
        * <code>.google.protobuf.Timestamp jailed_until = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"jailed_until&#92;"", (.gogoproto.stdtime) = true];</code>
        */
       public Builder clearJailedUntil() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        jailedUntil_ = null;
-        if (jailedUntilBuilder_ != null) {
-          jailedUntilBuilder_.dispose();
+        if (jailedUntilBuilder_ == null) {
+          jailedUntil_ = null;
+          onChanged();
+        } else {
+          jailedUntil_ = null;
           jailedUntilBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1030,7 +1055,7 @@ public final class Slashing {
        * <code>.google.protobuf.Timestamp jailed_until = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"jailed_until&#92;"", (.gogoproto.stdtime) = true];</code>
        */
       public com.google.protobuf.Timestamp.Builder getJailedUntilBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getJailedUntilFieldBuilder().getBuilder();
       }
@@ -1097,7 +1122,6 @@ public final class Slashing {
       public Builder setTombstoned(boolean value) {
         
         tombstoned_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1111,7 +1135,7 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder clearTombstoned() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         tombstoned_ = false;
         onChanged();
         return this;
@@ -1144,7 +1168,6 @@ public final class Slashing {
       public Builder setMissedBlocksCounter(long value) {
         
         missedBlocksCounter_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1158,7 +1181,7 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder clearMissedBlocksCounter() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         missedBlocksCounter_ = 0L;
         onChanged();
         return this;
@@ -1196,18 +1219,7 @@ public final class Slashing {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ValidatorSigningInfo(input, extensionRegistry);
       }
     };
 
@@ -1304,6 +1316,76 @@ public final class Slashing {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Params(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              signedBlocksWindow_ = input.readInt64();
+              break;
+            }
+            case 18: {
+
+              minSignedPerWindow_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              com.google.protobuf.Duration.Builder subBuilder = null;
+              if (downtimeJailDuration_ != null) {
+                subBuilder = downtimeJailDuration_.toBuilder();
+              }
+              downtimeJailDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(downtimeJailDuration_);
+                downtimeJailDuration_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+
+              slashFractionDoubleSign_ = input.readBytes();
+              break;
+            }
+            case 42: {
+
+              slashFractionDowntime_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.slashing.v1beta1.Slashing.internal_static_cosmos_slashing_v1beta1_Params_descriptor;
@@ -1318,7 +1400,7 @@ public final class Slashing {
     }
 
     public static final int SIGNED_BLOCKS_WINDOW_FIELD_NUMBER = 1;
-    private long signedBlocksWindow_ = 0L;
+    private long signedBlocksWindow_;
     /**
      * <code>int64 signed_blocks_window = 1 [(.gogoproto.moretags) = "yaml:&#92;"signed_blocks_window&#92;""];</code>
      * @return The signedBlocksWindow.
@@ -1329,7 +1411,7 @@ public final class Slashing {
     }
 
     public static final int MIN_SIGNED_PER_WINDOW_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString minSignedPerWindow_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString minSignedPerWindow_;
     /**
      * <code>bytes min_signed_per_window = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"min_signed_per_window&#92;""];</code>
      * @return The minSignedPerWindow.
@@ -1362,11 +1444,11 @@ public final class Slashing {
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getDowntimeJailDurationOrBuilder() {
-      return downtimeJailDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : downtimeJailDuration_;
+      return getDowntimeJailDuration();
     }
 
     public static final int SLASH_FRACTION_DOUBLE_SIGN_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString slashFractionDoubleSign_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString slashFractionDoubleSign_;
     /**
      * <code>bytes slash_fraction_double_sign = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"slash_fraction_double_sign&#92;""];</code>
      * @return The slashFractionDoubleSign.
@@ -1377,7 +1459,7 @@ public final class Slashing {
     }
 
     public static final int SLASH_FRACTION_DOWNTIME_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString slashFractionDowntime_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString slashFractionDowntime_;
     /**
      * <code>bytes slash_fraction_downtime = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"slash_fraction_downtime&#92;""];</code>
      * @return The slashFractionDowntime.
@@ -1416,7 +1498,7 @@ public final class Slashing {
       if (!slashFractionDowntime_.isEmpty()) {
         output.writeBytes(5, slashFractionDowntime_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1445,7 +1527,7 @@ public final class Slashing {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, slashFractionDowntime_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1473,7 +1555,7 @@ public final class Slashing {
           .equals(other.getSlashFractionDoubleSign())) return false;
       if (!getSlashFractionDowntime()
           .equals(other.getSlashFractionDowntime())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1497,7 +1579,7 @@ public final class Slashing {
       hash = (53 * hash) + getSlashFractionDoubleSign().hashCode();
       hash = (37 * hash) + SLASH_FRACTION_DOWNTIME_FIELD_NUMBER;
       hash = (53 * hash) + getSlashFractionDowntime().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1618,27 +1700,36 @@ public final class Slashing {
 
       // Construct using cosmos.slashing.v1beta1.Slashing.Params.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         signedBlocksWindow_ = 0L;
+
         minSignedPerWindow_ = com.google.protobuf.ByteString.EMPTY;
-        downtimeJailDuration_ = null;
-        if (downtimeJailDurationBuilder_ != null) {
-          downtimeJailDurationBuilder_.dispose();
+
+        if (downtimeJailDurationBuilder_ == null) {
+          downtimeJailDuration_ = null;
+        } else {
+          downtimeJailDuration_ = null;
           downtimeJailDurationBuilder_ = null;
         }
         slashFractionDoubleSign_ = com.google.protobuf.ByteString.EMPTY;
+
         slashFractionDowntime_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -1665,30 +1756,17 @@ public final class Slashing {
       @java.lang.Override
       public cosmos.slashing.v1beta1.Slashing.Params buildPartial() {
         cosmos.slashing.v1beta1.Slashing.Params result = new cosmos.slashing.v1beta1.Slashing.Params(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.signedBlocksWindow_ = signedBlocksWindow_;
+        result.minSignedPerWindow_ = minSignedPerWindow_;
+        if (downtimeJailDurationBuilder_ == null) {
+          result.downtimeJailDuration_ = downtimeJailDuration_;
+        } else {
+          result.downtimeJailDuration_ = downtimeJailDurationBuilder_.build();
+        }
+        result.slashFractionDoubleSign_ = slashFractionDoubleSign_;
+        result.slashFractionDowntime_ = slashFractionDowntime_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.slashing.v1beta1.Slashing.Params result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.signedBlocksWindow_ = signedBlocksWindow_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.minSignedPerWindow_ = minSignedPerWindow_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.downtimeJailDuration_ = downtimeJailDurationBuilder_ == null
-              ? downtimeJailDuration_
-              : downtimeJailDurationBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.slashFractionDoubleSign_ = slashFractionDoubleSign_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.slashFractionDowntime_ = slashFractionDowntime_;
-        }
       }
 
       @java.lang.Override
@@ -1750,7 +1828,7 @@ public final class Slashing {
         if (other.getSlashFractionDowntime() != com.google.protobuf.ByteString.EMPTY) {
           setSlashFractionDowntime(other.getSlashFractionDowntime());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1765,60 +1843,19 @@ public final class Slashing {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.slashing.v1beta1.Slashing.Params parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                signedBlocksWindow_ = input.readInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                minSignedPerWindow_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getDowntimeJailDurationFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                slashFractionDoubleSign_ = input.readBytes();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 42: {
-                slashFractionDowntime_ = input.readBytes();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.slashing.v1beta1.Slashing.Params) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long signedBlocksWindow_ ;
       /**
@@ -1837,7 +1874,6 @@ public final class Slashing {
       public Builder setSignedBlocksWindow(long value) {
         
         signedBlocksWindow_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1846,7 +1882,7 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder clearSignedBlocksWindow() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         signedBlocksWindow_ = 0L;
         onChanged();
         return this;
@@ -1867,9 +1903,11 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder setMinSignedPerWindow(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         minSignedPerWindow_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1878,7 +1916,7 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder clearMinSignedPerWindow() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         minSignedPerWindow_ = getDefaultInstance().getMinSignedPerWindow();
         onChanged();
         return this;
@@ -1892,7 +1930,7 @@ public final class Slashing {
        * @return Whether the downtimeJailDuration field is set.
        */
       public boolean hasDowntimeJailDuration() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return downtimeJailDurationBuilder_ != null || downtimeJailDuration_ != null;
       }
       /**
        * <code>.google.protobuf.Duration downtime_jail_duration = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"downtime_jail_duration&#92;"", (.gogoproto.stdduration) = true];</code>
@@ -1914,11 +1952,11 @@ public final class Slashing {
             throw new NullPointerException();
           }
           downtimeJailDuration_ = value;
+          onChanged();
         } else {
           downtimeJailDurationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1928,11 +1966,11 @@ public final class Slashing {
           com.google.protobuf.Duration.Builder builderForValue) {
         if (downtimeJailDurationBuilder_ == null) {
           downtimeJailDuration_ = builderForValue.build();
+          onChanged();
         } else {
           downtimeJailDurationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1940,38 +1978,38 @@ public final class Slashing {
        */
       public Builder mergeDowntimeJailDuration(com.google.protobuf.Duration value) {
         if (downtimeJailDurationBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            downtimeJailDuration_ != null &&
-            downtimeJailDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
-            getDowntimeJailDurationBuilder().mergeFrom(value);
+          if (downtimeJailDuration_ != null) {
+            downtimeJailDuration_ =
+              com.google.protobuf.Duration.newBuilder(downtimeJailDuration_).mergeFrom(value).buildPartial();
           } else {
             downtimeJailDuration_ = value;
           }
+          onChanged();
         } else {
           downtimeJailDurationBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Duration downtime_jail_duration = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"downtime_jail_duration&#92;"", (.gogoproto.stdduration) = true];</code>
        */
       public Builder clearDowntimeJailDuration() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        downtimeJailDuration_ = null;
-        if (downtimeJailDurationBuilder_ != null) {
-          downtimeJailDurationBuilder_.dispose();
+        if (downtimeJailDurationBuilder_ == null) {
+          downtimeJailDuration_ = null;
+          onChanged();
+        } else {
+          downtimeJailDuration_ = null;
           downtimeJailDurationBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Duration downtime_jail_duration = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"downtime_jail_duration&#92;"", (.gogoproto.stdduration) = true];</code>
        */
       public com.google.protobuf.Duration.Builder getDowntimeJailDurationBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getDowntimeJailDurationFieldBuilder().getBuilder();
       }
@@ -2018,9 +2056,11 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder setSlashFractionDoubleSign(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         slashFractionDoubleSign_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2029,7 +2069,7 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder clearSlashFractionDoubleSign() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         slashFractionDoubleSign_ = getDefaultInstance().getSlashFractionDoubleSign();
         onChanged();
         return this;
@@ -2050,9 +2090,11 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder setSlashFractionDowntime(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         slashFractionDowntime_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2061,7 +2103,7 @@ public final class Slashing {
        * @return This builder for chaining.
        */
       public Builder clearSlashFractionDowntime() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         slashFractionDowntime_ = getDefaultInstance().getSlashFractionDowntime();
         onChanged();
         return this;
@@ -2099,18 +2141,7 @@ public final class Slashing {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Params(input, extensionRegistry);
       }
     };
 

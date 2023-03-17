@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryExchangeRatesResponse")
-public inline fun queryExchangeRatesResponse(block: terra.oracle.v1beta1.QueryExchangeRatesResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryExchangeRatesResponse(block: terra.oracle.v1beta1.QueryExchangeRatesResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse =
   terra.oracle.v1beta1.QueryExchangeRatesResponseKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse.newBuilder()).apply { block() }._build()
-public object QueryExchangeRatesResponseKt {
+object QueryExchangeRatesResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryExchangeRatesResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ExchangeRatesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ExchangeRatesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * exchange_rates defines a list of the exchange rate for all whitelisted denoms.
@@ -35,7 +35,7 @@ public object QueryExchangeRatesResponseKt {
      *
      * <code>repeated .cosmos.base.v1beta1.DecCoin exchange_rates = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      */
-     public val exchangeRates: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>
+     val exchangeRates: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getExchangeRatesList()
@@ -50,10 +50,9 @@ public object QueryExchangeRatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addExchangeRates")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       _builder.addExchangeRates(value)
-    }
-    /**
+    }/**
      * <pre>
      * exchange_rates defines a list of the exchange rate for all whitelisted denoms.
      * </pre>
@@ -63,11 +62,9 @@ public object QueryExchangeRatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignExchangeRates")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * exchange_rates defines a list of the exchange rate for all whitelisted denoms.
      * </pre>
@@ -77,10 +74,9 @@ public object QueryExchangeRatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllExchangeRates")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
       _builder.addAllExchangeRates(values)
-    }
-    /**
+    }/**
      * <pre>
      * exchange_rates defines a list of the exchange rate for all whitelisted denoms.
      * </pre>
@@ -90,11 +86,9 @@ public object QueryExchangeRatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllExchangeRates")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * exchange_rates defines a list of the exchange rate for all whitelisted denoms.
      * </pre>
@@ -105,10 +99,9 @@ public object QueryExchangeRatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setExchangeRates")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       _builder.setExchangeRates(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * exchange_rates defines a list of the exchange rate for all whitelisted denoms.
      * </pre>
@@ -117,13 +110,10 @@ public object QueryExchangeRatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearExchangeRates")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, ExchangeRatesProxy>.clear() {
       _builder.clearExchangeRates()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse.copy(block: terra.oracle.v1beta1.QueryExchangeRatesResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse.copy(block: terra.oracle.v1beta1.QueryExchangeRatesResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesResponse =
   terra.oracle.v1beta1.QueryExchangeRatesResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

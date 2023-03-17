@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgMigrateCodeResponse")
-public inline fun msgMigrateCodeResponse(block: terra.wasm.v1beta1.MsgMigrateCodeResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgMigrateCodeResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgMigrateCodeResponse(block: terra.wasm.v1beta1.MsgMigrateCodeResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgMigrateCodeResponse =
   terra.wasm.v1beta1.MsgMigrateCodeResponseKt.Dsl._create(terra.wasm.v1beta1.Tx.MsgMigrateCodeResponse.newBuilder()).apply { block() }._build()
-public object MsgMigrateCodeResponseKt {
+object MsgMigrateCodeResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Tx.MsgMigrateCodeResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Tx.MsgMigrateCodeResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Tx.MsgMigrateCodeResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgMigrateCodeResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Tx.MsgMigrateCodeResponse.copy(block: terra.wasm.v1beta1.MsgMigrateCodeResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgMigrateCodeResponse =
+inline fun terra.wasm.v1beta1.Tx.MsgMigrateCodeResponse.copy(block: terra.wasm.v1beta1.MsgMigrateCodeResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgMigrateCodeResponse =
   terra.wasm.v1beta1.MsgMigrateCodeResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

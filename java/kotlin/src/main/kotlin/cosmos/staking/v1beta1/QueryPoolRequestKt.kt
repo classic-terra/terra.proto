@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryPoolRequest")
-public inline fun queryPoolRequest(block: cosmos.staking.v1beta1.QueryPoolRequestKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryPoolRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryPoolRequest(block: cosmos.staking.v1beta1.QueryPoolRequestKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryPoolRequest =
   cosmos.staking.v1beta1.QueryPoolRequestKt.Dsl._create(cosmos.staking.v1beta1.QueryOuterClass.QueryPoolRequest.newBuilder()).apply { block() }._build()
-public object QueryPoolRequestKt {
+object QueryPoolRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryPoolRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryPoolRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.QueryOuterClass.QueryPoolRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryPoolRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryPoolRequest.copy(block: cosmos.staking.v1beta1.QueryPoolRequestKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryPoolRequest =
+inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryPoolRequest.copy(block: cosmos.staking.v1beta1.QueryPoolRequestKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryPoolRequest =
   cosmos.staking.v1beta1.QueryPoolRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

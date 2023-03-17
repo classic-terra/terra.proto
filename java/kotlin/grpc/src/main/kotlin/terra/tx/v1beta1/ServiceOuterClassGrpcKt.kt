@@ -25,15 +25,15 @@ import terra.tx.v1beta1.ServiceGrpc.getServiceDescriptor
 /**
  * Holder for Kotlin coroutine-based client and server APIs for terra.tx.v1beta1.Service.
  */
-public object ServiceGrpcKt {
-  public const val SERVICE_NAME: String = ServiceGrpc.SERVICE_NAME
+object ServiceGrpcKt {
+  const val SERVICE_NAME: String = ServiceGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = ServiceGrpc.getServiceDescriptor()
 
-  public val computeTaxMethod:
-      MethodDescriptor<ServiceOuterClass.ComputeTaxRequest, ServiceOuterClass.ComputeTaxResponse>
+  val computeTaxMethod: MethodDescriptor<ServiceOuterClass.ComputeTaxRequest,
+      ServiceOuterClass.ComputeTaxResponse>
     @JvmStatic
     get() = ServiceGrpc.getComputeTaxMethod()
 
@@ -41,11 +41,11 @@ public object ServiceGrpcKt {
    * A stub for issuing RPCs to a(n) terra.tx.v1beta1.Service service as suspending coroutines.
    */
   @StubFor(ServiceGrpc::class)
-  public class ServiceCoroutineStub @JvmOverloads constructor(
+  class ServiceCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<ServiceCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): ServiceCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): ServiceCoroutineStub =
         ServiceCoroutineStub(channel, callOptions)
 
     /**
@@ -57,25 +57,22 @@ public object ServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun computeTax(request: ServiceOuterClass.ComputeTaxRequest, headers: Metadata =
-        Metadata()): ServiceOuterClass.ComputeTaxResponse = unaryRpc(
+    suspend fun computeTax(request: ServiceOuterClass.ComputeTaxRequest):
+        ServiceOuterClass.ComputeTaxResponse = unaryRpc(
       channel,
       ServiceGrpc.getComputeTaxMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the terra.tx.v1beta1.Service service based on Kotlin coroutines.
    */
-  public abstract class ServiceCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class ServiceCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for terra.tx.v1beta1.Service.ComputeTax.
@@ -88,12 +85,11 @@ public object ServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun computeTax(request: ServiceOuterClass.ComputeTaxRequest):
+    open suspend fun computeTax(request: ServiceOuterClass.ComputeTaxRequest):
         ServiceOuterClass.ComputeTaxResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.tx.v1beta1.Service.ComputeTax is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = ServiceGrpc.getComputeTaxMethod(),

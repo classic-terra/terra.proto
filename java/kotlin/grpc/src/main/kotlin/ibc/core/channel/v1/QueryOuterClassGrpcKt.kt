@@ -28,75 +28,78 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for ibc.core.channel.v1.Query.
  */
-public object QueryGrpcKt {
-  public const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
+object QueryGrpcKt {
+  const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = QueryGrpc.getServiceDescriptor()
 
-  public val channelMethod:
-      MethodDescriptor<QueryOuterClass.QueryChannelRequest, QueryOuterClass.QueryChannelResponse>
+  val channelMethod: MethodDescriptor<QueryOuterClass.QueryChannelRequest,
+      QueryOuterClass.QueryChannelResponse>
     @JvmStatic
     get() = QueryGrpc.getChannelMethod()
 
-  public val channelsMethod:
-      MethodDescriptor<QueryOuterClass.QueryChannelsRequest, QueryOuterClass.QueryChannelsResponse>
+  val channelsMethod: MethodDescriptor<QueryOuterClass.QueryChannelsRequest,
+      QueryOuterClass.QueryChannelsResponse>
     @JvmStatic
     get() = QueryGrpc.getChannelsMethod()
 
-  public val connectionChannelsMethod:
-      MethodDescriptor<QueryOuterClass.QueryConnectionChannelsRequest, QueryOuterClass.QueryConnectionChannelsResponse>
+  val connectionChannelsMethod: MethodDescriptor<QueryOuterClass.QueryConnectionChannelsRequest,
+      QueryOuterClass.QueryConnectionChannelsResponse>
     @JvmStatic
     get() = QueryGrpc.getConnectionChannelsMethod()
 
-  public val channelClientStateMethod:
-      MethodDescriptor<QueryOuterClass.QueryChannelClientStateRequest, QueryOuterClass.QueryChannelClientStateResponse>
+  val channelClientStateMethod: MethodDescriptor<QueryOuterClass.QueryChannelClientStateRequest,
+      QueryOuterClass.QueryChannelClientStateResponse>
     @JvmStatic
     get() = QueryGrpc.getChannelClientStateMethod()
 
-  public val channelConsensusStateMethod:
-      MethodDescriptor<QueryOuterClass.QueryChannelConsensusStateRequest, QueryOuterClass.QueryChannelConsensusStateResponse>
+  val channelConsensusStateMethod:
+      MethodDescriptor<QueryOuterClass.QueryChannelConsensusStateRequest,
+      QueryOuterClass.QueryChannelConsensusStateResponse>
     @JvmStatic
     get() = QueryGrpc.getChannelConsensusStateMethod()
 
-  public val packetCommitmentMethod:
-      MethodDescriptor<QueryOuterClass.QueryPacketCommitmentRequest, QueryOuterClass.QueryPacketCommitmentResponse>
+  val packetCommitmentMethod: MethodDescriptor<QueryOuterClass.QueryPacketCommitmentRequest,
+      QueryOuterClass.QueryPacketCommitmentResponse>
     @JvmStatic
     get() = QueryGrpc.getPacketCommitmentMethod()
 
-  public val packetCommitmentsMethod:
-      MethodDescriptor<QueryOuterClass.QueryPacketCommitmentsRequest, QueryOuterClass.QueryPacketCommitmentsResponse>
+  val packetCommitmentsMethod: MethodDescriptor<QueryOuterClass.QueryPacketCommitmentsRequest,
+      QueryOuterClass.QueryPacketCommitmentsResponse>
     @JvmStatic
     get() = QueryGrpc.getPacketCommitmentsMethod()
 
-  public val packetReceiptMethod:
-      MethodDescriptor<QueryOuterClass.QueryPacketReceiptRequest, QueryOuterClass.QueryPacketReceiptResponse>
+  val packetReceiptMethod: MethodDescriptor<QueryOuterClass.QueryPacketReceiptRequest,
+      QueryOuterClass.QueryPacketReceiptResponse>
     @JvmStatic
     get() = QueryGrpc.getPacketReceiptMethod()
 
-  public val packetAcknowledgementMethod:
-      MethodDescriptor<QueryOuterClass.QueryPacketAcknowledgementRequest, QueryOuterClass.QueryPacketAcknowledgementResponse>
+  val packetAcknowledgementMethod:
+      MethodDescriptor<QueryOuterClass.QueryPacketAcknowledgementRequest,
+      QueryOuterClass.QueryPacketAcknowledgementResponse>
     @JvmStatic
     get() = QueryGrpc.getPacketAcknowledgementMethod()
 
-  public val packetAcknowledgementsMethod:
-      MethodDescriptor<QueryOuterClass.QueryPacketAcknowledgementsRequest, QueryOuterClass.QueryPacketAcknowledgementsResponse>
+  val packetAcknowledgementsMethod:
+      MethodDescriptor<QueryOuterClass.QueryPacketAcknowledgementsRequest,
+      QueryOuterClass.QueryPacketAcknowledgementsResponse>
     @JvmStatic
     get() = QueryGrpc.getPacketAcknowledgementsMethod()
 
-  public val unreceivedPacketsMethod:
-      MethodDescriptor<QueryOuterClass.QueryUnreceivedPacketsRequest, QueryOuterClass.QueryUnreceivedPacketsResponse>
+  val unreceivedPacketsMethod: MethodDescriptor<QueryOuterClass.QueryUnreceivedPacketsRequest,
+      QueryOuterClass.QueryUnreceivedPacketsResponse>
     @JvmStatic
     get() = QueryGrpc.getUnreceivedPacketsMethod()
 
-  public val unreceivedAcksMethod:
-      MethodDescriptor<QueryOuterClass.QueryUnreceivedAcksRequest, QueryOuterClass.QueryUnreceivedAcksResponse>
+  val unreceivedAcksMethod: MethodDescriptor<QueryOuterClass.QueryUnreceivedAcksRequest,
+      QueryOuterClass.QueryUnreceivedAcksResponse>
     @JvmStatic
     get() = QueryGrpc.getUnreceivedAcksMethod()
 
-  public val nextSequenceReceiveMethod:
-      MethodDescriptor<QueryOuterClass.QueryNextSequenceReceiveRequest, QueryOuterClass.QueryNextSequenceReceiveResponse>
+  val nextSequenceReceiveMethod: MethodDescriptor<QueryOuterClass.QueryNextSequenceReceiveRequest,
+      QueryOuterClass.QueryNextSequenceReceiveResponse>
     @JvmStatic
     get() = QueryGrpc.getNextSequenceReceiveMethod()
 
@@ -104,11 +107,11 @@ public object QueryGrpcKt {
    * A stub for issuing RPCs to a(n) ibc.core.channel.v1.Query service as suspending coroutines.
    */
   @StubFor(QueryGrpc::class)
-  public class QueryCoroutineStub @JvmOverloads constructor(
+  class QueryCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<QueryCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
         QueryCoroutineStub(channel, callOptions)
 
     /**
@@ -119,19 +122,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun channel(request: QueryOuterClass.QueryChannelRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryChannelResponse = unaryRpc(
+    suspend fun channel(request: QueryOuterClass.QueryChannelRequest):
+        QueryOuterClass.QueryChannelResponse = unaryRpc(
       channel,
       QueryGrpc.getChannelMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -140,19 +140,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun channels(request: QueryOuterClass.QueryChannelsRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryChannelsResponse = unaryRpc(
+    suspend fun channels(request: QueryOuterClass.QueryChannelsRequest):
+        QueryOuterClass.QueryChannelsResponse = unaryRpc(
       channel,
       QueryGrpc.getChannelsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -161,19 +158,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun connectionChannels(request: QueryOuterClass.QueryConnectionChannelsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryConnectionChannelsResponse = unaryRpc(
+    suspend fun connectionChannels(request: QueryOuterClass.QueryConnectionChannelsRequest):
+        QueryOuterClass.QueryConnectionChannelsResponse = unaryRpc(
       channel,
       QueryGrpc.getConnectionChannelsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -182,19 +176,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun channelClientState(request: QueryOuterClass.QueryChannelClientStateRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryChannelClientStateResponse = unaryRpc(
+    suspend fun channelClientState(request: QueryOuterClass.QueryChannelClientStateRequest):
+        QueryOuterClass.QueryChannelClientStateResponse = unaryRpc(
       channel,
       QueryGrpc.getChannelClientStateMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -203,21 +194,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend
-        fun channelConsensusState(request: QueryOuterClass.QueryChannelConsensusStateRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryChannelConsensusStateResponse =
-        unaryRpc(
+    suspend fun channelConsensusState(request: QueryOuterClass.QueryChannelConsensusStateRequest):
+        QueryOuterClass.QueryChannelConsensusStateResponse = unaryRpc(
       channel,
       QueryGrpc.getChannelConsensusStateMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -226,19 +212,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun packetCommitment(request: QueryOuterClass.QueryPacketCommitmentRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryPacketCommitmentResponse = unaryRpc(
+    suspend fun packetCommitment(request: QueryOuterClass.QueryPacketCommitmentRequest):
+        QueryOuterClass.QueryPacketCommitmentResponse = unaryRpc(
       channel,
       QueryGrpc.getPacketCommitmentMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -247,19 +230,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun packetCommitments(request: QueryOuterClass.QueryPacketCommitmentsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryPacketCommitmentsResponse = unaryRpc(
+    suspend fun packetCommitments(request: QueryOuterClass.QueryPacketCommitmentsRequest):
+        QueryOuterClass.QueryPacketCommitmentsResponse = unaryRpc(
       channel,
       QueryGrpc.getPacketCommitmentsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -268,19 +248,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun packetReceipt(request: QueryOuterClass.QueryPacketReceiptRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryPacketReceiptResponse = unaryRpc(
+    suspend fun packetReceipt(request: QueryOuterClass.QueryPacketReceiptRequest):
+        QueryOuterClass.QueryPacketReceiptResponse = unaryRpc(
       channel,
       QueryGrpc.getPacketReceiptMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -289,21 +266,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend
-        fun packetAcknowledgement(request: QueryOuterClass.QueryPacketAcknowledgementRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryPacketAcknowledgementResponse =
-        unaryRpc(
+    suspend fun packetAcknowledgement(request: QueryOuterClass.QueryPacketAcknowledgementRequest):
+        QueryOuterClass.QueryPacketAcknowledgementResponse = unaryRpc(
       channel,
       QueryGrpc.getPacketAcknowledgementMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -312,21 +284,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend
-        fun packetAcknowledgements(request: QueryOuterClass.QueryPacketAcknowledgementsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryPacketAcknowledgementsResponse =
-        unaryRpc(
+    suspend fun packetAcknowledgements(request: QueryOuterClass.QueryPacketAcknowledgementsRequest):
+        QueryOuterClass.QueryPacketAcknowledgementsResponse = unaryRpc(
       channel,
       QueryGrpc.getPacketAcknowledgementsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -335,19 +302,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun unreceivedPackets(request: QueryOuterClass.QueryUnreceivedPacketsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryUnreceivedPacketsResponse = unaryRpc(
+    suspend fun unreceivedPackets(request: QueryOuterClass.QueryUnreceivedPacketsRequest):
+        QueryOuterClass.QueryUnreceivedPacketsResponse = unaryRpc(
       channel,
       QueryGrpc.getUnreceivedPacketsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -356,19 +320,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun unreceivedAcks(request: QueryOuterClass.QueryUnreceivedAcksRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryUnreceivedAcksResponse = unaryRpc(
+    suspend fun unreceivedAcks(request: QueryOuterClass.QueryUnreceivedAcksRequest):
+        QueryOuterClass.QueryUnreceivedAcksResponse = unaryRpc(
       channel,
       QueryGrpc.getUnreceivedAcksMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -377,26 +338,22 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun nextSequenceReceive(request: QueryOuterClass.QueryNextSequenceReceiveRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryNextSequenceReceiveResponse =
-        unaryRpc(
+    suspend fun nextSequenceReceive(request: QueryOuterClass.QueryNextSequenceReceiveRequest):
+        QueryOuterClass.QueryNextSequenceReceiveResponse = unaryRpc(
       channel,
       QueryGrpc.getNextSequenceReceiveMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the ibc.core.channel.v1.Query service based on Kotlin coroutines.
    */
-  public abstract class QueryCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class QueryCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for ibc.core.channel.v1.Query.Channel.
@@ -409,7 +366,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun channel(request: QueryOuterClass.QueryChannelRequest):
+    open suspend fun channel(request: QueryOuterClass.QueryChannelRequest):
         QueryOuterClass.QueryChannelResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.Channel is unimplemented"))
 
@@ -424,7 +381,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun channels(request: QueryOuterClass.QueryChannelsRequest):
+    open suspend fun channels(request: QueryOuterClass.QueryChannelsRequest):
         QueryOuterClass.QueryChannelsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.Channels is unimplemented"))
 
@@ -439,8 +396,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
-        fun connectionChannels(request: QueryOuterClass.QueryConnectionChannelsRequest):
+    open suspend fun connectionChannels(request: QueryOuterClass.QueryConnectionChannelsRequest):
         QueryOuterClass.QueryConnectionChannelsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.ConnectionChannels is unimplemented"))
 
@@ -455,8 +411,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
-        fun channelClientState(request: QueryOuterClass.QueryChannelClientStateRequest):
+    open suspend fun channelClientState(request: QueryOuterClass.QueryChannelClientStateRequest):
         QueryOuterClass.QueryChannelClientStateResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.ChannelClientState is unimplemented"))
 
@@ -471,7 +426,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
+    open suspend
         fun channelConsensusState(request: QueryOuterClass.QueryChannelConsensusStateRequest):
         QueryOuterClass.QueryChannelConsensusStateResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.ChannelConsensusState is unimplemented"))
@@ -487,7 +442,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun packetCommitment(request: QueryOuterClass.QueryPacketCommitmentRequest):
+    open suspend fun packetCommitment(request: QueryOuterClass.QueryPacketCommitmentRequest):
         QueryOuterClass.QueryPacketCommitmentResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.PacketCommitment is unimplemented"))
 
@@ -502,8 +457,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
-        fun packetCommitments(request: QueryOuterClass.QueryPacketCommitmentsRequest):
+    open suspend fun packetCommitments(request: QueryOuterClass.QueryPacketCommitmentsRequest):
         QueryOuterClass.QueryPacketCommitmentsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.PacketCommitments is unimplemented"))
 
@@ -518,7 +472,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun packetReceipt(request: QueryOuterClass.QueryPacketReceiptRequest):
+    open suspend fun packetReceipt(request: QueryOuterClass.QueryPacketReceiptRequest):
         QueryOuterClass.QueryPacketReceiptResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.PacketReceipt is unimplemented"))
 
@@ -533,7 +487,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
+    open suspend
         fun packetAcknowledgement(request: QueryOuterClass.QueryPacketAcknowledgementRequest):
         QueryOuterClass.QueryPacketAcknowledgementResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.PacketAcknowledgement is unimplemented"))
@@ -549,7 +503,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
+    open suspend
         fun packetAcknowledgements(request: QueryOuterClass.QueryPacketAcknowledgementsRequest):
         QueryOuterClass.QueryPacketAcknowledgementsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.PacketAcknowledgements is unimplemented"))
@@ -565,8 +519,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
-        fun unreceivedPackets(request: QueryOuterClass.QueryUnreceivedPacketsRequest):
+    open suspend fun unreceivedPackets(request: QueryOuterClass.QueryUnreceivedPacketsRequest):
         QueryOuterClass.QueryUnreceivedPacketsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.UnreceivedPackets is unimplemented"))
 
@@ -581,7 +534,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun unreceivedAcks(request: QueryOuterClass.QueryUnreceivedAcksRequest):
+    open suspend fun unreceivedAcks(request: QueryOuterClass.QueryUnreceivedAcksRequest):
         QueryOuterClass.QueryUnreceivedAcksResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.UnreceivedAcks is unimplemented"))
 
@@ -596,13 +549,11 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
-        fun nextSequenceReceive(request: QueryOuterClass.QueryNextSequenceReceiveRequest):
+    open suspend fun nextSequenceReceive(request: QueryOuterClass.QueryNextSequenceReceiveRequest):
         QueryOuterClass.QueryNextSequenceReceiveResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.core.channel.v1.Query.NextSequenceReceive is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = QueryGrpc.getChannelMethod(),

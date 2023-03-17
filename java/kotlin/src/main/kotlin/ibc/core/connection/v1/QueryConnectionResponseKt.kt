@@ -3,16 +3,16 @@
 
 package ibc.core.connection.v1;
 
-@kotlin.jvm.JvmName("-initializequeryConnectionResponse")
-public inline fun queryConnectionResponse(block: ibc.core.connection.v1.QueryConnectionResponseKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryConnectionResponse(block: ibc.core.connection.v1.QueryConnectionResponseKt.Dsl.() -> Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponse =
   ibc.core.connection.v1.QueryConnectionResponseKt.Dsl._create(ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponse.newBuilder()).apply { block() }._build()
-public object QueryConnectionResponseKt {
+object QueryConnectionResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryConnectionResponseKt {
      *
      * <code>.ibc.core.connection.v1.ConnectionEnd connection = 1;</code>
      */
-    public var connection: ibc.core.connection.v1.Connection.ConnectionEnd
+    var connection: ibc.core.connection.v1.Connection.ConnectionEnd
       @JvmName("getConnection")
       get() = _builder.getConnection()
       @JvmName("setConnection")
@@ -43,7 +43,7 @@ public object QueryConnectionResponseKt {
      *
      * <code>.ibc.core.connection.v1.ConnectionEnd connection = 1;</code>
      */
-    public fun clearConnection() {
+    fun clearConnection() {
       _builder.clearConnection()
     }
     /**
@@ -54,7 +54,7 @@ public object QueryConnectionResponseKt {
      * <code>.ibc.core.connection.v1.ConnectionEnd connection = 1;</code>
      * @return Whether the connection field is set.
      */
-    public fun hasConnection(): kotlin.Boolean {
+    fun hasConnection(): kotlin.Boolean {
       return _builder.hasConnection()
     }
 
@@ -65,7 +65,7 @@ public object QueryConnectionResponseKt {
      *
      * <code>bytes proof = 2;</code>
      */
-    public var proof: com.google.protobuf.ByteString
+    var proof: com.google.protobuf.ByteString
       @JvmName("getProof")
       get() = _builder.getProof()
       @JvmName("setProof")
@@ -79,7 +79,7 @@ public object QueryConnectionResponseKt {
      *
      * <code>bytes proof = 2;</code>
      */
-    public fun clearProof() {
+    fun clearProof() {
       _builder.clearProof()
     }
 
@@ -90,7 +90,7 @@ public object QueryConnectionResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public var proofHeight: ibc.core.client.v1.Client.Height
+    var proofHeight: ibc.core.client.v1.Client.Height
       @JvmName("getProofHeight")
       get() = _builder.getProofHeight()
       @JvmName("setProofHeight")
@@ -104,7 +104,7 @@ public object QueryConnectionResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearProofHeight() {
+    fun clearProofHeight() {
       _builder.clearProofHeight()
     }
     /**
@@ -115,18 +115,11 @@ public object QueryConnectionResponseKt {
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      * @return Whether the proofHeight field is set.
      */
-    public fun hasProofHeight(): kotlin.Boolean {
+    fun hasProofHeight(): kotlin.Boolean {
       return _builder.hasProofHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponse.copy(block: ibc.core.connection.v1.QueryConnectionResponseKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponse =
+inline fun ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponse.copy(block: ibc.core.connection.v1.QueryConnectionResponseKt.Dsl.() -> Unit): ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponse =
   ibc.core.connection.v1.QueryConnectionResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponseOrBuilder.connectionOrNull: ibc.core.connection.v1.Connection.ConnectionEnd?
-  get() = if (hasConnection()) getConnection() else null
-
-public val ibc.core.connection.v1.QueryOuterClass.QueryConnectionResponseOrBuilder.proofHeightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasProofHeight()) getProofHeight() else null
-

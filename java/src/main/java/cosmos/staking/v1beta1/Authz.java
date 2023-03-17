@@ -17,7 +17,6 @@ public final class Authz {
   /**
    * <pre>
    * AuthorizationType defines the type of staking module authorization type
-   * Since: cosmos-sdk 0.43
    * </pre>
    *
    * Protobuf enum {@code cosmos.staking.v1beta1.AuthorizationType}
@@ -292,7 +291,6 @@ public final class Authz {
   /**
    * <pre>
    * StakeAuthorization defines authorization for delegate/undelegate/redelegate.
-   * Since: cosmos-sdk 0.43
    * </pre>
    *
    * Protobuf type {@code cosmos.staking.v1beta1.StakeAuthorization}
@@ -321,6 +319,90 @@ public final class Authz {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private StakeAuthorization(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cosmos.base.v1beta1.CoinOuterClass.Coin.Builder subBuilder = null;
+              if (maxTokens_ != null) {
+                subBuilder = maxTokens_.toBuilder();
+              }
+              maxTokens_ = input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(maxTokens_);
+                maxTokens_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators.Builder subBuilder = null;
+              if (validatorsCase_ == 2) {
+                subBuilder = ((cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators) validators_).toBuilder();
+              }
+              validators_ =
+                  input.readMessage(cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators) validators_);
+                validators_ = subBuilder.buildPartial();
+              }
+              validatorsCase_ = 2;
+              break;
+            }
+            case 26: {
+              cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators.Builder subBuilder = null;
+              if (validatorsCase_ == 3) {
+                subBuilder = ((cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators) validators_).toBuilder();
+              }
+              validators_ =
+                  input.readMessage(cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators) validators_);
+                validators_ = subBuilder.buildPartial();
+              }
+              validatorsCase_ = 3;
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              authorizationType_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -396,6 +478,56 @@ public final class Authz {
       getUnknownFields() {
         return this.unknownFields;
       }
+      private Validators(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                  address_ = new com.google.protobuf.LazyStringArrayList();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                address_.add(s);
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          if (((mutable_bitField0_ & 0x00000001) != 0)) {
+            address_ = address_.getUnmodifiableView();
+          }
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return cosmos.staking.v1beta1.Authz.internal_static_cosmos_staking_v1beta1_StakeAuthorization_Validators_descriptor;
@@ -410,7 +542,6 @@ public final class Authz {
       }
 
       public static final int ADDRESS_FIELD_NUMBER = 1;
-      @SuppressWarnings("serial")
       private com.google.protobuf.LazyStringList address_;
       /**
        * <code>repeated string address = 1;</code>
@@ -462,7 +593,7 @@ public final class Authz {
         for (int i = 0; i < address_.size(); i++) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, address_.getRaw(i));
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
       @java.lang.Override
@@ -479,7 +610,7 @@ public final class Authz {
           size += dataSize;
           size += 1 * getAddressList().size();
         }
-        size += getUnknownFields().getSerializedSize();
+        size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -496,7 +627,7 @@ public final class Authz {
 
         if (!getAddressList()
             .equals(other.getAddressList())) return false;
-        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
 
@@ -511,7 +642,7 @@ public final class Authz {
           hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
           hash = (53 * hash) + getAddressList().hashCode();
         }
-        hash = (29 * hash) + getUnknownFields().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -632,18 +763,22 @@ public final class Authz {
 
         // Construct using cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators.newBuilder()
         private Builder() {
-
+          maybeForceBuilderInitialization();
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          bitField0_ = 0;
           address_ = com.google.protobuf.LazyStringArrayList.EMPTY;
           bitField0_ = (bitField0_ & ~0x00000001);
           return this;
@@ -672,22 +807,14 @@ public final class Authz {
         @java.lang.Override
         public cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators buildPartial() {
           cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators result = new cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators(this);
-          buildPartialRepeatedFields(result);
-          if (bitField0_ != 0) { buildPartial0(result); }
-          onBuilt();
-          return result;
-        }
-
-        private void buildPartialRepeatedFields(cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators result) {
+          int from_bitField0_ = bitField0_;
           if (((bitField0_ & 0x00000001) != 0)) {
             address_ = address_.getUnmodifiableView();
             bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.address_ = address_;
-        }
-
-        private void buildPartial0(cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators result) {
-          int from_bitField0_ = bitField0_;
+          onBuilt();
+          return result;
         }
 
         @java.lang.Override
@@ -744,7 +871,7 @@ public final class Authz {
             }
             onChanged();
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
         }
@@ -759,36 +886,17 @@ public final class Authz {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
+          cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators parsedMessage = null;
           try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-                  ensureAddressIsMutable();
-                  address_.add(s);
-                  break;
-                } // case 10
-                default: {
-                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                    done = true; // was an endgroup tag
-                  }
-                  break;
-                } // default:
-              } // switch (tag)
-            } // while (!done)
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (cosmos.staking.v1beta1.Authz.StakeAuthorization.Validators) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            onChanged();
-          } // finally
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
           return this;
         }
         private int bitField0_;
@@ -840,8 +948,10 @@ public final class Authz {
          */
         public Builder setAddress(
             int index, java.lang.String value) {
-          if (value == null) { throw new NullPointerException(); }
-          ensureAddressIsMutable();
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAddressIsMutable();
           address_.set(index, value);
           onChanged();
           return this;
@@ -853,8 +963,10 @@ public final class Authz {
          */
         public Builder addAddress(
             java.lang.String value) {
-          if (value == null) { throw new NullPointerException(); }
-          ensureAddressIsMutable();
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAddressIsMutable();
           address_.add(value);
           onChanged();
           return this;
@@ -889,8 +1001,10 @@ public final class Authz {
          */
         public Builder addAddressBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) { throw new NullPointerException(); }
-          checkByteStringIsUtf8(value);
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
           ensureAddressIsMutable();
           address_.add(value);
           onChanged();
@@ -929,18 +1043,7 @@ public final class Authz {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(builder.buildPartial());
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(e)
-                .setUnfinishedMessage(builder.buildPartial());
-          }
-          return builder.buildPartial();
+          return new Validators(input, extensionRegistry);
         }
       };
 
@@ -1039,7 +1142,7 @@ public final class Authz {
      */
     @java.lang.Override
     public cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder getMaxTokensOrBuilder() {
-      return maxTokens_ == null ? cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance() : maxTokens_;
+      return getMaxTokens();
     }
 
     public static final int ALLOW_LIST_FIELD_NUMBER = 2;
@@ -1132,7 +1235,7 @@ public final class Authz {
     }
 
     public static final int AUTHORIZATION_TYPE_FIELD_NUMBER = 4;
-    private int authorizationType_ = 0;
+    private int authorizationType_;
     /**
      * <pre>
      * authorization_type defines one of AuthorizationType.
@@ -1153,7 +1256,8 @@ public final class Authz {
      * @return The authorizationType.
      */
     @java.lang.Override public cosmos.staking.v1beta1.Authz.AuthorizationType getAuthorizationType() {
-      cosmos.staking.v1beta1.Authz.AuthorizationType result = cosmos.staking.v1beta1.Authz.AuthorizationType.forNumber(authorizationType_);
+      @SuppressWarnings("deprecation")
+      cosmos.staking.v1beta1.Authz.AuthorizationType result = cosmos.staking.v1beta1.Authz.AuthorizationType.valueOf(authorizationType_);
       return result == null ? cosmos.staking.v1beta1.Authz.AuthorizationType.UNRECOGNIZED : result;
     }
 
@@ -1183,7 +1287,7 @@ public final class Authz {
       if (authorizationType_ != cosmos.staking.v1beta1.Authz.AuthorizationType.AUTHORIZATION_TYPE_UNSPECIFIED.getNumber()) {
         output.writeEnum(4, authorizationType_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1208,7 +1312,7 @@ public final class Authz {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, authorizationType_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1242,7 +1346,7 @@ public final class Authz {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1271,7 +1375,7 @@ public final class Authz {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1369,7 +1473,6 @@ public final class Authz {
     /**
      * <pre>
      * StakeAuthorization defines authorization for delegate/undelegate/redelegate.
-     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * Protobuf type {@code cosmos.staking.v1beta1.StakeAuthorization}
@@ -1393,30 +1496,30 @@ public final class Authz {
 
       // Construct using cosmos.staking.v1beta1.Authz.StakeAuthorization.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        maxTokens_ = null;
-        if (maxTokensBuilder_ != null) {
-          maxTokensBuilder_.dispose();
+        if (maxTokensBuilder_ == null) {
+          maxTokens_ = null;
+        } else {
+          maxTokens_ = null;
           maxTokensBuilder_ = null;
         }
-        if (allowListBuilder_ != null) {
-          allowListBuilder_.clear();
-        }
-        if (denyListBuilder_ != null) {
-          denyListBuilder_.clear();
-        }
         authorizationType_ = 0;
+
         validatorsCase_ = 0;
         validators_ = null;
         return this;
@@ -1445,35 +1548,29 @@ public final class Authz {
       @java.lang.Override
       public cosmos.staking.v1beta1.Authz.StakeAuthorization buildPartial() {
         cosmos.staking.v1beta1.Authz.StakeAuthorization result = new cosmos.staking.v1beta1.Authz.StakeAuthorization(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        if (maxTokensBuilder_ == null) {
+          result.maxTokens_ = maxTokens_;
+        } else {
+          result.maxTokens_ = maxTokensBuilder_.build();
+        }
+        if (validatorsCase_ == 2) {
+          if (allowListBuilder_ == null) {
+            result.validators_ = validators_;
+          } else {
+            result.validators_ = allowListBuilder_.build();
+          }
+        }
+        if (validatorsCase_ == 3) {
+          if (denyListBuilder_ == null) {
+            result.validators_ = validators_;
+          } else {
+            result.validators_ = denyListBuilder_.build();
+          }
+        }
+        result.authorizationType_ = authorizationType_;
+        result.validatorsCase_ = validatorsCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.staking.v1beta1.Authz.StakeAuthorization result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.maxTokens_ = maxTokensBuilder_ == null
-              ? maxTokens_
-              : maxTokensBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.authorizationType_ = authorizationType_;
-        }
-      }
-
-      private void buildPartialOneofs(cosmos.staking.v1beta1.Authz.StakeAuthorization result) {
-        result.validatorsCase_ = validatorsCase_;
-        result.validators_ = this.validators_;
-        if (validatorsCase_ == 2 &&
-            allowListBuilder_ != null) {
-          result.validators_ = allowListBuilder_.build();
-        }
-        if (validatorsCase_ == 3 &&
-            denyListBuilder_ != null) {
-          result.validators_ = denyListBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -1539,7 +1636,7 @@ public final class Authz {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1554,56 +1651,17 @@ public final class Authz {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.staking.v1beta1.Authz.StakeAuthorization parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getMaxTokensFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getAllowListFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                validatorsCase_ = 2;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getDenyListFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                validatorsCase_ = 3;
-                break;
-              } // case 26
-              case 32: {
-                authorizationType_ = input.readEnum();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.staking.v1beta1.Authz.StakeAuthorization) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int validatorsCase_ = 0;
@@ -1621,7 +1679,6 @@ public final class Authz {
         return this;
       }
 
-      private int bitField0_;
 
       private cosmos.base.v1beta1.CoinOuterClass.Coin maxTokens_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1636,7 +1693,7 @@ public final class Authz {
        * @return Whether the maxTokens field is set.
        */
       public boolean hasMaxTokens() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return maxTokensBuilder_ != null || maxTokens_ != null;
       }
       /**
        * <pre>
@@ -1668,11 +1725,11 @@ public final class Authz {
             throw new NullPointerException();
           }
           maxTokens_ = value;
+          onChanged();
         } else {
           maxTokensBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1687,11 +1744,11 @@ public final class Authz {
           cosmos.base.v1beta1.CoinOuterClass.Coin.Builder builderForValue) {
         if (maxTokensBuilder_ == null) {
           maxTokens_ = builderForValue.build();
+          onChanged();
         } else {
           maxTokensBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1704,18 +1761,17 @@ public final class Authz {
        */
       public Builder mergeMaxTokens(cosmos.base.v1beta1.CoinOuterClass.Coin value) {
         if (maxTokensBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            maxTokens_ != null &&
-            maxTokens_ != cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance()) {
-            getMaxTokensBuilder().mergeFrom(value);
+          if (maxTokens_ != null) {
+            maxTokens_ =
+              cosmos.base.v1beta1.CoinOuterClass.Coin.newBuilder(maxTokens_).mergeFrom(value).buildPartial();
           } else {
             maxTokens_ = value;
           }
+          onChanged();
         } else {
           maxTokensBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1727,13 +1783,14 @@ public final class Authz {
        * <code>.cosmos.base.v1beta1.Coin max_tokens = 1 [(.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coin"];</code>
        */
       public Builder clearMaxTokens() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        maxTokens_ = null;
-        if (maxTokensBuilder_ != null) {
-          maxTokensBuilder_.dispose();
+        if (maxTokensBuilder_ == null) {
+          maxTokens_ = null;
+          onChanged();
+        } else {
+          maxTokens_ = null;
           maxTokensBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1745,7 +1802,7 @@ public final class Authz {
        * <code>.cosmos.base.v1beta1.Coin max_tokens = 1 [(.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coin"];</code>
        */
       public cosmos.base.v1beta1.CoinOuterClass.Coin.Builder getMaxTokensBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getMaxTokensFieldBuilder().getBuilder();
       }
@@ -1886,9 +1943,8 @@ public final class Authz {
         } else {
           if (validatorsCase_ == 2) {
             allowListBuilder_.mergeFrom(value);
-          } else {
-            allowListBuilder_.setMessage(value);
           }
+          allowListBuilder_.setMessage(value);
         }
         validatorsCase_ = 2;
         return this;
@@ -1970,7 +2026,7 @@ public final class Authz {
           validators_ = null;
         }
         validatorsCase_ = 2;
-        onChanged();
+        onChanged();;
         return allowListBuilder_;
       }
 
@@ -2068,9 +2124,8 @@ public final class Authz {
         } else {
           if (validatorsCase_ == 3) {
             denyListBuilder_.mergeFrom(value);
-          } else {
-            denyListBuilder_.setMessage(value);
           }
+          denyListBuilder_.setMessage(value);
         }
         validatorsCase_ = 3;
         return this;
@@ -2148,7 +2203,7 @@ public final class Authz {
           validators_ = null;
         }
         validatorsCase_ = 3;
-        onChanged();
+        onChanged();;
         return denyListBuilder_;
       }
 
@@ -2174,8 +2229,8 @@ public final class Authz {
        * @return This builder for chaining.
        */
       public Builder setAuthorizationTypeValue(int value) {
+        
         authorizationType_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2189,7 +2244,8 @@ public final class Authz {
        */
       @java.lang.Override
       public cosmos.staking.v1beta1.Authz.AuthorizationType getAuthorizationType() {
-        cosmos.staking.v1beta1.Authz.AuthorizationType result = cosmos.staking.v1beta1.Authz.AuthorizationType.forNumber(authorizationType_);
+        @SuppressWarnings("deprecation")
+        cosmos.staking.v1beta1.Authz.AuthorizationType result = cosmos.staking.v1beta1.Authz.AuthorizationType.valueOf(authorizationType_);
         return result == null ? cosmos.staking.v1beta1.Authz.AuthorizationType.UNRECOGNIZED : result;
       }
       /**
@@ -2205,7 +2261,7 @@ public final class Authz {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000008;
+        
         authorizationType_ = value.getNumber();
         onChanged();
         return this;
@@ -2219,7 +2275,7 @@ public final class Authz {
        * @return This builder for chaining.
        */
       public Builder clearAuthorizationType() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         authorizationType_ = 0;
         onChanged();
         return this;
@@ -2257,18 +2313,7 @@ public final class Authz {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new StakeAuthorization(input, extensionRegistry);
       }
     };
 

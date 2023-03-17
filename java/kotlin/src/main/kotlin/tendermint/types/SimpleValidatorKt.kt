@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializesimpleValidator")
-public inline fun simpleValidator(block: tendermint.types.SimpleValidatorKt.Dsl.() -> kotlin.Unit): tendermint.types.ValidatorOuterClass.SimpleValidator =
+@kotlin.jvm.JvmSynthetic
+inline fun simpleValidator(block: tendermint.types.SimpleValidatorKt.Dsl.() -> Unit): tendermint.types.ValidatorOuterClass.SimpleValidator =
   tendermint.types.SimpleValidatorKt.Dsl._create(tendermint.types.ValidatorOuterClass.SimpleValidator.newBuilder()).apply { block() }._build()
-public object SimpleValidatorKt {
+object SimpleValidatorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.ValidatorOuterClass.SimpleValidator.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.ValidatorOuterClass.SimpleValidator.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.ValidatorOuterClass.SimpleValidator.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object SimpleValidatorKt {
     /**
      * <code>.tendermint.crypto.PublicKey pub_key = 1;</code>
      */
-    public var pubKey: tendermint.crypto.Keys.PublicKey
+    var pubKey: tendermint.crypto.Keys.PublicKey
       @JvmName("getPubKey")
       get() = _builder.getPubKey()
       @JvmName("setPubKey")
@@ -35,21 +35,21 @@ public object SimpleValidatorKt {
     /**
      * <code>.tendermint.crypto.PublicKey pub_key = 1;</code>
      */
-    public fun clearPubKey() {
+    fun clearPubKey() {
       _builder.clearPubKey()
     }
     /**
      * <code>.tendermint.crypto.PublicKey pub_key = 1;</code>
      * @return Whether the pubKey field is set.
      */
-    public fun hasPubKey(): kotlin.Boolean {
+    fun hasPubKey(): kotlin.Boolean {
       return _builder.hasPubKey()
     }
 
     /**
      * <code>int64 voting_power = 2;</code>
      */
-    public var votingPower: kotlin.Long
+    var votingPower: kotlin.Long
       @JvmName("getVotingPower")
       get() = _builder.getVotingPower()
       @JvmName("setVotingPower")
@@ -59,15 +59,11 @@ public object SimpleValidatorKt {
     /**
      * <code>int64 voting_power = 2;</code>
      */
-    public fun clearVotingPower() {
+    fun clearVotingPower() {
       _builder.clearVotingPower()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.ValidatorOuterClass.SimpleValidator.copy(block: tendermint.types.SimpleValidatorKt.Dsl.() -> kotlin.Unit): tendermint.types.ValidatorOuterClass.SimpleValidator =
+inline fun tendermint.types.ValidatorOuterClass.SimpleValidator.copy(block: tendermint.types.SimpleValidatorKt.Dsl.() -> Unit): tendermint.types.ValidatorOuterClass.SimpleValidator =
   tendermint.types.SimpleValidatorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.ValidatorOuterClass.SimpleValidatorOrBuilder.pubKeyOrNull: tendermint.crypto.Keys.PublicKey?
-  get() = if (hasPubKey()) getPubKey() else null
-

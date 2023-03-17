@@ -3,16 +3,16 @@
 
 package cosmos.crypto.multisig.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemultiSignature")
-public inline fun multiSignature(block: cosmos.crypto.multisig.v1beta1.MultiSignatureKt.Dsl.() -> kotlin.Unit): cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature =
+@kotlin.jvm.JvmSynthetic
+inline fun multiSignature(block: cosmos.crypto.multisig.v1beta1.MultiSignatureKt.Dsl.() -> Unit): cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature =
   cosmos.crypto.multisig.v1beta1.MultiSignatureKt.Dsl._create(cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature.newBuilder()).apply { block() }._build()
-public object MultiSignatureKt {
+object MultiSignatureKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature.Builder): Dsl = Dsl(builder)
@@ -27,11 +27,11 @@ public object MultiSignatureKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class SignaturesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class SignaturesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated bytes signatures = 1;</code>
      */
-     public val signatures: com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>
+     val signatures: com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getSignaturesList()
@@ -42,7 +42,7 @@ public object MultiSignatureKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addSignatures")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.add(value: com.google.protobuf.ByteString) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.add(value: com.google.protobuf.ByteString) {
       _builder.addSignatures(value)
     }/**
      * <code>repeated bytes signatures = 1;</code>
@@ -50,8 +50,7 @@ public object MultiSignatureKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignSignatures")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.plusAssign(value: com.google.protobuf.ByteString) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.plusAssign(value: com.google.protobuf.ByteString) {
       add(value)
     }/**
      * <code>repeated bytes signatures = 1;</code>
@@ -59,7 +58,7 @@ public object MultiSignatureKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllSignatures")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
       _builder.addAllSignatures(values)
     }/**
      * <code>repeated bytes signatures = 1;</code>
@@ -67,8 +66,7 @@ public object MultiSignatureKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllSignatures")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
       addAll(values)
     }/**
      * <code>repeated bytes signatures = 1;</code>
@@ -77,18 +75,17 @@ public object MultiSignatureKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setSignatures")
-    public operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.set(index: kotlin.Int, value: com.google.protobuf.ByteString) {
+    operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.set(index: kotlin.Int, value: com.google.protobuf.ByteString) {
       _builder.setSignatures(index, value)
     }/**
      * <code>repeated bytes signatures = 1;</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearSignatures")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, SignaturesProxy>.clear() {
       _builder.clearSignatures()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature.copy(block: cosmos.crypto.multisig.v1beta1.MultiSignatureKt.Dsl.() -> kotlin.Unit): cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature =
+inline fun cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature.copy(block: cosmos.crypto.multisig.v1beta1.MultiSignatureKt.Dsl.() -> Unit): cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature =
   cosmos.crypto.multisig.v1beta1.MultiSignatureKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

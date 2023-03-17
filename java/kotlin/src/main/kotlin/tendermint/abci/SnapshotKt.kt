@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializesnapshot")
-public inline fun snapshot(block: tendermint.abci.SnapshotKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.Snapshot =
+@kotlin.jvm.JvmSynthetic
+inline fun snapshot(block: tendermint.abci.SnapshotKt.Dsl.() -> Unit): tendermint.abci.Types.Snapshot =
   tendermint.abci.SnapshotKt.Dsl._create(tendermint.abci.Types.Snapshot.newBuilder()).apply { block() }._build()
-public object SnapshotKt {
+object SnapshotKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.Snapshot.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.Snapshot.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.Snapshot.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object SnapshotKt {
      *
      * <code>uint64 height = 1;</code>
      */
-    public var height: kotlin.Long
+    var height: kotlin.Long
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -43,7 +43,7 @@ public object SnapshotKt {
      *
      * <code>uint64 height = 1;</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
 
@@ -54,7 +54,7 @@ public object SnapshotKt {
      *
      * <code>uint32 format = 2;</code>
      */
-    public var format: kotlin.Int
+    var format: kotlin.Int
       @JvmName("getFormat")
       get() = _builder.getFormat()
       @JvmName("setFormat")
@@ -68,7 +68,7 @@ public object SnapshotKt {
      *
      * <code>uint32 format = 2;</code>
      */
-    public fun clearFormat() {
+    fun clearFormat() {
       _builder.clearFormat()
     }
 
@@ -79,7 +79,7 @@ public object SnapshotKt {
      *
      * <code>uint32 chunks = 3;</code>
      */
-    public var chunks: kotlin.Int
+    var chunks: kotlin.Int
       @JvmName("getChunks")
       get() = _builder.getChunks()
       @JvmName("setChunks")
@@ -93,7 +93,7 @@ public object SnapshotKt {
      *
      * <code>uint32 chunks = 3;</code>
      */
-    public fun clearChunks() {
+    fun clearChunks() {
       _builder.clearChunks()
     }
 
@@ -104,7 +104,7 @@ public object SnapshotKt {
      *
      * <code>bytes hash = 4;</code>
      */
-    public var hash: com.google.protobuf.ByteString
+    var hash: com.google.protobuf.ByteString
       @JvmName("getHash")
       get() = _builder.getHash()
       @JvmName("setHash")
@@ -118,7 +118,7 @@ public object SnapshotKt {
      *
      * <code>bytes hash = 4;</code>
      */
-    public fun clearHash() {
+    fun clearHash() {
       _builder.clearHash()
     }
 
@@ -129,7 +129,7 @@ public object SnapshotKt {
      *
      * <code>bytes metadata = 5;</code>
      */
-    public var metadata: com.google.protobuf.ByteString
+    var metadata: com.google.protobuf.ByteString
       @JvmName("getMetadata")
       get() = _builder.getMetadata()
       @JvmName("setMetadata")
@@ -143,12 +143,11 @@ public object SnapshotKt {
      *
      * <code>bytes metadata = 5;</code>
      */
-    public fun clearMetadata() {
+    fun clearMetadata() {
       _builder.clearMetadata()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.Snapshot.copy(block: tendermint.abci.SnapshotKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.Snapshot =
+inline fun tendermint.abci.Types.Snapshot.copy(block: tendermint.abci.SnapshotKt.Dsl.() -> Unit): tendermint.abci.Types.Snapshot =
   tendermint.abci.SnapshotKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

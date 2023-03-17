@@ -98,6 +98,62 @@ public final class Client {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private IdentifiedClientState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              clientId_ = s;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (clientState_ != null) {
+                subBuilder = clientState_.toBuilder();
+              }
+              clientState_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(clientState_);
+                clientState_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.client.v1.Client.internal_static_ibc_core_client_v1_IdentifiedClientState_descriptor;
@@ -112,8 +168,7 @@ public final class Client {
     }
 
     public static final int CLIENT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object clientId_ = "";
+    private volatile java.lang.Object clientId_;
     /**
      * <pre>
      * client identifier
@@ -193,7 +248,7 @@ public final class Client {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getClientStateOrBuilder() {
-      return clientState_ == null ? com.google.protobuf.Any.getDefaultInstance() : clientState_;
+      return getClientState();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -210,13 +265,13 @@ public final class Client {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+      if (!getClientIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, clientId_);
       }
       if (clientState_ != null) {
         output.writeMessage(2, getClientState());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -225,14 +280,14 @@ public final class Client {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+      if (!getClientIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, clientId_);
       }
       if (clientState_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getClientState());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -254,7 +309,7 @@ public final class Client {
         if (!getClientState()
             .equals(other.getClientState())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -271,7 +326,7 @@ public final class Client {
         hash = (37 * hash) + CLIENT_STATE_FIELD_NUMBER;
         hash = (53 * hash) + getClientState().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -393,22 +448,28 @@ public final class Client {
 
       // Construct using ibc.core.client.v1.Client.IdentifiedClientState.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         clientId_ = "";
-        clientState_ = null;
-        if (clientStateBuilder_ != null) {
-          clientStateBuilder_.dispose();
+
+        if (clientStateBuilder_ == null) {
+          clientState_ = null;
+        } else {
+          clientState_ = null;
           clientStateBuilder_ = null;
         }
         return this;
@@ -437,21 +498,14 @@ public final class Client {
       @java.lang.Override
       public ibc.core.client.v1.Client.IdentifiedClientState buildPartial() {
         ibc.core.client.v1.Client.IdentifiedClientState result = new ibc.core.client.v1.Client.IdentifiedClientState(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.clientId_ = clientId_;
+        if (clientStateBuilder_ == null) {
+          result.clientState_ = clientState_;
+        } else {
+          result.clientState_ = clientStateBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.client.v1.Client.IdentifiedClientState result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.clientId_ = clientId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.clientState_ = clientStateBuilder_ == null
-              ? clientState_
-              : clientStateBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -500,13 +554,12 @@ public final class Client {
         if (other == ibc.core.client.v1.Client.IdentifiedClientState.getDefaultInstance()) return this;
         if (!other.getClientId().isEmpty()) {
           clientId_ = other.clientId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasClientState()) {
           mergeClientState(other.getClientState());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -521,45 +574,19 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.client.v1.Client.IdentifiedClientState parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                clientId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getClientStateFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.client.v1.Client.IdentifiedClientState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object clientId_ = "";
       /**
@@ -614,9 +641,11 @@ public final class Client {
        */
       public Builder setClientId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         clientId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -629,8 +658,8 @@ public final class Client {
        * @return This builder for chaining.
        */
       public Builder clearClientId() {
+        
         clientId_ = getDefaultInstance().getClientId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -645,10 +674,12 @@ public final class Client {
        */
       public Builder setClientIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         clientId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -665,7 +696,7 @@ public final class Client {
        * @return Whether the clientState field is set.
        */
       public boolean hasClientState() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return clientStateBuilder_ != null || clientState_ != null;
       }
       /**
        * <pre>
@@ -695,11 +726,11 @@ public final class Client {
             throw new NullPointerException();
           }
           clientState_ = value;
+          onChanged();
         } else {
           clientStateBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -713,11 +744,11 @@ public final class Client {
           com.google.protobuf.Any.Builder builderForValue) {
         if (clientStateBuilder_ == null) {
           clientState_ = builderForValue.build();
+          onChanged();
         } else {
           clientStateBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -729,18 +760,17 @@ public final class Client {
        */
       public Builder mergeClientState(com.google.protobuf.Any value) {
         if (clientStateBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            clientState_ != null &&
-            clientState_ != com.google.protobuf.Any.getDefaultInstance()) {
-            getClientStateBuilder().mergeFrom(value);
+          if (clientState_ != null) {
+            clientState_ =
+              com.google.protobuf.Any.newBuilder(clientState_).mergeFrom(value).buildPartial();
           } else {
             clientState_ = value;
           }
+          onChanged();
         } else {
           clientStateBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -751,13 +781,14 @@ public final class Client {
        * <code>.google.protobuf.Any client_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
        */
       public Builder clearClientState() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        clientState_ = null;
-        if (clientStateBuilder_ != null) {
-          clientStateBuilder_.dispose();
+        if (clientStateBuilder_ == null) {
+          clientState_ = null;
+          onChanged();
+        } else {
+          clientState_ = null;
           clientStateBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -768,7 +799,7 @@ public final class Client {
        * <code>.google.protobuf.Any client_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
        */
       public com.google.protobuf.Any.Builder getClientStateBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getClientStateFieldBuilder().getBuilder();
       }
@@ -840,18 +871,7 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new IdentifiedClientState(input, extensionRegistry);
       }
     };
 
@@ -961,6 +981,69 @@ public final class Client {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ConsensusStateWithHeight(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (height_ != null) {
+                subBuilder = height_.toBuilder();
+              }
+              height_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(height_);
+                height_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (consensusState_ != null) {
+                subBuilder = consensusState_.toBuilder();
+              }
+              consensusState_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(consensusState_);
+                consensusState_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.client.v1.Client.internal_static_ibc_core_client_v1_ConsensusStateWithHeight_descriptor;
@@ -1009,7 +1092,7 @@ public final class Client {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getHeightOrBuilder() {
-      return height_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : height_;
+      return getHeight();
     }
 
     public static final int CONSENSUS_STATE_FIELD_NUMBER = 2;
@@ -1047,7 +1130,7 @@ public final class Client {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getConsensusStateOrBuilder() {
-      return consensusState_ == null ? com.google.protobuf.Any.getDefaultInstance() : consensusState_;
+      return getConsensusState();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1070,7 +1153,7 @@ public final class Client {
       if (consensusState_ != null) {
         output.writeMessage(2, getConsensusState());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1087,7 +1170,7 @@ public final class Client {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getConsensusState());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1112,7 +1195,7 @@ public final class Client {
         if (!getConsensusState()
             .equals(other.getConsensusState())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1131,7 +1214,7 @@ public final class Client {
         hash = (37 * hash) + CONSENSUS_STATE_FIELD_NUMBER;
         hash = (53 * hash) + getConsensusState().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1253,26 +1336,32 @@ public final class Client {
 
       // Construct using ibc.core.client.v1.Client.ConsensusStateWithHeight.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
-        consensusState_ = null;
-        if (consensusStateBuilder_ != null) {
-          consensusStateBuilder_.dispose();
+        if (consensusStateBuilder_ == null) {
+          consensusState_ = null;
+        } else {
+          consensusState_ = null;
           consensusStateBuilder_ = null;
         }
         return this;
@@ -1301,23 +1390,18 @@ public final class Client {
       @java.lang.Override
       public ibc.core.client.v1.Client.ConsensusStateWithHeight buildPartial() {
         ibc.core.client.v1.Client.ConsensusStateWithHeight result = new ibc.core.client.v1.Client.ConsensusStateWithHeight(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (heightBuilder_ == null) {
+          result.height_ = height_;
+        } else {
+          result.height_ = heightBuilder_.build();
+        }
+        if (consensusStateBuilder_ == null) {
+          result.consensusState_ = consensusState_;
+        } else {
+          result.consensusState_ = consensusStateBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.client.v1.Client.ConsensusStateWithHeight result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.height_ = heightBuilder_ == null
-              ? height_
-              : heightBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.consensusState_ = consensusStateBuilder_ == null
-              ? consensusState_
-              : consensusStateBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -1370,7 +1454,7 @@ public final class Client {
         if (other.hasConsensusState()) {
           mergeConsensusState(other.getConsensusState());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1385,47 +1469,19 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.client.v1.Client.ConsensusStateWithHeight parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getConsensusStateFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.client.v1.Client.ConsensusStateWithHeight) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private ibc.core.client.v1.Client.Height height_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1439,7 +1495,7 @@ public final class Client {
        * @return Whether the height field is set.
        */
       public boolean hasHeight() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return heightBuilder_ != null || height_ != null;
       }
       /**
        * <pre>
@@ -1469,11 +1525,11 @@ public final class Client {
             throw new NullPointerException();
           }
           height_ = value;
+          onChanged();
         } else {
           heightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1487,11 +1543,11 @@ public final class Client {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (heightBuilder_ == null) {
           height_ = builderForValue.build();
+          onChanged();
         } else {
           heightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1503,18 +1559,17 @@ public final class Client {
        */
       public Builder mergeHeight(ibc.core.client.v1.Client.Height value) {
         if (heightBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            height_ != null &&
-            height_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getHeightBuilder().mergeFrom(value);
+          if (height_ != null) {
+            height_ =
+              ibc.core.client.v1.Client.Height.newBuilder(height_).mergeFrom(value).buildPartial();
           } else {
             height_ = value;
           }
+          onChanged();
         } else {
           heightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1525,13 +1580,14 @@ public final class Client {
        * <code>.ibc.core.client.v1.Height height = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+          onChanged();
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1542,7 +1598,7 @@ public final class Client {
        * <code>.ibc.core.client.v1.Height height = 1 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getHeightBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getHeightFieldBuilder().getBuilder();
       }
@@ -1594,7 +1650,7 @@ public final class Client {
        * @return Whether the consensusState field is set.
        */
       public boolean hasConsensusState() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return consensusStateBuilder_ != null || consensusState_ != null;
       }
       /**
        * <pre>
@@ -1624,11 +1680,11 @@ public final class Client {
             throw new NullPointerException();
           }
           consensusState_ = value;
+          onChanged();
         } else {
           consensusStateBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -1642,11 +1698,11 @@ public final class Client {
           com.google.protobuf.Any.Builder builderForValue) {
         if (consensusStateBuilder_ == null) {
           consensusState_ = builderForValue.build();
+          onChanged();
         } else {
           consensusStateBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -1658,18 +1714,17 @@ public final class Client {
        */
       public Builder mergeConsensusState(com.google.protobuf.Any value) {
         if (consensusStateBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            consensusState_ != null &&
-            consensusState_ != com.google.protobuf.Any.getDefaultInstance()) {
-            getConsensusStateBuilder().mergeFrom(value);
+          if (consensusState_ != null) {
+            consensusState_ =
+              com.google.protobuf.Any.newBuilder(consensusState_).mergeFrom(value).buildPartial();
           } else {
             consensusState_ = value;
           }
+          onChanged();
         } else {
           consensusStateBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -1680,13 +1735,14 @@ public final class Client {
        * <code>.google.protobuf.Any consensus_state = 2 [(.gogoproto.moretags) = "yaml&#92;"consensus_state&#92;""];</code>
        */
       public Builder clearConsensusState() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        consensusState_ = null;
-        if (consensusStateBuilder_ != null) {
-          consensusStateBuilder_.dispose();
+        if (consensusStateBuilder_ == null) {
+          consensusState_ = null;
+          onChanged();
+        } else {
+          consensusState_ = null;
           consensusStateBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1697,7 +1753,7 @@ public final class Client {
        * <code>.google.protobuf.Any consensus_state = 2 [(.gogoproto.moretags) = "yaml&#92;"consensus_state&#92;""];</code>
        */
       public com.google.protobuf.Any.Builder getConsensusStateBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getConsensusStateFieldBuilder().getBuilder();
       }
@@ -1769,18 +1825,7 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ConsensusStateWithHeight(input, extensionRegistry);
       }
     };
 
@@ -1902,6 +1947,62 @@ public final class Client {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ClientConsensusStates(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              clientId_ = s;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                consensusStates_ = new java.util.ArrayList<ibc.core.client.v1.Client.ConsensusStateWithHeight>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              consensusStates_.add(
+                  input.readMessage(ibc.core.client.v1.Client.ConsensusStateWithHeight.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          consensusStates_ = java.util.Collections.unmodifiableList(consensusStates_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.client.v1.Client.internal_static_ibc_core_client_v1_ClientConsensusStates_descriptor;
@@ -1916,8 +2017,7 @@ public final class Client {
     }
 
     public static final int CLIENT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object clientId_ = "";
+    private volatile java.lang.Object clientId_;
     /**
      * <pre>
      * client identifier
@@ -1963,7 +2063,6 @@ public final class Client {
     }
 
     public static final int CONSENSUS_STATES_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private java.util.List<ibc.core.client.v1.Client.ConsensusStateWithHeight> consensusStates_;
     /**
      * <pre>
@@ -2037,13 +2136,13 @@ public final class Client {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+      if (!getClientIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, clientId_);
       }
       for (int i = 0; i < consensusStates_.size(); i++) {
         output.writeMessage(2, consensusStates_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2052,14 +2151,14 @@ public final class Client {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+      if (!getClientIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, clientId_);
       }
       for (int i = 0; i < consensusStates_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, consensusStates_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2078,7 +2177,7 @@ public final class Client {
           .equals(other.getClientId())) return false;
       if (!getConsensusStatesList()
           .equals(other.getConsensusStatesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2095,7 +2194,7 @@ public final class Client {
         hash = (37 * hash) + CONSENSUS_STATES_FIELD_NUMBER;
         hash = (53 * hash) + getConsensusStatesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2217,26 +2316,31 @@ public final class Client {
 
       // Construct using ibc.core.client.v1.Client.ClientConsensusStates.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getConsensusStatesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         clientId_ = "";
+
         if (consensusStatesBuilder_ == null) {
           consensusStates_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          consensusStates_ = null;
           consensusStatesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -2263,29 +2367,19 @@ public final class Client {
       @java.lang.Override
       public ibc.core.client.v1.Client.ClientConsensusStates buildPartial() {
         ibc.core.client.v1.Client.ClientConsensusStates result = new ibc.core.client.v1.Client.ClientConsensusStates(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.client.v1.Client.ClientConsensusStates result) {
+        int from_bitField0_ = bitField0_;
+        result.clientId_ = clientId_;
         if (consensusStatesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             consensusStates_ = java.util.Collections.unmodifiableList(consensusStates_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.consensusStates_ = consensusStates_;
         } else {
           result.consensusStates_ = consensusStatesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(ibc.core.client.v1.Client.ClientConsensusStates result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.clientId_ = clientId_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -2334,14 +2428,13 @@ public final class Client {
         if (other == ibc.core.client.v1.Client.ClientConsensusStates.getDefaultInstance()) return this;
         if (!other.getClientId().isEmpty()) {
           clientId_ = other.clientId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (consensusStatesBuilder_ == null) {
           if (!other.consensusStates_.isEmpty()) {
             if (consensusStates_.isEmpty()) {
               consensusStates_ = other.consensusStates_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureConsensusStatesIsMutable();
               consensusStates_.addAll(other.consensusStates_);
@@ -2354,7 +2447,7 @@ public final class Client {
               consensusStatesBuilder_.dispose();
               consensusStatesBuilder_ = null;
               consensusStates_ = other.consensusStates_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               consensusStatesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getConsensusStatesFieldBuilder() : null;
@@ -2363,7 +2456,7 @@ public final class Client {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2378,48 +2471,17 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.client.v1.Client.ClientConsensusStates parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                clientId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                ibc.core.client.v1.Client.ConsensusStateWithHeight m =
-                    input.readMessage(
-                        ibc.core.client.v1.Client.ConsensusStateWithHeight.parser(),
-                        extensionRegistry);
-                if (consensusStatesBuilder_ == null) {
-                  ensureConsensusStatesIsMutable();
-                  consensusStates_.add(m);
-                } else {
-                  consensusStatesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.client.v1.Client.ClientConsensusStates) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -2477,9 +2539,11 @@ public final class Client {
        */
       public Builder setClientId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         clientId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2492,8 +2556,8 @@ public final class Client {
        * @return This builder for chaining.
        */
       public Builder clearClientId() {
+        
         clientId_ = getDefaultInstance().getClientId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2508,10 +2572,12 @@ public final class Client {
        */
       public Builder setClientIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         clientId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2519,9 +2585,9 @@ public final class Client {
       private java.util.List<ibc.core.client.v1.Client.ConsensusStateWithHeight> consensusStates_ =
         java.util.Collections.emptyList();
       private void ensureConsensusStatesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           consensusStates_ = new java.util.ArrayList<ibc.core.client.v1.Client.ConsensusStateWithHeight>(consensusStates_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -2715,7 +2781,7 @@ public final class Client {
       public Builder clearConsensusStates() {
         if (consensusStatesBuilder_ == null) {
           consensusStates_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           consensusStatesBuilder_.clear();
@@ -2820,7 +2886,7 @@ public final class Client {
           consensusStatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               ibc.core.client.v1.Client.ConsensusStateWithHeight, ibc.core.client.v1.Client.ConsensusStateWithHeight.Builder, ibc.core.client.v1.Client.ConsensusStateWithHeightOrBuilder>(
                   consensusStates_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           consensusStates_ = null;
@@ -2860,18 +2926,7 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ClientConsensusStates(input, extensionRegistry);
       }
     };
 
@@ -3015,6 +3070,67 @@ public final class Client {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ClientUpdateProposal(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              title_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              subjectClientId_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              substituteClientId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.client.v1.Client.internal_static_ibc_core_client_v1_ClientUpdateProposal_descriptor;
@@ -3029,8 +3145,7 @@ public final class Client {
     }
 
     public static final int TITLE_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object title_ = "";
+    private volatile java.lang.Object title_;
     /**
      * <pre>
      * the title of the update proposal
@@ -3076,8 +3191,7 @@ public final class Client {
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object description_ = "";
+    private volatile java.lang.Object description_;
     /**
      * <pre>
      * the description of the proposal
@@ -3123,8 +3237,7 @@ public final class Client {
     }
 
     public static final int SUBJECT_CLIENT_ID_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object subjectClientId_ = "";
+    private volatile java.lang.Object subjectClientId_;
     /**
      * <pre>
      * the client identifier for the client to be updated if the proposal passes
@@ -3170,8 +3283,7 @@ public final class Client {
     }
 
     public static final int SUBSTITUTE_CLIENT_ID_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object substituteClientId_ = "";
+    private volatile java.lang.Object substituteClientId_;
     /**
      * <pre>
      * the substitute client identifier for the client standing in for the subject
@@ -3232,19 +3344,19 @@ public final class Client {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+      if (!getTitleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, title_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(subjectClientId_)) {
+      if (!getSubjectClientIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, subjectClientId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(substituteClientId_)) {
+      if (!getSubstituteClientIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, substituteClientId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3253,19 +3365,19 @@ public final class Client {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+      if (!getTitleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, title_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(subjectClientId_)) {
+      if (!getSubjectClientIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, subjectClientId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(substituteClientId_)) {
+      if (!getSubstituteClientIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, substituteClientId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3288,7 +3400,7 @@ public final class Client {
           .equals(other.getSubjectClientId())) return false;
       if (!getSubstituteClientId()
           .equals(other.getSubstituteClientId())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3307,7 +3419,7 @@ public final class Client {
       hash = (53 * hash) + getSubjectClientId().hashCode();
       hash = (37 * hash) + SUBSTITUTE_CLIENT_ID_FIELD_NUMBER;
       hash = (53 * hash) + getSubstituteClientId().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3431,22 +3543,30 @@ public final class Client {
 
       // Construct using ibc.core.client.v1.Client.ClientUpdateProposal.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         title_ = "";
+
         description_ = "";
+
         subjectClientId_ = "";
+
         substituteClientId_ = "";
+
         return this;
       }
 
@@ -3473,25 +3593,12 @@ public final class Client {
       @java.lang.Override
       public ibc.core.client.v1.Client.ClientUpdateProposal buildPartial() {
         ibc.core.client.v1.Client.ClientUpdateProposal result = new ibc.core.client.v1.Client.ClientUpdateProposal(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.title_ = title_;
+        result.description_ = description_;
+        result.subjectClientId_ = subjectClientId_;
+        result.substituteClientId_ = substituteClientId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.client.v1.Client.ClientUpdateProposal result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.title_ = title_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.description_ = description_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.subjectClientId_ = subjectClientId_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.substituteClientId_ = substituteClientId_;
-        }
       }
 
       @java.lang.Override
@@ -3540,25 +3647,21 @@ public final class Client {
         if (other == ibc.core.client.v1.Client.ClientUpdateProposal.getDefaultInstance()) return this;
         if (!other.getTitle().isEmpty()) {
           title_ = other.title_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getSubjectClientId().isEmpty()) {
           subjectClientId_ = other.subjectClientId_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getSubstituteClientId().isEmpty()) {
           substituteClientId_ = other.substituteClientId_;
-          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3573,53 +3676,19 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.client.v1.Client.ClientUpdateProposal parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                title_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                description_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                subjectClientId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                substituteClientId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.client.v1.Client.ClientUpdateProposal) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object title_ = "";
       /**
@@ -3674,9 +3743,11 @@ public final class Client {
        */
       public Builder setTitle(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         title_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3689,8 +3760,8 @@ public final class Client {
        * @return This builder for chaining.
        */
       public Builder clearTitle() {
+        
         title_ = getDefaultInstance().getTitle();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3705,10 +3776,12 @@ public final class Client {
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         title_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3766,9 +3839,11 @@ public final class Client {
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         description_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3781,8 +3856,8 @@ public final class Client {
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
+        
         description_ = getDefaultInstance().getDescription();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -3797,10 +3872,12 @@ public final class Client {
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         description_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3858,9 +3935,11 @@ public final class Client {
        */
       public Builder setSubjectClientId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         subjectClientId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3873,8 +3952,8 @@ public final class Client {
        * @return This builder for chaining.
        */
       public Builder clearSubjectClientId() {
+        
         subjectClientId_ = getDefaultInstance().getSubjectClientId();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -3889,10 +3968,12 @@ public final class Client {
        */
       public Builder setSubjectClientIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         subjectClientId_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3953,9 +4034,11 @@ public final class Client {
        */
       public Builder setSubstituteClientId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         substituteClientId_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3969,8 +4052,8 @@ public final class Client {
        * @return This builder for chaining.
        */
       public Builder clearSubstituteClientId() {
+        
         substituteClientId_ = getDefaultInstance().getSubstituteClientId();
-        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -3986,10 +4069,12 @@ public final class Client {
        */
       public Builder setSubstituteClientIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         substituteClientId_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -4026,18 +4111,7 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ClientUpdateProposal(input, extensionRegistry);
       }
     };
 
@@ -4176,6 +4250,81 @@ public final class Client {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private UpgradeProposal(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              title_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            case 26: {
+              cosmos.upgrade.v1beta1.Upgrade.Plan.Builder subBuilder = null;
+              if (plan_ != null) {
+                subBuilder = plan_.toBuilder();
+              }
+              plan_ = input.readMessage(cosmos.upgrade.v1beta1.Upgrade.Plan.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(plan_);
+                plan_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (upgradedClientState_ != null) {
+                subBuilder = upgradedClientState_.toBuilder();
+              }
+              upgradedClientState_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(upgradedClientState_);
+                upgradedClientState_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.client.v1.Client.internal_static_ibc_core_client_v1_UpgradeProposal_descriptor;
@@ -4190,8 +4339,7 @@ public final class Client {
     }
 
     public static final int TITLE_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object title_ = "";
+    private volatile java.lang.Object title_;
     /**
      * <code>string title = 1;</code>
      * @return The title.
@@ -4229,8 +4377,7 @@ public final class Client {
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object description_ = "";
+    private volatile java.lang.Object description_;
     /**
      * <code>string description = 2;</code>
      * @return The description.
@@ -4290,7 +4437,7 @@ public final class Client {
      */
     @java.lang.Override
     public cosmos.upgrade.v1beta1.Upgrade.PlanOrBuilder getPlanOrBuilder() {
-      return plan_ == null ? cosmos.upgrade.v1beta1.Upgrade.Plan.getDefaultInstance() : plan_;
+      return getPlan();
     }
 
     public static final int UPGRADED_CLIENT_STATE_FIELD_NUMBER = 4;
@@ -4343,7 +4490,7 @@ public final class Client {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getUpgradedClientStateOrBuilder() {
-      return upgradedClientState_ == null ? com.google.protobuf.Any.getDefaultInstance() : upgradedClientState_;
+      return getUpgradedClientState();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4360,10 +4507,10 @@ public final class Client {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+      if (!getTitleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, title_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
       if (plan_ != null) {
@@ -4372,7 +4519,7 @@ public final class Client {
       if (upgradedClientState_ != null) {
         output.writeMessage(4, getUpgradedClientState());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4381,10 +4528,10 @@ public final class Client {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
+      if (!getTitleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, title_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
       if (plan_ != null) {
@@ -4395,7 +4542,7 @@ public final class Client {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getUpgradedClientState());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4424,7 +4571,7 @@ public final class Client {
         if (!getUpgradedClientState()
             .equals(other.getUpgradedClientState())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4447,7 +4594,7 @@ public final class Client {
         hash = (37 * hash) + UPGRADED_CLIENT_STATE_FIELD_NUMBER;
         hash = (53 * hash) + getUpgradedClientState().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4569,28 +4716,36 @@ public final class Client {
 
       // Construct using ibc.core.client.v1.Client.UpgradeProposal.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         title_ = "";
+
         description_ = "";
-        plan_ = null;
-        if (planBuilder_ != null) {
-          planBuilder_.dispose();
+
+        if (planBuilder_ == null) {
+          plan_ = null;
+        } else {
+          plan_ = null;
           planBuilder_ = null;
         }
-        upgradedClientState_ = null;
-        if (upgradedClientStateBuilder_ != null) {
-          upgradedClientStateBuilder_.dispose();
+        if (upgradedClientStateBuilder_ == null) {
+          upgradedClientState_ = null;
+        } else {
+          upgradedClientState_ = null;
           upgradedClientStateBuilder_ = null;
         }
         return this;
@@ -4619,29 +4774,20 @@ public final class Client {
       @java.lang.Override
       public ibc.core.client.v1.Client.UpgradeProposal buildPartial() {
         ibc.core.client.v1.Client.UpgradeProposal result = new ibc.core.client.v1.Client.UpgradeProposal(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.title_ = title_;
+        result.description_ = description_;
+        if (planBuilder_ == null) {
+          result.plan_ = plan_;
+        } else {
+          result.plan_ = planBuilder_.build();
+        }
+        if (upgradedClientStateBuilder_ == null) {
+          result.upgradedClientState_ = upgradedClientState_;
+        } else {
+          result.upgradedClientState_ = upgradedClientStateBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.client.v1.Client.UpgradeProposal result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.title_ = title_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.description_ = description_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.plan_ = planBuilder_ == null
-              ? plan_
-              : planBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.upgradedClientState_ = upgradedClientStateBuilder_ == null
-              ? upgradedClientState_
-              : upgradedClientStateBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -4690,12 +4836,10 @@ public final class Client {
         if (other == ibc.core.client.v1.Client.UpgradeProposal.getDefaultInstance()) return this;
         if (!other.getTitle().isEmpty()) {
           title_ = other.title_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasPlan()) {
@@ -4704,7 +4848,7 @@ public final class Client {
         if (other.hasUpgradedClientState()) {
           mergeUpgradedClientState(other.getUpgradedClientState());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4719,57 +4863,19 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.client.v1.Client.UpgradeProposal parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                title_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                description_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getPlanFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getUpgradedClientStateFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.client.v1.Client.UpgradeProposal) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object title_ = "";
       /**
@@ -4812,9 +4918,11 @@ public final class Client {
        */
       public Builder setTitle(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         title_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4823,8 +4931,8 @@ public final class Client {
        * @return This builder for chaining.
        */
       public Builder clearTitle() {
+        
         title_ = getDefaultInstance().getTitle();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4835,10 +4943,12 @@ public final class Client {
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         title_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4884,9 +4994,11 @@ public final class Client {
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         description_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4895,8 +5007,8 @@ public final class Client {
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
+        
         description_ = getDefaultInstance().getDescription();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4907,10 +5019,12 @@ public final class Client {
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         description_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4923,7 +5037,7 @@ public final class Client {
        * @return Whether the plan field is set.
        */
       public boolean hasPlan() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return planBuilder_ != null || plan_ != null;
       }
       /**
        * <code>.cosmos.upgrade.v1beta1.Plan plan = 3 [(.gogoproto.nullable) = false];</code>
@@ -4945,11 +5059,11 @@ public final class Client {
             throw new NullPointerException();
           }
           plan_ = value;
+          onChanged();
         } else {
           planBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -4959,11 +5073,11 @@ public final class Client {
           cosmos.upgrade.v1beta1.Upgrade.Plan.Builder builderForValue) {
         if (planBuilder_ == null) {
           plan_ = builderForValue.build();
+          onChanged();
         } else {
           planBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -4971,38 +5085,38 @@ public final class Client {
        */
       public Builder mergePlan(cosmos.upgrade.v1beta1.Upgrade.Plan value) {
         if (planBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            plan_ != null &&
-            plan_ != cosmos.upgrade.v1beta1.Upgrade.Plan.getDefaultInstance()) {
-            getPlanBuilder().mergeFrom(value);
+          if (plan_ != null) {
+            plan_ =
+              cosmos.upgrade.v1beta1.Upgrade.Plan.newBuilder(plan_).mergeFrom(value).buildPartial();
           } else {
             plan_ = value;
           }
+          onChanged();
         } else {
           planBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.cosmos.upgrade.v1beta1.Plan plan = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearPlan() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        plan_ = null;
-        if (planBuilder_ != null) {
-          planBuilder_.dispose();
+        if (planBuilder_ == null) {
+          plan_ = null;
+          onChanged();
+        } else {
+          plan_ = null;
           planBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.cosmos.upgrade.v1beta1.Plan plan = 3 [(.gogoproto.nullable) = false];</code>
        */
       public cosmos.upgrade.v1beta1.Upgrade.Plan.Builder getPlanBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getPlanFieldBuilder().getBuilder();
       }
@@ -5051,7 +5165,7 @@ public final class Client {
        * @return Whether the upgradedClientState field is set.
        */
       public boolean hasUpgradedClientState() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return upgradedClientStateBuilder_ != null || upgradedClientState_ != null;
       }
       /**
        * <pre>
@@ -5091,11 +5205,11 @@ public final class Client {
             throw new NullPointerException();
           }
           upgradedClientState_ = value;
+          onChanged();
         } else {
           upgradedClientStateBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -5114,11 +5228,11 @@ public final class Client {
           com.google.protobuf.Any.Builder builderForValue) {
         if (upgradedClientStateBuilder_ == null) {
           upgradedClientState_ = builderForValue.build();
+          onChanged();
         } else {
           upgradedClientStateBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -5135,18 +5249,17 @@ public final class Client {
        */
       public Builder mergeUpgradedClientState(com.google.protobuf.Any value) {
         if (upgradedClientStateBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            upgradedClientState_ != null &&
-            upgradedClientState_ != com.google.protobuf.Any.getDefaultInstance()) {
-            getUpgradedClientStateBuilder().mergeFrom(value);
+          if (upgradedClientState_ != null) {
+            upgradedClientState_ =
+              com.google.protobuf.Any.newBuilder(upgradedClientState_).mergeFrom(value).buildPartial();
           } else {
             upgradedClientState_ = value;
           }
+          onChanged();
         } else {
           upgradedClientStateBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -5162,13 +5275,14 @@ public final class Client {
        * <code>.google.protobuf.Any upgraded_client_state = 4 [(.gogoproto.moretags) = "yaml:&#92;"upgraded_client_state&#92;""];</code>
        */
       public Builder clearUpgradedClientState() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        upgradedClientState_ = null;
-        if (upgradedClientStateBuilder_ != null) {
-          upgradedClientStateBuilder_.dispose();
+        if (upgradedClientStateBuilder_ == null) {
+          upgradedClientState_ = null;
+          onChanged();
+        } else {
+          upgradedClientState_ = null;
           upgradedClientStateBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -5184,7 +5298,7 @@ public final class Client {
        * <code>.google.protobuf.Any upgraded_client_state = 4 [(.gogoproto.moretags) = "yaml:&#92;"upgraded_client_state&#92;""];</code>
        */
       public com.google.protobuf.Any.Builder getUpgradedClientStateBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getUpgradedClientStateFieldBuilder().getBuilder();
       }
@@ -5266,18 +5380,7 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new UpgradeProposal(input, extensionRegistry);
       }
     };
 
@@ -5360,6 +5463,53 @@ public final class Client {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Height(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              revisionNumber_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              revisionHeight_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.client.v1.Client.internal_static_ibc_core_client_v1_Height_descriptor;
@@ -5374,7 +5524,7 @@ public final class Client {
     }
 
     public static final int REVISION_NUMBER_FIELD_NUMBER = 1;
-    private long revisionNumber_ = 0L;
+    private long revisionNumber_;
     /**
      * <pre>
      * the revision that the client is currently on
@@ -5389,7 +5539,7 @@ public final class Client {
     }
 
     public static final int REVISION_HEIGHT_FIELD_NUMBER = 2;
-    private long revisionHeight_ = 0L;
+    private long revisionHeight_;
     /**
      * <pre>
      * the height within the given revision
@@ -5423,7 +5573,7 @@ public final class Client {
       if (revisionHeight_ != 0L) {
         output.writeUInt64(2, revisionHeight_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5440,7 +5590,7 @@ public final class Client {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, revisionHeight_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5459,7 +5609,7 @@ public final class Client {
           != other.getRevisionNumber()) return false;
       if (getRevisionHeight()
           != other.getRevisionHeight()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5476,7 +5626,7 @@ public final class Client {
       hash = (37 * hash) + REVISION_HEIGHT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRevisionHeight());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5605,20 +5755,26 @@ public final class Client {
 
       // Construct using ibc.core.client.v1.Client.Height.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         revisionNumber_ = 0L;
+
         revisionHeight_ = 0L;
+
         return this;
       }
 
@@ -5645,19 +5801,10 @@ public final class Client {
       @java.lang.Override
       public ibc.core.client.v1.Client.Height buildPartial() {
         ibc.core.client.v1.Client.Height result = new ibc.core.client.v1.Client.Height(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.revisionNumber_ = revisionNumber_;
+        result.revisionHeight_ = revisionHeight_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.client.v1.Client.Height result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.revisionNumber_ = revisionNumber_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.revisionHeight_ = revisionHeight_;
-        }
       }
 
       @java.lang.Override
@@ -5710,7 +5857,7 @@ public final class Client {
         if (other.getRevisionHeight() != 0L) {
           setRevisionHeight(other.getRevisionHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5725,43 +5872,19 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.client.v1.Client.Height parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                revisionNumber_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                revisionHeight_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.client.v1.Client.Height) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long revisionNumber_ ;
       /**
@@ -5788,7 +5911,6 @@ public final class Client {
       public Builder setRevisionNumber(long value) {
         
         revisionNumber_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5801,7 +5923,7 @@ public final class Client {
        * @return This builder for chaining.
        */
       public Builder clearRevisionNumber() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         revisionNumber_ = 0L;
         onChanged();
         return this;
@@ -5832,7 +5954,6 @@ public final class Client {
       public Builder setRevisionHeight(long value) {
         
         revisionHeight_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5845,7 +5966,7 @@ public final class Client {
        * @return This builder for chaining.
        */
       public Builder clearRevisionHeight() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         revisionHeight_ = 0L;
         onChanged();
         return this;
@@ -5883,18 +6004,7 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Height(input, extensionRegistry);
       }
     };
 
@@ -5991,6 +6101,56 @@ public final class Client {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Params(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                allowedClients_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              allowedClients_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          allowedClients_ = allowedClients_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.client.v1.Client.internal_static_ibc_core_client_v1_Params_descriptor;
@@ -6005,7 +6165,6 @@ public final class Client {
     }
 
     public static final int ALLOWED_CLIENTS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList allowedClients_;
     /**
      * <pre>
@@ -6073,7 +6232,7 @@ public final class Client {
       for (int i = 0; i < allowedClients_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, allowedClients_.getRaw(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -6090,7 +6249,7 @@ public final class Client {
         size += dataSize;
         size += 1 * getAllowedClientsList().size();
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6107,7 +6266,7 @@ public final class Client {
 
       if (!getAllowedClientsList()
           .equals(other.getAllowedClientsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -6122,7 +6281,7 @@ public final class Client {
         hash = (37 * hash) + ALLOWED_CLIENTS_FIELD_NUMBER;
         hash = (53 * hash) + getAllowedClientsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6243,18 +6402,22 @@ public final class Client {
 
       // Construct using ibc.core.client.v1.Client.Params.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         allowedClients_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -6283,22 +6446,14 @@ public final class Client {
       @java.lang.Override
       public ibc.core.client.v1.Client.Params buildPartial() {
         ibc.core.client.v1.Client.Params result = new ibc.core.client.v1.Client.Params(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.client.v1.Client.Params result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           allowedClients_ = allowedClients_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.allowedClients_ = allowedClients_;
-      }
-
-      private void buildPartial0(ibc.core.client.v1.Client.Params result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -6355,7 +6510,7 @@ public final class Client {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6370,36 +6525,17 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.client.v1.Client.Params parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-                ensureAllowedClientsIsMutable();
-                allowedClients_.add(s);
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.client.v1.Client.Params) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -6471,8 +6607,10 @@ public final class Client {
        */
       public Builder setAllowedClients(
           int index, java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureAllowedClientsIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAllowedClientsIsMutable();
         allowedClients_.set(index, value);
         onChanged();
         return this;
@@ -6488,8 +6626,10 @@ public final class Client {
        */
       public Builder addAllowedClients(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureAllowedClientsIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAllowedClientsIsMutable();
         allowedClients_.add(value);
         onChanged();
         return this;
@@ -6536,8 +6676,10 @@ public final class Client {
        */
       public Builder addAllowedClientsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         ensureAllowedClientsIsMutable();
         allowedClients_.add(value);
         onChanged();
@@ -6576,18 +6718,7 @@ public final class Client {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Params(input, extensionRegistry);
       }
     };
 

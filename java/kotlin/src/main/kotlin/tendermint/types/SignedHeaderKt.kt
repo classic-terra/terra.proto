@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializesignedHeader")
-public inline fun signedHeader(block: tendermint.types.SignedHeaderKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.SignedHeader =
+@kotlin.jvm.JvmSynthetic
+inline fun signedHeader(block: tendermint.types.SignedHeaderKt.Dsl.() -> Unit): tendermint.types.Types.SignedHeader =
   tendermint.types.SignedHeaderKt.Dsl._create(tendermint.types.Types.SignedHeader.newBuilder()).apply { block() }._build()
-public object SignedHeaderKt {
+object SignedHeaderKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.Types.SignedHeader.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.Types.SignedHeader.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.Types.SignedHeader.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object SignedHeaderKt {
     /**
      * <code>.tendermint.types.Header header = 1;</code>
      */
-    public var header: tendermint.types.Types.Header
+    var header: tendermint.types.Types.Header
       @JvmName("getHeader")
       get() = _builder.getHeader()
       @JvmName("setHeader")
@@ -35,21 +35,21 @@ public object SignedHeaderKt {
     /**
      * <code>.tendermint.types.Header header = 1;</code>
      */
-    public fun clearHeader() {
+    fun clearHeader() {
       _builder.clearHeader()
     }
     /**
      * <code>.tendermint.types.Header header = 1;</code>
      * @return Whether the header field is set.
      */
-    public fun hasHeader(): kotlin.Boolean {
+    fun hasHeader(): kotlin.Boolean {
       return _builder.hasHeader()
     }
 
     /**
      * <code>.tendermint.types.Commit commit = 2;</code>
      */
-    public var commit: tendermint.types.Types.Commit
+    var commit: tendermint.types.Types.Commit
       @JvmName("getCommit")
       get() = _builder.getCommit()
       @JvmName("setCommit")
@@ -59,25 +59,18 @@ public object SignedHeaderKt {
     /**
      * <code>.tendermint.types.Commit commit = 2;</code>
      */
-    public fun clearCommit() {
+    fun clearCommit() {
       _builder.clearCommit()
     }
     /**
      * <code>.tendermint.types.Commit commit = 2;</code>
      * @return Whether the commit field is set.
      */
-    public fun hasCommit(): kotlin.Boolean {
+    fun hasCommit(): kotlin.Boolean {
       return _builder.hasCommit()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.Types.SignedHeader.copy(block: tendermint.types.SignedHeaderKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.SignedHeader =
+inline fun tendermint.types.Types.SignedHeader.copy(block: tendermint.types.SignedHeaderKt.Dsl.() -> Unit): tendermint.types.Types.SignedHeader =
   tendermint.types.SignedHeaderKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.Types.SignedHeaderOrBuilder.headerOrNull: tendermint.types.Types.Header?
-  get() = if (hasHeader()) getHeader() else null
-
-public val tendermint.types.Types.SignedHeaderOrBuilder.commitOrNull: tendermint.types.Types.Commit?
-  get() = if (hasCommit()) getCommit() else null
-

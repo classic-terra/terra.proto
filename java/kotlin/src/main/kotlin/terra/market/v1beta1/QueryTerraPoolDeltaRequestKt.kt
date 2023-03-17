@@ -3,16 +3,16 @@
 
 package terra.market.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTerraPoolDeltaRequest")
-public inline fun queryTerraPoolDeltaRequest(block: terra.market.v1beta1.QueryTerraPoolDeltaRequestKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTerraPoolDeltaRequest(block: terra.market.v1beta1.QueryTerraPoolDeltaRequestKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaRequest =
   terra.market.v1beta1.QueryTerraPoolDeltaRequestKt.Dsl._create(terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaRequest.newBuilder()).apply { block() }._build()
-public object QueryTerraPoolDeltaRequestKt {
+object QueryTerraPoolDeltaRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryTerraPoolDeltaRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaRequest.copy(block: terra.market.v1beta1.QueryTerraPoolDeltaRequestKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaRequest =
+inline fun terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaRequest.copy(block: terra.market.v1beta1.QueryTerraPoolDeltaRequestKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaRequest =
   terra.market.v1beta1.QueryTerraPoolDeltaRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

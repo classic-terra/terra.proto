@@ -3,16 +3,16 @@
 
 package cosmos.bank.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryDenomsMetadataRequest")
-public inline fun queryDenomsMetadataRequest(block: cosmos.bank.v1beta1.QueryDenomsMetadataRequestKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryDenomsMetadataRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryDenomsMetadataRequest(block: cosmos.bank.v1beta1.QueryDenomsMetadataRequestKt.Dsl.() -> Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryDenomsMetadataRequest =
   cosmos.bank.v1beta1.QueryDenomsMetadataRequestKt.Dsl._create(cosmos.bank.v1beta1.QueryOuterClass.QueryDenomsMetadataRequest.newBuilder()).apply { block() }._build()
-public object QueryDenomsMetadataRequestKt {
+object QueryDenomsMetadataRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.bank.v1beta1.QueryOuterClass.QueryDenomsMetadataRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.bank.v1beta1.QueryOuterClass.QueryDenomsMetadataRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.bank.v1beta1.QueryOuterClass.QueryDenomsMetadataRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryDenomsMetadataRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 1;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -43,7 +43,7 @@ public object QueryDenomsMetadataRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 1;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -54,15 +54,11 @@ public object QueryDenomsMetadataRequestKt {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 1;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.bank.v1beta1.QueryOuterClass.QueryDenomsMetadataRequest.copy(block: cosmos.bank.v1beta1.QueryDenomsMetadataRequestKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryDenomsMetadataRequest =
+inline fun cosmos.bank.v1beta1.QueryOuterClass.QueryDenomsMetadataRequest.copy(block: cosmos.bank.v1beta1.QueryDenomsMetadataRequestKt.Dsl.() -> Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryDenomsMetadataRequest =
   cosmos.bank.v1beta1.QueryDenomsMetadataRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.bank.v1beta1.QueryOuterClass.QueryDenomsMetadataRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryDelegatorUnbondingDelegationsRequest")
-public inline fun queryDelegatorUnbondingDelegationsRequest(block: cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequestKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorUnbondingDelegationsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryDelegatorUnbondingDelegationsRequest(block: cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequestKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorUnbondingDelegationsRequest =
   cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequestKt.Dsl._create(cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorUnbondingDelegationsRequest.newBuilder()).apply { block() }._build()
-public object QueryDelegatorUnbondingDelegationsRequestKt {
+object QueryDelegatorUnbondingDelegationsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorUnbondingDelegationsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorUnbondingDelegationsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorUnbondingDelegationsRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryDelegatorUnbondingDelegationsRequestKt {
      *
      * <code>string delegator_addr = 1;</code>
      */
-    public var delegatorAddr: kotlin.String
+    var delegatorAddr: kotlin.String
       @JvmName("getDelegatorAddr")
       get() = _builder.getDelegatorAddr()
       @JvmName("setDelegatorAddr")
@@ -43,7 +43,7 @@ public object QueryDelegatorUnbondingDelegationsRequestKt {
      *
      * <code>string delegator_addr = 1;</code>
      */
-    public fun clearDelegatorAddr() {
+    fun clearDelegatorAddr() {
       _builder.clearDelegatorAddr()
     }
 
@@ -54,7 +54,7 @@ public object QueryDelegatorUnbondingDelegationsRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -68,7 +68,7 @@ public object QueryDelegatorUnbondingDelegationsRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -79,15 +79,11 @@ public object QueryDelegatorUnbondingDelegationsRequestKt {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorUnbondingDelegationsRequest.copy(block: cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequestKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorUnbondingDelegationsRequest =
+inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorUnbondingDelegationsRequest.copy(block: cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequestKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorUnbondingDelegationsRequest =
   cosmos.staking.v1beta1.QueryDelegatorUnbondingDelegationsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorUnbondingDelegationsRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

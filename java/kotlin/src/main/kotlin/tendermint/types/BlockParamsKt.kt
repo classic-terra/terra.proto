@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializeblockParams")
-public inline fun blockParams(block: tendermint.types.BlockParamsKt.Dsl.() -> kotlin.Unit): tendermint.types.Params.BlockParams =
+@kotlin.jvm.JvmSynthetic
+inline fun blockParams(block: tendermint.types.BlockParamsKt.Dsl.() -> Unit): tendermint.types.Params.BlockParams =
   tendermint.types.BlockParamsKt.Dsl._create(tendermint.types.Params.BlockParams.newBuilder()).apply { block() }._build()
-public object BlockParamsKt {
+object BlockParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.Params.BlockParams.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.Params.BlockParams.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.Params.BlockParams.Builder): Dsl = Dsl(builder)
@@ -30,7 +30,7 @@ public object BlockParamsKt {
      *
      * <code>int64 max_bytes = 1;</code>
      */
-    public var maxBytes: kotlin.Long
+    var maxBytes: kotlin.Long
       @JvmName("getMaxBytes")
       get() = _builder.getMaxBytes()
       @JvmName("setMaxBytes")
@@ -45,7 +45,7 @@ public object BlockParamsKt {
      *
      * <code>int64 max_bytes = 1;</code>
      */
-    public fun clearMaxBytes() {
+    fun clearMaxBytes() {
       _builder.clearMaxBytes()
     }
 
@@ -57,7 +57,7 @@ public object BlockParamsKt {
      *
      * <code>int64 max_gas = 2;</code>
      */
-    public var maxGas: kotlin.Long
+    var maxGas: kotlin.Long
       @JvmName("getMaxGas")
       get() = _builder.getMaxGas()
       @JvmName("setMaxGas")
@@ -72,7 +72,7 @@ public object BlockParamsKt {
      *
      * <code>int64 max_gas = 2;</code>
      */
-    public fun clearMaxGas() {
+    fun clearMaxGas() {
       _builder.clearMaxGas()
     }
 
@@ -85,7 +85,7 @@ public object BlockParamsKt {
      *
      * <code>int64 time_iota_ms = 3;</code>
      */
-    public var timeIotaMs: kotlin.Long
+    var timeIotaMs: kotlin.Long
       @JvmName("getTimeIotaMs")
       get() = _builder.getTimeIotaMs()
       @JvmName("setTimeIotaMs")
@@ -101,12 +101,11 @@ public object BlockParamsKt {
      *
      * <code>int64 time_iota_ms = 3;</code>
      */
-    public fun clearTimeIotaMs() {
+    fun clearTimeIotaMs() {
       _builder.clearTimeIotaMs()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.Params.BlockParams.copy(block: tendermint.types.BlockParamsKt.Dsl.() -> kotlin.Unit): tendermint.types.Params.BlockParams =
+inline fun tendermint.types.Params.BlockParams.copy(block: tendermint.types.BlockParamsKt.Dsl.() -> Unit): tendermint.types.Params.BlockParams =
   tendermint.types.BlockParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

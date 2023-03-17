@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgWithdrawValidatorCommission")
-public inline fun msgWithdrawValidatorCommission(block: cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommission =
+@kotlin.jvm.JvmSynthetic
+inline fun msgWithdrawValidatorCommission(block: cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommission =
   cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionKt.Dsl._create(cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommission.newBuilder()).apply { block() }._build()
-public object MsgWithdrawValidatorCommissionKt {
+object MsgWithdrawValidatorCommissionKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommission.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommission.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommission.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgWithdrawValidatorCommissionKt {
     /**
      * <code>string validator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"validator_address&#92;""];</code>
      */
-    public var validatorAddress: kotlin.String
+    var validatorAddress: kotlin.String
       @JvmName("getValidatorAddress")
       get() = _builder.getValidatorAddress()
       @JvmName("setValidatorAddress")
@@ -35,12 +35,11 @@ public object MsgWithdrawValidatorCommissionKt {
     /**
      * <code>string validator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"validator_address&#92;""];</code>
      */
-    public fun clearValidatorAddress() {
+    fun clearValidatorAddress() {
       _builder.clearValidatorAddress()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommission.copy(block: cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommission =
+inline fun cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommission.copy(block: cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawValidatorCommission =
   cosmos.distribution.v1beta1.MsgWithdrawValidatorCommissionKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializecommissionRates")
-public inline fun commissionRates(block: cosmos.staking.v1beta1.CommissionRatesKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.CommissionRates =
+@kotlin.jvm.JvmSynthetic
+inline fun commissionRates(block: cosmos.staking.v1beta1.CommissionRatesKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.CommissionRates =
   cosmos.staking.v1beta1.CommissionRatesKt.Dsl._create(cosmos.staking.v1beta1.Staking.CommissionRates.newBuilder()).apply { block() }._build()
-public object CommissionRatesKt {
+object CommissionRatesKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Staking.CommissionRates.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Staking.CommissionRates.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Staking.CommissionRates.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object CommissionRatesKt {
      *
      * <code>string rate = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var rate: kotlin.String
+    var rate: kotlin.String
       @JvmName("getRate")
       get() = _builder.getRate()
       @JvmName("setRate")
@@ -43,7 +43,7 @@ public object CommissionRatesKt {
      *
      * <code>string rate = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearRate() {
+    fun clearRate() {
       _builder.clearRate()
     }
 
@@ -54,7 +54,7 @@ public object CommissionRatesKt {
      *
      * <code>string max_rate = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"max_rate&#92;""];</code>
      */
-    public var maxRate: kotlin.String
+    var maxRate: kotlin.String
       @JvmName("getMaxRate")
       get() = _builder.getMaxRate()
       @JvmName("setMaxRate")
@@ -68,7 +68,7 @@ public object CommissionRatesKt {
      *
      * <code>string max_rate = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"max_rate&#92;""];</code>
      */
-    public fun clearMaxRate() {
+    fun clearMaxRate() {
       _builder.clearMaxRate()
     }
 
@@ -79,7 +79,7 @@ public object CommissionRatesKt {
      *
      * <code>string max_change_rate = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"max_change_rate&#92;""];</code>
      */
-    public var maxChangeRate: kotlin.String
+    var maxChangeRate: kotlin.String
       @JvmName("getMaxChangeRate")
       get() = _builder.getMaxChangeRate()
       @JvmName("setMaxChangeRate")
@@ -93,12 +93,11 @@ public object CommissionRatesKt {
      *
      * <code>string max_change_rate = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"max_change_rate&#92;""];</code>
      */
-    public fun clearMaxChangeRate() {
+    fun clearMaxChangeRate() {
       _builder.clearMaxChangeRate()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Staking.CommissionRates.copy(block: cosmos.staking.v1beta1.CommissionRatesKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.CommissionRates =
+inline fun cosmos.staking.v1beta1.Staking.CommissionRates.copy(block: cosmos.staking.v1beta1.CommissionRatesKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.CommissionRates =
   cosmos.staking.v1beta1.CommissionRatesKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

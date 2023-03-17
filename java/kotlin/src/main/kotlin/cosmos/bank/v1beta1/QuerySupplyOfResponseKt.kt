@@ -3,16 +3,16 @@
 
 package cosmos.bank.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequerySupplyOfResponse")
-public inline fun querySupplyOfResponse(block: cosmos.bank.v1beta1.QuerySupplyOfResponseKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.QueryOuterClass.QuerySupplyOfResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun querySupplyOfResponse(block: cosmos.bank.v1beta1.QuerySupplyOfResponseKt.Dsl.() -> Unit): cosmos.bank.v1beta1.QueryOuterClass.QuerySupplyOfResponse =
   cosmos.bank.v1beta1.QuerySupplyOfResponseKt.Dsl._create(cosmos.bank.v1beta1.QueryOuterClass.QuerySupplyOfResponse.newBuilder()).apply { block() }._build()
-public object QuerySupplyOfResponseKt {
+object QuerySupplyOfResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.bank.v1beta1.QueryOuterClass.QuerySupplyOfResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.bank.v1beta1.QueryOuterClass.QuerySupplyOfResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.bank.v1beta1.QueryOuterClass.QuerySupplyOfResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QuerySupplyOfResponseKt {
      *
      * <code>.cosmos.base.v1beta1.Coin amount = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var amount: cosmos.base.v1beta1.CoinOuterClass.Coin
+    var amount: cosmos.base.v1beta1.CoinOuterClass.Coin
       @JvmName("getAmount")
       get() = _builder.getAmount()
       @JvmName("setAmount")
@@ -43,7 +43,7 @@ public object QuerySupplyOfResponseKt {
      *
      * <code>.cosmos.base.v1beta1.Coin amount = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearAmount() {
+    fun clearAmount() {
       _builder.clearAmount()
     }
     /**
@@ -54,15 +54,11 @@ public object QuerySupplyOfResponseKt {
      * <code>.cosmos.base.v1beta1.Coin amount = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the amount field is set.
      */
-    public fun hasAmount(): kotlin.Boolean {
+    fun hasAmount(): kotlin.Boolean {
       return _builder.hasAmount()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.bank.v1beta1.QueryOuterClass.QuerySupplyOfResponse.copy(block: cosmos.bank.v1beta1.QuerySupplyOfResponseKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.QueryOuterClass.QuerySupplyOfResponse =
+inline fun cosmos.bank.v1beta1.QueryOuterClass.QuerySupplyOfResponse.copy(block: cosmos.bank.v1beta1.QuerySupplyOfResponseKt.Dsl.() -> Unit): cosmos.bank.v1beta1.QueryOuterClass.QuerySupplyOfResponse =
   cosmos.bank.v1beta1.QuerySupplyOfResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.bank.v1beta1.QueryOuterClass.QuerySupplyOfResponseOrBuilder.amountOrNull: cosmos.base.v1beta1.CoinOuterClass.Coin?
-  get() = if (hasAmount()) getAmount() else null
-

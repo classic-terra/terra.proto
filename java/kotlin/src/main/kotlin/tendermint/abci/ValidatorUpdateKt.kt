@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializevalidatorUpdate")
-public inline fun validatorUpdate(block: tendermint.abci.ValidatorUpdateKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ValidatorUpdate =
+@kotlin.jvm.JvmSynthetic
+inline fun validatorUpdate(block: tendermint.abci.ValidatorUpdateKt.Dsl.() -> Unit): tendermint.abci.Types.ValidatorUpdate =
   tendermint.abci.ValidatorUpdateKt.Dsl._create(tendermint.abci.Types.ValidatorUpdate.newBuilder()).apply { block() }._build()
-public object ValidatorUpdateKt {
+object ValidatorUpdateKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.ValidatorUpdate.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.ValidatorUpdate.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.ValidatorUpdate.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ValidatorUpdateKt {
     /**
      * <code>.tendermint.crypto.PublicKey pub_key = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var pubKey: tendermint.crypto.Keys.PublicKey
+    var pubKey: tendermint.crypto.Keys.PublicKey
       @JvmName("getPubKey")
       get() = _builder.getPubKey()
       @JvmName("setPubKey")
@@ -35,21 +35,21 @@ public object ValidatorUpdateKt {
     /**
      * <code>.tendermint.crypto.PublicKey pub_key = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearPubKey() {
+    fun clearPubKey() {
       _builder.clearPubKey()
     }
     /**
      * <code>.tendermint.crypto.PublicKey pub_key = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the pubKey field is set.
      */
-    public fun hasPubKey(): kotlin.Boolean {
+    fun hasPubKey(): kotlin.Boolean {
       return _builder.hasPubKey()
     }
 
     /**
      * <code>int64 power = 2;</code>
      */
-    public var power: kotlin.Long
+    var power: kotlin.Long
       @JvmName("getPower")
       get() = _builder.getPower()
       @JvmName("setPower")
@@ -59,15 +59,11 @@ public object ValidatorUpdateKt {
     /**
      * <code>int64 power = 2;</code>
      */
-    public fun clearPower() {
+    fun clearPower() {
       _builder.clearPower()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.ValidatorUpdate.copy(block: tendermint.abci.ValidatorUpdateKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ValidatorUpdate =
+inline fun tendermint.abci.Types.ValidatorUpdate.copy(block: tendermint.abci.ValidatorUpdateKt.Dsl.() -> Unit): tendermint.abci.Types.ValidatorUpdate =
   tendermint.abci.ValidatorUpdateKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.abci.Types.ValidatorUpdateOrBuilder.pubKeyOrNull: tendermint.crypto.Keys.PublicKey?
-  get() = if (hasPubKey()) getPubKey() else null
-

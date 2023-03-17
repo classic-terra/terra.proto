@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializegetQueryServicesDescriptorResponse")
-public inline fun getQueryServicesDescriptorResponse(block: cosmos.base.reflection.v2alpha1.GetQueryServicesDescriptorResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetQueryServicesDescriptorResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun getQueryServicesDescriptorResponse(block: cosmos.base.reflection.v2alpha1.GetQueryServicesDescriptorResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetQueryServicesDescriptorResponse =
   cosmos.base.reflection.v2alpha1.GetQueryServicesDescriptorResponseKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.GetQueryServicesDescriptorResponse.newBuilder()).apply { block() }._build()
-public object GetQueryServicesDescriptorResponseKt {
+object GetQueryServicesDescriptorResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetQueryServicesDescriptorResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetQueryServicesDescriptorResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.GetQueryServicesDescriptorResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object GetQueryServicesDescriptorResponseKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.QueryServicesDescriptor queries = 1;</code>
      */
-    public var queries: cosmos.base.reflection.v2alpha1.Reflection.QueryServicesDescriptor
+    var queries: cosmos.base.reflection.v2alpha1.Reflection.QueryServicesDescriptor
       @JvmName("getQueries")
       get() = _builder.getQueries()
       @JvmName("setQueries")
@@ -43,7 +43,7 @@ public object GetQueryServicesDescriptorResponseKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.QueryServicesDescriptor queries = 1;</code>
      */
-    public fun clearQueries() {
+    fun clearQueries() {
       _builder.clearQueries()
     }
     /**
@@ -54,15 +54,11 @@ public object GetQueryServicesDescriptorResponseKt {
      * <code>.cosmos.base.reflection.v2alpha1.QueryServicesDescriptor queries = 1;</code>
      * @return Whether the queries field is set.
      */
-    public fun hasQueries(): kotlin.Boolean {
+    fun hasQueries(): kotlin.Boolean {
       return _builder.hasQueries()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.GetQueryServicesDescriptorResponse.copy(block: cosmos.base.reflection.v2alpha1.GetQueryServicesDescriptorResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetQueryServicesDescriptorResponse =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.GetQueryServicesDescriptorResponse.copy(block: cosmos.base.reflection.v2alpha1.GetQueryServicesDescriptorResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetQueryServicesDescriptorResponse =
   cosmos.base.reflection.v2alpha1.GetQueryServicesDescriptorResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.reflection.v2alpha1.Reflection.GetQueryServicesDescriptorResponseOrBuilder.queriesOrNull: cosmos.base.reflection.v2alpha1.Reflection.QueryServicesDescriptor?
-  get() = if (hasQueries()) getQueries() else null
-

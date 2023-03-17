@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializetobinTax")
-public inline fun tobinTax(block: terra.oracle.v1beta1.TobinTaxKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Genesis.TobinTax =
+@kotlin.jvm.JvmSynthetic
+inline fun tobinTax(block: terra.oracle.v1beta1.TobinTaxKt.Dsl.() -> Unit): terra.oracle.v1beta1.Genesis.TobinTax =
   terra.oracle.v1beta1.TobinTaxKt.Dsl._create(terra.oracle.v1beta1.Genesis.TobinTax.newBuilder()).apply { block() }._build()
-public object TobinTaxKt {
+object TobinTaxKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.Genesis.TobinTax.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.Genesis.TobinTax.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.Genesis.TobinTax.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object TobinTaxKt {
     /**
      * <code>string denom = 1;</code>
      */
-    public var denom: kotlin.String
+    var denom: kotlin.String
       @JvmName("getDenom")
       get() = _builder.getDenom()
       @JvmName("setDenom")
@@ -35,14 +35,14 @@ public object TobinTaxKt {
     /**
      * <code>string denom = 1;</code>
      */
-    public fun clearDenom() {
+    fun clearDenom() {
       _builder.clearDenom()
     }
 
     /**
      * <code>string tobin_tax = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var tobinTax: kotlin.String
+    var tobinTax: kotlin.String
       @JvmName("getTobinTax")
       get() = _builder.getTobinTax()
       @JvmName("setTobinTax")
@@ -52,12 +52,11 @@ public object TobinTaxKt {
     /**
      * <code>string tobin_tax = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearTobinTax() {
+    fun clearTobinTax() {
       _builder.clearTobinTax()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.Genesis.TobinTax.copy(block: terra.oracle.v1beta1.TobinTaxKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Genesis.TobinTax =
+inline fun terra.oracle.v1beta1.Genesis.TobinTax.copy(block: terra.oracle.v1beta1.TobinTaxKt.Dsl.() -> Unit): terra.oracle.v1beta1.Genesis.TobinTax =
   terra.oracle.v1beta1.TobinTaxKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

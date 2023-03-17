@@ -3,16 +3,16 @@
 
 package cosmos.base.tendermint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegetBlockByHeightResponse")
-public inline fun getBlockByHeightResponse(block: cosmos.base.tendermint.v1beta1.GetBlockByHeightResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun getBlockByHeightResponse(block: cosmos.base.tendermint.v1beta1.GetBlockByHeightResponseKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponse =
   cosmos.base.tendermint.v1beta1.GetBlockByHeightResponseKt.Dsl._create(cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponse.newBuilder()).apply { block() }._build()
-public object GetBlockByHeightResponseKt {
+object GetBlockByHeightResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object GetBlockByHeightResponseKt {
     /**
      * <code>.tendermint.types.BlockID block_id = 1;</code>
      */
-    public var blockId: tendermint.types.Types.BlockID
+    var blockId: tendermint.types.Types.BlockID
       @JvmName("getBlockId")
       get() = _builder.getBlockId()
       @JvmName("setBlockId")
@@ -35,21 +35,21 @@ public object GetBlockByHeightResponseKt {
     /**
      * <code>.tendermint.types.BlockID block_id = 1;</code>
      */
-    public fun clearBlockId() {
+    fun clearBlockId() {
       _builder.clearBlockId()
     }
     /**
      * <code>.tendermint.types.BlockID block_id = 1;</code>
      * @return Whether the blockId field is set.
      */
-    public fun hasBlockId(): kotlin.Boolean {
+    fun hasBlockId(): kotlin.Boolean {
       return _builder.hasBlockId()
     }
 
     /**
      * <code>.tendermint.types.Block block = 2;</code>
      */
-    public var block: tendermint.types.BlockOuterClass.Block
+    var block: tendermint.types.BlockOuterClass.Block
       @JvmName("getBlock")
       get() = _builder.getBlock()
       @JvmName("setBlock")
@@ -59,25 +59,18 @@ public object GetBlockByHeightResponseKt {
     /**
      * <code>.tendermint.types.Block block = 2;</code>
      */
-    public fun clearBlock() {
+    fun clearBlock() {
       _builder.clearBlock()
     }
     /**
      * <code>.tendermint.types.Block block = 2;</code>
      * @return Whether the block field is set.
      */
-    public fun hasBlock(): kotlin.Boolean {
+    fun hasBlock(): kotlin.Boolean {
       return _builder.hasBlock()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponse.copy(block: cosmos.base.tendermint.v1beta1.GetBlockByHeightResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponse =
+inline fun cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponse.copy(block: cosmos.base.tendermint.v1beta1.GetBlockByHeightResponseKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponse =
   cosmos.base.tendermint.v1beta1.GetBlockByHeightResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponseOrBuilder.blockIdOrNull: tendermint.types.Types.BlockID?
-  get() = if (hasBlockId()) getBlockId() else null
-
-public val cosmos.base.tendermint.v1beta1.Query.GetBlockByHeightResponseOrBuilder.blockOrNull: tendermint.types.BlockOuterClass.Block?
-  get() = if (hasBlock()) getBlock() else null
-

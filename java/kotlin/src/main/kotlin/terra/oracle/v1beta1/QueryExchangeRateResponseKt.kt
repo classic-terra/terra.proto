@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryExchangeRateResponse")
-public inline fun queryExchangeRateResponse(block: terra.oracle.v1beta1.QueryExchangeRateResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryExchangeRateResponse(block: terra.oracle.v1beta1.QueryExchangeRateResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse =
   terra.oracle.v1beta1.QueryExchangeRateResponseKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse.newBuilder()).apply { block() }._build()
-public object QueryExchangeRateResponseKt {
+object QueryExchangeRateResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryExchangeRateResponseKt {
      *
      * <code>string exchange_rate = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var exchangeRate: kotlin.String
+    var exchangeRate: kotlin.String
       @JvmName("getExchangeRate")
       get() = _builder.getExchangeRate()
       @JvmName("setExchangeRate")
@@ -43,12 +43,11 @@ public object QueryExchangeRateResponseKt {
      *
      * <code>string exchange_rate = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearExchangeRate() {
+    fun clearExchangeRate() {
       _builder.clearExchangeRate()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse.copy(block: terra.oracle.v1beta1.QueryExchangeRateResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse.copy(block: terra.oracle.v1beta1.QueryExchangeRateResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRateResponse =
   terra.oracle.v1beta1.QueryExchangeRateResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

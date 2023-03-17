@@ -28,30 +28,30 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for cosmos.distribution.v1beta1.Msg.
  */
-public object MsgGrpcKt {
-  public const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
+object MsgGrpcKt {
+  const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = MsgGrpc.getServiceDescriptor()
 
-  public val setWithdrawAddressMethod:
-      MethodDescriptor<Tx.MsgSetWithdrawAddress, Tx.MsgSetWithdrawAddressResponse>
+  val setWithdrawAddressMethod: MethodDescriptor<Tx.MsgSetWithdrawAddress,
+      Tx.MsgSetWithdrawAddressResponse>
     @JvmStatic
     get() = MsgGrpc.getSetWithdrawAddressMethod()
 
-  public val withdrawDelegatorRewardMethod:
-      MethodDescriptor<Tx.MsgWithdrawDelegatorReward, Tx.MsgWithdrawDelegatorRewardResponse>
+  val withdrawDelegatorRewardMethod: MethodDescriptor<Tx.MsgWithdrawDelegatorReward,
+      Tx.MsgWithdrawDelegatorRewardResponse>
     @JvmStatic
     get() = MsgGrpc.getWithdrawDelegatorRewardMethod()
 
-  public val withdrawValidatorCommissionMethod:
-      MethodDescriptor<Tx.MsgWithdrawValidatorCommission, Tx.MsgWithdrawValidatorCommissionResponse>
+  val withdrawValidatorCommissionMethod: MethodDescriptor<Tx.MsgWithdrawValidatorCommission,
+      Tx.MsgWithdrawValidatorCommissionResponse>
     @JvmStatic
     get() = MsgGrpc.getWithdrawValidatorCommissionMethod()
 
-  public val fundCommunityPoolMethod:
-      MethodDescriptor<Tx.MsgFundCommunityPool, Tx.MsgFundCommunityPoolResponse>
+  val fundCommunityPoolMethod: MethodDescriptor<Tx.MsgFundCommunityPool,
+      Tx.MsgFundCommunityPoolResponse>
     @JvmStatic
     get() = MsgGrpc.getFundCommunityPoolMethod()
 
@@ -60,11 +60,11 @@ public object MsgGrpcKt {
    * coroutines.
    */
   @StubFor(MsgGrpc::class)
-  public class MsgCoroutineStub @JvmOverloads constructor(
+  class MsgCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<MsgCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
         MsgCoroutineStub(channel, callOptions)
 
     /**
@@ -75,19 +75,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun setWithdrawAddress(request: Tx.MsgSetWithdrawAddress, headers: Metadata =
-        Metadata()): Tx.MsgSetWithdrawAddressResponse = unaryRpc(
+    suspend fun setWithdrawAddress(request: Tx.MsgSetWithdrawAddress):
+        Tx.MsgSetWithdrawAddressResponse = unaryRpc(
       channel,
       MsgGrpc.getSetWithdrawAddressMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -96,19 +93,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun withdrawDelegatorReward(request: Tx.MsgWithdrawDelegatorReward,
-        headers: Metadata = Metadata()): Tx.MsgWithdrawDelegatorRewardResponse = unaryRpc(
+    suspend fun withdrawDelegatorReward(request: Tx.MsgWithdrawDelegatorReward):
+        Tx.MsgWithdrawDelegatorRewardResponse = unaryRpc(
       channel,
       MsgGrpc.getWithdrawDelegatorRewardMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -117,19 +111,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun withdrawValidatorCommission(request: Tx.MsgWithdrawValidatorCommission,
-        headers: Metadata = Metadata()): Tx.MsgWithdrawValidatorCommissionResponse = unaryRpc(
+    suspend fun withdrawValidatorCommission(request: Tx.MsgWithdrawValidatorCommission):
+        Tx.MsgWithdrawValidatorCommissionResponse = unaryRpc(
       channel,
       MsgGrpc.getWithdrawValidatorCommissionMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -138,26 +129,23 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun fundCommunityPool(request: Tx.MsgFundCommunityPool, headers: Metadata =
-        Metadata()): Tx.MsgFundCommunityPoolResponse = unaryRpc(
+    suspend fun fundCommunityPool(request: Tx.MsgFundCommunityPool): Tx.MsgFundCommunityPoolResponse
+        = unaryRpc(
       channel,
       MsgGrpc.getFundCommunityPoolMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.distribution.v1beta1.Msg service based on Kotlin
    * coroutines.
    */
-  public abstract class MsgCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class MsgCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for cosmos.distribution.v1beta1.Msg.SetWithdrawAddress.
@@ -170,7 +158,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun setWithdrawAddress(request: Tx.MsgSetWithdrawAddress):
+    open suspend fun setWithdrawAddress(request: Tx.MsgSetWithdrawAddress):
         Tx.MsgSetWithdrawAddressResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Msg.SetWithdrawAddress is unimplemented"))
 
@@ -185,7 +173,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun withdrawDelegatorReward(request: Tx.MsgWithdrawDelegatorReward):
+    open suspend fun withdrawDelegatorReward(request: Tx.MsgWithdrawDelegatorReward):
         Tx.MsgWithdrawDelegatorRewardResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Msg.WithdrawDelegatorReward is unimplemented"))
 
@@ -201,7 +189,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun withdrawValidatorCommission(request: Tx.MsgWithdrawValidatorCommission):
+    open suspend fun withdrawValidatorCommission(request: Tx.MsgWithdrawValidatorCommission):
         Tx.MsgWithdrawValidatorCommissionResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Msg.WithdrawValidatorCommission is unimplemented"))
 
@@ -216,12 +204,11 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun fundCommunityPool(request: Tx.MsgFundCommunityPool):
+    open suspend fun fundCommunityPool(request: Tx.MsgFundCommunityPool):
         Tx.MsgFundCommunityPoolResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Msg.FundCommunityPool is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = MsgGrpc.getSetWithdrawAddressMethod(),

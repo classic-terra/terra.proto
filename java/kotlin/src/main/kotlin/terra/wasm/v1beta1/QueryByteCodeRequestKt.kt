@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryByteCodeRequest")
-public inline fun queryByteCodeRequest(block: terra.wasm.v1beta1.QueryByteCodeRequestKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryByteCodeRequest(block: terra.wasm.v1beta1.QueryByteCodeRequestKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest =
   terra.wasm.v1beta1.QueryByteCodeRequestKt.Dsl._create(terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest.newBuilder()).apply { block() }._build()
-public object QueryByteCodeRequestKt {
+object QueryByteCodeRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryByteCodeRequestKt {
      *
      * <code>uint64 code_id = 1;</code>
      */
-    public var codeId: kotlin.Long
+    var codeId: kotlin.Long
       @JvmName("getCodeId")
       get() = _builder.getCodeId()
       @JvmName("setCodeId")
@@ -43,12 +43,11 @@ public object QueryByteCodeRequestKt {
      *
      * <code>uint64 code_id = 1;</code>
      */
-    public fun clearCodeId() {
+    fun clearCodeId() {
       _builder.clearCodeId()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest.copy(block: terra.wasm.v1beta1.QueryByteCodeRequestKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest =
+inline fun terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest.copy(block: terra.wasm.v1beta1.QueryByteCodeRequestKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest =
   terra.wasm.v1beta1.QueryByteCodeRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

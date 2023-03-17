@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeproposal")
-public inline fun proposal(block: cosmos.gov.v1beta1.ProposalKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Gov.Proposal =
+@kotlin.jvm.JvmSynthetic
+inline fun proposal(block: cosmos.gov.v1beta1.ProposalKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Gov.Proposal =
   cosmos.gov.v1beta1.ProposalKt.Dsl._create(cosmos.gov.v1beta1.Gov.Proposal.newBuilder()).apply { block() }._build()
-public object ProposalKt {
+object ProposalKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.Gov.Proposal.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.Gov.Proposal.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.Gov.Proposal.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ProposalKt {
     /**
      * <code>uint64 proposal_id = 1 [(.gogoproto.jsontag) = "id", (.gogoproto.moretags) = "yaml:&#92;"id&#92;""];</code>
      */
-    public var proposalId: kotlin.Long
+    var proposalId: kotlin.Long
       @JvmName("getProposalId")
       get() = _builder.getProposalId()
       @JvmName("setProposalId")
@@ -35,14 +35,14 @@ public object ProposalKt {
     /**
      * <code>uint64 proposal_id = 1 [(.gogoproto.jsontag) = "id", (.gogoproto.moretags) = "yaml:&#92;"id&#92;""];</code>
      */
-    public fun clearProposalId() {
+    fun clearProposalId() {
       _builder.clearProposalId()
     }
 
     /**
      * <code>.google.protobuf.Any content = 2 [(.cosmos_proto.accepts_interface) = "Content"];</code>
      */
-    public var content: com.google.protobuf.Any
+    var content: com.google.protobuf.Any
       @JvmName("getContent")
       get() = _builder.getContent()
       @JvmName("setContent")
@@ -52,21 +52,21 @@ public object ProposalKt {
     /**
      * <code>.google.protobuf.Any content = 2 [(.cosmos_proto.accepts_interface) = "Content"];</code>
      */
-    public fun clearContent() {
+    fun clearContent() {
       _builder.clearContent()
     }
     /**
      * <code>.google.protobuf.Any content = 2 [(.cosmos_proto.accepts_interface) = "Content"];</code>
      * @return Whether the content field is set.
      */
-    public fun hasContent(): kotlin.Boolean {
+    fun hasContent(): kotlin.Boolean {
       return _builder.hasContent()
     }
 
     /**
      * <code>.cosmos.gov.v1beta1.ProposalStatus status = 3 [(.gogoproto.moretags) = "yaml:&#92;"proposal_status&#92;""];</code>
      */
-    public var status: cosmos.gov.v1beta1.Gov.ProposalStatus
+    var status: cosmos.gov.v1beta1.Gov.ProposalStatus
       @JvmName("getStatus")
       get() = _builder.getStatus()
       @JvmName("setStatus")
@@ -76,14 +76,14 @@ public object ProposalKt {
     /**
      * <code>.cosmos.gov.v1beta1.ProposalStatus status = 3 [(.gogoproto.moretags) = "yaml:&#92;"proposal_status&#92;""];</code>
      */
-    public fun clearStatus() {
+    fun clearStatus() {
       _builder.clearStatus()
     }
 
     /**
      * <code>.cosmos.gov.v1beta1.TallyResult final_tally_result = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"final_tally_result&#92;""];</code>
      */
-    public var finalTallyResult: cosmos.gov.v1beta1.Gov.TallyResult
+    var finalTallyResult: cosmos.gov.v1beta1.Gov.TallyResult
       @JvmName("getFinalTallyResult")
       get() = _builder.getFinalTallyResult()
       @JvmName("setFinalTallyResult")
@@ -93,21 +93,21 @@ public object ProposalKt {
     /**
      * <code>.cosmos.gov.v1beta1.TallyResult final_tally_result = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"final_tally_result&#92;""];</code>
      */
-    public fun clearFinalTallyResult() {
+    fun clearFinalTallyResult() {
       _builder.clearFinalTallyResult()
     }
     /**
      * <code>.cosmos.gov.v1beta1.TallyResult final_tally_result = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"final_tally_result&#92;""];</code>
      * @return Whether the finalTallyResult field is set.
      */
-    public fun hasFinalTallyResult(): kotlin.Boolean {
+    fun hasFinalTallyResult(): kotlin.Boolean {
       return _builder.hasFinalTallyResult()
     }
 
     /**
      * <code>.google.protobuf.Timestamp submit_time = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"submit_time&#92;"", (.gogoproto.stdtime) = true];</code>
      */
-    public var submitTime: com.google.protobuf.Timestamp
+    var submitTime: com.google.protobuf.Timestamp
       @JvmName("getSubmitTime")
       get() = _builder.getSubmitTime()
       @JvmName("setSubmitTime")
@@ -117,21 +117,21 @@ public object ProposalKt {
     /**
      * <code>.google.protobuf.Timestamp submit_time = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"submit_time&#92;"", (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearSubmitTime() {
+    fun clearSubmitTime() {
       _builder.clearSubmitTime()
     }
     /**
      * <code>.google.protobuf.Timestamp submit_time = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"submit_time&#92;"", (.gogoproto.stdtime) = true];</code>
      * @return Whether the submitTime field is set.
      */
-    public fun hasSubmitTime(): kotlin.Boolean {
+    fun hasSubmitTime(): kotlin.Boolean {
       return _builder.hasSubmitTime()
     }
 
     /**
      * <code>.google.protobuf.Timestamp deposit_end_time = 6 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"deposit_end_time&#92;"", (.gogoproto.stdtime) = true];</code>
      */
-    public var depositEndTime: com.google.protobuf.Timestamp
+    var depositEndTime: com.google.protobuf.Timestamp
       @JvmName("getDepositEndTime")
       get() = _builder.getDepositEndTime()
       @JvmName("setDepositEndTime")
@@ -141,14 +141,14 @@ public object ProposalKt {
     /**
      * <code>.google.protobuf.Timestamp deposit_end_time = 6 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"deposit_end_time&#92;"", (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearDepositEndTime() {
+    fun clearDepositEndTime() {
       _builder.clearDepositEndTime()
     }
     /**
      * <code>.google.protobuf.Timestamp deposit_end_time = 6 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"deposit_end_time&#92;"", (.gogoproto.stdtime) = true];</code>
      * @return Whether the depositEndTime field is set.
      */
-    public fun hasDepositEndTime(): kotlin.Boolean {
+    fun hasDepositEndTime(): kotlin.Boolean {
       return _builder.hasDepositEndTime()
     }
 
@@ -157,11 +157,11 @@ public object ProposalKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class TotalDepositProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class TotalDepositProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .cosmos.base.v1beta1.Coin total_deposit = 7 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"total_deposit&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
-     public val totalDeposit: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>
+     val totalDeposit: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getTotalDepositList()
@@ -172,62 +172,53 @@ public object ProposalKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addTotalDeposit")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.addTotalDeposit(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin total_deposit = 7 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"total_deposit&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param value The totalDeposit to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignTotalDeposit")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin total_deposit = 7 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"total_deposit&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param values The totalDeposit to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllTotalDeposit")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       _builder.addAllTotalDeposit(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin total_deposit = 7 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"total_deposit&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param values The totalDeposit to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllTotalDeposit")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin total_deposit = 7 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"total_deposit&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      * @param index The index to set the value at.
      * @param value The totalDeposit to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setTotalDeposit")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.setTotalDeposit(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.Coin total_deposit = 7 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"total_deposit&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearTotalDeposit")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TotalDepositProxy>.clear() {
       _builder.clearTotalDeposit()
     }
-
-
     /**
      * <code>.google.protobuf.Timestamp voting_start_time = 8 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"voting_start_time&#92;"", (.gogoproto.stdtime) = true];</code>
      */
-    public var votingStartTime: com.google.protobuf.Timestamp
+    var votingStartTime: com.google.protobuf.Timestamp
       @JvmName("getVotingStartTime")
       get() = _builder.getVotingStartTime()
       @JvmName("setVotingStartTime")
@@ -237,21 +228,21 @@ public object ProposalKt {
     /**
      * <code>.google.protobuf.Timestamp voting_start_time = 8 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"voting_start_time&#92;"", (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearVotingStartTime() {
+    fun clearVotingStartTime() {
       _builder.clearVotingStartTime()
     }
     /**
      * <code>.google.protobuf.Timestamp voting_start_time = 8 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"voting_start_time&#92;"", (.gogoproto.stdtime) = true];</code>
      * @return Whether the votingStartTime field is set.
      */
-    public fun hasVotingStartTime(): kotlin.Boolean {
+    fun hasVotingStartTime(): kotlin.Boolean {
       return _builder.hasVotingStartTime()
     }
 
     /**
      * <code>.google.protobuf.Timestamp voting_end_time = 9 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"voting_end_time&#92;"", (.gogoproto.stdtime) = true];</code>
      */
-    public var votingEndTime: com.google.protobuf.Timestamp
+    var votingEndTime: com.google.protobuf.Timestamp
       @JvmName("getVotingEndTime")
       get() = _builder.getVotingEndTime()
       @JvmName("setVotingEndTime")
@@ -261,37 +252,18 @@ public object ProposalKt {
     /**
      * <code>.google.protobuf.Timestamp voting_end_time = 9 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"voting_end_time&#92;"", (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearVotingEndTime() {
+    fun clearVotingEndTime() {
       _builder.clearVotingEndTime()
     }
     /**
      * <code>.google.protobuf.Timestamp voting_end_time = 9 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"voting_end_time&#92;"", (.gogoproto.stdtime) = true];</code>
      * @return Whether the votingEndTime field is set.
      */
-    public fun hasVotingEndTime(): kotlin.Boolean {
+    fun hasVotingEndTime(): kotlin.Boolean {
       return _builder.hasVotingEndTime()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.Gov.Proposal.copy(block: cosmos.gov.v1beta1.ProposalKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Gov.Proposal =
+inline fun cosmos.gov.v1beta1.Gov.Proposal.copy(block: cosmos.gov.v1beta1.ProposalKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Gov.Proposal =
   cosmos.gov.v1beta1.ProposalKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.gov.v1beta1.Gov.ProposalOrBuilder.contentOrNull: com.google.protobuf.Any?
-  get() = if (hasContent()) getContent() else null
-
-public val cosmos.gov.v1beta1.Gov.ProposalOrBuilder.finalTallyResultOrNull: cosmos.gov.v1beta1.Gov.TallyResult?
-  get() = if (hasFinalTallyResult()) getFinalTallyResult() else null
-
-public val cosmos.gov.v1beta1.Gov.ProposalOrBuilder.submitTimeOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasSubmitTime()) getSubmitTime() else null
-
-public val cosmos.gov.v1beta1.Gov.ProposalOrBuilder.depositEndTimeOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasDepositEndTime()) getDepositEndTime() else null
-
-public val cosmos.gov.v1beta1.Gov.ProposalOrBuilder.votingStartTimeOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasVotingStartTime()) getVotingStartTime() else null
-
-public val cosmos.gov.v1beta1.Gov.ProposalOrBuilder.votingEndTimeOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasVotingEndTime()) getVotingEndTime() else null
-

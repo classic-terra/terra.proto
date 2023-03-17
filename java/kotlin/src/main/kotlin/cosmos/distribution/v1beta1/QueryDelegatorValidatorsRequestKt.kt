@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryDelegatorValidatorsRequest")
-public inline fun queryDelegatorValidatorsRequest(block: cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequestKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryDelegatorValidatorsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryDelegatorValidatorsRequest(block: cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequestKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryDelegatorValidatorsRequest =
   cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequestKt.Dsl._create(cosmos.distribution.v1beta1.QueryOuterClass.QueryDelegatorValidatorsRequest.newBuilder()).apply { block() }._build()
-public object QueryDelegatorValidatorsRequestKt {
+object QueryDelegatorValidatorsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.QueryOuterClass.QueryDelegatorValidatorsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.QueryOuterClass.QueryDelegatorValidatorsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.QueryOuterClass.QueryDelegatorValidatorsRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryDelegatorValidatorsRequestKt {
      *
      * <code>string delegator_address = 1;</code>
      */
-    public var delegatorAddress: kotlin.String
+    var delegatorAddress: kotlin.String
       @JvmName("getDelegatorAddress")
       get() = _builder.getDelegatorAddress()
       @JvmName("setDelegatorAddress")
@@ -43,12 +43,11 @@ public object QueryDelegatorValidatorsRequestKt {
      *
      * <code>string delegator_address = 1;</code>
      */
-    public fun clearDelegatorAddress() {
+    fun clearDelegatorAddress() {
       _builder.clearDelegatorAddress()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.QueryOuterClass.QueryDelegatorValidatorsRequest.copy(block: cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequestKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryDelegatorValidatorsRequest =
+inline fun cosmos.distribution.v1beta1.QueryOuterClass.QueryDelegatorValidatorsRequest.copy(block: cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequestKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryDelegatorValidatorsRequest =
   cosmos.distribution.v1beta1.QueryDelegatorValidatorsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

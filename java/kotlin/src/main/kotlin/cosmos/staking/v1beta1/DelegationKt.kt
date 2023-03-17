@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializedelegation")
-public inline fun delegation(block: cosmos.staking.v1beta1.DelegationKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Delegation =
+@kotlin.jvm.JvmSynthetic
+inline fun delegation(block: cosmos.staking.v1beta1.DelegationKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Delegation =
   cosmos.staking.v1beta1.DelegationKt.Dsl._create(cosmos.staking.v1beta1.Staking.Delegation.newBuilder()).apply { block() }._build()
-public object DelegationKt {
+object DelegationKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Staking.Delegation.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Staking.Delegation.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Staking.Delegation.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object DelegationKt {
      *
      * <code>string delegator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"delegator_address&#92;""];</code>
      */
-    public var delegatorAddress: kotlin.String
+    var delegatorAddress: kotlin.String
       @JvmName("getDelegatorAddress")
       get() = _builder.getDelegatorAddress()
       @JvmName("setDelegatorAddress")
@@ -43,7 +43,7 @@ public object DelegationKt {
      *
      * <code>string delegator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"delegator_address&#92;""];</code>
      */
-    public fun clearDelegatorAddress() {
+    fun clearDelegatorAddress() {
       _builder.clearDelegatorAddress()
     }
 
@@ -54,7 +54,7 @@ public object DelegationKt {
      *
      * <code>string validator_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_address&#92;""];</code>
      */
-    public var validatorAddress: kotlin.String
+    var validatorAddress: kotlin.String
       @JvmName("getValidatorAddress")
       get() = _builder.getValidatorAddress()
       @JvmName("setValidatorAddress")
@@ -68,7 +68,7 @@ public object DelegationKt {
      *
      * <code>string validator_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_address&#92;""];</code>
      */
-    public fun clearValidatorAddress() {
+    fun clearValidatorAddress() {
       _builder.clearValidatorAddress()
     }
 
@@ -79,7 +79,7 @@ public object DelegationKt {
      *
      * <code>string shares = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var shares: kotlin.String
+    var shares: kotlin.String
       @JvmName("getShares")
       get() = _builder.getShares()
       @JvmName("setShares")
@@ -93,12 +93,11 @@ public object DelegationKt {
      *
      * <code>string shares = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearShares() {
+    fun clearShares() {
       _builder.clearShares()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Staking.Delegation.copy(block: cosmos.staking.v1beta1.DelegationKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Delegation =
+inline fun cosmos.staking.v1beta1.Staking.Delegation.copy(block: cosmos.staking.v1beta1.DelegationKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Delegation =
   cosmos.staking.v1beta1.DelegationKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.tx.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegetTxsEventRequest")
-public inline fun getTxsEventRequest(block: cosmos.tx.v1beta1.GetTxsEventRequestKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.ServiceOuterClass.GetTxsEventRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun getTxsEventRequest(block: cosmos.tx.v1beta1.GetTxsEventRequestKt.Dsl.() -> Unit): cosmos.tx.v1beta1.ServiceOuterClass.GetTxsEventRequest =
   cosmos.tx.v1beta1.GetTxsEventRequestKt.Dsl._create(cosmos.tx.v1beta1.ServiceOuterClass.GetTxsEventRequest.newBuilder()).apply { block() }._build()
-public object GetTxsEventRequestKt {
+object GetTxsEventRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.tx.v1beta1.ServiceOuterClass.GetTxsEventRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.tx.v1beta1.ServiceOuterClass.GetTxsEventRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.tx.v1beta1.ServiceOuterClass.GetTxsEventRequest.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object GetTxsEventRequestKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class EventsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class EventsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * events is the list of transaction event type.
@@ -36,8 +36,8 @@ public object GetTxsEventRequestKt {
      * <code>repeated string events = 1;</code>
      * @return A list containing the events.
      */
-    public val events: com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>
-      @kotlin.jvm.JvmSynthetic
+    val events: com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>
+      @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getEventsList()
       )
@@ -51,7 +51,7 @@ public object GetTxsEventRequestKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addEvents")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.add(value: kotlin.String) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.add(value: kotlin.String) {
       _builder.addEvents(value)
     }
     /**
@@ -64,9 +64,8 @@ public object GetTxsEventRequestKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignEvents")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.plusAssign(value: kotlin.String) {
-      add(value)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.plusAssign(value: kotlin.String) {
+      _builder.addEvents(value)
     }
     /**
      * <pre>
@@ -78,7 +77,7 @@ public object GetTxsEventRequestKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllEvents")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllEvents(values)
     }
     /**
@@ -91,9 +90,8 @@ public object GetTxsEventRequestKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllEvents")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
-      addAll(values)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
+      _builder.addAllEvents(values)
     }
     /**
      * <pre>
@@ -106,7 +104,7 @@ public object GetTxsEventRequestKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setEvents")
-    public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.set(index: kotlin.Int, value: kotlin.String) {
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setEvents(index, value)
     }/**
      * <pre>
@@ -117,7 +115,7 @@ public object GetTxsEventRequestKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearEvents")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, EventsProxy>.clear() {
       _builder.clearEvents()
     }
     /**
@@ -127,7 +125,7 @@ public object GetTxsEventRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -141,7 +139,7 @@ public object GetTxsEventRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -152,14 +150,14 @@ public object GetTxsEventRequestKt {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
 
     /**
      * <code>.cosmos.tx.v1beta1.OrderBy order_by = 3;</code>
      */
-    public var orderBy: cosmos.tx.v1beta1.ServiceOuterClass.OrderBy
+    var orderBy: cosmos.tx.v1beta1.ServiceOuterClass.OrderBy
       @JvmName("getOrderBy")
       get() = _builder.getOrderBy()
       @JvmName("setOrderBy")
@@ -169,15 +167,11 @@ public object GetTxsEventRequestKt {
     /**
      * <code>.cosmos.tx.v1beta1.OrderBy order_by = 3;</code>
      */
-    public fun clearOrderBy() {
+    fun clearOrderBy() {
       _builder.clearOrderBy()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.tx.v1beta1.ServiceOuterClass.GetTxsEventRequest.copy(block: cosmos.tx.v1beta1.GetTxsEventRequestKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.ServiceOuterClass.GetTxsEventRequest =
+inline fun cosmos.tx.v1beta1.ServiceOuterClass.GetTxsEventRequest.copy(block: cosmos.tx.v1beta1.GetTxsEventRequestKt.Dsl.() -> Unit): cosmos.tx.v1beta1.ServiceOuterClass.GetTxsEventRequest =
   cosmos.tx.v1beta1.GetTxsEventRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.tx.v1beta1.ServiceOuterClass.GetTxsEventRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

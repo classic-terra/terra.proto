@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTaxProceedsRequest")
-public inline fun queryTaxProceedsRequest(block: terra.treasury.v1beta1.QueryTaxProceedsRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTaxProceedsRequest(block: terra.treasury.v1beta1.QueryTaxProceedsRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsRequest =
   terra.treasury.v1beta1.QueryTaxProceedsRequestKt.Dsl._create(terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsRequest.newBuilder()).apply { block() }._build()
-public object QueryTaxProceedsRequestKt {
+object QueryTaxProceedsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryTaxProceedsRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsRequest.copy(block: terra.treasury.v1beta1.QueryTaxProceedsRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsRequest =
+inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsRequest.copy(block: terra.treasury.v1beta1.QueryTaxProceedsRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxProceedsRequest =
   terra.treasury.v1beta1.QueryTaxProceedsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryValidatorSlashesRequest")
-public inline fun queryValidatorSlashesRequest(block: cosmos.distribution.v1beta1.QueryValidatorSlashesRequestKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorSlashesRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryValidatorSlashesRequest(block: cosmos.distribution.v1beta1.QueryValidatorSlashesRequestKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorSlashesRequest =
   cosmos.distribution.v1beta1.QueryValidatorSlashesRequestKt.Dsl._create(cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorSlashesRequest.newBuilder()).apply { block() }._build()
-public object QueryValidatorSlashesRequestKt {
+object QueryValidatorSlashesRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorSlashesRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorSlashesRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorSlashesRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryValidatorSlashesRequestKt {
      *
      * <code>string validator_address = 1;</code>
      */
-    public var validatorAddress: kotlin.String
+    var validatorAddress: kotlin.String
       @JvmName("getValidatorAddress")
       get() = _builder.getValidatorAddress()
       @JvmName("setValidatorAddress")
@@ -43,7 +43,7 @@ public object QueryValidatorSlashesRequestKt {
      *
      * <code>string validator_address = 1;</code>
      */
-    public fun clearValidatorAddress() {
+    fun clearValidatorAddress() {
       _builder.clearValidatorAddress()
     }
 
@@ -54,7 +54,7 @@ public object QueryValidatorSlashesRequestKt {
      *
      * <code>uint64 starting_height = 2;</code>
      */
-    public var startingHeight: kotlin.Long
+    var startingHeight: kotlin.Long
       @JvmName("getStartingHeight")
       get() = _builder.getStartingHeight()
       @JvmName("setStartingHeight")
@@ -68,7 +68,7 @@ public object QueryValidatorSlashesRequestKt {
      *
      * <code>uint64 starting_height = 2;</code>
      */
-    public fun clearStartingHeight() {
+    fun clearStartingHeight() {
       _builder.clearStartingHeight()
     }
 
@@ -79,7 +79,7 @@ public object QueryValidatorSlashesRequestKt {
      *
      * <code>uint64 ending_height = 3;</code>
      */
-    public var endingHeight: kotlin.Long
+    var endingHeight: kotlin.Long
       @JvmName("getEndingHeight")
       get() = _builder.getEndingHeight()
       @JvmName("setEndingHeight")
@@ -93,7 +93,7 @@ public object QueryValidatorSlashesRequestKt {
      *
      * <code>uint64 ending_height = 3;</code>
      */
-    public fun clearEndingHeight() {
+    fun clearEndingHeight() {
       _builder.clearEndingHeight()
     }
 
@@ -104,7 +104,7 @@ public object QueryValidatorSlashesRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 4;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -118,7 +118,7 @@ public object QueryValidatorSlashesRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 4;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -129,15 +129,11 @@ public object QueryValidatorSlashesRequestKt {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 4;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorSlashesRequest.copy(block: cosmos.distribution.v1beta1.QueryValidatorSlashesRequestKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorSlashesRequest =
+inline fun cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorSlashesRequest.copy(block: cosmos.distribution.v1beta1.QueryValidatorSlashesRequestKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorSlashesRequest =
   cosmos.distribution.v1beta1.QueryValidatorSlashesRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorSlashesRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

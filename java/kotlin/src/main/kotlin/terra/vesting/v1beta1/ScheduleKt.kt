@@ -3,16 +3,16 @@
 
 package terra.vesting.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeschedule")
-public inline fun schedule(block: terra.vesting.v1beta1.ScheduleKt.Dsl.() -> kotlin.Unit): terra.vesting.v1beta1.Vesting.Schedule =
+@kotlin.jvm.JvmSynthetic
+inline fun schedule(block: terra.vesting.v1beta1.ScheduleKt.Dsl.() -> Unit): terra.vesting.v1beta1.Vesting.Schedule =
   terra.vesting.v1beta1.ScheduleKt.Dsl._create(terra.vesting.v1beta1.Vesting.Schedule.newBuilder()).apply { block() }._build()
-public object ScheduleKt {
+object ScheduleKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.vesting.v1beta1.Vesting.Schedule.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.vesting.v1beta1.Vesting.Schedule.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.vesting.v1beta1.Vesting.Schedule.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ScheduleKt {
     /**
      * <code>int64 start_time = 1 [(.gogoproto.moretags) = "yaml:&#92;"start_time&#92;""];</code>
      */
-    public var startTime: kotlin.Long
+    var startTime: kotlin.Long
       @JvmName("getStartTime")
       get() = _builder.getStartTime()
       @JvmName("setStartTime")
@@ -35,14 +35,14 @@ public object ScheduleKt {
     /**
      * <code>int64 start_time = 1 [(.gogoproto.moretags) = "yaml:&#92;"start_time&#92;""];</code>
      */
-    public fun clearStartTime() {
+    fun clearStartTime() {
       _builder.clearStartTime()
     }
 
     /**
      * <code>int64 end_time = 2 [(.gogoproto.moretags) = "yaml:&#92;"end_time&#92;""];</code>
      */
-    public var endTime: kotlin.Long
+    var endTime: kotlin.Long
       @JvmName("getEndTime")
       get() = _builder.getEndTime()
       @JvmName("setEndTime")
@@ -52,14 +52,14 @@ public object ScheduleKt {
     /**
      * <code>int64 end_time = 2 [(.gogoproto.moretags) = "yaml:&#92;"end_time&#92;""];</code>
      */
-    public fun clearEndTime() {
+    fun clearEndTime() {
       _builder.clearEndTime()
     }
 
     /**
      * <code>string ratio = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"ratio&#92;""];</code>
      */
-    public var ratio: kotlin.String
+    var ratio: kotlin.String
       @JvmName("getRatio")
       get() = _builder.getRatio()
       @JvmName("setRatio")
@@ -69,12 +69,11 @@ public object ScheduleKt {
     /**
      * <code>string ratio = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"ratio&#92;""];</code>
      */
-    public fun clearRatio() {
+    fun clearRatio() {
       _builder.clearRatio()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.vesting.v1beta1.Vesting.Schedule.copy(block: terra.vesting.v1beta1.ScheduleKt.Dsl.() -> kotlin.Unit): terra.vesting.v1beta1.Vesting.Schedule =
+inline fun terra.vesting.v1beta1.Vesting.Schedule.copy(block: terra.vesting.v1beta1.ScheduleKt.Dsl.() -> Unit): terra.vesting.v1beta1.Vesting.Schedule =
   terra.vesting.v1beta1.ScheduleKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

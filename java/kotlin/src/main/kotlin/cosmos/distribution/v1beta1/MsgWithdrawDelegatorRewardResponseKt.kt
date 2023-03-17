@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgWithdrawDelegatorRewardResponse")
-public inline fun msgWithdrawDelegatorRewardResponse(block: cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponseKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawDelegatorRewardResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgWithdrawDelegatorRewardResponse(block: cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponseKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawDelegatorRewardResponse =
   cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponseKt.Dsl._create(cosmos.distribution.v1beta1.Tx.MsgWithdrawDelegatorRewardResponse.newBuilder()).apply { block() }._build()
-public object MsgWithdrawDelegatorRewardResponseKt {
+object MsgWithdrawDelegatorRewardResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Tx.MsgWithdrawDelegatorRewardResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Tx.MsgWithdrawDelegatorRewardResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Tx.MsgWithdrawDelegatorRewardResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgWithdrawDelegatorRewardResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Tx.MsgWithdrawDelegatorRewardResponse.copy(block: cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponseKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawDelegatorRewardResponse =
+inline fun cosmos.distribution.v1beta1.Tx.MsgWithdrawDelegatorRewardResponse.copy(block: cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponseKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Tx.MsgWithdrawDelegatorRewardResponse =
   cosmos.distribution.v1beta1.MsgWithdrawDelegatorRewardResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

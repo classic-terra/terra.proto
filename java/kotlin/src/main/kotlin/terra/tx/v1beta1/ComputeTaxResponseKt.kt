@@ -3,16 +3,16 @@
 
 package terra.tx.v1beta1;
 
-@kotlin.jvm.JvmName("-initializecomputeTaxResponse")
-public inline fun computeTaxResponse(block: terra.tx.v1beta1.ComputeTaxResponseKt.Dsl.() -> kotlin.Unit): terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun computeTaxResponse(block: terra.tx.v1beta1.ComputeTaxResponseKt.Dsl.() -> Unit): terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse =
   terra.tx.v1beta1.ComputeTaxResponseKt.Dsl._create(terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse.newBuilder()).apply { block() }._build()
-public object ComputeTaxResponseKt {
+object ComputeTaxResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object ComputeTaxResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class TaxAmountProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class TaxAmountProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * amount is the amount of coins to be paid as a fee
@@ -35,7 +35,7 @@ public object ComputeTaxResponseKt {
      *
      * <code>repeated .cosmos.base.v1beta1.Coin tax_amount = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
-     public val taxAmount: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>
+     val taxAmount: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getTaxAmountList()
@@ -50,10 +50,9 @@ public object ComputeTaxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addTaxAmount")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.addTaxAmount(value)
-    }
-    /**
+    }/**
      * <pre>
      * amount is the amount of coins to be paid as a fee
      * </pre>
@@ -63,11 +62,9 @@ public object ComputeTaxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignTaxAmount")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * amount is the amount of coins to be paid as a fee
      * </pre>
@@ -77,10 +74,9 @@ public object ComputeTaxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllTaxAmount")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       _builder.addAllTaxAmount(values)
-    }
-    /**
+    }/**
      * <pre>
      * amount is the amount of coins to be paid as a fee
      * </pre>
@@ -90,11 +86,9 @@ public object ComputeTaxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllTaxAmount")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * amount is the amount of coins to be paid as a fee
      * </pre>
@@ -105,10 +99,9 @@ public object ComputeTaxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setTaxAmount")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.setTaxAmount(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * amount is the amount of coins to be paid as a fee
      * </pre>
@@ -117,13 +110,10 @@ public object ComputeTaxResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearTaxAmount")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, TaxAmountProxy>.clear() {
       _builder.clearTaxAmount()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse.copy(block: terra.tx.v1beta1.ComputeTaxResponseKt.Dsl.() -> kotlin.Unit): terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse =
+inline fun terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse.copy(block: terra.tx.v1beta1.ComputeTaxResponseKt.Dsl.() -> Unit): terra.tx.v1beta1.ServiceOuterClass.ComputeTaxResponse =
   terra.tx.v1beta1.ComputeTaxResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

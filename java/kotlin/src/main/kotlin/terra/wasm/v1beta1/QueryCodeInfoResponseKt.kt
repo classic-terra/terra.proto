@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryCodeInfoResponse")
-public inline fun queryCodeInfoResponse(block: terra.wasm.v1beta1.QueryCodeInfoResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryCodeInfoResponse(block: terra.wasm.v1beta1.QueryCodeInfoResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse =
   terra.wasm.v1beta1.QueryCodeInfoResponseKt.Dsl._create(terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse.newBuilder()).apply { block() }._build()
-public object QueryCodeInfoResponseKt {
+object QueryCodeInfoResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryCodeInfoResponseKt {
     /**
      * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var codeInfo: terra.wasm.v1beta1.Wasm.CodeInfo
+    var codeInfo: terra.wasm.v1beta1.Wasm.CodeInfo
       @JvmName("getCodeInfo")
       get() = _builder.getCodeInfo()
       @JvmName("setCodeInfo")
@@ -35,22 +35,18 @@ public object QueryCodeInfoResponseKt {
     /**
      * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearCodeInfo() {
+    fun clearCodeInfo() {
       _builder.clearCodeInfo()
     }
     /**
      * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the codeInfo field is set.
      */
-    public fun hasCodeInfo(): kotlin.Boolean {
+    fun hasCodeInfo(): kotlin.Boolean {
       return _builder.hasCodeInfo()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse.copy(block: terra.wasm.v1beta1.QueryCodeInfoResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse =
+inline fun terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse.copy(block: terra.wasm.v1beta1.QueryCodeInfoResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse =
   terra.wasm.v1beta1.QueryCodeInfoResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponseOrBuilder.codeInfoOrNull: terra.wasm.v1beta1.Wasm.CodeInfo?
-  get() = if (hasCodeInfo()) getCodeInfo() else null
-

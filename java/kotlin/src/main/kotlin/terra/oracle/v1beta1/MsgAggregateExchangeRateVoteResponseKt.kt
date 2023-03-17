@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgAggregateExchangeRateVoteResponse")
-public inline fun msgAggregateExchangeRateVoteResponse(block: terra.oracle.v1beta1.MsgAggregateExchangeRateVoteResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVoteResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgAggregateExchangeRateVoteResponse(block: terra.oracle.v1beta1.MsgAggregateExchangeRateVoteResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVoteResponse =
   terra.oracle.v1beta1.MsgAggregateExchangeRateVoteResponseKt.Dsl._create(terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVoteResponse.newBuilder()).apply { block() }._build()
-public object MsgAggregateExchangeRateVoteResponseKt {
+object MsgAggregateExchangeRateVoteResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVoteResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVoteResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVoteResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgAggregateExchangeRateVoteResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVoteResponse.copy(block: terra.oracle.v1beta1.MsgAggregateExchangeRateVoteResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVoteResponse =
+inline fun terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVoteResponse.copy(block: terra.oracle.v1beta1.MsgAggregateExchangeRateVoteResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVoteResponse =
   terra.oracle.v1beta1.MsgAggregateExchangeRateVoteResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

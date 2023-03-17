@@ -3,16 +3,16 @@
 
 package cosmos.slashing.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequerySigningInfosRequest")
-public inline fun querySigningInfosRequest(block: cosmos.slashing.v1beta1.QuerySigningInfosRequestKt.Dsl.() -> kotlin.Unit): cosmos.slashing.v1beta1.QueryOuterClass.QuerySigningInfosRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun querySigningInfosRequest(block: cosmos.slashing.v1beta1.QuerySigningInfosRequestKt.Dsl.() -> Unit): cosmos.slashing.v1beta1.QueryOuterClass.QuerySigningInfosRequest =
   cosmos.slashing.v1beta1.QuerySigningInfosRequestKt.Dsl._create(cosmos.slashing.v1beta1.QueryOuterClass.QuerySigningInfosRequest.newBuilder()).apply { block() }._build()
-public object QuerySigningInfosRequestKt {
+object QuerySigningInfosRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.slashing.v1beta1.QueryOuterClass.QuerySigningInfosRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.slashing.v1beta1.QueryOuterClass.QuerySigningInfosRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.slashing.v1beta1.QueryOuterClass.QuerySigningInfosRequest.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QuerySigningInfosRequestKt {
     /**
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 1;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -35,22 +35,18 @@ public object QuerySigningInfosRequestKt {
     /**
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 1;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 1;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.slashing.v1beta1.QueryOuterClass.QuerySigningInfosRequest.copy(block: cosmos.slashing.v1beta1.QuerySigningInfosRequestKt.Dsl.() -> kotlin.Unit): cosmos.slashing.v1beta1.QueryOuterClass.QuerySigningInfosRequest =
+inline fun cosmos.slashing.v1beta1.QueryOuterClass.QuerySigningInfosRequest.copy(block: cosmos.slashing.v1beta1.QuerySigningInfosRequestKt.Dsl.() -> Unit): cosmos.slashing.v1beta1.QueryOuterClass.QuerySigningInfosRequest =
   cosmos.slashing.v1beta1.QuerySigningInfosRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.slashing.v1beta1.QueryOuterClass.QuerySigningInfosRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

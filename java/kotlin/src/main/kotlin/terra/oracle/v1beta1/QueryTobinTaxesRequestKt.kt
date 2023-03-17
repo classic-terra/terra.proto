@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTobinTaxesRequest")
-public inline fun queryTobinTaxesRequest(block: terra.oracle.v1beta1.QueryTobinTaxesRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTobinTaxesRequest(block: terra.oracle.v1beta1.QueryTobinTaxesRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest =
   terra.oracle.v1beta1.QueryTobinTaxesRequestKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest.newBuilder()).apply { block() }._build()
-public object QueryTobinTaxesRequestKt {
+object QueryTobinTaxesRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryTobinTaxesRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest.copy(block: terra.oracle.v1beta1.QueryTobinTaxesRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest.copy(block: terra.oracle.v1beta1.QueryTobinTaxesRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryTobinTaxesRequest =
   terra.oracle.v1beta1.QueryTobinTaxesRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

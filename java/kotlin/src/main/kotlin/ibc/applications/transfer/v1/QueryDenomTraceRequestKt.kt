@@ -3,16 +3,16 @@
 
 package ibc.applications.transfer.v1;
 
-@kotlin.jvm.JvmName("-initializequeryDenomTraceRequest")
-public inline fun queryDenomTraceRequest(block: ibc.applications.transfer.v1.QueryDenomTraceRequestKt.Dsl.() -> kotlin.Unit): ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryDenomTraceRequest(block: ibc.applications.transfer.v1.QueryDenomTraceRequestKt.Dsl.() -> Unit): ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceRequest =
   ibc.applications.transfer.v1.QueryDenomTraceRequestKt.Dsl._create(ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceRequest.newBuilder()).apply { block() }._build()
-public object QueryDenomTraceRequestKt {
+object QueryDenomTraceRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceRequest.Builder): Dsl = Dsl(builder)
@@ -24,12 +24,12 @@ public object QueryDenomTraceRequestKt {
 
     /**
      * <pre>
-     * hash (in hex format) or denom (full denom with ibc prefix) of the denomination trace information.
+     * hash (in hex format) of the denomination trace information.
      * </pre>
      *
      * <code>string hash = 1;</code>
      */
-    public var hash: kotlin.String
+    var hash: kotlin.String
       @JvmName("getHash")
       get() = _builder.getHash()
       @JvmName("setHash")
@@ -38,17 +38,16 @@ public object QueryDenomTraceRequestKt {
       }
     /**
      * <pre>
-     * hash (in hex format) or denom (full denom with ibc prefix) of the denomination trace information.
+     * hash (in hex format) of the denomination trace information.
      * </pre>
      *
      * <code>string hash = 1;</code>
      */
-    public fun clearHash() {
+    fun clearHash() {
       _builder.clearHash()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceRequest.copy(block: ibc.applications.transfer.v1.QueryDenomTraceRequestKt.Dsl.() -> kotlin.Unit): ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceRequest =
+inline fun ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceRequest.copy(block: ibc.applications.transfer.v1.QueryDenomTraceRequestKt.Dsl.() -> Unit): ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceRequest =
   ibc.applications.transfer.v1.QueryDenomTraceRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

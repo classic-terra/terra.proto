@@ -8,7 +8,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
  * </pre>
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.50.0)",
+    value = "by gRPC proto compiler (version 1.40.1)",
     comments = "Source: cosmos/gov/v1beta1/tx.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class MsgGrpc {
@@ -216,7 +216,6 @@ public final class MsgGrpc {
     /**
      * <pre>
      * VoteWeighted defines a method to add a weighted vote on a specific proposal.
-     * Since: cosmos-sdk 0.43
      * </pre>
      */
     public void voteWeighted(cosmos.gov.v1beta1.Tx.MsgVoteWeighted request,
@@ -310,7 +309,6 @@ public final class MsgGrpc {
     /**
      * <pre>
      * VoteWeighted defines a method to add a weighted vote on a specific proposal.
-     * Since: cosmos-sdk 0.43
      * </pre>
      */
     public void voteWeighted(cosmos.gov.v1beta1.Tx.MsgVoteWeighted request,
@@ -371,7 +369,6 @@ public final class MsgGrpc {
     /**
      * <pre>
      * VoteWeighted defines a method to add a weighted vote on a specific proposal.
-     * Since: cosmos-sdk 0.43
      * </pre>
      */
     public cosmos.gov.v1beta1.Tx.MsgVoteWeightedResponse voteWeighted(cosmos.gov.v1beta1.Tx.MsgVoteWeighted request) {
@@ -432,7 +429,6 @@ public final class MsgGrpc {
     /**
      * <pre>
      * VoteWeighted defines a method to add a weighted vote on a specific proposal.
-     * Since: cosmos-sdk 0.43
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<cosmos.gov.v1beta1.Tx.MsgVoteWeightedResponse> voteWeighted(

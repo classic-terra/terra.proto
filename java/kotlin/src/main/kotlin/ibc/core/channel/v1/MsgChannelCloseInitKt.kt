@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializemsgChannelCloseInit")
-public inline fun msgChannelCloseInit(block: ibc.core.channel.v1.MsgChannelCloseInitKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgChannelCloseInit =
+@kotlin.jvm.JvmSynthetic
+inline fun msgChannelCloseInit(block: ibc.core.channel.v1.MsgChannelCloseInitKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgChannelCloseInit =
   ibc.core.channel.v1.MsgChannelCloseInitKt.Dsl._create(ibc.core.channel.v1.Tx.MsgChannelCloseInit.newBuilder()).apply { block() }._build()
-public object MsgChannelCloseInitKt {
+object MsgChannelCloseInitKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.Tx.MsgChannelCloseInit.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.Tx.MsgChannelCloseInit.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.Tx.MsgChannelCloseInit.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgChannelCloseInitKt {
     /**
      * <code>string port_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"port_id&#92;""];</code>
      */
-    public var portId: kotlin.String
+    var portId: kotlin.String
       @JvmName("getPortId")
       get() = _builder.getPortId()
       @JvmName("setPortId")
@@ -35,14 +35,14 @@ public object MsgChannelCloseInitKt {
     /**
      * <code>string port_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"port_id&#92;""];</code>
      */
-    public fun clearPortId() {
+    fun clearPortId() {
       _builder.clearPortId()
     }
 
     /**
      * <code>string channel_id = 2 [(.gogoproto.moretags) = "yaml:&#92;"channel_id&#92;""];</code>
      */
-    public var channelId: kotlin.String
+    var channelId: kotlin.String
       @JvmName("getChannelId")
       get() = _builder.getChannelId()
       @JvmName("setChannelId")
@@ -52,14 +52,14 @@ public object MsgChannelCloseInitKt {
     /**
      * <code>string channel_id = 2 [(.gogoproto.moretags) = "yaml:&#92;"channel_id&#92;""];</code>
      */
-    public fun clearChannelId() {
+    fun clearChannelId() {
       _builder.clearChannelId()
     }
 
     /**
      * <code>string signer = 3;</code>
      */
-    public var signer: kotlin.String
+    var signer: kotlin.String
       @JvmName("getSigner")
       get() = _builder.getSigner()
       @JvmName("setSigner")
@@ -69,12 +69,11 @@ public object MsgChannelCloseInitKt {
     /**
      * <code>string signer = 3;</code>
      */
-    public fun clearSigner() {
+    fun clearSigner() {
       _builder.clearSigner()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.Tx.MsgChannelCloseInit.copy(block: ibc.core.channel.v1.MsgChannelCloseInitKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgChannelCloseInit =
+inline fun ibc.core.channel.v1.Tx.MsgChannelCloseInit.copy(block: ibc.core.channel.v1.MsgChannelCloseInitKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgChannelCloseInit =
   ibc.core.channel.v1.MsgChannelCloseInitKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

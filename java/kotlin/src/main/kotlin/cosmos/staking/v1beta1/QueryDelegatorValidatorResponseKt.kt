@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryDelegatorValidatorResponse")
-public inline fun queryDelegatorValidatorResponse(block: cosmos.staking.v1beta1.QueryDelegatorValidatorResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorValidatorResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryDelegatorValidatorResponse(block: cosmos.staking.v1beta1.QueryDelegatorValidatorResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorValidatorResponse =
   cosmos.staking.v1beta1.QueryDelegatorValidatorResponseKt.Dsl._create(cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorValidatorResponse.newBuilder()).apply { block() }._build()
-public object QueryDelegatorValidatorResponseKt {
+object QueryDelegatorValidatorResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorValidatorResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorValidatorResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorValidatorResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryDelegatorValidatorResponseKt {
      *
      * <code>.cosmos.staking.v1beta1.Validator validator = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var validator: cosmos.staking.v1beta1.Staking.Validator
+    var validator: cosmos.staking.v1beta1.Staking.Validator
       @JvmName("getValidator")
       get() = _builder.getValidator()
       @JvmName("setValidator")
@@ -43,7 +43,7 @@ public object QueryDelegatorValidatorResponseKt {
      *
      * <code>.cosmos.staking.v1beta1.Validator validator = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearValidator() {
+    fun clearValidator() {
       _builder.clearValidator()
     }
     /**
@@ -54,15 +54,11 @@ public object QueryDelegatorValidatorResponseKt {
      * <code>.cosmos.staking.v1beta1.Validator validator = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the validator field is set.
      */
-    public fun hasValidator(): kotlin.Boolean {
+    fun hasValidator(): kotlin.Boolean {
       return _builder.hasValidator()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorValidatorResponse.copy(block: cosmos.staking.v1beta1.QueryDelegatorValidatorResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorValidatorResponse =
+inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorValidatorResponse.copy(block: cosmos.staking.v1beta1.QueryDelegatorValidatorResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorValidatorResponse =
   cosmos.staking.v1beta1.QueryDelegatorValidatorResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.QueryOuterClass.QueryDelegatorValidatorResponseOrBuilder.validatorOrNull: cosmos.staking.v1beta1.Staking.Validator?
-  get() = if (hasValidator()) getValidator() else null
-

@@ -3,16 +3,16 @@
 
 package cosmos.mint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryAnnualProvisionsRequest")
-public inline fun queryAnnualProvisionsRequest(block: cosmos.mint.v1beta1.QueryAnnualProvisionsRequestKt.Dsl.() -> kotlin.Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryAnnualProvisionsRequest(block: cosmos.mint.v1beta1.QueryAnnualProvisionsRequestKt.Dsl.() -> Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsRequest =
   cosmos.mint.v1beta1.QueryAnnualProvisionsRequestKt.Dsl._create(cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsRequest.newBuilder()).apply { block() }._build()
-public object QueryAnnualProvisionsRequestKt {
+object QueryAnnualProvisionsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryAnnualProvisionsRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsRequest.copy(block: cosmos.mint.v1beta1.QueryAnnualProvisionsRequestKt.Dsl.() -> kotlin.Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsRequest =
+inline fun cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsRequest.copy(block: cosmos.mint.v1beta1.QueryAnnualProvisionsRequestKt.Dsl.() -> Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsRequest =
   cosmos.mint.v1beta1.QueryAnnualProvisionsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializevalidatorHistoricalRewards")
-public inline fun validatorHistoricalRewards(block: cosmos.distribution.v1beta1.ValidatorHistoricalRewardsKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards =
+@kotlin.jvm.JvmSynthetic
+inline fun validatorHistoricalRewards(block: cosmos.distribution.v1beta1.ValidatorHistoricalRewardsKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards =
   cosmos.distribution.v1beta1.ValidatorHistoricalRewardsKt.Dsl._create(cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards.newBuilder()).apply { block() }._build()
-public object ValidatorHistoricalRewardsKt {
+object ValidatorHistoricalRewardsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards.Builder): Dsl = Dsl(builder)
@@ -27,11 +27,11 @@ public object ValidatorHistoricalRewardsKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class CumulativeRewardRatioProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class CumulativeRewardRatioProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .cosmos.base.v1beta1.DecCoin cumulative_reward_ratio = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cumulative_reward_ratio&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      */
-     public val cumulativeRewardRatio: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>
+     val cumulativeRewardRatio: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getCumulativeRewardRatioList()
@@ -42,62 +42,53 @@ public object ValidatorHistoricalRewardsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addCumulativeRewardRatio")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       _builder.addCumulativeRewardRatio(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin cumulative_reward_ratio = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cumulative_reward_ratio&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param value The cumulativeRewardRatio to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignCumulativeRewardRatio")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin cumulative_reward_ratio = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cumulative_reward_ratio&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param values The cumulativeRewardRatio to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllCumulativeRewardRatio")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
       _builder.addAllCumulativeRewardRatio(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin cumulative_reward_ratio = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cumulative_reward_ratio&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param values The cumulativeRewardRatio to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllCumulativeRewardRatio")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin cumulative_reward_ratio = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cumulative_reward_ratio&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param index The index to set the value at.
      * @param value The cumulativeRewardRatio to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setCumulativeRewardRatio")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       _builder.setCumulativeRewardRatio(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin cumulative_reward_ratio = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cumulative_reward_ratio&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearCumulativeRewardRatio")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CumulativeRewardRatioProxy>.clear() {
       _builder.clearCumulativeRewardRatio()
     }
-
-
     /**
      * <code>uint32 reference_count = 2 [(.gogoproto.moretags) = "yaml:&#92;"reference_count&#92;""];</code>
      */
-    public var referenceCount: kotlin.Int
+    var referenceCount: kotlin.Int
       @JvmName("getReferenceCount")
       get() = _builder.getReferenceCount()
       @JvmName("setReferenceCount")
@@ -107,12 +98,11 @@ public object ValidatorHistoricalRewardsKt {
     /**
      * <code>uint32 reference_count = 2 [(.gogoproto.moretags) = "yaml:&#92;"reference_count&#92;""];</code>
      */
-    public fun clearReferenceCount() {
+    fun clearReferenceCount() {
       _builder.clearReferenceCount()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards.copy(block: cosmos.distribution.v1beta1.ValidatorHistoricalRewardsKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards =
+inline fun cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards.copy(block: cosmos.distribution.v1beta1.ValidatorHistoricalRewardsKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards =
   cosmos.distribution.v1beta1.ValidatorHistoricalRewardsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

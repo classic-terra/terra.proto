@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryRawStoreResponse")
-public inline fun queryRawStoreResponse(block: terra.wasm.v1beta1.QueryRawStoreResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryRawStoreResponse(block: terra.wasm.v1beta1.QueryRawStoreResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse =
   terra.wasm.v1beta1.QueryRawStoreResponseKt.Dsl._create(terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse.newBuilder()).apply { block() }._build()
-public object QueryRawStoreResponseKt {
+object QueryRawStoreResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryRawStoreResponseKt {
      *
      * <code>bytes data = 1;</code>
      */
-    public var data: com.google.protobuf.ByteString
+    var data: com.google.protobuf.ByteString
       @JvmName("getData")
       get() = _builder.getData()
       @JvmName("setData")
@@ -43,12 +43,11 @@ public object QueryRawStoreResponseKt {
      *
      * <code>bytes data = 1;</code>
      */
-    public fun clearData() {
+    fun clearData() {
       _builder.clearData()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse.copy(block: terra.wasm.v1beta1.QueryRawStoreResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse =
+inline fun terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse.copy(block: terra.wasm.v1beta1.QueryRawStoreResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse =
   terra.wasm.v1beta1.QueryRawStoreResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

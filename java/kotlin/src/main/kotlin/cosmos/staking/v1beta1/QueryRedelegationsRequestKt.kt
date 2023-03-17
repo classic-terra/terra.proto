@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryRedelegationsRequest")
-public inline fun queryRedelegationsRequest(block: cosmos.staking.v1beta1.QueryRedelegationsRequestKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryRedelegationsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryRedelegationsRequest(block: cosmos.staking.v1beta1.QueryRedelegationsRequestKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryRedelegationsRequest =
   cosmos.staking.v1beta1.QueryRedelegationsRequestKt.Dsl._create(cosmos.staking.v1beta1.QueryOuterClass.QueryRedelegationsRequest.newBuilder()).apply { block() }._build()
-public object QueryRedelegationsRequestKt {
+object QueryRedelegationsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryRedelegationsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.QueryOuterClass.QueryRedelegationsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.QueryOuterClass.QueryRedelegationsRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryRedelegationsRequestKt {
      *
      * <code>string delegator_addr = 1;</code>
      */
-    public var delegatorAddr: kotlin.String
+    var delegatorAddr: kotlin.String
       @JvmName("getDelegatorAddr")
       get() = _builder.getDelegatorAddr()
       @JvmName("setDelegatorAddr")
@@ -43,7 +43,7 @@ public object QueryRedelegationsRequestKt {
      *
      * <code>string delegator_addr = 1;</code>
      */
-    public fun clearDelegatorAddr() {
+    fun clearDelegatorAddr() {
       _builder.clearDelegatorAddr()
     }
 
@@ -54,7 +54,7 @@ public object QueryRedelegationsRequestKt {
      *
      * <code>string src_validator_addr = 2;</code>
      */
-    public var srcValidatorAddr: kotlin.String
+    var srcValidatorAddr: kotlin.String
       @JvmName("getSrcValidatorAddr")
       get() = _builder.getSrcValidatorAddr()
       @JvmName("setSrcValidatorAddr")
@@ -68,7 +68,7 @@ public object QueryRedelegationsRequestKt {
      *
      * <code>string src_validator_addr = 2;</code>
      */
-    public fun clearSrcValidatorAddr() {
+    fun clearSrcValidatorAddr() {
       _builder.clearSrcValidatorAddr()
     }
 
@@ -79,7 +79,7 @@ public object QueryRedelegationsRequestKt {
      *
      * <code>string dst_validator_addr = 3;</code>
      */
-    public var dstValidatorAddr: kotlin.String
+    var dstValidatorAddr: kotlin.String
       @JvmName("getDstValidatorAddr")
       get() = _builder.getDstValidatorAddr()
       @JvmName("setDstValidatorAddr")
@@ -93,7 +93,7 @@ public object QueryRedelegationsRequestKt {
      *
      * <code>string dst_validator_addr = 3;</code>
      */
-    public fun clearDstValidatorAddr() {
+    fun clearDstValidatorAddr() {
       _builder.clearDstValidatorAddr()
     }
 
@@ -104,7 +104,7 @@ public object QueryRedelegationsRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 4;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -118,7 +118,7 @@ public object QueryRedelegationsRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 4;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -129,15 +129,11 @@ public object QueryRedelegationsRequestKt {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 4;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryRedelegationsRequest.copy(block: cosmos.staking.v1beta1.QueryRedelegationsRequestKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryRedelegationsRequest =
+inline fun cosmos.staking.v1beta1.QueryOuterClass.QueryRedelegationsRequest.copy(block: cosmos.staking.v1beta1.QueryRedelegationsRequestKt.Dsl.() -> Unit): cosmos.staking.v1beta1.QueryOuterClass.QueryRedelegationsRequest =
   cosmos.staking.v1beta1.QueryRedelegationsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.QueryOuterClass.QueryRedelegationsRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

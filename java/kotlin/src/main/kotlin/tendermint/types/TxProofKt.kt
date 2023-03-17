@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializetxProof")
-public inline fun txProof(block: tendermint.types.TxProofKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.TxProof =
+@kotlin.jvm.JvmSynthetic
+inline fun txProof(block: tendermint.types.TxProofKt.Dsl.() -> Unit): tendermint.types.Types.TxProof =
   tendermint.types.TxProofKt.Dsl._create(tendermint.types.Types.TxProof.newBuilder()).apply { block() }._build()
-public object TxProofKt {
+object TxProofKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.Types.TxProof.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.Types.TxProof.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.Types.TxProof.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object TxProofKt {
     /**
      * <code>bytes root_hash = 1;</code>
      */
-    public var rootHash: com.google.protobuf.ByteString
+    var rootHash: com.google.protobuf.ByteString
       @JvmName("getRootHash")
       get() = _builder.getRootHash()
       @JvmName("setRootHash")
@@ -35,14 +35,14 @@ public object TxProofKt {
     /**
      * <code>bytes root_hash = 1;</code>
      */
-    public fun clearRootHash() {
+    fun clearRootHash() {
       _builder.clearRootHash()
     }
 
     /**
      * <code>bytes data = 2;</code>
      */
-    public var data: com.google.protobuf.ByteString
+    var data: com.google.protobuf.ByteString
       @JvmName("getData")
       get() = _builder.getData()
       @JvmName("setData")
@@ -52,14 +52,14 @@ public object TxProofKt {
     /**
      * <code>bytes data = 2;</code>
      */
-    public fun clearData() {
+    fun clearData() {
       _builder.clearData()
     }
 
     /**
      * <code>.tendermint.crypto.Proof proof = 3;</code>
      */
-    public var proof: tendermint.crypto.ProofOuterClass.Proof
+    var proof: tendermint.crypto.ProofOuterClass.Proof
       @JvmName("getProof")
       get() = _builder.getProof()
       @JvmName("setProof")
@@ -69,22 +69,18 @@ public object TxProofKt {
     /**
      * <code>.tendermint.crypto.Proof proof = 3;</code>
      */
-    public fun clearProof() {
+    fun clearProof() {
       _builder.clearProof()
     }
     /**
      * <code>.tendermint.crypto.Proof proof = 3;</code>
      * @return Whether the proof field is set.
      */
-    public fun hasProof(): kotlin.Boolean {
+    fun hasProof(): kotlin.Boolean {
       return _builder.hasProof()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.Types.TxProof.copy(block: tendermint.types.TxProofKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.TxProof =
+inline fun tendermint.types.Types.TxProof.copy(block: tendermint.types.TxProofKt.Dsl.() -> Unit): tendermint.types.Types.TxProof =
   tendermint.types.TxProofKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.Types.TxProofOrBuilder.proofOrNull: tendermint.crypto.ProofOuterClass.Proof?
-  get() = if (hasProof()) getProof() else null
-

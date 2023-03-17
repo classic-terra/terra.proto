@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryContractInfoResponse")
-public inline fun queryContractInfoResponse(block: terra.wasm.v1beta1.QueryContractInfoResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryContractInfoResponse(block: terra.wasm.v1beta1.QueryContractInfoResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse =
   terra.wasm.v1beta1.QueryContractInfoResponseKt.Dsl._create(terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse.newBuilder()).apply { block() }._build()
-public object QueryContractInfoResponseKt {
+object QueryContractInfoResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryContractInfoResponseKt {
     /**
      * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var contractInfo: terra.wasm.v1beta1.Wasm.ContractInfo
+    var contractInfo: terra.wasm.v1beta1.Wasm.ContractInfo
       @JvmName("getContractInfo")
       get() = _builder.getContractInfo()
       @JvmName("setContractInfo")
@@ -35,22 +35,18 @@ public object QueryContractInfoResponseKt {
     /**
      * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearContractInfo() {
+    fun clearContractInfo() {
       _builder.clearContractInfo()
     }
     /**
      * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the contractInfo field is set.
      */
-    public fun hasContractInfo(): kotlin.Boolean {
+    fun hasContractInfo(): kotlin.Boolean {
       return _builder.hasContractInfo()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse.copy(block: terra.wasm.v1beta1.QueryContractInfoResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse =
+inline fun terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse.copy(block: terra.wasm.v1beta1.QueryContractInfoResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse =
   terra.wasm.v1beta1.QueryContractInfoResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponseOrBuilder.contractInfoOrNull: terra.wasm.v1beta1.Wasm.ContractInfo?
-  get() = if (hasContractInfo()) getContractInfo() else null
-

@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemodel")
-public inline fun model(block: terra.wasm.v1beta1.ModelKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Genesis.Model =
+@kotlin.jvm.JvmSynthetic
+inline fun model(block: terra.wasm.v1beta1.ModelKt.Dsl.() -> Unit): terra.wasm.v1beta1.Genesis.Model =
   terra.wasm.v1beta1.ModelKt.Dsl._create(terra.wasm.v1beta1.Genesis.Model.newBuilder()).apply { block() }._build()
-public object ModelKt {
+object ModelKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Genesis.Model.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Genesis.Model.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Genesis.Model.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ModelKt {
     /**
      * <code>bytes key = 1;</code>
      */
-    public var key: com.google.protobuf.ByteString
+    var key: com.google.protobuf.ByteString
       @JvmName("getKey")
       get() = _builder.getKey()
       @JvmName("setKey")
@@ -35,14 +35,14 @@ public object ModelKt {
     /**
      * <code>bytes key = 1;</code>
      */
-    public fun clearKey() {
+    fun clearKey() {
       _builder.clearKey()
     }
 
     /**
      * <code>bytes value = 2;</code>
      */
-    public var value: com.google.protobuf.ByteString
+    var value: com.google.protobuf.ByteString
       @JvmName("getValue")
       get() = _builder.getValue()
       @JvmName("setValue")
@@ -52,12 +52,11 @@ public object ModelKt {
     /**
      * <code>bytes value = 2;</code>
      */
-    public fun clearValue() {
+    fun clearValue() {
       _builder.clearValue()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Genesis.Model.copy(block: terra.wasm.v1beta1.ModelKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Genesis.Model =
+inline fun terra.wasm.v1beta1.Genesis.Model.copy(block: terra.wasm.v1beta1.ModelKt.Dsl.() -> Unit): terra.wasm.v1beta1.Genesis.Model =
   terra.wasm.v1beta1.ModelKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

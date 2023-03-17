@@ -3,16 +3,16 @@
 
 package terra.market.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgSwapResponse")
-public inline fun msgSwapResponse(block: terra.market.v1beta1.MsgSwapResponseKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.Tx.MsgSwapResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgSwapResponse(block: terra.market.v1beta1.MsgSwapResponseKt.Dsl.() -> Unit): terra.market.v1beta1.Tx.MsgSwapResponse =
   terra.market.v1beta1.MsgSwapResponseKt.Dsl._create(terra.market.v1beta1.Tx.MsgSwapResponse.newBuilder()).apply { block() }._build()
-public object MsgSwapResponseKt {
+object MsgSwapResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.market.v1beta1.Tx.MsgSwapResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.market.v1beta1.Tx.MsgSwapResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.market.v1beta1.Tx.MsgSwapResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgSwapResponseKt {
     /**
      * <code>.cosmos.base.v1beta1.Coin swap_coin = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_coin&#92;""];</code>
      */
-    public var swapCoin: cosmos.base.v1beta1.CoinOuterClass.Coin
+    var swapCoin: cosmos.base.v1beta1.CoinOuterClass.Coin
       @JvmName("getSwapCoin")
       get() = _builder.getSwapCoin()
       @JvmName("setSwapCoin")
@@ -35,21 +35,21 @@ public object MsgSwapResponseKt {
     /**
      * <code>.cosmos.base.v1beta1.Coin swap_coin = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_coin&#92;""];</code>
      */
-    public fun clearSwapCoin() {
+    fun clearSwapCoin() {
       _builder.clearSwapCoin()
     }
     /**
      * <code>.cosmos.base.v1beta1.Coin swap_coin = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_coin&#92;""];</code>
      * @return Whether the swapCoin field is set.
      */
-    public fun hasSwapCoin(): kotlin.Boolean {
+    fun hasSwapCoin(): kotlin.Boolean {
       return _builder.hasSwapCoin()
     }
 
     /**
      * <code>.cosmos.base.v1beta1.Coin swap_fee = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_fee&#92;""];</code>
      */
-    public var swapFee: cosmos.base.v1beta1.CoinOuterClass.Coin
+    var swapFee: cosmos.base.v1beta1.CoinOuterClass.Coin
       @JvmName("getSwapFee")
       get() = _builder.getSwapFee()
       @JvmName("setSwapFee")
@@ -59,25 +59,18 @@ public object MsgSwapResponseKt {
     /**
      * <code>.cosmos.base.v1beta1.Coin swap_fee = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_fee&#92;""];</code>
      */
-    public fun clearSwapFee() {
+    fun clearSwapFee() {
       _builder.clearSwapFee()
     }
     /**
      * <code>.cosmos.base.v1beta1.Coin swap_fee = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_fee&#92;""];</code>
      * @return Whether the swapFee field is set.
      */
-    public fun hasSwapFee(): kotlin.Boolean {
+    fun hasSwapFee(): kotlin.Boolean {
       return _builder.hasSwapFee()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.market.v1beta1.Tx.MsgSwapResponse.copy(block: terra.market.v1beta1.MsgSwapResponseKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.Tx.MsgSwapResponse =
+inline fun terra.market.v1beta1.Tx.MsgSwapResponse.copy(block: terra.market.v1beta1.MsgSwapResponseKt.Dsl.() -> Unit): terra.market.v1beta1.Tx.MsgSwapResponse =
   terra.market.v1beta1.MsgSwapResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.market.v1beta1.Tx.MsgSwapResponseOrBuilder.swapCoinOrNull: cosmos.base.v1beta1.CoinOuterClass.Coin?
-  get() = if (hasSwapCoin()) getSwapCoin() else null
-
-public val terra.market.v1beta1.Tx.MsgSwapResponseOrBuilder.swapFeeOrNull: cosmos.base.v1beta1.CoinOuterClass.Coin?
-  get() = if (hasSwapFee()) getSwapFee() else null
-

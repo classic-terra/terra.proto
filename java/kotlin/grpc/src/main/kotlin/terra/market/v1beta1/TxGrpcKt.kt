@@ -28,18 +28,18 @@ import terra.market.v1beta1.MsgGrpc.getServiceDescriptor
 /**
  * Holder for Kotlin coroutine-based client and server APIs for terra.market.v1beta1.Msg.
  */
-public object MsgGrpcKt {
-  public const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
+object MsgGrpcKt {
+  const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = MsgGrpc.getServiceDescriptor()
 
-  public val swapMethod: MethodDescriptor<Tx.MsgSwap, Tx.MsgSwapResponse>
+  val swapMethod: MethodDescriptor<Tx.MsgSwap, Tx.MsgSwapResponse>
     @JvmStatic
     get() = MsgGrpc.getSwapMethod()
 
-  public val swapSendMethod: MethodDescriptor<Tx.MsgSwapSend, Tx.MsgSwapSendResponse>
+  val swapSendMethod: MethodDescriptor<Tx.MsgSwapSend, Tx.MsgSwapSendResponse>
     @JvmStatic
     get() = MsgGrpc.getSwapSendMethod()
 
@@ -47,11 +47,11 @@ public object MsgGrpcKt {
    * A stub for issuing RPCs to a(n) terra.market.v1beta1.Msg service as suspending coroutines.
    */
   @StubFor(MsgGrpc::class)
-  public class MsgCoroutineStub @JvmOverloads constructor(
+  class MsgCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<MsgCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
         MsgCoroutineStub(channel, callOptions)
 
     /**
@@ -62,19 +62,15 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun swap(request: Tx.MsgSwap, headers: Metadata = Metadata()): Tx.MsgSwapResponse
-        = unaryRpc(
+    suspend fun swap(request: Tx.MsgSwap): Tx.MsgSwapResponse = unaryRpc(
       channel,
       MsgGrpc.getSwapMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -83,25 +79,21 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun swapSend(request: Tx.MsgSwapSend, headers: Metadata = Metadata()):
-        Tx.MsgSwapSendResponse = unaryRpc(
+    suspend fun swapSend(request: Tx.MsgSwapSend): Tx.MsgSwapSendResponse = unaryRpc(
       channel,
       MsgGrpc.getSwapSendMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the terra.market.v1beta1.Msg service based on Kotlin coroutines.
    */
-  public abstract class MsgCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class MsgCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for terra.market.v1beta1.Msg.Swap.
@@ -114,7 +106,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun swap(request: Tx.MsgSwap): Tx.MsgSwapResponse = throw
+    open suspend fun swap(request: Tx.MsgSwap): Tx.MsgSwapResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.market.v1beta1.Msg.Swap is unimplemented"))
 
     /**
@@ -128,11 +120,10 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun swapSend(request: Tx.MsgSwapSend): Tx.MsgSwapSendResponse = throw
+    open suspend fun swapSend(request: Tx.MsgSwapSend): Tx.MsgSwapSendResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.market.v1beta1.Msg.SwapSend is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = MsgGrpc.getSwapMethod(),

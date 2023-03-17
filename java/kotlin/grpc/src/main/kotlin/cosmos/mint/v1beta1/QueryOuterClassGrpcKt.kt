@@ -28,25 +28,25 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for cosmos.mint.v1beta1.Query.
  */
-public object QueryGrpcKt {
-  public const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
+object QueryGrpcKt {
+  const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = QueryGrpc.getServiceDescriptor()
 
-  public val paramsMethod:
-      MethodDescriptor<QueryOuterClass.QueryParamsRequest, QueryOuterClass.QueryParamsResponse>
+  val paramsMethod: MethodDescriptor<QueryOuterClass.QueryParamsRequest,
+      QueryOuterClass.QueryParamsResponse>
     @JvmStatic
     get() = QueryGrpc.getParamsMethod()
 
-  public val inflationMethod:
-      MethodDescriptor<QueryOuterClass.QueryInflationRequest, QueryOuterClass.QueryInflationResponse>
+  val inflationMethod: MethodDescriptor<QueryOuterClass.QueryInflationRequest,
+      QueryOuterClass.QueryInflationResponse>
     @JvmStatic
     get() = QueryGrpc.getInflationMethod()
 
-  public val annualProvisionsMethod:
-      MethodDescriptor<QueryOuterClass.QueryAnnualProvisionsRequest, QueryOuterClass.QueryAnnualProvisionsResponse>
+  val annualProvisionsMethod: MethodDescriptor<QueryOuterClass.QueryAnnualProvisionsRequest,
+      QueryOuterClass.QueryAnnualProvisionsResponse>
     @JvmStatic
     get() = QueryGrpc.getAnnualProvisionsMethod()
 
@@ -54,11 +54,11 @@ public object QueryGrpcKt {
    * A stub for issuing RPCs to a(n) cosmos.mint.v1beta1.Query service as suspending coroutines.
    */
   @StubFor(QueryGrpc::class)
-  public class QueryCoroutineStub @JvmOverloads constructor(
+  class QueryCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<QueryCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
         QueryCoroutineStub(channel, callOptions)
 
     /**
@@ -69,19 +69,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun params(request: QueryOuterClass.QueryParamsRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryParamsResponse = unaryRpc(
+    suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+        QueryOuterClass.QueryParamsResponse = unaryRpc(
       channel,
       QueryGrpc.getParamsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -90,19 +87,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun inflation(request: QueryOuterClass.QueryInflationRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryInflationResponse = unaryRpc(
+    suspend fun inflation(request: QueryOuterClass.QueryInflationRequest):
+        QueryOuterClass.QueryInflationResponse = unaryRpc(
       channel,
       QueryGrpc.getInflationMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -111,25 +105,22 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun annualProvisions(request: QueryOuterClass.QueryAnnualProvisionsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryAnnualProvisionsResponse = unaryRpc(
+    suspend fun annualProvisions(request: QueryOuterClass.QueryAnnualProvisionsRequest):
+        QueryOuterClass.QueryAnnualProvisionsResponse = unaryRpc(
       channel,
       QueryGrpc.getAnnualProvisionsMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.mint.v1beta1.Query service based on Kotlin coroutines.
    */
-  public abstract class QueryCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class QueryCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for cosmos.mint.v1beta1.Query.Params.
@@ -142,7 +133,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+    open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
         QueryOuterClass.QueryParamsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.mint.v1beta1.Query.Params is unimplemented"))
 
@@ -157,7 +148,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun inflation(request: QueryOuterClass.QueryInflationRequest):
+    open suspend fun inflation(request: QueryOuterClass.QueryInflationRequest):
         QueryOuterClass.QueryInflationResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.mint.v1beta1.Query.Inflation is unimplemented"))
 
@@ -172,12 +163,11 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun annualProvisions(request: QueryOuterClass.QueryAnnualProvisionsRequest):
+    open suspend fun annualProvisions(request: QueryOuterClass.QueryAnnualProvisionsRequest):
         QueryOuterClass.QueryAnnualProvisionsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.mint.v1beta1.Query.AnnualProvisions is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = QueryGrpc.getParamsMethod(),

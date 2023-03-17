@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTallyResultRequest")
-public inline fun queryTallyResultRequest(block: cosmos.gov.v1beta1.QueryTallyResultRequestKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryTallyResultRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTallyResultRequest(block: cosmos.gov.v1beta1.QueryTallyResultRequestKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryTallyResultRequest =
   cosmos.gov.v1beta1.QueryTallyResultRequestKt.Dsl._create(cosmos.gov.v1beta1.QueryOuterClass.QueryTallyResultRequest.newBuilder()).apply { block() }._build()
-public object QueryTallyResultRequestKt {
+object QueryTallyResultRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryTallyResultRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryTallyResultRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.QueryOuterClass.QueryTallyResultRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryTallyResultRequestKt {
      *
      * <code>uint64 proposal_id = 1;</code>
      */
-    public var proposalId: kotlin.Long
+    var proposalId: kotlin.Long
       @JvmName("getProposalId")
       get() = _builder.getProposalId()
       @JvmName("setProposalId")
@@ -43,12 +43,11 @@ public object QueryTallyResultRequestKt {
      *
      * <code>uint64 proposal_id = 1;</code>
      */
-    public fun clearProposalId() {
+    fun clearProposalId() {
       _builder.clearProposalId()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryTallyResultRequest.copy(block: cosmos.gov.v1beta1.QueryTallyResultRequestKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryTallyResultRequest =
+inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryTallyResultRequest.copy(block: cosmos.gov.v1beta1.QueryTallyResultRequestKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryTallyResultRequest =
   cosmos.gov.v1beta1.QueryTallyResultRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

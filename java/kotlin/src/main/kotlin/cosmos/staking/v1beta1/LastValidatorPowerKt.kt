@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializelastValidatorPower")
-public inline fun lastValidatorPower(block: cosmos.staking.v1beta1.LastValidatorPowerKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Genesis.LastValidatorPower =
+@kotlin.jvm.JvmSynthetic
+inline fun lastValidatorPower(block: cosmos.staking.v1beta1.LastValidatorPowerKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Genesis.LastValidatorPower =
   cosmos.staking.v1beta1.LastValidatorPowerKt.Dsl._create(cosmos.staking.v1beta1.Genesis.LastValidatorPower.newBuilder()).apply { block() }._build()
-public object LastValidatorPowerKt {
+object LastValidatorPowerKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Genesis.LastValidatorPower.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Genesis.LastValidatorPower.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Genesis.LastValidatorPower.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object LastValidatorPowerKt {
      *
      * <code>string address = 1;</code>
      */
-    public var address: kotlin.String
+    var address: kotlin.String
       @JvmName("getAddress")
       get() = _builder.getAddress()
       @JvmName("setAddress")
@@ -43,7 +43,7 @@ public object LastValidatorPowerKt {
      *
      * <code>string address = 1;</code>
      */
-    public fun clearAddress() {
+    fun clearAddress() {
       _builder.clearAddress()
     }
 
@@ -54,7 +54,7 @@ public object LastValidatorPowerKt {
      *
      * <code>int64 power = 2;</code>
      */
-    public var power: kotlin.Long
+    var power: kotlin.Long
       @JvmName("getPower")
       get() = _builder.getPower()
       @JvmName("setPower")
@@ -68,12 +68,11 @@ public object LastValidatorPowerKt {
      *
      * <code>int64 power = 2;</code>
      */
-    public fun clearPower() {
+    fun clearPower() {
       _builder.clearPower()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Genesis.LastValidatorPower.copy(block: cosmos.staking.v1beta1.LastValidatorPowerKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Genesis.LastValidatorPower =
+inline fun cosmos.staking.v1beta1.Genesis.LastValidatorPower.copy(block: cosmos.staking.v1beta1.LastValidatorPowerKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Genesis.LastValidatorPower =
   cosmos.staking.v1beta1.LastValidatorPowerKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

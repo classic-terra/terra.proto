@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializedelegationDelegatorReward")
-public inline fun delegationDelegatorReward(block: cosmos.distribution.v1beta1.DelegationDelegatorRewardKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward =
+@kotlin.jvm.JvmSynthetic
+inline fun delegationDelegatorReward(block: cosmos.distribution.v1beta1.DelegationDelegatorRewardKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward =
   cosmos.distribution.v1beta1.DelegationDelegatorRewardKt.Dsl._create(cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward.newBuilder()).apply { block() }._build()
-public object DelegationDelegatorRewardKt {
+object DelegationDelegatorRewardKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object DelegationDelegatorRewardKt {
     /**
      * <code>string validator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"validator_address&#92;""];</code>
      */
-    public var validatorAddress: kotlin.String
+    var validatorAddress: kotlin.String
       @JvmName("getValidatorAddress")
       get() = _builder.getValidatorAddress()
       @JvmName("setValidatorAddress")
@@ -35,7 +35,7 @@ public object DelegationDelegatorRewardKt {
     /**
      * <code>string validator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"validator_address&#92;""];</code>
      */
-    public fun clearValidatorAddress() {
+    fun clearValidatorAddress() {
       _builder.clearValidatorAddress()
     }
 
@@ -44,11 +44,11 @@ public object DelegationDelegatorRewardKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class RewardProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class RewardProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .cosmos.base.v1beta1.DecCoin reward = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      */
-     public val reward: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>
+     val reward: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getRewardList()
@@ -59,60 +59,50 @@ public object DelegationDelegatorRewardKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addReward")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       _builder.addReward(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin reward = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param value The reward to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignReward")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin reward = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param values The reward to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllReward")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
       _builder.addAllReward(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin reward = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param values The reward to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllReward")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin reward = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param index The index to set the value at.
      * @param value The reward to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setReward")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       _builder.setReward(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin reward = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearReward")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, RewardProxy>.clear() {
       _builder.clearReward()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward.copy(block: cosmos.distribution.v1beta1.DelegationDelegatorRewardKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward =
+inline fun cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward.copy(block: cosmos.distribution.v1beta1.DelegationDelegatorRewardKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward =
   cosmos.distribution.v1beta1.DelegationDelegatorRewardKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

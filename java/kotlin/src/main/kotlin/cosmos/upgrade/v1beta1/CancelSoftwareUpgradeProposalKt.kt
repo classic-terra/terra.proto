@@ -3,16 +3,16 @@
 
 package cosmos.upgrade.v1beta1;
 
-@kotlin.jvm.JvmName("-initializecancelSoftwareUpgradeProposal")
-public inline fun cancelSoftwareUpgradeProposal(block: cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposalKt.Dsl.() -> kotlin.Unit): cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal =
+@kotlin.jvm.JvmSynthetic
+inline fun cancelSoftwareUpgradeProposal(block: cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposalKt.Dsl.() -> Unit): cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal =
   cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposalKt.Dsl._create(cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal.newBuilder()).apply { block() }._build()
-public object CancelSoftwareUpgradeProposalKt {
+object CancelSoftwareUpgradeProposalKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object CancelSoftwareUpgradeProposalKt {
     /**
      * <code>string title = 1;</code>
      */
-    public var title: kotlin.String
+    var title: kotlin.String
       @JvmName("getTitle")
       get() = _builder.getTitle()
       @JvmName("setTitle")
@@ -35,14 +35,14 @@ public object CancelSoftwareUpgradeProposalKt {
     /**
      * <code>string title = 1;</code>
      */
-    public fun clearTitle() {
+    fun clearTitle() {
       _builder.clearTitle()
     }
 
     /**
      * <code>string description = 2;</code>
      */
-    public var description: kotlin.String
+    var description: kotlin.String
       @JvmName("getDescription")
       get() = _builder.getDescription()
       @JvmName("setDescription")
@@ -52,12 +52,11 @@ public object CancelSoftwareUpgradeProposalKt {
     /**
      * <code>string description = 2;</code>
      */
-    public fun clearDescription() {
+    fun clearDescription() {
       _builder.clearDescription()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal.copy(block: cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposalKt.Dsl.() -> kotlin.Unit): cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal =
+inline fun cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal.copy(block: cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposalKt.Dsl.() -> Unit): cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal =
   cosmos.upgrade.v1beta1.CancelSoftwareUpgradeProposalKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

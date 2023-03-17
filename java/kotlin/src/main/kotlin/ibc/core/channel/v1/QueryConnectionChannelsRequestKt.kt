@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializequeryConnectionChannelsRequest")
-public inline fun queryConnectionChannelsRequest(block: ibc.core.channel.v1.QueryConnectionChannelsRequestKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryConnectionChannelsRequest(block: ibc.core.channel.v1.QueryConnectionChannelsRequestKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest =
   ibc.core.channel.v1.QueryConnectionChannelsRequestKt.Dsl._create(ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest.newBuilder()).apply { block() }._build()
-public object QueryConnectionChannelsRequestKt {
+object QueryConnectionChannelsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryConnectionChannelsRequestKt {
      *
      * <code>string connection = 1;</code>
      */
-    public var connection: kotlin.String
+    var connection: kotlin.String
       @JvmName("getConnection")
       get() = _builder.getConnection()
       @JvmName("setConnection")
@@ -43,7 +43,7 @@ public object QueryConnectionChannelsRequestKt {
      *
      * <code>string connection = 1;</code>
      */
-    public fun clearConnection() {
+    fun clearConnection() {
       _builder.clearConnection()
     }
 
@@ -54,7 +54,7 @@ public object QueryConnectionChannelsRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -68,7 +68,7 @@ public object QueryConnectionChannelsRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -79,15 +79,11 @@ public object QueryConnectionChannelsRequestKt {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest.copy(block: ibc.core.channel.v1.QueryConnectionChannelsRequestKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest =
+inline fun ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest.copy(block: ibc.core.channel.v1.QueryConnectionChannelsRequestKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest =
   ibc.core.channel.v1.QueryConnectionChannelsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

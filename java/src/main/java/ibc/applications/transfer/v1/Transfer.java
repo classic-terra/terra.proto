@@ -124,6 +124,66 @@ public final class Transfer {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private FungibleTokenPacketData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              denom_ = s;
+              break;
+            }
+            case 16: {
+
+              amount_ = input.readUInt64();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sender_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              receiver_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.applications.transfer.v1.Transfer.internal_static_ibc_applications_transfer_v1_FungibleTokenPacketData_descriptor;
@@ -138,8 +198,7 @@ public final class Transfer {
     }
 
     public static final int DENOM_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object denom_ = "";
+    private volatile java.lang.Object denom_;
     /**
      * <pre>
      * the token denomination to be transferred
@@ -185,7 +244,7 @@ public final class Transfer {
     }
 
     public static final int AMOUNT_FIELD_NUMBER = 2;
-    private long amount_ = 0L;
+    private long amount_;
     /**
      * <pre>
      * the token amount to be transferred
@@ -200,8 +259,7 @@ public final class Transfer {
     }
 
     public static final int SENDER_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object sender_ = "";
+    private volatile java.lang.Object sender_;
     /**
      * <pre>
      * the sender address
@@ -247,8 +305,7 @@ public final class Transfer {
     }
 
     public static final int RECEIVER_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object receiver_ = "";
+    private volatile java.lang.Object receiver_;
     /**
      * <pre>
      * the recipient address on the destination chain
@@ -307,19 +364,19 @@ public final class Transfer {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, denom_);
       }
       if (amount_ != 0L) {
         output.writeUInt64(2, amount_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sender_)) {
+      if (!getSenderBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, sender_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(receiver_)) {
+      if (!getReceiverBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, receiver_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -328,20 +385,20 @@ public final class Transfer {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, denom_);
       }
       if (amount_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, amount_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sender_)) {
+      if (!getSenderBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, sender_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(receiver_)) {
+      if (!getReceiverBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, receiver_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -364,7 +421,7 @@ public final class Transfer {
           .equals(other.getSender())) return false;
       if (!getReceiver()
           .equals(other.getReceiver())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -384,7 +441,7 @@ public final class Transfer {
       hash = (53 * hash) + getSender().hashCode();
       hash = (37 * hash) + RECEIVER_FIELD_NUMBER;
       hash = (53 * hash) + getReceiver().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -507,22 +564,30 @@ public final class Transfer {
 
       // Construct using ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         denom_ = "";
+
         amount_ = 0L;
+
         sender_ = "";
+
         receiver_ = "";
+
         return this;
       }
 
@@ -549,25 +614,12 @@ public final class Transfer {
       @java.lang.Override
       public ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData buildPartial() {
         ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData result = new ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.denom_ = denom_;
+        result.amount_ = amount_;
+        result.sender_ = sender_;
+        result.receiver_ = receiver_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.denom_ = denom_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.amount_ = amount_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.sender_ = sender_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.receiver_ = receiver_;
-        }
       }
 
       @java.lang.Override
@@ -616,7 +668,6 @@ public final class Transfer {
         if (other == ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData.getDefaultInstance()) return this;
         if (!other.getDenom().isEmpty()) {
           denom_ = other.denom_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getAmount() != 0L) {
@@ -624,15 +675,13 @@ public final class Transfer {
         }
         if (!other.getSender().isEmpty()) {
           sender_ = other.sender_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getReceiver().isEmpty()) {
           receiver_ = other.receiver_;
-          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -647,53 +696,19 @@ public final class Transfer {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                denom_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                amount_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                sender_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                receiver_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object denom_ = "";
       /**
@@ -748,9 +763,11 @@ public final class Transfer {
        */
       public Builder setDenom(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -763,8 +780,8 @@ public final class Transfer {
        * @return This builder for chaining.
        */
       public Builder clearDenom() {
+        
         denom_ = getDefaultInstance().getDenom();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -779,10 +796,12 @@ public final class Transfer {
        */
       public Builder setDenomBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -812,7 +831,6 @@ public final class Transfer {
       public Builder setAmount(long value) {
         
         amount_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -825,7 +843,7 @@ public final class Transfer {
        * @return This builder for chaining.
        */
       public Builder clearAmount() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         amount_ = 0L;
         onChanged();
         return this;
@@ -884,9 +902,11 @@ public final class Transfer {
        */
       public Builder setSender(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         sender_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -899,8 +919,8 @@ public final class Transfer {
        * @return This builder for chaining.
        */
       public Builder clearSender() {
+        
         sender_ = getDefaultInstance().getSender();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -915,10 +935,12 @@ public final class Transfer {
        */
       public Builder setSenderBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         sender_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -976,9 +998,11 @@ public final class Transfer {
        */
       public Builder setReceiver(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         receiver_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -991,8 +1015,8 @@ public final class Transfer {
        * @return This builder for chaining.
        */
       public Builder clearReceiver() {
+        
         receiver_ = getDefaultInstance().getReceiver();
-        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1007,10 +1031,12 @@ public final class Transfer {
        */
       public Builder setReceiverBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         receiver_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1047,18 +1073,7 @@ public final class Transfer {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new FungibleTokenPacketData(input, extensionRegistry);
       }
     };
 
@@ -1158,6 +1173,55 @@ public final class Transfer {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private DenomTrace(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              path_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              baseDenom_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.applications.transfer.v1.Transfer.internal_static_ibc_applications_transfer_v1_DenomTrace_descriptor;
@@ -1172,8 +1236,7 @@ public final class Transfer {
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object path_ = "";
+    private volatile java.lang.Object path_;
     /**
      * <pre>
      * path defines the chain of port/channel identifiers used for tracing the
@@ -1221,8 +1284,7 @@ public final class Transfer {
     }
 
     public static final int BASE_DENOM_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object baseDenom_ = "";
+    private volatile java.lang.Object baseDenom_;
     /**
      * <pre>
      * base denomination of the relayed fungible token.
@@ -1281,13 +1343,13 @@ public final class Transfer {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+      if (!getPathBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, path_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(baseDenom_)) {
+      if (!getBaseDenomBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, baseDenom_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1296,13 +1358,13 @@ public final class Transfer {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(path_)) {
+      if (!getPathBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, path_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(baseDenom_)) {
+      if (!getBaseDenomBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, baseDenom_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1321,7 +1383,7 @@ public final class Transfer {
           .equals(other.getPath())) return false;
       if (!getBaseDenom()
           .equals(other.getBaseDenom())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1336,7 +1398,7 @@ public final class Transfer {
       hash = (53 * hash) + getPath().hashCode();
       hash = (37 * hash) + BASE_DENOM_FIELD_NUMBER;
       hash = (53 * hash) + getBaseDenom().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1458,20 +1520,26 @@ public final class Transfer {
 
       // Construct using ibc.applications.transfer.v1.Transfer.DenomTrace.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         path_ = "";
+
         baseDenom_ = "";
+
         return this;
       }
 
@@ -1498,19 +1566,10 @@ public final class Transfer {
       @java.lang.Override
       public ibc.applications.transfer.v1.Transfer.DenomTrace buildPartial() {
         ibc.applications.transfer.v1.Transfer.DenomTrace result = new ibc.applications.transfer.v1.Transfer.DenomTrace(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.path_ = path_;
+        result.baseDenom_ = baseDenom_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.applications.transfer.v1.Transfer.DenomTrace result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.path_ = path_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.baseDenom_ = baseDenom_;
-        }
       }
 
       @java.lang.Override
@@ -1559,15 +1618,13 @@ public final class Transfer {
         if (other == ibc.applications.transfer.v1.Transfer.DenomTrace.getDefaultInstance()) return this;
         if (!other.getPath().isEmpty()) {
           path_ = other.path_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getBaseDenom().isEmpty()) {
           baseDenom_ = other.baseDenom_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1582,43 +1639,19 @@ public final class Transfer {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.applications.transfer.v1.Transfer.DenomTrace parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                path_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                baseDenom_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.applications.transfer.v1.Transfer.DenomTrace) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object path_ = "";
       /**
@@ -1676,9 +1709,11 @@ public final class Transfer {
        */
       public Builder setPath(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         path_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1692,8 +1727,8 @@ public final class Transfer {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
+        
         path_ = getDefaultInstance().getPath();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1709,10 +1744,12 @@ public final class Transfer {
        */
       public Builder setPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         path_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1770,9 +1807,11 @@ public final class Transfer {
        */
       public Builder setBaseDenom(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         baseDenom_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1785,8 +1824,8 @@ public final class Transfer {
        * @return This builder for chaining.
        */
       public Builder clearBaseDenom() {
+        
         baseDenom_ = getDefaultInstance().getBaseDenom();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1801,10 +1840,12 @@ public final class Transfer {
        */
       public Builder setBaseDenomBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         baseDenom_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1841,18 +1882,7 @@ public final class Transfer {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new DenomTrace(input, extensionRegistry);
       }
     };
 
@@ -1932,6 +1962,53 @@ public final class Transfer {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Params(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              sendEnabled_ = input.readBool();
+              break;
+            }
+            case 16: {
+
+              receiveEnabled_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.applications.transfer.v1.Transfer.internal_static_ibc_applications_transfer_v1_Params_descriptor;
@@ -1946,7 +2023,7 @@ public final class Transfer {
     }
 
     public static final int SEND_ENABLED_FIELD_NUMBER = 1;
-    private boolean sendEnabled_ = false;
+    private boolean sendEnabled_;
     /**
      * <pre>
      * send_enabled enables or disables all cross-chain token transfers from this
@@ -1962,7 +2039,7 @@ public final class Transfer {
     }
 
     public static final int RECEIVE_ENABLED_FIELD_NUMBER = 2;
-    private boolean receiveEnabled_ = false;
+    private boolean receiveEnabled_;
     /**
      * <pre>
      * receive_enabled enables or disables all cross-chain token transfers to this
@@ -1997,7 +2074,7 @@ public final class Transfer {
       if (receiveEnabled_ != false) {
         output.writeBool(2, receiveEnabled_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2014,7 +2091,7 @@ public final class Transfer {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, receiveEnabled_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2033,7 +2110,7 @@ public final class Transfer {
           != other.getSendEnabled()) return false;
       if (getReceiveEnabled()
           != other.getReceiveEnabled()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2050,7 +2127,7 @@ public final class Transfer {
       hash = (37 * hash) + RECEIVE_ENABLED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getReceiveEnabled());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2174,20 +2251,26 @@ public final class Transfer {
 
       // Construct using ibc.applications.transfer.v1.Transfer.Params.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         sendEnabled_ = false;
+
         receiveEnabled_ = false;
+
         return this;
       }
 
@@ -2214,19 +2297,10 @@ public final class Transfer {
       @java.lang.Override
       public ibc.applications.transfer.v1.Transfer.Params buildPartial() {
         ibc.applications.transfer.v1.Transfer.Params result = new ibc.applications.transfer.v1.Transfer.Params(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.sendEnabled_ = sendEnabled_;
+        result.receiveEnabled_ = receiveEnabled_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.applications.transfer.v1.Transfer.Params result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.sendEnabled_ = sendEnabled_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.receiveEnabled_ = receiveEnabled_;
-        }
       }
 
       @java.lang.Override
@@ -2279,7 +2353,7 @@ public final class Transfer {
         if (other.getReceiveEnabled() != false) {
           setReceiveEnabled(other.getReceiveEnabled());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2294,43 +2368,19 @@ public final class Transfer {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.applications.transfer.v1.Transfer.Params parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                sendEnabled_ = input.readBool();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                receiveEnabled_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.applications.transfer.v1.Transfer.Params) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private boolean sendEnabled_ ;
       /**
@@ -2359,7 +2409,6 @@ public final class Transfer {
       public Builder setSendEnabled(boolean value) {
         
         sendEnabled_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2373,7 +2422,7 @@ public final class Transfer {
        * @return This builder for chaining.
        */
       public Builder clearSendEnabled() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         sendEnabled_ = false;
         onChanged();
         return this;
@@ -2406,7 +2455,6 @@ public final class Transfer {
       public Builder setReceiveEnabled(boolean value) {
         
         receiveEnabled_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2420,7 +2468,7 @@ public final class Transfer {
        * @return This builder for chaining.
        */
       public Builder clearReceiveEnabled() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         receiveEnabled_ = false;
         onChanged();
         return this;
@@ -2458,18 +2506,7 @@ public final class Transfer {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Params(input, extensionRegistry);
       }
     };
 

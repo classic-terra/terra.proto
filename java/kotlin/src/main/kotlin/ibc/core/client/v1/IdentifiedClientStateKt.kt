@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializeidentifiedClientState")
-public inline fun identifiedClientState(block: ibc.core.client.v1.IdentifiedClientStateKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Client.IdentifiedClientState =
+@kotlin.jvm.JvmSynthetic
+inline fun identifiedClientState(block: ibc.core.client.v1.IdentifiedClientStateKt.Dsl.() -> Unit): ibc.core.client.v1.Client.IdentifiedClientState =
   ibc.core.client.v1.IdentifiedClientStateKt.Dsl._create(ibc.core.client.v1.Client.IdentifiedClientState.newBuilder()).apply { block() }._build()
-public object IdentifiedClientStateKt {
+object IdentifiedClientStateKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.Client.IdentifiedClientState.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.Client.IdentifiedClientState.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.Client.IdentifiedClientState.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object IdentifiedClientStateKt {
      *
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public var clientId: kotlin.String
+    var clientId: kotlin.String
       @JvmName("getClientId")
       get() = _builder.getClientId()
       @JvmName("setClientId")
@@ -43,7 +43,7 @@ public object IdentifiedClientStateKt {
      *
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public fun clearClientId() {
+    fun clearClientId() {
       _builder.clearClientId()
     }
 
@@ -54,7 +54,7 @@ public object IdentifiedClientStateKt {
      *
      * <code>.google.protobuf.Any client_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
      */
-    public var clientState: com.google.protobuf.Any
+    var clientState: com.google.protobuf.Any
       @JvmName("getClientState")
       get() = _builder.getClientState()
       @JvmName("setClientState")
@@ -68,7 +68,7 @@ public object IdentifiedClientStateKt {
      *
      * <code>.google.protobuf.Any client_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
      */
-    public fun clearClientState() {
+    fun clearClientState() {
       _builder.clearClientState()
     }
     /**
@@ -79,15 +79,11 @@ public object IdentifiedClientStateKt {
      * <code>.google.protobuf.Any client_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
      * @return Whether the clientState field is set.
      */
-    public fun hasClientState(): kotlin.Boolean {
+    fun hasClientState(): kotlin.Boolean {
       return _builder.hasClientState()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.Client.IdentifiedClientState.copy(block: ibc.core.client.v1.IdentifiedClientStateKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Client.IdentifiedClientState =
+inline fun ibc.core.client.v1.Client.IdentifiedClientState.copy(block: ibc.core.client.v1.IdentifiedClientStateKt.Dsl.() -> Unit): ibc.core.client.v1.Client.IdentifiedClientState =
   ibc.core.client.v1.IdentifiedClientStateKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.client.v1.Client.IdentifiedClientStateOrBuilder.clientStateOrNull: com.google.protobuf.Any?
-  get() = if (hasClientState()) getClientState() else null
-

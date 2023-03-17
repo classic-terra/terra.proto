@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializecodeInfo")
-public inline fun codeInfo(block: terra.wasm.v1beta1.CodeInfoKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Wasm.CodeInfo =
+@kotlin.jvm.JvmSynthetic
+inline fun codeInfo(block: terra.wasm.v1beta1.CodeInfoKt.Dsl.() -> Unit): terra.wasm.v1beta1.Wasm.CodeInfo =
   terra.wasm.v1beta1.CodeInfoKt.Dsl._create(terra.wasm.v1beta1.Wasm.CodeInfo.newBuilder()).apply { block() }._build()
-public object CodeInfoKt {
+object CodeInfoKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Wasm.CodeInfo.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Wasm.CodeInfo.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Wasm.CodeInfo.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object CodeInfoKt {
      *
      * <code>uint64 code_id = 1 [(.gogoproto.customname) = "CodeID", (.gogoproto.moretags) = "yaml:&#92;"code_id&#92;""];</code>
      */
-    public var codeId: kotlin.Long
+    var codeId: kotlin.Long
       @JvmName("getCodeId")
       get() = _builder.getCodeId()
       @JvmName("setCodeId")
@@ -43,7 +43,7 @@ public object CodeInfoKt {
      *
      * <code>uint64 code_id = 1 [(.gogoproto.customname) = "CodeID", (.gogoproto.moretags) = "yaml:&#92;"code_id&#92;""];</code>
      */
-    public fun clearCodeId() {
+    fun clearCodeId() {
       _builder.clearCodeId()
     }
 
@@ -54,7 +54,7 @@ public object CodeInfoKt {
      *
      * <code>bytes code_hash = 2 [(.gogoproto.moretags) = "yaml:&#92;"code_hash&#92;""];</code>
      */
-    public var codeHash: com.google.protobuf.ByteString
+    var codeHash: com.google.protobuf.ByteString
       @JvmName("getCodeHash")
       get() = _builder.getCodeHash()
       @JvmName("setCodeHash")
@@ -68,7 +68,7 @@ public object CodeInfoKt {
      *
      * <code>bytes code_hash = 2 [(.gogoproto.moretags) = "yaml:&#92;"code_hash&#92;""];</code>
      */
-    public fun clearCodeHash() {
+    fun clearCodeHash() {
       _builder.clearCodeHash()
     }
 
@@ -79,7 +79,7 @@ public object CodeInfoKt {
      *
      * <code>string creator = 3 [(.gogoproto.moretags) = "yaml:&#92;"creator&#92;""];</code>
      */
-    public var creator: kotlin.String
+    var creator: kotlin.String
       @JvmName("getCreator")
       get() = _builder.getCreator()
       @JvmName("setCreator")
@@ -93,12 +93,11 @@ public object CodeInfoKt {
      *
      * <code>string creator = 3 [(.gogoproto.moretags) = "yaml:&#92;"creator&#92;""];</code>
      */
-    public fun clearCreator() {
+    fun clearCreator() {
       _builder.clearCreator()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Wasm.CodeInfo.copy(block: terra.wasm.v1beta1.CodeInfoKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Wasm.CodeInfo =
+inline fun terra.wasm.v1beta1.Wasm.CodeInfo.copy(block: terra.wasm.v1beta1.CodeInfoKt.Dsl.() -> Unit): terra.wasm.v1beta1.Wasm.CodeInfo =
   terra.wasm.v1beta1.CodeInfoKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

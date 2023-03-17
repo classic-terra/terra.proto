@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializevalidator")
-public inline fun validator(block: tendermint.types.ValidatorKt.Dsl.() -> kotlin.Unit): tendermint.types.ValidatorOuterClass.Validator =
+@kotlin.jvm.JvmSynthetic
+inline fun validator(block: tendermint.types.ValidatorKt.Dsl.() -> Unit): tendermint.types.ValidatorOuterClass.Validator =
   tendermint.types.ValidatorKt.Dsl._create(tendermint.types.ValidatorOuterClass.Validator.newBuilder()).apply { block() }._build()
-public object ValidatorKt {
+object ValidatorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.ValidatorOuterClass.Validator.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.ValidatorOuterClass.Validator.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.ValidatorOuterClass.Validator.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ValidatorKt {
     /**
      * <code>bytes address = 1;</code>
      */
-    public var address: com.google.protobuf.ByteString
+    var address: com.google.protobuf.ByteString
       @JvmName("getAddress")
       get() = _builder.getAddress()
       @JvmName("setAddress")
@@ -35,14 +35,14 @@ public object ValidatorKt {
     /**
      * <code>bytes address = 1;</code>
      */
-    public fun clearAddress() {
+    fun clearAddress() {
       _builder.clearAddress()
     }
 
     /**
      * <code>.tendermint.crypto.PublicKey pub_key = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public var pubKey: tendermint.crypto.Keys.PublicKey
+    var pubKey: tendermint.crypto.Keys.PublicKey
       @JvmName("getPubKey")
       get() = _builder.getPubKey()
       @JvmName("setPubKey")
@@ -52,21 +52,21 @@ public object ValidatorKt {
     /**
      * <code>.tendermint.crypto.PublicKey pub_key = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearPubKey() {
+    fun clearPubKey() {
       _builder.clearPubKey()
     }
     /**
      * <code>.tendermint.crypto.PublicKey pub_key = 2 [(.gogoproto.nullable) = false];</code>
      * @return Whether the pubKey field is set.
      */
-    public fun hasPubKey(): kotlin.Boolean {
+    fun hasPubKey(): kotlin.Boolean {
       return _builder.hasPubKey()
     }
 
     /**
      * <code>int64 voting_power = 3;</code>
      */
-    public var votingPower: kotlin.Long
+    var votingPower: kotlin.Long
       @JvmName("getVotingPower")
       get() = _builder.getVotingPower()
       @JvmName("setVotingPower")
@@ -76,14 +76,14 @@ public object ValidatorKt {
     /**
      * <code>int64 voting_power = 3;</code>
      */
-    public fun clearVotingPower() {
+    fun clearVotingPower() {
       _builder.clearVotingPower()
     }
 
     /**
      * <code>int64 proposer_priority = 4;</code>
      */
-    public var proposerPriority: kotlin.Long
+    var proposerPriority: kotlin.Long
       @JvmName("getProposerPriority")
       get() = _builder.getProposerPriority()
       @JvmName("setProposerPriority")
@@ -93,15 +93,11 @@ public object ValidatorKt {
     /**
      * <code>int64 proposer_priority = 4;</code>
      */
-    public fun clearProposerPriority() {
+    fun clearProposerPriority() {
       _builder.clearProposerPriority()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.ValidatorOuterClass.Validator.copy(block: tendermint.types.ValidatorKt.Dsl.() -> kotlin.Unit): tendermint.types.ValidatorOuterClass.Validator =
+inline fun tendermint.types.ValidatorOuterClass.Validator.copy(block: tendermint.types.ValidatorKt.Dsl.() -> Unit): tendermint.types.ValidatorOuterClass.Validator =
   tendermint.types.ValidatorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.ValidatorOuterClass.ValidatorOrBuilder.pubKeyOrNull: tendermint.crypto.Keys.PublicKey?
-  get() = if (hasPubKey()) getPubKey() else null
-

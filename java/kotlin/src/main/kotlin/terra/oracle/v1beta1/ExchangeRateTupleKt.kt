@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeexchangeRateTuple")
-public inline fun exchangeRateTuple(block: terra.oracle.v1beta1.ExchangeRateTupleKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Oracle.ExchangeRateTuple =
+@kotlin.jvm.JvmSynthetic
+inline fun exchangeRateTuple(block: terra.oracle.v1beta1.ExchangeRateTupleKt.Dsl.() -> Unit): terra.oracle.v1beta1.Oracle.ExchangeRateTuple =
   terra.oracle.v1beta1.ExchangeRateTupleKt.Dsl._create(terra.oracle.v1beta1.Oracle.ExchangeRateTuple.newBuilder()).apply { block() }._build()
-public object ExchangeRateTupleKt {
+object ExchangeRateTupleKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.Oracle.ExchangeRateTuple.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.Oracle.ExchangeRateTuple.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.Oracle.ExchangeRateTuple.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ExchangeRateTupleKt {
     /**
      * <code>string denom = 1 [(.gogoproto.moretags) = "yaml:&#92;"denom&#92;""];</code>
      */
-    public var denom: kotlin.String
+    var denom: kotlin.String
       @JvmName("getDenom")
       get() = _builder.getDenom()
       @JvmName("setDenom")
@@ -35,14 +35,14 @@ public object ExchangeRateTupleKt {
     /**
      * <code>string denom = 1 [(.gogoproto.moretags) = "yaml:&#92;"denom&#92;""];</code>
      */
-    public fun clearDenom() {
+    fun clearDenom() {
       _builder.clearDenom()
     }
 
     /**
      * <code>string exchange_rate = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"exchange_rate&#92;""];</code>
      */
-    public var exchangeRate: kotlin.String
+    var exchangeRate: kotlin.String
       @JvmName("getExchangeRate")
       get() = _builder.getExchangeRate()
       @JvmName("setExchangeRate")
@@ -52,12 +52,11 @@ public object ExchangeRateTupleKt {
     /**
      * <code>string exchange_rate = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"exchange_rate&#92;""];</code>
      */
-    public fun clearExchangeRate() {
+    fun clearExchangeRate() {
       _builder.clearExchangeRate()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.Oracle.ExchangeRateTuple.copy(block: terra.oracle.v1beta1.ExchangeRateTupleKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Oracle.ExchangeRateTuple =
+inline fun terra.oracle.v1beta1.Oracle.ExchangeRateTuple.copy(block: terra.oracle.v1beta1.ExchangeRateTupleKt.Dsl.() -> Unit): terra.oracle.v1beta1.Oracle.ExchangeRateTuple =
   terra.oracle.v1beta1.ExchangeRateTupleKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializecommunityPoolSpendProposalWithDeposit")
-public inline fun communityPoolSpendProposalWithDeposit(block: cosmos.distribution.v1beta1.CommunityPoolSpendProposalWithDepositKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit =
+@kotlin.jvm.JvmSynthetic
+inline fun communityPoolSpendProposalWithDeposit(block: cosmos.distribution.v1beta1.CommunityPoolSpendProposalWithDepositKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit =
   cosmos.distribution.v1beta1.CommunityPoolSpendProposalWithDepositKt.Dsl._create(cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit.newBuilder()).apply { block() }._build()
-public object CommunityPoolSpendProposalWithDepositKt {
+object CommunityPoolSpendProposalWithDepositKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object CommunityPoolSpendProposalWithDepositKt {
     /**
      * <code>string title = 1 [(.gogoproto.moretags) = "yaml:&#92;"title&#92;""];</code>
      */
-    public var title: kotlin.String
+    var title: kotlin.String
       @JvmName("getTitle")
       get() = _builder.getTitle()
       @JvmName("setTitle")
@@ -35,14 +35,14 @@ public object CommunityPoolSpendProposalWithDepositKt {
     /**
      * <code>string title = 1 [(.gogoproto.moretags) = "yaml:&#92;"title&#92;""];</code>
      */
-    public fun clearTitle() {
+    fun clearTitle() {
       _builder.clearTitle()
     }
 
     /**
      * <code>string description = 2 [(.gogoproto.moretags) = "yaml:&#92;"description&#92;""];</code>
      */
-    public var description: kotlin.String
+    var description: kotlin.String
       @JvmName("getDescription")
       get() = _builder.getDescription()
       @JvmName("setDescription")
@@ -52,14 +52,14 @@ public object CommunityPoolSpendProposalWithDepositKt {
     /**
      * <code>string description = 2 [(.gogoproto.moretags) = "yaml:&#92;"description&#92;""];</code>
      */
-    public fun clearDescription() {
+    fun clearDescription() {
       _builder.clearDescription()
     }
 
     /**
      * <code>string recipient = 3 [(.gogoproto.moretags) = "yaml:&#92;"recipient&#92;""];</code>
      */
-    public var recipient: kotlin.String
+    var recipient: kotlin.String
       @JvmName("getRecipient")
       get() = _builder.getRecipient()
       @JvmName("setRecipient")
@@ -69,14 +69,14 @@ public object CommunityPoolSpendProposalWithDepositKt {
     /**
      * <code>string recipient = 3 [(.gogoproto.moretags) = "yaml:&#92;"recipient&#92;""];</code>
      */
-    public fun clearRecipient() {
+    fun clearRecipient() {
       _builder.clearRecipient()
     }
 
     /**
      * <code>string amount = 4 [(.gogoproto.moretags) = "yaml:&#92;"amount&#92;""];</code>
      */
-    public var amount: kotlin.String
+    var amount: kotlin.String
       @JvmName("getAmount")
       get() = _builder.getAmount()
       @JvmName("setAmount")
@@ -86,14 +86,14 @@ public object CommunityPoolSpendProposalWithDepositKt {
     /**
      * <code>string amount = 4 [(.gogoproto.moretags) = "yaml:&#92;"amount&#92;""];</code>
      */
-    public fun clearAmount() {
+    fun clearAmount() {
       _builder.clearAmount()
     }
 
     /**
      * <code>string deposit = 5 [(.gogoproto.moretags) = "yaml:&#92;"deposit&#92;""];</code>
      */
-    public var deposit: kotlin.String
+    var deposit: kotlin.String
       @JvmName("getDeposit")
       get() = _builder.getDeposit()
       @JvmName("setDeposit")
@@ -103,12 +103,11 @@ public object CommunityPoolSpendProposalWithDepositKt {
     /**
      * <code>string deposit = 5 [(.gogoproto.moretags) = "yaml:&#92;"deposit&#92;""];</code>
      */
-    public fun clearDeposit() {
+    fun clearDeposit() {
       _builder.clearDeposit()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit.copy(block: cosmos.distribution.v1beta1.CommunityPoolSpendProposalWithDepositKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit =
+inline fun cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit.copy(block: cosmos.distribution.v1beta1.CommunityPoolSpendProposalWithDepositKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit =
   cosmos.distribution.v1beta1.CommunityPoolSpendProposalWithDepositKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

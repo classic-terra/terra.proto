@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializeclientUpdateProposal")
-public inline fun clientUpdateProposal(block: ibc.core.client.v1.ClientUpdateProposalKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Client.ClientUpdateProposal =
+@kotlin.jvm.JvmSynthetic
+inline fun clientUpdateProposal(block: ibc.core.client.v1.ClientUpdateProposalKt.Dsl.() -> Unit): ibc.core.client.v1.Client.ClientUpdateProposal =
   ibc.core.client.v1.ClientUpdateProposalKt.Dsl._create(ibc.core.client.v1.Client.ClientUpdateProposal.newBuilder()).apply { block() }._build()
-public object ClientUpdateProposalKt {
+object ClientUpdateProposalKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.Client.ClientUpdateProposal.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.Client.ClientUpdateProposal.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.Client.ClientUpdateProposal.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ClientUpdateProposalKt {
      *
      * <code>string title = 1;</code>
      */
-    public var title: kotlin.String
+    var title: kotlin.String
       @JvmName("getTitle")
       get() = _builder.getTitle()
       @JvmName("setTitle")
@@ -43,7 +43,7 @@ public object ClientUpdateProposalKt {
      *
      * <code>string title = 1;</code>
      */
-    public fun clearTitle() {
+    fun clearTitle() {
       _builder.clearTitle()
     }
 
@@ -54,7 +54,7 @@ public object ClientUpdateProposalKt {
      *
      * <code>string description = 2;</code>
      */
-    public var description: kotlin.String
+    var description: kotlin.String
       @JvmName("getDescription")
       get() = _builder.getDescription()
       @JvmName("setDescription")
@@ -68,7 +68,7 @@ public object ClientUpdateProposalKt {
      *
      * <code>string description = 2;</code>
      */
-    public fun clearDescription() {
+    fun clearDescription() {
       _builder.clearDescription()
     }
 
@@ -79,7 +79,7 @@ public object ClientUpdateProposalKt {
      *
      * <code>string subject_client_id = 3 [(.gogoproto.moretags) = "yaml:&#92;"subject_client_id&#92;""];</code>
      */
-    public var subjectClientId: kotlin.String
+    var subjectClientId: kotlin.String
       @JvmName("getSubjectClientId")
       get() = _builder.getSubjectClientId()
       @JvmName("setSubjectClientId")
@@ -93,7 +93,7 @@ public object ClientUpdateProposalKt {
      *
      * <code>string subject_client_id = 3 [(.gogoproto.moretags) = "yaml:&#92;"subject_client_id&#92;""];</code>
      */
-    public fun clearSubjectClientId() {
+    fun clearSubjectClientId() {
       _builder.clearSubjectClientId()
     }
 
@@ -105,7 +105,7 @@ public object ClientUpdateProposalKt {
      *
      * <code>string substitute_client_id = 4 [(.gogoproto.moretags) = "yaml:&#92;"substitute_client_id&#92;""];</code>
      */
-    public var substituteClientId: kotlin.String
+    var substituteClientId: kotlin.String
       @JvmName("getSubstituteClientId")
       get() = _builder.getSubstituteClientId()
       @JvmName("setSubstituteClientId")
@@ -120,12 +120,11 @@ public object ClientUpdateProposalKt {
      *
      * <code>string substitute_client_id = 4 [(.gogoproto.moretags) = "yaml:&#92;"substitute_client_id&#92;""];</code>
      */
-    public fun clearSubstituteClientId() {
+    fun clearSubstituteClientId() {
       _builder.clearSubstituteClientId()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.Client.ClientUpdateProposal.copy(block: ibc.core.client.v1.ClientUpdateProposalKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Client.ClientUpdateProposal =
+inline fun ibc.core.client.v1.Client.ClientUpdateProposal.copy(block: ibc.core.client.v1.ClientUpdateProposalKt.Dsl.() -> Unit): ibc.core.client.v1.Client.ClientUpdateProposal =
   ibc.core.client.v1.ClientUpdateProposalKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

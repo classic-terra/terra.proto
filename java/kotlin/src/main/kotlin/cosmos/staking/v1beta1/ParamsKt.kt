@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeparams")
-public inline fun params(block: cosmos.staking.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Params =
+@kotlin.jvm.JvmSynthetic
+inline fun params(block: cosmos.staking.v1beta1.ParamsKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Params =
   cosmos.staking.v1beta1.ParamsKt.Dsl._create(cosmos.staking.v1beta1.Staking.Params.newBuilder()).apply { block() }._build()
-public object ParamsKt {
+object ParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Staking.Params.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Staking.Params.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Staking.Params.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ParamsKt {
      *
      * <code>.google.protobuf.Duration unbonding_time = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"unbonding_time&#92;"", (.gogoproto.stdduration) = true];</code>
      */
-    public var unbondingTime: com.google.protobuf.Duration
+    var unbondingTime: com.google.protobuf.Duration
       @JvmName("getUnbondingTime")
       get() = _builder.getUnbondingTime()
       @JvmName("setUnbondingTime")
@@ -43,7 +43,7 @@ public object ParamsKt {
      *
      * <code>.google.protobuf.Duration unbonding_time = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"unbonding_time&#92;"", (.gogoproto.stdduration) = true];</code>
      */
-    public fun clearUnbondingTime() {
+    fun clearUnbondingTime() {
       _builder.clearUnbondingTime()
     }
     /**
@@ -54,7 +54,7 @@ public object ParamsKt {
      * <code>.google.protobuf.Duration unbonding_time = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"unbonding_time&#92;"", (.gogoproto.stdduration) = true];</code>
      * @return Whether the unbondingTime field is set.
      */
-    public fun hasUnbondingTime(): kotlin.Boolean {
+    fun hasUnbondingTime(): kotlin.Boolean {
       return _builder.hasUnbondingTime()
     }
 
@@ -65,7 +65,7 @@ public object ParamsKt {
      *
      * <code>uint32 max_validators = 2 [(.gogoproto.moretags) = "yaml:&#92;"max_validators&#92;""];</code>
      */
-    public var maxValidators: kotlin.Int
+    var maxValidators: kotlin.Int
       @JvmName("getMaxValidators")
       get() = _builder.getMaxValidators()
       @JvmName("setMaxValidators")
@@ -79,7 +79,7 @@ public object ParamsKt {
      *
      * <code>uint32 max_validators = 2 [(.gogoproto.moretags) = "yaml:&#92;"max_validators&#92;""];</code>
      */
-    public fun clearMaxValidators() {
+    fun clearMaxValidators() {
       _builder.clearMaxValidators()
     }
 
@@ -90,7 +90,7 @@ public object ParamsKt {
      *
      * <code>uint32 max_entries = 3 [(.gogoproto.moretags) = "yaml:&#92;"max_entries&#92;""];</code>
      */
-    public var maxEntries: kotlin.Int
+    var maxEntries: kotlin.Int
       @JvmName("getMaxEntries")
       get() = _builder.getMaxEntries()
       @JvmName("setMaxEntries")
@@ -104,7 +104,7 @@ public object ParamsKt {
      *
      * <code>uint32 max_entries = 3 [(.gogoproto.moretags) = "yaml:&#92;"max_entries&#92;""];</code>
      */
-    public fun clearMaxEntries() {
+    fun clearMaxEntries() {
       _builder.clearMaxEntries()
     }
 
@@ -115,7 +115,7 @@ public object ParamsKt {
      *
      * <code>uint32 historical_entries = 4 [(.gogoproto.moretags) = "yaml:&#92;"historical_entries&#92;""];</code>
      */
-    public var historicalEntries: kotlin.Int
+    var historicalEntries: kotlin.Int
       @JvmName("getHistoricalEntries")
       get() = _builder.getHistoricalEntries()
       @JvmName("setHistoricalEntries")
@@ -129,7 +129,7 @@ public object ParamsKt {
      *
      * <code>uint32 historical_entries = 4 [(.gogoproto.moretags) = "yaml:&#92;"historical_entries&#92;""];</code>
      */
-    public fun clearHistoricalEntries() {
+    fun clearHistoricalEntries() {
       _builder.clearHistoricalEntries()
     }
 
@@ -140,7 +140,7 @@ public object ParamsKt {
      *
      * <code>string bond_denom = 5 [(.gogoproto.moretags) = "yaml:&#92;"bond_denom&#92;""];</code>
      */
-    public var bondDenom: kotlin.String
+    var bondDenom: kotlin.String
       @JvmName("getBondDenom")
       get() = _builder.getBondDenom()
       @JvmName("setBondDenom")
@@ -154,15 +154,11 @@ public object ParamsKt {
      *
      * <code>string bond_denom = 5 [(.gogoproto.moretags) = "yaml:&#92;"bond_denom&#92;""];</code>
      */
-    public fun clearBondDenom() {
+    fun clearBondDenom() {
       _builder.clearBondDenom()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Staking.Params.copy(block: cosmos.staking.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Params =
+inline fun cosmos.staking.v1beta1.Staking.Params.copy(block: cosmos.staking.v1beta1.ParamsKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Params =
   cosmos.staking.v1beta1.ParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.Staking.ParamsOrBuilder.unbondingTimeOrNull: com.google.protobuf.Duration?
-  get() = if (hasUnbondingTime()) getUnbondingTime() else null
-

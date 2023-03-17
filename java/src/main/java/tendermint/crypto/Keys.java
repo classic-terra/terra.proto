@@ -73,6 +73,53 @@ public final class Keys {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private PublicKey(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              sumCase_ = 1;
+              sum_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              sumCase_ = 2;
+              sum_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.crypto.Keys.internal_static_tendermint_crypto_PublicKey_descriptor;
@@ -191,7 +238,7 @@ public final class Keys {
         output.writeBytes(
             2, (com.google.protobuf.ByteString) sum_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -210,7 +257,7 @@ public final class Keys {
           .computeBytesSize(
               2, (com.google.protobuf.ByteString) sum_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -238,7 +285,7 @@ public final class Keys {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -261,7 +308,7 @@ public final class Keys {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -382,18 +429,22 @@ public final class Keys {
 
       // Construct using tendermint.crypto.Keys.PublicKey.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         sumCase_ = 0;
         sum_ = null;
         return this;
@@ -422,19 +473,15 @@ public final class Keys {
       @java.lang.Override
       public tendermint.crypto.Keys.PublicKey buildPartial() {
         tendermint.crypto.Keys.PublicKey result = new tendermint.crypto.Keys.PublicKey(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        if (sumCase_ == 1) {
+          result.sum_ = sum_;
+        }
+        if (sumCase_ == 2) {
+          result.sum_ = sum_;
+        }
+        result.sumCase_ = sumCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.crypto.Keys.PublicKey result) {
-        int from_bitField0_ = bitField0_;
-      }
-
-      private void buildPartialOneofs(tendermint.crypto.Keys.PublicKey result) {
-        result.sumCase_ = sumCase_;
-        result.sum_ = this.sum_;
       }
 
       @java.lang.Override
@@ -494,7 +541,7 @@ public final class Keys {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -509,40 +556,17 @@ public final class Keys {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.crypto.Keys.PublicKey parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                sum_ = input.readBytes();
-                sumCase_ = 1;
-                break;
-              } // case 10
-              case 18: {
-                sum_ = input.readBytes();
-                sumCase_ = 2;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.crypto.Keys.PublicKey) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int sumCase_ = 0;
@@ -560,7 +584,6 @@ public final class Keys {
         return this;
       }
 
-      private int bitField0_;
 
       /**
        * <code>bytes ed25519 = 1;</code>
@@ -585,8 +608,10 @@ public final class Keys {
        * @return This builder for chaining.
        */
       public Builder setEd25519(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        sumCase_ = 1;
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  sumCase_ = 1;
         sum_ = value;
         onChanged();
         return this;
@@ -627,8 +652,10 @@ public final class Keys {
        * @return This builder for chaining.
        */
       public Builder setSecp256K1(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        sumCase_ = 2;
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  sumCase_ = 2;
         sum_ = value;
         onChanged();
         return this;
@@ -678,18 +705,7 @@ public final class Keys {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PublicKey(input, extensionRegistry);
       }
     };
 

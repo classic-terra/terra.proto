@@ -3,16 +3,16 @@
 
 package terra.tx.v1beta1;
 
-@kotlin.jvm.JvmName("-initializecomputeTaxRequest")
-public inline fun computeTaxRequest(block: terra.tx.v1beta1.ComputeTaxRequestKt.Dsl.() -> kotlin.Unit): terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun computeTaxRequest(block: terra.tx.v1beta1.ComputeTaxRequestKt.Dsl.() -> Unit): terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest =
   terra.tx.v1beta1.ComputeTaxRequestKt.Dsl._create(terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest.newBuilder()).apply { block() }._build()
-public object ComputeTaxRequestKt {
+object ComputeTaxRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest.Builder): Dsl = Dsl(builder)
@@ -30,7 +30,7 @@ public object ComputeTaxRequestKt {
      *
      * <code>.cosmos.tx.v1beta1.Tx tx = 1 [deprecated = true];</code>
      */
-    @kotlin.Deprecated(message = "Field tx is deprecated") public var tx: cosmos.tx.v1beta1.TxOuterClass.Tx
+    @kotlin.Deprecated(message = "Field tx is deprecated") var tx: cosmos.tx.v1beta1.TxOuterClass.Tx
       @JvmName("getTx")
       get() = _builder.getTx()
       @JvmName("setTx")
@@ -44,10 +44,8 @@ public object ComputeTaxRequestKt {
      * </pre>
      *
      * <code>.cosmos.tx.v1beta1.Tx tx = 1 [deprecated = true];</code>
-     * @deprecated terra.tx.v1beta1.ComputeTaxRequest.tx is deprecated.
-     *     See terra/tx/v1beta1/service.proto;l=27
      */
-    public fun clearTx() {
+    fun clearTx() {
       _builder.clearTx()
     }
     /**
@@ -57,11 +55,9 @@ public object ComputeTaxRequestKt {
      * </pre>
      *
      * <code>.cosmos.tx.v1beta1.Tx tx = 1 [deprecated = true];</code>
-     * @deprecated terra.tx.v1beta1.ComputeTaxRequest.tx is deprecated.
-     *     See terra/tx/v1beta1/service.proto;l=27
      * @return Whether the tx field is set.
      */
-    public fun hasTx(): kotlin.Boolean {
+    fun hasTx(): kotlin.Boolean {
       return _builder.hasTx()
     }
 
@@ -72,7 +68,7 @@ public object ComputeTaxRequestKt {
      *
      * <code>bytes tx_bytes = 2;</code>
      */
-    public var txBytes: com.google.protobuf.ByteString
+    var txBytes: com.google.protobuf.ByteString
       @JvmName("getTxBytes")
       get() = _builder.getTxBytes()
       @JvmName("setTxBytes")
@@ -86,15 +82,11 @@ public object ComputeTaxRequestKt {
      *
      * <code>bytes tx_bytes = 2;</code>
      */
-    public fun clearTxBytes() {
+    fun clearTxBytes() {
       _builder.clearTxBytes()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest.copy(block: terra.tx.v1beta1.ComputeTaxRequestKt.Dsl.() -> kotlin.Unit): terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest =
+inline fun terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest.copy(block: terra.tx.v1beta1.ComputeTaxRequestKt.Dsl.() -> Unit): terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequest =
   terra.tx.v1beta1.ComputeTaxRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.tx.v1beta1.ServiceOuterClass.ComputeTaxRequestOrBuilder.txOrNull: cosmos.tx.v1beta1.TxOuterClass.Tx?
-  get() = if (hasTx()) getTx() else null
-

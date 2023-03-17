@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializeheader")
-public inline fun header(block: tendermint.types.HeaderKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.Header =
+@kotlin.jvm.JvmSynthetic
+inline fun header(block: tendermint.types.HeaderKt.Dsl.() -> Unit): tendermint.types.Types.Header =
   tendermint.types.HeaderKt.Dsl._create(tendermint.types.Types.Header.newBuilder()).apply { block() }._build()
-public object HeaderKt {
+object HeaderKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.Types.Header.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.Types.Header.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.Types.Header.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object HeaderKt {
      *
      * <code>.tendermint.version.Consensus version = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var version: tendermint.version.Types.Consensus
+    var version: tendermint.version.Types.Consensus
       @JvmName("getVersion")
       get() = _builder.getVersion()
       @JvmName("setVersion")
@@ -43,7 +43,7 @@ public object HeaderKt {
      *
      * <code>.tendermint.version.Consensus version = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearVersion() {
+    fun clearVersion() {
       _builder.clearVersion()
     }
     /**
@@ -54,14 +54,14 @@ public object HeaderKt {
      * <code>.tendermint.version.Consensus version = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the version field is set.
      */
-    public fun hasVersion(): kotlin.Boolean {
+    fun hasVersion(): kotlin.Boolean {
       return _builder.hasVersion()
     }
 
     /**
      * <code>string chain_id = 2 [(.gogoproto.customname) = "ChainID"];</code>
      */
-    public var chainId: kotlin.String
+    var chainId: kotlin.String
       @JvmName("getChainId")
       get() = _builder.getChainId()
       @JvmName("setChainId")
@@ -71,14 +71,14 @@ public object HeaderKt {
     /**
      * <code>string chain_id = 2 [(.gogoproto.customname) = "ChainID"];</code>
      */
-    public fun clearChainId() {
+    fun clearChainId() {
       _builder.clearChainId()
     }
 
     /**
      * <code>int64 height = 3;</code>
      */
-    public var height: kotlin.Long
+    var height: kotlin.Long
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -88,14 +88,14 @@ public object HeaderKt {
     /**
      * <code>int64 height = 3;</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
 
     /**
      * <code>.google.protobuf.Timestamp time = 4 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public var time: com.google.protobuf.Timestamp
+    var time: com.google.protobuf.Timestamp
       @JvmName("getTime")
       get() = _builder.getTime()
       @JvmName("setTime")
@@ -105,14 +105,14 @@ public object HeaderKt {
     /**
      * <code>.google.protobuf.Timestamp time = 4 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearTime() {
+    fun clearTime() {
       _builder.clearTime()
     }
     /**
      * <code>.google.protobuf.Timestamp time = 4 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      * @return Whether the time field is set.
      */
-    public fun hasTime(): kotlin.Boolean {
+    fun hasTime(): kotlin.Boolean {
       return _builder.hasTime()
     }
 
@@ -123,7 +123,7 @@ public object HeaderKt {
      *
      * <code>.tendermint.types.BlockID last_block_id = 5 [(.gogoproto.nullable) = false];</code>
      */
-    public var lastBlockId: tendermint.types.Types.BlockID
+    var lastBlockId: tendermint.types.Types.BlockID
       @JvmName("getLastBlockId")
       get() = _builder.getLastBlockId()
       @JvmName("setLastBlockId")
@@ -137,7 +137,7 @@ public object HeaderKt {
      *
      * <code>.tendermint.types.BlockID last_block_id = 5 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearLastBlockId() {
+    fun clearLastBlockId() {
       _builder.clearLastBlockId()
     }
     /**
@@ -148,7 +148,7 @@ public object HeaderKt {
      * <code>.tendermint.types.BlockID last_block_id = 5 [(.gogoproto.nullable) = false];</code>
      * @return Whether the lastBlockId field is set.
      */
-    public fun hasLastBlockId(): kotlin.Boolean {
+    fun hasLastBlockId(): kotlin.Boolean {
       return _builder.hasLastBlockId()
     }
 
@@ -159,7 +159,7 @@ public object HeaderKt {
      *
      * <code>bytes last_commit_hash = 6;</code>
      */
-    public var lastCommitHash: com.google.protobuf.ByteString
+    var lastCommitHash: com.google.protobuf.ByteString
       @JvmName("getLastCommitHash")
       get() = _builder.getLastCommitHash()
       @JvmName("setLastCommitHash")
@@ -173,7 +173,7 @@ public object HeaderKt {
      *
      * <code>bytes last_commit_hash = 6;</code>
      */
-    public fun clearLastCommitHash() {
+    fun clearLastCommitHash() {
       _builder.clearLastCommitHash()
     }
 
@@ -184,7 +184,7 @@ public object HeaderKt {
      *
      * <code>bytes data_hash = 7;</code>
      */
-    public var dataHash: com.google.protobuf.ByteString
+    var dataHash: com.google.protobuf.ByteString
       @JvmName("getDataHash")
       get() = _builder.getDataHash()
       @JvmName("setDataHash")
@@ -198,7 +198,7 @@ public object HeaderKt {
      *
      * <code>bytes data_hash = 7;</code>
      */
-    public fun clearDataHash() {
+    fun clearDataHash() {
       _builder.clearDataHash()
     }
 
@@ -209,7 +209,7 @@ public object HeaderKt {
      *
      * <code>bytes validators_hash = 8;</code>
      */
-    public var validatorsHash: com.google.protobuf.ByteString
+    var validatorsHash: com.google.protobuf.ByteString
       @JvmName("getValidatorsHash")
       get() = _builder.getValidatorsHash()
       @JvmName("setValidatorsHash")
@@ -223,7 +223,7 @@ public object HeaderKt {
      *
      * <code>bytes validators_hash = 8;</code>
      */
-    public fun clearValidatorsHash() {
+    fun clearValidatorsHash() {
       _builder.clearValidatorsHash()
     }
 
@@ -234,7 +234,7 @@ public object HeaderKt {
      *
      * <code>bytes next_validators_hash = 9;</code>
      */
-    public var nextValidatorsHash: com.google.protobuf.ByteString
+    var nextValidatorsHash: com.google.protobuf.ByteString
       @JvmName("getNextValidatorsHash")
       get() = _builder.getNextValidatorsHash()
       @JvmName("setNextValidatorsHash")
@@ -248,7 +248,7 @@ public object HeaderKt {
      *
      * <code>bytes next_validators_hash = 9;</code>
      */
-    public fun clearNextValidatorsHash() {
+    fun clearNextValidatorsHash() {
       _builder.clearNextValidatorsHash()
     }
 
@@ -259,7 +259,7 @@ public object HeaderKt {
      *
      * <code>bytes consensus_hash = 10;</code>
      */
-    public var consensusHash: com.google.protobuf.ByteString
+    var consensusHash: com.google.protobuf.ByteString
       @JvmName("getConsensusHash")
       get() = _builder.getConsensusHash()
       @JvmName("setConsensusHash")
@@ -273,7 +273,7 @@ public object HeaderKt {
      *
      * <code>bytes consensus_hash = 10;</code>
      */
-    public fun clearConsensusHash() {
+    fun clearConsensusHash() {
       _builder.clearConsensusHash()
     }
 
@@ -284,7 +284,7 @@ public object HeaderKt {
      *
      * <code>bytes app_hash = 11;</code>
      */
-    public var appHash: com.google.protobuf.ByteString
+    var appHash: com.google.protobuf.ByteString
       @JvmName("getAppHash")
       get() = _builder.getAppHash()
       @JvmName("setAppHash")
@@ -298,7 +298,7 @@ public object HeaderKt {
      *
      * <code>bytes app_hash = 11;</code>
      */
-    public fun clearAppHash() {
+    fun clearAppHash() {
       _builder.clearAppHash()
     }
 
@@ -309,7 +309,7 @@ public object HeaderKt {
      *
      * <code>bytes last_results_hash = 12;</code>
      */
-    public var lastResultsHash: com.google.protobuf.ByteString
+    var lastResultsHash: com.google.protobuf.ByteString
       @JvmName("getLastResultsHash")
       get() = _builder.getLastResultsHash()
       @JvmName("setLastResultsHash")
@@ -323,7 +323,7 @@ public object HeaderKt {
      *
      * <code>bytes last_results_hash = 12;</code>
      */
-    public fun clearLastResultsHash() {
+    fun clearLastResultsHash() {
       _builder.clearLastResultsHash()
     }
 
@@ -334,7 +334,7 @@ public object HeaderKt {
      *
      * <code>bytes evidence_hash = 13;</code>
      */
-    public var evidenceHash: com.google.protobuf.ByteString
+    var evidenceHash: com.google.protobuf.ByteString
       @JvmName("getEvidenceHash")
       get() = _builder.getEvidenceHash()
       @JvmName("setEvidenceHash")
@@ -348,7 +348,7 @@ public object HeaderKt {
      *
      * <code>bytes evidence_hash = 13;</code>
      */
-    public fun clearEvidenceHash() {
+    fun clearEvidenceHash() {
       _builder.clearEvidenceHash()
     }
 
@@ -359,7 +359,7 @@ public object HeaderKt {
      *
      * <code>bytes proposer_address = 14;</code>
      */
-    public var proposerAddress: com.google.protobuf.ByteString
+    var proposerAddress: com.google.protobuf.ByteString
       @JvmName("getProposerAddress")
       get() = _builder.getProposerAddress()
       @JvmName("setProposerAddress")
@@ -373,21 +373,11 @@ public object HeaderKt {
      *
      * <code>bytes proposer_address = 14;</code>
      */
-    public fun clearProposerAddress() {
+    fun clearProposerAddress() {
       _builder.clearProposerAddress()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.Types.Header.copy(block: tendermint.types.HeaderKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.Header =
+inline fun tendermint.types.Types.Header.copy(block: tendermint.types.HeaderKt.Dsl.() -> Unit): tendermint.types.Types.Header =
   tendermint.types.HeaderKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.Types.HeaderOrBuilder.versionOrNull: tendermint.version.Types.Consensus?
-  get() = if (hasVersion()) getVersion() else null
-
-public val tendermint.types.Types.HeaderOrBuilder.timeOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasTime()) getTime() else null
-
-public val tendermint.types.Types.HeaderOrBuilder.lastBlockIdOrNull: tendermint.types.Types.BlockID?
-  get() = if (hasLastBlockId()) getLastBlockId() else null
-

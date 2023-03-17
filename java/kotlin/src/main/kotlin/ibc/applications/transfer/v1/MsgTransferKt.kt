@@ -3,16 +3,16 @@
 
 package ibc.applications.transfer.v1;
 
-@kotlin.jvm.JvmName("-initializemsgTransfer")
-public inline fun msgTransfer(block: ibc.applications.transfer.v1.MsgTransferKt.Dsl.() -> kotlin.Unit): ibc.applications.transfer.v1.Tx.MsgTransfer =
+@kotlin.jvm.JvmSynthetic
+inline fun msgTransfer(block: ibc.applications.transfer.v1.MsgTransferKt.Dsl.() -> Unit): ibc.applications.transfer.v1.Tx.MsgTransfer =
   ibc.applications.transfer.v1.MsgTransferKt.Dsl._create(ibc.applications.transfer.v1.Tx.MsgTransfer.newBuilder()).apply { block() }._build()
-public object MsgTransferKt {
+object MsgTransferKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.applications.transfer.v1.Tx.MsgTransfer.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.applications.transfer.v1.Tx.MsgTransfer.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.applications.transfer.v1.Tx.MsgTransfer.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MsgTransferKt {
      *
      * <code>string source_port = 1 [(.gogoproto.moretags) = "yaml:&#92;"source_port&#92;""];</code>
      */
-    public var sourcePort: kotlin.String
+    var sourcePort: kotlin.String
       @JvmName("getSourcePort")
       get() = _builder.getSourcePort()
       @JvmName("setSourcePort")
@@ -43,7 +43,7 @@ public object MsgTransferKt {
      *
      * <code>string source_port = 1 [(.gogoproto.moretags) = "yaml:&#92;"source_port&#92;""];</code>
      */
-    public fun clearSourcePort() {
+    fun clearSourcePort() {
       _builder.clearSourcePort()
     }
 
@@ -54,7 +54,7 @@ public object MsgTransferKt {
      *
      * <code>string source_channel = 2 [(.gogoproto.moretags) = "yaml:&#92;"source_channel&#92;""];</code>
      */
-    public var sourceChannel: kotlin.String
+    var sourceChannel: kotlin.String
       @JvmName("getSourceChannel")
       get() = _builder.getSourceChannel()
       @JvmName("setSourceChannel")
@@ -68,7 +68,7 @@ public object MsgTransferKt {
      *
      * <code>string source_channel = 2 [(.gogoproto.moretags) = "yaml:&#92;"source_channel&#92;""];</code>
      */
-    public fun clearSourceChannel() {
+    fun clearSourceChannel() {
       _builder.clearSourceChannel()
     }
 
@@ -79,7 +79,7 @@ public object MsgTransferKt {
      *
      * <code>.cosmos.base.v1beta1.Coin token = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public var token: cosmos.base.v1beta1.CoinOuterClass.Coin
+    var token: cosmos.base.v1beta1.CoinOuterClass.Coin
       @JvmName("getToken")
       get() = _builder.getToken()
       @JvmName("setToken")
@@ -93,7 +93,7 @@ public object MsgTransferKt {
      *
      * <code>.cosmos.base.v1beta1.Coin token = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearToken() {
+    fun clearToken() {
       _builder.clearToken()
     }
     /**
@@ -104,7 +104,7 @@ public object MsgTransferKt {
      * <code>.cosmos.base.v1beta1.Coin token = 3 [(.gogoproto.nullable) = false];</code>
      * @return Whether the token field is set.
      */
-    public fun hasToken(): kotlin.Boolean {
+    fun hasToken(): kotlin.Boolean {
       return _builder.hasToken()
     }
 
@@ -115,7 +115,7 @@ public object MsgTransferKt {
      *
      * <code>string sender = 4;</code>
      */
-    public var sender: kotlin.String
+    var sender: kotlin.String
       @JvmName("getSender")
       get() = _builder.getSender()
       @JvmName("setSender")
@@ -129,7 +129,7 @@ public object MsgTransferKt {
      *
      * <code>string sender = 4;</code>
      */
-    public fun clearSender() {
+    fun clearSender() {
       _builder.clearSender()
     }
 
@@ -140,7 +140,7 @@ public object MsgTransferKt {
      *
      * <code>string receiver = 5;</code>
      */
-    public var receiver: kotlin.String
+    var receiver: kotlin.String
       @JvmName("getReceiver")
       get() = _builder.getReceiver()
       @JvmName("setReceiver")
@@ -154,7 +154,7 @@ public object MsgTransferKt {
      *
      * <code>string receiver = 5;</code>
      */
-    public fun clearReceiver() {
+    fun clearReceiver() {
       _builder.clearReceiver()
     }
 
@@ -166,7 +166,7 @@ public object MsgTransferKt {
      *
      * <code>.ibc.core.client.v1.Height timeout_height = 6 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"timeout_height&#92;""];</code>
      */
-    public var timeoutHeight: ibc.core.client.v1.Client.Height
+    var timeoutHeight: ibc.core.client.v1.Client.Height
       @JvmName("getTimeoutHeight")
       get() = _builder.getTimeoutHeight()
       @JvmName("setTimeoutHeight")
@@ -181,7 +181,7 @@ public object MsgTransferKt {
      *
      * <code>.ibc.core.client.v1.Height timeout_height = 6 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"timeout_height&#92;""];</code>
      */
-    public fun clearTimeoutHeight() {
+    fun clearTimeoutHeight() {
       _builder.clearTimeoutHeight()
     }
     /**
@@ -193,7 +193,7 @@ public object MsgTransferKt {
      * <code>.ibc.core.client.v1.Height timeout_height = 6 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"timeout_height&#92;""];</code>
      * @return Whether the timeoutHeight field is set.
      */
-    public fun hasTimeoutHeight(): kotlin.Boolean {
+    fun hasTimeoutHeight(): kotlin.Boolean {
       return _builder.hasTimeoutHeight()
     }
 
@@ -205,7 +205,7 @@ public object MsgTransferKt {
      *
      * <code>uint64 timeout_timestamp = 7 [(.gogoproto.moretags) = "yaml:&#92;"timeout_timestamp&#92;""];</code>
      */
-    public var timeoutTimestamp: kotlin.Long
+    var timeoutTimestamp: kotlin.Long
       @JvmName("getTimeoutTimestamp")
       get() = _builder.getTimeoutTimestamp()
       @JvmName("setTimeoutTimestamp")
@@ -220,18 +220,11 @@ public object MsgTransferKt {
      *
      * <code>uint64 timeout_timestamp = 7 [(.gogoproto.moretags) = "yaml:&#92;"timeout_timestamp&#92;""];</code>
      */
-    public fun clearTimeoutTimestamp() {
+    fun clearTimeoutTimestamp() {
       _builder.clearTimeoutTimestamp()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.applications.transfer.v1.Tx.MsgTransfer.copy(block: ibc.applications.transfer.v1.MsgTransferKt.Dsl.() -> kotlin.Unit): ibc.applications.transfer.v1.Tx.MsgTransfer =
+inline fun ibc.applications.transfer.v1.Tx.MsgTransfer.copy(block: ibc.applications.transfer.v1.MsgTransferKt.Dsl.() -> Unit): ibc.applications.transfer.v1.Tx.MsgTransfer =
   ibc.applications.transfer.v1.MsgTransferKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.applications.transfer.v1.Tx.MsgTransferOrBuilder.tokenOrNull: cosmos.base.v1beta1.CoinOuterClass.Coin?
-  get() = if (hasToken()) getToken() else null
-
-public val ibc.applications.transfer.v1.Tx.MsgTransferOrBuilder.timeoutHeightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasTimeoutHeight()) getTimeoutHeight() else null
-

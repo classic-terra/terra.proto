@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializeevidence")
-public inline fun evidence(block: tendermint.abci.EvidenceKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.Evidence =
+@kotlin.jvm.JvmSynthetic
+inline fun evidence(block: tendermint.abci.EvidenceKt.Dsl.() -> Unit): tendermint.abci.Types.Evidence =
   tendermint.abci.EvidenceKt.Dsl._create(tendermint.abci.Types.Evidence.newBuilder()).apply { block() }._build()
-public object EvidenceKt {
+object EvidenceKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.Evidence.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.Evidence.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.Evidence.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object EvidenceKt {
     /**
      * <code>.tendermint.abci.EvidenceType type = 1;</code>
      */
-    public var type: tendermint.abci.Types.EvidenceType
+    var type: tendermint.abci.Types.EvidenceType
       @JvmName("getType")
       get() = _builder.getType()
       @JvmName("setType")
@@ -35,7 +35,7 @@ public object EvidenceKt {
     /**
      * <code>.tendermint.abci.EvidenceType type = 1;</code>
      */
-    public fun clearType() {
+    fun clearType() {
       _builder.clearType()
     }
 
@@ -46,7 +46,7 @@ public object EvidenceKt {
      *
      * <code>.tendermint.abci.Validator validator = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public var validator: tendermint.abci.Types.Validator
+    var validator: tendermint.abci.Types.Validator
       @JvmName("getValidator")
       get() = _builder.getValidator()
       @JvmName("setValidator")
@@ -60,7 +60,7 @@ public object EvidenceKt {
      *
      * <code>.tendermint.abci.Validator validator = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearValidator() {
+    fun clearValidator() {
       _builder.clearValidator()
     }
     /**
@@ -71,7 +71,7 @@ public object EvidenceKt {
      * <code>.tendermint.abci.Validator validator = 2 [(.gogoproto.nullable) = false];</code>
      * @return Whether the validator field is set.
      */
-    public fun hasValidator(): kotlin.Boolean {
+    fun hasValidator(): kotlin.Boolean {
       return _builder.hasValidator()
     }
 
@@ -82,7 +82,7 @@ public object EvidenceKt {
      *
      * <code>int64 height = 3;</code>
      */
-    public var height: kotlin.Long
+    var height: kotlin.Long
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -96,7 +96,7 @@ public object EvidenceKt {
      *
      * <code>int64 height = 3;</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
 
@@ -107,7 +107,7 @@ public object EvidenceKt {
      *
      * <code>.google.protobuf.Timestamp time = 4 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public var time: com.google.protobuf.Timestamp
+    var time: com.google.protobuf.Timestamp
       @JvmName("getTime")
       get() = _builder.getTime()
       @JvmName("setTime")
@@ -121,7 +121,7 @@ public object EvidenceKt {
      *
      * <code>.google.protobuf.Timestamp time = 4 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      */
-    public fun clearTime() {
+    fun clearTime() {
       _builder.clearTime()
     }
     /**
@@ -132,7 +132,7 @@ public object EvidenceKt {
      * <code>.google.protobuf.Timestamp time = 4 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
      * @return Whether the time field is set.
      */
-    public fun hasTime(): kotlin.Boolean {
+    fun hasTime(): kotlin.Boolean {
       return _builder.hasTime()
     }
 
@@ -145,7 +145,7 @@ public object EvidenceKt {
      *
      * <code>int64 total_voting_power = 5;</code>
      */
-    public var totalVotingPower: kotlin.Long
+    var totalVotingPower: kotlin.Long
       @JvmName("getTotalVotingPower")
       get() = _builder.getTotalVotingPower()
       @JvmName("setTotalVotingPower")
@@ -161,18 +161,11 @@ public object EvidenceKt {
      *
      * <code>int64 total_voting_power = 5;</code>
      */
-    public fun clearTotalVotingPower() {
+    fun clearTotalVotingPower() {
       _builder.clearTotalVotingPower()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.Evidence.copy(block: tendermint.abci.EvidenceKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.Evidence =
+inline fun tendermint.abci.Types.Evidence.copy(block: tendermint.abci.EvidenceKt.Dsl.() -> Unit): tendermint.abci.Types.Evidence =
   tendermint.abci.EvidenceKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.abci.Types.EvidenceOrBuilder.validatorOrNull: tendermint.abci.Types.Validator?
-  get() = if (hasValidator()) getValidator() else null
-
-public val tendermint.abci.Types.EvidenceOrBuilder.timeOrNull: com.google.protobuf.Timestamp?
-  get() = if (hasTime()) getTime() else null
-

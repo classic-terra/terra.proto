@@ -3,16 +3,16 @@
 
 package cosmos.tx.v1beta1;
 
-@kotlin.jvm.JvmName("-initializesignDoc")
-public inline fun signDoc(block: cosmos.tx.v1beta1.SignDocKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.TxOuterClass.SignDoc =
+@kotlin.jvm.JvmSynthetic
+inline fun signDoc(block: cosmos.tx.v1beta1.SignDocKt.Dsl.() -> Unit): cosmos.tx.v1beta1.TxOuterClass.SignDoc =
   cosmos.tx.v1beta1.SignDocKt.Dsl._create(cosmos.tx.v1beta1.TxOuterClass.SignDoc.newBuilder()).apply { block() }._build()
-public object SignDocKt {
+object SignDocKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.tx.v1beta1.TxOuterClass.SignDoc.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.tx.v1beta1.TxOuterClass.SignDoc.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.tx.v1beta1.TxOuterClass.SignDoc.Builder): Dsl = Dsl(builder)
@@ -30,7 +30,7 @@ public object SignDocKt {
      *
      * <code>bytes body_bytes = 1;</code>
      */
-    public var bodyBytes: com.google.protobuf.ByteString
+    var bodyBytes: com.google.protobuf.ByteString
       @JvmName("getBodyBytes")
       get() = _builder.getBodyBytes()
       @JvmName("setBodyBytes")
@@ -45,7 +45,7 @@ public object SignDocKt {
      *
      * <code>bytes body_bytes = 1;</code>
      */
-    public fun clearBodyBytes() {
+    fun clearBodyBytes() {
       _builder.clearBodyBytes()
     }
 
@@ -57,7 +57,7 @@ public object SignDocKt {
      *
      * <code>bytes auth_info_bytes = 2;</code>
      */
-    public var authInfoBytes: com.google.protobuf.ByteString
+    var authInfoBytes: com.google.protobuf.ByteString
       @JvmName("getAuthInfoBytes")
       get() = _builder.getAuthInfoBytes()
       @JvmName("setAuthInfoBytes")
@@ -72,7 +72,7 @@ public object SignDocKt {
      *
      * <code>bytes auth_info_bytes = 2;</code>
      */
-    public fun clearAuthInfoBytes() {
+    fun clearAuthInfoBytes() {
       _builder.clearAuthInfoBytes()
     }
 
@@ -85,7 +85,7 @@ public object SignDocKt {
      *
      * <code>string chain_id = 3;</code>
      */
-    public var chainId: kotlin.String
+    var chainId: kotlin.String
       @JvmName("getChainId")
       get() = _builder.getChainId()
       @JvmName("setChainId")
@@ -101,7 +101,7 @@ public object SignDocKt {
      *
      * <code>string chain_id = 3;</code>
      */
-    public fun clearChainId() {
+    fun clearChainId() {
       _builder.clearChainId()
     }
 
@@ -112,7 +112,7 @@ public object SignDocKt {
      *
      * <code>uint64 account_number = 4;</code>
      */
-    public var accountNumber: kotlin.Long
+    var accountNumber: kotlin.Long
       @JvmName("getAccountNumber")
       get() = _builder.getAccountNumber()
       @JvmName("setAccountNumber")
@@ -126,12 +126,11 @@ public object SignDocKt {
      *
      * <code>uint64 account_number = 4;</code>
      */
-    public fun clearAccountNumber() {
+    fun clearAccountNumber() {
       _builder.clearAccountNumber()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.tx.v1beta1.TxOuterClass.SignDoc.copy(block: cosmos.tx.v1beta1.SignDocKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.TxOuterClass.SignDoc =
+inline fun cosmos.tx.v1beta1.TxOuterClass.SignDoc.copy(block: cosmos.tx.v1beta1.SignDocKt.Dsl.() -> Unit): cosmos.tx.v1beta1.TxOuterClass.SignDoc =
   cosmos.tx.v1beta1.SignDocKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

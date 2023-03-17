@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializequeryChannelRequest")
-public inline fun queryChannelRequest(block: ibc.core.channel.v1.QueryChannelRequestKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryChannelRequest(block: ibc.core.channel.v1.QueryChannelRequestKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest =
   ibc.core.channel.v1.QueryChannelRequestKt.Dsl._create(ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest.newBuilder()).apply { block() }._build()
-public object QueryChannelRequestKt {
+object QueryChannelRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryChannelRequestKt {
      *
      * <code>string port_id = 1;</code>
      */
-    public var portId: kotlin.String
+    var portId: kotlin.String
       @JvmName("getPortId")
       get() = _builder.getPortId()
       @JvmName("setPortId")
@@ -43,7 +43,7 @@ public object QueryChannelRequestKt {
      *
      * <code>string port_id = 1;</code>
      */
-    public fun clearPortId() {
+    fun clearPortId() {
       _builder.clearPortId()
     }
 
@@ -54,7 +54,7 @@ public object QueryChannelRequestKt {
      *
      * <code>string channel_id = 2;</code>
      */
-    public var channelId: kotlin.String
+    var channelId: kotlin.String
       @JvmName("getChannelId")
       get() = _builder.getChannelId()
       @JvmName("setChannelId")
@@ -68,12 +68,11 @@ public object QueryChannelRequestKt {
      *
      * <code>string channel_id = 2;</code>
      */
-    public fun clearChannelId() {
+    fun clearChannelId() {
       _builder.clearChannelId()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest.copy(block: ibc.core.channel.v1.QueryChannelRequestKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest =
+inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest.copy(block: ibc.core.channel.v1.QueryChannelRequestKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest =
   ibc.core.channel.v1.QueryChannelRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializevalidatorSlashEventRecord")
-public inline fun validatorSlashEventRecord(block: cosmos.distribution.v1beta1.ValidatorSlashEventRecordKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Genesis.ValidatorSlashEventRecord =
+@kotlin.jvm.JvmSynthetic
+inline fun validatorSlashEventRecord(block: cosmos.distribution.v1beta1.ValidatorSlashEventRecordKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Genesis.ValidatorSlashEventRecord =
   cosmos.distribution.v1beta1.ValidatorSlashEventRecordKt.Dsl._create(cosmos.distribution.v1beta1.Genesis.ValidatorSlashEventRecord.newBuilder()).apply { block() }._build()
-public object ValidatorSlashEventRecordKt {
+object ValidatorSlashEventRecordKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Genesis.ValidatorSlashEventRecord.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Genesis.ValidatorSlashEventRecord.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Genesis.ValidatorSlashEventRecord.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ValidatorSlashEventRecordKt {
      *
      * <code>string validator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"validator_address&#92;""];</code>
      */
-    public var validatorAddress: kotlin.String
+    var validatorAddress: kotlin.String
       @JvmName("getValidatorAddress")
       get() = _builder.getValidatorAddress()
       @JvmName("setValidatorAddress")
@@ -43,7 +43,7 @@ public object ValidatorSlashEventRecordKt {
      *
      * <code>string validator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"validator_address&#92;""];</code>
      */
-    public fun clearValidatorAddress() {
+    fun clearValidatorAddress() {
       _builder.clearValidatorAddress()
     }
 
@@ -54,7 +54,7 @@ public object ValidatorSlashEventRecordKt {
      *
      * <code>uint64 height = 2;</code>
      */
-    public var height: kotlin.Long
+    var height: kotlin.Long
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -68,7 +68,7 @@ public object ValidatorSlashEventRecordKt {
      *
      * <code>uint64 height = 2;</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
 
@@ -79,7 +79,7 @@ public object ValidatorSlashEventRecordKt {
      *
      * <code>uint64 period = 3;</code>
      */
-    public var period: kotlin.Long
+    var period: kotlin.Long
       @JvmName("getPeriod")
       get() = _builder.getPeriod()
       @JvmName("setPeriod")
@@ -93,7 +93,7 @@ public object ValidatorSlashEventRecordKt {
      *
      * <code>uint64 period = 3;</code>
      */
-    public fun clearPeriod() {
+    fun clearPeriod() {
       _builder.clearPeriod()
     }
 
@@ -104,7 +104,7 @@ public object ValidatorSlashEventRecordKt {
      *
      * <code>.cosmos.distribution.v1beta1.ValidatorSlashEvent validator_slash_event = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"event&#92;""];</code>
      */
-    public var validatorSlashEvent: cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent
+    var validatorSlashEvent: cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent
       @JvmName("getValidatorSlashEvent")
       get() = _builder.getValidatorSlashEvent()
       @JvmName("setValidatorSlashEvent")
@@ -118,7 +118,7 @@ public object ValidatorSlashEventRecordKt {
      *
      * <code>.cosmos.distribution.v1beta1.ValidatorSlashEvent validator_slash_event = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"event&#92;""];</code>
      */
-    public fun clearValidatorSlashEvent() {
+    fun clearValidatorSlashEvent() {
       _builder.clearValidatorSlashEvent()
     }
     /**
@@ -129,15 +129,11 @@ public object ValidatorSlashEventRecordKt {
      * <code>.cosmos.distribution.v1beta1.ValidatorSlashEvent validator_slash_event = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"event&#92;""];</code>
      * @return Whether the validatorSlashEvent field is set.
      */
-    public fun hasValidatorSlashEvent(): kotlin.Boolean {
+    fun hasValidatorSlashEvent(): kotlin.Boolean {
       return _builder.hasValidatorSlashEvent()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Genesis.ValidatorSlashEventRecord.copy(block: cosmos.distribution.v1beta1.ValidatorSlashEventRecordKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Genesis.ValidatorSlashEventRecord =
+inline fun cosmos.distribution.v1beta1.Genesis.ValidatorSlashEventRecord.copy(block: cosmos.distribution.v1beta1.ValidatorSlashEventRecordKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Genesis.ValidatorSlashEventRecord =
   cosmos.distribution.v1beta1.ValidatorSlashEventRecordKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.distribution.v1beta1.Genesis.ValidatorSlashEventRecordOrBuilder.validatorSlashEventOrNull: cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent?
-  get() = if (hasValidatorSlashEvent()) getValidatorSlashEvent() else null
-

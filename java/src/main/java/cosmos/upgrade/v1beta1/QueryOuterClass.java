@@ -50,6 +50,43 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryCurrentPlanRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.QueryOuterClass.internal_static_cosmos_upgrade_v1beta1_QueryCurrentPlanRequest_descriptor;
@@ -77,7 +114,7 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -86,7 +123,7 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -101,7 +138,7 @@ public final class QueryOuterClass {
       }
       cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanRequest other = (cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanRequest) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -112,7 +149,7 @@ public final class QueryOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -234,13 +271,18 @@ public final class QueryOuterClass {
 
       // Construct using cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -319,7 +361,7 @@ public final class QueryOuterClass {
 
       public Builder mergeFrom(cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanRequest other) {
         if (other == cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanRequest.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -334,30 +376,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -393,18 +422,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryCurrentPlanRequest(input, extensionRegistry);
       }
     };
 
@@ -487,6 +505,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryCurrentPlanResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cosmos.upgrade.v1beta1.Upgrade.Plan.Builder subBuilder = null;
+              if (plan_ != null) {
+                subBuilder = plan_.toBuilder();
+              }
+              plan_ = input.readMessage(cosmos.upgrade.v1beta1.Upgrade.Plan.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(plan_);
+                plan_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.QueryOuterClass.internal_static_cosmos_upgrade_v1beta1_QueryCurrentPlanResponse_descriptor;
@@ -535,7 +603,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public cosmos.upgrade.v1beta1.Upgrade.PlanOrBuilder getPlanOrBuilder() {
-      return plan_ == null ? cosmos.upgrade.v1beta1.Upgrade.Plan.getDefaultInstance() : plan_;
+      return getPlan();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -555,7 +623,7 @@ public final class QueryOuterClass {
       if (plan_ != null) {
         output.writeMessage(1, getPlan());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -568,7 +636,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getPlan());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -588,7 +656,7 @@ public final class QueryOuterClass {
         if (!getPlan()
             .equals(other.getPlan())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -603,7 +671,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PLAN_FIELD_NUMBER;
         hash = (53 * hash) + getPlan().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -725,21 +793,26 @@ public final class QueryOuterClass {
 
       // Construct using cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        plan_ = null;
-        if (planBuilder_ != null) {
-          planBuilder_.dispose();
+        if (planBuilder_ == null) {
+          plan_ = null;
+        } else {
+          plan_ = null;
           planBuilder_ = null;
         }
         return this;
@@ -768,18 +841,13 @@ public final class QueryOuterClass {
       @java.lang.Override
       public cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanResponse buildPartial() {
         cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanResponse result = new cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (planBuilder_ == null) {
+          result.plan_ = plan_;
+        } else {
+          result.plan_ = planBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.plan_ = planBuilder_ == null
-              ? plan_
-              : planBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -829,7 +897,7 @@ public final class QueryOuterClass {
         if (other.hasPlan()) {
           mergePlan(other.getPlan());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -844,40 +912,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getPlanFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.upgrade.v1beta1.QueryOuterClass.QueryCurrentPlanResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private cosmos.upgrade.v1beta1.Upgrade.Plan plan_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -891,7 +938,7 @@ public final class QueryOuterClass {
        * @return Whether the plan field is set.
        */
       public boolean hasPlan() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return planBuilder_ != null || plan_ != null;
       }
       /**
        * <pre>
@@ -921,11 +968,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           plan_ = value;
+          onChanged();
         } else {
           planBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -939,11 +986,11 @@ public final class QueryOuterClass {
           cosmos.upgrade.v1beta1.Upgrade.Plan.Builder builderForValue) {
         if (planBuilder_ == null) {
           plan_ = builderForValue.build();
+          onChanged();
         } else {
           planBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -955,18 +1002,17 @@ public final class QueryOuterClass {
        */
       public Builder mergePlan(cosmos.upgrade.v1beta1.Upgrade.Plan value) {
         if (planBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            plan_ != null &&
-            plan_ != cosmos.upgrade.v1beta1.Upgrade.Plan.getDefaultInstance()) {
-            getPlanBuilder().mergeFrom(value);
+          if (plan_ != null) {
+            plan_ =
+              cosmos.upgrade.v1beta1.Upgrade.Plan.newBuilder(plan_).mergeFrom(value).buildPartial();
           } else {
             plan_ = value;
           }
+          onChanged();
         } else {
           planBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -977,13 +1023,14 @@ public final class QueryOuterClass {
        * <code>.cosmos.upgrade.v1beta1.Plan plan = 1;</code>
        */
       public Builder clearPlan() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        plan_ = null;
-        if (planBuilder_ != null) {
-          planBuilder_.dispose();
+        if (planBuilder_ == null) {
+          plan_ = null;
+          onChanged();
+        } else {
+          plan_ = null;
           planBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -994,7 +1041,7 @@ public final class QueryOuterClass {
        * <code>.cosmos.upgrade.v1beta1.Plan plan = 1;</code>
        */
       public cosmos.upgrade.v1beta1.Upgrade.Plan.Builder getPlanBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getPlanFieldBuilder().getBuilder();
       }
@@ -1066,18 +1113,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryCurrentPlanResponse(input, extensionRegistry);
       }
     };
 
@@ -1154,6 +1190,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryAppliedPlanRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.QueryOuterClass.internal_static_cosmos_upgrade_v1beta1_QueryAppliedPlanRequest_descriptor;
@@ -1168,8 +1247,7 @@ public final class QueryOuterClass {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object name_ = "";
+    private volatile java.lang.Object name_;
     /**
      * <pre>
      * name is the name of the applied plan to query for.
@@ -1228,10 +1306,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1240,10 +1318,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+      if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1260,7 +1338,7 @@ public final class QueryOuterClass {
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1273,7 +1351,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1395,19 +1473,24 @@ public final class QueryOuterClass {
 
       // Construct using cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         name_ = "";
+
         return this;
       }
 
@@ -1434,16 +1517,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanRequest buildPartial() {
         cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanRequest result = new cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.name_ = name_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.name_ = name_;
-        }
       }
 
       @java.lang.Override
@@ -1492,10 +1568,9 @@ public final class QueryOuterClass {
         if (other == cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1510,38 +1585,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                name_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -1596,9 +1652,11 @@ public final class QueryOuterClass {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         name_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1611,8 +1669,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearName() {
+        
         name_ = getDefaultInstance().getName();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1627,10 +1685,12 @@ public final class QueryOuterClass {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         name_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1667,18 +1727,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryAppliedPlanRequest(input, extensionRegistry);
       }
     };
 
@@ -1744,6 +1793,48 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryAppliedPlanResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              height_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.QueryOuterClass.internal_static_cosmos_upgrade_v1beta1_QueryAppliedPlanResponse_descriptor;
@@ -1758,7 +1849,7 @@ public final class QueryOuterClass {
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 1;
-    private long height_ = 0L;
+    private long height_;
     /**
      * <pre>
      * height is the block height at which the plan was applied.
@@ -1789,7 +1880,7 @@ public final class QueryOuterClass {
       if (height_ != 0L) {
         output.writeInt64(1, height_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1802,7 +1893,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, height_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1819,7 +1910,7 @@ public final class QueryOuterClass {
 
       if (getHeight()
           != other.getHeight()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1833,7 +1924,7 @@ public final class QueryOuterClass {
       hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getHeight());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1955,19 +2046,24 @@ public final class QueryOuterClass {
 
       // Construct using cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         height_ = 0L;
+
         return this;
       }
 
@@ -1994,16 +2090,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanResponse buildPartial() {
         cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanResponse result = new cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.height_ = height_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.height_ = height_;
-        }
       }
 
       @java.lang.Override
@@ -2053,7 +2142,7 @@ public final class QueryOuterClass {
         if (other.getHeight() != 0L) {
           setHeight(other.getHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2068,38 +2157,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                height_ = input.readInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.upgrade.v1beta1.QueryOuterClass.QueryAppliedPlanResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long height_ ;
       /**
@@ -2126,7 +2196,6 @@ public final class QueryOuterClass {
       public Builder setHeight(long value) {
         
         height_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2139,7 +2208,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         height_ = 0L;
         onChanged();
         return this;
@@ -2177,18 +2246,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryAppliedPlanResponse(input, extensionRegistry);
       }
     };
 
@@ -2255,6 +2313,48 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryUpgradedConsensusStateRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              lastHeight_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.QueryOuterClass.internal_static_cosmos_upgrade_v1beta1_QueryUpgradedConsensusStateRequest_descriptor;
@@ -2269,7 +2369,7 @@ public final class QueryOuterClass {
     }
 
     public static final int LAST_HEIGHT_FIELD_NUMBER = 1;
-    private long lastHeight_ = 0L;
+    private long lastHeight_;
     /**
      * <pre>
      * last height of the current chain must be sent in request
@@ -2301,7 +2401,7 @@ public final class QueryOuterClass {
       if (lastHeight_ != 0L) {
         output.writeInt64(1, lastHeight_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2314,7 +2414,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, lastHeight_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2331,7 +2431,7 @@ public final class QueryOuterClass {
 
       if (getLastHeight()
           != other.getLastHeight()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2345,7 +2445,7 @@ public final class QueryOuterClass {
       hash = (37 * hash) + LAST_HEIGHT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getLastHeight());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2467,19 +2567,24 @@ public final class QueryOuterClass {
 
       // Construct using cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         lastHeight_ = 0L;
+
         return this;
       }
 
@@ -2506,16 +2611,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateRequest buildPartial() {
         cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateRequest result = new cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.lastHeight_ = lastHeight_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.lastHeight_ = lastHeight_;
-        }
       }
 
       @java.lang.Override
@@ -2565,7 +2663,7 @@ public final class QueryOuterClass {
         if (other.getLastHeight() != 0L) {
           setLastHeight(other.getLastHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2580,38 +2678,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                lastHeight_ = input.readInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long lastHeight_ ;
       /**
@@ -2640,7 +2719,6 @@ public final class QueryOuterClass {
       public Builder setLastHeight(long value) {
         
         lastHeight_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2654,7 +2732,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearLastHeight() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         lastHeight_ = 0L;
         onChanged();
         return this;
@@ -2692,18 +2770,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryUpgradedConsensusStateRequest(input, extensionRegistry);
       }
     };
 
@@ -2728,10 +2795,6 @@ public final class QueryOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     * Since: cosmos-sdk 0.43
-     * </pre>
-     *
      * <code>bytes upgraded_consensus_state = 2;</code>
      * @return The upgradedConsensusState.
      */
@@ -2770,6 +2833,48 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryUpgradedConsensusStateResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+
+              upgradedConsensusState_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.QueryOuterClass.internal_static_cosmos_upgrade_v1beta1_QueryUpgradedConsensusStateResponse_descriptor;
@@ -2784,12 +2889,8 @@ public final class QueryOuterClass {
     }
 
     public static final int UPGRADED_CONSENSUS_STATE_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString upgradedConsensusState_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString upgradedConsensusState_;
     /**
-     * <pre>
-     * Since: cosmos-sdk 0.43
-     * </pre>
-     *
      * <code>bytes upgraded_consensus_state = 2;</code>
      * @return The upgradedConsensusState.
      */
@@ -2815,7 +2916,7 @@ public final class QueryOuterClass {
       if (!upgradedConsensusState_.isEmpty()) {
         output.writeBytes(2, upgradedConsensusState_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2828,7 +2929,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, upgradedConsensusState_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2845,7 +2946,7 @@ public final class QueryOuterClass {
 
       if (!getUpgradedConsensusState()
           .equals(other.getUpgradedConsensusState())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2858,7 +2959,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + UPGRADED_CONSENSUS_STATE_FIELD_NUMBER;
       hash = (53 * hash) + getUpgradedConsensusState().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2980,19 +3081,24 @@ public final class QueryOuterClass {
 
       // Construct using cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         upgradedConsensusState_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -3019,16 +3125,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateResponse buildPartial() {
         cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateResponse result = new cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.upgradedConsensusState_ = upgradedConsensusState_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.upgradedConsensusState_ = upgradedConsensusState_;
-        }
       }
 
       @java.lang.Override
@@ -3078,7 +3177,7 @@ public final class QueryOuterClass {
         if (other.getUpgradedConsensusState() != com.google.protobuf.ByteString.EMPTY) {
           setUpgradedConsensusState(other.getUpgradedConsensusState());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3093,45 +3192,22 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 18: {
-                upgradedConsensusState_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.upgrade.v1beta1.QueryOuterClass.QueryUpgradedConsensusStateResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString upgradedConsensusState_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <pre>
-       * Since: cosmos-sdk 0.43
-       * </pre>
-       *
        * <code>bytes upgraded_consensus_state = 2;</code>
        * @return The upgradedConsensusState.
        */
@@ -3140,31 +3216,25 @@ public final class QueryOuterClass {
         return upgradedConsensusState_;
       }
       /**
-       * <pre>
-       * Since: cosmos-sdk 0.43
-       * </pre>
-       *
        * <code>bytes upgraded_consensus_state = 2;</code>
        * @param value The upgradedConsensusState to set.
        * @return This builder for chaining.
        */
       public Builder setUpgradedConsensusState(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         upgradedConsensusState_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       * Since: cosmos-sdk 0.43
-       * </pre>
-       *
        * <code>bytes upgraded_consensus_state = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearUpgradedConsensusState() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         upgradedConsensusState_ = getDefaultInstance().getUpgradedConsensusState();
         onChanged();
         return this;
@@ -3202,18 +3272,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryUpgradedConsensusStateResponse(input, extensionRegistry);
       }
     };
 
@@ -3265,7 +3324,6 @@ public final class QueryOuterClass {
    * <pre>
    * QueryModuleVersionsRequest is the request type for the Query/ModuleVersions
    * RPC method.
-   * Since: cosmos-sdk 0.43
    * </pre>
    *
    * Protobuf type {@code cosmos.upgrade.v1beta1.QueryModuleVersionsRequest}
@@ -3295,6 +3353,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryModuleVersionsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              moduleName_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.QueryOuterClass.internal_static_cosmos_upgrade_v1beta1_QueryModuleVersionsRequest_descriptor;
@@ -3309,8 +3410,7 @@ public final class QueryOuterClass {
     }
 
     public static final int MODULE_NAME_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object moduleName_ = "";
+    private volatile java.lang.Object moduleName_;
     /**
      * <pre>
      * module_name is a field to query a specific module
@@ -3373,10 +3473,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(moduleName_)) {
+      if (!getModuleNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, moduleName_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3385,10 +3485,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(moduleName_)) {
+      if (!getModuleNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, moduleName_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3405,7 +3505,7 @@ public final class QueryOuterClass {
 
       if (!getModuleName()
           .equals(other.getModuleName())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3418,7 +3518,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + MODULE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getModuleName().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3517,7 +3617,6 @@ public final class QueryOuterClass {
      * <pre>
      * QueryModuleVersionsRequest is the request type for the Query/ModuleVersions
      * RPC method.
-     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * Protobuf type {@code cosmos.upgrade.v1beta1.QueryModuleVersionsRequest}
@@ -3541,19 +3640,24 @@ public final class QueryOuterClass {
 
       // Construct using cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         moduleName_ = "";
+
         return this;
       }
 
@@ -3580,16 +3684,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsRequest buildPartial() {
         cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsRequest result = new cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.moduleName_ = moduleName_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.moduleName_ = moduleName_;
-        }
       }
 
       @java.lang.Override
@@ -3638,10 +3735,9 @@ public final class QueryOuterClass {
         if (other == cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsRequest.getDefaultInstance()) return this;
         if (!other.getModuleName().isEmpty()) {
           moduleName_ = other.moduleName_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3656,38 +3752,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                moduleName_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object moduleName_ = "";
       /**
@@ -3748,9 +3825,11 @@ public final class QueryOuterClass {
        */
       public Builder setModuleName(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         moduleName_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3765,8 +3844,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearModuleName() {
+        
         moduleName_ = getDefaultInstance().getModuleName();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3783,10 +3862,12 @@ public final class QueryOuterClass {
        */
       public Builder setModuleNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         moduleName_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3823,18 +3904,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryModuleVersionsRequest(input, extensionRegistry);
       }
     };
 
@@ -3906,7 +3976,6 @@ public final class QueryOuterClass {
    * <pre>
    * QueryModuleVersionsResponse is the response type for the Query/ModuleVersions
    * RPC method.
-   * Since: cosmos-sdk 0.43
    * </pre>
    *
    * Protobuf type {@code cosmos.upgrade.v1beta1.QueryModuleVersionsResponse}
@@ -3936,6 +4005,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryModuleVersionsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                moduleVersions_ = new java.util.ArrayList<cosmos.upgrade.v1beta1.Upgrade.ModuleVersion>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              moduleVersions_.add(
+                  input.readMessage(cosmos.upgrade.v1beta1.Upgrade.ModuleVersion.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          moduleVersions_ = java.util.Collections.unmodifiableList(moduleVersions_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.QueryOuterClass.internal_static_cosmos_upgrade_v1beta1_QueryModuleVersionsResponse_descriptor;
@@ -3950,7 +4069,6 @@ public final class QueryOuterClass {
     }
 
     public static final int MODULE_VERSIONS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<cosmos.upgrade.v1beta1.Upgrade.ModuleVersion> moduleVersions_;
     /**
      * <pre>
@@ -4027,7 +4145,7 @@ public final class QueryOuterClass {
       for (int i = 0; i < moduleVersions_.size(); i++) {
         output.writeMessage(1, moduleVersions_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4040,7 +4158,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, moduleVersions_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4057,7 +4175,7 @@ public final class QueryOuterClass {
 
       if (!getModuleVersionsList()
           .equals(other.getModuleVersionsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4072,7 +4190,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + MODULE_VERSIONS_FIELD_NUMBER;
         hash = (53 * hash) + getModuleVersionsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4171,7 +4289,6 @@ public final class QueryOuterClass {
      * <pre>
      * QueryModuleVersionsResponse is the response type for the Query/ModuleVersions
      * RPC method.
-     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * Protobuf type {@code cosmos.upgrade.v1beta1.QueryModuleVersionsResponse}
@@ -4195,25 +4312,29 @@ public final class QueryOuterClass {
 
       // Construct using cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getModuleVersionsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (moduleVersionsBuilder_ == null) {
           moduleVersions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          moduleVersions_ = null;
           moduleVersionsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -4240,13 +4361,7 @@ public final class QueryOuterClass {
       @java.lang.Override
       public cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsResponse buildPartial() {
         cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsResponse result = new cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsResponse result) {
+        int from_bitField0_ = bitField0_;
         if (moduleVersionsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             moduleVersions_ = java.util.Collections.unmodifiableList(moduleVersions_);
@@ -4256,10 +4371,8 @@ public final class QueryOuterClass {
         } else {
           result.moduleVersions_ = moduleVersionsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsResponse result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -4332,7 +4445,7 @@ public final class QueryOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4347,43 +4460,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                cosmos.upgrade.v1beta1.Upgrade.ModuleVersion m =
-                    input.readMessage(
-                        cosmos.upgrade.v1beta1.Upgrade.ModuleVersion.parser(),
-                        extensionRegistry);
-                if (moduleVersionsBuilder_ == null) {
-                  ensureModuleVersionsIsMutable();
-                  moduleVersions_.add(m);
-                } else {
-                  moduleVersionsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -4732,18 +4819,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryModuleVersionsResponse(input, extensionRegistry);
       }
     };
 

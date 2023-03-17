@@ -28,45 +28,45 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for cosmos.bank.v1beta1.Query.
  */
-public object QueryGrpcKt {
-  public const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
+object QueryGrpcKt {
+  const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = QueryGrpc.getServiceDescriptor()
 
-  public val balanceMethod:
-      MethodDescriptor<QueryOuterClass.QueryBalanceRequest, QueryOuterClass.QueryBalanceResponse>
+  val balanceMethod: MethodDescriptor<QueryOuterClass.QueryBalanceRequest,
+      QueryOuterClass.QueryBalanceResponse>
     @JvmStatic
     get() = QueryGrpc.getBalanceMethod()
 
-  public val allBalancesMethod:
-      MethodDescriptor<QueryOuterClass.QueryAllBalancesRequest, QueryOuterClass.QueryAllBalancesResponse>
+  val allBalancesMethod: MethodDescriptor<QueryOuterClass.QueryAllBalancesRequest,
+      QueryOuterClass.QueryAllBalancesResponse>
     @JvmStatic
     get() = QueryGrpc.getAllBalancesMethod()
 
-  public val totalSupplyMethod:
-      MethodDescriptor<QueryOuterClass.QueryTotalSupplyRequest, QueryOuterClass.QueryTotalSupplyResponse>
+  val totalSupplyMethod: MethodDescriptor<QueryOuterClass.QueryTotalSupplyRequest,
+      QueryOuterClass.QueryTotalSupplyResponse>
     @JvmStatic
     get() = QueryGrpc.getTotalSupplyMethod()
 
-  public val supplyOfMethod:
-      MethodDescriptor<QueryOuterClass.QuerySupplyOfRequest, QueryOuterClass.QuerySupplyOfResponse>
+  val supplyOfMethod: MethodDescriptor<QueryOuterClass.QuerySupplyOfRequest,
+      QueryOuterClass.QuerySupplyOfResponse>
     @JvmStatic
     get() = QueryGrpc.getSupplyOfMethod()
 
-  public val paramsMethod:
-      MethodDescriptor<QueryOuterClass.QueryParamsRequest, QueryOuterClass.QueryParamsResponse>
+  val paramsMethod: MethodDescriptor<QueryOuterClass.QueryParamsRequest,
+      QueryOuterClass.QueryParamsResponse>
     @JvmStatic
     get() = QueryGrpc.getParamsMethod()
 
-  public val denomMetadataMethod:
-      MethodDescriptor<QueryOuterClass.QueryDenomMetadataRequest, QueryOuterClass.QueryDenomMetadataResponse>
+  val denomMetadataMethod: MethodDescriptor<QueryOuterClass.QueryDenomMetadataRequest,
+      QueryOuterClass.QueryDenomMetadataResponse>
     @JvmStatic
     get() = QueryGrpc.getDenomMetadataMethod()
 
-  public val denomsMetadataMethod:
-      MethodDescriptor<QueryOuterClass.QueryDenomsMetadataRequest, QueryOuterClass.QueryDenomsMetadataResponse>
+  val denomsMetadataMethod: MethodDescriptor<QueryOuterClass.QueryDenomsMetadataRequest,
+      QueryOuterClass.QueryDenomsMetadataResponse>
     @JvmStatic
     get() = QueryGrpc.getDenomsMetadataMethod()
 
@@ -74,11 +74,11 @@ public object QueryGrpcKt {
    * A stub for issuing RPCs to a(n) cosmos.bank.v1beta1.Query service as suspending coroutines.
    */
   @StubFor(QueryGrpc::class)
-  public class QueryCoroutineStub @JvmOverloads constructor(
+  class QueryCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<QueryCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
         QueryCoroutineStub(channel, callOptions)
 
     /**
@@ -89,19 +89,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun balance(request: QueryOuterClass.QueryBalanceRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryBalanceResponse = unaryRpc(
+    suspend fun balance(request: QueryOuterClass.QueryBalanceRequest):
+        QueryOuterClass.QueryBalanceResponse = unaryRpc(
       channel,
       QueryGrpc.getBalanceMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -110,19 +107,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun allBalances(request: QueryOuterClass.QueryAllBalancesRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryAllBalancesResponse = unaryRpc(
+    suspend fun allBalances(request: QueryOuterClass.QueryAllBalancesRequest):
+        QueryOuterClass.QueryAllBalancesResponse = unaryRpc(
       channel,
       QueryGrpc.getAllBalancesMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -131,19 +125,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun totalSupply(request: QueryOuterClass.QueryTotalSupplyRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryTotalSupplyResponse = unaryRpc(
+    suspend fun totalSupply(request: QueryOuterClass.QueryTotalSupplyRequest):
+        QueryOuterClass.QueryTotalSupplyResponse = unaryRpc(
       channel,
       QueryGrpc.getTotalSupplyMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -152,19 +143,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun supplyOf(request: QueryOuterClass.QuerySupplyOfRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QuerySupplyOfResponse = unaryRpc(
+    suspend fun supplyOf(request: QueryOuterClass.QuerySupplyOfRequest):
+        QueryOuterClass.QuerySupplyOfResponse = unaryRpc(
       channel,
       QueryGrpc.getSupplyOfMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -173,19 +161,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun params(request: QueryOuterClass.QueryParamsRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryParamsResponse = unaryRpc(
+    suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+        QueryOuterClass.QueryParamsResponse = unaryRpc(
       channel,
       QueryGrpc.getParamsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -194,19 +179,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun denomMetadata(request: QueryOuterClass.QueryDenomMetadataRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryDenomMetadataResponse = unaryRpc(
+    suspend fun denomMetadata(request: QueryOuterClass.QueryDenomMetadataRequest):
+        QueryOuterClass.QueryDenomMetadataResponse = unaryRpc(
       channel,
       QueryGrpc.getDenomMetadataMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -215,25 +197,22 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun denomsMetadata(request: QueryOuterClass.QueryDenomsMetadataRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryDenomsMetadataResponse = unaryRpc(
+    suspend fun denomsMetadata(request: QueryOuterClass.QueryDenomsMetadataRequest):
+        QueryOuterClass.QueryDenomsMetadataResponse = unaryRpc(
       channel,
       QueryGrpc.getDenomsMetadataMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.bank.v1beta1.Query service based on Kotlin coroutines.
    */
-  public abstract class QueryCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class QueryCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for cosmos.bank.v1beta1.Query.Balance.
@@ -246,7 +225,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun balance(request: QueryOuterClass.QueryBalanceRequest):
+    open suspend fun balance(request: QueryOuterClass.QueryBalanceRequest):
         QueryOuterClass.QueryBalanceResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.bank.v1beta1.Query.Balance is unimplemented"))
 
@@ -261,7 +240,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun allBalances(request: QueryOuterClass.QueryAllBalancesRequest):
+    open suspend fun allBalances(request: QueryOuterClass.QueryAllBalancesRequest):
         QueryOuterClass.QueryAllBalancesResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.bank.v1beta1.Query.AllBalances is unimplemented"))
 
@@ -276,7 +255,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun totalSupply(request: QueryOuterClass.QueryTotalSupplyRequest):
+    open suspend fun totalSupply(request: QueryOuterClass.QueryTotalSupplyRequest):
         QueryOuterClass.QueryTotalSupplyResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.bank.v1beta1.Query.TotalSupply is unimplemented"))
 
@@ -291,7 +270,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun supplyOf(request: QueryOuterClass.QuerySupplyOfRequest):
+    open suspend fun supplyOf(request: QueryOuterClass.QuerySupplyOfRequest):
         QueryOuterClass.QuerySupplyOfResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.bank.v1beta1.Query.SupplyOf is unimplemented"))
 
@@ -306,7 +285,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+    open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
         QueryOuterClass.QueryParamsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.bank.v1beta1.Query.Params is unimplemented"))
 
@@ -321,7 +300,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun denomMetadata(request: QueryOuterClass.QueryDenomMetadataRequest):
+    open suspend fun denomMetadata(request: QueryOuterClass.QueryDenomMetadataRequest):
         QueryOuterClass.QueryDenomMetadataResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.bank.v1beta1.Query.DenomMetadata is unimplemented"))
 
@@ -336,12 +315,11 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun denomsMetadata(request: QueryOuterClass.QueryDenomsMetadataRequest):
+    open suspend fun denomsMetadata(request: QueryOuterClass.QueryDenomsMetadataRequest):
         QueryOuterClass.QueryDenomsMetadataResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.bank.v1beta1.Query.DenomsMetadata is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = QueryGrpc.getBalanceMethod(),

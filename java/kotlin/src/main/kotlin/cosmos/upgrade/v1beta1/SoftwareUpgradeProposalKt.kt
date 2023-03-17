@@ -3,16 +3,16 @@
 
 package cosmos.upgrade.v1beta1;
 
-@kotlin.jvm.JvmName("-initializesoftwareUpgradeProposal")
-public inline fun softwareUpgradeProposal(block: cosmos.upgrade.v1beta1.SoftwareUpgradeProposalKt.Dsl.() -> kotlin.Unit): cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal =
+@kotlin.jvm.JvmSynthetic
+inline fun softwareUpgradeProposal(block: cosmos.upgrade.v1beta1.SoftwareUpgradeProposalKt.Dsl.() -> Unit): cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal =
   cosmos.upgrade.v1beta1.SoftwareUpgradeProposalKt.Dsl._create(cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal.newBuilder()).apply { block() }._build()
-public object SoftwareUpgradeProposalKt {
+object SoftwareUpgradeProposalKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object SoftwareUpgradeProposalKt {
     /**
      * <code>string title = 1;</code>
      */
-    public var title: kotlin.String
+    var title: kotlin.String
       @JvmName("getTitle")
       get() = _builder.getTitle()
       @JvmName("setTitle")
@@ -35,14 +35,14 @@ public object SoftwareUpgradeProposalKt {
     /**
      * <code>string title = 1;</code>
      */
-    public fun clearTitle() {
+    fun clearTitle() {
       _builder.clearTitle()
     }
 
     /**
      * <code>string description = 2;</code>
      */
-    public var description: kotlin.String
+    var description: kotlin.String
       @JvmName("getDescription")
       get() = _builder.getDescription()
       @JvmName("setDescription")
@@ -52,14 +52,14 @@ public object SoftwareUpgradeProposalKt {
     /**
      * <code>string description = 2;</code>
      */
-    public fun clearDescription() {
+    fun clearDescription() {
       _builder.clearDescription()
     }
 
     /**
      * <code>.cosmos.upgrade.v1beta1.Plan plan = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public var plan: cosmos.upgrade.v1beta1.Upgrade.Plan
+    var plan: cosmos.upgrade.v1beta1.Upgrade.Plan
       @JvmName("getPlan")
       get() = _builder.getPlan()
       @JvmName("setPlan")
@@ -69,22 +69,18 @@ public object SoftwareUpgradeProposalKt {
     /**
      * <code>.cosmos.upgrade.v1beta1.Plan plan = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearPlan() {
+    fun clearPlan() {
       _builder.clearPlan()
     }
     /**
      * <code>.cosmos.upgrade.v1beta1.Plan plan = 3 [(.gogoproto.nullable) = false];</code>
      * @return Whether the plan field is set.
      */
-    public fun hasPlan(): kotlin.Boolean {
+    fun hasPlan(): kotlin.Boolean {
       return _builder.hasPlan()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal.copy(block: cosmos.upgrade.v1beta1.SoftwareUpgradeProposalKt.Dsl.() -> kotlin.Unit): cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal =
+inline fun cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal.copy(block: cosmos.upgrade.v1beta1.SoftwareUpgradeProposalKt.Dsl.() -> Unit): cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal =
   cosmos.upgrade.v1beta1.SoftwareUpgradeProposalKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposalOrBuilder.planOrNull: cosmos.upgrade.v1beta1.Upgrade.Plan?
-  get() = if (hasPlan()) getPlan() else null
-

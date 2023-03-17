@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializedepositParams")
-public inline fun depositParams(block: cosmos.gov.v1beta1.DepositParamsKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Gov.DepositParams =
+@kotlin.jvm.JvmSynthetic
+inline fun depositParams(block: cosmos.gov.v1beta1.DepositParamsKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Gov.DepositParams =
   cosmos.gov.v1beta1.DepositParamsKt.Dsl._create(cosmos.gov.v1beta1.Gov.DepositParams.newBuilder()).apply { block() }._build()
-public object DepositParamsKt {
+object DepositParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.Gov.DepositParams.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.Gov.DepositParams.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.Gov.DepositParams.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object DepositParamsKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class MinDepositProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class MinDepositProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      *  Minimum deposit for a proposal to enter voting period.
@@ -35,7 +35,7 @@ public object DepositParamsKt {
      *
      * <code>repeated .cosmos.base.v1beta1.Coin min_deposit = 1 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "min_deposit,omitempty", (.gogoproto.moretags) = "yaml:&#92;"min_deposit&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
-     public val minDeposit: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>
+     val minDeposit: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getMinDepositList()
@@ -50,10 +50,9 @@ public object DepositParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addMinDeposit")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.addMinDeposit(value)
-    }
-    /**
+    }/**
      * <pre>
      *  Minimum deposit for a proposal to enter voting period.
      * </pre>
@@ -63,11 +62,9 @@ public object DepositParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignMinDeposit")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      *  Minimum deposit for a proposal to enter voting period.
      * </pre>
@@ -77,10 +74,9 @@ public object DepositParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllMinDeposit")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       _builder.addAllMinDeposit(values)
-    }
-    /**
+    }/**
      * <pre>
      *  Minimum deposit for a proposal to enter voting period.
      * </pre>
@@ -90,11 +86,9 @@ public object DepositParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllMinDeposit")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      *  Minimum deposit for a proposal to enter voting period.
      * </pre>
@@ -105,10 +99,9 @@ public object DepositParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setMinDeposit")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.setMinDeposit(index, value)
-    }
-    /**
+    }/**
      * <pre>
      *  Minimum deposit for a proposal to enter voting period.
      * </pre>
@@ -117,11 +110,9 @@ public object DepositParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearMinDeposit")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, MinDepositProxy>.clear() {
       _builder.clearMinDeposit()
     }
-
-
     /**
      * <pre>
      *  Maximum period for Atom holders to deposit on a proposal. Initial value: 2
@@ -130,7 +121,7 @@ public object DepositParamsKt {
      *
      * <code>.google.protobuf.Duration max_deposit_period = 2 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "max_deposit_period,omitempty", (.gogoproto.moretags) = "yaml:&#92;"max_deposit_period&#92;"", (.gogoproto.stdduration) = true];</code>
      */
-    public var maxDepositPeriod: com.google.protobuf.Duration
+    var maxDepositPeriod: com.google.protobuf.Duration
       @JvmName("getMaxDepositPeriod")
       get() = _builder.getMaxDepositPeriod()
       @JvmName("setMaxDepositPeriod")
@@ -145,7 +136,7 @@ public object DepositParamsKt {
      *
      * <code>.google.protobuf.Duration max_deposit_period = 2 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "max_deposit_period,omitempty", (.gogoproto.moretags) = "yaml:&#92;"max_deposit_period&#92;"", (.gogoproto.stdduration) = true];</code>
      */
-    public fun clearMaxDepositPeriod() {
+    fun clearMaxDepositPeriod() {
       _builder.clearMaxDepositPeriod()
     }
     /**
@@ -157,15 +148,11 @@ public object DepositParamsKt {
      * <code>.google.protobuf.Duration max_deposit_period = 2 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "max_deposit_period,omitempty", (.gogoproto.moretags) = "yaml:&#92;"max_deposit_period&#92;"", (.gogoproto.stdduration) = true];</code>
      * @return Whether the maxDepositPeriod field is set.
      */
-    public fun hasMaxDepositPeriod(): kotlin.Boolean {
+    fun hasMaxDepositPeriod(): kotlin.Boolean {
       return _builder.hasMaxDepositPeriod()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.Gov.DepositParams.copy(block: cosmos.gov.v1beta1.DepositParamsKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Gov.DepositParams =
+inline fun cosmos.gov.v1beta1.Gov.DepositParams.copy(block: cosmos.gov.v1beta1.DepositParamsKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Gov.DepositParams =
   cosmos.gov.v1beta1.DepositParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.gov.v1beta1.Gov.DepositParamsOrBuilder.maxDepositPeriodOrNull: com.google.protobuf.Duration?
-  get() = if (hasMaxDepositPeriod()) getMaxDepositPeriod() else null
-

@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializequeryPacketCommitmentRequest")
-public inline fun queryPacketCommitmentRequest(block: ibc.core.channel.v1.QueryPacketCommitmentRequestKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryPacketCommitmentRequest(block: ibc.core.channel.v1.QueryPacketCommitmentRequestKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest =
   ibc.core.channel.v1.QueryPacketCommitmentRequestKt.Dsl._create(ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest.newBuilder()).apply { block() }._build()
-public object QueryPacketCommitmentRequestKt {
+object QueryPacketCommitmentRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryPacketCommitmentRequestKt {
      *
      * <code>string port_id = 1;</code>
      */
-    public var portId: kotlin.String
+    var portId: kotlin.String
       @JvmName("getPortId")
       get() = _builder.getPortId()
       @JvmName("setPortId")
@@ -43,7 +43,7 @@ public object QueryPacketCommitmentRequestKt {
      *
      * <code>string port_id = 1;</code>
      */
-    public fun clearPortId() {
+    fun clearPortId() {
       _builder.clearPortId()
     }
 
@@ -54,7 +54,7 @@ public object QueryPacketCommitmentRequestKt {
      *
      * <code>string channel_id = 2;</code>
      */
-    public var channelId: kotlin.String
+    var channelId: kotlin.String
       @JvmName("getChannelId")
       get() = _builder.getChannelId()
       @JvmName("setChannelId")
@@ -68,7 +68,7 @@ public object QueryPacketCommitmentRequestKt {
      *
      * <code>string channel_id = 2;</code>
      */
-    public fun clearChannelId() {
+    fun clearChannelId() {
       _builder.clearChannelId()
     }
 
@@ -79,7 +79,7 @@ public object QueryPacketCommitmentRequestKt {
      *
      * <code>uint64 sequence = 3;</code>
      */
-    public var sequence: kotlin.Long
+    var sequence: kotlin.Long
       @JvmName("getSequence")
       get() = _builder.getSequence()
       @JvmName("setSequence")
@@ -93,12 +93,11 @@ public object QueryPacketCommitmentRequestKt {
      *
      * <code>uint64 sequence = 3;</code>
      */
-    public fun clearSequence() {
+    fun clearSequence() {
       _builder.clearSequence()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest.copy(block: ibc.core.channel.v1.QueryPacketCommitmentRequestKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest =
+inline fun ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest.copy(block: ibc.core.channel.v1.QueryPacketCommitmentRequestKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest =
   ibc.core.channel.v1.QueryPacketCommitmentRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

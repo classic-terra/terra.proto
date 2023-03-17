@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializecode")
-public inline fun code(block: terra.wasm.v1beta1.CodeKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Genesis.Code =
+@kotlin.jvm.JvmSynthetic
+inline fun code(block: terra.wasm.v1beta1.CodeKt.Dsl.() -> Unit): terra.wasm.v1beta1.Genesis.Code =
   terra.wasm.v1beta1.CodeKt.Dsl._create(terra.wasm.v1beta1.Genesis.Code.newBuilder()).apply { block() }._build()
-public object CodeKt {
+object CodeKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Genesis.Code.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Genesis.Code.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Genesis.Code.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object CodeKt {
     /**
      * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var codeInfo: terra.wasm.v1beta1.Wasm.CodeInfo
+    var codeInfo: terra.wasm.v1beta1.Wasm.CodeInfo
       @JvmName("getCodeInfo")
       get() = _builder.getCodeInfo()
       @JvmName("setCodeInfo")
@@ -35,21 +35,21 @@ public object CodeKt {
     /**
      * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearCodeInfo() {
+    fun clearCodeInfo() {
       _builder.clearCodeInfo()
     }
     /**
      * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the codeInfo field is set.
      */
-    public fun hasCodeInfo(): kotlin.Boolean {
+    fun hasCodeInfo(): kotlin.Boolean {
       return _builder.hasCodeInfo()
     }
 
     /**
      * <code>bytes code_bytes = 2;</code>
      */
-    public var codeBytes: com.google.protobuf.ByteString
+    var codeBytes: com.google.protobuf.ByteString
       @JvmName("getCodeBytes")
       get() = _builder.getCodeBytes()
       @JvmName("setCodeBytes")
@@ -59,15 +59,11 @@ public object CodeKt {
     /**
      * <code>bytes code_bytes = 2;</code>
      */
-    public fun clearCodeBytes() {
+    fun clearCodeBytes() {
       _builder.clearCodeBytes()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Genesis.Code.copy(block: terra.wasm.v1beta1.CodeKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Genesis.Code =
+inline fun terra.wasm.v1beta1.Genesis.Code.copy(block: terra.wasm.v1beta1.CodeKt.Dsl.() -> Unit): terra.wasm.v1beta1.Genesis.Code =
   terra.wasm.v1beta1.CodeKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.wasm.v1beta1.Genesis.CodeOrBuilder.codeInfoOrNull: terra.wasm.v1beta1.Wasm.CodeInfo?
-  get() = if (hasCodeInfo()) getCodeInfo() else null
-

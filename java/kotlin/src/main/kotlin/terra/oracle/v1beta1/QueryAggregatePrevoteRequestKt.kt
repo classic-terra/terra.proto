@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryAggregatePrevoteRequest")
-public inline fun queryAggregatePrevoteRequest(block: terra.oracle.v1beta1.QueryAggregatePrevoteRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryAggregatePrevoteRequest(block: terra.oracle.v1beta1.QueryAggregatePrevoteRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest =
   terra.oracle.v1beta1.QueryAggregatePrevoteRequestKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest.newBuilder()).apply { block() }._build()
-public object QueryAggregatePrevoteRequestKt {
+object QueryAggregatePrevoteRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryAggregatePrevoteRequestKt {
      *
      * <code>string validator_addr = 1;</code>
      */
-    public var validatorAddr: kotlin.String
+    var validatorAddr: kotlin.String
       @JvmName("getValidatorAddr")
       get() = _builder.getValidatorAddr()
       @JvmName("setValidatorAddr")
@@ -43,12 +43,11 @@ public object QueryAggregatePrevoteRequestKt {
      *
      * <code>string validator_addr = 1;</code>
      */
-    public fun clearValidatorAddr() {
+    fun clearValidatorAddr() {
       _builder.clearValidatorAddr()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest.copy(block: terra.oracle.v1beta1.QueryAggregatePrevoteRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest.copy(block: terra.oracle.v1beta1.QueryAggregatePrevoteRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryAggregatePrevoteRequest =
   terra.oracle.v1beta1.QueryAggregatePrevoteRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

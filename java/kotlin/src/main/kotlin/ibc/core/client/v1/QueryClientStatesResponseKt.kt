@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializequeryClientStatesResponse")
-public inline fun queryClientStatesResponse(block: ibc.core.client.v1.QueryClientStatesResponseKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatesResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryClientStatesResponse(block: ibc.core.client.v1.QueryClientStatesResponseKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatesResponse =
   ibc.core.client.v1.QueryClientStatesResponseKt.Dsl._create(ibc.core.client.v1.QueryOuterClass.QueryClientStatesResponse.newBuilder()).apply { block() }._build()
-public object QueryClientStatesResponseKt {
+object QueryClientStatesResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.QueryOuterClass.QueryClientStatesResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.QueryOuterClass.QueryClientStatesResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.QueryOuterClass.QueryClientStatesResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryClientStatesResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ClientStatesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ClientStatesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * list of stored ClientStates of the chain.
@@ -35,7 +35,7 @@ public object QueryClientStatesResponseKt {
      *
      * <code>repeated .ibc.core.client.v1.IdentifiedClientState client_states = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "IdentifiedClientStates"];</code>
      */
-     public val clientStates: com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>
+     val clientStates: com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getClientStatesList()
@@ -50,10 +50,9 @@ public object QueryClientStatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addClientStates")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.add(value: ibc.core.client.v1.Client.IdentifiedClientState) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.add(value: ibc.core.client.v1.Client.IdentifiedClientState) {
       _builder.addClientStates(value)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored ClientStates of the chain.
      * </pre>
@@ -63,11 +62,9 @@ public object QueryClientStatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignClientStates")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.plusAssign(value: ibc.core.client.v1.Client.IdentifiedClientState) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.plusAssign(value: ibc.core.client.v1.Client.IdentifiedClientState) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored ClientStates of the chain.
      * </pre>
@@ -77,10 +74,9 @@ public object QueryClientStatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllClientStates")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.client.v1.Client.IdentifiedClientState>) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.client.v1.Client.IdentifiedClientState>) {
       _builder.addAllClientStates(values)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored ClientStates of the chain.
      * </pre>
@@ -90,11 +86,9 @@ public object QueryClientStatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllClientStates")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.client.v1.Client.IdentifiedClientState>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.client.v1.Client.IdentifiedClientState>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored ClientStates of the chain.
      * </pre>
@@ -105,10 +99,9 @@ public object QueryClientStatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setClientStates")
-    public operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.set(index: kotlin.Int, value: ibc.core.client.v1.Client.IdentifiedClientState) {
+    operator fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.set(index: kotlin.Int, value: ibc.core.client.v1.Client.IdentifiedClientState) {
       _builder.setClientStates(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * list of stored ClientStates of the chain.
      * </pre>
@@ -117,11 +110,9 @@ public object QueryClientStatesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearClientStates")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.client.v1.Client.IdentifiedClientState, ClientStatesProxy>.clear() {
       _builder.clearClientStates()
     }
-
-
     /**
      * <pre>
      * pagination response
@@ -129,7 +120,7 @@ public object QueryClientStatesResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -143,7 +134,7 @@ public object QueryClientStatesResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -154,15 +145,11 @@ public object QueryClientStatesResponseKt {
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.QueryOuterClass.QueryClientStatesResponse.copy(block: ibc.core.client.v1.QueryClientStatesResponseKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatesResponse =
+inline fun ibc.core.client.v1.QueryOuterClass.QueryClientStatesResponse.copy(block: ibc.core.client.v1.QueryClientStatesResponseKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatesResponse =
   ibc.core.client.v1.QueryClientStatesResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.client.v1.QueryOuterClass.QueryClientStatesResponseOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageResponse?
-  get() = if (hasPagination()) getPagination() else null
-

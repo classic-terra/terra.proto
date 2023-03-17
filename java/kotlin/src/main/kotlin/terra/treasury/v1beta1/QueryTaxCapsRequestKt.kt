@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTaxCapsRequest")
-public inline fun queryTaxCapsRequest(block: terra.treasury.v1beta1.QueryTaxCapsRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTaxCapsRequest(block: terra.treasury.v1beta1.QueryTaxCapsRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsRequest =
   terra.treasury.v1beta1.QueryTaxCapsRequestKt.Dsl._create(terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsRequest.newBuilder()).apply { block() }._build()
-public object QueryTaxCapsRequestKt {
+object QueryTaxCapsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryTaxCapsRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsRequest.copy(block: terra.treasury.v1beta1.QueryTaxCapsRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsRequest =
+inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsRequest.copy(block: terra.treasury.v1beta1.QueryTaxCapsRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsRequest =
   terra.treasury.v1beta1.QueryTaxCapsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

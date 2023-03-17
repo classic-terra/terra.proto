@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeredelegationEntryResponse")
-public inline fun redelegationEntryResponse(block: cosmos.staking.v1beta1.RedelegationEntryResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.RedelegationEntryResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun redelegationEntryResponse(block: cosmos.staking.v1beta1.RedelegationEntryResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.RedelegationEntryResponse =
   cosmos.staking.v1beta1.RedelegationEntryResponseKt.Dsl._create(cosmos.staking.v1beta1.Staking.RedelegationEntryResponse.newBuilder()).apply { block() }._build()
-public object RedelegationEntryResponseKt {
+object RedelegationEntryResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Staking.RedelegationEntryResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Staking.RedelegationEntryResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Staking.RedelegationEntryResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object RedelegationEntryResponseKt {
     /**
      * <code>.cosmos.staking.v1beta1.RedelegationEntry redelegation_entry = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var redelegationEntry: cosmos.staking.v1beta1.Staking.RedelegationEntry
+    var redelegationEntry: cosmos.staking.v1beta1.Staking.RedelegationEntry
       @JvmName("getRedelegationEntry")
       get() = _builder.getRedelegationEntry()
       @JvmName("setRedelegationEntry")
@@ -35,21 +35,21 @@ public object RedelegationEntryResponseKt {
     /**
      * <code>.cosmos.staking.v1beta1.RedelegationEntry redelegation_entry = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearRedelegationEntry() {
+    fun clearRedelegationEntry() {
       _builder.clearRedelegationEntry()
     }
     /**
      * <code>.cosmos.staking.v1beta1.RedelegationEntry redelegation_entry = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the redelegationEntry field is set.
      */
-    public fun hasRedelegationEntry(): kotlin.Boolean {
+    fun hasRedelegationEntry(): kotlin.Boolean {
       return _builder.hasRedelegationEntry()
     }
 
     /**
      * <code>string balance = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public var balance: kotlin.String
+    var balance: kotlin.String
       @JvmName("getBalance")
       get() = _builder.getBalance()
       @JvmName("setBalance")
@@ -59,15 +59,11 @@ public object RedelegationEntryResponseKt {
     /**
      * <code>string balance = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public fun clearBalance() {
+    fun clearBalance() {
       _builder.clearBalance()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Staking.RedelegationEntryResponse.copy(block: cosmos.staking.v1beta1.RedelegationEntryResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.RedelegationEntryResponse =
+inline fun cosmos.staking.v1beta1.Staking.RedelegationEntryResponse.copy(block: cosmos.staking.v1beta1.RedelegationEntryResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.RedelegationEntryResponse =
   cosmos.staking.v1beta1.RedelegationEntryResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.Staking.RedelegationEntryResponseOrBuilder.redelegationEntryOrNull: cosmos.staking.v1beta1.Staking.RedelegationEntry?
-  get() = if (hasRedelegationEntry()) getRedelegationEntry() else null
-

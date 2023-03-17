@@ -3,16 +3,16 @@
 
 package ibc.core.connection.v1;
 
-@kotlin.jvm.JvmName("-initializemsgConnectionOpenConfirm")
-public inline fun msgConnectionOpenConfirm(block: ibc.core.connection.v1.MsgConnectionOpenConfirmKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenConfirm =
+@kotlin.jvm.JvmSynthetic
+inline fun msgConnectionOpenConfirm(block: ibc.core.connection.v1.MsgConnectionOpenConfirmKt.Dsl.() -> Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenConfirm =
   ibc.core.connection.v1.MsgConnectionOpenConfirmKt.Dsl._create(ibc.core.connection.v1.Tx.MsgConnectionOpenConfirm.newBuilder()).apply { block() }._build()
-public object MsgConnectionOpenConfirmKt {
+object MsgConnectionOpenConfirmKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.connection.v1.Tx.MsgConnectionOpenConfirm.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.connection.v1.Tx.MsgConnectionOpenConfirm.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.connection.v1.Tx.MsgConnectionOpenConfirm.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgConnectionOpenConfirmKt {
     /**
      * <code>string connection_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"connection_id&#92;""];</code>
      */
-    public var connectionId: kotlin.String
+    var connectionId: kotlin.String
       @JvmName("getConnectionId")
       get() = _builder.getConnectionId()
       @JvmName("setConnectionId")
@@ -35,7 +35,7 @@ public object MsgConnectionOpenConfirmKt {
     /**
      * <code>string connection_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"connection_id&#92;""];</code>
      */
-    public fun clearConnectionId() {
+    fun clearConnectionId() {
       _builder.clearConnectionId()
     }
 
@@ -46,7 +46,7 @@ public object MsgConnectionOpenConfirmKt {
      *
      * <code>bytes proof_ack = 2 [(.gogoproto.moretags) = "yaml:&#92;"proof_ack&#92;""];</code>
      */
-    public var proofAck: com.google.protobuf.ByteString
+    var proofAck: com.google.protobuf.ByteString
       @JvmName("getProofAck")
       get() = _builder.getProofAck()
       @JvmName("setProofAck")
@@ -60,14 +60,14 @@ public object MsgConnectionOpenConfirmKt {
      *
      * <code>bytes proof_ack = 2 [(.gogoproto.moretags) = "yaml:&#92;"proof_ack&#92;""];</code>
      */
-    public fun clearProofAck() {
+    fun clearProofAck() {
       _builder.clearProofAck()
     }
 
     /**
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"proof_height&#92;""];</code>
      */
-    public var proofHeight: ibc.core.client.v1.Client.Height
+    var proofHeight: ibc.core.client.v1.Client.Height
       @JvmName("getProofHeight")
       get() = _builder.getProofHeight()
       @JvmName("setProofHeight")
@@ -77,21 +77,21 @@ public object MsgConnectionOpenConfirmKt {
     /**
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"proof_height&#92;""];</code>
      */
-    public fun clearProofHeight() {
+    fun clearProofHeight() {
       _builder.clearProofHeight()
     }
     /**
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"proof_height&#92;""];</code>
      * @return Whether the proofHeight field is set.
      */
-    public fun hasProofHeight(): kotlin.Boolean {
+    fun hasProofHeight(): kotlin.Boolean {
       return _builder.hasProofHeight()
     }
 
     /**
      * <code>string signer = 4;</code>
      */
-    public var signer: kotlin.String
+    var signer: kotlin.String
       @JvmName("getSigner")
       get() = _builder.getSigner()
       @JvmName("setSigner")
@@ -101,15 +101,11 @@ public object MsgConnectionOpenConfirmKt {
     /**
      * <code>string signer = 4;</code>
      */
-    public fun clearSigner() {
+    fun clearSigner() {
       _builder.clearSigner()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.connection.v1.Tx.MsgConnectionOpenConfirm.copy(block: ibc.core.connection.v1.MsgConnectionOpenConfirmKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenConfirm =
+inline fun ibc.core.connection.v1.Tx.MsgConnectionOpenConfirm.copy(block: ibc.core.connection.v1.MsgConnectionOpenConfirmKt.Dsl.() -> Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenConfirm =
   ibc.core.connection.v1.MsgConnectionOpenConfirmKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.connection.v1.Tx.MsgConnectionOpenConfirmOrBuilder.proofHeightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasProofHeight()) getProofHeight() else null
-

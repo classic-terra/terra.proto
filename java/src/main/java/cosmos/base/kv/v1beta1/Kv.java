@@ -74,6 +74,56 @@ public final class Kv {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Pairs(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                pairs_ = new java.util.ArrayList<cosmos.base.kv.v1beta1.Kv.Pair>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              pairs_.add(
+                  input.readMessage(cosmos.base.kv.v1beta1.Kv.Pair.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          pairs_ = java.util.Collections.unmodifiableList(pairs_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.kv.v1beta1.Kv.internal_static_cosmos_base_kv_v1beta1_Pairs_descriptor;
@@ -88,7 +138,6 @@ public final class Kv {
     }
 
     public static final int PAIRS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.kv.v1beta1.Kv.Pair> pairs_;
     /**
      * <code>repeated .cosmos.base.kv.v1beta1.Pair pairs = 1 [(.gogoproto.nullable) = false];</code>
@@ -145,7 +194,7 @@ public final class Kv {
       for (int i = 0; i < pairs_.size(); i++) {
         output.writeMessage(1, pairs_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -158,7 +207,7 @@ public final class Kv {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, pairs_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -175,7 +224,7 @@ public final class Kv {
 
       if (!getPairsList()
           .equals(other.getPairsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -190,7 +239,7 @@ public final class Kv {
         hash = (37 * hash) + PAIRS_FIELD_NUMBER;
         hash = (53 * hash) + getPairsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -311,25 +360,29 @@ public final class Kv {
 
       // Construct using cosmos.base.kv.v1beta1.Kv.Pairs.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getPairsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (pairsBuilder_ == null) {
           pairs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          pairs_ = null;
           pairsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -356,13 +409,7 @@ public final class Kv {
       @java.lang.Override
       public cosmos.base.kv.v1beta1.Kv.Pairs buildPartial() {
         cosmos.base.kv.v1beta1.Kv.Pairs result = new cosmos.base.kv.v1beta1.Kv.Pairs(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(cosmos.base.kv.v1beta1.Kv.Pairs result) {
+        int from_bitField0_ = bitField0_;
         if (pairsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             pairs_ = java.util.Collections.unmodifiableList(pairs_);
@@ -372,10 +419,8 @@ public final class Kv {
         } else {
           result.pairs_ = pairsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(cosmos.base.kv.v1beta1.Kv.Pairs result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -448,7 +493,7 @@ public final class Kv {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -463,43 +508,17 @@ public final class Kv {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.kv.v1beta1.Kv.Pairs parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                cosmos.base.kv.v1beta1.Kv.Pair m =
-                    input.readMessage(
-                        cosmos.base.kv.v1beta1.Kv.Pair.parser(),
-                        extensionRegistry);
-                if (pairsBuilder_ == null) {
-                  ensurePairsIsMutable();
-                  pairs_.add(m);
-                } else {
-                  pairsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.kv.v1beta1.Kv.Pairs) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -776,18 +795,7 @@ public final class Kv {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Pairs(input, extensionRegistry);
       }
     };
 
@@ -856,6 +864,53 @@ public final class Kv {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Pair(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              key_ = input.readBytes();
+              break;
+            }
+            case 18: {
+
+              value_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.kv.v1beta1.Kv.internal_static_cosmos_base_kv_v1beta1_Pair_descriptor;
@@ -870,7 +925,7 @@ public final class Kv {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString key_;
     /**
      * <code>bytes key = 1;</code>
      * @return The key.
@@ -881,7 +936,7 @@ public final class Kv {
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString value_;
     /**
      * <code>bytes value = 2;</code>
      * @return The value.
@@ -911,7 +966,7 @@ public final class Kv {
       if (!value_.isEmpty()) {
         output.writeBytes(2, value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -928,7 +983,7 @@ public final class Kv {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, value_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -947,7 +1002,7 @@ public final class Kv {
           .equals(other.getKey())) return false;
       if (!getValue()
           .equals(other.getValue())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -962,7 +1017,7 @@ public final class Kv {
       hash = (53 * hash) + getKey().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1083,20 +1138,26 @@ public final class Kv {
 
       // Construct using cosmos.base.kv.v1beta1.Kv.Pair.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         key_ = com.google.protobuf.ByteString.EMPTY;
+
         value_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -1123,19 +1184,10 @@ public final class Kv {
       @java.lang.Override
       public cosmos.base.kv.v1beta1.Kv.Pair buildPartial() {
         cosmos.base.kv.v1beta1.Kv.Pair result = new cosmos.base.kv.v1beta1.Kv.Pair(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.key_ = key_;
+        result.value_ = value_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.base.kv.v1beta1.Kv.Pair result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.key_ = key_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.value_ = value_;
-        }
       }
 
       @java.lang.Override
@@ -1188,7 +1240,7 @@ public final class Kv {
         if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1203,43 +1255,19 @@ public final class Kv {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.kv.v1beta1.Kv.Pair parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                key_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                value_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.kv.v1beta1.Kv.Pair) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -1256,9 +1284,11 @@ public final class Kv {
        * @return This builder for chaining.
        */
       public Builder setKey(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         key_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1267,7 +1297,7 @@ public final class Kv {
        * @return This builder for chaining.
        */
       public Builder clearKey() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         key_ = getDefaultInstance().getKey();
         onChanged();
         return this;
@@ -1288,9 +1318,11 @@ public final class Kv {
        * @return This builder for chaining.
        */
       public Builder setValue(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         value_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1299,7 +1331,7 @@ public final class Kv {
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         value_ = getDefaultInstance().getValue();
         onChanged();
         return this;
@@ -1337,18 +1369,7 @@ public final class Kv {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Pair(input, extensionRegistry);
       }
     };
 

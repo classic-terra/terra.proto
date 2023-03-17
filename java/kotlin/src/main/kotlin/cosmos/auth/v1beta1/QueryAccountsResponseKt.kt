@@ -3,16 +3,16 @@
 
 package cosmos.auth.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryAccountsResponse")
-public inline fun queryAccountsResponse(block: cosmos.auth.v1beta1.QueryAccountsResponseKt.Dsl.() -> kotlin.Unit): cosmos.auth.v1beta1.QueryOuterClass.QueryAccountsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryAccountsResponse(block: cosmos.auth.v1beta1.QueryAccountsResponseKt.Dsl.() -> Unit): cosmos.auth.v1beta1.QueryOuterClass.QueryAccountsResponse =
   cosmos.auth.v1beta1.QueryAccountsResponseKt.Dsl._create(cosmos.auth.v1beta1.QueryOuterClass.QueryAccountsResponse.newBuilder()).apply { block() }._build()
-public object QueryAccountsResponseKt {
+object QueryAccountsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.auth.v1beta1.QueryOuterClass.QueryAccountsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.auth.v1beta1.QueryOuterClass.QueryAccountsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.auth.v1beta1.QueryOuterClass.QueryAccountsResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryAccountsResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class AccountsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class AccountsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * accounts are the existing accounts
@@ -35,7 +35,7 @@ public object QueryAccountsResponseKt {
      *
      * <code>repeated .google.protobuf.Any accounts = 1 [(.cosmos_proto.accepts_interface) = "AccountI"];</code>
      */
-     public val accounts: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>
+     val accounts: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getAccountsList()
@@ -50,10 +50,9 @@ public object QueryAccountsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAccounts")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.add(value: com.google.protobuf.Any) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.add(value: com.google.protobuf.Any) {
       _builder.addAccounts(value)
-    }
-    /**
+    }/**
      * <pre>
      * accounts are the existing accounts
      * </pre>
@@ -63,11 +62,9 @@ public object QueryAccountsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAccounts")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.plusAssign(value: com.google.protobuf.Any) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.plusAssign(value: com.google.protobuf.Any) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * accounts are the existing accounts
      * </pre>
@@ -77,10 +74,9 @@ public object QueryAccountsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllAccounts")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       _builder.addAllAccounts(values)
-    }
-    /**
+    }/**
      * <pre>
      * accounts are the existing accounts
      * </pre>
@@ -90,11 +86,9 @@ public object QueryAccountsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllAccounts")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * accounts are the existing accounts
      * </pre>
@@ -105,10 +99,9 @@ public object QueryAccountsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setAccounts")
-    public operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
+    operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
       _builder.setAccounts(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * accounts are the existing accounts
      * </pre>
@@ -117,11 +110,9 @@ public object QueryAccountsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearAccounts")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, AccountsProxy>.clear() {
       _builder.clearAccounts()
     }
-
-
     /**
      * <pre>
      * pagination defines the pagination in the response.
@@ -129,7 +120,7 @@ public object QueryAccountsResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -143,7 +134,7 @@ public object QueryAccountsResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -154,15 +145,11 @@ public object QueryAccountsResponseKt {
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.auth.v1beta1.QueryOuterClass.QueryAccountsResponse.copy(block: cosmos.auth.v1beta1.QueryAccountsResponseKt.Dsl.() -> kotlin.Unit): cosmos.auth.v1beta1.QueryOuterClass.QueryAccountsResponse =
+inline fun cosmos.auth.v1beta1.QueryOuterClass.QueryAccountsResponse.copy(block: cosmos.auth.v1beta1.QueryAccountsResponseKt.Dsl.() -> Unit): cosmos.auth.v1beta1.QueryOuterClass.QueryAccountsResponse =
   cosmos.auth.v1beta1.QueryAccountsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.auth.v1beta1.QueryOuterClass.QueryAccountsResponseOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageResponse?
-  get() = if (hasPagination()) getPagination() else null
-

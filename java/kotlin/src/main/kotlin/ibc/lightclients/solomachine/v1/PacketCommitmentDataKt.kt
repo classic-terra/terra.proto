@@ -3,16 +3,16 @@
 
 package ibc.lightclients.solomachine.v1;
 
-@kotlin.jvm.JvmName("-initializepacketCommitmentData")
-public inline fun packetCommitmentData(block: ibc.lightclients.solomachine.v1.PacketCommitmentDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v1.Solomachine.PacketCommitmentData =
+@kotlin.jvm.JvmSynthetic
+inline fun packetCommitmentData(block: ibc.lightclients.solomachine.v1.PacketCommitmentDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v1.Solomachine.PacketCommitmentData =
   ibc.lightclients.solomachine.v1.PacketCommitmentDataKt.Dsl._create(ibc.lightclients.solomachine.v1.Solomachine.PacketCommitmentData.newBuilder()).apply { block() }._build()
-public object PacketCommitmentDataKt {
+object PacketCommitmentDataKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.lightclients.solomachine.v1.Solomachine.PacketCommitmentData.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.lightclients.solomachine.v1.Solomachine.PacketCommitmentData.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.lightclients.solomachine.v1.Solomachine.PacketCommitmentData.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object PacketCommitmentDataKt {
     /**
      * <code>bytes path = 1;</code>
      */
-    public var path: com.google.protobuf.ByteString
+    var path: com.google.protobuf.ByteString
       @JvmName("getPath")
       get() = _builder.getPath()
       @JvmName("setPath")
@@ -35,14 +35,14 @@ public object PacketCommitmentDataKt {
     /**
      * <code>bytes path = 1;</code>
      */
-    public fun clearPath() {
+    fun clearPath() {
       _builder.clearPath()
     }
 
     /**
      * <code>bytes commitment = 2;</code>
      */
-    public var commitment: com.google.protobuf.ByteString
+    var commitment: com.google.protobuf.ByteString
       @JvmName("getCommitment")
       get() = _builder.getCommitment()
       @JvmName("setCommitment")
@@ -52,12 +52,11 @@ public object PacketCommitmentDataKt {
     /**
      * <code>bytes commitment = 2;</code>
      */
-    public fun clearCommitment() {
+    fun clearCommitment() {
       _builder.clearCommitment()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.lightclients.solomachine.v1.Solomachine.PacketCommitmentData.copy(block: ibc.lightclients.solomachine.v1.PacketCommitmentDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v1.Solomachine.PacketCommitmentData =
+inline fun ibc.lightclients.solomachine.v1.Solomachine.PacketCommitmentData.copy(block: ibc.lightclients.solomachine.v1.PacketCommitmentDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v1.Solomachine.PacketCommitmentData =
   ibc.lightclients.solomachine.v1.PacketCommitmentDataKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

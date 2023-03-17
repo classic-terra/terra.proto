@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializepolicyConstraints")
-public inline fun policyConstraints(block: terra.treasury.v1beta1.PolicyConstraintsKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.Treasury.PolicyConstraints =
+@kotlin.jvm.JvmSynthetic
+inline fun policyConstraints(block: terra.treasury.v1beta1.PolicyConstraintsKt.Dsl.() -> Unit): terra.treasury.v1beta1.Treasury.PolicyConstraints =
   terra.treasury.v1beta1.PolicyConstraintsKt.Dsl._create(terra.treasury.v1beta1.Treasury.PolicyConstraints.newBuilder()).apply { block() }._build()
-public object PolicyConstraintsKt {
+object PolicyConstraintsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.Treasury.PolicyConstraints.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.Treasury.PolicyConstraints.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.Treasury.PolicyConstraints.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object PolicyConstraintsKt {
     /**
      * <code>string rate_min = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"rate_min&#92;""];</code>
      */
-    public var rateMin: kotlin.String
+    var rateMin: kotlin.String
       @JvmName("getRateMin")
       get() = _builder.getRateMin()
       @JvmName("setRateMin")
@@ -35,14 +35,14 @@ public object PolicyConstraintsKt {
     /**
      * <code>string rate_min = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"rate_min&#92;""];</code>
      */
-    public fun clearRateMin() {
+    fun clearRateMin() {
       _builder.clearRateMin()
     }
 
     /**
      * <code>string rate_max = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"rate_max&#92;""];</code>
      */
-    public var rateMax: kotlin.String
+    var rateMax: kotlin.String
       @JvmName("getRateMax")
       get() = _builder.getRateMax()
       @JvmName("setRateMax")
@@ -52,14 +52,14 @@ public object PolicyConstraintsKt {
     /**
      * <code>string rate_max = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"rate_max&#92;""];</code>
      */
-    public fun clearRateMax() {
+    fun clearRateMax() {
       _builder.clearRateMax()
     }
 
     /**
      * <code>.cosmos.base.v1beta1.Coin cap = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cap&#92;""];</code>
      */
-    public var cap: cosmos.base.v1beta1.CoinOuterClass.Coin
+    var cap: cosmos.base.v1beta1.CoinOuterClass.Coin
       @JvmName("getCap")
       get() = _builder.getCap()
       @JvmName("setCap")
@@ -69,21 +69,21 @@ public object PolicyConstraintsKt {
     /**
      * <code>.cosmos.base.v1beta1.Coin cap = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cap&#92;""];</code>
      */
-    public fun clearCap() {
+    fun clearCap() {
       _builder.clearCap()
     }
     /**
      * <code>.cosmos.base.v1beta1.Coin cap = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cap&#92;""];</code>
      * @return Whether the cap field is set.
      */
-    public fun hasCap(): kotlin.Boolean {
+    fun hasCap(): kotlin.Boolean {
       return _builder.hasCap()
     }
 
     /**
      * <code>string change_rate_max = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"change_rate_max&#92;""];</code>
      */
-    public var changeRateMax: kotlin.String
+    var changeRateMax: kotlin.String
       @JvmName("getChangeRateMax")
       get() = _builder.getChangeRateMax()
       @JvmName("setChangeRateMax")
@@ -93,15 +93,11 @@ public object PolicyConstraintsKt {
     /**
      * <code>string change_rate_max = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"change_rate_max&#92;""];</code>
      */
-    public fun clearChangeRateMax() {
+    fun clearChangeRateMax() {
       _builder.clearChangeRateMax()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.Treasury.PolicyConstraints.copy(block: terra.treasury.v1beta1.PolicyConstraintsKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.Treasury.PolicyConstraints =
+inline fun terra.treasury.v1beta1.Treasury.PolicyConstraints.copy(block: terra.treasury.v1beta1.PolicyConstraintsKt.Dsl.() -> Unit): terra.treasury.v1beta1.Treasury.PolicyConstraints =
   terra.treasury.v1beta1.PolicyConstraintsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.treasury.v1beta1.Treasury.PolicyConstraintsOrBuilder.capOrNull: cosmos.base.v1beta1.CoinOuterClass.Coin?
-  get() = if (hasCap()) getCap() else null
-

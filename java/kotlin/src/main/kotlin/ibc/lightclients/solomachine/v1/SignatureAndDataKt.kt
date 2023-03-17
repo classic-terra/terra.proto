@@ -3,16 +3,16 @@
 
 package ibc.lightclients.solomachine.v1;
 
-@kotlin.jvm.JvmName("-initializesignatureAndData")
-public inline fun signatureAndData(block: ibc.lightclients.solomachine.v1.SignatureAndDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v1.Solomachine.SignatureAndData =
+@kotlin.jvm.JvmSynthetic
+inline fun signatureAndData(block: ibc.lightclients.solomachine.v1.SignatureAndDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v1.Solomachine.SignatureAndData =
   ibc.lightclients.solomachine.v1.SignatureAndDataKt.Dsl._create(ibc.lightclients.solomachine.v1.Solomachine.SignatureAndData.newBuilder()).apply { block() }._build()
-public object SignatureAndDataKt {
+object SignatureAndDataKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.lightclients.solomachine.v1.Solomachine.SignatureAndData.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.lightclients.solomachine.v1.Solomachine.SignatureAndData.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.lightclients.solomachine.v1.Solomachine.SignatureAndData.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object SignatureAndDataKt {
     /**
      * <code>bytes signature = 1;</code>
      */
-    public var signature: com.google.protobuf.ByteString
+    var signature: com.google.protobuf.ByteString
       @JvmName("getSignature")
       get() = _builder.getSignature()
       @JvmName("setSignature")
@@ -35,14 +35,14 @@ public object SignatureAndDataKt {
     /**
      * <code>bytes signature = 1;</code>
      */
-    public fun clearSignature() {
+    fun clearSignature() {
       _builder.clearSignature()
     }
 
     /**
      * <code>.ibc.lightclients.solomachine.v1.DataType data_type = 2 [(.gogoproto.moretags) = "yaml:&#92;"data_type&#92;""];</code>
      */
-    public var dataType: ibc.lightclients.solomachine.v1.Solomachine.DataType
+    var dataType: ibc.lightclients.solomachine.v1.Solomachine.DataType
       @JvmName("getDataType")
       get() = _builder.getDataType()
       @JvmName("setDataType")
@@ -52,14 +52,14 @@ public object SignatureAndDataKt {
     /**
      * <code>.ibc.lightclients.solomachine.v1.DataType data_type = 2 [(.gogoproto.moretags) = "yaml:&#92;"data_type&#92;""];</code>
      */
-    public fun clearDataType() {
+    fun clearDataType() {
       _builder.clearDataType()
     }
 
     /**
      * <code>bytes data = 3;</code>
      */
-    public var data: com.google.protobuf.ByteString
+    var data: com.google.protobuf.ByteString
       @JvmName("getData")
       get() = _builder.getData()
       @JvmName("setData")
@@ -69,14 +69,14 @@ public object SignatureAndDataKt {
     /**
      * <code>bytes data = 3;</code>
      */
-    public fun clearData() {
+    fun clearData() {
       _builder.clearData()
     }
 
     /**
      * <code>uint64 timestamp = 4;</code>
      */
-    public var timestamp: kotlin.Long
+    var timestamp: kotlin.Long
       @JvmName("getTimestamp")
       get() = _builder.getTimestamp()
       @JvmName("setTimestamp")
@@ -86,12 +86,11 @@ public object SignatureAndDataKt {
     /**
      * <code>uint64 timestamp = 4;</code>
      */
-    public fun clearTimestamp() {
+    fun clearTimestamp() {
       _builder.clearTimestamp()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.lightclients.solomachine.v1.Solomachine.SignatureAndData.copy(block: ibc.lightclients.solomachine.v1.SignatureAndDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v1.Solomachine.SignatureAndData =
+inline fun ibc.lightclients.solomachine.v1.Solomachine.SignatureAndData.copy(block: ibc.lightclients.solomachine.v1.SignatureAndDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v1.Solomachine.SignatureAndData =
   ibc.lightclients.solomachine.v1.SignatureAndDataKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

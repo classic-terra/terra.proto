@@ -3,16 +3,16 @@
 
 package cosmos.crisis.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegenesisState")
-public inline fun genesisState(block: cosmos.crisis.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): cosmos.crisis.v1beta1.Genesis.GenesisState =
+@kotlin.jvm.JvmSynthetic
+inline fun genesisState(block: cosmos.crisis.v1beta1.GenesisStateKt.Dsl.() -> Unit): cosmos.crisis.v1beta1.Genesis.GenesisState =
   cosmos.crisis.v1beta1.GenesisStateKt.Dsl._create(cosmos.crisis.v1beta1.Genesis.GenesisState.newBuilder()).apply { block() }._build()
-public object GenesisStateKt {
+object GenesisStateKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.crisis.v1beta1.Genesis.GenesisState.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.crisis.v1beta1.Genesis.GenesisState.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.crisis.v1beta1.Genesis.GenesisState.Builder): Dsl = Dsl(builder)
@@ -30,7 +30,7 @@ public object GenesisStateKt {
      *
      * <code>.cosmos.base.v1beta1.Coin constant_fee = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"constant_fee&#92;""];</code>
      */
-    public var constantFee: cosmos.base.v1beta1.CoinOuterClass.Coin
+    var constantFee: cosmos.base.v1beta1.CoinOuterClass.Coin
       @JvmName("getConstantFee")
       get() = _builder.getConstantFee()
       @JvmName("setConstantFee")
@@ -45,7 +45,7 @@ public object GenesisStateKt {
      *
      * <code>.cosmos.base.v1beta1.Coin constant_fee = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"constant_fee&#92;""];</code>
      */
-    public fun clearConstantFee() {
+    fun clearConstantFee() {
       _builder.clearConstantFee()
     }
     /**
@@ -57,15 +57,11 @@ public object GenesisStateKt {
      * <code>.cosmos.base.v1beta1.Coin constant_fee = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"constant_fee&#92;""];</code>
      * @return Whether the constantFee field is set.
      */
-    public fun hasConstantFee(): kotlin.Boolean {
+    fun hasConstantFee(): kotlin.Boolean {
       return _builder.hasConstantFee()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.crisis.v1beta1.Genesis.GenesisState.copy(block: cosmos.crisis.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): cosmos.crisis.v1beta1.Genesis.GenesisState =
+inline fun cosmos.crisis.v1beta1.Genesis.GenesisState.copy(block: cosmos.crisis.v1beta1.GenesisStateKt.Dsl.() -> Unit): cosmos.crisis.v1beta1.Genesis.GenesisState =
   cosmos.crisis.v1beta1.GenesisStateKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.crisis.v1beta1.Genesis.GenesisStateOrBuilder.constantFeeOrNull: cosmos.base.v1beta1.CoinOuterClass.Coin?
-  get() = if (hasConstantFee()) getConstantFee() else null
-

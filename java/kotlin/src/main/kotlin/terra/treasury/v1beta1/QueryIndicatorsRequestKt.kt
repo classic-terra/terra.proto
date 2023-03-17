@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryIndicatorsRequest")
-public inline fun queryIndicatorsRequest(block: terra.treasury.v1beta1.QueryIndicatorsRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryIndicatorsRequest(block: terra.treasury.v1beta1.QueryIndicatorsRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest =
   terra.treasury.v1beta1.QueryIndicatorsRequestKt.Dsl._create(terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest.newBuilder()).apply { block() }._build()
-public object QueryIndicatorsRequestKt {
+object QueryIndicatorsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryIndicatorsRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest.copy(block: terra.treasury.v1beta1.QueryIndicatorsRequestKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest =
+inline fun terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest.copy(block: terra.treasury.v1beta1.QueryIndicatorsRequestKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsRequest =
   terra.treasury.v1beta1.QueryIndicatorsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializeconsensusStateWithHeight")
-public inline fun consensusStateWithHeight(block: ibc.core.client.v1.ConsensusStateWithHeightKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Client.ConsensusStateWithHeight =
+@kotlin.jvm.JvmSynthetic
+inline fun consensusStateWithHeight(block: ibc.core.client.v1.ConsensusStateWithHeightKt.Dsl.() -> Unit): ibc.core.client.v1.Client.ConsensusStateWithHeight =
   ibc.core.client.v1.ConsensusStateWithHeightKt.Dsl._create(ibc.core.client.v1.Client.ConsensusStateWithHeight.newBuilder()).apply { block() }._build()
-public object ConsensusStateWithHeightKt {
+object ConsensusStateWithHeightKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.Client.ConsensusStateWithHeight.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.Client.ConsensusStateWithHeight.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.Client.ConsensusStateWithHeight.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ConsensusStateWithHeightKt {
      *
      * <code>.ibc.core.client.v1.Height height = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var height: ibc.core.client.v1.Client.Height
+    var height: ibc.core.client.v1.Client.Height
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -43,7 +43,7 @@ public object ConsensusStateWithHeightKt {
      *
      * <code>.ibc.core.client.v1.Height height = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
     /**
@@ -54,7 +54,7 @@ public object ConsensusStateWithHeightKt {
      * <code>.ibc.core.client.v1.Height height = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the height field is set.
      */
-    public fun hasHeight(): kotlin.Boolean {
+    fun hasHeight(): kotlin.Boolean {
       return _builder.hasHeight()
     }
 
@@ -65,7 +65,7 @@ public object ConsensusStateWithHeightKt {
      *
      * <code>.google.protobuf.Any consensus_state = 2 [(.gogoproto.moretags) = "yaml&#92;"consensus_state&#92;""];</code>
      */
-    public var consensusState: com.google.protobuf.Any
+    var consensusState: com.google.protobuf.Any
       @JvmName("getConsensusState")
       get() = _builder.getConsensusState()
       @JvmName("setConsensusState")
@@ -79,7 +79,7 @@ public object ConsensusStateWithHeightKt {
      *
      * <code>.google.protobuf.Any consensus_state = 2 [(.gogoproto.moretags) = "yaml&#92;"consensus_state&#92;""];</code>
      */
-    public fun clearConsensusState() {
+    fun clearConsensusState() {
       _builder.clearConsensusState()
     }
     /**
@@ -90,18 +90,11 @@ public object ConsensusStateWithHeightKt {
      * <code>.google.protobuf.Any consensus_state = 2 [(.gogoproto.moretags) = "yaml&#92;"consensus_state&#92;""];</code>
      * @return Whether the consensusState field is set.
      */
-    public fun hasConsensusState(): kotlin.Boolean {
+    fun hasConsensusState(): kotlin.Boolean {
       return _builder.hasConsensusState()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.Client.ConsensusStateWithHeight.copy(block: ibc.core.client.v1.ConsensusStateWithHeightKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Client.ConsensusStateWithHeight =
+inline fun ibc.core.client.v1.Client.ConsensusStateWithHeight.copy(block: ibc.core.client.v1.ConsensusStateWithHeightKt.Dsl.() -> Unit): ibc.core.client.v1.Client.ConsensusStateWithHeight =
   ibc.core.client.v1.ConsensusStateWithHeightKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.client.v1.Client.ConsensusStateWithHeightOrBuilder.heightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasHeight()) getHeight() else null
-
-public val ibc.core.client.v1.Client.ConsensusStateWithHeightOrBuilder.consensusStateOrNull: com.google.protobuf.Any?
-  get() = if (hasConsensusState()) getConsensusState() else null
-

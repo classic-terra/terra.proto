@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializemsgCreateClient")
-public inline fun msgCreateClient(block: ibc.core.client.v1.MsgCreateClientKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Tx.MsgCreateClient =
+@kotlin.jvm.JvmSynthetic
+inline fun msgCreateClient(block: ibc.core.client.v1.MsgCreateClientKt.Dsl.() -> Unit): ibc.core.client.v1.Tx.MsgCreateClient =
   ibc.core.client.v1.MsgCreateClientKt.Dsl._create(ibc.core.client.v1.Tx.MsgCreateClient.newBuilder()).apply { block() }._build()
-public object MsgCreateClientKt {
+object MsgCreateClientKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.Tx.MsgCreateClient.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.Tx.MsgCreateClient.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.Tx.MsgCreateClient.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MsgCreateClientKt {
      *
      * <code>.google.protobuf.Any client_state = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
      */
-    public var clientState: com.google.protobuf.Any
+    var clientState: com.google.protobuf.Any
       @JvmName("getClientState")
       get() = _builder.getClientState()
       @JvmName("setClientState")
@@ -43,7 +43,7 @@ public object MsgCreateClientKt {
      *
      * <code>.google.protobuf.Any client_state = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
      */
-    public fun clearClientState() {
+    fun clearClientState() {
       _builder.clearClientState()
     }
     /**
@@ -54,7 +54,7 @@ public object MsgCreateClientKt {
      * <code>.google.protobuf.Any client_state = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
      * @return Whether the clientState field is set.
      */
-    public fun hasClientState(): kotlin.Boolean {
+    fun hasClientState(): kotlin.Boolean {
       return _builder.hasClientState()
     }
 
@@ -66,7 +66,7 @@ public object MsgCreateClientKt {
      *
      * <code>.google.protobuf.Any consensus_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"consensus_state&#92;""];</code>
      */
-    public var consensusState: com.google.protobuf.Any
+    var consensusState: com.google.protobuf.Any
       @JvmName("getConsensusState")
       get() = _builder.getConsensusState()
       @JvmName("setConsensusState")
@@ -81,7 +81,7 @@ public object MsgCreateClientKt {
      *
      * <code>.google.protobuf.Any consensus_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"consensus_state&#92;""];</code>
      */
-    public fun clearConsensusState() {
+    fun clearConsensusState() {
       _builder.clearConsensusState()
     }
     /**
@@ -93,7 +93,7 @@ public object MsgCreateClientKt {
      * <code>.google.protobuf.Any consensus_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"consensus_state&#92;""];</code>
      * @return Whether the consensusState field is set.
      */
-    public fun hasConsensusState(): kotlin.Boolean {
+    fun hasConsensusState(): kotlin.Boolean {
       return _builder.hasConsensusState()
     }
 
@@ -104,7 +104,7 @@ public object MsgCreateClientKt {
      *
      * <code>string signer = 3;</code>
      */
-    public var signer: kotlin.String
+    var signer: kotlin.String
       @JvmName("getSigner")
       get() = _builder.getSigner()
       @JvmName("setSigner")
@@ -118,18 +118,11 @@ public object MsgCreateClientKt {
      *
      * <code>string signer = 3;</code>
      */
-    public fun clearSigner() {
+    fun clearSigner() {
       _builder.clearSigner()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.Tx.MsgCreateClient.copy(block: ibc.core.client.v1.MsgCreateClientKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Tx.MsgCreateClient =
+inline fun ibc.core.client.v1.Tx.MsgCreateClient.copy(block: ibc.core.client.v1.MsgCreateClientKt.Dsl.() -> Unit): ibc.core.client.v1.Tx.MsgCreateClient =
   ibc.core.client.v1.MsgCreateClientKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.client.v1.Tx.MsgCreateClientOrBuilder.clientStateOrNull: com.google.protobuf.Any?
-  get() = if (hasClientState()) getClientState() else null
-
-public val ibc.core.client.v1.Tx.MsgCreateClientOrBuilder.consensusStateOrNull: com.google.protobuf.Any?
-  get() = if (hasConsensusState()) getConsensusState() else null
-

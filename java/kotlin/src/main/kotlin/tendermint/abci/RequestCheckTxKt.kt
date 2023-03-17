@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializerequestCheckTx")
-public inline fun requestCheckTx(block: tendermint.abci.RequestCheckTxKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.RequestCheckTx =
+@kotlin.jvm.JvmSynthetic
+inline fun requestCheckTx(block: tendermint.abci.RequestCheckTxKt.Dsl.() -> Unit): tendermint.abci.Types.RequestCheckTx =
   tendermint.abci.RequestCheckTxKt.Dsl._create(tendermint.abci.Types.RequestCheckTx.newBuilder()).apply { block() }._build()
-public object RequestCheckTxKt {
+object RequestCheckTxKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.RequestCheckTx.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.RequestCheckTx.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.RequestCheckTx.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object RequestCheckTxKt {
     /**
      * <code>bytes tx = 1;</code>
      */
-    public var tx: com.google.protobuf.ByteString
+    var tx: com.google.protobuf.ByteString
       @JvmName("getTx")
       get() = _builder.getTx()
       @JvmName("setTx")
@@ -35,14 +35,14 @@ public object RequestCheckTxKt {
     /**
      * <code>bytes tx = 1;</code>
      */
-    public fun clearTx() {
+    fun clearTx() {
       _builder.clearTx()
     }
 
     /**
      * <code>.tendermint.abci.CheckTxType type = 2;</code>
      */
-    public var type: tendermint.abci.Types.CheckTxType
+    var type: tendermint.abci.Types.CheckTxType
       @JvmName("getType")
       get() = _builder.getType()
       @JvmName("setType")
@@ -52,12 +52,11 @@ public object RequestCheckTxKt {
     /**
      * <code>.tendermint.abci.CheckTxType type = 2;</code>
      */
-    public fun clearType() {
+    fun clearType() {
       _builder.clearType()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.RequestCheckTx.copy(block: tendermint.abci.RequestCheckTxKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.RequestCheckTx =
+inline fun tendermint.abci.Types.RequestCheckTx.copy(block: tendermint.abci.RequestCheckTxKt.Dsl.() -> Unit): tendermint.abci.Types.RequestCheckTx =
   tendermint.abci.RequestCheckTxKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

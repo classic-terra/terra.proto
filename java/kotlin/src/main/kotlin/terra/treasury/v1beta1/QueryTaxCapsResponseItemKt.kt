@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTaxCapsResponseItem")
-public inline fun queryTaxCapsResponseItem(block: terra.treasury.v1beta1.QueryTaxCapsResponseItemKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsResponseItem =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTaxCapsResponseItem(block: terra.treasury.v1beta1.QueryTaxCapsResponseItemKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsResponseItem =
   terra.treasury.v1beta1.QueryTaxCapsResponseItemKt.Dsl._create(terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsResponseItem.newBuilder()).apply { block() }._build()
-public object QueryTaxCapsResponseItemKt {
+object QueryTaxCapsResponseItemKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsResponseItem.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsResponseItem.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsResponseItem.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryTaxCapsResponseItemKt {
     /**
      * <code>string denom = 1;</code>
      */
-    public var denom: kotlin.String
+    var denom: kotlin.String
       @JvmName("getDenom")
       get() = _builder.getDenom()
       @JvmName("setDenom")
@@ -35,14 +35,14 @@ public object QueryTaxCapsResponseItemKt {
     /**
      * <code>string denom = 1;</code>
      */
-    public fun clearDenom() {
+    fun clearDenom() {
       _builder.clearDenom()
     }
 
     /**
      * <code>string tax_cap = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public var taxCap: kotlin.String
+    var taxCap: kotlin.String
       @JvmName("getTaxCap")
       get() = _builder.getTaxCap()
       @JvmName("setTaxCap")
@@ -52,12 +52,11 @@ public object QueryTaxCapsResponseItemKt {
     /**
      * <code>string tax_cap = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public fun clearTaxCap() {
+    fun clearTaxCap() {
       _builder.clearTaxCap()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsResponseItem.copy(block: terra.treasury.v1beta1.QueryTaxCapsResponseItemKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsResponseItem =
+inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsResponseItem.copy(block: terra.treasury.v1beta1.QueryTaxCapsResponseItemKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapsResponseItem =
   terra.treasury.v1beta1.QueryTaxCapsResponseItemKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -8,7 +8,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
  * </pre>
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.50.0)",
+    value = "by gRPC proto compiler (version 1.40.1)",
     comments = "Source: cosmos/upgrade/v1beta1/query.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class QueryGrpc {
@@ -232,7 +232,6 @@ public final class QueryGrpc {
     /**
      * <pre>
      * ModuleVersions queries the list of module versions from state.
-     * Since: cosmos-sdk 0.43
      * </pre>
      */
     public void moduleVersions(cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsRequest request,
@@ -333,7 +332,6 @@ public final class QueryGrpc {
     /**
      * <pre>
      * ModuleVersions queries the list of module versions from state.
-     * Since: cosmos-sdk 0.43
      * </pre>
      */
     public void moduleVersions(cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsRequest request,
@@ -399,7 +397,6 @@ public final class QueryGrpc {
     /**
      * <pre>
      * ModuleVersions queries the list of module versions from state.
-     * Since: cosmos-sdk 0.43
      * </pre>
      */
     public cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsResponse moduleVersions(cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsRequest request) {
@@ -467,7 +464,6 @@ public final class QueryGrpc {
     /**
      * <pre>
      * ModuleVersions queries the list of module versions from state.
-     * Since: cosmos-sdk 0.43
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<cosmos.upgrade.v1beta1.QueryOuterClass.QueryModuleVersionsResponse> moduleVersions(

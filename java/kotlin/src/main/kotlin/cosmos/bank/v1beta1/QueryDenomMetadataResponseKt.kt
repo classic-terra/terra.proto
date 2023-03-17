@@ -3,16 +3,16 @@
 
 package cosmos.bank.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryDenomMetadataResponse")
-public inline fun queryDenomMetadataResponse(block: cosmos.bank.v1beta1.QueryDenomMetadataResponseKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryDenomMetadataResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryDenomMetadataResponse(block: cosmos.bank.v1beta1.QueryDenomMetadataResponseKt.Dsl.() -> Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryDenomMetadataResponse =
   cosmos.bank.v1beta1.QueryDenomMetadataResponseKt.Dsl._create(cosmos.bank.v1beta1.QueryOuterClass.QueryDenomMetadataResponse.newBuilder()).apply { block() }._build()
-public object QueryDenomMetadataResponseKt {
+object QueryDenomMetadataResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.bank.v1beta1.QueryOuterClass.QueryDenomMetadataResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.bank.v1beta1.QueryOuterClass.QueryDenomMetadataResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.bank.v1beta1.QueryOuterClass.QueryDenomMetadataResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryDenomMetadataResponseKt {
      *
      * <code>.cosmos.bank.v1beta1.Metadata metadata = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var metadata: cosmos.bank.v1beta1.Bank.Metadata
+    var metadata: cosmos.bank.v1beta1.Bank.Metadata
       @JvmName("getMetadata")
       get() = _builder.getMetadata()
       @JvmName("setMetadata")
@@ -43,7 +43,7 @@ public object QueryDenomMetadataResponseKt {
      *
      * <code>.cosmos.bank.v1beta1.Metadata metadata = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearMetadata() {
+    fun clearMetadata() {
       _builder.clearMetadata()
     }
     /**
@@ -54,15 +54,11 @@ public object QueryDenomMetadataResponseKt {
      * <code>.cosmos.bank.v1beta1.Metadata metadata = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the metadata field is set.
      */
-    public fun hasMetadata(): kotlin.Boolean {
+    fun hasMetadata(): kotlin.Boolean {
       return _builder.hasMetadata()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.bank.v1beta1.QueryOuterClass.QueryDenomMetadataResponse.copy(block: cosmos.bank.v1beta1.QueryDenomMetadataResponseKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryDenomMetadataResponse =
+inline fun cosmos.bank.v1beta1.QueryOuterClass.QueryDenomMetadataResponse.copy(block: cosmos.bank.v1beta1.QueryDenomMetadataResponseKt.Dsl.() -> Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryDenomMetadataResponse =
   cosmos.bank.v1beta1.QueryDenomMetadataResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.bank.v1beta1.QueryOuterClass.QueryDenomMetadataResponseOrBuilder.metadataOrNull: cosmos.bank.v1beta1.Bank.Metadata?
-  get() = if (hasMetadata()) getMetadata() else null
-

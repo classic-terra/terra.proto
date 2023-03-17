@@ -102,6 +102,75 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GenesisState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                denomTraces_ = new java.util.ArrayList<ibc.applications.transfer.v1.Transfer.DenomTrace>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              denomTraces_.add(
+                  input.readMessage(ibc.applications.transfer.v1.Transfer.DenomTrace.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
+              ibc.applications.transfer.v1.Transfer.Params.Builder subBuilder = null;
+              if (params_ != null) {
+                subBuilder = params_.toBuilder();
+              }
+              params_ = input.readMessage(ibc.applications.transfer.v1.Transfer.Params.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(params_);
+                params_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          denomTraces_ = java.util.Collections.unmodifiableList(denomTraces_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.applications.transfer.v1.Genesis.internal_static_ibc_applications_transfer_v1_GenesisState_descriptor;
@@ -116,8 +185,7 @@ public final class Genesis {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <code>string port_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"port_id&#92;""];</code>
      * @return The portId.
@@ -155,7 +223,6 @@ public final class Genesis {
     }
 
     public static final int DENOM_TRACES_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private java.util.List<ibc.applications.transfer.v1.Transfer.DenomTrace> denomTraces_;
     /**
      * <code>repeated .ibc.applications.transfer.v1.DenomTrace denom_traces = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"denom_traces&#92;"", (.gogoproto.castrepeated) = "Traces"];</code>
@@ -218,7 +285,7 @@ public final class Genesis {
      */
     @java.lang.Override
     public ibc.applications.transfer.v1.Transfer.ParamsOrBuilder getParamsOrBuilder() {
-      return params_ == null ? ibc.applications.transfer.v1.Transfer.Params.getDefaultInstance() : params_;
+      return getParams();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -235,7 +302,7 @@ public final class Genesis {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
       for (int i = 0; i < denomTraces_.size(); i++) {
@@ -244,7 +311,7 @@ public final class Genesis {
       if (params_ != null) {
         output.writeMessage(3, getParams());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -253,7 +320,7 @@ public final class Genesis {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
       for (int i = 0; i < denomTraces_.size(); i++) {
@@ -264,7 +331,7 @@ public final class Genesis {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getParams());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -288,7 +355,7 @@ public final class Genesis {
         if (!getParams()
             .equals(other.getParams())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -309,7 +376,7 @@ public final class Genesis {
         hash = (37 * hash) + PARAMS_FIELD_NUMBER;
         hash = (53 * hash) + getParams().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -430,29 +497,35 @@ public final class Genesis {
 
       // Construct using ibc.applications.transfer.v1.Genesis.GenesisState.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDenomTracesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         if (denomTracesBuilder_ == null) {
           denomTraces_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          denomTraces_ = null;
           denomTracesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
-        params_ = null;
-        if (paramsBuilder_ != null) {
-          paramsBuilder_.dispose();
+        if (paramsBuilder_ == null) {
+          params_ = null;
+        } else {
+          params_ = null;
           paramsBuilder_ = null;
         }
         return this;
@@ -481,34 +554,24 @@ public final class Genesis {
       @java.lang.Override
       public ibc.applications.transfer.v1.Genesis.GenesisState buildPartial() {
         ibc.applications.transfer.v1.Genesis.GenesisState result = new ibc.applications.transfer.v1.Genesis.GenesisState(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.applications.transfer.v1.Genesis.GenesisState result) {
+        int from_bitField0_ = bitField0_;
+        result.portId_ = portId_;
         if (denomTracesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             denomTraces_ = java.util.Collections.unmodifiableList(denomTraces_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.denomTraces_ = denomTraces_;
         } else {
           result.denomTraces_ = denomTracesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(ibc.applications.transfer.v1.Genesis.GenesisState result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
+        if (paramsBuilder_ == null) {
+          result.params_ = params_;
+        } else {
+          result.params_ = paramsBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.params_ = paramsBuilder_ == null
-              ? params_
-              : paramsBuilder_.build();
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -557,14 +620,13 @@ public final class Genesis {
         if (other == ibc.applications.transfer.v1.Genesis.GenesisState.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (denomTracesBuilder_ == null) {
           if (!other.denomTraces_.isEmpty()) {
             if (denomTraces_.isEmpty()) {
               denomTraces_ = other.denomTraces_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureDenomTracesIsMutable();
               denomTraces_.addAll(other.denomTraces_);
@@ -577,7 +639,7 @@ public final class Genesis {
               denomTracesBuilder_.dispose();
               denomTracesBuilder_ = null;
               denomTraces_ = other.denomTraces_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               denomTracesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getDenomTracesFieldBuilder() : null;
@@ -589,7 +651,7 @@ public final class Genesis {
         if (other.hasParams()) {
           mergeParams(other.getParams());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -604,55 +666,17 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.applications.transfer.v1.Genesis.GenesisState parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                ibc.applications.transfer.v1.Transfer.DenomTrace m =
-                    input.readMessage(
-                        ibc.applications.transfer.v1.Transfer.DenomTrace.parser(),
-                        extensionRegistry);
-                if (denomTracesBuilder_ == null) {
-                  ensureDenomTracesIsMutable();
-                  denomTraces_.add(m);
-                } else {
-                  denomTracesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getParamsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.applications.transfer.v1.Genesis.GenesisState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -698,9 +722,11 @@ public final class Genesis {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -709,8 +735,8 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -721,10 +747,12 @@ public final class Genesis {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -732,9 +760,9 @@ public final class Genesis {
       private java.util.List<ibc.applications.transfer.v1.Transfer.DenomTrace> denomTraces_ =
         java.util.Collections.emptyList();
       private void ensureDenomTracesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           denomTraces_ = new java.util.ArrayList<ibc.applications.transfer.v1.Transfer.DenomTrace>(denomTraces_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -884,7 +912,7 @@ public final class Genesis {
       public Builder clearDenomTraces() {
         if (denomTracesBuilder_ == null) {
           denomTraces_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           denomTracesBuilder_.clear();
@@ -961,7 +989,7 @@ public final class Genesis {
           denomTracesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               ibc.applications.transfer.v1.Transfer.DenomTrace, ibc.applications.transfer.v1.Transfer.DenomTrace.Builder, ibc.applications.transfer.v1.Transfer.DenomTraceOrBuilder>(
                   denomTraces_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           denomTraces_ = null;
@@ -977,7 +1005,7 @@ public final class Genesis {
        * @return Whether the params field is set.
        */
       public boolean hasParams() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return paramsBuilder_ != null || params_ != null;
       }
       /**
        * <code>.ibc.applications.transfer.v1.Params params = 3 [(.gogoproto.nullable) = false];</code>
@@ -999,11 +1027,11 @@ public final class Genesis {
             throw new NullPointerException();
           }
           params_ = value;
+          onChanged();
         } else {
           paramsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1013,11 +1041,11 @@ public final class Genesis {
           ibc.applications.transfer.v1.Transfer.Params.Builder builderForValue) {
         if (paramsBuilder_ == null) {
           params_ = builderForValue.build();
+          onChanged();
         } else {
           paramsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1025,38 +1053,38 @@ public final class Genesis {
        */
       public Builder mergeParams(ibc.applications.transfer.v1.Transfer.Params value) {
         if (paramsBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            params_ != null &&
-            params_ != ibc.applications.transfer.v1.Transfer.Params.getDefaultInstance()) {
-            getParamsBuilder().mergeFrom(value);
+          if (params_ != null) {
+            params_ =
+              ibc.applications.transfer.v1.Transfer.Params.newBuilder(params_).mergeFrom(value).buildPartial();
           } else {
             params_ = value;
           }
+          onChanged();
         } else {
           paramsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.applications.transfer.v1.Params params = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearParams() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        params_ = null;
-        if (paramsBuilder_ != null) {
-          paramsBuilder_.dispose();
+        if (paramsBuilder_ == null) {
+          params_ = null;
+          onChanged();
+        } else {
+          params_ = null;
           paramsBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.applications.transfer.v1.Params params = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.applications.transfer.v1.Transfer.Params.Builder getParamsBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getParamsFieldBuilder().getBuilder();
       }
@@ -1120,18 +1148,7 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GenesisState(input, extensionRegistry);
       }
     };
 

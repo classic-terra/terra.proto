@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializedVVTriplet")
-public inline fun dVVTriplet(block: cosmos.staking.v1beta1.DVVTripletKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.DVVTriplet =
+@kotlin.jvm.JvmSynthetic
+inline fun dVVTriplet(block: cosmos.staking.v1beta1.DVVTripletKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.DVVTriplet =
   cosmos.staking.v1beta1.DVVTripletKt.Dsl._create(cosmos.staking.v1beta1.Staking.DVVTriplet.newBuilder()).apply { block() }._build()
-public object DVVTripletKt {
+object DVVTripletKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Staking.DVVTriplet.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Staking.DVVTriplet.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Staking.DVVTriplet.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object DVVTripletKt {
     /**
      * <code>string delegator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"delegator_address&#92;""];</code>
      */
-    public var delegatorAddress: kotlin.String
+    var delegatorAddress: kotlin.String
       @JvmName("getDelegatorAddress")
       get() = _builder.getDelegatorAddress()
       @JvmName("setDelegatorAddress")
@@ -35,14 +35,14 @@ public object DVVTripletKt {
     /**
      * <code>string delegator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"delegator_address&#92;""];</code>
      */
-    public fun clearDelegatorAddress() {
+    fun clearDelegatorAddress() {
       _builder.clearDelegatorAddress()
     }
 
     /**
      * <code>string validator_src_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_src_address&#92;""];</code>
      */
-    public var validatorSrcAddress: kotlin.String
+    var validatorSrcAddress: kotlin.String
       @JvmName("getValidatorSrcAddress")
       get() = _builder.getValidatorSrcAddress()
       @JvmName("setValidatorSrcAddress")
@@ -52,14 +52,14 @@ public object DVVTripletKt {
     /**
      * <code>string validator_src_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_src_address&#92;""];</code>
      */
-    public fun clearValidatorSrcAddress() {
+    fun clearValidatorSrcAddress() {
       _builder.clearValidatorSrcAddress()
     }
 
     /**
      * <code>string validator_dst_address = 3 [(.gogoproto.moretags) = "yaml:&#92;"validator_dst_address&#92;""];</code>
      */
-    public var validatorDstAddress: kotlin.String
+    var validatorDstAddress: kotlin.String
       @JvmName("getValidatorDstAddress")
       get() = _builder.getValidatorDstAddress()
       @JvmName("setValidatorDstAddress")
@@ -69,12 +69,11 @@ public object DVVTripletKt {
     /**
      * <code>string validator_dst_address = 3 [(.gogoproto.moretags) = "yaml:&#92;"validator_dst_address&#92;""];</code>
      */
-    public fun clearValidatorDstAddress() {
+    fun clearValidatorDstAddress() {
       _builder.clearValidatorDstAddress()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Staking.DVVTriplet.copy(block: cosmos.staking.v1beta1.DVVTripletKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.DVVTriplet =
+inline fun cosmos.staking.v1beta1.Staking.DVVTriplet.copy(block: cosmos.staking.v1beta1.DVVTripletKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.DVVTriplet =
   cosmos.staking.v1beta1.DVVTripletKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

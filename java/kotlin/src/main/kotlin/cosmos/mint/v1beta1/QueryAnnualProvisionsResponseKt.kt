@@ -3,16 +3,16 @@
 
 package cosmos.mint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryAnnualProvisionsResponse")
-public inline fun queryAnnualProvisionsResponse(block: cosmos.mint.v1beta1.QueryAnnualProvisionsResponseKt.Dsl.() -> kotlin.Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryAnnualProvisionsResponse(block: cosmos.mint.v1beta1.QueryAnnualProvisionsResponseKt.Dsl.() -> Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsResponse =
   cosmos.mint.v1beta1.QueryAnnualProvisionsResponseKt.Dsl._create(cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsResponse.newBuilder()).apply { block() }._build()
-public object QueryAnnualProvisionsResponseKt {
+object QueryAnnualProvisionsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryAnnualProvisionsResponseKt {
      *
      * <code>bytes annual_provisions = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var annualProvisions: com.google.protobuf.ByteString
+    var annualProvisions: com.google.protobuf.ByteString
       @JvmName("getAnnualProvisions")
       get() = _builder.getAnnualProvisions()
       @JvmName("setAnnualProvisions")
@@ -43,12 +43,11 @@ public object QueryAnnualProvisionsResponseKt {
      *
      * <code>bytes annual_provisions = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearAnnualProvisions() {
+    fun clearAnnualProvisions() {
       _builder.clearAnnualProvisions()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsResponse.copy(block: cosmos.mint.v1beta1.QueryAnnualProvisionsResponseKt.Dsl.() -> kotlin.Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsResponse =
+inline fun cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsResponse.copy(block: cosmos.mint.v1beta1.QueryAnnualProvisionsResponseKt.Dsl.() -> Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryAnnualProvisionsResponse =
   cosmos.mint.v1beta1.QueryAnnualProvisionsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

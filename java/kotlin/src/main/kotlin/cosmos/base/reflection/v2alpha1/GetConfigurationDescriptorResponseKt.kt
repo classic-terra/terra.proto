@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializegetConfigurationDescriptorResponse")
-public inline fun getConfigurationDescriptorResponse(block: cosmos.base.reflection.v2alpha1.GetConfigurationDescriptorResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetConfigurationDescriptorResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun getConfigurationDescriptorResponse(block: cosmos.base.reflection.v2alpha1.GetConfigurationDescriptorResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetConfigurationDescriptorResponse =
   cosmos.base.reflection.v2alpha1.GetConfigurationDescriptorResponseKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.GetConfigurationDescriptorResponse.newBuilder()).apply { block() }._build()
-public object GetConfigurationDescriptorResponseKt {
+object GetConfigurationDescriptorResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetConfigurationDescriptorResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetConfigurationDescriptorResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.GetConfigurationDescriptorResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object GetConfigurationDescriptorResponseKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.ConfigurationDescriptor config = 1;</code>
      */
-    public var config: cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor
+    var config: cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor
       @JvmName("getConfig")
       get() = _builder.getConfig()
       @JvmName("setConfig")
@@ -43,7 +43,7 @@ public object GetConfigurationDescriptorResponseKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.ConfigurationDescriptor config = 1;</code>
      */
-    public fun clearConfig() {
+    fun clearConfig() {
       _builder.clearConfig()
     }
     /**
@@ -54,15 +54,11 @@ public object GetConfigurationDescriptorResponseKt {
      * <code>.cosmos.base.reflection.v2alpha1.ConfigurationDescriptor config = 1;</code>
      * @return Whether the config field is set.
      */
-    public fun hasConfig(): kotlin.Boolean {
+    fun hasConfig(): kotlin.Boolean {
       return _builder.hasConfig()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.GetConfigurationDescriptorResponse.copy(block: cosmos.base.reflection.v2alpha1.GetConfigurationDescriptorResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetConfigurationDescriptorResponse =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.GetConfigurationDescriptorResponse.copy(block: cosmos.base.reflection.v2alpha1.GetConfigurationDescriptorResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetConfigurationDescriptorResponse =
   cosmos.base.reflection.v2alpha1.GetConfigurationDescriptorResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.reflection.v2alpha1.Reflection.GetConfigurationDescriptorResponseOrBuilder.configOrNull: cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor?
-  get() = if (hasConfig()) getConfig() else null
-

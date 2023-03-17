@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeparams")
-public inline fun params(block: terra.treasury.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.Treasury.Params =
+@kotlin.jvm.JvmSynthetic
+inline fun params(block: terra.treasury.v1beta1.ParamsKt.Dsl.() -> Unit): terra.treasury.v1beta1.Treasury.Params =
   terra.treasury.v1beta1.ParamsKt.Dsl._create(terra.treasury.v1beta1.Treasury.Params.newBuilder()).apply { block() }._build()
-public object ParamsKt {
+object ParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.Treasury.Params.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.Treasury.Params.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.Treasury.Params.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ParamsKt {
     /**
      * <code>.terra.treasury.v1beta1.PolicyConstraints tax_policy = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"tax_policy&#92;""];</code>
      */
-    public var taxPolicy: terra.treasury.v1beta1.Treasury.PolicyConstraints
+    var taxPolicy: terra.treasury.v1beta1.Treasury.PolicyConstraints
       @JvmName("getTaxPolicy")
       get() = _builder.getTaxPolicy()
       @JvmName("setTaxPolicy")
@@ -35,21 +35,21 @@ public object ParamsKt {
     /**
      * <code>.terra.treasury.v1beta1.PolicyConstraints tax_policy = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"tax_policy&#92;""];</code>
      */
-    public fun clearTaxPolicy() {
+    fun clearTaxPolicy() {
       _builder.clearTaxPolicy()
     }
     /**
      * <code>.terra.treasury.v1beta1.PolicyConstraints tax_policy = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"tax_policy&#92;""];</code>
      * @return Whether the taxPolicy field is set.
      */
-    public fun hasTaxPolicy(): kotlin.Boolean {
+    fun hasTaxPolicy(): kotlin.Boolean {
       return _builder.hasTaxPolicy()
     }
 
     /**
      * <code>.terra.treasury.v1beta1.PolicyConstraints reward_policy = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"reward_policy&#92;""];</code>
      */
-    public var rewardPolicy: terra.treasury.v1beta1.Treasury.PolicyConstraints
+    var rewardPolicy: terra.treasury.v1beta1.Treasury.PolicyConstraints
       @JvmName("getRewardPolicy")
       get() = _builder.getRewardPolicy()
       @JvmName("setRewardPolicy")
@@ -59,21 +59,21 @@ public object ParamsKt {
     /**
      * <code>.terra.treasury.v1beta1.PolicyConstraints reward_policy = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"reward_policy&#92;""];</code>
      */
-    public fun clearRewardPolicy() {
+    fun clearRewardPolicy() {
       _builder.clearRewardPolicy()
     }
     /**
      * <code>.terra.treasury.v1beta1.PolicyConstraints reward_policy = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"reward_policy&#92;""];</code>
      * @return Whether the rewardPolicy field is set.
      */
-    public fun hasRewardPolicy(): kotlin.Boolean {
+    fun hasRewardPolicy(): kotlin.Boolean {
       return _builder.hasRewardPolicy()
     }
 
     /**
      * <code>string seigniorage_burden_target = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"seigniorage_burden_target&#92;""];</code>
      */
-    public var seigniorageBurdenTarget: kotlin.String
+    var seigniorageBurdenTarget: kotlin.String
       @JvmName("getSeigniorageBurdenTarget")
       get() = _builder.getSeigniorageBurdenTarget()
       @JvmName("setSeigniorageBurdenTarget")
@@ -83,14 +83,14 @@ public object ParamsKt {
     /**
      * <code>string seigniorage_burden_target = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"seigniorage_burden_target&#92;""];</code>
      */
-    public fun clearSeigniorageBurdenTarget() {
+    fun clearSeigniorageBurdenTarget() {
       _builder.clearSeigniorageBurdenTarget()
     }
 
     /**
      * <code>string mining_increment = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"mining_increment&#92;""];</code>
      */
-    public var miningIncrement: kotlin.String
+    var miningIncrement: kotlin.String
       @JvmName("getMiningIncrement")
       get() = _builder.getMiningIncrement()
       @JvmName("setMiningIncrement")
@@ -100,14 +100,14 @@ public object ParamsKt {
     /**
      * <code>string mining_increment = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"mining_increment&#92;""];</code>
      */
-    public fun clearMiningIncrement() {
+    fun clearMiningIncrement() {
       _builder.clearMiningIncrement()
     }
 
     /**
      * <code>uint64 window_short = 5 [(.gogoproto.moretags) = "yaml:&#92;"window_short&#92;""];</code>
      */
-    public var windowShort: kotlin.Long
+    var windowShort: kotlin.Long
       @JvmName("getWindowShort")
       get() = _builder.getWindowShort()
       @JvmName("setWindowShort")
@@ -117,14 +117,14 @@ public object ParamsKt {
     /**
      * <code>uint64 window_short = 5 [(.gogoproto.moretags) = "yaml:&#92;"window_short&#92;""];</code>
      */
-    public fun clearWindowShort() {
+    fun clearWindowShort() {
       _builder.clearWindowShort()
     }
 
     /**
      * <code>uint64 window_long = 6 [(.gogoproto.moretags) = "yaml:&#92;"window_long&#92;""];</code>
      */
-    public var windowLong: kotlin.Long
+    var windowLong: kotlin.Long
       @JvmName("getWindowLong")
       get() = _builder.getWindowLong()
       @JvmName("setWindowLong")
@@ -134,14 +134,14 @@ public object ParamsKt {
     /**
      * <code>uint64 window_long = 6 [(.gogoproto.moretags) = "yaml:&#92;"window_long&#92;""];</code>
      */
-    public fun clearWindowLong() {
+    fun clearWindowLong() {
       _builder.clearWindowLong()
     }
 
     /**
      * <code>uint64 window_probation = 7 [(.gogoproto.moretags) = "yaml:&#92;"window_probation&#92;""];</code>
      */
-    public var windowProbation: kotlin.Long
+    var windowProbation: kotlin.Long
       @JvmName("getWindowProbation")
       get() = _builder.getWindowProbation()
       @JvmName("setWindowProbation")
@@ -151,35 +151,11 @@ public object ParamsKt {
     /**
      * <code>uint64 window_probation = 7 [(.gogoproto.moretags) = "yaml:&#92;"window_probation&#92;""];</code>
      */
-    public fun clearWindowProbation() {
+    fun clearWindowProbation() {
       _builder.clearWindowProbation()
-    }
-
-    /**
-     * <code>string burn_tax_split = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"burn_tax_split&#92;""];</code>
-     */
-    public var burnTaxSplit: kotlin.String
-      @JvmName("getBurnTaxSplit")
-      get() = _builder.getBurnTaxSplit()
-      @JvmName("setBurnTaxSplit")
-      set(value) {
-        _builder.setBurnTaxSplit(value)
-      }
-    /**
-     * <code>string burn_tax_split = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"burn_tax_split&#92;""];</code>
-     */
-    public fun clearBurnTaxSplit() {
-      _builder.clearBurnTaxSplit()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.Treasury.Params.copy(block: terra.treasury.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.Treasury.Params =
+inline fun terra.treasury.v1beta1.Treasury.Params.copy(block: terra.treasury.v1beta1.ParamsKt.Dsl.() -> Unit): terra.treasury.v1beta1.Treasury.Params =
   terra.treasury.v1beta1.ParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.treasury.v1beta1.Treasury.ParamsOrBuilder.taxPolicyOrNull: terra.treasury.v1beta1.Treasury.PolicyConstraints?
-  get() = if (hasTaxPolicy()) getTaxPolicy() else null
-
-public val terra.treasury.v1beta1.Treasury.ParamsOrBuilder.rewardPolicyOrNull: terra.treasury.v1beta1.Treasury.PolicyConstraints?
-  get() = if (hasRewardPolicy()) getRewardPolicy() else null
-

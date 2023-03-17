@@ -3,16 +3,16 @@
 
 package terra.vesting.v1beta1;
 
-@kotlin.jvm.JvmName("-initializelazyGradedVestingAccount")
-public inline fun lazyGradedVestingAccount(block: terra.vesting.v1beta1.LazyGradedVestingAccountKt.Dsl.() -> kotlin.Unit): terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount =
+@kotlin.jvm.JvmSynthetic
+inline fun lazyGradedVestingAccount(block: terra.vesting.v1beta1.LazyGradedVestingAccountKt.Dsl.() -> Unit): terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount =
   terra.vesting.v1beta1.LazyGradedVestingAccountKt.Dsl._create(terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount.newBuilder()).apply { block() }._build()
-public object LazyGradedVestingAccountKt {
+object LazyGradedVestingAccountKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object LazyGradedVestingAccountKt {
     /**
      * <code>.cosmos.vesting.v1beta1.BaseVestingAccount base_vesting_account = 1 [(.gogoproto.embed) = true];</code>
      */
-    public var baseVestingAccount: cosmos.vesting.v1beta1.Vesting.BaseVestingAccount
+    var baseVestingAccount: cosmos.vesting.v1beta1.Vesting.BaseVestingAccount
       @JvmName("getBaseVestingAccount")
       get() = _builder.getBaseVestingAccount()
       @JvmName("setBaseVestingAccount")
@@ -35,14 +35,14 @@ public object LazyGradedVestingAccountKt {
     /**
      * <code>.cosmos.vesting.v1beta1.BaseVestingAccount base_vesting_account = 1 [(.gogoproto.embed) = true];</code>
      */
-    public fun clearBaseVestingAccount() {
+    fun clearBaseVestingAccount() {
       _builder.clearBaseVestingAccount()
     }
     /**
      * <code>.cosmos.vesting.v1beta1.BaseVestingAccount base_vesting_account = 1 [(.gogoproto.embed) = true];</code>
      * @return Whether the baseVestingAccount field is set.
      */
-    public fun hasBaseVestingAccount(): kotlin.Boolean {
+    fun hasBaseVestingAccount(): kotlin.Boolean {
       return _builder.hasBaseVestingAccount()
     }
 
@@ -51,11 +51,11 @@ public object LazyGradedVestingAccountKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class VestingSchedulesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class VestingSchedulesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .terra.vesting.v1beta1.VestingSchedule vesting_schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"vesting_schedules&#92;"", (.gogoproto.castrepeated) = "VestingSchedules"];</code>
      */
-     public val vestingSchedules: com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>
+     val vestingSchedules: com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getVestingSchedulesList()
@@ -66,63 +66,50 @@ public object LazyGradedVestingAccountKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addVestingSchedules")
-    public fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.add(value: terra.vesting.v1beta1.Vesting.VestingSchedule) {
+    fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.add(value: terra.vesting.v1beta1.Vesting.VestingSchedule) {
       _builder.addVestingSchedules(value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.vesting.v1beta1.VestingSchedule vesting_schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"vesting_schedules&#92;"", (.gogoproto.castrepeated) = "VestingSchedules"];</code>
      * @param value The vestingSchedules to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignVestingSchedules")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.plusAssign(value: terra.vesting.v1beta1.Vesting.VestingSchedule) {
+    inline operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.plusAssign(value: terra.vesting.v1beta1.Vesting.VestingSchedule) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.vesting.v1beta1.VestingSchedule vesting_schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"vesting_schedules&#92;"", (.gogoproto.castrepeated) = "VestingSchedules"];</code>
      * @param values The vestingSchedules to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllVestingSchedules")
-    public fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.addAll(values: kotlin.collections.Iterable<terra.vesting.v1beta1.Vesting.VestingSchedule>) {
+    fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.addAll(values: kotlin.collections.Iterable<terra.vesting.v1beta1.Vesting.VestingSchedule>) {
       _builder.addAllVestingSchedules(values)
-    }
-    /**
+    }/**
      * <code>repeated .terra.vesting.v1beta1.VestingSchedule vesting_schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"vesting_schedules&#92;"", (.gogoproto.castrepeated) = "VestingSchedules"];</code>
      * @param values The vestingSchedules to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllVestingSchedules")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.plusAssign(values: kotlin.collections.Iterable<terra.vesting.v1beta1.Vesting.VestingSchedule>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.plusAssign(values: kotlin.collections.Iterable<terra.vesting.v1beta1.Vesting.VestingSchedule>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .terra.vesting.v1beta1.VestingSchedule vesting_schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"vesting_schedules&#92;"", (.gogoproto.castrepeated) = "VestingSchedules"];</code>
      * @param index The index to set the value at.
      * @param value The vestingSchedules to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setVestingSchedules")
-    public operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.set(index: kotlin.Int, value: terra.vesting.v1beta1.Vesting.VestingSchedule) {
+    operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.set(index: kotlin.Int, value: terra.vesting.v1beta1.Vesting.VestingSchedule) {
       _builder.setVestingSchedules(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.vesting.v1beta1.VestingSchedule vesting_schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"vesting_schedules&#92;"", (.gogoproto.castrepeated) = "VestingSchedules"];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearVestingSchedules")
-    public fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.VestingSchedule, VestingSchedulesProxy>.clear() {
       _builder.clearVestingSchedules()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount.copy(block: terra.vesting.v1beta1.LazyGradedVestingAccountKt.Dsl.() -> kotlin.Unit): terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount =
+inline fun terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount.copy(block: terra.vesting.v1beta1.LazyGradedVestingAccountKt.Dsl.() -> Unit): terra.vesting.v1beta1.Vesting.LazyGradedVestingAccount =
   terra.vesting.v1beta1.LazyGradedVestingAccountKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.vesting.v1beta1.Vesting.LazyGradedVestingAccountOrBuilder.baseVestingAccountOrNull: cosmos.vesting.v1beta1.Vesting.BaseVestingAccount?
-  get() = if (hasBaseVestingAccount()) getBaseVestingAccount() else null
-

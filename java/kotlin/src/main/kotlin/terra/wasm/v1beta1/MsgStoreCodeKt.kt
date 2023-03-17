@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgStoreCode")
-public inline fun msgStoreCode(block: terra.wasm.v1beta1.MsgStoreCodeKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgStoreCode =
+@kotlin.jvm.JvmSynthetic
+inline fun msgStoreCode(block: terra.wasm.v1beta1.MsgStoreCodeKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgStoreCode =
   terra.wasm.v1beta1.MsgStoreCodeKt.Dsl._create(terra.wasm.v1beta1.Tx.MsgStoreCode.newBuilder()).apply { block() }._build()
-public object MsgStoreCodeKt {
+object MsgStoreCodeKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Tx.MsgStoreCode.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Tx.MsgStoreCode.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Tx.MsgStoreCode.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MsgStoreCodeKt {
      *
      * <code>string sender = 1 [(.gogoproto.moretags) = "yaml:&#92;"sender&#92;""];</code>
      */
-    public var sender: kotlin.String
+    var sender: kotlin.String
       @JvmName("getSender")
       get() = _builder.getSender()
       @JvmName("setSender")
@@ -43,7 +43,7 @@ public object MsgStoreCodeKt {
      *
      * <code>string sender = 1 [(.gogoproto.moretags) = "yaml:&#92;"sender&#92;""];</code>
      */
-    public fun clearSender() {
+    fun clearSender() {
       _builder.clearSender()
     }
 
@@ -54,7 +54,7 @@ public object MsgStoreCodeKt {
      *
      * <code>bytes wasm_byte_code = 2 [(.gogoproto.customname) = "WASMByteCode", (.gogoproto.moretags) = "yaml:&#92;"wasm_byte_code&#92;""];</code>
      */
-    public var wasmByteCode: com.google.protobuf.ByteString
+    var wasmByteCode: com.google.protobuf.ByteString
       @JvmName("getWasmByteCode")
       get() = _builder.getWasmByteCode()
       @JvmName("setWasmByteCode")
@@ -68,12 +68,11 @@ public object MsgStoreCodeKt {
      *
      * <code>bytes wasm_byte_code = 2 [(.gogoproto.customname) = "WASMByteCode", (.gogoproto.moretags) = "yaml:&#92;"wasm_byte_code&#92;""];</code>
      */
-    public fun clearWasmByteCode() {
+    fun clearWasmByteCode() {
       _builder.clearWasmByteCode()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Tx.MsgStoreCode.copy(block: terra.wasm.v1beta1.MsgStoreCodeKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgStoreCode =
+inline fun terra.wasm.v1beta1.Tx.MsgStoreCode.copy(block: terra.wasm.v1beta1.MsgStoreCodeKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgStoreCode =
   terra.wasm.v1beta1.MsgStoreCodeKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.genutil.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegenesisState")
-public inline fun genesisState(block: cosmos.genutil.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): cosmos.genutil.v1beta1.Genesis.GenesisState =
+@kotlin.jvm.JvmSynthetic
+inline fun genesisState(block: cosmos.genutil.v1beta1.GenesisStateKt.Dsl.() -> Unit): cosmos.genutil.v1beta1.Genesis.GenesisState =
   cosmos.genutil.v1beta1.GenesisStateKt.Dsl._create(cosmos.genutil.v1beta1.Genesis.GenesisState.newBuilder()).apply { block() }._build()
-public object GenesisStateKt {
+object GenesisStateKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.genutil.v1beta1.Genesis.GenesisState.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.genutil.v1beta1.Genesis.GenesisState.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.genutil.v1beta1.Genesis.GenesisState.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object GenesisStateKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class GenTxsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class GenTxsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * gen_txs defines the genesis transactions.
@@ -35,7 +35,7 @@ public object GenesisStateKt {
      *
      * <code>repeated bytes gen_txs = 1 [(.gogoproto.jsontag) = "gentxs", (.gogoproto.moretags) = "yaml:&#92;"gentxs&#92;"", (.gogoproto.casttype) = "encoding/json.RawMessage"];</code>
      */
-     public val genTxs: com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>
+     val genTxs: com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getGenTxsList()
@@ -50,7 +50,7 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addGenTxs")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.add(value: com.google.protobuf.ByteString) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.add(value: com.google.protobuf.ByteString) {
       _builder.addGenTxs(value)
     }/**
      * <pre>
@@ -62,8 +62,7 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignGenTxs")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.plusAssign(value: com.google.protobuf.ByteString) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.plusAssign(value: com.google.protobuf.ByteString) {
       add(value)
     }/**
      * <pre>
@@ -75,7 +74,7 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllGenTxs")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
       _builder.addAllGenTxs(values)
     }/**
      * <pre>
@@ -87,8 +86,7 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllGenTxs")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
       addAll(values)
     }/**
      * <pre>
@@ -101,7 +99,7 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setGenTxs")
-    public operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.set(index: kotlin.Int, value: com.google.protobuf.ByteString) {
+    operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.set(index: kotlin.Int, value: com.google.protobuf.ByteString) {
       _builder.setGenTxs(index, value)
     }/**
      * <pre>
@@ -112,11 +110,10 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearGenTxs")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, GenTxsProxy>.clear() {
       _builder.clearGenTxs()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.genutil.v1beta1.Genesis.GenesisState.copy(block: cosmos.genutil.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): cosmos.genutil.v1beta1.Genesis.GenesisState =
+inline fun cosmos.genutil.v1beta1.Genesis.GenesisState.copy(block: cosmos.genutil.v1beta1.GenesisStateKt.Dsl.() -> Unit): cosmos.genutil.v1beta1.Genesis.GenesisState =
   cosmos.genutil.v1beta1.GenesisStateKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

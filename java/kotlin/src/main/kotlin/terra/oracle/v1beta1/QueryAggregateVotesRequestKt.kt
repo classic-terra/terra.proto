@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryAggregateVotesRequest")
-public inline fun queryAggregateVotesRequest(block: terra.oracle.v1beta1.QueryAggregateVotesRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryAggregateVotesRequest(block: terra.oracle.v1beta1.QueryAggregateVotesRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest =
   terra.oracle.v1beta1.QueryAggregateVotesRequestKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest.newBuilder()).apply { block() }._build()
-public object QueryAggregateVotesRequestKt {
+object QueryAggregateVotesRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryAggregateVotesRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest.copy(block: terra.oracle.v1beta1.QueryAggregateVotesRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest.copy(block: terra.oracle.v1beta1.QueryAggregateVotesRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryAggregateVotesRequest =
   terra.oracle.v1beta1.QueryAggregateVotesRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

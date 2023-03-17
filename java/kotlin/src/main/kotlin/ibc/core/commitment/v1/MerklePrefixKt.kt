@@ -3,16 +3,16 @@
 
 package ibc.core.commitment.v1;
 
-@kotlin.jvm.JvmName("-initializemerklePrefix")
-public inline fun merklePrefix(block: ibc.core.commitment.v1.MerklePrefixKt.Dsl.() -> kotlin.Unit): ibc.core.commitment.v1.Commitment.MerklePrefix =
+@kotlin.jvm.JvmSynthetic
+inline fun merklePrefix(block: ibc.core.commitment.v1.MerklePrefixKt.Dsl.() -> Unit): ibc.core.commitment.v1.Commitment.MerklePrefix =
   ibc.core.commitment.v1.MerklePrefixKt.Dsl._create(ibc.core.commitment.v1.Commitment.MerklePrefix.newBuilder()).apply { block() }._build()
-public object MerklePrefixKt {
+object MerklePrefixKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.commitment.v1.Commitment.MerklePrefix.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.commitment.v1.Commitment.MerklePrefix.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.commitment.v1.Commitment.MerklePrefix.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MerklePrefixKt {
     /**
      * <code>bytes key_prefix = 1 [(.gogoproto.moretags) = "yaml:&#92;"key_prefix&#92;""];</code>
      */
-    public var keyPrefix: com.google.protobuf.ByteString
+    var keyPrefix: com.google.protobuf.ByteString
       @JvmName("getKeyPrefix")
       get() = _builder.getKeyPrefix()
       @JvmName("setKeyPrefix")
@@ -35,12 +35,11 @@ public object MerklePrefixKt {
     /**
      * <code>bytes key_prefix = 1 [(.gogoproto.moretags) = "yaml:&#92;"key_prefix&#92;""];</code>
      */
-    public fun clearKeyPrefix() {
+    fun clearKeyPrefix() {
       _builder.clearKeyPrefix()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.commitment.v1.Commitment.MerklePrefix.copy(block: ibc.core.commitment.v1.MerklePrefixKt.Dsl.() -> kotlin.Unit): ibc.core.commitment.v1.Commitment.MerklePrefix =
+inline fun ibc.core.commitment.v1.Commitment.MerklePrefix.copy(block: ibc.core.commitment.v1.MerklePrefixKt.Dsl.() -> Unit): ibc.core.commitment.v1.Commitment.MerklePrefix =
   ibc.core.commitment.v1.MerklePrefixKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

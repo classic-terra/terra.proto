@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializequeryClientStatusRequest")
-public inline fun queryClientStatusRequest(block: ibc.core.client.v1.QueryClientStatusRequestKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatusRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryClientStatusRequest(block: ibc.core.client.v1.QueryClientStatusRequestKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatusRequest =
   ibc.core.client.v1.QueryClientStatusRequestKt.Dsl._create(ibc.core.client.v1.QueryOuterClass.QueryClientStatusRequest.newBuilder()).apply { block() }._build()
-public object QueryClientStatusRequestKt {
+object QueryClientStatusRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.QueryOuterClass.QueryClientStatusRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.QueryOuterClass.QueryClientStatusRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.QueryOuterClass.QueryClientStatusRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryClientStatusRequestKt {
      *
      * <code>string client_id = 1;</code>
      */
-    public var clientId: kotlin.String
+    var clientId: kotlin.String
       @JvmName("getClientId")
       get() = _builder.getClientId()
       @JvmName("setClientId")
@@ -43,12 +43,11 @@ public object QueryClientStatusRequestKt {
      *
      * <code>string client_id = 1;</code>
      */
-    public fun clearClientId() {
+    fun clearClientId() {
       _builder.clearClientId()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.QueryOuterClass.QueryClientStatusRequest.copy(block: ibc.core.client.v1.QueryClientStatusRequestKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatusRequest =
+inline fun ibc.core.client.v1.QueryOuterClass.QueryClientStatusRequest.copy(block: ibc.core.client.v1.QueryClientStatusRequestKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatusRequest =
   ibc.core.client.v1.QueryClientStatusRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

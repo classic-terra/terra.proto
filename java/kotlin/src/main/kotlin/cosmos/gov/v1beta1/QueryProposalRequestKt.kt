@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryProposalRequest")
-public inline fun queryProposalRequest(block: cosmos.gov.v1beta1.QueryProposalRequestKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryProposalRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryProposalRequest(block: cosmos.gov.v1beta1.QueryProposalRequestKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryProposalRequest =
   cosmos.gov.v1beta1.QueryProposalRequestKt.Dsl._create(cosmos.gov.v1beta1.QueryOuterClass.QueryProposalRequest.newBuilder()).apply { block() }._build()
-public object QueryProposalRequestKt {
+object QueryProposalRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryProposalRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryProposalRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.QueryOuterClass.QueryProposalRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryProposalRequestKt {
      *
      * <code>uint64 proposal_id = 1;</code>
      */
-    public var proposalId: kotlin.Long
+    var proposalId: kotlin.Long
       @JvmName("getProposalId")
       get() = _builder.getProposalId()
       @JvmName("setProposalId")
@@ -43,12 +43,11 @@ public object QueryProposalRequestKt {
      *
      * <code>uint64 proposal_id = 1;</code>
      */
-    public fun clearProposalId() {
+    fun clearProposalId() {
       _builder.clearProposalId()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryProposalRequest.copy(block: cosmos.gov.v1beta1.QueryProposalRequestKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryProposalRequest =
+inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryProposalRequest.copy(block: cosmos.gov.v1beta1.QueryProposalRequestKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryProposalRequest =
   cosmos.gov.v1beta1.QueryProposalRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

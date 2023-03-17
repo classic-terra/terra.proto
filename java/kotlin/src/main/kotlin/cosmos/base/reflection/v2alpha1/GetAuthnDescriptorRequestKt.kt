@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializegetAuthnDescriptorRequest")
-public inline fun getAuthnDescriptorRequest(block: cosmos.base.reflection.v2alpha1.GetAuthnDescriptorRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun getAuthnDescriptorRequest(block: cosmos.base.reflection.v2alpha1.GetAuthnDescriptorRequestKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorRequest =
   cosmos.base.reflection.v2alpha1.GetAuthnDescriptorRequestKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorRequest.newBuilder()).apply { block() }._build()
-public object GetAuthnDescriptorRequestKt {
+object GetAuthnDescriptorRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object GetAuthnDescriptorRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorRequest.copy(block: cosmos.base.reflection.v2alpha1.GetAuthnDescriptorRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorRequest =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorRequest.copy(block: cosmos.base.reflection.v2alpha1.GetAuthnDescriptorRequestKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.GetAuthnDescriptorRequest =
   cosmos.base.reflection.v2alpha1.GetAuthnDescriptorRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

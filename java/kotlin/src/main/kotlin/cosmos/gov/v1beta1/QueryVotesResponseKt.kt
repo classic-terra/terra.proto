@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryVotesResponse")
-public inline fun queryVotesResponse(block: cosmos.gov.v1beta1.QueryVotesResponseKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVotesResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryVotesResponse(block: cosmos.gov.v1beta1.QueryVotesResponseKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVotesResponse =
   cosmos.gov.v1beta1.QueryVotesResponseKt.Dsl._create(cosmos.gov.v1beta1.QueryOuterClass.QueryVotesResponse.newBuilder()).apply { block() }._build()
-public object QueryVotesResponseKt {
+object QueryVotesResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryVotesResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryVotesResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.QueryOuterClass.QueryVotesResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryVotesResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class VotesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class VotesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * votes defined the queried votes.
@@ -35,7 +35,7 @@ public object QueryVotesResponseKt {
      *
      * <code>repeated .cosmos.gov.v1beta1.Vote votes = 1 [(.gogoproto.nullable) = false];</code>
      */
-     public val votes: com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>
+     val votes: com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getVotesList()
@@ -50,10 +50,9 @@ public object QueryVotesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addVotes")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.add(value: cosmos.gov.v1beta1.Gov.Vote) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.add(value: cosmos.gov.v1beta1.Gov.Vote) {
       _builder.addVotes(value)
-    }
-    /**
+    }/**
      * <pre>
      * votes defined the queried votes.
      * </pre>
@@ -63,11 +62,9 @@ public object QueryVotesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignVotes")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.plusAssign(value: cosmos.gov.v1beta1.Gov.Vote) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.plusAssign(value: cosmos.gov.v1beta1.Gov.Vote) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * votes defined the queried votes.
      * </pre>
@@ -77,10 +74,9 @@ public object QueryVotesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllVotes")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.gov.v1beta1.Gov.Vote>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.gov.v1beta1.Gov.Vote>) {
       _builder.addAllVotes(values)
-    }
-    /**
+    }/**
      * <pre>
      * votes defined the queried votes.
      * </pre>
@@ -90,11 +86,9 @@ public object QueryVotesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllVotes")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.gov.v1beta1.Gov.Vote>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.gov.v1beta1.Gov.Vote>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * votes defined the queried votes.
      * </pre>
@@ -105,10 +99,9 @@ public object QueryVotesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setVotes")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.set(index: kotlin.Int, value: cosmos.gov.v1beta1.Gov.Vote) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.set(index: kotlin.Int, value: cosmos.gov.v1beta1.Gov.Vote) {
       _builder.setVotes(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * votes defined the queried votes.
      * </pre>
@@ -117,11 +110,9 @@ public object QueryVotesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearVotes")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.Vote, VotesProxy>.clear() {
       _builder.clearVotes()
     }
-
-
     /**
      * <pre>
      * pagination defines the pagination in the response.
@@ -129,7 +120,7 @@ public object QueryVotesResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -143,7 +134,7 @@ public object QueryVotesResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -154,15 +145,11 @@ public object QueryVotesResponseKt {
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryVotesResponse.copy(block: cosmos.gov.v1beta1.QueryVotesResponseKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVotesResponse =
+inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryVotesResponse.copy(block: cosmos.gov.v1beta1.QueryVotesResponseKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVotesResponse =
   cosmos.gov.v1beta1.QueryVotesResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.gov.v1beta1.QueryOuterClass.QueryVotesResponseOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageResponse?
-  get() = if (hasPagination()) getPagination() else null
-

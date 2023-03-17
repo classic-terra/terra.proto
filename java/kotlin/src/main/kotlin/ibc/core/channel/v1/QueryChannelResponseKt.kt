@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializequeryChannelResponse")
-public inline fun queryChannelResponse(block: ibc.core.channel.v1.QueryChannelResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryChannelResponse(block: ibc.core.channel.v1.QueryChannelResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse =
   ibc.core.channel.v1.QueryChannelResponseKt.Dsl._create(ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse.newBuilder()).apply { block() }._build()
-public object QueryChannelResponseKt {
+object QueryChannelResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryChannelResponseKt {
      *
      * <code>.ibc.core.channel.v1.Channel channel = 1;</code>
      */
-    public var channel: ibc.core.channel.v1.ChannelOuterClass.Channel
+    var channel: ibc.core.channel.v1.ChannelOuterClass.Channel
       @JvmName("getChannel")
       get() = _builder.getChannel()
       @JvmName("setChannel")
@@ -43,7 +43,7 @@ public object QueryChannelResponseKt {
      *
      * <code>.ibc.core.channel.v1.Channel channel = 1;</code>
      */
-    public fun clearChannel() {
+    fun clearChannel() {
       _builder.clearChannel()
     }
     /**
@@ -54,7 +54,7 @@ public object QueryChannelResponseKt {
      * <code>.ibc.core.channel.v1.Channel channel = 1;</code>
      * @return Whether the channel field is set.
      */
-    public fun hasChannel(): kotlin.Boolean {
+    fun hasChannel(): kotlin.Boolean {
       return _builder.hasChannel()
     }
 
@@ -65,7 +65,7 @@ public object QueryChannelResponseKt {
      *
      * <code>bytes proof = 2;</code>
      */
-    public var proof: com.google.protobuf.ByteString
+    var proof: com.google.protobuf.ByteString
       @JvmName("getProof")
       get() = _builder.getProof()
       @JvmName("setProof")
@@ -79,7 +79,7 @@ public object QueryChannelResponseKt {
      *
      * <code>bytes proof = 2;</code>
      */
-    public fun clearProof() {
+    fun clearProof() {
       _builder.clearProof()
     }
 
@@ -90,7 +90,7 @@ public object QueryChannelResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public var proofHeight: ibc.core.client.v1.Client.Height
+    var proofHeight: ibc.core.client.v1.Client.Height
       @JvmName("getProofHeight")
       get() = _builder.getProofHeight()
       @JvmName("setProofHeight")
@@ -104,7 +104,7 @@ public object QueryChannelResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearProofHeight() {
+    fun clearProofHeight() {
       _builder.clearProofHeight()
     }
     /**
@@ -115,18 +115,11 @@ public object QueryChannelResponseKt {
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      * @return Whether the proofHeight field is set.
      */
-    public fun hasProofHeight(): kotlin.Boolean {
+    fun hasProofHeight(): kotlin.Boolean {
       return _builder.hasProofHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse.copy(block: ibc.core.channel.v1.QueryChannelResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse =
+inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse.copy(block: ibc.core.channel.v1.QueryChannelResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse =
   ibc.core.channel.v1.QueryChannelResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.channel.v1.QueryOuterClass.QueryChannelResponseOrBuilder.channelOrNull: ibc.core.channel.v1.ChannelOuterClass.Channel?
-  get() = if (hasChannel()) getChannel() else null
-
-public val ibc.core.channel.v1.QueryOuterClass.QueryChannelResponseOrBuilder.proofHeightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasProofHeight()) getProofHeight() else null
-

@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryActivesResponse")
-public inline fun queryActivesResponse(block: terra.oracle.v1beta1.QueryActivesResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryActivesResponse(block: terra.oracle.v1beta1.QueryActivesResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse =
   terra.oracle.v1beta1.QueryActivesResponseKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse.newBuilder()).apply { block() }._build()
-public object QueryActivesResponseKt {
+object QueryActivesResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryActivesResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ActivesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ActivesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * actives defines a list of the denomination which oracle prices aggreed upon.
@@ -36,8 +36,8 @@ public object QueryActivesResponseKt {
      * <code>repeated string actives = 1;</code>
      * @return A list containing the actives.
      */
-    public val actives: com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>
-      @kotlin.jvm.JvmSynthetic
+    val actives: com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>
+      @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getActivesList()
       )
@@ -51,7 +51,7 @@ public object QueryActivesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addActives")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.add(value: kotlin.String) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.add(value: kotlin.String) {
       _builder.addActives(value)
     }
     /**
@@ -64,9 +64,8 @@ public object QueryActivesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignActives")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.plusAssign(value: kotlin.String) {
-      add(value)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.plusAssign(value: kotlin.String) {
+      _builder.addActives(value)
     }
     /**
      * <pre>
@@ -78,7 +77,7 @@ public object QueryActivesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllActives")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllActives(values)
     }
     /**
@@ -91,9 +90,8 @@ public object QueryActivesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllActives")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
-      addAll(values)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
+      _builder.addAllActives(values)
     }
     /**
      * <pre>
@@ -106,7 +104,7 @@ public object QueryActivesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setActives")
-    public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.set(index: kotlin.Int, value: kotlin.String) {
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setActives(index, value)
     }/**
      * <pre>
@@ -117,11 +115,10 @@ public object QueryActivesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearActives")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, ActivesProxy>.clear() {
       _builder.clearActives()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse.copy(block: terra.oracle.v1beta1.QueryActivesResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse.copy(block: terra.oracle.v1beta1.QueryActivesResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryActivesResponse =
   terra.oracle.v1beta1.QueryActivesResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

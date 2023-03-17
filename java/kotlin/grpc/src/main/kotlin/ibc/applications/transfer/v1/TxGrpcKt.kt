@@ -25,14 +25,14 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for ibc.applications.transfer.v1.Msg.
  */
-public object MsgGrpcKt {
-  public const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
+object MsgGrpcKt {
+  const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = MsgGrpc.getServiceDescriptor()
 
-  public val transferMethod: MethodDescriptor<Tx.MsgTransfer, Tx.MsgTransferResponse>
+  val transferMethod: MethodDescriptor<Tx.MsgTransfer, Tx.MsgTransferResponse>
     @JvmStatic
     get() = MsgGrpc.getTransferMethod()
 
@@ -41,11 +41,11 @@ public object MsgGrpcKt {
    * coroutines.
    */
   @StubFor(MsgGrpc::class)
-  public class MsgCoroutineStub @JvmOverloads constructor(
+  class MsgCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<MsgCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
         MsgCoroutineStub(channel, callOptions)
 
     /**
@@ -57,26 +57,22 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun transfer(request: Tx.MsgTransfer, headers: Metadata = Metadata()):
-        Tx.MsgTransferResponse = unaryRpc(
+    suspend fun transfer(request: Tx.MsgTransfer): Tx.MsgTransferResponse = unaryRpc(
       channel,
       MsgGrpc.getTransferMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the ibc.applications.transfer.v1.Msg service based on Kotlin
    * coroutines.
    */
-  public abstract class MsgCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class MsgCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for ibc.applications.transfer.v1.Msg.Transfer.
@@ -89,11 +85,10 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun transfer(request: Tx.MsgTransfer): Tx.MsgTransferResponse = throw
+    open suspend fun transfer(request: Tx.MsgTransfer): Tx.MsgTransferResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method ibc.applications.transfer.v1.Msg.Transfer is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = MsgGrpc.getTransferMethod(),

@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializeauthnDescriptor")
-public inline fun authnDescriptor(block: cosmos.base.reflection.v2alpha1.AuthnDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor =
+@kotlin.jvm.JvmSynthetic
+inline fun authnDescriptor(block: cosmos.base.reflection.v2alpha1.AuthnDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor =
   cosmos.base.reflection.v2alpha1.AuthnDescriptorKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor.newBuilder()).apply { block() }._build()
-public object AuthnDescriptorKt {
+object AuthnDescriptorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object AuthnDescriptorKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class SignModesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class SignModesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * sign_modes defines the supported signature algorithm
@@ -35,7 +35,7 @@ public object AuthnDescriptorKt {
      *
      * <code>repeated .cosmos.base.reflection.v2alpha1.SigningModeDescriptor sign_modes = 1;</code>
      */
-     public val signModes: com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>
+     val signModes: com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getSignModesList()
@@ -50,10 +50,9 @@ public object AuthnDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addSignModes")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.add(value: cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.add(value: cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor) {
       _builder.addSignModes(value)
-    }
-    /**
+    }/**
      * <pre>
      * sign_modes defines the supported signature algorithm
      * </pre>
@@ -63,11 +62,9 @@ public object AuthnDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignSignModes")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.plusAssign(value: cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.plusAssign(value: cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * sign_modes defines the supported signature algorithm
      * </pre>
@@ -77,10 +74,9 @@ public object AuthnDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllSignModes")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor>) {
       _builder.addAllSignModes(values)
-    }
-    /**
+    }/**
      * <pre>
      * sign_modes defines the supported signature algorithm
      * </pre>
@@ -90,11 +86,9 @@ public object AuthnDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllSignModes")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * sign_modes defines the supported signature algorithm
      * </pre>
@@ -105,10 +99,9 @@ public object AuthnDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setSignModes")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.set(index: kotlin.Int, value: cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.set(index: kotlin.Int, value: cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor) {
       _builder.setSignModes(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * sign_modes defines the supported signature algorithm
      * </pre>
@@ -117,13 +110,10 @@ public object AuthnDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearSignModes")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.SigningModeDescriptor, SignModesProxy>.clear() {
       _builder.clearSignModes()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor.copy(block: cosmos.base.reflection.v2alpha1.AuthnDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor.copy(block: cosmos.base.reflection.v2alpha1.AuthnDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor =
   cosmos.base.reflection.v2alpha1.AuthnDescriptorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

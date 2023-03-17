@@ -3,16 +3,16 @@
 
 package cosmos.base.tendermint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegetSyncingResponse")
-public inline fun getSyncingResponse(block: cosmos.base.tendermint.v1beta1.GetSyncingResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.GetSyncingResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun getSyncingResponse(block: cosmos.base.tendermint.v1beta1.GetSyncingResponseKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.GetSyncingResponse =
   cosmos.base.tendermint.v1beta1.GetSyncingResponseKt.Dsl._create(cosmos.base.tendermint.v1beta1.Query.GetSyncingResponse.newBuilder()).apply { block() }._build()
-public object GetSyncingResponseKt {
+object GetSyncingResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.tendermint.v1beta1.Query.GetSyncingResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.tendermint.v1beta1.Query.GetSyncingResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.tendermint.v1beta1.Query.GetSyncingResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object GetSyncingResponseKt {
     /**
      * <code>bool syncing = 1;</code>
      */
-    public var syncing: kotlin.Boolean
+    var syncing: kotlin.Boolean
       @JvmName("getSyncing")
       get() = _builder.getSyncing()
       @JvmName("setSyncing")
@@ -35,12 +35,11 @@ public object GetSyncingResponseKt {
     /**
      * <code>bool syncing = 1;</code>
      */
-    public fun clearSyncing() {
+    fun clearSyncing() {
       _builder.clearSyncing()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.tendermint.v1beta1.Query.GetSyncingResponse.copy(block: cosmos.base.tendermint.v1beta1.GetSyncingResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.GetSyncingResponse =
+inline fun cosmos.base.tendermint.v1beta1.Query.GetSyncingResponse.copy(block: cosmos.base.tendermint.v1beta1.GetSyncingResponseKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.GetSyncingResponse =
   cosmos.base.tendermint.v1beta1.GetSyncingResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryValidatorOutstandingRewardsResponse")
-public inline fun queryValidatorOutstandingRewardsResponse(block: cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsResponseKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorOutstandingRewardsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryValidatorOutstandingRewardsResponse(block: cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsResponseKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorOutstandingRewardsResponse =
   cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsResponseKt.Dsl._create(cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorOutstandingRewardsResponse.newBuilder()).apply { block() }._build()
-public object QueryValidatorOutstandingRewardsResponseKt {
+object QueryValidatorOutstandingRewardsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorOutstandingRewardsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorOutstandingRewardsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorOutstandingRewardsResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryValidatorOutstandingRewardsResponseKt {
     /**
      * <code>.cosmos.distribution.v1beta1.ValidatorOutstandingRewards rewards = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var rewards: cosmos.distribution.v1beta1.Distribution.ValidatorOutstandingRewards
+    var rewards: cosmos.distribution.v1beta1.Distribution.ValidatorOutstandingRewards
       @JvmName("getRewards")
       get() = _builder.getRewards()
       @JvmName("setRewards")
@@ -35,22 +35,18 @@ public object QueryValidatorOutstandingRewardsResponseKt {
     /**
      * <code>.cosmos.distribution.v1beta1.ValidatorOutstandingRewards rewards = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearRewards() {
+    fun clearRewards() {
       _builder.clearRewards()
     }
     /**
      * <code>.cosmos.distribution.v1beta1.ValidatorOutstandingRewards rewards = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the rewards field is set.
      */
-    public fun hasRewards(): kotlin.Boolean {
+    fun hasRewards(): kotlin.Boolean {
       return _builder.hasRewards()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorOutstandingRewardsResponse.copy(block: cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsResponseKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorOutstandingRewardsResponse =
+inline fun cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorOutstandingRewardsResponse.copy(block: cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsResponseKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorOutstandingRewardsResponse =
   cosmos.distribution.v1beta1.QueryValidatorOutstandingRewardsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.distribution.v1beta1.QueryOuterClass.QueryValidatorOutstandingRewardsResponseOrBuilder.rewardsOrNull: cosmos.distribution.v1beta1.Distribution.ValidatorOutstandingRewards?
-  get() = if (hasRewards()) getRewards() else null
-

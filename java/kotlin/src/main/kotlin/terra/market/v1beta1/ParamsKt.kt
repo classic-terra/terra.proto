@@ -3,16 +3,16 @@
 
 package terra.market.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeparams")
-public inline fun params(block: terra.market.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.Market.Params =
+@kotlin.jvm.JvmSynthetic
+inline fun params(block: terra.market.v1beta1.ParamsKt.Dsl.() -> Unit): terra.market.v1beta1.Market.Params =
   terra.market.v1beta1.ParamsKt.Dsl._create(terra.market.v1beta1.Market.Params.newBuilder()).apply { block() }._build()
-public object ParamsKt {
+object ParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.market.v1beta1.Market.Params.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.market.v1beta1.Market.Params.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.market.v1beta1.Market.Params.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ParamsKt {
     /**
      * <code>bytes base_pool = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"base_pool&#92;""];</code>
      */
-    public var basePool: com.google.protobuf.ByteString
+    var basePool: com.google.protobuf.ByteString
       @JvmName("getBasePool")
       get() = _builder.getBasePool()
       @JvmName("setBasePool")
@@ -35,14 +35,14 @@ public object ParamsKt {
     /**
      * <code>bytes base_pool = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"base_pool&#92;""];</code>
      */
-    public fun clearBasePool() {
+    fun clearBasePool() {
       _builder.clearBasePool()
     }
 
     /**
      * <code>uint64 pool_recovery_period = 2 [(.gogoproto.moretags) = "yaml:&#92;"pool_recovery_period&#92;""];</code>
      */
-    public var poolRecoveryPeriod: kotlin.Long
+    var poolRecoveryPeriod: kotlin.Long
       @JvmName("getPoolRecoveryPeriod")
       get() = _builder.getPoolRecoveryPeriod()
       @JvmName("setPoolRecoveryPeriod")
@@ -52,14 +52,14 @@ public object ParamsKt {
     /**
      * <code>uint64 pool_recovery_period = 2 [(.gogoproto.moretags) = "yaml:&#92;"pool_recovery_period&#92;""];</code>
      */
-    public fun clearPoolRecoveryPeriod() {
+    fun clearPoolRecoveryPeriod() {
       _builder.clearPoolRecoveryPeriod()
     }
 
     /**
      * <code>bytes min_stability_spread = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"min_stability_spread&#92;""];</code>
      */
-    public var minStabilitySpread: com.google.protobuf.ByteString
+    var minStabilitySpread: com.google.protobuf.ByteString
       @JvmName("getMinStabilitySpread")
       get() = _builder.getMinStabilitySpread()
       @JvmName("setMinStabilitySpread")
@@ -69,12 +69,11 @@ public object ParamsKt {
     /**
      * <code>bytes min_stability_spread = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"min_stability_spread&#92;""];</code>
      */
-    public fun clearMinStabilitySpread() {
+    fun clearMinStabilitySpread() {
       _builder.clearMinStabilitySpread()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.market.v1beta1.Market.Params.copy(block: terra.market.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.Market.Params =
+inline fun terra.market.v1beta1.Market.Params.copy(block: terra.market.v1beta1.ParamsKt.Dsl.() -> Unit): terra.market.v1beta1.Market.Params =
   terra.market.v1beta1.ParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

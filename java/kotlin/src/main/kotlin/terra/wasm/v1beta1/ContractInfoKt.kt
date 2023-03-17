@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializecontractInfo")
-public inline fun contractInfo(block: terra.wasm.v1beta1.ContractInfoKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Wasm.ContractInfo =
+@kotlin.jvm.JvmSynthetic
+inline fun contractInfo(block: terra.wasm.v1beta1.ContractInfoKt.Dsl.() -> Unit): terra.wasm.v1beta1.Wasm.ContractInfo =
   terra.wasm.v1beta1.ContractInfoKt.Dsl._create(terra.wasm.v1beta1.Wasm.ContractInfo.newBuilder()).apply { block() }._build()
-public object ContractInfoKt {
+object ContractInfoKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Wasm.ContractInfo.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Wasm.ContractInfo.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Wasm.ContractInfo.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ContractInfoKt {
      *
      * <code>string address = 1 [(.gogoproto.moretags) = "yaml:&#92;"address&#92;""];</code>
      */
-    public var address: kotlin.String
+    var address: kotlin.String
       @JvmName("getAddress")
       get() = _builder.getAddress()
       @JvmName("setAddress")
@@ -43,7 +43,7 @@ public object ContractInfoKt {
      *
      * <code>string address = 1 [(.gogoproto.moretags) = "yaml:&#92;"address&#92;""];</code>
      */
-    public fun clearAddress() {
+    fun clearAddress() {
       _builder.clearAddress()
     }
 
@@ -54,7 +54,7 @@ public object ContractInfoKt {
      *
      * <code>string creator = 2 [(.gogoproto.moretags) = "yaml:&#92;"creator&#92;""];</code>
      */
-    public var creator: kotlin.String
+    var creator: kotlin.String
       @JvmName("getCreator")
       get() = _builder.getCreator()
       @JvmName("setCreator")
@@ -68,7 +68,7 @@ public object ContractInfoKt {
      *
      * <code>string creator = 2 [(.gogoproto.moretags) = "yaml:&#92;"creator&#92;""];</code>
      */
-    public fun clearCreator() {
+    fun clearCreator() {
       _builder.clearCreator()
     }
 
@@ -79,7 +79,7 @@ public object ContractInfoKt {
      *
      * <code>string admin = 3 [(.gogoproto.moretags) = "yaml:&#92;"admin&#92;""];</code>
      */
-    public var admin: kotlin.String
+    var admin: kotlin.String
       @JvmName("getAdmin")
       get() = _builder.getAdmin()
       @JvmName("setAdmin")
@@ -93,7 +93,7 @@ public object ContractInfoKt {
      *
      * <code>string admin = 3 [(.gogoproto.moretags) = "yaml:&#92;"admin&#92;""];</code>
      */
-    public fun clearAdmin() {
+    fun clearAdmin() {
       _builder.clearAdmin()
     }
 
@@ -104,7 +104,7 @@ public object ContractInfoKt {
      *
      * <code>uint64 code_id = 4 [(.gogoproto.customname) = "CodeID", (.gogoproto.moretags) = "yaml:&#92;"code_id&#92;""];</code>
      */
-    public var codeId: kotlin.Long
+    var codeId: kotlin.Long
       @JvmName("getCodeId")
       get() = _builder.getCodeId()
       @JvmName("setCodeId")
@@ -118,7 +118,7 @@ public object ContractInfoKt {
      *
      * <code>uint64 code_id = 4 [(.gogoproto.customname) = "CodeID", (.gogoproto.moretags) = "yaml:&#92;"code_id&#92;""];</code>
      */
-    public fun clearCodeId() {
+    fun clearCodeId() {
       _builder.clearCodeId()
     }
 
@@ -129,7 +129,7 @@ public object ContractInfoKt {
      *
      * <code>bytes init_msg = 5 [(.gogoproto.moretags) = "yaml:&#92;"init_msg&#92;"", (.gogoproto.casttype) = "encoding/json.RawMessage"];</code>
      */
-    public var initMsg: com.google.protobuf.ByteString
+    var initMsg: com.google.protobuf.ByteString
       @JvmName("getInitMsg")
       get() = _builder.getInitMsg()
       @JvmName("setInitMsg")
@@ -143,12 +143,11 @@ public object ContractInfoKt {
      *
      * <code>bytes init_msg = 5 [(.gogoproto.moretags) = "yaml:&#92;"init_msg&#92;"", (.gogoproto.casttype) = "encoding/json.RawMessage"];</code>
      */
-    public fun clearInitMsg() {
+    fun clearInitMsg() {
       _builder.clearInitMsg()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Wasm.ContractInfo.copy(block: terra.wasm.v1beta1.ContractInfoKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Wasm.ContractInfo =
+inline fun terra.wasm.v1beta1.Wasm.ContractInfo.copy(block: terra.wasm.v1beta1.ContractInfoKt.Dsl.() -> Unit): terra.wasm.v1beta1.Wasm.ContractInfo =
   terra.wasm.v1beta1.ContractInfoKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

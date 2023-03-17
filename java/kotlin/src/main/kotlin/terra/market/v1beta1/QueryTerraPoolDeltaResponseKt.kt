@@ -3,16 +3,16 @@
 
 package terra.market.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTerraPoolDeltaResponse")
-public inline fun queryTerraPoolDeltaResponse(block: terra.market.v1beta1.QueryTerraPoolDeltaResponseKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTerraPoolDeltaResponse(block: terra.market.v1beta1.QueryTerraPoolDeltaResponseKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaResponse =
   terra.market.v1beta1.QueryTerraPoolDeltaResponseKt.Dsl._create(terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaResponse.newBuilder()).apply { block() }._build()
-public object QueryTerraPoolDeltaResponseKt {
+object QueryTerraPoolDeltaResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryTerraPoolDeltaResponseKt {
      *
      * <code>bytes terra_pool_delta = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var terraPoolDelta: com.google.protobuf.ByteString
+    var terraPoolDelta: com.google.protobuf.ByteString
       @JvmName("getTerraPoolDelta")
       get() = _builder.getTerraPoolDelta()
       @JvmName("setTerraPoolDelta")
@@ -43,12 +43,11 @@ public object QueryTerraPoolDeltaResponseKt {
      *
      * <code>bytes terra_pool_delta = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearTerraPoolDelta() {
+    fun clearTerraPoolDelta() {
       _builder.clearTerraPoolDelta()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaResponse.copy(block: terra.market.v1beta1.QueryTerraPoolDeltaResponseKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaResponse =
+inline fun terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaResponse.copy(block: terra.market.v1beta1.QueryTerraPoolDeltaResponseKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QueryTerraPoolDeltaResponse =
   terra.market.v1beta1.QueryTerraPoolDeltaResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

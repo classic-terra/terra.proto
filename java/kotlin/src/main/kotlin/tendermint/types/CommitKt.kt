@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializecommit")
-public inline fun commit(block: tendermint.types.CommitKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.Commit =
+@kotlin.jvm.JvmSynthetic
+inline fun commit(block: tendermint.types.CommitKt.Dsl.() -> Unit): tendermint.types.Types.Commit =
   tendermint.types.CommitKt.Dsl._create(tendermint.types.Types.Commit.newBuilder()).apply { block() }._build()
-public object CommitKt {
+object CommitKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.Types.Commit.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.Types.Commit.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.Types.Commit.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object CommitKt {
     /**
      * <code>int64 height = 1;</code>
      */
-    public var height: kotlin.Long
+    var height: kotlin.Long
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -35,14 +35,14 @@ public object CommitKt {
     /**
      * <code>int64 height = 1;</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
 
     /**
      * <code>int32 round = 2;</code>
      */
-    public var round: kotlin.Int
+    var round: kotlin.Int
       @JvmName("getRound")
       get() = _builder.getRound()
       @JvmName("setRound")
@@ -52,14 +52,14 @@ public object CommitKt {
     /**
      * <code>int32 round = 2;</code>
      */
-    public fun clearRound() {
+    fun clearRound() {
       _builder.clearRound()
     }
 
     /**
      * <code>.tendermint.types.BlockID block_id = 3 [(.gogoproto.nullable) = false, (.gogoproto.customname) = "BlockID"];</code>
      */
-    public var blockId: tendermint.types.Types.BlockID
+    var blockId: tendermint.types.Types.BlockID
       @JvmName("getBlockId")
       get() = _builder.getBlockId()
       @JvmName("setBlockId")
@@ -69,14 +69,14 @@ public object CommitKt {
     /**
      * <code>.tendermint.types.BlockID block_id = 3 [(.gogoproto.nullable) = false, (.gogoproto.customname) = "BlockID"];</code>
      */
-    public fun clearBlockId() {
+    fun clearBlockId() {
       _builder.clearBlockId()
     }
     /**
      * <code>.tendermint.types.BlockID block_id = 3 [(.gogoproto.nullable) = false, (.gogoproto.customname) = "BlockID"];</code>
      * @return Whether the blockId field is set.
      */
-    public fun hasBlockId(): kotlin.Boolean {
+    fun hasBlockId(): kotlin.Boolean {
       return _builder.hasBlockId()
     }
 
@@ -85,11 +85,11 @@ public object CommitKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class SignaturesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class SignaturesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .tendermint.types.CommitSig signatures = 4 [(.gogoproto.nullable) = false];</code>
      */
-     public val signatures: com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>
+     val signatures: com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getSignaturesList()
@@ -100,63 +100,50 @@ public object CommitKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addSignatures")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.add(value: tendermint.types.Types.CommitSig) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.add(value: tendermint.types.Types.CommitSig) {
       _builder.addSignatures(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.types.CommitSig signatures = 4 [(.gogoproto.nullable) = false];</code>
      * @param value The signatures to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignSignatures")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.plusAssign(value: tendermint.types.Types.CommitSig) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.plusAssign(value: tendermint.types.Types.CommitSig) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.types.CommitSig signatures = 4 [(.gogoproto.nullable) = false];</code>
      * @param values The signatures to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllSignatures")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.addAll(values: kotlin.collections.Iterable<tendermint.types.Types.CommitSig>) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.addAll(values: kotlin.collections.Iterable<tendermint.types.Types.CommitSig>) {
       _builder.addAllSignatures(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.types.CommitSig signatures = 4 [(.gogoproto.nullable) = false];</code>
      * @param values The signatures to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllSignatures")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.types.Types.CommitSig>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.types.Types.CommitSig>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.types.CommitSig signatures = 4 [(.gogoproto.nullable) = false];</code>
      * @param index The index to set the value at.
      * @param value The signatures to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setSignatures")
-    public operator fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.set(index: kotlin.Int, value: tendermint.types.Types.CommitSig) {
+    operator fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.set(index: kotlin.Int, value: tendermint.types.Types.CommitSig) {
       _builder.setSignatures(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.types.CommitSig signatures = 4 [(.gogoproto.nullable) = false];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearSignatures")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<tendermint.types.Types.CommitSig, SignaturesProxy>.clear() {
       _builder.clearSignatures()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.Types.Commit.copy(block: tendermint.types.CommitKt.Dsl.() -> kotlin.Unit): tendermint.types.Types.Commit =
+inline fun tendermint.types.Types.Commit.copy(block: tendermint.types.CommitKt.Dsl.() -> Unit): tendermint.types.Types.Commit =
   tendermint.types.CommitKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.Types.CommitOrBuilder.blockIdOrNull: tendermint.types.Types.BlockID?
-  get() = if (hasBlockId()) getBlockId() else null
-

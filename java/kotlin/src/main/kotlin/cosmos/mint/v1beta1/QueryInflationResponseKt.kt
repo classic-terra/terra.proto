@@ -3,16 +3,16 @@
 
 package cosmos.mint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryInflationResponse")
-public inline fun queryInflationResponse(block: cosmos.mint.v1beta1.QueryInflationResponseKt.Dsl.() -> kotlin.Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryInflationResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryInflationResponse(block: cosmos.mint.v1beta1.QueryInflationResponseKt.Dsl.() -> Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryInflationResponse =
   cosmos.mint.v1beta1.QueryInflationResponseKt.Dsl._create(cosmos.mint.v1beta1.QueryOuterClass.QueryInflationResponse.newBuilder()).apply { block() }._build()
-public object QueryInflationResponseKt {
+object QueryInflationResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.mint.v1beta1.QueryOuterClass.QueryInflationResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.mint.v1beta1.QueryOuterClass.QueryInflationResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.mint.v1beta1.QueryOuterClass.QueryInflationResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryInflationResponseKt {
      *
      * <code>bytes inflation = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var inflation: com.google.protobuf.ByteString
+    var inflation: com.google.protobuf.ByteString
       @JvmName("getInflation")
       get() = _builder.getInflation()
       @JvmName("setInflation")
@@ -43,12 +43,11 @@ public object QueryInflationResponseKt {
      *
      * <code>bytes inflation = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearInflation() {
+    fun clearInflation() {
       _builder.clearInflation()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.mint.v1beta1.QueryOuterClass.QueryInflationResponse.copy(block: cosmos.mint.v1beta1.QueryInflationResponseKt.Dsl.() -> kotlin.Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryInflationResponse =
+inline fun cosmos.mint.v1beta1.QueryOuterClass.QueryInflationResponse.copy(block: cosmos.mint.v1beta1.QueryInflationResponseKt.Dsl.() -> Unit): cosmos.mint.v1beta1.QueryOuterClass.QueryInflationResponse =
   cosmos.mint.v1beta1.QueryInflationResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

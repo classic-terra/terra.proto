@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializeevidenceParams")
-public inline fun evidenceParams(block: tendermint.types.EvidenceParamsKt.Dsl.() -> kotlin.Unit): tendermint.types.Params.EvidenceParams =
+@kotlin.jvm.JvmSynthetic
+inline fun evidenceParams(block: tendermint.types.EvidenceParamsKt.Dsl.() -> Unit): tendermint.types.Params.EvidenceParams =
   tendermint.types.EvidenceParamsKt.Dsl._create(tendermint.types.Params.EvidenceParams.newBuilder()).apply { block() }._build()
-public object EvidenceParamsKt {
+object EvidenceParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.Params.EvidenceParams.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.Params.EvidenceParams.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.Params.EvidenceParams.Builder): Dsl = Dsl(builder)
@@ -31,7 +31,7 @@ public object EvidenceParamsKt {
      *
      * <code>int64 max_age_num_blocks = 1;</code>
      */
-    public var maxAgeNumBlocks: kotlin.Long
+    var maxAgeNumBlocks: kotlin.Long
       @JvmName("getMaxAgeNumBlocks")
       get() = _builder.getMaxAgeNumBlocks()
       @JvmName("setMaxAgeNumBlocks")
@@ -47,7 +47,7 @@ public object EvidenceParamsKt {
      *
      * <code>int64 max_age_num_blocks = 1;</code>
      */
-    public fun clearMaxAgeNumBlocks() {
+    fun clearMaxAgeNumBlocks() {
       _builder.clearMaxAgeNumBlocks()
     }
 
@@ -61,7 +61,7 @@ public object EvidenceParamsKt {
      *
      * <code>.google.protobuf.Duration max_age_duration = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
      */
-    public var maxAgeDuration: com.google.protobuf.Duration
+    var maxAgeDuration: com.google.protobuf.Duration
       @JvmName("getMaxAgeDuration")
       get() = _builder.getMaxAgeDuration()
       @JvmName("setMaxAgeDuration")
@@ -78,7 +78,7 @@ public object EvidenceParamsKt {
      *
      * <code>.google.protobuf.Duration max_age_duration = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
      */
-    public fun clearMaxAgeDuration() {
+    fun clearMaxAgeDuration() {
       _builder.clearMaxAgeDuration()
     }
     /**
@@ -92,7 +92,7 @@ public object EvidenceParamsKt {
      * <code>.google.protobuf.Duration max_age_duration = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
      * @return Whether the maxAgeDuration field is set.
      */
-    public fun hasMaxAgeDuration(): kotlin.Boolean {
+    fun hasMaxAgeDuration(): kotlin.Boolean {
       return _builder.hasMaxAgeDuration()
     }
 
@@ -105,7 +105,7 @@ public object EvidenceParamsKt {
      *
      * <code>int64 max_bytes = 3;</code>
      */
-    public var maxBytes: kotlin.Long
+    var maxBytes: kotlin.Long
       @JvmName("getMaxBytes")
       get() = _builder.getMaxBytes()
       @JvmName("setMaxBytes")
@@ -121,15 +121,11 @@ public object EvidenceParamsKt {
      *
      * <code>int64 max_bytes = 3;</code>
      */
-    public fun clearMaxBytes() {
+    fun clearMaxBytes() {
       _builder.clearMaxBytes()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.Params.EvidenceParams.copy(block: tendermint.types.EvidenceParamsKt.Dsl.() -> kotlin.Unit): tendermint.types.Params.EvidenceParams =
+inline fun tendermint.types.Params.EvidenceParams.copy(block: tendermint.types.EvidenceParamsKt.Dsl.() -> Unit): tendermint.types.Params.EvidenceParams =
   tendermint.types.EvidenceParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.Params.EvidenceParamsOrBuilder.maxAgeDurationOrNull: com.google.protobuf.Duration?
-  get() = if (hasMaxAgeDuration()) getMaxAgeDuration() else null
-

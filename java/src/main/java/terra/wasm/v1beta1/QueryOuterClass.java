@@ -59,6 +59,48 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryCodeInfoRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              codeId_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryCodeInfoRequest_descriptor;
@@ -73,7 +115,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CODE_ID_FIELD_NUMBER = 1;
-    private long codeId_ = 0L;
+    private long codeId_;
     /**
      * <pre>
      * grpc-gateway_out does not support Go style CodID
@@ -104,7 +146,7 @@ public final class QueryOuterClass {
       if (codeId_ != 0L) {
         output.writeUInt64(1, codeId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -117,7 +159,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, codeId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -134,7 +176,7 @@ public final class QueryOuterClass {
 
       if (getCodeId()
           != other.getCodeId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -148,7 +190,7 @@ public final class QueryOuterClass {
       hash = (37 * hash) + CODE_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCodeId());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -269,19 +311,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         codeId_ = 0L;
+
         return this;
       }
 
@@ -308,16 +355,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoRequest buildPartial() {
         terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoRequest result = new terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.codeId_ = codeId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.codeId_ = codeId_;
-        }
       }
 
       @java.lang.Override
@@ -367,7 +407,7 @@ public final class QueryOuterClass {
         if (other.getCodeId() != 0L) {
           setCodeId(other.getCodeId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -382,38 +422,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                codeId_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long codeId_ ;
       /**
@@ -440,7 +461,6 @@ public final class QueryOuterClass {
       public Builder setCodeId(long value) {
         
         codeId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -453,7 +473,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCodeId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         codeId_ = 0L;
         onChanged();
         return this;
@@ -491,18 +511,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryCodeInfoRequest(input, extensionRegistry);
       }
     };
 
@@ -573,6 +582,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryCodeInfoResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              terra.wasm.v1beta1.Wasm.CodeInfo.Builder subBuilder = null;
+              if (codeInfo_ != null) {
+                subBuilder = codeInfo_.toBuilder();
+              }
+              codeInfo_ = input.readMessage(terra.wasm.v1beta1.Wasm.CodeInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(codeInfo_);
+                codeInfo_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryCodeInfoResponse_descriptor;
@@ -609,7 +668,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public terra.wasm.v1beta1.Wasm.CodeInfoOrBuilder getCodeInfoOrBuilder() {
-      return codeInfo_ == null ? terra.wasm.v1beta1.Wasm.CodeInfo.getDefaultInstance() : codeInfo_;
+      return getCodeInfo();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -629,7 +688,7 @@ public final class QueryOuterClass {
       if (codeInfo_ != null) {
         output.writeMessage(1, getCodeInfo());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -642,7 +701,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCodeInfo());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -662,7 +721,7 @@ public final class QueryOuterClass {
         if (!getCodeInfo()
             .equals(other.getCodeInfo())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -677,7 +736,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + CODE_INFO_FIELD_NUMBER;
         hash = (53 * hash) + getCodeInfo().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -799,21 +858,26 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        codeInfo_ = null;
-        if (codeInfoBuilder_ != null) {
-          codeInfoBuilder_.dispose();
+        if (codeInfoBuilder_ == null) {
+          codeInfo_ = null;
+        } else {
+          codeInfo_ = null;
           codeInfoBuilder_ = null;
         }
         return this;
@@ -842,18 +906,13 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse buildPartial() {
         terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse result = new terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (codeInfoBuilder_ == null) {
+          result.codeInfo_ = codeInfo_;
+        } else {
+          result.codeInfo_ = codeInfoBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.codeInfo_ = codeInfoBuilder_ == null
-              ? codeInfo_
-              : codeInfoBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -903,7 +962,7 @@ public final class QueryOuterClass {
         if (other.hasCodeInfo()) {
           mergeCodeInfo(other.getCodeInfo());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -918,40 +977,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getCodeInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryCodeInfoResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private terra.wasm.v1beta1.Wasm.CodeInfo codeInfo_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -961,7 +999,7 @@ public final class QueryOuterClass {
        * @return Whether the codeInfo field is set.
        */
       public boolean hasCodeInfo() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return codeInfoBuilder_ != null || codeInfo_ != null;
       }
       /**
        * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
@@ -983,11 +1021,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           codeInfo_ = value;
+          onChanged();
         } else {
           codeInfoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -997,11 +1035,11 @@ public final class QueryOuterClass {
           terra.wasm.v1beta1.Wasm.CodeInfo.Builder builderForValue) {
         if (codeInfoBuilder_ == null) {
           codeInfo_ = builderForValue.build();
+          onChanged();
         } else {
           codeInfoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1009,38 +1047,38 @@ public final class QueryOuterClass {
        */
       public Builder mergeCodeInfo(terra.wasm.v1beta1.Wasm.CodeInfo value) {
         if (codeInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            codeInfo_ != null &&
-            codeInfo_ != terra.wasm.v1beta1.Wasm.CodeInfo.getDefaultInstance()) {
-            getCodeInfoBuilder().mergeFrom(value);
+          if (codeInfo_ != null) {
+            codeInfo_ =
+              terra.wasm.v1beta1.Wasm.CodeInfo.newBuilder(codeInfo_).mergeFrom(value).buildPartial();
           } else {
             codeInfo_ = value;
           }
+          onChanged();
         } else {
           codeInfoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearCodeInfo() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        codeInfo_ = null;
-        if (codeInfoBuilder_ != null) {
-          codeInfoBuilder_.dispose();
+        if (codeInfoBuilder_ == null) {
+          codeInfo_ = null;
+          onChanged();
+        } else {
+          codeInfo_ = null;
           codeInfoBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
        */
       public terra.wasm.v1beta1.Wasm.CodeInfo.Builder getCodeInfoBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getCodeInfoFieldBuilder().getBuilder();
       }
@@ -1104,18 +1142,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryCodeInfoResponse(input, extensionRegistry);
       }
     };
 
@@ -1180,6 +1207,48 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryByteCodeRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              codeId_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryByteCodeRequest_descriptor;
@@ -1194,7 +1263,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CODE_ID_FIELD_NUMBER = 1;
-    private long codeId_ = 0L;
+    private long codeId_;
     /**
      * <pre>
      * grpc-gateway_out does not support Go style CodID
@@ -1225,7 +1294,7 @@ public final class QueryOuterClass {
       if (codeId_ != 0L) {
         output.writeUInt64(1, codeId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1238,7 +1307,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, codeId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1255,7 +1324,7 @@ public final class QueryOuterClass {
 
       if (getCodeId()
           != other.getCodeId()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1269,7 +1338,7 @@ public final class QueryOuterClass {
       hash = (37 * hash) + CODE_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCodeId());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1390,19 +1459,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         codeId_ = 0L;
+
         return this;
       }
 
@@ -1429,16 +1503,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest buildPartial() {
         terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest result = new terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.codeId_ = codeId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.codeId_ = codeId_;
-        }
       }
 
       @java.lang.Override
@@ -1488,7 +1555,7 @@ public final class QueryOuterClass {
         if (other.getCodeId() != 0L) {
           setCodeId(other.getCodeId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1503,38 +1570,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                codeId_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long codeId_ ;
       /**
@@ -1561,7 +1609,6 @@ public final class QueryOuterClass {
       public Builder setCodeId(long value) {
         
         codeId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1574,7 +1621,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCodeId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         codeId_ = 0L;
         onChanged();
         return this;
@@ -1612,18 +1659,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryByteCodeRequest(input, extensionRegistry);
       }
     };
 
@@ -1686,6 +1722,48 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryByteCodeResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              byteCode_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryByteCodeResponse_descriptor;
@@ -1700,7 +1778,7 @@ public final class QueryOuterClass {
     }
 
     public static final int BYTE_CODE_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString byteCode_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString byteCode_;
     /**
      * <code>bytes byte_code = 1;</code>
      * @return The byteCode.
@@ -1727,7 +1805,7 @@ public final class QueryOuterClass {
       if (!byteCode_.isEmpty()) {
         output.writeBytes(1, byteCode_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1740,7 +1818,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, byteCode_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1757,7 +1835,7 @@ public final class QueryOuterClass {
 
       if (!getByteCode()
           .equals(other.getByteCode())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1770,7 +1848,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + BYTE_CODE_FIELD_NUMBER;
       hash = (53 * hash) + getByteCode().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1892,19 +1970,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         byteCode_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -1931,16 +2014,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse buildPartial() {
         terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse result = new terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.byteCode_ = byteCode_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.byteCode_ = byteCode_;
-        }
       }
 
       @java.lang.Override
@@ -1990,7 +2066,7 @@ public final class QueryOuterClass {
         if (other.getByteCode() != com.google.protobuf.ByteString.EMPTY) {
           setByteCode(other.getByteCode());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2005,38 +2081,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                byteCode_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString byteCode_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -2053,9 +2110,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setByteCode(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         byteCode_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2064,7 +2123,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearByteCode() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         byteCode_ = getDefaultInstance().getByteCode();
         onChanged();
         return this;
@@ -2102,18 +2161,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryByteCodeResponse(input, extensionRegistry);
       }
     };
 
@@ -2181,6 +2229,49 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryContractInfoRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              contractAddress_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryContractInfoRequest_descriptor;
@@ -2195,8 +2286,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CONTRACT_ADDRESS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object contractAddress_ = "";
+    private volatile java.lang.Object contractAddress_;
     /**
      * <code>string contract_address = 1;</code>
      * @return The contractAddress.
@@ -2247,10 +2337,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contractAddress_)) {
+      if (!getContractAddressBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, contractAddress_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2259,10 +2349,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contractAddress_)) {
+      if (!getContractAddressBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, contractAddress_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2279,7 +2369,7 @@ public final class QueryOuterClass {
 
       if (!getContractAddress()
           .equals(other.getContractAddress())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2292,7 +2382,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CONTRACT_ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getContractAddress().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2413,19 +2503,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         contractAddress_ = "";
+
         return this;
       }
 
@@ -2452,16 +2547,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoRequest buildPartial() {
         terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoRequest result = new terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.contractAddress_ = contractAddress_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.contractAddress_ = contractAddress_;
-        }
       }
 
       @java.lang.Override
@@ -2510,10 +2598,9 @@ public final class QueryOuterClass {
         if (other == terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoRequest.getDefaultInstance()) return this;
         if (!other.getContractAddress().isEmpty()) {
           contractAddress_ = other.contractAddress_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2528,38 +2615,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                contractAddress_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object contractAddress_ = "";
       /**
@@ -2602,9 +2670,11 @@ public final class QueryOuterClass {
        */
       public Builder setContractAddress(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         contractAddress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2613,8 +2683,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearContractAddress() {
+        
         contractAddress_ = getDefaultInstance().getContractAddress();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2625,10 +2695,12 @@ public final class QueryOuterClass {
        */
       public Builder setContractAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         contractAddress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2665,18 +2737,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryContractInfoRequest(input, extensionRegistry);
       }
     };
 
@@ -2747,6 +2808,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryContractInfoResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              terra.wasm.v1beta1.Wasm.ContractInfo.Builder subBuilder = null;
+              if (contractInfo_ != null) {
+                subBuilder = contractInfo_.toBuilder();
+              }
+              contractInfo_ = input.readMessage(terra.wasm.v1beta1.Wasm.ContractInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(contractInfo_);
+                contractInfo_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryContractInfoResponse_descriptor;
@@ -2783,7 +2894,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public terra.wasm.v1beta1.Wasm.ContractInfoOrBuilder getContractInfoOrBuilder() {
-      return contractInfo_ == null ? terra.wasm.v1beta1.Wasm.ContractInfo.getDefaultInstance() : contractInfo_;
+      return getContractInfo();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2803,7 +2914,7 @@ public final class QueryOuterClass {
       if (contractInfo_ != null) {
         output.writeMessage(1, getContractInfo());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2816,7 +2927,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getContractInfo());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2836,7 +2947,7 @@ public final class QueryOuterClass {
         if (!getContractInfo()
             .equals(other.getContractInfo())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2851,7 +2962,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + CONTRACT_INFO_FIELD_NUMBER;
         hash = (53 * hash) + getContractInfo().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2973,21 +3084,26 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        contractInfo_ = null;
-        if (contractInfoBuilder_ != null) {
-          contractInfoBuilder_.dispose();
+        if (contractInfoBuilder_ == null) {
+          contractInfo_ = null;
+        } else {
+          contractInfo_ = null;
           contractInfoBuilder_ = null;
         }
         return this;
@@ -3016,18 +3132,13 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse buildPartial() {
         terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse result = new terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (contractInfoBuilder_ == null) {
+          result.contractInfo_ = contractInfo_;
+        } else {
+          result.contractInfo_ = contractInfoBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.contractInfo_ = contractInfoBuilder_ == null
-              ? contractInfo_
-              : contractInfoBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -3077,7 +3188,7 @@ public final class QueryOuterClass {
         if (other.hasContractInfo()) {
           mergeContractInfo(other.getContractInfo());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3092,40 +3203,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getContractInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryContractInfoResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private terra.wasm.v1beta1.Wasm.ContractInfo contractInfo_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3135,7 +3225,7 @@ public final class QueryOuterClass {
        * @return Whether the contractInfo field is set.
        */
       public boolean hasContractInfo() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return contractInfoBuilder_ != null || contractInfo_ != null;
       }
       /**
        * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
@@ -3157,11 +3247,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           contractInfo_ = value;
+          onChanged();
         } else {
           contractInfoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -3171,11 +3261,11 @@ public final class QueryOuterClass {
           terra.wasm.v1beta1.Wasm.ContractInfo.Builder builderForValue) {
         if (contractInfoBuilder_ == null) {
           contractInfo_ = builderForValue.build();
+          onChanged();
         } else {
           contractInfoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -3183,38 +3273,38 @@ public final class QueryOuterClass {
        */
       public Builder mergeContractInfo(terra.wasm.v1beta1.Wasm.ContractInfo value) {
         if (contractInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            contractInfo_ != null &&
-            contractInfo_ != terra.wasm.v1beta1.Wasm.ContractInfo.getDefaultInstance()) {
-            getContractInfoBuilder().mergeFrom(value);
+          if (contractInfo_ != null) {
+            contractInfo_ =
+              terra.wasm.v1beta1.Wasm.ContractInfo.newBuilder(contractInfo_).mergeFrom(value).buildPartial();
           } else {
             contractInfo_ = value;
           }
+          onChanged();
         } else {
           contractInfoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearContractInfo() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        contractInfo_ = null;
-        if (contractInfoBuilder_ != null) {
-          contractInfoBuilder_.dispose();
+        if (contractInfoBuilder_ == null) {
+          contractInfo_ = null;
+          onChanged();
+        } else {
+          contractInfo_ = null;
           contractInfoBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
        */
       public terra.wasm.v1beta1.Wasm.ContractInfo.Builder getContractInfoBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getContractInfoFieldBuilder().getBuilder();
       }
@@ -3278,18 +3368,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryContractInfoResponse(input, extensionRegistry);
       }
     };
 
@@ -3364,6 +3443,54 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryContractStoreRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              contractAddress_ = s;
+              break;
+            }
+            case 18: {
+
+              queryMsg_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryContractStoreRequest_descriptor;
@@ -3378,8 +3505,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CONTRACT_ADDRESS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object contractAddress_ = "";
+    private volatile java.lang.Object contractAddress_;
     /**
      * <code>string contract_address = 1;</code>
      * @return The contractAddress.
@@ -3417,7 +3543,7 @@ public final class QueryOuterClass {
     }
 
     public static final int QUERY_MSG_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString queryMsg_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString queryMsg_;
     /**
      * <code>bytes query_msg = 2 [(.gogoproto.casttype) = "encoding/json.RawMessage"];</code>
      * @return The queryMsg.
@@ -3441,13 +3567,13 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contractAddress_)) {
+      if (!getContractAddressBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, contractAddress_);
       }
       if (!queryMsg_.isEmpty()) {
         output.writeBytes(2, queryMsg_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3456,14 +3582,14 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contractAddress_)) {
+      if (!getContractAddressBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, contractAddress_);
       }
       if (!queryMsg_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, queryMsg_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3482,7 +3608,7 @@ public final class QueryOuterClass {
           .equals(other.getContractAddress())) return false;
       if (!getQueryMsg()
           .equals(other.getQueryMsg())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3497,7 +3623,7 @@ public final class QueryOuterClass {
       hash = (53 * hash) + getContractAddress().hashCode();
       hash = (37 * hash) + QUERY_MSG_FIELD_NUMBER;
       hash = (53 * hash) + getQueryMsg().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3618,20 +3744,26 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         contractAddress_ = "";
+
         queryMsg_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -3658,19 +3790,10 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest buildPartial() {
         terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest result = new terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.contractAddress_ = contractAddress_;
+        result.queryMsg_ = queryMsg_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.contractAddress_ = contractAddress_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.queryMsg_ = queryMsg_;
-        }
       }
 
       @java.lang.Override
@@ -3719,13 +3842,12 @@ public final class QueryOuterClass {
         if (other == terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest.getDefaultInstance()) return this;
         if (!other.getContractAddress().isEmpty()) {
           contractAddress_ = other.contractAddress_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getQueryMsg() != com.google.protobuf.ByteString.EMPTY) {
           setQueryMsg(other.getQueryMsg());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3740,43 +3862,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                contractAddress_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                queryMsg_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object contractAddress_ = "";
       /**
@@ -3819,9 +3917,11 @@ public final class QueryOuterClass {
        */
       public Builder setContractAddress(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         contractAddress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3830,8 +3930,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearContractAddress() {
+        
         contractAddress_ = getDefaultInstance().getContractAddress();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3842,10 +3942,12 @@ public final class QueryOuterClass {
        */
       public Builder setContractAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         contractAddress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3865,9 +3967,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setQueryMsg(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         queryMsg_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3876,7 +3980,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearQueryMsg() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         queryMsg_ = getDefaultInstance().getQueryMsg();
         onChanged();
         return this;
@@ -3914,18 +4018,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryContractStoreRequest(input, extensionRegistry);
       }
     };
 
@@ -3988,6 +4081,48 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryContractStoreResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              queryResult_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryContractStoreResponse_descriptor;
@@ -4002,7 +4137,7 @@ public final class QueryOuterClass {
     }
 
     public static final int QUERY_RESULT_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString queryResult_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString queryResult_;
     /**
      * <code>bytes query_result = 1 [(.gogoproto.casttype) = "encoding/json.RawMessage"];</code>
      * @return The queryResult.
@@ -4029,7 +4164,7 @@ public final class QueryOuterClass {
       if (!queryResult_.isEmpty()) {
         output.writeBytes(1, queryResult_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4042,7 +4177,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, queryResult_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4059,7 +4194,7 @@ public final class QueryOuterClass {
 
       if (!getQueryResult()
           .equals(other.getQueryResult())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4072,7 +4207,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + QUERY_RESULT_FIELD_NUMBER;
       hash = (53 * hash) + getQueryResult().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4194,19 +4329,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         queryResult_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -4233,16 +4373,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreResponse buildPartial() {
         terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreResponse result = new terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.queryResult_ = queryResult_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.queryResult_ = queryResult_;
-        }
       }
 
       @java.lang.Override
@@ -4292,7 +4425,7 @@ public final class QueryOuterClass {
         if (other.getQueryResult() != com.google.protobuf.ByteString.EMPTY) {
           setQueryResult(other.getQueryResult());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4307,38 +4440,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                queryResult_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString queryResult_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -4355,9 +4469,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setQueryResult(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         queryResult_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4366,7 +4482,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearQueryResult() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         queryResult_ = getDefaultInstance().getQueryResult();
         onChanged();
         return this;
@@ -4404,18 +4520,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryContractStoreResponse(input, extensionRegistry);
       }
     };
 
@@ -4490,6 +4595,54 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryRawStoreRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              contractAddress_ = s;
+              break;
+            }
+            case 18: {
+
+              key_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryRawStoreRequest_descriptor;
@@ -4504,8 +4657,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CONTRACT_ADDRESS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object contractAddress_ = "";
+    private volatile java.lang.Object contractAddress_;
     /**
      * <code>string contract_address = 1;</code>
      * @return The contractAddress.
@@ -4543,7 +4695,7 @@ public final class QueryOuterClass {
     }
 
     public static final int KEY_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString key_;
     /**
      * <code>bytes key = 2;</code>
      * @return The key.
@@ -4567,13 +4719,13 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contractAddress_)) {
+      if (!getContractAddressBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, contractAddress_);
       }
       if (!key_.isEmpty()) {
         output.writeBytes(2, key_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4582,14 +4734,14 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contractAddress_)) {
+      if (!getContractAddressBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, contractAddress_);
       }
       if (!key_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, key_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4608,7 +4760,7 @@ public final class QueryOuterClass {
           .equals(other.getContractAddress())) return false;
       if (!getKey()
           .equals(other.getKey())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4623,7 +4775,7 @@ public final class QueryOuterClass {
       hash = (53 * hash) + getContractAddress().hashCode();
       hash = (37 * hash) + KEY_FIELD_NUMBER;
       hash = (53 * hash) + getKey().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4744,20 +4896,26 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         contractAddress_ = "";
+
         key_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -4784,19 +4942,10 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest buildPartial() {
         terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest result = new terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.contractAddress_ = contractAddress_;
+        result.key_ = key_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.contractAddress_ = contractAddress_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.key_ = key_;
-        }
       }
 
       @java.lang.Override
@@ -4845,13 +4994,12 @@ public final class QueryOuterClass {
         if (other == terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest.getDefaultInstance()) return this;
         if (!other.getContractAddress().isEmpty()) {
           contractAddress_ = other.contractAddress_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
           setKey(other.getKey());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4866,43 +5014,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                contractAddress_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                key_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object contractAddress_ = "";
       /**
@@ -4945,9 +5069,11 @@ public final class QueryOuterClass {
        */
       public Builder setContractAddress(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         contractAddress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4956,8 +5082,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearContractAddress() {
+        
         contractAddress_ = getDefaultInstance().getContractAddress();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4968,10 +5094,12 @@ public final class QueryOuterClass {
        */
       public Builder setContractAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         contractAddress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4991,9 +5119,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setKey(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         key_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5002,7 +5132,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearKey() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         key_ = getDefaultInstance().getKey();
         onChanged();
         return this;
@@ -5040,18 +5170,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryRawStoreRequest(input, extensionRegistry);
       }
     };
 
@@ -5118,6 +5237,48 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryRawStoreResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryRawStoreResponse_descriptor;
@@ -5132,7 +5293,7 @@ public final class QueryOuterClass {
     }
 
     public static final int DATA_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_;
     /**
      * <pre>
      * Data contains the raw store data
@@ -5163,7 +5324,7 @@ public final class QueryOuterClass {
       if (!data_.isEmpty()) {
         output.writeBytes(1, data_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5176,7 +5337,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, data_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5193,7 +5354,7 @@ public final class QueryOuterClass {
 
       if (!getData()
           .equals(other.getData())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5206,7 +5367,7 @@ public final class QueryOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + DATA_FIELD_NUMBER;
       hash = (53 * hash) + getData().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5328,19 +5489,24 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         data_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -5367,16 +5533,9 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse buildPartial() {
         terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse result = new terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.data_ = data_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.data_ = data_;
-        }
       }
 
       @java.lang.Override
@@ -5426,7 +5585,7 @@ public final class QueryOuterClass {
         if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
           setData(other.getData());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5441,38 +5600,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -5497,9 +5637,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5512,7 +5654,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -5550,18 +5692,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryRawStoreResponse(input, extensionRegistry);
       }
     };
 
@@ -5616,6 +5747,43 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryParamsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryParamsRequest_descriptor;
@@ -5643,7 +5811,7 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5652,7 +5820,7 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5667,7 +5835,7 @@ public final class QueryOuterClass {
       }
       terra.wasm.v1beta1.QueryOuterClass.QueryParamsRequest other = (terra.wasm.v1beta1.QueryOuterClass.QueryParamsRequest) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5678,7 +5846,7 @@ public final class QueryOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5799,13 +5967,18 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryParamsRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -5884,7 +6057,7 @@ public final class QueryOuterClass {
 
       public Builder mergeFrom(terra.wasm.v1beta1.QueryOuterClass.QueryParamsRequest other) {
         if (other == terra.wasm.v1beta1.QueryOuterClass.QueryParamsRequest.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5899,30 +6072,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryParamsRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryParamsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -5958,18 +6118,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryParamsRequest(input, extensionRegistry);
       }
     };
 
@@ -6051,6 +6200,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryParamsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              terra.wasm.v1beta1.Wasm.Params.Builder subBuilder = null;
+              if (params_ != null) {
+                subBuilder = params_.toBuilder();
+              }
+              params_ = input.readMessage(terra.wasm.v1beta1.Wasm.Params.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(params_);
+                params_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.QueryOuterClass.internal_static_terra_wasm_v1beta1_QueryParamsResponse_descriptor;
@@ -6099,7 +6298,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public terra.wasm.v1beta1.Wasm.ParamsOrBuilder getParamsOrBuilder() {
-      return params_ == null ? terra.wasm.v1beta1.Wasm.Params.getDefaultInstance() : params_;
+      return getParams();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6119,7 +6318,7 @@ public final class QueryOuterClass {
       if (params_ != null) {
         output.writeMessage(1, getParams());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -6132,7 +6331,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getParams());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6152,7 +6351,7 @@ public final class QueryOuterClass {
         if (!getParams()
             .equals(other.getParams())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -6167,7 +6366,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PARAMS_FIELD_NUMBER;
         hash = (53 * hash) + getParams().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6288,21 +6487,26 @@ public final class QueryOuterClass {
 
       // Construct using terra.wasm.v1beta1.QueryOuterClass.QueryParamsResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        params_ = null;
-        if (paramsBuilder_ != null) {
-          paramsBuilder_.dispose();
+        if (paramsBuilder_ == null) {
+          params_ = null;
+        } else {
+          params_ = null;
           paramsBuilder_ = null;
         }
         return this;
@@ -6331,18 +6535,13 @@ public final class QueryOuterClass {
       @java.lang.Override
       public terra.wasm.v1beta1.QueryOuterClass.QueryParamsResponse buildPartial() {
         terra.wasm.v1beta1.QueryOuterClass.QueryParamsResponse result = new terra.wasm.v1beta1.QueryOuterClass.QueryParamsResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (paramsBuilder_ == null) {
+          result.params_ = params_;
+        } else {
+          result.params_ = paramsBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.wasm.v1beta1.QueryOuterClass.QueryParamsResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.params_ = paramsBuilder_ == null
-              ? params_
-              : paramsBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -6392,7 +6591,7 @@ public final class QueryOuterClass {
         if (other.hasParams()) {
           mergeParams(other.getParams());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6407,40 +6606,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.wasm.v1beta1.QueryOuterClass.QueryParamsResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getParamsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.wasm.v1beta1.QueryOuterClass.QueryParamsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private terra.wasm.v1beta1.Wasm.Params params_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6454,7 +6632,7 @@ public final class QueryOuterClass {
        * @return Whether the params field is set.
        */
       public boolean hasParams() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return paramsBuilder_ != null || params_ != null;
       }
       /**
        * <pre>
@@ -6484,11 +6662,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           params_ = value;
+          onChanged();
         } else {
           paramsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -6502,11 +6680,11 @@ public final class QueryOuterClass {
           terra.wasm.v1beta1.Wasm.Params.Builder builderForValue) {
         if (paramsBuilder_ == null) {
           params_ = builderForValue.build();
+          onChanged();
         } else {
           paramsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -6518,18 +6696,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeParams(terra.wasm.v1beta1.Wasm.Params value) {
         if (paramsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            params_ != null &&
-            params_ != terra.wasm.v1beta1.Wasm.Params.getDefaultInstance()) {
-            getParamsBuilder().mergeFrom(value);
+          if (params_ != null) {
+            params_ =
+              terra.wasm.v1beta1.Wasm.Params.newBuilder(params_).mergeFrom(value).buildPartial();
           } else {
             params_ = value;
           }
+          onChanged();
         } else {
           paramsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -6540,13 +6717,14 @@ public final class QueryOuterClass {
        * <code>.terra.wasm.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearParams() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        params_ = null;
-        if (paramsBuilder_ != null) {
-          paramsBuilder_.dispose();
+        if (paramsBuilder_ == null) {
+          params_ = null;
+          onChanged();
+        } else {
+          params_ = null;
           paramsBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -6557,7 +6735,7 @@ public final class QueryOuterClass {
        * <code>.terra.wasm.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
        */
       public terra.wasm.v1beta1.Wasm.Params.Builder getParamsBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getParamsFieldBuilder().getBuilder();
       }
@@ -6629,18 +6807,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryParamsResponse(input, extensionRegistry);
       }
     };
 
@@ -6732,51 +6899,52 @@ public final class QueryOuterClass {
       "\n\036terra/wasm/v1beta1/query.proto\022\022terra." +
       "wasm.v1beta1\032\024gogoproto/gogo.proto\032\034goog" +
       "le/api/annotations.proto\032\035terra/wasm/v1b" +
-      "eta1/wasm.proto\"1\n\024QueryCodeInfoRequest\022" +
-      "\017\n\007code_id\030\001 \001(\004:\010\350\240\037\000\210\240\037\000\"N\n\025QueryCodeI" +
-      "nfoResponse\0225\n\tcode_info\030\001 \001(\0132\034.terra.w" +
-      "asm.v1beta1.CodeInfoB\004\310\336\037\000\"1\n\024QueryByteC" +
-      "odeRequest\022\017\n\007code_id\030\001 \001(\004:\010\350\240\037\000\210\240\037\000\"*\n" +
-      "\025QueryByteCodeResponse\022\021\n\tbyte_code\030\001 \001(" +
-      "\014\">\n\030QueryContractInfoRequest\022\030\n\020contrac" +
-      "t_address\030\001 \001(\t:\010\350\240\037\000\210\240\037\000\"Z\n\031QueryContra" +
-      "ctInfoResponse\022=\n\rcontract_info\030\001 \001(\0132 ." +
-      "terra.wasm.v1beta1.ContractInfoB\004\310\336\037\000\"p\n" +
-      "\031QueryContractStoreRequest\022\030\n\020contract_a" +
-      "ddress\030\001 \001(\t\022/\n\tquery_msg\030\002 \001(\014B\034\372\336\037\030enc" +
-      "oding/json.RawMessage:\010\350\240\037\000\210\240\037\000\"P\n\032Query" +
-      "ContractStoreResponse\0222\n\014query_result\030\001 " +
-      "\001(\014B\034\372\336\037\030encoding/json.RawMessage\"G\n\024Que" +
-      "ryRawStoreRequest\022\030\n\020contract_address\030\001 " +
-      "\001(\t\022\013\n\003key\030\002 \001(\014:\010\350\240\037\000\210\240\037\000\"%\n\025QueryRawSt" +
-      "oreResponse\022\014\n\004data\030\001 \001(\014\"\024\n\022QueryParams" +
-      "Request\"G\n\023QueryParamsResponse\0220\n\006params" +
-      "\030\001 \001(\0132\032.terra.wasm.v1beta1.ParamsB\004\310\336\037\000" +
-      "2\255\007\n\005Query\022\214\001\n\010CodeInfo\022(.terra.wasm.v1b" +
-      "eta1.QueryCodeInfoRequest\032).terra.wasm.v" +
-      "1beta1.QueryCodeInfoResponse\"+\202\323\344\223\002%\022#/t" +
-      "erra/wasm/v1beta1/codes/{code_id}\022\226\001\n\010By" +
-      "teCode\022(.terra.wasm.v1beta1.QueryByteCod" +
-      "eRequest\032).terra.wasm.v1beta1.QueryByteC" +
-      "odeResponse\"5\202\323\344\223\002/\022-/terra/wasm/v1beta1" +
-      "/codes/{code_id}/byte_code\022\245\001\n\014ContractI" +
-      "nfo\022,.terra.wasm.v1beta1.QueryContractIn" +
-      "foRequest\032-.terra.wasm.v1beta1.QueryCont" +
-      "ractInfoResponse\"8\202\323\344\223\0022\0220/terra/wasm/v1" +
-      "beta1/contracts/{contract_address}\022\256\001\n\rC" +
-      "ontractStore\022-.terra.wasm.v1beta1.QueryC" +
-      "ontractStoreRequest\032..terra.wasm.v1beta1" +
-      ".QueryContractStoreResponse\">\202\323\344\223\0028\0226/te" +
-      "rra/wasm/v1beta1/contracts/{contract_add" +
-      "ress}/store\022\243\001\n\010RawStore\022(.terra.wasm.v1" +
-      "beta1.QueryRawStoreRequest\032).terra.wasm." +
-      "v1beta1.QueryRawStoreResponse\"B\202\323\344\223\002<\022:/" +
-      "terra/wasm/v1beta1/contracts/{contract_a" +
-      "ddress}/store/raw\022}\n\006Params\022&.terra.wasm" +
-      ".v1beta1.QueryParamsRequest\032\'.terra.wasm" +
-      ".v1beta1.QueryParamsResponse\"\"\202\323\344\223\002\034\022\032/t" +
-      "erra/wasm/v1beta1/paramsB,Z*github.com/c" +
-      "lassic-terra/core/x/wasm/typesb\006proto3"
+      "eta1/wasm.proto\032\036cosmos/base/v1beta1/coi" +
+      "n.proto\"1\n\024QueryCodeInfoRequest\022\017\n\007code_" +
+      "id\030\001 \001(\004:\010\350\240\037\000\210\240\037\000\"N\n\025QueryCodeInfoRespo" +
+      "nse\0225\n\tcode_info\030\001 \001(\0132\034.terra.wasm.v1be" +
+      "ta1.CodeInfoB\004\310\336\037\000\"1\n\024QueryByteCodeReque" +
+      "st\022\017\n\007code_id\030\001 \001(\004:\010\350\240\037\000\210\240\037\000\"*\n\025QueryBy" +
+      "teCodeResponse\022\021\n\tbyte_code\030\001 \001(\014\">\n\030Que" +
+      "ryContractInfoRequest\022\030\n\020contract_addres" +
+      "s\030\001 \001(\t:\010\350\240\037\000\210\240\037\000\"Z\n\031QueryContractInfoRe" +
+      "sponse\022=\n\rcontract_info\030\001 \001(\0132 .terra.wa" +
+      "sm.v1beta1.ContractInfoB\004\310\336\037\000\"p\n\031QueryCo" +
+      "ntractStoreRequest\022\030\n\020contract_address\030\001" +
+      " \001(\t\022/\n\tquery_msg\030\002 \001(\014B\034\372\336\037\030encoding/js" +
+      "on.RawMessage:\010\350\240\037\000\210\240\037\000\"P\n\032QueryContract" +
+      "StoreResponse\0222\n\014query_result\030\001 \001(\014B\034\372\336\037" +
+      "\030encoding/json.RawMessage\"G\n\024QueryRawSto" +
+      "reRequest\022\030\n\020contract_address\030\001 \001(\t\022\013\n\003k" +
+      "ey\030\002 \001(\014:\010\350\240\037\000\210\240\037\000\"%\n\025QueryRawStoreRespo" +
+      "nse\022\014\n\004data\030\001 \001(\014\"\024\n\022QueryParamsRequest\"" +
+      "G\n\023QueryParamsResponse\0220\n\006params\030\001 \001(\0132\032" +
+      ".terra.wasm.v1beta1.ParamsB\004\310\336\037\0002\255\007\n\005Que" +
+      "ry\022\214\001\n\010CodeInfo\022(.terra.wasm.v1beta1.Que" +
+      "ryCodeInfoRequest\032).terra.wasm.v1beta1.Q" +
+      "ueryCodeInfoResponse\"+\202\323\344\223\002%\022#/terra/was" +
+      "m/v1beta1/codes/{code_id}\022\226\001\n\010ByteCode\022(" +
+      ".terra.wasm.v1beta1.QueryByteCodeRequest" +
+      "\032).terra.wasm.v1beta1.QueryByteCodeRespo" +
+      "nse\"5\202\323\344\223\002/\022-/terra/wasm/v1beta1/codes/{" +
+      "code_id}/byte_code\022\245\001\n\014ContractInfo\022,.te" +
+      "rra.wasm.v1beta1.QueryContractInfoReques" +
+      "t\032-.terra.wasm.v1beta1.QueryContractInfo" +
+      "Response\"8\202\323\344\223\0022\0220/terra/wasm/v1beta1/co" +
+      "ntracts/{contract_address}\022\256\001\n\rContractS" +
+      "tore\022-.terra.wasm.v1beta1.QueryContractS" +
+      "toreRequest\032..terra.wasm.v1beta1.QueryCo" +
+      "ntractStoreResponse\">\202\323\344\223\0028\0226/terra/wasm" +
+      "/v1beta1/contracts/{contract_address}/st" +
+      "ore\022\243\001\n\010RawStore\022(.terra.wasm.v1beta1.Qu" +
+      "eryRawStoreRequest\032).terra.wasm.v1beta1." +
+      "QueryRawStoreResponse\"B\202\323\344\223\002<\022:/terra/wa" +
+      "sm/v1beta1/contracts/{contract_address}/" +
+      "store/raw\022}\n\006Params\022&.terra.wasm.v1beta1" +
+      ".QueryParamsRequest\032\'.terra.wasm.v1beta1" +
+      ".QueryParamsResponse\"\"\202\323\344\223\002\034\022\032/terra/was" +
+      "m/v1beta1/paramsB*Z(github.com/terra-mon" +
+      "ey/core/x/wasm/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6784,6 +6952,7 @@ public final class QueryOuterClass {
           com.google.protobuf.GoGoProtos.getDescriptor(),
           com.google.api.AnnotationsProto.getDescriptor(),
           terra.wasm.v1beta1.Wasm.getDescriptor(),
+          cosmos.base.v1beta1.CoinOuterClass.getDescriptor(),
         });
     internal_static_terra_wasm_v1beta1_QueryCodeInfoRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -6869,6 +7038,7 @@ public final class QueryOuterClass {
     com.google.protobuf.GoGoProtos.getDescriptor();
     com.google.api.AnnotationsProto.getDescriptor();
     terra.wasm.v1beta1.Wasm.getDescriptor();
+    cosmos.base.v1beta1.CoinOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

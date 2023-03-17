@@ -3,16 +3,16 @@
 
 package cosmos.bank.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemetadata")
-public inline fun metadata(block: cosmos.bank.v1beta1.MetadataKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.Bank.Metadata =
+@kotlin.jvm.JvmSynthetic
+inline fun metadata(block: cosmos.bank.v1beta1.MetadataKt.Dsl.() -> Unit): cosmos.bank.v1beta1.Bank.Metadata =
   cosmos.bank.v1beta1.MetadataKt.Dsl._create(cosmos.bank.v1beta1.Bank.Metadata.newBuilder()).apply { block() }._build()
-public object MetadataKt {
+object MetadataKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.bank.v1beta1.Bank.Metadata.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.bank.v1beta1.Bank.Metadata.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.bank.v1beta1.Bank.Metadata.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MetadataKt {
     /**
      * <code>string description = 1;</code>
      */
-    public var description: kotlin.String
+    var description: kotlin.String
       @JvmName("getDescription")
       get() = _builder.getDescription()
       @JvmName("setDescription")
@@ -35,7 +35,7 @@ public object MetadataKt {
     /**
      * <code>string description = 1;</code>
      */
-    public fun clearDescription() {
+    fun clearDescription() {
       _builder.clearDescription()
     }
 
@@ -44,7 +44,7 @@ public object MetadataKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class DenomUnitsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class DenomUnitsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * denom_units represents the list of DenomUnit's for a given coin
@@ -52,7 +52,7 @@ public object MetadataKt {
      *
      * <code>repeated .cosmos.bank.v1beta1.DenomUnit denom_units = 2;</code>
      */
-     public val denomUnits: com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>
+     val denomUnits: com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getDenomUnitsList()
@@ -67,10 +67,9 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addDenomUnits")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.add(value: cosmos.bank.v1beta1.Bank.DenomUnit) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.add(value: cosmos.bank.v1beta1.Bank.DenomUnit) {
       _builder.addDenomUnits(value)
-    }
-    /**
+    }/**
      * <pre>
      * denom_units represents the list of DenomUnit's for a given coin
      * </pre>
@@ -80,11 +79,9 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignDenomUnits")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.plusAssign(value: cosmos.bank.v1beta1.Bank.DenomUnit) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.plusAssign(value: cosmos.bank.v1beta1.Bank.DenomUnit) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * denom_units represents the list of DenomUnit's for a given coin
      * </pre>
@@ -94,10 +91,9 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllDenomUnits")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.bank.v1beta1.Bank.DenomUnit>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.bank.v1beta1.Bank.DenomUnit>) {
       _builder.addAllDenomUnits(values)
-    }
-    /**
+    }/**
      * <pre>
      * denom_units represents the list of DenomUnit's for a given coin
      * </pre>
@@ -107,11 +103,9 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllDenomUnits")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.bank.v1beta1.Bank.DenomUnit>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.bank.v1beta1.Bank.DenomUnit>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * denom_units represents the list of DenomUnit's for a given coin
      * </pre>
@@ -122,10 +116,9 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setDenomUnits")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.set(index: kotlin.Int, value: cosmos.bank.v1beta1.Bank.DenomUnit) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.set(index: kotlin.Int, value: cosmos.bank.v1beta1.Bank.DenomUnit) {
       _builder.setDenomUnits(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * denom_units represents the list of DenomUnit's for a given coin
      * </pre>
@@ -134,11 +127,9 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearDenomUnits")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.bank.v1beta1.Bank.DenomUnit, DenomUnitsProxy>.clear() {
       _builder.clearDenomUnits()
     }
-
-
     /**
      * <pre>
      * base represents the base denom (should be the DenomUnit with exponent = 0).
@@ -146,7 +137,7 @@ public object MetadataKt {
      *
      * <code>string base = 3;</code>
      */
-    public var base: kotlin.String
+    var base: kotlin.String
       @JvmName("getBase")
       get() = _builder.getBase()
       @JvmName("setBase")
@@ -160,7 +151,7 @@ public object MetadataKt {
      *
      * <code>string base = 3;</code>
      */
-    public fun clearBase() {
+    fun clearBase() {
       _builder.clearBase()
     }
 
@@ -172,7 +163,7 @@ public object MetadataKt {
      *
      * <code>string display = 4;</code>
      */
-    public var display: kotlin.String
+    var display: kotlin.String
       @JvmName("getDisplay")
       get() = _builder.getDisplay()
       @JvmName("setDisplay")
@@ -187,19 +178,18 @@ public object MetadataKt {
      *
      * <code>string display = 4;</code>
      */
-    public fun clearDisplay() {
+    fun clearDisplay() {
       _builder.clearDisplay()
     }
 
     /**
      * <pre>
      * name defines the name of the token (eg: Cosmos Atom)
-     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * <code>string name = 5;</code>
      */
-    public var name: kotlin.String
+    var name: kotlin.String
       @JvmName("getName")
       get() = _builder.getName()
       @JvmName("setName")
@@ -209,12 +199,11 @@ public object MetadataKt {
     /**
      * <pre>
      * name defines the name of the token (eg: Cosmos Atom)
-     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * <code>string name = 5;</code>
      */
-    public fun clearName() {
+    fun clearName() {
       _builder.clearName()
     }
 
@@ -222,12 +211,11 @@ public object MetadataKt {
      * <pre>
      * symbol is the token symbol usually shown on exchanges (eg: ATOM). This can
      * be the same as the display.
-     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * <code>string symbol = 6;</code>
      */
-    public var symbol: kotlin.String
+    var symbol: kotlin.String
       @JvmName("getSymbol")
       get() = _builder.getSymbol()
       @JvmName("setSymbol")
@@ -238,17 +226,15 @@ public object MetadataKt {
      * <pre>
      * symbol is the token symbol usually shown on exchanges (eg: ATOM). This can
      * be the same as the display.
-     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * <code>string symbol = 6;</code>
      */
-    public fun clearSymbol() {
+    fun clearSymbol() {
       _builder.clearSymbol()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.bank.v1beta1.Bank.Metadata.copy(block: cosmos.bank.v1beta1.MetadataKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.Bank.Metadata =
+inline fun cosmos.bank.v1beta1.Bank.Metadata.copy(block: cosmos.bank.v1beta1.MetadataKt.Dsl.() -> Unit): cosmos.bank.v1beta1.Bank.Metadata =
   cosmos.bank.v1beta1.MetadataKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

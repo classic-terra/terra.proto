@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgAggregateExchangeRateVote")
-public inline fun msgAggregateExchangeRateVote(block: terra.oracle.v1beta1.MsgAggregateExchangeRateVoteKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVote =
+@kotlin.jvm.JvmSynthetic
+inline fun msgAggregateExchangeRateVote(block: terra.oracle.v1beta1.MsgAggregateExchangeRateVoteKt.Dsl.() -> Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVote =
   terra.oracle.v1beta1.MsgAggregateExchangeRateVoteKt.Dsl._create(terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVote.newBuilder()).apply { block() }._build()
-public object MsgAggregateExchangeRateVoteKt {
+object MsgAggregateExchangeRateVoteKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVote.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVote.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVote.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgAggregateExchangeRateVoteKt {
     /**
      * <code>string salt = 1 [(.gogoproto.moretags) = "yaml:&#92;"salt&#92;""];</code>
      */
-    public var salt: kotlin.String
+    var salt: kotlin.String
       @JvmName("getSalt")
       get() = _builder.getSalt()
       @JvmName("setSalt")
@@ -35,14 +35,14 @@ public object MsgAggregateExchangeRateVoteKt {
     /**
      * <code>string salt = 1 [(.gogoproto.moretags) = "yaml:&#92;"salt&#92;""];</code>
      */
-    public fun clearSalt() {
+    fun clearSalt() {
       _builder.clearSalt()
     }
 
     /**
      * <code>string exchange_rates = 2 [(.gogoproto.moretags) = "yaml:&#92;"exchange_rates&#92;""];</code>
      */
-    public var exchangeRates: kotlin.String
+    var exchangeRates: kotlin.String
       @JvmName("getExchangeRates")
       get() = _builder.getExchangeRates()
       @JvmName("setExchangeRates")
@@ -52,14 +52,14 @@ public object MsgAggregateExchangeRateVoteKt {
     /**
      * <code>string exchange_rates = 2 [(.gogoproto.moretags) = "yaml:&#92;"exchange_rates&#92;""];</code>
      */
-    public fun clearExchangeRates() {
+    fun clearExchangeRates() {
       _builder.clearExchangeRates()
     }
 
     /**
      * <code>string feeder = 3 [(.gogoproto.moretags) = "yaml:&#92;"feeder&#92;""];</code>
      */
-    public var feeder: kotlin.String
+    var feeder: kotlin.String
       @JvmName("getFeeder")
       get() = _builder.getFeeder()
       @JvmName("setFeeder")
@@ -69,14 +69,14 @@ public object MsgAggregateExchangeRateVoteKt {
     /**
      * <code>string feeder = 3 [(.gogoproto.moretags) = "yaml:&#92;"feeder&#92;""];</code>
      */
-    public fun clearFeeder() {
+    fun clearFeeder() {
       _builder.clearFeeder()
     }
 
     /**
      * <code>string validator = 4 [(.gogoproto.moretags) = "yaml:&#92;"validator&#92;""];</code>
      */
-    public var validator: kotlin.String
+    var validator: kotlin.String
       @JvmName("getValidator")
       get() = _builder.getValidator()
       @JvmName("setValidator")
@@ -86,12 +86,11 @@ public object MsgAggregateExchangeRateVoteKt {
     /**
      * <code>string validator = 4 [(.gogoproto.moretags) = "yaml:&#92;"validator&#92;""];</code>
      */
-    public fun clearValidator() {
+    fun clearValidator() {
       _builder.clearValidator()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVote.copy(block: terra.oracle.v1beta1.MsgAggregateExchangeRateVoteKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVote =
+inline fun terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVote.copy(block: terra.oracle.v1beta1.MsgAggregateExchangeRateVoteKt.Dsl.() -> Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRateVote =
   terra.oracle.v1beta1.MsgAggregateExchangeRateVoteKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

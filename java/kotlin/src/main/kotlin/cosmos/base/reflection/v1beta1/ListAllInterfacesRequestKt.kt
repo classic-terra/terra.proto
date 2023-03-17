@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v1beta1;
 
-@kotlin.jvm.JvmName("-initializelistAllInterfacesRequest")
-public inline fun listAllInterfacesRequest(block: cosmos.base.reflection.v1beta1.ListAllInterfacesRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun listAllInterfacesRequest(block: cosmos.base.reflection.v1beta1.ListAllInterfacesRequestKt.Dsl.() -> Unit): cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesRequest =
   cosmos.base.reflection.v1beta1.ListAllInterfacesRequestKt.Dsl._create(cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesRequest.newBuilder()).apply { block() }._build()
-public object ListAllInterfacesRequestKt {
+object ListAllInterfacesRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object ListAllInterfacesRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesRequest.copy(block: cosmos.base.reflection.v1beta1.ListAllInterfacesRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesRequest =
+inline fun cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesRequest.copy(block: cosmos.base.reflection.v1beta1.ListAllInterfacesRequestKt.Dsl.() -> Unit): cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesRequest =
   cosmos.base.reflection.v1beta1.ListAllInterfacesRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

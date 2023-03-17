@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializequeryUpgradedClientStateResponse")
-public inline fun queryUpgradedClientStateResponse(block: ibc.core.client.v1.QueryUpgradedClientStateResponseKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryUpgradedClientStateResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryUpgradedClientStateResponse(block: ibc.core.client.v1.QueryUpgradedClientStateResponseKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryUpgradedClientStateResponse =
   ibc.core.client.v1.QueryUpgradedClientStateResponseKt.Dsl._create(ibc.core.client.v1.QueryOuterClass.QueryUpgradedClientStateResponse.newBuilder()).apply { block() }._build()
-public object QueryUpgradedClientStateResponseKt {
+object QueryUpgradedClientStateResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.QueryOuterClass.QueryUpgradedClientStateResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.QueryOuterClass.QueryUpgradedClientStateResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.QueryOuterClass.QueryUpgradedClientStateResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryUpgradedClientStateResponseKt {
      *
      * <code>.google.protobuf.Any upgraded_client_state = 1;</code>
      */
-    public var upgradedClientState: com.google.protobuf.Any
+    var upgradedClientState: com.google.protobuf.Any
       @JvmName("getUpgradedClientState")
       get() = _builder.getUpgradedClientState()
       @JvmName("setUpgradedClientState")
@@ -43,7 +43,7 @@ public object QueryUpgradedClientStateResponseKt {
      *
      * <code>.google.protobuf.Any upgraded_client_state = 1;</code>
      */
-    public fun clearUpgradedClientState() {
+    fun clearUpgradedClientState() {
       _builder.clearUpgradedClientState()
     }
     /**
@@ -54,15 +54,11 @@ public object QueryUpgradedClientStateResponseKt {
      * <code>.google.protobuf.Any upgraded_client_state = 1;</code>
      * @return Whether the upgradedClientState field is set.
      */
-    public fun hasUpgradedClientState(): kotlin.Boolean {
+    fun hasUpgradedClientState(): kotlin.Boolean {
       return _builder.hasUpgradedClientState()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.QueryOuterClass.QueryUpgradedClientStateResponse.copy(block: ibc.core.client.v1.QueryUpgradedClientStateResponseKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryUpgradedClientStateResponse =
+inline fun ibc.core.client.v1.QueryOuterClass.QueryUpgradedClientStateResponse.copy(block: ibc.core.client.v1.QueryUpgradedClientStateResponseKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryUpgradedClientStateResponse =
   ibc.core.client.v1.QueryUpgradedClientStateResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.client.v1.QueryOuterClass.QueryUpgradedClientStateResponseOrBuilder.upgradedClientStateOrNull: com.google.protobuf.Any?
-  get() = if (hasUpgradedClientState()) getUpgradedClientState() else null
-

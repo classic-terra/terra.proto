@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryMissCounterResponse")
-public inline fun queryMissCounterResponse(block: terra.oracle.v1beta1.QueryMissCounterResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryMissCounterResponse(block: terra.oracle.v1beta1.QueryMissCounterResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse =
   terra.oracle.v1beta1.QueryMissCounterResponseKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse.newBuilder()).apply { block() }._build()
-public object QueryMissCounterResponseKt {
+object QueryMissCounterResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryMissCounterResponseKt {
      *
      * <code>uint64 miss_counter = 1;</code>
      */
-    public var missCounter: kotlin.Long
+    var missCounter: kotlin.Long
       @JvmName("getMissCounter")
       get() = _builder.getMissCounter()
       @JvmName("setMissCounter")
@@ -43,12 +43,11 @@ public object QueryMissCounterResponseKt {
      *
      * <code>uint64 miss_counter = 1;</code>
      */
-    public fun clearMissCounter() {
+    fun clearMissCounter() {
       _builder.clearMissCounter()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse.copy(block: terra.oracle.v1beta1.QueryMissCounterResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse.copy(block: terra.oracle.v1beta1.QueryMissCounterResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryMissCounterResponse =
   terra.oracle.v1beta1.QueryMissCounterResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

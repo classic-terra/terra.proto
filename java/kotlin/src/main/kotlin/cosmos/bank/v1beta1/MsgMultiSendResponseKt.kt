@@ -3,16 +3,16 @@
 
 package cosmos.bank.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgMultiSendResponse")
-public inline fun msgMultiSendResponse(block: cosmos.bank.v1beta1.MsgMultiSendResponseKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.Tx.MsgMultiSendResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgMultiSendResponse(block: cosmos.bank.v1beta1.MsgMultiSendResponseKt.Dsl.() -> Unit): cosmos.bank.v1beta1.Tx.MsgMultiSendResponse =
   cosmos.bank.v1beta1.MsgMultiSendResponseKt.Dsl._create(cosmos.bank.v1beta1.Tx.MsgMultiSendResponse.newBuilder()).apply { block() }._build()
-public object MsgMultiSendResponseKt {
+object MsgMultiSendResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.bank.v1beta1.Tx.MsgMultiSendResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.bank.v1beta1.Tx.MsgMultiSendResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.bank.v1beta1.Tx.MsgMultiSendResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgMultiSendResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.bank.v1beta1.Tx.MsgMultiSendResponse.copy(block: cosmos.bank.v1beta1.MsgMultiSendResponseKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.Tx.MsgMultiSendResponse =
+inline fun cosmos.bank.v1beta1.Tx.MsgMultiSendResponse.copy(block: cosmos.bank.v1beta1.MsgMultiSendResponseKt.Dsl.() -> Unit): cosmos.bank.v1beta1.Tx.MsgMultiSendResponse =
   cosmos.bank.v1beta1.MsgMultiSendResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

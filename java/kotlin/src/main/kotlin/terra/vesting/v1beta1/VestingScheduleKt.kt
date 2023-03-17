@@ -3,16 +3,16 @@
 
 package terra.vesting.v1beta1;
 
-@kotlin.jvm.JvmName("-initializevestingSchedule")
-public inline fun vestingSchedule(block: terra.vesting.v1beta1.VestingScheduleKt.Dsl.() -> kotlin.Unit): terra.vesting.v1beta1.Vesting.VestingSchedule =
+@kotlin.jvm.JvmSynthetic
+inline fun vestingSchedule(block: terra.vesting.v1beta1.VestingScheduleKt.Dsl.() -> Unit): terra.vesting.v1beta1.Vesting.VestingSchedule =
   terra.vesting.v1beta1.VestingScheduleKt.Dsl._create(terra.vesting.v1beta1.Vesting.VestingSchedule.newBuilder()).apply { block() }._build()
-public object VestingScheduleKt {
+object VestingScheduleKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.vesting.v1beta1.Vesting.VestingSchedule.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.vesting.v1beta1.Vesting.VestingSchedule.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.vesting.v1beta1.Vesting.VestingSchedule.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object VestingScheduleKt {
     /**
      * <code>string denom = 1 [(.gogoproto.moretags) = "yaml:&#92;"start_time&#92;""];</code>
      */
-    public var denom: kotlin.String
+    var denom: kotlin.String
       @JvmName("getDenom")
       get() = _builder.getDenom()
       @JvmName("setDenom")
@@ -35,7 +35,7 @@ public object VestingScheduleKt {
     /**
      * <code>string denom = 1 [(.gogoproto.moretags) = "yaml:&#92;"start_time&#92;""];</code>
      */
-    public fun clearDenom() {
+    fun clearDenom() {
       _builder.clearDenom()
     }
 
@@ -44,11 +44,11 @@ public object VestingScheduleKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class SchedulesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class SchedulesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .terra.vesting.v1beta1.Schedule schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"schedules&#92;"", (.gogoproto.castrepeated) = "Schedules"];</code>
      */
-     public val schedules: com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>
+     val schedules: com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getSchedulesList()
@@ -59,60 +59,50 @@ public object VestingScheduleKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addSchedules")
-    public fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.add(value: terra.vesting.v1beta1.Vesting.Schedule) {
+    fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.add(value: terra.vesting.v1beta1.Vesting.Schedule) {
       _builder.addSchedules(value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.vesting.v1beta1.Schedule schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"schedules&#92;"", (.gogoproto.castrepeated) = "Schedules"];</code>
      * @param value The schedules to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignSchedules")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.plusAssign(value: terra.vesting.v1beta1.Vesting.Schedule) {
+    inline operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.plusAssign(value: terra.vesting.v1beta1.Vesting.Schedule) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.vesting.v1beta1.Schedule schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"schedules&#92;"", (.gogoproto.castrepeated) = "Schedules"];</code>
      * @param values The schedules to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllSchedules")
-    public fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.addAll(values: kotlin.collections.Iterable<terra.vesting.v1beta1.Vesting.Schedule>) {
+    fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.addAll(values: kotlin.collections.Iterable<terra.vesting.v1beta1.Vesting.Schedule>) {
       _builder.addAllSchedules(values)
-    }
-    /**
+    }/**
      * <code>repeated .terra.vesting.v1beta1.Schedule schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"schedules&#92;"", (.gogoproto.castrepeated) = "Schedules"];</code>
      * @param values The schedules to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllSchedules")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.plusAssign(values: kotlin.collections.Iterable<terra.vesting.v1beta1.Vesting.Schedule>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.plusAssign(values: kotlin.collections.Iterable<terra.vesting.v1beta1.Vesting.Schedule>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .terra.vesting.v1beta1.Schedule schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"schedules&#92;"", (.gogoproto.castrepeated) = "Schedules"];</code>
      * @param index The index to set the value at.
      * @param value The schedules to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setSchedules")
-    public operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.set(index: kotlin.Int, value: terra.vesting.v1beta1.Vesting.Schedule) {
+    operator fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.set(index: kotlin.Int, value: terra.vesting.v1beta1.Vesting.Schedule) {
       _builder.setSchedules(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.vesting.v1beta1.Schedule schedules = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"schedules&#92;"", (.gogoproto.castrepeated) = "Schedules"];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearSchedules")
-    public fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<terra.vesting.v1beta1.Vesting.Schedule, SchedulesProxy>.clear() {
       _builder.clearSchedules()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.vesting.v1beta1.Vesting.VestingSchedule.copy(block: terra.vesting.v1beta1.VestingScheduleKt.Dsl.() -> kotlin.Unit): terra.vesting.v1beta1.Vesting.VestingSchedule =
+inline fun terra.vesting.v1beta1.Vesting.VestingSchedule.copy(block: terra.vesting.v1beta1.VestingScheduleKt.Dsl.() -> Unit): terra.vesting.v1beta1.Vesting.VestingSchedule =
   terra.vesting.v1beta1.VestingScheduleKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

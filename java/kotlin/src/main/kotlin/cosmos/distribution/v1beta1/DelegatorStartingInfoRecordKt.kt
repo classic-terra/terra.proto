@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializedelegatorStartingInfoRecord")
-public inline fun delegatorStartingInfoRecord(block: cosmos.distribution.v1beta1.DelegatorStartingInfoRecordKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Genesis.DelegatorStartingInfoRecord =
+@kotlin.jvm.JvmSynthetic
+inline fun delegatorStartingInfoRecord(block: cosmos.distribution.v1beta1.DelegatorStartingInfoRecordKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Genesis.DelegatorStartingInfoRecord =
   cosmos.distribution.v1beta1.DelegatorStartingInfoRecordKt.Dsl._create(cosmos.distribution.v1beta1.Genesis.DelegatorStartingInfoRecord.newBuilder()).apply { block() }._build()
-public object DelegatorStartingInfoRecordKt {
+object DelegatorStartingInfoRecordKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Genesis.DelegatorStartingInfoRecord.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Genesis.DelegatorStartingInfoRecord.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Genesis.DelegatorStartingInfoRecord.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object DelegatorStartingInfoRecordKt {
      *
      * <code>string delegator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"delegator_address&#92;""];</code>
      */
-    public var delegatorAddress: kotlin.String
+    var delegatorAddress: kotlin.String
       @JvmName("getDelegatorAddress")
       get() = _builder.getDelegatorAddress()
       @JvmName("setDelegatorAddress")
@@ -43,7 +43,7 @@ public object DelegatorStartingInfoRecordKt {
      *
      * <code>string delegator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"delegator_address&#92;""];</code>
      */
-    public fun clearDelegatorAddress() {
+    fun clearDelegatorAddress() {
       _builder.clearDelegatorAddress()
     }
 
@@ -54,7 +54,7 @@ public object DelegatorStartingInfoRecordKt {
      *
      * <code>string validator_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_address&#92;""];</code>
      */
-    public var validatorAddress: kotlin.String
+    var validatorAddress: kotlin.String
       @JvmName("getValidatorAddress")
       get() = _builder.getValidatorAddress()
       @JvmName("setValidatorAddress")
@@ -68,7 +68,7 @@ public object DelegatorStartingInfoRecordKt {
      *
      * <code>string validator_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_address&#92;""];</code>
      */
-    public fun clearValidatorAddress() {
+    fun clearValidatorAddress() {
       _builder.clearValidatorAddress()
     }
 
@@ -79,7 +79,7 @@ public object DelegatorStartingInfoRecordKt {
      *
      * <code>.cosmos.distribution.v1beta1.DelegatorStartingInfo starting_info = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"starting_info&#92;""];</code>
      */
-    public var startingInfo: cosmos.distribution.v1beta1.Distribution.DelegatorStartingInfo
+    var startingInfo: cosmos.distribution.v1beta1.Distribution.DelegatorStartingInfo
       @JvmName("getStartingInfo")
       get() = _builder.getStartingInfo()
       @JvmName("setStartingInfo")
@@ -93,7 +93,7 @@ public object DelegatorStartingInfoRecordKt {
      *
      * <code>.cosmos.distribution.v1beta1.DelegatorStartingInfo starting_info = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"starting_info&#92;""];</code>
      */
-    public fun clearStartingInfo() {
+    fun clearStartingInfo() {
       _builder.clearStartingInfo()
     }
     /**
@@ -104,15 +104,11 @@ public object DelegatorStartingInfoRecordKt {
      * <code>.cosmos.distribution.v1beta1.DelegatorStartingInfo starting_info = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"starting_info&#92;""];</code>
      * @return Whether the startingInfo field is set.
      */
-    public fun hasStartingInfo(): kotlin.Boolean {
+    fun hasStartingInfo(): kotlin.Boolean {
       return _builder.hasStartingInfo()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Genesis.DelegatorStartingInfoRecord.copy(block: cosmos.distribution.v1beta1.DelegatorStartingInfoRecordKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Genesis.DelegatorStartingInfoRecord =
+inline fun cosmos.distribution.v1beta1.Genesis.DelegatorStartingInfoRecord.copy(block: cosmos.distribution.v1beta1.DelegatorStartingInfoRecordKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Genesis.DelegatorStartingInfoRecord =
   cosmos.distribution.v1beta1.DelegatorStartingInfoRecordKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.distribution.v1beta1.Genesis.DelegatorStartingInfoRecordOrBuilder.startingInfoOrNull: cosmos.distribution.v1beta1.Distribution.DelegatorStartingInfo?
-  get() = if (hasStartingInfo()) getStartingInfo() else null
-

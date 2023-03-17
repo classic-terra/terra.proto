@@ -3,16 +3,16 @@
 
 package cosmos.slashing.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgUnjailResponse")
-public inline fun msgUnjailResponse(block: cosmos.slashing.v1beta1.MsgUnjailResponseKt.Dsl.() -> kotlin.Unit): cosmos.slashing.v1beta1.Tx.MsgUnjailResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgUnjailResponse(block: cosmos.slashing.v1beta1.MsgUnjailResponseKt.Dsl.() -> Unit): cosmos.slashing.v1beta1.Tx.MsgUnjailResponse =
   cosmos.slashing.v1beta1.MsgUnjailResponseKt.Dsl._create(cosmos.slashing.v1beta1.Tx.MsgUnjailResponse.newBuilder()).apply { block() }._build()
-public object MsgUnjailResponseKt {
+object MsgUnjailResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.slashing.v1beta1.Tx.MsgUnjailResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.slashing.v1beta1.Tx.MsgUnjailResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.slashing.v1beta1.Tx.MsgUnjailResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgUnjailResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.slashing.v1beta1.Tx.MsgUnjailResponse.copy(block: cosmos.slashing.v1beta1.MsgUnjailResponseKt.Dsl.() -> kotlin.Unit): cosmos.slashing.v1beta1.Tx.MsgUnjailResponse =
+inline fun cosmos.slashing.v1beta1.Tx.MsgUnjailResponse.copy(block: cosmos.slashing.v1beta1.MsgUnjailResponseKt.Dsl.() -> Unit): cosmos.slashing.v1beta1.Tx.MsgUnjailResponse =
   cosmos.slashing.v1beta1.MsgUnjailResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

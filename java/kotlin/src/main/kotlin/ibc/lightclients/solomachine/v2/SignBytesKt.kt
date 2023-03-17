@@ -3,16 +3,16 @@
 
 package ibc.lightclients.solomachine.v2;
 
-@kotlin.jvm.JvmName("-initializesignBytes")
-public inline fun signBytes(block: ibc.lightclients.solomachine.v2.SignBytesKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v2.Solomachine.SignBytes =
+@kotlin.jvm.JvmSynthetic
+inline fun signBytes(block: ibc.lightclients.solomachine.v2.SignBytesKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v2.Solomachine.SignBytes =
   ibc.lightclients.solomachine.v2.SignBytesKt.Dsl._create(ibc.lightclients.solomachine.v2.Solomachine.SignBytes.newBuilder()).apply { block() }._build()
-public object SignBytesKt {
+object SignBytesKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.lightclients.solomachine.v2.Solomachine.SignBytes.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.lightclients.solomachine.v2.Solomachine.SignBytes.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.lightclients.solomachine.v2.Solomachine.SignBytes.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object SignBytesKt {
     /**
      * <code>uint64 sequence = 1;</code>
      */
-    public var sequence: kotlin.Long
+    var sequence: kotlin.Long
       @JvmName("getSequence")
       get() = _builder.getSequence()
       @JvmName("setSequence")
@@ -35,14 +35,14 @@ public object SignBytesKt {
     /**
      * <code>uint64 sequence = 1;</code>
      */
-    public fun clearSequence() {
+    fun clearSequence() {
       _builder.clearSequence()
     }
 
     /**
      * <code>uint64 timestamp = 2;</code>
      */
-    public var timestamp: kotlin.Long
+    var timestamp: kotlin.Long
       @JvmName("getTimestamp")
       get() = _builder.getTimestamp()
       @JvmName("setTimestamp")
@@ -52,14 +52,14 @@ public object SignBytesKt {
     /**
      * <code>uint64 timestamp = 2;</code>
      */
-    public fun clearTimestamp() {
+    fun clearTimestamp() {
       _builder.clearTimestamp()
     }
 
     /**
      * <code>string diversifier = 3;</code>
      */
-    public var diversifier: kotlin.String
+    var diversifier: kotlin.String
       @JvmName("getDiversifier")
       get() = _builder.getDiversifier()
       @JvmName("setDiversifier")
@@ -69,7 +69,7 @@ public object SignBytesKt {
     /**
      * <code>string diversifier = 3;</code>
      */
-    public fun clearDiversifier() {
+    fun clearDiversifier() {
       _builder.clearDiversifier()
     }
 
@@ -80,7 +80,7 @@ public object SignBytesKt {
      *
      * <code>.ibc.lightclients.solomachine.v2.DataType data_type = 4 [(.gogoproto.moretags) = "yaml:&#92;"data_type&#92;""];</code>
      */
-    public var dataType: ibc.lightclients.solomachine.v2.Solomachine.DataType
+    var dataType: ibc.lightclients.solomachine.v2.Solomachine.DataType
       @JvmName("getDataType")
       get() = _builder.getDataType()
       @JvmName("setDataType")
@@ -94,7 +94,7 @@ public object SignBytesKt {
      *
      * <code>.ibc.lightclients.solomachine.v2.DataType data_type = 4 [(.gogoproto.moretags) = "yaml:&#92;"data_type&#92;""];</code>
      */
-    public fun clearDataType() {
+    fun clearDataType() {
       _builder.clearDataType()
     }
 
@@ -105,7 +105,7 @@ public object SignBytesKt {
      *
      * <code>bytes data = 5;</code>
      */
-    public var data: com.google.protobuf.ByteString
+    var data: com.google.protobuf.ByteString
       @JvmName("getData")
       get() = _builder.getData()
       @JvmName("setData")
@@ -119,12 +119,11 @@ public object SignBytesKt {
      *
      * <code>bytes data = 5;</code>
      */
-    public fun clearData() {
+    fun clearData() {
       _builder.clearData()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.lightclients.solomachine.v2.Solomachine.SignBytes.copy(block: ibc.lightclients.solomachine.v2.SignBytesKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v2.Solomachine.SignBytes =
+inline fun ibc.lightclients.solomachine.v2.Solomachine.SignBytes.copy(block: ibc.lightclients.solomachine.v2.SignBytesKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v2.Solomachine.SignBytes =
   ibc.lightclients.solomachine.v2.SignBytesKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

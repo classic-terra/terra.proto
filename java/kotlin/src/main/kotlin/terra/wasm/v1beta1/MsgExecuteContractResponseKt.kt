@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgExecuteContractResponse")
-public inline fun msgExecuteContractResponse(block: terra.wasm.v1beta1.MsgExecuteContractResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgExecuteContractResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgExecuteContractResponse(block: terra.wasm.v1beta1.MsgExecuteContractResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgExecuteContractResponse =
   terra.wasm.v1beta1.MsgExecuteContractResponseKt.Dsl._create(terra.wasm.v1beta1.Tx.MsgExecuteContractResponse.newBuilder()).apply { block() }._build()
-public object MsgExecuteContractResponseKt {
+object MsgExecuteContractResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Tx.MsgExecuteContractResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Tx.MsgExecuteContractResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Tx.MsgExecuteContractResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MsgExecuteContractResponseKt {
      *
      * <code>bytes data = 1 [(.gogoproto.moretags) = "yaml:&#92;"data&#92;""];</code>
      */
-    public var data: com.google.protobuf.ByteString
+    var data: com.google.protobuf.ByteString
       @JvmName("getData")
       get() = _builder.getData()
       @JvmName("setData")
@@ -43,12 +43,11 @@ public object MsgExecuteContractResponseKt {
      *
      * <code>bytes data = 1 [(.gogoproto.moretags) = "yaml:&#92;"data&#92;""];</code>
      */
-    public fun clearData() {
+    fun clearData() {
       _builder.clearData()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Tx.MsgExecuteContractResponse.copy(block: terra.wasm.v1beta1.MsgExecuteContractResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgExecuteContractResponse =
+inline fun terra.wasm.v1beta1.Tx.MsgExecuteContractResponse.copy(block: terra.wasm.v1beta1.MsgExecuteContractResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgExecuteContractResponse =
   terra.wasm.v1beta1.MsgExecuteContractResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemissCounter")
-public inline fun missCounter(block: terra.oracle.v1beta1.MissCounterKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Genesis.MissCounter =
+@kotlin.jvm.JvmSynthetic
+inline fun missCounter(block: terra.oracle.v1beta1.MissCounterKt.Dsl.() -> Unit): terra.oracle.v1beta1.Genesis.MissCounter =
   terra.oracle.v1beta1.MissCounterKt.Dsl._create(terra.oracle.v1beta1.Genesis.MissCounter.newBuilder()).apply { block() }._build()
-public object MissCounterKt {
+object MissCounterKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.Genesis.MissCounter.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.Genesis.MissCounter.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.Genesis.MissCounter.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MissCounterKt {
     /**
      * <code>string validator_address = 1;</code>
      */
-    public var validatorAddress: kotlin.String
+    var validatorAddress: kotlin.String
       @JvmName("getValidatorAddress")
       get() = _builder.getValidatorAddress()
       @JvmName("setValidatorAddress")
@@ -35,14 +35,14 @@ public object MissCounterKt {
     /**
      * <code>string validator_address = 1;</code>
      */
-    public fun clearValidatorAddress() {
+    fun clearValidatorAddress() {
       _builder.clearValidatorAddress()
     }
 
     /**
      * <code>uint64 miss_counter = 2;</code>
      */
-    public var missCounter: kotlin.Long
+    var missCounter: kotlin.Long
       @JvmName("getMissCounter")
       get() = _builder.getMissCounter()
       @JvmName("setMissCounter")
@@ -52,12 +52,11 @@ public object MissCounterKt {
     /**
      * <code>uint64 miss_counter = 2;</code>
      */
-    public fun clearMissCounter() {
+    fun clearMissCounter() {
       _builder.clearMissCounter()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.Genesis.MissCounter.copy(block: terra.oracle.v1beta1.MissCounterKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Genesis.MissCounter =
+inline fun terra.oracle.v1beta1.Genesis.MissCounter.copy(block: terra.oracle.v1beta1.MissCounterKt.Dsl.() -> Unit): terra.oracle.v1beta1.Genesis.MissCounter =
   terra.oracle.v1beta1.MissCounterKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

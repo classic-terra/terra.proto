@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializemsgUpdateClientResponse")
-public inline fun msgUpdateClientResponse(block: ibc.core.client.v1.MsgUpdateClientResponseKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Tx.MsgUpdateClientResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgUpdateClientResponse(block: ibc.core.client.v1.MsgUpdateClientResponseKt.Dsl.() -> Unit): ibc.core.client.v1.Tx.MsgUpdateClientResponse =
   ibc.core.client.v1.MsgUpdateClientResponseKt.Dsl._create(ibc.core.client.v1.Tx.MsgUpdateClientResponse.newBuilder()).apply { block() }._build()
-public object MsgUpdateClientResponseKt {
+object MsgUpdateClientResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.Tx.MsgUpdateClientResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.Tx.MsgUpdateClientResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.Tx.MsgUpdateClientResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgUpdateClientResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.Tx.MsgUpdateClientResponse.copy(block: ibc.core.client.v1.MsgUpdateClientResponseKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Tx.MsgUpdateClientResponse =
+inline fun ibc.core.client.v1.Tx.MsgUpdateClientResponse.copy(block: ibc.core.client.v1.MsgUpdateClientResponseKt.Dsl.() -> Unit): ibc.core.client.v1.Tx.MsgUpdateClientResponse =
   ibc.core.client.v1.MsgUpdateClientResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

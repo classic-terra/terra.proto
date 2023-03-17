@@ -516,6 +516,87 @@ public final class ChannelOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Channel(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              state_ = rawValue;
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              ordering_ = rawValue;
+              break;
+            }
+            case 26: {
+              ibc.core.channel.v1.ChannelOuterClass.Counterparty.Builder subBuilder = null;
+              if (counterparty_ != null) {
+                subBuilder = counterparty_.toBuilder();
+              }
+              counterparty_ = input.readMessage(ibc.core.channel.v1.ChannelOuterClass.Counterparty.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(counterparty_);
+                counterparty_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                connectionHops_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              connectionHops_.add(s);
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              version_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          connectionHops_ = connectionHops_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.ChannelOuterClass.internal_static_ibc_core_channel_v1_Channel_descriptor;
@@ -530,7 +611,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int STATE_FIELD_NUMBER = 1;
-    private int state_ = 0;
+    private int state_;
     /**
      * <pre>
      * current state of the channel end
@@ -551,12 +632,13 @@ public final class ChannelOuterClass {
      * @return The state.
      */
     @java.lang.Override public ibc.core.channel.v1.ChannelOuterClass.State getState() {
-      ibc.core.channel.v1.ChannelOuterClass.State result = ibc.core.channel.v1.ChannelOuterClass.State.forNumber(state_);
+      @SuppressWarnings("deprecation")
+      ibc.core.channel.v1.ChannelOuterClass.State result = ibc.core.channel.v1.ChannelOuterClass.State.valueOf(state_);
       return result == null ? ibc.core.channel.v1.ChannelOuterClass.State.UNRECOGNIZED : result;
     }
 
     public static final int ORDERING_FIELD_NUMBER = 2;
-    private int ordering_ = 0;
+    private int ordering_;
     /**
      * <pre>
      * whether the channel is ordered or unordered
@@ -577,7 +659,8 @@ public final class ChannelOuterClass {
      * @return The ordering.
      */
     @java.lang.Override public ibc.core.channel.v1.ChannelOuterClass.Order getOrdering() {
-      ibc.core.channel.v1.ChannelOuterClass.Order result = ibc.core.channel.v1.ChannelOuterClass.Order.forNumber(ordering_);
+      @SuppressWarnings("deprecation")
+      ibc.core.channel.v1.ChannelOuterClass.Order result = ibc.core.channel.v1.ChannelOuterClass.Order.valueOf(ordering_);
       return result == null ? ibc.core.channel.v1.ChannelOuterClass.Order.UNRECOGNIZED : result;
     }
 
@@ -616,11 +699,10 @@ public final class ChannelOuterClass {
      */
     @java.lang.Override
     public ibc.core.channel.v1.ChannelOuterClass.CounterpartyOrBuilder getCounterpartyOrBuilder() {
-      return counterparty_ == null ? ibc.core.channel.v1.ChannelOuterClass.Counterparty.getDefaultInstance() : counterparty_;
+      return getCounterparty();
     }
 
     public static final int CONNECTION_HOPS_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList connectionHops_;
     /**
      * <pre>
@@ -676,8 +758,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int VERSION_FIELD_NUMBER = 5;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object version_ = "";
+    private volatile java.lang.Object version_;
     /**
      * <pre>
      * opaque channel version, which is agreed upon during the handshake
@@ -748,10 +829,10 @@ public final class ChannelOuterClass {
       for (int i = 0; i < connectionHops_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, connectionHops_.getRaw(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+      if (!getVersionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, version_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -780,10 +861,10 @@ public final class ChannelOuterClass {
         size += dataSize;
         size += 1 * getConnectionHopsList().size();
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+      if (!getVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, version_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -809,7 +890,7 @@ public final class ChannelOuterClass {
           .equals(other.getConnectionHopsList())) return false;
       if (!getVersion()
           .equals(other.getVersion())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -834,7 +915,7 @@ public final class ChannelOuterClass {
       }
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getVersion().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -957,28 +1038,36 @@ public final class ChannelOuterClass {
 
       // Construct using ibc.core.channel.v1.ChannelOuterClass.Channel.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         state_ = 0;
+
         ordering_ = 0;
-        counterparty_ = null;
-        if (counterpartyBuilder_ != null) {
-          counterpartyBuilder_.dispose();
+
+        if (counterpartyBuilder_ == null) {
+          counterparty_ = null;
+        } else {
+          counterparty_ = null;
           counterpartyBuilder_ = null;
         }
         connectionHops_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000001);
         version_ = "";
+
         return this;
       }
 
@@ -1005,36 +1094,22 @@ public final class ChannelOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.ChannelOuterClass.Channel buildPartial() {
         ibc.core.channel.v1.ChannelOuterClass.Channel result = new ibc.core.channel.v1.ChannelOuterClass.Channel(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.channel.v1.ChannelOuterClass.Channel result) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.state_ = state_;
+        result.ordering_ = ordering_;
+        if (counterpartyBuilder_ == null) {
+          result.counterparty_ = counterparty_;
+        } else {
+          result.counterparty_ = counterpartyBuilder_.build();
+        }
+        if (((bitField0_ & 0x00000001) != 0)) {
           connectionHops_ = connectionHops_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.connectionHops_ = connectionHops_;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.ChannelOuterClass.Channel result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.state_ = state_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.ordering_ = ordering_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.counterparty_ = counterpartyBuilder_ == null
-              ? counterparty_
-              : counterpartyBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.version_ = version_;
-        }
+        result.version_ = version_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -1093,7 +1168,7 @@ public final class ChannelOuterClass {
         if (!other.connectionHops_.isEmpty()) {
           if (connectionHops_.isEmpty()) {
             connectionHops_ = other.connectionHops_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureConnectionHopsIsMutable();
             connectionHops_.addAll(other.connectionHops_);
@@ -1102,10 +1177,9 @@ public final class ChannelOuterClass {
         }
         if (!other.getVersion().isEmpty()) {
           version_ = other.version_;
-          bitField0_ |= 0x00000010;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1120,58 +1194,17 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.ChannelOuterClass.Channel parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                state_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                ordering_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                input.readMessage(
-                    getCounterpartyFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                java.lang.String s = input.readStringRequireUtf8();
-                ensureConnectionHopsIsMutable();
-                connectionHops_.add(s);
-                break;
-              } // case 34
-              case 42: {
-                version_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.ChannelOuterClass.Channel) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -1198,8 +1231,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
+        
         state_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1213,7 +1246,8 @@ public final class ChannelOuterClass {
        */
       @java.lang.Override
       public ibc.core.channel.v1.ChannelOuterClass.State getState() {
-        ibc.core.channel.v1.ChannelOuterClass.State result = ibc.core.channel.v1.ChannelOuterClass.State.forNumber(state_);
+        @SuppressWarnings("deprecation")
+        ibc.core.channel.v1.ChannelOuterClass.State result = ibc.core.channel.v1.ChannelOuterClass.State.valueOf(state_);
         return result == null ? ibc.core.channel.v1.ChannelOuterClass.State.UNRECOGNIZED : result;
       }
       /**
@@ -1229,7 +1263,7 @@ public final class ChannelOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -1243,7 +1277,7 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         state_ = 0;
         onChanged();
         return this;
@@ -1271,8 +1305,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder setOrderingValue(int value) {
+        
         ordering_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1286,7 +1320,8 @@ public final class ChannelOuterClass {
        */
       @java.lang.Override
       public ibc.core.channel.v1.ChannelOuterClass.Order getOrdering() {
-        ibc.core.channel.v1.ChannelOuterClass.Order result = ibc.core.channel.v1.ChannelOuterClass.Order.forNumber(ordering_);
+        @SuppressWarnings("deprecation")
+        ibc.core.channel.v1.ChannelOuterClass.Order result = ibc.core.channel.v1.ChannelOuterClass.Order.valueOf(ordering_);
         return result == null ? ibc.core.channel.v1.ChannelOuterClass.Order.UNRECOGNIZED : result;
       }
       /**
@@ -1302,7 +1337,7 @@ public final class ChannelOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         ordering_ = value.getNumber();
         onChanged();
         return this;
@@ -1316,7 +1351,7 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearOrdering() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         ordering_ = 0;
         onChanged();
         return this;
@@ -1334,7 +1369,7 @@ public final class ChannelOuterClass {
        * @return Whether the counterparty field is set.
        */
       public boolean hasCounterparty() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return counterpartyBuilder_ != null || counterparty_ != null;
       }
       /**
        * <pre>
@@ -1364,11 +1399,11 @@ public final class ChannelOuterClass {
             throw new NullPointerException();
           }
           counterparty_ = value;
+          onChanged();
         } else {
           counterpartyBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1382,11 +1417,11 @@ public final class ChannelOuterClass {
           ibc.core.channel.v1.ChannelOuterClass.Counterparty.Builder builderForValue) {
         if (counterpartyBuilder_ == null) {
           counterparty_ = builderForValue.build();
+          onChanged();
         } else {
           counterpartyBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1398,18 +1433,17 @@ public final class ChannelOuterClass {
        */
       public Builder mergeCounterparty(ibc.core.channel.v1.ChannelOuterClass.Counterparty value) {
         if (counterpartyBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            counterparty_ != null &&
-            counterparty_ != ibc.core.channel.v1.ChannelOuterClass.Counterparty.getDefaultInstance()) {
-            getCounterpartyBuilder().mergeFrom(value);
+          if (counterparty_ != null) {
+            counterparty_ =
+              ibc.core.channel.v1.ChannelOuterClass.Counterparty.newBuilder(counterparty_).mergeFrom(value).buildPartial();
           } else {
             counterparty_ = value;
           }
+          onChanged();
         } else {
           counterpartyBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1420,13 +1454,14 @@ public final class ChannelOuterClass {
        * <code>.ibc.core.channel.v1.Counterparty counterparty = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearCounterparty() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        counterparty_ = null;
-        if (counterpartyBuilder_ != null) {
-          counterpartyBuilder_.dispose();
+        if (counterpartyBuilder_ == null) {
+          counterparty_ = null;
+          onChanged();
+        } else {
+          counterparty_ = null;
           counterpartyBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1437,7 +1472,7 @@ public final class ChannelOuterClass {
        * <code>.ibc.core.channel.v1.Counterparty counterparty = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.channel.v1.ChannelOuterClass.Counterparty.Builder getCounterpartyBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getCounterpartyFieldBuilder().getBuilder();
       }
@@ -1479,9 +1514,9 @@ public final class ChannelOuterClass {
 
       private com.google.protobuf.LazyStringList connectionHops_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureConnectionHopsIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           connectionHops_ = new com.google.protobuf.LazyStringArrayList(connectionHops_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000001;
          }
       }
       /**
@@ -1549,8 +1584,10 @@ public final class ChannelOuterClass {
        */
       public Builder setConnectionHops(
           int index, java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureConnectionHopsIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureConnectionHopsIsMutable();
         connectionHops_.set(index, value);
         onChanged();
         return this;
@@ -1567,8 +1604,10 @@ public final class ChannelOuterClass {
        */
       public Builder addConnectionHops(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureConnectionHopsIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureConnectionHopsIsMutable();
         connectionHops_.add(value);
         onChanged();
         return this;
@@ -1602,7 +1641,7 @@ public final class ChannelOuterClass {
        */
       public Builder clearConnectionHops() {
         connectionHops_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1618,8 +1657,10 @@ public final class ChannelOuterClass {
        */
       public Builder addConnectionHopsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         ensureConnectionHopsIsMutable();
         connectionHops_.add(value);
         onChanged();
@@ -1679,9 +1720,11 @@ public final class ChannelOuterClass {
        */
       public Builder setVersion(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         version_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1694,8 +1737,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearVersion() {
+        
         version_ = getDefaultInstance().getVersion();
-        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -1710,10 +1753,12 @@ public final class ChannelOuterClass {
        */
       public Builder setVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         version_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1750,18 +1795,7 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Channel(input, extensionRegistry);
       }
     };
 
@@ -1993,6 +2027,99 @@ public final class ChannelOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private IdentifiedChannel(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              state_ = rawValue;
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              ordering_ = rawValue;
+              break;
+            }
+            case 26: {
+              ibc.core.channel.v1.ChannelOuterClass.Counterparty.Builder subBuilder = null;
+              if (counterparty_ != null) {
+                subBuilder = counterparty_.toBuilder();
+              }
+              counterparty_ = input.readMessage(ibc.core.channel.v1.ChannelOuterClass.Counterparty.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(counterparty_);
+                counterparty_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                connectionHops_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              connectionHops_.add(s);
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              version_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          connectionHops_ = connectionHops_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.ChannelOuterClass.internal_static_ibc_core_channel_v1_IdentifiedChannel_descriptor;
@@ -2007,7 +2134,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int STATE_FIELD_NUMBER = 1;
-    private int state_ = 0;
+    private int state_;
     /**
      * <pre>
      * current state of the channel end
@@ -2028,12 +2155,13 @@ public final class ChannelOuterClass {
      * @return The state.
      */
     @java.lang.Override public ibc.core.channel.v1.ChannelOuterClass.State getState() {
-      ibc.core.channel.v1.ChannelOuterClass.State result = ibc.core.channel.v1.ChannelOuterClass.State.forNumber(state_);
+      @SuppressWarnings("deprecation")
+      ibc.core.channel.v1.ChannelOuterClass.State result = ibc.core.channel.v1.ChannelOuterClass.State.valueOf(state_);
       return result == null ? ibc.core.channel.v1.ChannelOuterClass.State.UNRECOGNIZED : result;
     }
 
     public static final int ORDERING_FIELD_NUMBER = 2;
-    private int ordering_ = 0;
+    private int ordering_;
     /**
      * <pre>
      * whether the channel is ordered or unordered
@@ -2054,7 +2182,8 @@ public final class ChannelOuterClass {
      * @return The ordering.
      */
     @java.lang.Override public ibc.core.channel.v1.ChannelOuterClass.Order getOrdering() {
-      ibc.core.channel.v1.ChannelOuterClass.Order result = ibc.core.channel.v1.ChannelOuterClass.Order.forNumber(ordering_);
+      @SuppressWarnings("deprecation")
+      ibc.core.channel.v1.ChannelOuterClass.Order result = ibc.core.channel.v1.ChannelOuterClass.Order.valueOf(ordering_);
       return result == null ? ibc.core.channel.v1.ChannelOuterClass.Order.UNRECOGNIZED : result;
     }
 
@@ -2093,11 +2222,10 @@ public final class ChannelOuterClass {
      */
     @java.lang.Override
     public ibc.core.channel.v1.ChannelOuterClass.CounterpartyOrBuilder getCounterpartyOrBuilder() {
-      return counterparty_ == null ? ibc.core.channel.v1.ChannelOuterClass.Counterparty.getDefaultInstance() : counterparty_;
+      return getCounterparty();
     }
 
     public static final int CONNECTION_HOPS_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList connectionHops_;
     /**
      * <pre>
@@ -2153,8 +2281,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int VERSION_FIELD_NUMBER = 5;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object version_ = "";
+    private volatile java.lang.Object version_;
     /**
      * <pre>
      * opaque channel version, which is agreed upon during the handshake
@@ -2200,8 +2327,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 6;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port identifier
@@ -2247,8 +2373,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel identifier
@@ -2319,16 +2444,16 @@ public final class ChannelOuterClass {
       for (int i = 0; i < connectionHops_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, connectionHops_.getRaw(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+      if (!getVersionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, version_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, channelId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2357,16 +2482,16 @@ public final class ChannelOuterClass {
         size += dataSize;
         size += 1 * getConnectionHopsList().size();
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
+      if (!getVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, version_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, channelId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2396,7 +2521,7 @@ public final class ChannelOuterClass {
           .equals(other.getPortId())) return false;
       if (!getChannelId()
           .equals(other.getChannelId())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2425,7 +2550,7 @@ public final class ChannelOuterClass {
       hash = (53 * hash) + getPortId().hashCode();
       hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
       hash = (53 * hash) + getChannelId().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2547,30 +2672,40 @@ public final class ChannelOuterClass {
 
       // Construct using ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         state_ = 0;
+
         ordering_ = 0;
-        counterparty_ = null;
-        if (counterpartyBuilder_ != null) {
-          counterpartyBuilder_.dispose();
+
+        if (counterpartyBuilder_ == null) {
+          counterparty_ = null;
+        } else {
+          counterparty_ = null;
           counterpartyBuilder_ = null;
         }
         connectionHops_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000001);
         version_ = "";
+
         portId_ = "";
+
         channelId_ = "";
+
         return this;
       }
 
@@ -2597,42 +2732,24 @@ public final class ChannelOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel buildPartial() {
         ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel result = new ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel result) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.state_ = state_;
+        result.ordering_ = ordering_;
+        if (counterpartyBuilder_ == null) {
+          result.counterparty_ = counterparty_;
+        } else {
+          result.counterparty_ = counterpartyBuilder_.build();
+        }
+        if (((bitField0_ & 0x00000001) != 0)) {
           connectionHops_ = connectionHops_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.connectionHops_ = connectionHops_;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.state_ = state_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.ordering_ = ordering_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.counterparty_ = counterpartyBuilder_ == null
-              ? counterparty_
-              : counterpartyBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.version_ = version_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.channelId_ = channelId_;
-        }
+        result.version_ = version_;
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -2691,7 +2808,7 @@ public final class ChannelOuterClass {
         if (!other.connectionHops_.isEmpty()) {
           if (connectionHops_.isEmpty()) {
             connectionHops_ = other.connectionHops_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureConnectionHopsIsMutable();
             connectionHops_.addAll(other.connectionHops_);
@@ -2700,20 +2817,17 @@ public final class ChannelOuterClass {
         }
         if (!other.getVersion().isEmpty()) {
           version_ = other.version_;
-          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000040;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2728,68 +2842,17 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                state_ = input.readEnum();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                ordering_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                input.readMessage(
-                    getCounterpartyFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                java.lang.String s = input.readStringRequireUtf8();
-                ensureConnectionHopsIsMutable();
-                connectionHops_.add(s);
-                break;
-              } // case 34
-              case 42: {
-                version_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              case 50: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 50
-              case 58: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 58
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -2816,8 +2879,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
+        
         state_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2831,7 +2894,8 @@ public final class ChannelOuterClass {
        */
       @java.lang.Override
       public ibc.core.channel.v1.ChannelOuterClass.State getState() {
-        ibc.core.channel.v1.ChannelOuterClass.State result = ibc.core.channel.v1.ChannelOuterClass.State.forNumber(state_);
+        @SuppressWarnings("deprecation")
+        ibc.core.channel.v1.ChannelOuterClass.State result = ibc.core.channel.v1.ChannelOuterClass.State.valueOf(state_);
         return result == null ? ibc.core.channel.v1.ChannelOuterClass.State.UNRECOGNIZED : result;
       }
       /**
@@ -2847,7 +2911,7 @@ public final class ChannelOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000001;
+        
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -2861,7 +2925,7 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         state_ = 0;
         onChanged();
         return this;
@@ -2889,8 +2953,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder setOrderingValue(int value) {
+        
         ordering_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2904,7 +2968,8 @@ public final class ChannelOuterClass {
        */
       @java.lang.Override
       public ibc.core.channel.v1.ChannelOuterClass.Order getOrdering() {
-        ibc.core.channel.v1.ChannelOuterClass.Order result = ibc.core.channel.v1.ChannelOuterClass.Order.forNumber(ordering_);
+        @SuppressWarnings("deprecation")
+        ibc.core.channel.v1.ChannelOuterClass.Order result = ibc.core.channel.v1.ChannelOuterClass.Order.valueOf(ordering_);
         return result == null ? ibc.core.channel.v1.ChannelOuterClass.Order.UNRECOGNIZED : result;
       }
       /**
@@ -2920,7 +2985,7 @@ public final class ChannelOuterClass {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         ordering_ = value.getNumber();
         onChanged();
         return this;
@@ -2934,7 +2999,7 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearOrdering() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         ordering_ = 0;
         onChanged();
         return this;
@@ -2952,7 +3017,7 @@ public final class ChannelOuterClass {
        * @return Whether the counterparty field is set.
        */
       public boolean hasCounterparty() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return counterpartyBuilder_ != null || counterparty_ != null;
       }
       /**
        * <pre>
@@ -2982,11 +3047,11 @@ public final class ChannelOuterClass {
             throw new NullPointerException();
           }
           counterparty_ = value;
+          onChanged();
         } else {
           counterpartyBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -3000,11 +3065,11 @@ public final class ChannelOuterClass {
           ibc.core.channel.v1.ChannelOuterClass.Counterparty.Builder builderForValue) {
         if (counterpartyBuilder_ == null) {
           counterparty_ = builderForValue.build();
+          onChanged();
         } else {
           counterpartyBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -3016,18 +3081,17 @@ public final class ChannelOuterClass {
        */
       public Builder mergeCounterparty(ibc.core.channel.v1.ChannelOuterClass.Counterparty value) {
         if (counterpartyBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            counterparty_ != null &&
-            counterparty_ != ibc.core.channel.v1.ChannelOuterClass.Counterparty.getDefaultInstance()) {
-            getCounterpartyBuilder().mergeFrom(value);
+          if (counterparty_ != null) {
+            counterparty_ =
+              ibc.core.channel.v1.ChannelOuterClass.Counterparty.newBuilder(counterparty_).mergeFrom(value).buildPartial();
           } else {
             counterparty_ = value;
           }
+          onChanged();
         } else {
           counterpartyBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -3038,13 +3102,14 @@ public final class ChannelOuterClass {
        * <code>.ibc.core.channel.v1.Counterparty counterparty = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearCounterparty() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        counterparty_ = null;
-        if (counterpartyBuilder_ != null) {
-          counterpartyBuilder_.dispose();
+        if (counterpartyBuilder_ == null) {
+          counterparty_ = null;
+          onChanged();
+        } else {
+          counterparty_ = null;
           counterpartyBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -3055,7 +3120,7 @@ public final class ChannelOuterClass {
        * <code>.ibc.core.channel.v1.Counterparty counterparty = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.channel.v1.ChannelOuterClass.Counterparty.Builder getCounterpartyBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getCounterpartyFieldBuilder().getBuilder();
       }
@@ -3097,9 +3162,9 @@ public final class ChannelOuterClass {
 
       private com.google.protobuf.LazyStringList connectionHops_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureConnectionHopsIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           connectionHops_ = new com.google.protobuf.LazyStringArrayList(connectionHops_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000001;
          }
       }
       /**
@@ -3167,8 +3232,10 @@ public final class ChannelOuterClass {
        */
       public Builder setConnectionHops(
           int index, java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureConnectionHopsIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureConnectionHopsIsMutable();
         connectionHops_.set(index, value);
         onChanged();
         return this;
@@ -3185,8 +3252,10 @@ public final class ChannelOuterClass {
        */
       public Builder addConnectionHops(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureConnectionHopsIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureConnectionHopsIsMutable();
         connectionHops_.add(value);
         onChanged();
         return this;
@@ -3220,7 +3289,7 @@ public final class ChannelOuterClass {
        */
       public Builder clearConnectionHops() {
         connectionHops_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3236,8 +3305,10 @@ public final class ChannelOuterClass {
        */
       public Builder addConnectionHopsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         ensureConnectionHopsIsMutable();
         connectionHops_.add(value);
         onChanged();
@@ -3297,9 +3368,11 @@ public final class ChannelOuterClass {
        */
       public Builder setVersion(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         version_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -3312,8 +3385,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearVersion() {
+        
         version_ = getDefaultInstance().getVersion();
-        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -3328,10 +3401,12 @@ public final class ChannelOuterClass {
        */
       public Builder setVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         version_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -3389,9 +3464,11 @@ public final class ChannelOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -3404,8 +3481,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -3420,10 +3497,12 @@ public final class ChannelOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -3481,9 +3560,11 @@ public final class ChannelOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -3496,8 +3577,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -3512,10 +3593,12 @@ public final class ChannelOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -3552,18 +3635,7 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new IdentifiedChannel(input, extensionRegistry);
       }
     };
 
@@ -3660,6 +3732,55 @@ public final class ChannelOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Counterparty(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.ChannelOuterClass.internal_static_ibc_core_channel_v1_Counterparty_descriptor;
@@ -3674,8 +3795,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port on the counterparty chain which owns the other end of the channel.
@@ -3721,8 +3841,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel end on the counterparty chain
@@ -3781,13 +3900,13 @@ public final class ChannelOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3796,13 +3915,13 @@ public final class ChannelOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3821,7 +3940,7 @@ public final class ChannelOuterClass {
           .equals(other.getPortId())) return false;
       if (!getChannelId()
           .equals(other.getChannelId())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3836,7 +3955,7 @@ public final class ChannelOuterClass {
       hash = (53 * hash) + getPortId().hashCode();
       hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
       hash = (53 * hash) + getChannelId().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3957,20 +4076,26 @@ public final class ChannelOuterClass {
 
       // Construct using ibc.core.channel.v1.ChannelOuterClass.Counterparty.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
+
         return this;
       }
 
@@ -3997,19 +4122,10 @@ public final class ChannelOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.ChannelOuterClass.Counterparty buildPartial() {
         ibc.core.channel.v1.ChannelOuterClass.Counterparty result = new ibc.core.channel.v1.ChannelOuterClass.Counterparty(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.ChannelOuterClass.Counterparty result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
       }
 
       @java.lang.Override
@@ -4058,15 +4174,13 @@ public final class ChannelOuterClass {
         if (other == ibc.core.channel.v1.ChannelOuterClass.Counterparty.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4081,43 +4195,19 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.ChannelOuterClass.Counterparty parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.ChannelOuterClass.Counterparty) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object portId_ = "";
       /**
@@ -4172,9 +4262,11 @@ public final class ChannelOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4187,8 +4279,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4203,10 +4295,12 @@ public final class ChannelOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4264,9 +4358,11 @@ public final class ChannelOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4279,8 +4375,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4295,10 +4391,12 @@ public final class ChannelOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4335,18 +4433,7 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Counterparty(input, extensionRegistry);
       }
     };
 
@@ -4545,6 +4632,95 @@ public final class ChannelOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Packet(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              sequence_ = input.readUInt64();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sourcePort_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sourceChannel_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              destinationPort_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              destinationChannel_ = s;
+              break;
+            }
+            case 50: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            case 58: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (timeoutHeight_ != null) {
+                subBuilder = timeoutHeight_.toBuilder();
+              }
+              timeoutHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(timeoutHeight_);
+                timeoutHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 64: {
+
+              timeoutTimestamp_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.ChannelOuterClass.internal_static_ibc_core_channel_v1_Packet_descriptor;
@@ -4559,7 +4735,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 1;
-    private long sequence_ = 0L;
+    private long sequence_;
     /**
      * <pre>
      * number corresponds to the order of sends and receives, where a Packet
@@ -4576,8 +4752,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int SOURCE_PORT_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object sourcePort_ = "";
+    private volatile java.lang.Object sourcePort_;
     /**
      * <pre>
      * identifies the port on the sending chain.
@@ -4623,8 +4798,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int SOURCE_CHANNEL_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object sourceChannel_ = "";
+    private volatile java.lang.Object sourceChannel_;
     /**
      * <pre>
      * identifies the channel end on the sending chain.
@@ -4670,8 +4844,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int DESTINATION_PORT_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object destinationPort_ = "";
+    private volatile java.lang.Object destinationPort_;
     /**
      * <pre>
      * identifies the port on the receiving chain.
@@ -4717,8 +4890,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int DESTINATION_CHANNEL_FIELD_NUMBER = 5;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object destinationChannel_ = "";
+    private volatile java.lang.Object destinationChannel_;
     /**
      * <pre>
      * identifies the channel end on the receiving chain.
@@ -4764,7 +4936,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int DATA_FIELD_NUMBER = 6;
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_;
     /**
      * <pre>
      * actual opaque bytes transferred directly to the application module
@@ -4813,11 +4985,11 @@ public final class ChannelOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getTimeoutHeightOrBuilder() {
-      return timeoutHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : timeoutHeight_;
+      return getTimeoutHeight();
     }
 
     public static final int TIMEOUT_TIMESTAMP_FIELD_NUMBER = 8;
-    private long timeoutTimestamp_ = 0L;
+    private long timeoutTimestamp_;
     /**
      * <pre>
      * block timestamp (in nanoseconds) after which the packet times out
@@ -4848,16 +5020,16 @@ public final class ChannelOuterClass {
       if (sequence_ != 0L) {
         output.writeUInt64(1, sequence_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourcePort_)) {
+      if (!getSourcePortBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sourcePort_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceChannel_)) {
+      if (!getSourceChannelBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, sourceChannel_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationPort_)) {
+      if (!getDestinationPortBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, destinationPort_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationChannel_)) {
+      if (!getDestinationChannelBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, destinationChannel_);
       }
       if (!data_.isEmpty()) {
@@ -4869,7 +5041,7 @@ public final class ChannelOuterClass {
       if (timeoutTimestamp_ != 0L) {
         output.writeUInt64(8, timeoutTimestamp_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4882,16 +5054,16 @@ public final class ChannelOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, sequence_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourcePort_)) {
+      if (!getSourcePortBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sourcePort_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceChannel_)) {
+      if (!getSourceChannelBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, sourceChannel_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationPort_)) {
+      if (!getDestinationPortBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, destinationPort_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationChannel_)) {
+      if (!getDestinationChannelBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, destinationChannel_);
       }
       if (!data_.isEmpty()) {
@@ -4906,7 +5078,7 @@ public final class ChannelOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(8, timeoutTimestamp_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4940,7 +5112,7 @@ public final class ChannelOuterClass {
       }
       if (getTimeoutTimestamp()
           != other.getTimeoutTimestamp()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4971,7 +5143,7 @@ public final class ChannelOuterClass {
       hash = (37 * hash) + TIMEOUT_TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTimeoutTimestamp());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5092,30 +5264,42 @@ public final class ChannelOuterClass {
 
       // Construct using ibc.core.channel.v1.ChannelOuterClass.Packet.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         sequence_ = 0L;
+
         sourcePort_ = "";
+
         sourceChannel_ = "";
+
         destinationPort_ = "";
+
         destinationChannel_ = "";
+
         data_ = com.google.protobuf.ByteString.EMPTY;
-        timeoutHeight_ = null;
-        if (timeoutHeightBuilder_ != null) {
-          timeoutHeightBuilder_.dispose();
+
+        if (timeoutHeightBuilder_ == null) {
+          timeoutHeight_ = null;
+        } else {
+          timeoutHeight_ = null;
           timeoutHeightBuilder_ = null;
         }
         timeoutTimestamp_ = 0L;
+
         return this;
       }
 
@@ -5142,39 +5326,20 @@ public final class ChannelOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.ChannelOuterClass.Packet buildPartial() {
         ibc.core.channel.v1.ChannelOuterClass.Packet result = new ibc.core.channel.v1.ChannelOuterClass.Packet(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.sequence_ = sequence_;
+        result.sourcePort_ = sourcePort_;
+        result.sourceChannel_ = sourceChannel_;
+        result.destinationPort_ = destinationPort_;
+        result.destinationChannel_ = destinationChannel_;
+        result.data_ = data_;
+        if (timeoutHeightBuilder_ == null) {
+          result.timeoutHeight_ = timeoutHeight_;
+        } else {
+          result.timeoutHeight_ = timeoutHeightBuilder_.build();
+        }
+        result.timeoutTimestamp_ = timeoutTimestamp_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.ChannelOuterClass.Packet result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.sequence_ = sequence_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.sourcePort_ = sourcePort_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.sourceChannel_ = sourceChannel_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.destinationPort_ = destinationPort_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.destinationChannel_ = destinationChannel_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.data_ = data_;
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.timeoutHeight_ = timeoutHeightBuilder_ == null
-              ? timeoutHeight_
-              : timeoutHeightBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.timeoutTimestamp_ = timeoutTimestamp_;
-        }
       }
 
       @java.lang.Override
@@ -5226,22 +5391,18 @@ public final class ChannelOuterClass {
         }
         if (!other.getSourcePort().isEmpty()) {
           sourcePort_ = other.sourcePort_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getSourceChannel().isEmpty()) {
           sourceChannel_ = other.sourceChannel_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getDestinationPort().isEmpty()) {
           destinationPort_ = other.destinationPort_;
-          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getDestinationChannel().isEmpty()) {
           destinationChannel_ = other.destinationChannel_;
-          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
@@ -5253,7 +5414,7 @@ public final class ChannelOuterClass {
         if (other.getTimeoutTimestamp() != 0L) {
           setTimeoutTimestamp(other.getTimeoutTimestamp());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5268,75 +5429,19 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.ChannelOuterClass.Packet parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                sequence_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                sourcePort_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                sourceChannel_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                destinationPort_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 42: {
-                destinationChannel_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              case 50: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 50
-              case 58: {
-                input.readMessage(
-                    getTimeoutHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 58
-              case 64: {
-                timeoutTimestamp_ = input.readUInt64();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 64
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.ChannelOuterClass.Packet) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long sequence_ ;
       /**
@@ -5367,7 +5472,6 @@ public final class ChannelOuterClass {
       public Builder setSequence(long value) {
         
         sequence_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5382,7 +5486,7 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         sequence_ = 0L;
         onChanged();
         return this;
@@ -5441,9 +5545,11 @@ public final class ChannelOuterClass {
        */
       public Builder setSourcePort(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         sourcePort_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5456,8 +5562,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSourcePort() {
+        
         sourcePort_ = getDefaultInstance().getSourcePort();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5472,10 +5578,12 @@ public final class ChannelOuterClass {
        */
       public Builder setSourcePortBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         sourcePort_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5533,9 +5641,11 @@ public final class ChannelOuterClass {
        */
       public Builder setSourceChannel(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         sourceChannel_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5548,8 +5658,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSourceChannel() {
+        
         sourceChannel_ = getDefaultInstance().getSourceChannel();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -5564,10 +5674,12 @@ public final class ChannelOuterClass {
        */
       public Builder setSourceChannelBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         sourceChannel_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5625,9 +5737,11 @@ public final class ChannelOuterClass {
        */
       public Builder setDestinationPort(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         destinationPort_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5640,8 +5754,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDestinationPort() {
+        
         destinationPort_ = getDefaultInstance().getDestinationPort();
-        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -5656,10 +5770,12 @@ public final class ChannelOuterClass {
        */
       public Builder setDestinationPortBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         destinationPort_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5717,9 +5833,11 @@ public final class ChannelOuterClass {
        */
       public Builder setDestinationChannel(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         destinationChannel_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -5732,8 +5850,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearDestinationChannel() {
+        
         destinationChannel_ = getDefaultInstance().getDestinationChannel();
-        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -5748,10 +5866,12 @@ public final class ChannelOuterClass {
        */
       public Builder setDestinationChannelBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         destinationChannel_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -5779,9 +5899,11 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -5794,7 +5916,7 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -5812,7 +5934,7 @@ public final class ChannelOuterClass {
        * @return Whether the timeoutHeight field is set.
        */
       public boolean hasTimeoutHeight() {
-        return ((bitField0_ & 0x00000040) != 0);
+        return timeoutHeightBuilder_ != null || timeoutHeight_ != null;
       }
       /**
        * <pre>
@@ -5842,11 +5964,11 @@ public final class ChannelOuterClass {
             throw new NullPointerException();
           }
           timeoutHeight_ = value;
+          onChanged();
         } else {
           timeoutHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000040;
-        onChanged();
+
         return this;
       }
       /**
@@ -5860,11 +5982,11 @@ public final class ChannelOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (timeoutHeightBuilder_ == null) {
           timeoutHeight_ = builderForValue.build();
+          onChanged();
         } else {
           timeoutHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000040;
-        onChanged();
+
         return this;
       }
       /**
@@ -5876,18 +5998,17 @@ public final class ChannelOuterClass {
        */
       public Builder mergeTimeoutHeight(ibc.core.client.v1.Client.Height value) {
         if (timeoutHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) != 0) &&
-            timeoutHeight_ != null &&
-            timeoutHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getTimeoutHeightBuilder().mergeFrom(value);
+          if (timeoutHeight_ != null) {
+            timeoutHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(timeoutHeight_).mergeFrom(value).buildPartial();
           } else {
             timeoutHeight_ = value;
           }
+          onChanged();
         } else {
           timeoutHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000040;
-        onChanged();
+
         return this;
       }
       /**
@@ -5898,13 +6019,14 @@ public final class ChannelOuterClass {
        * <code>.ibc.core.client.v1.Height timeout_height = 7 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"timeout_height&#92;""];</code>
        */
       public Builder clearTimeoutHeight() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        timeoutHeight_ = null;
-        if (timeoutHeightBuilder_ != null) {
-          timeoutHeightBuilder_.dispose();
+        if (timeoutHeightBuilder_ == null) {
+          timeoutHeight_ = null;
+          onChanged();
+        } else {
+          timeoutHeight_ = null;
           timeoutHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -5915,7 +6037,7 @@ public final class ChannelOuterClass {
        * <code>.ibc.core.client.v1.Height timeout_height = 7 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"timeout_height&#92;""];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getTimeoutHeightBuilder() {
-        bitField0_ |= 0x00000040;
+        
         onChanged();
         return getTimeoutHeightFieldBuilder().getBuilder();
       }
@@ -5980,7 +6102,6 @@ public final class ChannelOuterClass {
       public Builder setTimeoutTimestamp(long value) {
         
         timeoutTimestamp_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -5993,7 +6114,7 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTimeoutTimestamp() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        
         timeoutTimestamp_ = 0L;
         onChanged();
         return this;
@@ -6031,18 +6152,7 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Packet(input, extensionRegistry);
       }
     };
 
@@ -6163,6 +6273,65 @@ public final class ChannelOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private PacketState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            case 24: {
+
+              sequence_ = input.readUInt64();
+              break;
+            }
+            case 34: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.ChannelOuterClass.internal_static_ibc_core_channel_v1_PacketState_descriptor;
@@ -6177,8 +6346,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * channel port identifier.
@@ -6224,8 +6392,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier.
@@ -6271,7 +6438,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 3;
-    private long sequence_ = 0L;
+    private long sequence_;
     /**
      * <pre>
      * packet sequence.
@@ -6286,7 +6453,7 @@ public final class ChannelOuterClass {
     }
 
     public static final int DATA_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_;
     /**
      * <pre>
      * embedded data that represents packet state.
@@ -6314,10 +6481,10 @@ public final class ChannelOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
       if (sequence_ != 0L) {
@@ -6326,7 +6493,7 @@ public final class ChannelOuterClass {
       if (!data_.isEmpty()) {
         output.writeBytes(4, data_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -6335,10 +6502,10 @@ public final class ChannelOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
       if (sequence_ != 0L) {
@@ -6349,7 +6516,7 @@ public final class ChannelOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, data_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6372,7 +6539,7 @@ public final class ChannelOuterClass {
           != other.getSequence()) return false;
       if (!getData()
           .equals(other.getData())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -6392,7 +6559,7 @@ public final class ChannelOuterClass {
           getSequence());
       hash = (37 * hash) + DATA_FIELD_NUMBER;
       hash = (53 * hash) + getData().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6516,22 +6683,30 @@ public final class ChannelOuterClass {
 
       // Construct using ibc.core.channel.v1.ChannelOuterClass.PacketState.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
+
         sequence_ = 0L;
+
         data_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -6558,25 +6733,12 @@ public final class ChannelOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.ChannelOuterClass.PacketState buildPartial() {
         ibc.core.channel.v1.ChannelOuterClass.PacketState result = new ibc.core.channel.v1.ChannelOuterClass.PacketState(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
+        result.sequence_ = sequence_;
+        result.data_ = data_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.ChannelOuterClass.PacketState result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.sequence_ = sequence_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.data_ = data_;
-        }
       }
 
       @java.lang.Override
@@ -6625,12 +6787,10 @@ public final class ChannelOuterClass {
         if (other == ibc.core.channel.v1.ChannelOuterClass.PacketState.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getSequence() != 0L) {
@@ -6639,7 +6799,7 @@ public final class ChannelOuterClass {
         if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
           setData(other.getData());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6654,53 +6814,19 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.ChannelOuterClass.PacketState parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                sequence_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 34: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.ChannelOuterClass.PacketState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object portId_ = "";
       /**
@@ -6755,9 +6881,11 @@ public final class ChannelOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6770,8 +6898,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -6786,10 +6914,12 @@ public final class ChannelOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6847,9 +6977,11 @@ public final class ChannelOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6862,8 +6994,8 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -6878,10 +7010,12 @@ public final class ChannelOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6911,7 +7045,6 @@ public final class ChannelOuterClass {
       public Builder setSequence(long value) {
         
         sequence_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6924,7 +7057,7 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         sequence_ = 0L;
         onChanged();
         return this;
@@ -6953,9 +7086,11 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -6968,7 +7103,7 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -7006,18 +7141,7 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PacketState(input, extensionRegistry);
       }
     };
 
@@ -7107,6 +7231,54 @@ public final class ChannelOuterClass {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private Acknowledgement(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 170: {
+              responseCase_ = 21;
+              response_ = input.readBytes();
+              break;
+            }
+            case 178: {
+              java.lang.String s = input.readStringRequireUtf8();
+              responseCase_ = 22;
+              response_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -7256,7 +7428,7 @@ public final class ChannelOuterClass {
       if (responseCase_ == 22) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 22, response_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -7273,7 +7445,7 @@ public final class ChannelOuterClass {
       if (responseCase_ == 22) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, response_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7301,7 +7473,7 @@ public final class ChannelOuterClass {
         case 0:
         default:
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -7324,7 +7496,7 @@ public final class ChannelOuterClass {
         case 0:
         default:
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7451,18 +7623,22 @@ public final class ChannelOuterClass {
 
       // Construct using ibc.core.channel.v1.ChannelOuterClass.Acknowledgement.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         responseCase_ = 0;
         response_ = null;
         return this;
@@ -7491,19 +7667,15 @@ public final class ChannelOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.ChannelOuterClass.Acknowledgement buildPartial() {
         ibc.core.channel.v1.ChannelOuterClass.Acknowledgement result = new ibc.core.channel.v1.ChannelOuterClass.Acknowledgement(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        buildPartialOneofs(result);
+        if (responseCase_ == 21) {
+          result.response_ = response_;
+        }
+        if (responseCase_ == 22) {
+          result.response_ = response_;
+        }
+        result.responseCase_ = responseCase_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.ChannelOuterClass.Acknowledgement result) {
-        int from_bitField0_ = bitField0_;
-      }
-
-      private void buildPartialOneofs(ibc.core.channel.v1.ChannelOuterClass.Acknowledgement result) {
-        result.responseCase_ = responseCase_;
-        result.response_ = this.response_;
       }
 
       @java.lang.Override
@@ -7565,7 +7737,7 @@ public final class ChannelOuterClass {
             break;
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -7580,41 +7752,17 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.ChannelOuterClass.Acknowledgement parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 170: {
-                response_ = input.readBytes();
-                responseCase_ = 21;
-                break;
-              } // case 170
-              case 178: {
-                java.lang.String s = input.readStringRequireUtf8();
-                responseCase_ = 22;
-                response_ = s;
-                break;
-              } // case 178
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.ChannelOuterClass.Acknowledgement) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int responseCase_ = 0;
@@ -7632,7 +7780,6 @@ public final class ChannelOuterClass {
         return this;
       }
 
-      private int bitField0_;
 
       /**
        * <code>bytes result = 21;</code>
@@ -7657,8 +7804,10 @@ public final class ChannelOuterClass {
        * @return This builder for chaining.
        */
       public Builder setResult(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        responseCase_ = 21;
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  responseCase_ = 21;
         response_ = value;
         onChanged();
         return this;
@@ -7736,8 +7885,10 @@ public final class ChannelOuterClass {
        */
       public Builder setError(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        responseCase_ = 22;
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  responseCase_ = 22;
         response_ = value;
         onChanged();
         return this;
@@ -7761,8 +7912,10 @@ public final class ChannelOuterClass {
        */
       public Builder setErrorBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         responseCase_ = 22;
         response_ = value;
         onChanged();
@@ -7801,18 +7954,7 @@ public final class ChannelOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Acknowledgement(input, extensionRegistry);
       }
     };
 

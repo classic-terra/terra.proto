@@ -28,25 +28,25 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for cosmos.slashing.v1beta1.Query.
  */
-public object QueryGrpcKt {
-  public const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
+object QueryGrpcKt {
+  const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = QueryGrpc.getServiceDescriptor()
 
-  public val paramsMethod:
-      MethodDescriptor<QueryOuterClass.QueryParamsRequest, QueryOuterClass.QueryParamsResponse>
+  val paramsMethod: MethodDescriptor<QueryOuterClass.QueryParamsRequest,
+      QueryOuterClass.QueryParamsResponse>
     @JvmStatic
     get() = QueryGrpc.getParamsMethod()
 
-  public val signingInfoMethod:
-      MethodDescriptor<QueryOuterClass.QuerySigningInfoRequest, QueryOuterClass.QuerySigningInfoResponse>
+  val signingInfoMethod: MethodDescriptor<QueryOuterClass.QuerySigningInfoRequest,
+      QueryOuterClass.QuerySigningInfoResponse>
     @JvmStatic
     get() = QueryGrpc.getSigningInfoMethod()
 
-  public val signingInfosMethod:
-      MethodDescriptor<QueryOuterClass.QuerySigningInfosRequest, QueryOuterClass.QuerySigningInfosResponse>
+  val signingInfosMethod: MethodDescriptor<QueryOuterClass.QuerySigningInfosRequest,
+      QueryOuterClass.QuerySigningInfosResponse>
     @JvmStatic
     get() = QueryGrpc.getSigningInfosMethod()
 
@@ -54,11 +54,11 @@ public object QueryGrpcKt {
    * A stub for issuing RPCs to a(n) cosmos.slashing.v1beta1.Query service as suspending coroutines.
    */
   @StubFor(QueryGrpc::class)
-  public class QueryCoroutineStub @JvmOverloads constructor(
+  class QueryCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<QueryCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
         QueryCoroutineStub(channel, callOptions)
 
     /**
@@ -69,19 +69,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun params(request: QueryOuterClass.QueryParamsRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryParamsResponse = unaryRpc(
+    suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+        QueryOuterClass.QueryParamsResponse = unaryRpc(
       channel,
       QueryGrpc.getParamsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -90,19 +87,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun signingInfo(request: QueryOuterClass.QuerySigningInfoRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QuerySigningInfoResponse = unaryRpc(
+    suspend fun signingInfo(request: QueryOuterClass.QuerySigningInfoRequest):
+        QueryOuterClass.QuerySigningInfoResponse = unaryRpc(
       channel,
       QueryGrpc.getSigningInfoMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -111,26 +105,23 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun signingInfos(request: QueryOuterClass.QuerySigningInfosRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QuerySigningInfosResponse = unaryRpc(
+    suspend fun signingInfos(request: QueryOuterClass.QuerySigningInfosRequest):
+        QueryOuterClass.QuerySigningInfosResponse = unaryRpc(
       channel,
       QueryGrpc.getSigningInfosMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.slashing.v1beta1.Query service based on Kotlin
    * coroutines.
    */
-  public abstract class QueryCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class QueryCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for cosmos.slashing.v1beta1.Query.Params.
@@ -143,7 +134,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+    open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
         QueryOuterClass.QueryParamsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.slashing.v1beta1.Query.Params is unimplemented"))
 
@@ -158,7 +149,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun signingInfo(request: QueryOuterClass.QuerySigningInfoRequest):
+    open suspend fun signingInfo(request: QueryOuterClass.QuerySigningInfoRequest):
         QueryOuterClass.QuerySigningInfoResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.slashing.v1beta1.Query.SigningInfo is unimplemented"))
 
@@ -173,12 +164,11 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun signingInfos(request: QueryOuterClass.QuerySigningInfosRequest):
+    open suspend fun signingInfos(request: QueryOuterClass.QuerySigningInfosRequest):
         QueryOuterClass.QuerySigningInfosResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.slashing.v1beta1.Query.SigningInfos is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = QueryGrpc.getParamsMethod(),

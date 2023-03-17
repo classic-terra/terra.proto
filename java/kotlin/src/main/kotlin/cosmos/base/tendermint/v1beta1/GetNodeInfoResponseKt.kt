@@ -3,16 +3,16 @@
 
 package cosmos.base.tendermint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegetNodeInfoResponse")
-public inline fun getNodeInfoResponse(block: cosmos.base.tendermint.v1beta1.GetNodeInfoResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun getNodeInfoResponse(block: cosmos.base.tendermint.v1beta1.GetNodeInfoResponseKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponse =
   cosmos.base.tendermint.v1beta1.GetNodeInfoResponseKt.Dsl._create(cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponse.newBuilder()).apply { block() }._build()
-public object GetNodeInfoResponseKt {
+object GetNodeInfoResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object GetNodeInfoResponseKt {
     /**
      * <code>.tendermint.p2p.DefaultNodeInfo default_node_info = 1;</code>
      */
-    public var defaultNodeInfo: tendermint.p2p.Types.DefaultNodeInfo
+    var defaultNodeInfo: tendermint.p2p.Types.DefaultNodeInfo
       @JvmName("getDefaultNodeInfo")
       get() = _builder.getDefaultNodeInfo()
       @JvmName("setDefaultNodeInfo")
@@ -35,21 +35,21 @@ public object GetNodeInfoResponseKt {
     /**
      * <code>.tendermint.p2p.DefaultNodeInfo default_node_info = 1;</code>
      */
-    public fun clearDefaultNodeInfo() {
+    fun clearDefaultNodeInfo() {
       _builder.clearDefaultNodeInfo()
     }
     /**
      * <code>.tendermint.p2p.DefaultNodeInfo default_node_info = 1;</code>
      * @return Whether the defaultNodeInfo field is set.
      */
-    public fun hasDefaultNodeInfo(): kotlin.Boolean {
+    fun hasDefaultNodeInfo(): kotlin.Boolean {
       return _builder.hasDefaultNodeInfo()
     }
 
     /**
      * <code>.cosmos.base.tendermint.v1beta1.VersionInfo application_version = 2;</code>
      */
-    public var applicationVersion: cosmos.base.tendermint.v1beta1.Query.VersionInfo
+    var applicationVersion: cosmos.base.tendermint.v1beta1.Query.VersionInfo
       @JvmName("getApplicationVersion")
       get() = _builder.getApplicationVersion()
       @JvmName("setApplicationVersion")
@@ -59,25 +59,18 @@ public object GetNodeInfoResponseKt {
     /**
      * <code>.cosmos.base.tendermint.v1beta1.VersionInfo application_version = 2;</code>
      */
-    public fun clearApplicationVersion() {
+    fun clearApplicationVersion() {
       _builder.clearApplicationVersion()
     }
     /**
      * <code>.cosmos.base.tendermint.v1beta1.VersionInfo application_version = 2;</code>
      * @return Whether the applicationVersion field is set.
      */
-    public fun hasApplicationVersion(): kotlin.Boolean {
+    fun hasApplicationVersion(): kotlin.Boolean {
       return _builder.hasApplicationVersion()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponse.copy(block: cosmos.base.tendermint.v1beta1.GetNodeInfoResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponse =
+inline fun cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponse.copy(block: cosmos.base.tendermint.v1beta1.GetNodeInfoResponseKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponse =
   cosmos.base.tendermint.v1beta1.GetNodeInfoResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponseOrBuilder.defaultNodeInfoOrNull: tendermint.p2p.Types.DefaultNodeInfo?
-  get() = if (hasDefaultNodeInfo()) getDefaultNodeInfo() else null
-
-public val cosmos.base.tendermint.v1beta1.Query.GetNodeInfoResponseOrBuilder.applicationVersionOrNull: cosmos.base.tendermint.v1beta1.Query.VersionInfo?
-  get() = if (hasApplicationVersion()) getApplicationVersion() else null
-

@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgVoteWeighted")
-public inline fun msgVoteWeighted(block: cosmos.gov.v1beta1.MsgVoteWeightedKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Tx.MsgVoteWeighted =
+@kotlin.jvm.JvmSynthetic
+inline fun msgVoteWeighted(block: cosmos.gov.v1beta1.MsgVoteWeightedKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Tx.MsgVoteWeighted =
   cosmos.gov.v1beta1.MsgVoteWeightedKt.Dsl._create(cosmos.gov.v1beta1.Tx.MsgVoteWeighted.newBuilder()).apply { block() }._build()
-public object MsgVoteWeightedKt {
+object MsgVoteWeightedKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.Tx.MsgVoteWeighted.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.Tx.MsgVoteWeighted.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.Tx.MsgVoteWeighted.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgVoteWeightedKt {
     /**
      * <code>uint64 proposal_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"proposal_id&#92;""];</code>
      */
-    public var proposalId: kotlin.Long
+    var proposalId: kotlin.Long
       @JvmName("getProposalId")
       get() = _builder.getProposalId()
       @JvmName("setProposalId")
@@ -35,14 +35,14 @@ public object MsgVoteWeightedKt {
     /**
      * <code>uint64 proposal_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"proposal_id&#92;""];</code>
      */
-    public fun clearProposalId() {
+    fun clearProposalId() {
       _builder.clearProposalId()
     }
 
     /**
      * <code>string voter = 2;</code>
      */
-    public var voter: kotlin.String
+    var voter: kotlin.String
       @JvmName("getVoter")
       get() = _builder.getVoter()
       @JvmName("setVoter")
@@ -52,7 +52,7 @@ public object MsgVoteWeightedKt {
     /**
      * <code>string voter = 2;</code>
      */
-    public fun clearVoter() {
+    fun clearVoter() {
       _builder.clearVoter()
     }
 
@@ -61,11 +61,11 @@ public object MsgVoteWeightedKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class OptionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class OptionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .cosmos.gov.v1beta1.WeightedVoteOption options = 3 [(.gogoproto.nullable) = false];</code>
      */
-     public val options: com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>
+     val options: com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getOptionsList()
@@ -76,60 +76,50 @@ public object MsgVoteWeightedKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addOptions")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.add(value: cosmos.gov.v1beta1.Gov.WeightedVoteOption) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.add(value: cosmos.gov.v1beta1.Gov.WeightedVoteOption) {
       _builder.addOptions(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.gov.v1beta1.WeightedVoteOption options = 3 [(.gogoproto.nullable) = false];</code>
      * @param value The options to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignOptions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.plusAssign(value: cosmos.gov.v1beta1.Gov.WeightedVoteOption) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.plusAssign(value: cosmos.gov.v1beta1.Gov.WeightedVoteOption) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.gov.v1beta1.WeightedVoteOption options = 3 [(.gogoproto.nullable) = false];</code>
      * @param values The options to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllOptions")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.gov.v1beta1.Gov.WeightedVoteOption>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.gov.v1beta1.Gov.WeightedVoteOption>) {
       _builder.addAllOptions(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.gov.v1beta1.WeightedVoteOption options = 3 [(.gogoproto.nullable) = false];</code>
      * @param values The options to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllOptions")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.gov.v1beta1.Gov.WeightedVoteOption>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.gov.v1beta1.Gov.WeightedVoteOption>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.gov.v1beta1.WeightedVoteOption options = 3 [(.gogoproto.nullable) = false];</code>
      * @param index The index to set the value at.
      * @param value The options to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setOptions")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.set(index: kotlin.Int, value: cosmos.gov.v1beta1.Gov.WeightedVoteOption) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.set(index: kotlin.Int, value: cosmos.gov.v1beta1.Gov.WeightedVoteOption) {
       _builder.setOptions(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.gov.v1beta1.WeightedVoteOption options = 3 [(.gogoproto.nullable) = false];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearOptions")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.gov.v1beta1.Gov.WeightedVoteOption, OptionsProxy>.clear() {
       _builder.clearOptions()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.Tx.MsgVoteWeighted.copy(block: cosmos.gov.v1beta1.MsgVoteWeightedKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Tx.MsgVoteWeighted =
+inline fun cosmos.gov.v1beta1.Tx.MsgVoteWeighted.copy(block: cosmos.gov.v1beta1.MsgVoteWeightedKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Tx.MsgVoteWeighted =
   cosmos.gov.v1beta1.MsgVoteWeightedKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

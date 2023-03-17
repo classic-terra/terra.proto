@@ -1,4 +1,4 @@
-all: proto-gen
+all: proto-gen format
 
 proto-gen: 
 	@echo "Generating Protobuf files"

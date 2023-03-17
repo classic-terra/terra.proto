@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializevalidator")
-public inline fun validator(block: tendermint.abci.ValidatorKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.Validator =
+@kotlin.jvm.JvmSynthetic
+inline fun validator(block: tendermint.abci.ValidatorKt.Dsl.() -> Unit): tendermint.abci.Types.Validator =
   tendermint.abci.ValidatorKt.Dsl._create(tendermint.abci.Types.Validator.newBuilder()).apply { block() }._build()
-public object ValidatorKt {
+object ValidatorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.Validator.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.Validator.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.Validator.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ValidatorKt {
      *
      * <code>bytes address = 1;</code>
      */
-    public var address: com.google.protobuf.ByteString
+    var address: com.google.protobuf.ByteString
       @JvmName("getAddress")
       get() = _builder.getAddress()
       @JvmName("setAddress")
@@ -43,7 +43,7 @@ public object ValidatorKt {
      *
      * <code>bytes address = 1;</code>
      */
-    public fun clearAddress() {
+    fun clearAddress() {
       _builder.clearAddress()
     }
 
@@ -54,7 +54,7 @@ public object ValidatorKt {
      *
      * <code>int64 power = 3;</code>
      */
-    public var power: kotlin.Long
+    var power: kotlin.Long
       @JvmName("getPower")
       get() = _builder.getPower()
       @JvmName("setPower")
@@ -68,12 +68,11 @@ public object ValidatorKt {
      *
      * <code>int64 power = 3;</code>
      */
-    public fun clearPower() {
+    fun clearPower() {
       _builder.clearPower()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.Validator.copy(block: tendermint.abci.ValidatorKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.Validator =
+inline fun tendermint.abci.Types.Validator.copy(block: tendermint.abci.ValidatorKt.Dsl.() -> Unit): tendermint.abci.Types.Validator =
   tendermint.abci.ValidatorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

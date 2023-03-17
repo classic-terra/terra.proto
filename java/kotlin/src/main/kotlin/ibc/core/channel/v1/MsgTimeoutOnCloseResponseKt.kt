@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializemsgTimeoutOnCloseResponse")
-public inline fun msgTimeoutOnCloseResponse(block: ibc.core.channel.v1.MsgTimeoutOnCloseResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgTimeoutOnCloseResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgTimeoutOnCloseResponse(block: ibc.core.channel.v1.MsgTimeoutOnCloseResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgTimeoutOnCloseResponse =
   ibc.core.channel.v1.MsgTimeoutOnCloseResponseKt.Dsl._create(ibc.core.channel.v1.Tx.MsgTimeoutOnCloseResponse.newBuilder()).apply { block() }._build()
-public object MsgTimeoutOnCloseResponseKt {
+object MsgTimeoutOnCloseResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.Tx.MsgTimeoutOnCloseResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.Tx.MsgTimeoutOnCloseResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.Tx.MsgTimeoutOnCloseResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgTimeoutOnCloseResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.Tx.MsgTimeoutOnCloseResponse.copy(block: ibc.core.channel.v1.MsgTimeoutOnCloseResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgTimeoutOnCloseResponse =
+inline fun ibc.core.channel.v1.Tx.MsgTimeoutOnCloseResponse.copy(block: ibc.core.channel.v1.MsgTimeoutOnCloseResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgTimeoutOnCloseResponse =
   ibc.core.channel.v1.MsgTimeoutOnCloseResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

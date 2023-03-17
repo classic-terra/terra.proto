@@ -28,22 +28,22 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for cosmos.authz.v1beta1.Msg.
  */
-public object MsgGrpcKt {
-  public const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
+object MsgGrpcKt {
+  const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = MsgGrpc.getServiceDescriptor()
 
-  public val grantMethod: MethodDescriptor<Tx.MsgGrant, Tx.MsgGrantResponse>
+  val grantMethod: MethodDescriptor<Tx.MsgGrant, Tx.MsgGrantResponse>
     @JvmStatic
     get() = MsgGrpc.getGrantMethod()
 
-  public val execMethod: MethodDescriptor<Tx.MsgExec, Tx.MsgExecResponse>
+  val execMethod: MethodDescriptor<Tx.MsgExec, Tx.MsgExecResponse>
     @JvmStatic
     get() = MsgGrpc.getExecMethod()
 
-  public val revokeMethod: MethodDescriptor<Tx.MsgRevoke, Tx.MsgRevokeResponse>
+  val revokeMethod: MethodDescriptor<Tx.MsgRevoke, Tx.MsgRevokeResponse>
     @JvmStatic
     get() = MsgGrpc.getRevokeMethod()
 
@@ -51,11 +51,11 @@ public object MsgGrpcKt {
    * A stub for issuing RPCs to a(n) cosmos.authz.v1beta1.Msg service as suspending coroutines.
    */
   @StubFor(MsgGrpc::class)
-  public class MsgCoroutineStub @JvmOverloads constructor(
+  class MsgCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<MsgCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
         MsgCoroutineStub(channel, callOptions)
 
     /**
@@ -66,19 +66,15 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun grant(request: Tx.MsgGrant, headers: Metadata = Metadata()):
-        Tx.MsgGrantResponse = unaryRpc(
+    suspend fun grant(request: Tx.MsgGrant): Tx.MsgGrantResponse = unaryRpc(
       channel,
       MsgGrpc.getGrantMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -87,19 +83,15 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun exec(request: Tx.MsgExec, headers: Metadata = Metadata()): Tx.MsgExecResponse
-        = unaryRpc(
+    suspend fun exec(request: Tx.MsgExec): Tx.MsgExecResponse = unaryRpc(
       channel,
       MsgGrpc.getExecMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -108,25 +100,21 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun revoke(request: Tx.MsgRevoke, headers: Metadata = Metadata()):
-        Tx.MsgRevokeResponse = unaryRpc(
+    suspend fun revoke(request: Tx.MsgRevoke): Tx.MsgRevokeResponse = unaryRpc(
       channel,
       MsgGrpc.getRevokeMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.authz.v1beta1.Msg service based on Kotlin coroutines.
    */
-  public abstract class MsgCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class MsgCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for cosmos.authz.v1beta1.Msg.Grant.
@@ -139,7 +127,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun grant(request: Tx.MsgGrant): Tx.MsgGrantResponse = throw
+    open suspend fun grant(request: Tx.MsgGrant): Tx.MsgGrantResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.authz.v1beta1.Msg.Grant is unimplemented"))
 
     /**
@@ -153,7 +141,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun exec(request: Tx.MsgExec): Tx.MsgExecResponse = throw
+    open suspend fun exec(request: Tx.MsgExec): Tx.MsgExecResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.authz.v1beta1.Msg.Exec is unimplemented"))
 
     /**
@@ -167,11 +155,10 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun revoke(request: Tx.MsgRevoke): Tx.MsgRevokeResponse = throw
+    open suspend fun revoke(request: Tx.MsgRevoke): Tx.MsgRevokeResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.authz.v1beta1.Msg.Revoke is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = MsgGrpc.getGrantMethod(),

@@ -3,16 +3,16 @@
 
 package cosmos.base.abci.v1beta1;
 
-@kotlin.jvm.JvmName("-initializesimulationResponse")
-public inline fun simulationResponse(block: cosmos.base.abci.v1beta1.SimulationResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.abci.v1beta1.Abci.SimulationResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun simulationResponse(block: cosmos.base.abci.v1beta1.SimulationResponseKt.Dsl.() -> Unit): cosmos.base.abci.v1beta1.Abci.SimulationResponse =
   cosmos.base.abci.v1beta1.SimulationResponseKt.Dsl._create(cosmos.base.abci.v1beta1.Abci.SimulationResponse.newBuilder()).apply { block() }._build()
-public object SimulationResponseKt {
+object SimulationResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.abci.v1beta1.Abci.SimulationResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.abci.v1beta1.Abci.SimulationResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.abci.v1beta1.Abci.SimulationResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object SimulationResponseKt {
     /**
      * <code>.cosmos.base.abci.v1beta1.GasInfo gas_info = 1 [(.gogoproto.nullable) = false, (.gogoproto.embed) = true];</code>
      */
-    public var gasInfo: cosmos.base.abci.v1beta1.Abci.GasInfo
+    var gasInfo: cosmos.base.abci.v1beta1.Abci.GasInfo
       @JvmName("getGasInfo")
       get() = _builder.getGasInfo()
       @JvmName("setGasInfo")
@@ -35,21 +35,21 @@ public object SimulationResponseKt {
     /**
      * <code>.cosmos.base.abci.v1beta1.GasInfo gas_info = 1 [(.gogoproto.nullable) = false, (.gogoproto.embed) = true];</code>
      */
-    public fun clearGasInfo() {
+    fun clearGasInfo() {
       _builder.clearGasInfo()
     }
     /**
      * <code>.cosmos.base.abci.v1beta1.GasInfo gas_info = 1 [(.gogoproto.nullable) = false, (.gogoproto.embed) = true];</code>
      * @return Whether the gasInfo field is set.
      */
-    public fun hasGasInfo(): kotlin.Boolean {
+    fun hasGasInfo(): kotlin.Boolean {
       return _builder.hasGasInfo()
     }
 
     /**
      * <code>.cosmos.base.abci.v1beta1.Result result = 2;</code>
      */
-    public var result: cosmos.base.abci.v1beta1.Abci.Result
+    var result: cosmos.base.abci.v1beta1.Abci.Result
       @JvmName("getResult")
       get() = _builder.getResult()
       @JvmName("setResult")
@@ -59,25 +59,18 @@ public object SimulationResponseKt {
     /**
      * <code>.cosmos.base.abci.v1beta1.Result result = 2;</code>
      */
-    public fun clearResult() {
+    fun clearResult() {
       _builder.clearResult()
     }
     /**
      * <code>.cosmos.base.abci.v1beta1.Result result = 2;</code>
      * @return Whether the result field is set.
      */
-    public fun hasResult(): kotlin.Boolean {
+    fun hasResult(): kotlin.Boolean {
       return _builder.hasResult()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.abci.v1beta1.Abci.SimulationResponse.copy(block: cosmos.base.abci.v1beta1.SimulationResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.abci.v1beta1.Abci.SimulationResponse =
+inline fun cosmos.base.abci.v1beta1.Abci.SimulationResponse.copy(block: cosmos.base.abci.v1beta1.SimulationResponseKt.Dsl.() -> Unit): cosmos.base.abci.v1beta1.Abci.SimulationResponse =
   cosmos.base.abci.v1beta1.SimulationResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.abci.v1beta1.Abci.SimulationResponseOrBuilder.gasInfoOrNull: cosmos.base.abci.v1beta1.Abci.GasInfo?
-  get() = if (hasGasInfo()) getGasInfo() else null
-
-public val cosmos.base.abci.v1beta1.Abci.SimulationResponseOrBuilder.resultOrNull: cosmos.base.abci.v1beta1.Abci.Result?
-  get() = if (hasResult()) getResult() else null
-

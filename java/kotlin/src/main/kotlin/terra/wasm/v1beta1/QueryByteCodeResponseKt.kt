@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryByteCodeResponse")
-public inline fun queryByteCodeResponse(block: terra.wasm.v1beta1.QueryByteCodeResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryByteCodeResponse(block: terra.wasm.v1beta1.QueryByteCodeResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse =
   terra.wasm.v1beta1.QueryByteCodeResponseKt.Dsl._create(terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse.newBuilder()).apply { block() }._build()
-public object QueryByteCodeResponseKt {
+object QueryByteCodeResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryByteCodeResponseKt {
     /**
      * <code>bytes byte_code = 1;</code>
      */
-    public var byteCode: com.google.protobuf.ByteString
+    var byteCode: com.google.protobuf.ByteString
       @JvmName("getByteCode")
       get() = _builder.getByteCode()
       @JvmName("setByteCode")
@@ -35,12 +35,11 @@ public object QueryByteCodeResponseKt {
     /**
      * <code>bytes byte_code = 1;</code>
      */
-    public fun clearByteCode() {
+    fun clearByteCode() {
       _builder.clearByteCode()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse.copy(block: terra.wasm.v1beta1.QueryByteCodeResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse =
+inline fun terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse.copy(block: terra.wasm.v1beta1.QueryByteCodeResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryByteCodeResponse =
   terra.wasm.v1beta1.QueryByteCodeResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

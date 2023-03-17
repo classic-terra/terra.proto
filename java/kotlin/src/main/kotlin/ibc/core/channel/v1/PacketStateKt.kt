@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializepacketState")
-public inline fun packetState(block: ibc.core.channel.v1.PacketStateKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.ChannelOuterClass.PacketState =
+@kotlin.jvm.JvmSynthetic
+inline fun packetState(block: ibc.core.channel.v1.PacketStateKt.Dsl.() -> Unit): ibc.core.channel.v1.ChannelOuterClass.PacketState =
   ibc.core.channel.v1.PacketStateKt.Dsl._create(ibc.core.channel.v1.ChannelOuterClass.PacketState.newBuilder()).apply { block() }._build()
-public object PacketStateKt {
+object PacketStateKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.ChannelOuterClass.PacketState.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.ChannelOuterClass.PacketState.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.ChannelOuterClass.PacketState.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object PacketStateKt {
      *
      * <code>string port_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"port_id&#92;""];</code>
      */
-    public var portId: kotlin.String
+    var portId: kotlin.String
       @JvmName("getPortId")
       get() = _builder.getPortId()
       @JvmName("setPortId")
@@ -43,7 +43,7 @@ public object PacketStateKt {
      *
      * <code>string port_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"port_id&#92;""];</code>
      */
-    public fun clearPortId() {
+    fun clearPortId() {
       _builder.clearPortId()
     }
 
@@ -54,7 +54,7 @@ public object PacketStateKt {
      *
      * <code>string channel_id = 2 [(.gogoproto.moretags) = "yaml:&#92;"channel_id&#92;""];</code>
      */
-    public var channelId: kotlin.String
+    var channelId: kotlin.String
       @JvmName("getChannelId")
       get() = _builder.getChannelId()
       @JvmName("setChannelId")
@@ -68,7 +68,7 @@ public object PacketStateKt {
      *
      * <code>string channel_id = 2 [(.gogoproto.moretags) = "yaml:&#92;"channel_id&#92;""];</code>
      */
-    public fun clearChannelId() {
+    fun clearChannelId() {
       _builder.clearChannelId()
     }
 
@@ -79,7 +79,7 @@ public object PacketStateKt {
      *
      * <code>uint64 sequence = 3;</code>
      */
-    public var sequence: kotlin.Long
+    var sequence: kotlin.Long
       @JvmName("getSequence")
       get() = _builder.getSequence()
       @JvmName("setSequence")
@@ -93,7 +93,7 @@ public object PacketStateKt {
      *
      * <code>uint64 sequence = 3;</code>
      */
-    public fun clearSequence() {
+    fun clearSequence() {
       _builder.clearSequence()
     }
 
@@ -104,7 +104,7 @@ public object PacketStateKt {
      *
      * <code>bytes data = 4;</code>
      */
-    public var data: com.google.protobuf.ByteString
+    var data: com.google.protobuf.ByteString
       @JvmName("getData")
       get() = _builder.getData()
       @JvmName("setData")
@@ -118,12 +118,11 @@ public object PacketStateKt {
      *
      * <code>bytes data = 4;</code>
      */
-    public fun clearData() {
+    fun clearData() {
       _builder.clearData()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.ChannelOuterClass.PacketState.copy(block: ibc.core.channel.v1.PacketStateKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.ChannelOuterClass.PacketState =
+inline fun ibc.core.channel.v1.ChannelOuterClass.PacketState.copy(block: ibc.core.channel.v1.PacketStateKt.Dsl.() -> Unit): ibc.core.channel.v1.ChannelOuterClass.PacketState =
   ibc.core.channel.v1.PacketStateKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

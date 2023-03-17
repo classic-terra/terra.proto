@@ -3,16 +3,16 @@
 
 package ibc.applications.transfer.v1;
 
-@kotlin.jvm.JvmName("-initializefungibleTokenPacketData")
-public inline fun fungibleTokenPacketData(block: ibc.applications.transfer.v1.FungibleTokenPacketDataKt.Dsl.() -> kotlin.Unit): ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData =
+@kotlin.jvm.JvmSynthetic
+inline fun fungibleTokenPacketData(block: ibc.applications.transfer.v1.FungibleTokenPacketDataKt.Dsl.() -> Unit): ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData =
   ibc.applications.transfer.v1.FungibleTokenPacketDataKt.Dsl._create(ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData.newBuilder()).apply { block() }._build()
-public object FungibleTokenPacketDataKt {
+object FungibleTokenPacketDataKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object FungibleTokenPacketDataKt {
      *
      * <code>string denom = 1;</code>
      */
-    public var denom: kotlin.String
+    var denom: kotlin.String
       @JvmName("getDenom")
       get() = _builder.getDenom()
       @JvmName("setDenom")
@@ -43,7 +43,7 @@ public object FungibleTokenPacketDataKt {
      *
      * <code>string denom = 1;</code>
      */
-    public fun clearDenom() {
+    fun clearDenom() {
       _builder.clearDenom()
     }
 
@@ -54,7 +54,7 @@ public object FungibleTokenPacketDataKt {
      *
      * <code>uint64 amount = 2;</code>
      */
-    public var amount: kotlin.Long
+    var amount: kotlin.Long
       @JvmName("getAmount")
       get() = _builder.getAmount()
       @JvmName("setAmount")
@@ -68,7 +68,7 @@ public object FungibleTokenPacketDataKt {
      *
      * <code>uint64 amount = 2;</code>
      */
-    public fun clearAmount() {
+    fun clearAmount() {
       _builder.clearAmount()
     }
 
@@ -79,7 +79,7 @@ public object FungibleTokenPacketDataKt {
      *
      * <code>string sender = 3;</code>
      */
-    public var sender: kotlin.String
+    var sender: kotlin.String
       @JvmName("getSender")
       get() = _builder.getSender()
       @JvmName("setSender")
@@ -93,7 +93,7 @@ public object FungibleTokenPacketDataKt {
      *
      * <code>string sender = 3;</code>
      */
-    public fun clearSender() {
+    fun clearSender() {
       _builder.clearSender()
     }
 
@@ -104,7 +104,7 @@ public object FungibleTokenPacketDataKt {
      *
      * <code>string receiver = 4;</code>
      */
-    public var receiver: kotlin.String
+    var receiver: kotlin.String
       @JvmName("getReceiver")
       get() = _builder.getReceiver()
       @JvmName("setReceiver")
@@ -118,12 +118,11 @@ public object FungibleTokenPacketDataKt {
      *
      * <code>string receiver = 4;</code>
      */
-    public fun clearReceiver() {
+    fun clearReceiver() {
       _builder.clearReceiver()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData.copy(block: ibc.applications.transfer.v1.FungibleTokenPacketDataKt.Dsl.() -> kotlin.Unit): ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData =
+inline fun ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData.copy(block: ibc.applications.transfer.v1.FungibleTokenPacketDataKt.Dsl.() -> Unit): ibc.applications.transfer.v1.Transfer.FungibleTokenPacketData =
   ibc.applications.transfer.v1.FungibleTokenPacketDataKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

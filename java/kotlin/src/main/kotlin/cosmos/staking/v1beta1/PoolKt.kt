@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializepool")
-public inline fun pool(block: cosmos.staking.v1beta1.PoolKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Pool =
+@kotlin.jvm.JvmSynthetic
+inline fun pool(block: cosmos.staking.v1beta1.PoolKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Pool =
   cosmos.staking.v1beta1.PoolKt.Dsl._create(cosmos.staking.v1beta1.Staking.Pool.newBuilder()).apply { block() }._build()
-public object PoolKt {
+object PoolKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Staking.Pool.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Staking.Pool.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Staking.Pool.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object PoolKt {
     /**
      * <code>string not_bonded_tokens = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int", (.gogoproto.jsontag) = "not_bonded_tokens"];</code>
      */
-    public var notBondedTokens: kotlin.String
+    var notBondedTokens: kotlin.String
       @JvmName("getNotBondedTokens")
       get() = _builder.getNotBondedTokens()
       @JvmName("setNotBondedTokens")
@@ -35,14 +35,14 @@ public object PoolKt {
     /**
      * <code>string not_bonded_tokens = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int", (.gogoproto.jsontag) = "not_bonded_tokens"];</code>
      */
-    public fun clearNotBondedTokens() {
+    fun clearNotBondedTokens() {
       _builder.clearNotBondedTokens()
     }
 
     /**
      * <code>string bonded_tokens = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int", (.gogoproto.jsontag) = "bonded_tokens", (.gogoproto.moretags) = "yaml:&#92;"bonded_tokens&#92;""];</code>
      */
-    public var bondedTokens: kotlin.String
+    var bondedTokens: kotlin.String
       @JvmName("getBondedTokens")
       get() = _builder.getBondedTokens()
       @JvmName("setBondedTokens")
@@ -52,12 +52,11 @@ public object PoolKt {
     /**
      * <code>string bonded_tokens = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int", (.gogoproto.jsontag) = "bonded_tokens", (.gogoproto.moretags) = "yaml:&#92;"bonded_tokens&#92;""];</code>
      */
-    public fun clearBondedTokens() {
+    fun clearBondedTokens() {
       _builder.clearBondedTokens()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Staking.Pool.copy(block: cosmos.staking.v1beta1.PoolKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Pool =
+inline fun cosmos.staking.v1beta1.Staking.Pool.copy(block: cosmos.staking.v1beta1.PoolKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Pool =
   cosmos.staking.v1beta1.PoolKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

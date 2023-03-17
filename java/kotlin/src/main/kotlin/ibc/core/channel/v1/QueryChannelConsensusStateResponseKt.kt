@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializequeryChannelConsensusStateResponse")
-public inline fun queryChannelConsensusStateResponse(block: ibc.core.channel.v1.QueryChannelConsensusStateResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryChannelConsensusStateResponse(block: ibc.core.channel.v1.QueryChannelConsensusStateResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse =
   ibc.core.channel.v1.QueryChannelConsensusStateResponseKt.Dsl._create(ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse.newBuilder()).apply { block() }._build()
-public object QueryChannelConsensusStateResponseKt {
+object QueryChannelConsensusStateResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryChannelConsensusStateResponseKt {
      *
      * <code>.google.protobuf.Any consensus_state = 1;</code>
      */
-    public var consensusState: com.google.protobuf.Any
+    var consensusState: com.google.protobuf.Any
       @JvmName("getConsensusState")
       get() = _builder.getConsensusState()
       @JvmName("setConsensusState")
@@ -43,7 +43,7 @@ public object QueryChannelConsensusStateResponseKt {
      *
      * <code>.google.protobuf.Any consensus_state = 1;</code>
      */
-    public fun clearConsensusState() {
+    fun clearConsensusState() {
       _builder.clearConsensusState()
     }
     /**
@@ -54,7 +54,7 @@ public object QueryChannelConsensusStateResponseKt {
      * <code>.google.protobuf.Any consensus_state = 1;</code>
      * @return Whether the consensusState field is set.
      */
-    public fun hasConsensusState(): kotlin.Boolean {
+    fun hasConsensusState(): kotlin.Boolean {
       return _builder.hasConsensusState()
     }
 
@@ -65,7 +65,7 @@ public object QueryChannelConsensusStateResponseKt {
      *
      * <code>string client_id = 2;</code>
      */
-    public var clientId: kotlin.String
+    var clientId: kotlin.String
       @JvmName("getClientId")
       get() = _builder.getClientId()
       @JvmName("setClientId")
@@ -79,7 +79,7 @@ public object QueryChannelConsensusStateResponseKt {
      *
      * <code>string client_id = 2;</code>
      */
-    public fun clearClientId() {
+    fun clearClientId() {
       _builder.clearClientId()
     }
 
@@ -90,7 +90,7 @@ public object QueryChannelConsensusStateResponseKt {
      *
      * <code>bytes proof = 3;</code>
      */
-    public var proof: com.google.protobuf.ByteString
+    var proof: com.google.protobuf.ByteString
       @JvmName("getProof")
       get() = _builder.getProof()
       @JvmName("setProof")
@@ -104,7 +104,7 @@ public object QueryChannelConsensusStateResponseKt {
      *
      * <code>bytes proof = 3;</code>
      */
-    public fun clearProof() {
+    fun clearProof() {
       _builder.clearProof()
     }
 
@@ -115,7 +115,7 @@ public object QueryChannelConsensusStateResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
      */
-    public var proofHeight: ibc.core.client.v1.Client.Height
+    var proofHeight: ibc.core.client.v1.Client.Height
       @JvmName("getProofHeight")
       get() = _builder.getProofHeight()
       @JvmName("setProofHeight")
@@ -129,7 +129,7 @@ public object QueryChannelConsensusStateResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearProofHeight() {
+    fun clearProofHeight() {
       _builder.clearProofHeight()
     }
     /**
@@ -140,18 +140,11 @@ public object QueryChannelConsensusStateResponseKt {
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
      * @return Whether the proofHeight field is set.
      */
-    public fun hasProofHeight(): kotlin.Boolean {
+    fun hasProofHeight(): kotlin.Boolean {
       return _builder.hasProofHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse.copy(block: ibc.core.channel.v1.QueryChannelConsensusStateResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse =
+inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse.copy(block: ibc.core.channel.v1.QueryChannelConsensusStateResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse =
   ibc.core.channel.v1.QueryChannelConsensusStateResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponseOrBuilder.consensusStateOrNull: com.google.protobuf.Any?
-  get() = if (hasConsensusState()) getConsensusState() else null
-
-public val ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponseOrBuilder.proofHeightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasProofHeight()) getProofHeight() else null
-

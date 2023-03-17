@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v1beta1;
 
-@kotlin.jvm.JvmName("-initializelistAllInterfacesResponse")
-public inline fun listAllInterfacesResponse(block: cosmos.base.reflection.v1beta1.ListAllInterfacesResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun listAllInterfacesResponse(block: cosmos.base.reflection.v1beta1.ListAllInterfacesResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesResponse =
   cosmos.base.reflection.v1beta1.ListAllInterfacesResponseKt.Dsl._create(cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesResponse.newBuilder()).apply { block() }._build()
-public object ListAllInterfacesResponseKt {
+object ListAllInterfacesResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object ListAllInterfacesResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class InterfaceNamesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class InterfaceNamesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * interface_names is an array of all the registered interfaces.
@@ -36,8 +36,8 @@ public object ListAllInterfacesResponseKt {
      * <code>repeated string interface_names = 1;</code>
      * @return A list containing the interfaceNames.
      */
-    public val interfaceNames: com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>
-      @kotlin.jvm.JvmSynthetic
+    val interfaceNames: com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>
+      @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getInterfaceNamesList()
       )
@@ -51,7 +51,7 @@ public object ListAllInterfacesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addInterfaceNames")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.add(value: kotlin.String) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.add(value: kotlin.String) {
       _builder.addInterfaceNames(value)
     }
     /**
@@ -64,9 +64,8 @@ public object ListAllInterfacesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignInterfaceNames")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.plusAssign(value: kotlin.String) {
-      add(value)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.plusAssign(value: kotlin.String) {
+      _builder.addInterfaceNames(value)
     }
     /**
      * <pre>
@@ -78,7 +77,7 @@ public object ListAllInterfacesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllInterfaceNames")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllInterfaceNames(values)
     }
     /**
@@ -91,9 +90,8 @@ public object ListAllInterfacesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllInterfaceNames")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
-      addAll(values)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
+      _builder.addAllInterfaceNames(values)
     }
     /**
      * <pre>
@@ -106,7 +104,7 @@ public object ListAllInterfacesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setInterfaceNames")
-    public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.set(index: kotlin.Int, value: kotlin.String) {
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setInterfaceNames(index, value)
     }/**
      * <pre>
@@ -117,11 +115,10 @@ public object ListAllInterfacesResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearInterfaceNames")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, InterfaceNamesProxy>.clear() {
       _builder.clearInterfaceNames()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesResponse.copy(block: cosmos.base.reflection.v1beta1.ListAllInterfacesResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesResponse =
+inline fun cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesResponse.copy(block: cosmos.base.reflection.v1beta1.ListAllInterfacesResponseKt.Dsl.() -> Unit): cosmos.base.reflection.v1beta1.Reflection.ListAllInterfacesResponse =
   cosmos.base.reflection.v1beta1.ListAllInterfacesResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

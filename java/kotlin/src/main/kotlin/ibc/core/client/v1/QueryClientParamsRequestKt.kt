@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializequeryClientParamsRequest")
-public inline fun queryClientParamsRequest(block: ibc.core.client.v1.QueryClientParamsRequestKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryClientParamsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryClientParamsRequest(block: ibc.core.client.v1.QueryClientParamsRequestKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryClientParamsRequest =
   ibc.core.client.v1.QueryClientParamsRequestKt.Dsl._create(ibc.core.client.v1.QueryOuterClass.QueryClientParamsRequest.newBuilder()).apply { block() }._build()
-public object QueryClientParamsRequestKt {
+object QueryClientParamsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.QueryOuterClass.QueryClientParamsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.QueryOuterClass.QueryClientParamsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.QueryOuterClass.QueryClientParamsRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryClientParamsRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.QueryOuterClass.QueryClientParamsRequest.copy(block: ibc.core.client.v1.QueryClientParamsRequestKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryClientParamsRequest =
+inline fun ibc.core.client.v1.QueryOuterClass.QueryClientParamsRequest.copy(block: ibc.core.client.v1.QueryClientParamsRequestKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryClientParamsRequest =
   ibc.core.client.v1.QueryClientParamsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

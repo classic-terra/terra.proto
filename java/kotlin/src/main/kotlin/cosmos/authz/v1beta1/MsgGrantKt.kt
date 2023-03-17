@@ -3,16 +3,16 @@
 
 package cosmos.authz.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgGrant")
-public inline fun msgGrant(block: cosmos.authz.v1beta1.MsgGrantKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Tx.MsgGrant =
+@kotlin.jvm.JvmSynthetic
+inline fun msgGrant(block: cosmos.authz.v1beta1.MsgGrantKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Tx.MsgGrant =
   cosmos.authz.v1beta1.MsgGrantKt.Dsl._create(cosmos.authz.v1beta1.Tx.MsgGrant.newBuilder()).apply { block() }._build()
-public object MsgGrantKt {
+object MsgGrantKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.authz.v1beta1.Tx.MsgGrant.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.authz.v1beta1.Tx.MsgGrant.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.authz.v1beta1.Tx.MsgGrant.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgGrantKt {
     /**
      * <code>string granter = 1;</code>
      */
-    public var granter: kotlin.String
+    var granter: kotlin.String
       @JvmName("getGranter")
       get() = _builder.getGranter()
       @JvmName("setGranter")
@@ -35,14 +35,14 @@ public object MsgGrantKt {
     /**
      * <code>string granter = 1;</code>
      */
-    public fun clearGranter() {
+    fun clearGranter() {
       _builder.clearGranter()
     }
 
     /**
      * <code>string grantee = 2;</code>
      */
-    public var grantee: kotlin.String
+    var grantee: kotlin.String
       @JvmName("getGrantee")
       get() = _builder.getGrantee()
       @JvmName("setGrantee")
@@ -52,14 +52,14 @@ public object MsgGrantKt {
     /**
      * <code>string grantee = 2;</code>
      */
-    public fun clearGrantee() {
+    fun clearGrantee() {
       _builder.clearGrantee()
     }
 
     /**
      * <code>.cosmos.authz.v1beta1.Grant grant = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public var grant: cosmos.authz.v1beta1.Authz.Grant
+    var grant: cosmos.authz.v1beta1.Authz.Grant
       @JvmName("getGrant")
       get() = _builder.getGrant()
       @JvmName("setGrant")
@@ -69,22 +69,18 @@ public object MsgGrantKt {
     /**
      * <code>.cosmos.authz.v1beta1.Grant grant = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearGrant() {
+    fun clearGrant() {
       _builder.clearGrant()
     }
     /**
      * <code>.cosmos.authz.v1beta1.Grant grant = 3 [(.gogoproto.nullable) = false];</code>
      * @return Whether the grant field is set.
      */
-    public fun hasGrant(): kotlin.Boolean {
+    fun hasGrant(): kotlin.Boolean {
       return _builder.hasGrant()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.authz.v1beta1.Tx.MsgGrant.copy(block: cosmos.authz.v1beta1.MsgGrantKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Tx.MsgGrant =
+inline fun cosmos.authz.v1beta1.Tx.MsgGrant.copy(block: cosmos.authz.v1beta1.MsgGrantKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Tx.MsgGrant =
   cosmos.authz.v1beta1.MsgGrantKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.authz.v1beta1.Tx.MsgGrantOrBuilder.grantOrNull: cosmos.authz.v1beta1.Authz.Grant?
-  get() = if (hasGrant()) getGrant() else null
-

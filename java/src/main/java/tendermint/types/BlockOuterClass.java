@@ -105,6 +105,95 @@ public final class BlockOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Block(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              tendermint.types.Types.Header.Builder subBuilder = null;
+              if (header_ != null) {
+                subBuilder = header_.toBuilder();
+              }
+              header_ = input.readMessage(tendermint.types.Types.Header.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(header_);
+                header_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              tendermint.types.Types.Data.Builder subBuilder = null;
+              if (data_ != null) {
+                subBuilder = data_.toBuilder();
+              }
+              data_ = input.readMessage(tendermint.types.Types.Data.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(data_);
+                data_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              tendermint.types.EvidenceOuterClass.EvidenceList.Builder subBuilder = null;
+              if (evidence_ != null) {
+                subBuilder = evidence_.toBuilder();
+              }
+              evidence_ = input.readMessage(tendermint.types.EvidenceOuterClass.EvidenceList.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(evidence_);
+                evidence_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              tendermint.types.Types.Commit.Builder subBuilder = null;
+              if (lastCommit_ != null) {
+                subBuilder = lastCommit_.toBuilder();
+              }
+              lastCommit_ = input.readMessage(tendermint.types.Types.Commit.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(lastCommit_);
+                lastCommit_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.types.BlockOuterClass.internal_static_tendermint_types_Block_descriptor;
@@ -141,7 +230,7 @@ public final class BlockOuterClass {
      */
     @java.lang.Override
     public tendermint.types.Types.HeaderOrBuilder getHeaderOrBuilder() {
-      return header_ == null ? tendermint.types.Types.Header.getDefaultInstance() : header_;
+      return getHeader();
     }
 
     public static final int DATA_FIELD_NUMBER = 2;
@@ -167,7 +256,7 @@ public final class BlockOuterClass {
      */
     @java.lang.Override
     public tendermint.types.Types.DataOrBuilder getDataOrBuilder() {
-      return data_ == null ? tendermint.types.Types.Data.getDefaultInstance() : data_;
+      return getData();
     }
 
     public static final int EVIDENCE_FIELD_NUMBER = 3;
@@ -193,7 +282,7 @@ public final class BlockOuterClass {
      */
     @java.lang.Override
     public tendermint.types.EvidenceOuterClass.EvidenceListOrBuilder getEvidenceOrBuilder() {
-      return evidence_ == null ? tendermint.types.EvidenceOuterClass.EvidenceList.getDefaultInstance() : evidence_;
+      return getEvidence();
     }
 
     public static final int LAST_COMMIT_FIELD_NUMBER = 4;
@@ -219,7 +308,7 @@ public final class BlockOuterClass {
      */
     @java.lang.Override
     public tendermint.types.Types.CommitOrBuilder getLastCommitOrBuilder() {
-      return lastCommit_ == null ? tendermint.types.Types.Commit.getDefaultInstance() : lastCommit_;
+      return getLastCommit();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -248,7 +337,7 @@ public final class BlockOuterClass {
       if (lastCommit_ != null) {
         output.writeMessage(4, getLastCommit());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -273,7 +362,7 @@ public final class BlockOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getLastCommit());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -308,7 +397,7 @@ public final class BlockOuterClass {
         if (!getLastCommit()
             .equals(other.getLastCommit())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -335,7 +424,7 @@ public final class BlockOuterClass {
         hash = (37 * hash) + LAST_COMMIT_FIELD_NUMBER;
         hash = (53 * hash) + getLastCommit().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -452,36 +541,44 @@ public final class BlockOuterClass {
 
       // Construct using tendermint.types.BlockOuterClass.Block.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        header_ = null;
-        if (headerBuilder_ != null) {
-          headerBuilder_.dispose();
+        if (headerBuilder_ == null) {
+          header_ = null;
+        } else {
+          header_ = null;
           headerBuilder_ = null;
         }
-        data_ = null;
-        if (dataBuilder_ != null) {
-          dataBuilder_.dispose();
+        if (dataBuilder_ == null) {
+          data_ = null;
+        } else {
+          data_ = null;
           dataBuilder_ = null;
         }
-        evidence_ = null;
-        if (evidenceBuilder_ != null) {
-          evidenceBuilder_.dispose();
+        if (evidenceBuilder_ == null) {
+          evidence_ = null;
+        } else {
+          evidence_ = null;
           evidenceBuilder_ = null;
         }
-        lastCommit_ = null;
-        if (lastCommitBuilder_ != null) {
-          lastCommitBuilder_.dispose();
+        if (lastCommitBuilder_ == null) {
+          lastCommit_ = null;
+        } else {
+          lastCommit_ = null;
           lastCommitBuilder_ = null;
         }
         return this;
@@ -510,33 +607,28 @@ public final class BlockOuterClass {
       @java.lang.Override
       public tendermint.types.BlockOuterClass.Block buildPartial() {
         tendermint.types.BlockOuterClass.Block result = new tendermint.types.BlockOuterClass.Block(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (headerBuilder_ == null) {
+          result.header_ = header_;
+        } else {
+          result.header_ = headerBuilder_.build();
+        }
+        if (dataBuilder_ == null) {
+          result.data_ = data_;
+        } else {
+          result.data_ = dataBuilder_.build();
+        }
+        if (evidenceBuilder_ == null) {
+          result.evidence_ = evidence_;
+        } else {
+          result.evidence_ = evidenceBuilder_.build();
+        }
+        if (lastCommitBuilder_ == null) {
+          result.lastCommit_ = lastCommit_;
+        } else {
+          result.lastCommit_ = lastCommitBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(tendermint.types.BlockOuterClass.Block result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.header_ = headerBuilder_ == null
-              ? header_
-              : headerBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.data_ = dataBuilder_ == null
-              ? data_
-              : dataBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.evidence_ = evidenceBuilder_ == null
-              ? evidence_
-              : evidenceBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.lastCommit_ = lastCommitBuilder_ == null
-              ? lastCommit_
-              : lastCommitBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -595,7 +687,7 @@ public final class BlockOuterClass {
         if (other.hasLastCommit()) {
           mergeLastCommit(other.getLastCommit());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -610,61 +702,19 @@ public final class BlockOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        tendermint.types.BlockOuterClass.Block parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getHeaderFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getDataFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getEvidenceFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getLastCommitFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (tendermint.types.BlockOuterClass.Block) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private tendermint.types.Types.Header header_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -674,7 +724,7 @@ public final class BlockOuterClass {
        * @return Whether the header field is set.
        */
       public boolean hasHeader() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return headerBuilder_ != null || header_ != null;
       }
       /**
        * <code>.tendermint.types.Header header = 1 [(.gogoproto.nullable) = false];</code>
@@ -696,11 +746,11 @@ public final class BlockOuterClass {
             throw new NullPointerException();
           }
           header_ = value;
+          onChanged();
         } else {
           headerBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -710,11 +760,11 @@ public final class BlockOuterClass {
           tendermint.types.Types.Header.Builder builderForValue) {
         if (headerBuilder_ == null) {
           header_ = builderForValue.build();
+          onChanged();
         } else {
           headerBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -722,38 +772,38 @@ public final class BlockOuterClass {
        */
       public Builder mergeHeader(tendermint.types.Types.Header value) {
         if (headerBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            header_ != null &&
-            header_ != tendermint.types.Types.Header.getDefaultInstance()) {
-            getHeaderBuilder().mergeFrom(value);
+          if (header_ != null) {
+            header_ =
+              tendermint.types.Types.Header.newBuilder(header_).mergeFrom(value).buildPartial();
           } else {
             header_ = value;
           }
+          onChanged();
         } else {
           headerBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.Header header = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearHeader() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        header_ = null;
-        if (headerBuilder_ != null) {
-          headerBuilder_.dispose();
+        if (headerBuilder_ == null) {
+          header_ = null;
+          onChanged();
+        } else {
+          header_ = null;
           headerBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.Header header = 1 [(.gogoproto.nullable) = false];</code>
        */
       public tendermint.types.Types.Header.Builder getHeaderBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getHeaderFieldBuilder().getBuilder();
       }
@@ -793,7 +843,7 @@ public final class BlockOuterClass {
        * @return Whether the data field is set.
        */
       public boolean hasData() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return dataBuilder_ != null || data_ != null;
       }
       /**
        * <code>.tendermint.types.Data data = 2 [(.gogoproto.nullable) = false];</code>
@@ -815,11 +865,11 @@ public final class BlockOuterClass {
             throw new NullPointerException();
           }
           data_ = value;
+          onChanged();
         } else {
           dataBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -829,11 +879,11 @@ public final class BlockOuterClass {
           tendermint.types.Types.Data.Builder builderForValue) {
         if (dataBuilder_ == null) {
           data_ = builderForValue.build();
+          onChanged();
         } else {
           dataBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -841,38 +891,38 @@ public final class BlockOuterClass {
        */
       public Builder mergeData(tendermint.types.Types.Data value) {
         if (dataBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            data_ != null &&
-            data_ != tendermint.types.Types.Data.getDefaultInstance()) {
-            getDataBuilder().mergeFrom(value);
+          if (data_ != null) {
+            data_ =
+              tendermint.types.Types.Data.newBuilder(data_).mergeFrom(value).buildPartial();
           } else {
             data_ = value;
           }
+          onChanged();
         } else {
           dataBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.Data data = 2 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        data_ = null;
-        if (dataBuilder_ != null) {
-          dataBuilder_.dispose();
+        if (dataBuilder_ == null) {
+          data_ = null;
+          onChanged();
+        } else {
+          data_ = null;
           dataBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.Data data = 2 [(.gogoproto.nullable) = false];</code>
        */
       public tendermint.types.Types.Data.Builder getDataBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getDataFieldBuilder().getBuilder();
       }
@@ -912,7 +962,7 @@ public final class BlockOuterClass {
        * @return Whether the evidence field is set.
        */
       public boolean hasEvidence() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return evidenceBuilder_ != null || evidence_ != null;
       }
       /**
        * <code>.tendermint.types.EvidenceList evidence = 3 [(.gogoproto.nullable) = false];</code>
@@ -934,11 +984,11 @@ public final class BlockOuterClass {
             throw new NullPointerException();
           }
           evidence_ = value;
+          onChanged();
         } else {
           evidenceBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -948,11 +998,11 @@ public final class BlockOuterClass {
           tendermint.types.EvidenceOuterClass.EvidenceList.Builder builderForValue) {
         if (evidenceBuilder_ == null) {
           evidence_ = builderForValue.build();
+          onChanged();
         } else {
           evidenceBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -960,38 +1010,38 @@ public final class BlockOuterClass {
        */
       public Builder mergeEvidence(tendermint.types.EvidenceOuterClass.EvidenceList value) {
         if (evidenceBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            evidence_ != null &&
-            evidence_ != tendermint.types.EvidenceOuterClass.EvidenceList.getDefaultInstance()) {
-            getEvidenceBuilder().mergeFrom(value);
+          if (evidence_ != null) {
+            evidence_ =
+              tendermint.types.EvidenceOuterClass.EvidenceList.newBuilder(evidence_).mergeFrom(value).buildPartial();
           } else {
             evidence_ = value;
           }
+          onChanged();
         } else {
           evidenceBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.EvidenceList evidence = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearEvidence() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        evidence_ = null;
-        if (evidenceBuilder_ != null) {
-          evidenceBuilder_.dispose();
+        if (evidenceBuilder_ == null) {
+          evidence_ = null;
+          onChanged();
+        } else {
+          evidence_ = null;
           evidenceBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.EvidenceList evidence = 3 [(.gogoproto.nullable) = false];</code>
        */
       public tendermint.types.EvidenceOuterClass.EvidenceList.Builder getEvidenceBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getEvidenceFieldBuilder().getBuilder();
       }
@@ -1031,7 +1081,7 @@ public final class BlockOuterClass {
        * @return Whether the lastCommit field is set.
        */
       public boolean hasLastCommit() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return lastCommitBuilder_ != null || lastCommit_ != null;
       }
       /**
        * <code>.tendermint.types.Commit last_commit = 4;</code>
@@ -1053,11 +1103,11 @@ public final class BlockOuterClass {
             throw new NullPointerException();
           }
           lastCommit_ = value;
+          onChanged();
         } else {
           lastCommitBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -1067,11 +1117,11 @@ public final class BlockOuterClass {
           tendermint.types.Types.Commit.Builder builderForValue) {
         if (lastCommitBuilder_ == null) {
           lastCommit_ = builderForValue.build();
+          onChanged();
         } else {
           lastCommitBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -1079,38 +1129,38 @@ public final class BlockOuterClass {
        */
       public Builder mergeLastCommit(tendermint.types.Types.Commit value) {
         if (lastCommitBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            lastCommit_ != null &&
-            lastCommit_ != tendermint.types.Types.Commit.getDefaultInstance()) {
-            getLastCommitBuilder().mergeFrom(value);
+          if (lastCommit_ != null) {
+            lastCommit_ =
+              tendermint.types.Types.Commit.newBuilder(lastCommit_).mergeFrom(value).buildPartial();
           } else {
             lastCommit_ = value;
           }
+          onChanged();
         } else {
           lastCommitBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.Commit last_commit = 4;</code>
        */
       public Builder clearLastCommit() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        lastCommit_ = null;
-        if (lastCommitBuilder_ != null) {
-          lastCommitBuilder_.dispose();
+        if (lastCommitBuilder_ == null) {
+          lastCommit_ = null;
+          onChanged();
+        } else {
+          lastCommit_ = null;
           lastCommitBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.tendermint.types.Commit last_commit = 4;</code>
        */
       public tendermint.types.Types.Commit.Builder getLastCommitBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getLastCommitFieldBuilder().getBuilder();
       }
@@ -1174,18 +1224,7 @@ public final class BlockOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Block(input, extensionRegistry);
       }
     };
 

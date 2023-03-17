@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTaxCapResponse")
-public inline fun queryTaxCapResponse(block: terra.treasury.v1beta1.QueryTaxCapResponseKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTaxCapResponse(block: terra.treasury.v1beta1.QueryTaxCapResponseKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapResponse =
   terra.treasury.v1beta1.QueryTaxCapResponseKt.Dsl._create(terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapResponse.newBuilder()).apply { block() }._build()
-public object QueryTaxCapResponseKt {
+object QueryTaxCapResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryTaxCapResponseKt {
     /**
      * <code>string tax_cap = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public var taxCap: kotlin.String
+    var taxCap: kotlin.String
       @JvmName("getTaxCap")
       get() = _builder.getTaxCap()
       @JvmName("setTaxCap")
@@ -35,12 +35,11 @@ public object QueryTaxCapResponseKt {
     /**
      * <code>string tax_cap = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public fun clearTaxCap() {
+    fun clearTaxCap() {
       _builder.clearTaxCap()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapResponse.copy(block: terra.treasury.v1beta1.QueryTaxCapResponseKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapResponse =
+inline fun terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapResponse.copy(block: terra.treasury.v1beta1.QueryTaxCapResponseKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryTaxCapResponse =
   terra.treasury.v1beta1.QueryTaxCapResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

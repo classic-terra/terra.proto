@@ -254,70 +254,6 @@ public final class Abci {
      */
     com.google.protobuf.ByteString
         getTimestampBytes();
-
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-    java.util.List<tendermint.abci.Types.Event> 
-        getEventsList();
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-    tendermint.abci.Types.Event getEvents(int index);
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-    int getEventsCount();
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-    java.util.List<? extends tendermint.abci.Types.EventOrBuilder> 
-        getEventsOrBuilderList();
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-    tendermint.abci.Types.EventOrBuilder getEventsOrBuilder(
-        int index);
   }
   /**
    * <pre>
@@ -344,7 +280,6 @@ public final class Abci {
       logs_ = java.util.Collections.emptyList();
       info_ = "";
       timestamp_ = "";
-      events_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -358,6 +293,125 @@ public final class Abci {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private TxResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              height_ = input.readInt64();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              txhash_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              codespace_ = s;
+              break;
+            }
+            case 32: {
+
+              code_ = input.readUInt32();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              data_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              rawLog_ = s;
+              break;
+            }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                logs_ = new java.util.ArrayList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              logs_.add(
+                  input.readMessage(cosmos.base.abci.v1beta1.Abci.ABCIMessageLog.parser(), extensionRegistry));
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              info_ = s;
+              break;
+            }
+            case 72: {
+
+              gasWanted_ = input.readInt64();
+              break;
+            }
+            case 80: {
+
+              gasUsed_ = input.readInt64();
+              break;
+            }
+            case 90: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (tx_ != null) {
+                subBuilder = tx_.toBuilder();
+              }
+              tx_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tx_);
+                tx_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timestamp_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          logs_ = java.util.Collections.unmodifiableList(logs_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -373,7 +427,7 @@ public final class Abci {
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 1;
-    private long height_ = 0L;
+    private long height_;
     /**
      * <pre>
      * The block height
@@ -388,8 +442,7 @@ public final class Abci {
     }
 
     public static final int TXHASH_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object txhash_ = "";
+    private volatile java.lang.Object txhash_;
     /**
      * <pre>
      * The transaction hash.
@@ -435,8 +488,7 @@ public final class Abci {
     }
 
     public static final int CODESPACE_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object codespace_ = "";
+    private volatile java.lang.Object codespace_;
     /**
      * <pre>
      * Namespace for the Code
@@ -482,7 +534,7 @@ public final class Abci {
     }
 
     public static final int CODE_FIELD_NUMBER = 4;
-    private int code_ = 0;
+    private int code_;
     /**
      * <pre>
      * Response code.
@@ -497,8 +549,7 @@ public final class Abci {
     }
 
     public static final int DATA_FIELD_NUMBER = 5;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object data_ = "";
+    private volatile java.lang.Object data_;
     /**
      * <pre>
      * Result bytes, if any.
@@ -544,8 +595,7 @@ public final class Abci {
     }
 
     public static final int RAW_LOG_FIELD_NUMBER = 6;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object rawLog_ = "";
+    private volatile java.lang.Object rawLog_;
     /**
      * <pre>
      * The output of the application's logger (raw string). May be
@@ -593,7 +643,6 @@ public final class Abci {
     }
 
     public static final int LOGS_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog> logs_;
     /**
      * <pre>
@@ -654,8 +703,7 @@ public final class Abci {
     }
 
     public static final int INFO_FIELD_NUMBER = 8;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object info_ = "";
+    private volatile java.lang.Object info_;
     /**
      * <pre>
      * Additional information. May be non-deterministic.
@@ -701,7 +749,7 @@ public final class Abci {
     }
 
     public static final int GAS_WANTED_FIELD_NUMBER = 9;
-    private long gasWanted_ = 0L;
+    private long gasWanted_;
     /**
      * <pre>
      * Amount of gas requested for transaction.
@@ -716,7 +764,7 @@ public final class Abci {
     }
 
     public static final int GAS_USED_FIELD_NUMBER = 10;
-    private long gasUsed_ = 0L;
+    private long gasUsed_;
     /**
      * <pre>
      * Amount of gas consumed by transaction.
@@ -765,12 +813,11 @@ public final class Abci {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getTxOrBuilder() {
-      return tx_ == null ? com.google.protobuf.Any.getDefaultInstance() : tx_;
+      return getTx();
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 12;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object timestamp_ = "";
+    private volatile java.lang.Object timestamp_;
     /**
      * <pre>
      * Time of the previous block. For heights &gt; 1, it's the weighted median of
@@ -819,87 +866,6 @@ public final class Abci {
       }
     }
 
-    public static final int EVENTS_FIELD_NUMBER = 13;
-    @SuppressWarnings("serial")
-    private java.util.List<tendermint.abci.Types.Event> events_;
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-    @java.lang.Override
-    public java.util.List<tendermint.abci.Types.Event> getEventsList() {
-      return events_;
-    }
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends tendermint.abci.Types.EventOrBuilder> 
-        getEventsOrBuilderList() {
-      return events_;
-    }
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-    @java.lang.Override
-    public int getEventsCount() {
-      return events_.size();
-    }
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-    @java.lang.Override
-    public tendermint.abci.Types.Event getEvents(int index) {
-      return events_.get(index);
-    }
-    /**
-     * <pre>
-     * Events defines all the events emitted by processing a transaction. Note,
-     * these events include those emitted by processing all the messages and those
-     * emitted from the ante handler. Whereas Logs contains the events, with
-     * additional metadata, emitted only by processing the messages.
-     * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-     * </pre>
-     *
-     * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-     */
-    @java.lang.Override
-    public tendermint.abci.Types.EventOrBuilder getEventsOrBuilder(
-        int index) {
-      return events_.get(index);
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -917,25 +883,25 @@ public final class Abci {
       if (height_ != 0L) {
         output.writeInt64(1, height_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txhash_)) {
+      if (!getTxhashBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, txhash_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codespace_)) {
+      if (!getCodespaceBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, codespace_);
       }
       if (code_ != 0) {
         output.writeUInt32(4, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
+      if (!getDataBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rawLog_)) {
+      if (!getRawLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, rawLog_);
       }
       for (int i = 0; i < logs_.size(); i++) {
         output.writeMessage(7, logs_.get(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
+      if (!getInfoBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, info_);
       }
       if (gasWanted_ != 0L) {
@@ -947,13 +913,10 @@ public final class Abci {
       if (tx_ != null) {
         output.writeMessage(11, getTx());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timestamp_)) {
+      if (!getTimestampBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, timestamp_);
       }
-      for (int i = 0; i < events_.size(); i++) {
-        output.writeMessage(13, events_.get(i));
-      }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -966,27 +929,27 @@ public final class Abci {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, height_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txhash_)) {
+      if (!getTxhashBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, txhash_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(codespace_)) {
+      if (!getCodespaceBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, codespace_);
       }
       if (code_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
+      if (!getDataBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rawLog_)) {
+      if (!getRawLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, rawLog_);
       }
       for (int i = 0; i < logs_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, logs_.get(i));
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
+      if (!getInfoBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, info_);
       }
       if (gasWanted_ != 0L) {
@@ -1001,14 +964,10 @@ public final class Abci {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, getTx());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timestamp_)) {
+      if (!getTimestampBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, timestamp_);
       }
-      for (int i = 0; i < events_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(13, events_.get(i));
-      }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1050,9 +1009,7 @@ public final class Abci {
       }
       if (!getTimestamp()
           .equals(other.getTimestamp())) return false;
-      if (!getEventsList()
-          .equals(other.getEventsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1094,11 +1051,7 @@ public final class Abci {
       }
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + getTimestamp().hashCode();
-      if (getEventsCount() > 0) {
-        hash = (37 * hash) + EVENTS_FIELD_NUMBER;
-        hash = (53 * hash) + getEventsList().hashCode();
-      }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1220,47 +1173,55 @@ public final class Abci {
 
       // Construct using cosmos.base.abci.v1beta1.Abci.TxResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getLogsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         height_ = 0L;
+
         txhash_ = "";
+
         codespace_ = "";
+
         code_ = 0;
+
         data_ = "";
+
         rawLog_ = "";
+
         if (logsBuilder_ == null) {
           logs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          logs_ = null;
           logsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000040);
         info_ = "";
+
         gasWanted_ = 0L;
+
         gasUsed_ = 0L;
-        tx_ = null;
-        if (txBuilder_ != null) {
-          txBuilder_.dispose();
+
+        if (txBuilder_ == null) {
+          tx_ = null;
+        } else {
+          tx_ = null;
           txBuilder_ = null;
         }
         timestamp_ = "";
-        if (eventsBuilder_ == null) {
-          events_ = java.util.Collections.emptyList();
-        } else {
-          events_ = null;
-          eventsBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00001000);
+
         return this;
       }
 
@@ -1287,70 +1248,33 @@ public final class Abci {
       @java.lang.Override
       public cosmos.base.abci.v1beta1.Abci.TxResponse buildPartial() {
         cosmos.base.abci.v1beta1.Abci.TxResponse result = new cosmos.base.abci.v1beta1.Abci.TxResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(cosmos.base.abci.v1beta1.Abci.TxResponse result) {
+        int from_bitField0_ = bitField0_;
+        result.height_ = height_;
+        result.txhash_ = txhash_;
+        result.codespace_ = codespace_;
+        result.code_ = code_;
+        result.data_ = data_;
+        result.rawLog_ = rawLog_;
         if (logsBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             logs_ = java.util.Collections.unmodifiableList(logs_);
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.logs_ = logs_;
         } else {
           result.logs_ = logsBuilder_.build();
         }
-        if (eventsBuilder_ == null) {
-          if (((bitField0_ & 0x00001000) != 0)) {
-            events_ = java.util.Collections.unmodifiableList(events_);
-            bitField0_ = (bitField0_ & ~0x00001000);
-          }
-          result.events_ = events_;
+        result.info_ = info_;
+        result.gasWanted_ = gasWanted_;
+        result.gasUsed_ = gasUsed_;
+        if (txBuilder_ == null) {
+          result.tx_ = tx_;
         } else {
-          result.events_ = eventsBuilder_.build();
+          result.tx_ = txBuilder_.build();
         }
-      }
-
-      private void buildPartial0(cosmos.base.abci.v1beta1.Abci.TxResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.height_ = height_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.txhash_ = txhash_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.codespace_ = codespace_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.code_ = code_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.data_ = data_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.rawLog_ = rawLog_;
-        }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
-          result.info_ = info_;
-        }
-        if (((from_bitField0_ & 0x00000100) != 0)) {
-          result.gasWanted_ = gasWanted_;
-        }
-        if (((from_bitField0_ & 0x00000200) != 0)) {
-          result.gasUsed_ = gasUsed_;
-        }
-        if (((from_bitField0_ & 0x00000400) != 0)) {
-          result.tx_ = txBuilder_ == null
-              ? tx_
-              : txBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000800) != 0)) {
-          result.timestamp_ = timestamp_;
-        }
+        result.timestamp_ = timestamp_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -1402,12 +1326,10 @@ public final class Abci {
         }
         if (!other.getTxhash().isEmpty()) {
           txhash_ = other.txhash_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getCodespace().isEmpty()) {
           codespace_ = other.codespace_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getCode() != 0) {
@@ -1415,19 +1337,17 @@ public final class Abci {
         }
         if (!other.getData().isEmpty()) {
           data_ = other.data_;
-          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (!other.getRawLog().isEmpty()) {
           rawLog_ = other.rawLog_;
-          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (logsBuilder_ == null) {
           if (!other.logs_.isEmpty()) {
             if (logs_.isEmpty()) {
               logs_ = other.logs_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureLogsIsMutable();
               logs_.addAll(other.logs_);
@@ -1440,7 +1360,7 @@ public final class Abci {
               logsBuilder_.dispose();
               logsBuilder_ = null;
               logs_ = other.logs_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000001);
               logsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getLogsFieldBuilder() : null;
@@ -1451,7 +1371,6 @@ public final class Abci {
         }
         if (!other.getInfo().isEmpty()) {
           info_ = other.info_;
-          bitField0_ |= 0x00000080;
           onChanged();
         }
         if (other.getGasWanted() != 0L) {
@@ -1465,36 +1384,9 @@ public final class Abci {
         }
         if (!other.getTimestamp().isEmpty()) {
           timestamp_ = other.timestamp_;
-          bitField0_ |= 0x00000800;
           onChanged();
         }
-        if (eventsBuilder_ == null) {
-          if (!other.events_.isEmpty()) {
-            if (events_.isEmpty()) {
-              events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00001000);
-            } else {
-              ensureEventsIsMutable();
-              events_.addAll(other.events_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.events_.isEmpty()) {
-            if (eventsBuilder_.isEmpty()) {
-              eventsBuilder_.dispose();
-              eventsBuilder_ = null;
-              events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00001000);
-              eventsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getEventsFieldBuilder() : null;
-            } else {
-              eventsBuilder_.addAllMessages(other.events_);
-            }
-          }
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1509,113 +1401,17 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.abci.v1beta1.Abci.TxResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                height_ = input.readInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                txhash_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                codespace_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 32: {
-                code_ = input.readUInt32();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 42: {
-                data_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              case 50: {
-                rawLog_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 50
-              case 58: {
-                cosmos.base.abci.v1beta1.Abci.ABCIMessageLog m =
-                    input.readMessage(
-                        cosmos.base.abci.v1beta1.Abci.ABCIMessageLog.parser(),
-                        extensionRegistry);
-                if (logsBuilder_ == null) {
-                  ensureLogsIsMutable();
-                  logs_.add(m);
-                } else {
-                  logsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 58
-              case 66: {
-                info_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000080;
-                break;
-              } // case 66
-              case 72: {
-                gasWanted_ = input.readInt64();
-                bitField0_ |= 0x00000100;
-                break;
-              } // case 72
-              case 80: {
-                gasUsed_ = input.readInt64();
-                bitField0_ |= 0x00000200;
-                break;
-              } // case 80
-              case 90: {
-                input.readMessage(
-                    getTxFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000400;
-                break;
-              } // case 90
-              case 98: {
-                timestamp_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000800;
-                break;
-              } // case 98
-              case 106: {
-                tendermint.abci.Types.Event m =
-                    input.readMessage(
-                        tendermint.abci.Types.Event.parser(),
-                        extensionRegistry);
-                if (eventsBuilder_ == null) {
-                  ensureEventsIsMutable();
-                  events_.add(m);
-                } else {
-                  eventsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 106
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.abci.v1beta1.Abci.TxResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -1645,7 +1441,6 @@ public final class Abci {
       public Builder setHeight(long value) {
         
         height_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1658,7 +1453,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         height_ = 0L;
         onChanged();
         return this;
@@ -1717,9 +1512,11 @@ public final class Abci {
        */
       public Builder setTxhash(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         txhash_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1732,8 +1529,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearTxhash() {
+        
         txhash_ = getDefaultInstance().getTxhash();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1748,10 +1545,12 @@ public final class Abci {
        */
       public Builder setTxhashBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         txhash_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1809,9 +1608,11 @@ public final class Abci {
        */
       public Builder setCodespace(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         codespace_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1824,8 +1625,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearCodespace() {
+        
         codespace_ = getDefaultInstance().getCodespace();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1840,10 +1641,12 @@ public final class Abci {
        */
       public Builder setCodespaceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         codespace_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1873,7 +1676,6 @@ public final class Abci {
       public Builder setCode(int value) {
         
         code_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1886,7 +1688,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearCode() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         code_ = 0;
         onChanged();
         return this;
@@ -1945,9 +1747,11 @@ public final class Abci {
        */
       public Builder setData(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1960,8 +1764,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearData() {
+        
         data_ = getDefaultInstance().getData();
-        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -1976,10 +1780,12 @@ public final class Abci {
        */
       public Builder setDataBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         data_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2040,9 +1846,11 @@ public final class Abci {
        */
       public Builder setRawLog(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         rawLog_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -2056,8 +1864,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearRawLog() {
+        
         rawLog_ = getDefaultInstance().getRawLog();
-        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -2073,10 +1881,12 @@ public final class Abci {
        */
       public Builder setRawLogBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         rawLog_ = value;
-        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -2084,9 +1894,9 @@ public final class Abci {
       private java.util.List<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog> logs_ =
         java.util.Collections.emptyList();
       private void ensureLogsIsMutable() {
-        if (!((bitField0_ & 0x00000040) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           logs_ = new java.util.ArrayList<cosmos.base.abci.v1beta1.Abci.ABCIMessageLog>(logs_);
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -2280,7 +2090,7 @@ public final class Abci {
       public Builder clearLogs() {
         if (logsBuilder_ == null) {
           logs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           logsBuilder_.clear();
@@ -2385,7 +2195,7 @@ public final class Abci {
           logsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               cosmos.base.abci.v1beta1.Abci.ABCIMessageLog, cosmos.base.abci.v1beta1.Abci.ABCIMessageLog.Builder, cosmos.base.abci.v1beta1.Abci.ABCIMessageLogOrBuilder>(
                   logs_,
-                  ((bitField0_ & 0x00000040) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           logs_ = null;
@@ -2446,9 +2256,11 @@ public final class Abci {
        */
       public Builder setInfo(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         info_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -2461,8 +2273,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearInfo() {
+        
         info_ = getDefaultInstance().getInfo();
-        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -2477,10 +2289,12 @@ public final class Abci {
        */
       public Builder setInfoBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         info_ = value;
-        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -2510,7 +2324,6 @@ public final class Abci {
       public Builder setGasWanted(long value) {
         
         gasWanted_ = value;
-        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -2523,7 +2336,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearGasWanted() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        
         gasWanted_ = 0L;
         onChanged();
         return this;
@@ -2554,7 +2367,6 @@ public final class Abci {
       public Builder setGasUsed(long value) {
         
         gasUsed_ = value;
-        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -2567,7 +2379,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearGasUsed() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        
         gasUsed_ = 0L;
         onChanged();
         return this;
@@ -2585,7 +2397,7 @@ public final class Abci {
        * @return Whether the tx field is set.
        */
       public boolean hasTx() {
-        return ((bitField0_ & 0x00000400) != 0);
+        return txBuilder_ != null || tx_ != null;
       }
       /**
        * <pre>
@@ -2615,11 +2427,11 @@ public final class Abci {
             throw new NullPointerException();
           }
           tx_ = value;
+          onChanged();
         } else {
           txBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000400;
-        onChanged();
+
         return this;
       }
       /**
@@ -2633,11 +2445,11 @@ public final class Abci {
           com.google.protobuf.Any.Builder builderForValue) {
         if (txBuilder_ == null) {
           tx_ = builderForValue.build();
+          onChanged();
         } else {
           txBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000400;
-        onChanged();
+
         return this;
       }
       /**
@@ -2649,18 +2461,17 @@ public final class Abci {
        */
       public Builder mergeTx(com.google.protobuf.Any value) {
         if (txBuilder_ == null) {
-          if (((bitField0_ & 0x00000400) != 0) &&
-            tx_ != null &&
-            tx_ != com.google.protobuf.Any.getDefaultInstance()) {
-            getTxBuilder().mergeFrom(value);
+          if (tx_ != null) {
+            tx_ =
+              com.google.protobuf.Any.newBuilder(tx_).mergeFrom(value).buildPartial();
           } else {
             tx_ = value;
           }
+          onChanged();
         } else {
           txBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000400;
-        onChanged();
+
         return this;
       }
       /**
@@ -2671,13 +2482,14 @@ public final class Abci {
        * <code>.google.protobuf.Any tx = 11;</code>
        */
       public Builder clearTx() {
-        bitField0_ = (bitField0_ & ~0x00000400);
-        tx_ = null;
-        if (txBuilder_ != null) {
-          txBuilder_.dispose();
+        if (txBuilder_ == null) {
+          tx_ = null;
+          onChanged();
+        } else {
+          tx_ = null;
           txBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -2688,7 +2500,7 @@ public final class Abci {
        * <code>.google.protobuf.Any tx = 11;</code>
        */
       public com.google.protobuf.Any.Builder getTxBuilder() {
-        bitField0_ |= 0x00000400;
+        
         onChanged();
         return getTxFieldBuilder().getBuilder();
       }
@@ -2787,9 +2599,11 @@ public final class Abci {
        */
       public Builder setTimestamp(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         timestamp_ = value;
-        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -2804,8 +2618,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
+        
         timestamp_ = getDefaultInstance().getTimestamp();
-        bitField0_ = (bitField0_ & ~0x00000800);
         onChanged();
         return this;
       }
@@ -2822,396 +2636,14 @@ public final class Abci {
        */
       public Builder setTimestampBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         timestamp_ = value;
-        bitField0_ |= 0x00000800;
         onChanged();
         return this;
-      }
-
-      private java.util.List<tendermint.abci.Types.Event> events_ =
-        java.util.Collections.emptyList();
-      private void ensureEventsIsMutable() {
-        if (!((bitField0_ & 0x00001000) != 0)) {
-          events_ = new java.util.ArrayList<tendermint.abci.Types.Event>(events_);
-          bitField0_ |= 0x00001000;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          tendermint.abci.Types.Event, tendermint.abci.Types.Event.Builder, tendermint.abci.Types.EventOrBuilder> eventsBuilder_;
-
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public java.util.List<tendermint.abci.Types.Event> getEventsList() {
-        if (eventsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(events_);
-        } else {
-          return eventsBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public int getEventsCount() {
-        if (eventsBuilder_ == null) {
-          return events_.size();
-        } else {
-          return eventsBuilder_.getCount();
-        }
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public tendermint.abci.Types.Event getEvents(int index) {
-        if (eventsBuilder_ == null) {
-          return events_.get(index);
-        } else {
-          return eventsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public Builder setEvents(
-          int index, tendermint.abci.Types.Event value) {
-        if (eventsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEventsIsMutable();
-          events_.set(index, value);
-          onChanged();
-        } else {
-          eventsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public Builder setEvents(
-          int index, tendermint.abci.Types.Event.Builder builderForValue) {
-        if (eventsBuilder_ == null) {
-          ensureEventsIsMutable();
-          events_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          eventsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public Builder addEvents(tendermint.abci.Types.Event value) {
-        if (eventsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEventsIsMutable();
-          events_.add(value);
-          onChanged();
-        } else {
-          eventsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public Builder addEvents(
-          int index, tendermint.abci.Types.Event value) {
-        if (eventsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEventsIsMutable();
-          events_.add(index, value);
-          onChanged();
-        } else {
-          eventsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public Builder addEvents(
-          tendermint.abci.Types.Event.Builder builderForValue) {
-        if (eventsBuilder_ == null) {
-          ensureEventsIsMutable();
-          events_.add(builderForValue.build());
-          onChanged();
-        } else {
-          eventsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public Builder addEvents(
-          int index, tendermint.abci.Types.Event.Builder builderForValue) {
-        if (eventsBuilder_ == null) {
-          ensureEventsIsMutable();
-          events_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          eventsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public Builder addAllEvents(
-          java.lang.Iterable<? extends tendermint.abci.Types.Event> values) {
-        if (eventsBuilder_ == null) {
-          ensureEventsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, events_);
-          onChanged();
-        } else {
-          eventsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public Builder clearEvents() {
-        if (eventsBuilder_ == null) {
-          events_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00001000);
-          onChanged();
-        } else {
-          eventsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public Builder removeEvents(int index) {
-        if (eventsBuilder_ == null) {
-          ensureEventsIsMutable();
-          events_.remove(index);
-          onChanged();
-        } else {
-          eventsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public tendermint.abci.Types.Event.Builder getEventsBuilder(
-          int index) {
-        return getEventsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public tendermint.abci.Types.EventOrBuilder getEventsOrBuilder(
-          int index) {
-        if (eventsBuilder_ == null) {
-          return events_.get(index);  } else {
-          return eventsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public java.util.List<? extends tendermint.abci.Types.EventOrBuilder> 
-           getEventsOrBuilderList() {
-        if (eventsBuilder_ != null) {
-          return eventsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(events_);
-        }
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public tendermint.abci.Types.Event.Builder addEventsBuilder() {
-        return getEventsFieldBuilder().addBuilder(
-            tendermint.abci.Types.Event.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public tendermint.abci.Types.Event.Builder addEventsBuilder(
-          int index) {
-        return getEventsFieldBuilder().addBuilder(
-            index, tendermint.abci.Types.Event.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * Events defines all the events emitted by processing a transaction. Note,
-       * these events include those emitted by processing all the messages and those
-       * emitted from the ante handler. Whereas Logs contains the events, with
-       * additional metadata, emitted only by processing the messages.
-       * Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
-       * </pre>
-       *
-       * <code>repeated .tendermint.abci.Event events = 13 [(.gogoproto.nullable) = false];</code>
-       */
-      public java.util.List<tendermint.abci.Types.Event.Builder> 
-           getEventsBuilderList() {
-        return getEventsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          tendermint.abci.Types.Event, tendermint.abci.Types.Event.Builder, tendermint.abci.Types.EventOrBuilder> 
-          getEventsFieldBuilder() {
-        if (eventsBuilder_ == null) {
-          eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              tendermint.abci.Types.Event, tendermint.abci.Types.Event.Builder, tendermint.abci.Types.EventOrBuilder>(
-                  events_,
-                  ((bitField0_ & 0x00001000) != 0),
-                  getParentForChildren(),
-                  isClean());
-          events_ = null;
-        }
-        return eventsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3246,18 +2678,7 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TxResponse(input, extensionRegistry);
       }
     };
 
@@ -3381,6 +2802,67 @@ public final class Abci {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ABCIMessageLog(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              msgIndex_ = input.readUInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              log_ = s;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                events_ = new java.util.ArrayList<cosmos.base.abci.v1beta1.Abci.StringEvent>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              events_.add(
+                  input.readMessage(cosmos.base.abci.v1beta1.Abci.StringEvent.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          events_ = java.util.Collections.unmodifiableList(events_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.abci.v1beta1.Abci.internal_static_cosmos_base_abci_v1beta1_ABCIMessageLog_descriptor;
@@ -3395,7 +2877,7 @@ public final class Abci {
     }
 
     public static final int MSG_INDEX_FIELD_NUMBER = 1;
-    private int msgIndex_ = 0;
+    private int msgIndex_;
     /**
      * <code>uint32 msg_index = 1;</code>
      * @return The msgIndex.
@@ -3406,8 +2888,7 @@ public final class Abci {
     }
 
     public static final int LOG_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object log_ = "";
+    private volatile java.lang.Object log_;
     /**
      * <code>string log = 2;</code>
      * @return The log.
@@ -3445,7 +2926,6 @@ public final class Abci {
     }
 
     public static final int EVENTS_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.abci.v1beta1.Abci.StringEvent> events_;
     /**
      * <pre>
@@ -3527,13 +3007,13 @@ public final class Abci {
       if (msgIndex_ != 0) {
         output.writeUInt32(1, msgIndex_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, log_);
       }
       for (int i = 0; i < events_.size(); i++) {
         output.writeMessage(3, events_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3546,14 +3026,14 @@ public final class Abci {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, msgIndex_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, log_);
       }
       for (int i = 0; i < events_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, events_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3574,7 +3054,7 @@ public final class Abci {
           .equals(other.getLog())) return false;
       if (!getEventsList()
           .equals(other.getEventsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3593,7 +3073,7 @@ public final class Abci {
         hash = (37 * hash) + EVENTS_FIELD_NUMBER;
         hash = (53 * hash) + getEventsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3714,27 +3194,33 @@ public final class Abci {
 
       // Construct using cosmos.base.abci.v1beta1.Abci.ABCIMessageLog.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getEventsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         msgIndex_ = 0;
+
         log_ = "";
+
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          events_ = null;
           eventsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3761,32 +3247,20 @@ public final class Abci {
       @java.lang.Override
       public cosmos.base.abci.v1beta1.Abci.ABCIMessageLog buildPartial() {
         cosmos.base.abci.v1beta1.Abci.ABCIMessageLog result = new cosmos.base.abci.v1beta1.Abci.ABCIMessageLog(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(cosmos.base.abci.v1beta1.Abci.ABCIMessageLog result) {
+        int from_bitField0_ = bitField0_;
+        result.msgIndex_ = msgIndex_;
+        result.log_ = log_;
         if (eventsBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             events_ = java.util.Collections.unmodifiableList(events_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.events_ = events_;
         } else {
           result.events_ = eventsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(cosmos.base.abci.v1beta1.Abci.ABCIMessageLog result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.msgIndex_ = msgIndex_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.log_ = log_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -3838,14 +3312,13 @@ public final class Abci {
         }
         if (!other.getLog().isEmpty()) {
           log_ = other.log_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (eventsBuilder_ == null) {
           if (!other.events_.isEmpty()) {
             if (events_.isEmpty()) {
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureEventsIsMutable();
               events_.addAll(other.events_);
@@ -3858,7 +3331,7 @@ public final class Abci {
               eventsBuilder_.dispose();
               eventsBuilder_ = null;
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
               eventsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getEventsFieldBuilder() : null;
@@ -3867,7 +3340,7 @@ public final class Abci {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3882,53 +3355,17 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.abci.v1beta1.Abci.ABCIMessageLog parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                msgIndex_ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                log_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                cosmos.base.abci.v1beta1.Abci.StringEvent m =
-                    input.readMessage(
-                        cosmos.base.abci.v1beta1.Abci.StringEvent.parser(),
-                        extensionRegistry);
-                if (eventsBuilder_ == null) {
-                  ensureEventsIsMutable();
-                  events_.add(m);
-                } else {
-                  eventsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.abci.v1beta1.Abci.ABCIMessageLog) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -3950,7 +3387,6 @@ public final class Abci {
       public Builder setMsgIndex(int value) {
         
         msgIndex_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3959,7 +3395,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearMsgIndex() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         msgIndex_ = 0;
         onChanged();
         return this;
@@ -4006,9 +3442,11 @@ public final class Abci {
        */
       public Builder setLog(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         log_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4017,8 +3455,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearLog() {
+        
         log_ = getDefaultInstance().getLog();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4029,10 +3467,12 @@ public final class Abci {
        */
       public Builder setLogBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         log_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4040,9 +3480,9 @@ public final class Abci {
       private java.util.List<cosmos.base.abci.v1beta1.Abci.StringEvent> events_ =
         java.util.Collections.emptyList();
       private void ensureEventsIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           events_ = new java.util.ArrayList<cosmos.base.abci.v1beta1.Abci.StringEvent>(events_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -4247,7 +3687,7 @@ public final class Abci {
       public Builder clearEvents() {
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           eventsBuilder_.clear();
@@ -4359,7 +3799,7 @@ public final class Abci {
           eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               cosmos.base.abci.v1beta1.Abci.StringEvent, cosmos.base.abci.v1beta1.Abci.StringEvent.Builder, cosmos.base.abci.v1beta1.Abci.StringEventOrBuilder>(
                   events_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           events_ = null;
@@ -4399,18 +3839,7 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ABCIMessageLog(input, extensionRegistry);
       }
     };
 
@@ -4504,6 +3933,62 @@ public final class Abci {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private StringEvent(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              type_ = s;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                attributes_ = new java.util.ArrayList<cosmos.base.abci.v1beta1.Abci.Attribute>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              attributes_.add(
+                  input.readMessage(cosmos.base.abci.v1beta1.Abci.Attribute.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          attributes_ = java.util.Collections.unmodifiableList(attributes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.abci.v1beta1.Abci.internal_static_cosmos_base_abci_v1beta1_StringEvent_descriptor;
@@ -4518,8 +4003,7 @@ public final class Abci {
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object type_ = "";
+    private volatile java.lang.Object type_;
     /**
      * <code>string type = 1;</code>
      * @return The type.
@@ -4557,7 +4041,6 @@ public final class Abci {
     }
 
     public static final int ATTRIBUTES_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.abci.v1beta1.Abci.Attribute> attributes_;
     /**
      * <code>repeated .cosmos.base.abci.v1beta1.Attribute attributes = 2 [(.gogoproto.nullable) = false];</code>
@@ -4611,13 +4094,13 @@ public final class Abci {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
+      if (!getTypeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
       }
       for (int i = 0; i < attributes_.size(); i++) {
         output.writeMessage(2, attributes_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4626,14 +4109,14 @@ public final class Abci {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
+      if (!getTypeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
       }
       for (int i = 0; i < attributes_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, attributes_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4652,7 +4135,7 @@ public final class Abci {
           .equals(other.getType())) return false;
       if (!getAttributesList()
           .equals(other.getAttributesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4669,7 +4152,7 @@ public final class Abci {
         hash = (37 * hash) + ATTRIBUTES_FIELD_NUMBER;
         hash = (53 * hash) + getAttributesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4791,26 +4274,31 @@ public final class Abci {
 
       // Construct using cosmos.base.abci.v1beta1.Abci.StringEvent.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getAttributesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         type_ = "";
+
         if (attributesBuilder_ == null) {
           attributes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          attributes_ = null;
           attributesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -4837,29 +4325,19 @@ public final class Abci {
       @java.lang.Override
       public cosmos.base.abci.v1beta1.Abci.StringEvent buildPartial() {
         cosmos.base.abci.v1beta1.Abci.StringEvent result = new cosmos.base.abci.v1beta1.Abci.StringEvent(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(cosmos.base.abci.v1beta1.Abci.StringEvent result) {
+        int from_bitField0_ = bitField0_;
+        result.type_ = type_;
         if (attributesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             attributes_ = java.util.Collections.unmodifiableList(attributes_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.attributes_ = attributes_;
         } else {
           result.attributes_ = attributesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(cosmos.base.abci.v1beta1.Abci.StringEvent result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.type_ = type_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -4908,14 +4386,13 @@ public final class Abci {
         if (other == cosmos.base.abci.v1beta1.Abci.StringEvent.getDefaultInstance()) return this;
         if (!other.getType().isEmpty()) {
           type_ = other.type_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (attributesBuilder_ == null) {
           if (!other.attributes_.isEmpty()) {
             if (attributes_.isEmpty()) {
               attributes_ = other.attributes_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureAttributesIsMutable();
               attributes_.addAll(other.attributes_);
@@ -4928,7 +4405,7 @@ public final class Abci {
               attributesBuilder_.dispose();
               attributesBuilder_ = null;
               attributes_ = other.attributes_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               attributesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAttributesFieldBuilder() : null;
@@ -4937,7 +4414,7 @@ public final class Abci {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4952,48 +4429,17 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.abci.v1beta1.Abci.StringEvent parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                type_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                cosmos.base.abci.v1beta1.Abci.Attribute m =
-                    input.readMessage(
-                        cosmos.base.abci.v1beta1.Abci.Attribute.parser(),
-                        extensionRegistry);
-                if (attributesBuilder_ == null) {
-                  ensureAttributesIsMutable();
-                  attributes_.add(m);
-                } else {
-                  attributesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.abci.v1beta1.Abci.StringEvent) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -5039,9 +4485,11 @@ public final class Abci {
        */
       public Builder setType(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         type_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5050,8 +4498,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearType() {
+        
         type_ = getDefaultInstance().getType();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -5062,10 +4510,12 @@ public final class Abci {
        */
       public Builder setTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         type_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5073,9 +4523,9 @@ public final class Abci {
       private java.util.List<cosmos.base.abci.v1beta1.Abci.Attribute> attributes_ =
         java.util.Collections.emptyList();
       private void ensureAttributesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           attributes_ = new java.util.ArrayList<cosmos.base.abci.v1beta1.Abci.Attribute>(attributes_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -5225,7 +4675,7 @@ public final class Abci {
       public Builder clearAttributes() {
         if (attributesBuilder_ == null) {
           attributes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           attributesBuilder_.clear();
@@ -5302,7 +4752,7 @@ public final class Abci {
           attributesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               cosmos.base.abci.v1beta1.Abci.Attribute, cosmos.base.abci.v1beta1.Abci.Attribute.Builder, cosmos.base.abci.v1beta1.Abci.AttributeOrBuilder>(
                   attributes_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           attributes_ = null;
@@ -5342,18 +4792,7 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new StringEvent(input, extensionRegistry);
       }
     };
 
@@ -5435,6 +4874,55 @@ public final class Abci {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Attribute(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              key_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              value_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.abci.v1beta1.Abci.internal_static_cosmos_base_abci_v1beta1_Attribute_descriptor;
@@ -5449,8 +4937,7 @@ public final class Abci {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object key_ = "";
+    private volatile java.lang.Object key_;
     /**
      * <code>string key = 1;</code>
      * @return The key.
@@ -5488,8 +4975,7 @@ public final class Abci {
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object value_ = "";
+    private volatile java.lang.Object value_;
     /**
      * <code>string value = 2;</code>
      * @return The value.
@@ -5540,13 +5026,13 @@ public final class Abci {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+      if (!getKeyBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, key_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+      if (!getValueBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5555,13 +5041,13 @@ public final class Abci {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
+      if (!getKeyBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, key_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(value_)) {
+      if (!getValueBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5580,7 +5066,7 @@ public final class Abci {
           .equals(other.getKey())) return false;
       if (!getValue()
           .equals(other.getValue())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5595,7 +5081,7 @@ public final class Abci {
       hash = (53 * hash) + getKey().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5717,20 +5203,26 @@ public final class Abci {
 
       // Construct using cosmos.base.abci.v1beta1.Abci.Attribute.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         key_ = "";
+
         value_ = "";
+
         return this;
       }
 
@@ -5757,19 +5249,10 @@ public final class Abci {
       @java.lang.Override
       public cosmos.base.abci.v1beta1.Abci.Attribute buildPartial() {
         cosmos.base.abci.v1beta1.Abci.Attribute result = new cosmos.base.abci.v1beta1.Abci.Attribute(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.key_ = key_;
+        result.value_ = value_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.base.abci.v1beta1.Abci.Attribute result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.key_ = key_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.value_ = value_;
-        }
       }
 
       @java.lang.Override
@@ -5818,15 +5301,13 @@ public final class Abci {
         if (other == cosmos.base.abci.v1beta1.Abci.Attribute.getDefaultInstance()) return this;
         if (!other.getKey().isEmpty()) {
           key_ = other.key_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getValue().isEmpty()) {
           value_ = other.value_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5841,43 +5322,19 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.abci.v1beta1.Abci.Attribute parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                key_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                value_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.abci.v1beta1.Abci.Attribute) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object key_ = "";
       /**
@@ -5920,9 +5377,11 @@ public final class Abci {
        */
       public Builder setKey(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         key_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5931,8 +5390,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearKey() {
+        
         key_ = getDefaultInstance().getKey();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -5943,10 +5402,12 @@ public final class Abci {
        */
       public Builder setKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         key_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5992,9 +5453,11 @@ public final class Abci {
        */
       public Builder setValue(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         value_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6003,8 +5466,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearValue() {
+        
         value_ = getDefaultInstance().getValue();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -6015,10 +5478,12 @@ public final class Abci {
        */
       public Builder setValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         value_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6055,18 +5520,7 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Attribute(input, extensionRegistry);
       }
     };
 
@@ -6141,6 +5595,53 @@ public final class Abci {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GasInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              gasWanted_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              gasUsed_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.abci.v1beta1.Abci.internal_static_cosmos_base_abci_v1beta1_GasInfo_descriptor;
@@ -6155,7 +5656,7 @@ public final class Abci {
     }
 
     public static final int GAS_WANTED_FIELD_NUMBER = 1;
-    private long gasWanted_ = 0L;
+    private long gasWanted_;
     /**
      * <pre>
      * GasWanted is the maximum units of work we allow this tx to perform.
@@ -6170,7 +5671,7 @@ public final class Abci {
     }
 
     public static final int GAS_USED_FIELD_NUMBER = 2;
-    private long gasUsed_ = 0L;
+    private long gasUsed_;
     /**
      * <pre>
      * GasUsed is the amount of gas actually consumed.
@@ -6204,7 +5705,7 @@ public final class Abci {
       if (gasUsed_ != 0L) {
         output.writeUInt64(2, gasUsed_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -6221,7 +5722,7 @@ public final class Abci {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, gasUsed_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6240,7 +5741,7 @@ public final class Abci {
           != other.getGasWanted()) return false;
       if (getGasUsed()
           != other.getGasUsed()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -6257,7 +5758,7 @@ public final class Abci {
       hash = (37 * hash) + GAS_USED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getGasUsed());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6378,20 +5879,26 @@ public final class Abci {
 
       // Construct using cosmos.base.abci.v1beta1.Abci.GasInfo.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         gasWanted_ = 0L;
+
         gasUsed_ = 0L;
+
         return this;
       }
 
@@ -6418,19 +5925,10 @@ public final class Abci {
       @java.lang.Override
       public cosmos.base.abci.v1beta1.Abci.GasInfo buildPartial() {
         cosmos.base.abci.v1beta1.Abci.GasInfo result = new cosmos.base.abci.v1beta1.Abci.GasInfo(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.gasWanted_ = gasWanted_;
+        result.gasUsed_ = gasUsed_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.base.abci.v1beta1.Abci.GasInfo result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.gasWanted_ = gasWanted_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.gasUsed_ = gasUsed_;
-        }
       }
 
       @java.lang.Override
@@ -6483,7 +5981,7 @@ public final class Abci {
         if (other.getGasUsed() != 0L) {
           setGasUsed(other.getGasUsed());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6498,43 +5996,19 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.abci.v1beta1.Abci.GasInfo parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                gasWanted_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                gasUsed_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.abci.v1beta1.Abci.GasInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long gasWanted_ ;
       /**
@@ -6561,7 +6035,6 @@ public final class Abci {
       public Builder setGasWanted(long value) {
         
         gasWanted_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6574,7 +6047,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearGasWanted() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         gasWanted_ = 0L;
         onChanged();
         return this;
@@ -6605,7 +6078,6 @@ public final class Abci {
       public Builder setGasUsed(long value) {
         
         gasUsed_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6618,7 +6090,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearGasUsed() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         gasUsed_ = 0L;
         onChanged();
         return this;
@@ -6656,18 +6128,7 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GasInfo(input, extensionRegistry);
       }
     };
 
@@ -6805,6 +6266,67 @@ public final class Abci {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Result(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              log_ = s;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                events_ = new java.util.ArrayList<tendermint.abci.Types.Event>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              events_.add(
+                  input.readMessage(tendermint.abci.Types.Event.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          events_ = java.util.Collections.unmodifiableList(events_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.abci.v1beta1.Abci.internal_static_cosmos_base_abci_v1beta1_Result_descriptor;
@@ -6819,7 +6341,7 @@ public final class Abci {
     }
 
     public static final int DATA_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_;
     /**
      * <pre>
      * Data is any data returned from message or handler execution. It MUST be
@@ -6835,8 +6357,7 @@ public final class Abci {
     }
 
     public static final int LOG_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object log_ = "";
+    private volatile java.lang.Object log_;
     /**
      * <pre>
      * Log contains the log information from message or handler execution.
@@ -6882,7 +6403,6 @@ public final class Abci {
     }
 
     public static final int EVENTS_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private java.util.List<tendermint.abci.Types.Event> events_;
     /**
      * <pre>
@@ -6964,13 +6484,13 @@ public final class Abci {
       if (!data_.isEmpty()) {
         output.writeBytes(1, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, log_);
       }
       for (int i = 0; i < events_.size(); i++) {
         output.writeMessage(3, events_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -6983,14 +6503,14 @@ public final class Abci {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, data_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(log_)) {
+      if (!getLogBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, log_);
       }
       for (int i = 0; i < events_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, events_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7011,7 +6531,7 @@ public final class Abci {
           .equals(other.getLog())) return false;
       if (!getEventsList()
           .equals(other.getEventsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -7030,7 +6550,7 @@ public final class Abci {
         hash = (37 * hash) + EVENTS_FIELD_NUMBER;
         hash = (53 * hash) + getEventsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7151,27 +6671,33 @@ public final class Abci {
 
       // Construct using cosmos.base.abci.v1beta1.Abci.Result.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getEventsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         data_ = com.google.protobuf.ByteString.EMPTY;
+
         log_ = "";
+
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          events_ = null;
           eventsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -7198,32 +6724,20 @@ public final class Abci {
       @java.lang.Override
       public cosmos.base.abci.v1beta1.Abci.Result buildPartial() {
         cosmos.base.abci.v1beta1.Abci.Result result = new cosmos.base.abci.v1beta1.Abci.Result(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(cosmos.base.abci.v1beta1.Abci.Result result) {
+        int from_bitField0_ = bitField0_;
+        result.data_ = data_;
+        result.log_ = log_;
         if (eventsBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             events_ = java.util.Collections.unmodifiableList(events_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.events_ = events_;
         } else {
           result.events_ = eventsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(cosmos.base.abci.v1beta1.Abci.Result result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.data_ = data_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.log_ = log_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -7275,14 +6789,13 @@ public final class Abci {
         }
         if (!other.getLog().isEmpty()) {
           log_ = other.log_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (eventsBuilder_ == null) {
           if (!other.events_.isEmpty()) {
             if (events_.isEmpty()) {
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureEventsIsMutable();
               events_.addAll(other.events_);
@@ -7295,7 +6808,7 @@ public final class Abci {
               eventsBuilder_.dispose();
               eventsBuilder_ = null;
               events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000001);
               eventsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getEventsFieldBuilder() : null;
@@ -7304,7 +6817,7 @@ public final class Abci {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -7319,53 +6832,17 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.abci.v1beta1.Abci.Result parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                log_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                tendermint.abci.Types.Event m =
-                    input.readMessage(
-                        tendermint.abci.Types.Event.parser(),
-                        extensionRegistry);
-                if (eventsBuilder_ == null) {
-                  ensureEventsIsMutable();
-                  events_.add(m);
-                } else {
-                  eventsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.abci.v1beta1.Abci.Result) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -7395,9 +6872,11 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7411,7 +6890,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -7470,9 +6949,11 @@ public final class Abci {
        */
       public Builder setLog(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         log_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7485,8 +6966,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearLog() {
+        
         log_ = getDefaultInstance().getLog();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -7501,10 +6982,12 @@ public final class Abci {
        */
       public Builder setLogBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         log_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7512,9 +6995,9 @@ public final class Abci {
       private java.util.List<tendermint.abci.Types.Event> events_ =
         java.util.Collections.emptyList();
       private void ensureEventsIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           events_ = new java.util.ArrayList<tendermint.abci.Types.Event>(events_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -7719,7 +7202,7 @@ public final class Abci {
       public Builder clearEvents() {
         if (eventsBuilder_ == null) {
           events_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           eventsBuilder_.clear();
@@ -7831,7 +7314,7 @@ public final class Abci {
           eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               tendermint.abci.Types.Event, tendermint.abci.Types.Event.Builder, tendermint.abci.Types.EventOrBuilder>(
                   events_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           events_ = null;
@@ -7871,18 +7354,7 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Result(input, extensionRegistry);
       }
     };
 
@@ -7968,6 +7440,69 @@ public final class Abci {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private SimulationResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cosmos.base.abci.v1beta1.Abci.GasInfo.Builder subBuilder = null;
+              if (gasInfo_ != null) {
+                subBuilder = gasInfo_.toBuilder();
+              }
+              gasInfo_ = input.readMessage(cosmos.base.abci.v1beta1.Abci.GasInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(gasInfo_);
+                gasInfo_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              cosmos.base.abci.v1beta1.Abci.Result.Builder subBuilder = null;
+              if (result_ != null) {
+                subBuilder = result_.toBuilder();
+              }
+              result_ = input.readMessage(cosmos.base.abci.v1beta1.Abci.Result.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(result_);
+                result_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.abci.v1beta1.Abci.internal_static_cosmos_base_abci_v1beta1_SimulationResponse_descriptor;
@@ -8004,7 +7539,7 @@ public final class Abci {
      */
     @java.lang.Override
     public cosmos.base.abci.v1beta1.Abci.GasInfoOrBuilder getGasInfoOrBuilder() {
-      return gasInfo_ == null ? cosmos.base.abci.v1beta1.Abci.GasInfo.getDefaultInstance() : gasInfo_;
+      return getGasInfo();
     }
 
     public static final int RESULT_FIELD_NUMBER = 2;
@@ -8030,7 +7565,7 @@ public final class Abci {
      */
     @java.lang.Override
     public cosmos.base.abci.v1beta1.Abci.ResultOrBuilder getResultOrBuilder() {
-      return result_ == null ? cosmos.base.abci.v1beta1.Abci.Result.getDefaultInstance() : result_;
+      return getResult();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8053,7 +7588,7 @@ public final class Abci {
       if (result_ != null) {
         output.writeMessage(2, getResult());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -8070,7 +7605,7 @@ public final class Abci {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getResult());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8095,7 +7630,7 @@ public final class Abci {
         if (!getResult()
             .equals(other.getResult())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -8114,7 +7649,7 @@ public final class Abci {
         hash = (37 * hash) + RESULT_FIELD_NUMBER;
         hash = (53 * hash) + getResult().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8236,26 +7771,32 @@ public final class Abci {
 
       // Construct using cosmos.base.abci.v1beta1.Abci.SimulationResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        gasInfo_ = null;
-        if (gasInfoBuilder_ != null) {
-          gasInfoBuilder_.dispose();
+        if (gasInfoBuilder_ == null) {
+          gasInfo_ = null;
+        } else {
+          gasInfo_ = null;
           gasInfoBuilder_ = null;
         }
-        result_ = null;
-        if (resultBuilder_ != null) {
-          resultBuilder_.dispose();
+        if (resultBuilder_ == null) {
+          result_ = null;
+        } else {
+          result_ = null;
           resultBuilder_ = null;
         }
         return this;
@@ -8284,23 +7825,18 @@ public final class Abci {
       @java.lang.Override
       public cosmos.base.abci.v1beta1.Abci.SimulationResponse buildPartial() {
         cosmos.base.abci.v1beta1.Abci.SimulationResponse result = new cosmos.base.abci.v1beta1.Abci.SimulationResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (gasInfoBuilder_ == null) {
+          result.gasInfo_ = gasInfo_;
+        } else {
+          result.gasInfo_ = gasInfoBuilder_.build();
+        }
+        if (resultBuilder_ == null) {
+          result.result_ = result_;
+        } else {
+          result.result_ = resultBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.base.abci.v1beta1.Abci.SimulationResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.gasInfo_ = gasInfoBuilder_ == null
-              ? gasInfo_
-              : gasInfoBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.result_ = resultBuilder_ == null
-              ? result_
-              : resultBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -8353,7 +7889,7 @@ public final class Abci {
         if (other.hasResult()) {
           mergeResult(other.getResult());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -8368,47 +7904,19 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.abci.v1beta1.Abci.SimulationResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getGasInfoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getResultFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.abci.v1beta1.Abci.SimulationResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private cosmos.base.abci.v1beta1.Abci.GasInfo gasInfo_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -8418,7 +7926,7 @@ public final class Abci {
        * @return Whether the gasInfo field is set.
        */
       public boolean hasGasInfo() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return gasInfoBuilder_ != null || gasInfo_ != null;
       }
       /**
        * <code>.cosmos.base.abci.v1beta1.GasInfo gas_info = 1 [(.gogoproto.nullable) = false, (.gogoproto.embed) = true];</code>
@@ -8440,11 +7948,11 @@ public final class Abci {
             throw new NullPointerException();
           }
           gasInfo_ = value;
+          onChanged();
         } else {
           gasInfoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -8454,11 +7962,11 @@ public final class Abci {
           cosmos.base.abci.v1beta1.Abci.GasInfo.Builder builderForValue) {
         if (gasInfoBuilder_ == null) {
           gasInfo_ = builderForValue.build();
+          onChanged();
         } else {
           gasInfoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -8466,38 +7974,38 @@ public final class Abci {
        */
       public Builder mergeGasInfo(cosmos.base.abci.v1beta1.Abci.GasInfo value) {
         if (gasInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            gasInfo_ != null &&
-            gasInfo_ != cosmos.base.abci.v1beta1.Abci.GasInfo.getDefaultInstance()) {
-            getGasInfoBuilder().mergeFrom(value);
+          if (gasInfo_ != null) {
+            gasInfo_ =
+              cosmos.base.abci.v1beta1.Abci.GasInfo.newBuilder(gasInfo_).mergeFrom(value).buildPartial();
           } else {
             gasInfo_ = value;
           }
+          onChanged();
         } else {
           gasInfoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.cosmos.base.abci.v1beta1.GasInfo gas_info = 1 [(.gogoproto.nullable) = false, (.gogoproto.embed) = true];</code>
        */
       public Builder clearGasInfo() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        gasInfo_ = null;
-        if (gasInfoBuilder_ != null) {
-          gasInfoBuilder_.dispose();
+        if (gasInfoBuilder_ == null) {
+          gasInfo_ = null;
+          onChanged();
+        } else {
+          gasInfo_ = null;
           gasInfoBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.cosmos.base.abci.v1beta1.GasInfo gas_info = 1 [(.gogoproto.nullable) = false, (.gogoproto.embed) = true];</code>
        */
       public cosmos.base.abci.v1beta1.Abci.GasInfo.Builder getGasInfoBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getGasInfoFieldBuilder().getBuilder();
       }
@@ -8537,7 +8045,7 @@ public final class Abci {
        * @return Whether the result field is set.
        */
       public boolean hasResult() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return resultBuilder_ != null || result_ != null;
       }
       /**
        * <code>.cosmos.base.abci.v1beta1.Result result = 2;</code>
@@ -8559,11 +8067,11 @@ public final class Abci {
             throw new NullPointerException();
           }
           result_ = value;
+          onChanged();
         } else {
           resultBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -8573,11 +8081,11 @@ public final class Abci {
           cosmos.base.abci.v1beta1.Abci.Result.Builder builderForValue) {
         if (resultBuilder_ == null) {
           result_ = builderForValue.build();
+          onChanged();
         } else {
           resultBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -8585,38 +8093,38 @@ public final class Abci {
        */
       public Builder mergeResult(cosmos.base.abci.v1beta1.Abci.Result value) {
         if (resultBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            result_ != null &&
-            result_ != cosmos.base.abci.v1beta1.Abci.Result.getDefaultInstance()) {
-            getResultBuilder().mergeFrom(value);
+          if (result_ != null) {
+            result_ =
+              cosmos.base.abci.v1beta1.Abci.Result.newBuilder(result_).mergeFrom(value).buildPartial();
           } else {
             result_ = value;
           }
+          onChanged();
         } else {
           resultBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.cosmos.base.abci.v1beta1.Result result = 2;</code>
        */
       public Builder clearResult() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        result_ = null;
-        if (resultBuilder_ != null) {
-          resultBuilder_.dispose();
+        if (resultBuilder_ == null) {
+          result_ = null;
+          onChanged();
+        } else {
+          result_ = null;
           resultBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.cosmos.base.abci.v1beta1.Result result = 2;</code>
        */
       public cosmos.base.abci.v1beta1.Abci.Result.Builder getResultBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getResultFieldBuilder().getBuilder();
       }
@@ -8680,18 +8188,7 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new SimulationResponse(input, extensionRegistry);
       }
     };
 
@@ -8767,6 +8264,54 @@ public final class Abci {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MsgData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              msgType_ = s;
+              break;
+            }
+            case 18: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.abci.v1beta1.Abci.internal_static_cosmos_base_abci_v1beta1_MsgData_descriptor;
@@ -8781,8 +8326,7 @@ public final class Abci {
     }
 
     public static final int MSG_TYPE_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object msgType_ = "";
+    private volatile java.lang.Object msgType_;
     /**
      * <code>string msg_type = 1;</code>
      * @return The msgType.
@@ -8820,7 +8364,7 @@ public final class Abci {
     }
 
     public static final int DATA_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_;
     /**
      * <code>bytes data = 2;</code>
      * @return The data.
@@ -8844,13 +8388,13 @@ public final class Abci {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgType_)) {
+      if (!getMsgTypeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, msgType_);
       }
       if (!data_.isEmpty()) {
         output.writeBytes(2, data_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -8859,14 +8403,14 @@ public final class Abci {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(msgType_)) {
+      if (!getMsgTypeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, msgType_);
       }
       if (!data_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, data_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8885,7 +8429,7 @@ public final class Abci {
           .equals(other.getMsgType())) return false;
       if (!getData()
           .equals(other.getData())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -8900,7 +8444,7 @@ public final class Abci {
       hash = (53 * hash) + getMsgType().hashCode();
       hash = (37 * hash) + DATA_FIELD_NUMBER;
       hash = (53 * hash) + getData().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9022,20 +8566,26 @@ public final class Abci {
 
       // Construct using cosmos.base.abci.v1beta1.Abci.MsgData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         msgType_ = "";
+
         data_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -9062,19 +8612,10 @@ public final class Abci {
       @java.lang.Override
       public cosmos.base.abci.v1beta1.Abci.MsgData buildPartial() {
         cosmos.base.abci.v1beta1.Abci.MsgData result = new cosmos.base.abci.v1beta1.Abci.MsgData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.msgType_ = msgType_;
+        result.data_ = data_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(cosmos.base.abci.v1beta1.Abci.MsgData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.msgType_ = msgType_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.data_ = data_;
-        }
       }
 
       @java.lang.Override
@@ -9123,13 +8664,12 @@ public final class Abci {
         if (other == cosmos.base.abci.v1beta1.Abci.MsgData.getDefaultInstance()) return this;
         if (!other.getMsgType().isEmpty()) {
           msgType_ = other.msgType_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
           setData(other.getData());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -9144,43 +8684,19 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.abci.v1beta1.Abci.MsgData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                msgType_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.abci.v1beta1.Abci.MsgData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object msgType_ = "";
       /**
@@ -9223,9 +8739,11 @@ public final class Abci {
        */
       public Builder setMsgType(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         msgType_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9234,8 +8752,8 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearMsgType() {
+        
         msgType_ = getDefaultInstance().getMsgType();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -9246,10 +8764,12 @@ public final class Abci {
        */
       public Builder setMsgTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         msgType_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9269,9 +8789,11 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -9280,7 +8802,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -9318,18 +8840,7 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MsgData(input, extensionRegistry);
       }
     };
 
@@ -9410,6 +8921,56 @@ public final class Abci {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TxMsgData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                data_ = new java.util.ArrayList<cosmos.base.abci.v1beta1.Abci.MsgData>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              data_.add(
+                  input.readMessage(cosmos.base.abci.v1beta1.Abci.MsgData.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          data_ = java.util.Collections.unmodifiableList(data_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.abci.v1beta1.Abci.internal_static_cosmos_base_abci_v1beta1_TxMsgData_descriptor;
@@ -9424,7 +8985,6 @@ public final class Abci {
     }
 
     public static final int DATA_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.abci.v1beta1.Abci.MsgData> data_;
     /**
      * <code>repeated .cosmos.base.abci.v1beta1.MsgData data = 1;</code>
@@ -9481,7 +9041,7 @@ public final class Abci {
       for (int i = 0; i < data_.size(); i++) {
         output.writeMessage(1, data_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -9494,7 +9054,7 @@ public final class Abci {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, data_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9511,7 +9071,7 @@ public final class Abci {
 
       if (!getDataList()
           .equals(other.getDataList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -9526,7 +9086,7 @@ public final class Abci {
         hash = (37 * hash) + DATA_FIELD_NUMBER;
         hash = (53 * hash) + getDataList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9648,25 +9208,29 @@ public final class Abci {
 
       // Construct using cosmos.base.abci.v1beta1.Abci.TxMsgData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDataFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (dataBuilder_ == null) {
           data_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          data_ = null;
           dataBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -9693,13 +9257,7 @@ public final class Abci {
       @java.lang.Override
       public cosmos.base.abci.v1beta1.Abci.TxMsgData buildPartial() {
         cosmos.base.abci.v1beta1.Abci.TxMsgData result = new cosmos.base.abci.v1beta1.Abci.TxMsgData(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(cosmos.base.abci.v1beta1.Abci.TxMsgData result) {
+        int from_bitField0_ = bitField0_;
         if (dataBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             data_ = java.util.Collections.unmodifiableList(data_);
@@ -9709,10 +9267,8 @@ public final class Abci {
         } else {
           result.data_ = dataBuilder_.build();
         }
-      }
-
-      private void buildPartial0(cosmos.base.abci.v1beta1.Abci.TxMsgData result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -9785,7 +9341,7 @@ public final class Abci {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -9800,43 +9356,17 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.abci.v1beta1.Abci.TxMsgData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                cosmos.base.abci.v1beta1.Abci.MsgData m =
-                    input.readMessage(
-                        cosmos.base.abci.v1beta1.Abci.MsgData.parser(),
-                        extensionRegistry);
-                if (dataBuilder_ == null) {
-                  ensureDataIsMutable();
-                  data_.add(m);
-                } else {
-                  dataBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.abci.v1beta1.Abci.TxMsgData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -10113,18 +9643,7 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TxMsgData(input, extensionRegistry);
       }
     };
 
@@ -10274,6 +9793,81 @@ public final class Abci {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private SearchTxsResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              totalCount_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              count_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+
+              pageNumber_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+
+              pageTotal_ = input.readUInt64();
+              break;
+            }
+            case 40: {
+
+              limit_ = input.readUInt64();
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                txs_ = new java.util.ArrayList<cosmos.base.abci.v1beta1.Abci.TxResponse>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              txs_.add(
+                  input.readMessage(cosmos.base.abci.v1beta1.Abci.TxResponse.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          txs_ = java.util.Collections.unmodifiableList(txs_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.abci.v1beta1.Abci.internal_static_cosmos_base_abci_v1beta1_SearchTxsResult_descriptor;
@@ -10288,7 +9882,7 @@ public final class Abci {
     }
 
     public static final int TOTAL_COUNT_FIELD_NUMBER = 1;
-    private long totalCount_ = 0L;
+    private long totalCount_;
     /**
      * <pre>
      * Count of all txs
@@ -10303,7 +9897,7 @@ public final class Abci {
     }
 
     public static final int COUNT_FIELD_NUMBER = 2;
-    private long count_ = 0L;
+    private long count_;
     /**
      * <pre>
      * Count of txs in current page
@@ -10318,7 +9912,7 @@ public final class Abci {
     }
 
     public static final int PAGE_NUMBER_FIELD_NUMBER = 3;
-    private long pageNumber_ = 0L;
+    private long pageNumber_;
     /**
      * <pre>
      * Index of current page, start from 1
@@ -10333,7 +9927,7 @@ public final class Abci {
     }
 
     public static final int PAGE_TOTAL_FIELD_NUMBER = 4;
-    private long pageTotal_ = 0L;
+    private long pageTotal_;
     /**
      * <pre>
      * Count of total pages
@@ -10348,7 +9942,7 @@ public final class Abci {
     }
 
     public static final int LIMIT_FIELD_NUMBER = 5;
-    private long limit_ = 0L;
+    private long limit_;
     /**
      * <pre>
      * Max count txs per page
@@ -10363,7 +9957,6 @@ public final class Abci {
     }
 
     public static final int TXS_FIELD_NUMBER = 6;
-    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.abci.v1beta1.Abci.TxResponse> txs_;
     /**
      * <pre>
@@ -10455,7 +10048,7 @@ public final class Abci {
       for (int i = 0; i < txs_.size(); i++) {
         output.writeMessage(6, txs_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -10488,7 +10081,7 @@ public final class Abci {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, txs_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10515,7 +10108,7 @@ public final class Abci {
           != other.getLimit()) return false;
       if (!getTxsList()
           .equals(other.getTxsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -10545,7 +10138,7 @@ public final class Abci {
         hash = (37 * hash) + TXS_FIELD_NUMBER;
         hash = (53 * hash) + getTxsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10666,30 +10259,39 @@ public final class Abci {
 
       // Construct using cosmos.base.abci.v1beta1.Abci.SearchTxsResult.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getTxsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         totalCount_ = 0L;
+
         count_ = 0L;
+
         pageNumber_ = 0L;
+
         pageTotal_ = 0L;
+
         limit_ = 0L;
+
         if (txsBuilder_ == null) {
           txs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          txs_ = null;
           txsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -10716,41 +10318,23 @@ public final class Abci {
       @java.lang.Override
       public cosmos.base.abci.v1beta1.Abci.SearchTxsResult buildPartial() {
         cosmos.base.abci.v1beta1.Abci.SearchTxsResult result = new cosmos.base.abci.v1beta1.Abci.SearchTxsResult(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(cosmos.base.abci.v1beta1.Abci.SearchTxsResult result) {
+        int from_bitField0_ = bitField0_;
+        result.totalCount_ = totalCount_;
+        result.count_ = count_;
+        result.pageNumber_ = pageNumber_;
+        result.pageTotal_ = pageTotal_;
+        result.limit_ = limit_;
         if (txsBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             txs_ = java.util.Collections.unmodifiableList(txs_);
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.txs_ = txs_;
         } else {
           result.txs_ = txsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(cosmos.base.abci.v1beta1.Abci.SearchTxsResult result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.totalCount_ = totalCount_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.count_ = count_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.pageNumber_ = pageNumber_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.pageTotal_ = pageTotal_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.limit_ = limit_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -10816,7 +10400,7 @@ public final class Abci {
           if (!other.txs_.isEmpty()) {
             if (txs_.isEmpty()) {
               txs_ = other.txs_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureTxsIsMutable();
               txs_.addAll(other.txs_);
@@ -10829,7 +10413,7 @@ public final class Abci {
               txsBuilder_.dispose();
               txsBuilder_ = null;
               txs_ = other.txs_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000001);
               txsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTxsFieldBuilder() : null;
@@ -10838,7 +10422,7 @@ public final class Abci {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -10853,68 +10437,17 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        cosmos.base.abci.v1beta1.Abci.SearchTxsResult parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                totalCount_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                count_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 24: {
-                pageNumber_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 32: {
-                pageTotal_ = input.readUInt64();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 40: {
-                limit_ = input.readUInt64();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 40
-              case 50: {
-                cosmos.base.abci.v1beta1.Abci.TxResponse m =
-                    input.readMessage(
-                        cosmos.base.abci.v1beta1.Abci.TxResponse.parser(),
-                        extensionRegistry);
-                if (txsBuilder_ == null) {
-                  ensureTxsIsMutable();
-                  txs_.add(m);
-                } else {
-                  txsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 50
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cosmos.base.abci.v1beta1.Abci.SearchTxsResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -10944,7 +10477,6 @@ public final class Abci {
       public Builder setTotalCount(long value) {
         
         totalCount_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10957,7 +10489,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearTotalCount() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         totalCount_ = 0L;
         onChanged();
         return this;
@@ -10988,7 +10520,6 @@ public final class Abci {
       public Builder setCount(long value) {
         
         count_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -11001,7 +10532,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearCount() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         count_ = 0L;
         onChanged();
         return this;
@@ -11032,7 +10563,6 @@ public final class Abci {
       public Builder setPageNumber(long value) {
         
         pageNumber_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -11045,7 +10575,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearPageNumber() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         pageNumber_ = 0L;
         onChanged();
         return this;
@@ -11076,7 +10606,6 @@ public final class Abci {
       public Builder setPageTotal(long value) {
         
         pageTotal_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -11089,7 +10618,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearPageTotal() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         pageTotal_ = 0L;
         onChanged();
         return this;
@@ -11120,7 +10649,6 @@ public final class Abci {
       public Builder setLimit(long value) {
         
         limit_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -11133,7 +10661,7 @@ public final class Abci {
        * @return This builder for chaining.
        */
       public Builder clearLimit() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         limit_ = 0L;
         onChanged();
         return this;
@@ -11142,9 +10670,9 @@ public final class Abci {
       private java.util.List<cosmos.base.abci.v1beta1.Abci.TxResponse> txs_ =
         java.util.Collections.emptyList();
       private void ensureTxsIsMutable() {
-        if (!((bitField0_ & 0x00000020) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           txs_ = new java.util.ArrayList<cosmos.base.abci.v1beta1.Abci.TxResponse>(txs_);
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -11338,7 +10866,7 @@ public final class Abci {
       public Builder clearTxs() {
         if (txsBuilder_ == null) {
           txs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           txsBuilder_.clear();
@@ -11443,7 +10971,7 @@ public final class Abci {
           txsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               cosmos.base.abci.v1beta1.Abci.TxResponse, cosmos.base.abci.v1beta1.Abci.TxResponse.Builder, cosmos.base.abci.v1beta1.Abci.TxResponseOrBuilder>(
                   txs_,
-                  ((bitField0_ & 0x00000020) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           txs_ = null;
@@ -11483,18 +11011,7 @@ public final class Abci {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new SearchTxsResult(input, extensionRegistry);
       }
     };
 
@@ -11576,7 +11093,7 @@ public final class Abci {
       "\n#cosmos/base/abci/v1beta1/abci.proto\022\030c" +
       "osmos.base.abci.v1beta1\032\024gogoproto/gogo." +
       "proto\032\033tendermint/abci/types.proto\032\031goog" +
-      "le/protobuf/any.proto\"\346\002\n\nTxResponse\022\016\n\006" +
+      "le/protobuf/any.proto\"\270\002\n\nTxResponse\022\016\n\006" +
       "height\030\001 \001(\003\022\032\n\006txhash\030\002 \001(\tB\n\342\336\037\006TxHash" +
       "\022\021\n\tcodespace\030\003 \001(\t\022\014\n\004code\030\004 \001(\r\022\014\n\004dat" +
       "a\030\005 \001(\t\022\017\n\007raw_log\030\006 \001(\t\022O\n\004logs\030\007 \003(\0132(" +
@@ -11584,34 +11101,33 @@ public final class Abci {
       "B\027\252\337\037\017ABCIMessageLogs\310\336\037\000\022\014\n\004info\030\010 \001(\t\022" +
       "\022\n\ngas_wanted\030\t \001(\003\022\020\n\010gas_used\030\n \001(\003\022 \n" +
       "\002tx\030\013 \001(\0132\024.google.protobuf.Any\022\021\n\ttimes" +
-      "tamp\030\014 \001(\t\022,\n\006events\030\r \003(\0132\026.tendermint." +
-      "abci.EventB\004\310\336\037\000:\004\210\240\037\000\"\203\001\n\016ABCIMessageLo" +
-      "g\022\021\n\tmsg_index\030\001 \001(\r\022\013\n\003log\030\002 \001(\t\022K\n\006eve" +
-      "nts\030\003 \003(\0132%.cosmos.base.abci.v1beta1.Str" +
-      "ingEventB\024\252\337\037\014StringEvents\310\336\037\000:\004\200\334 \001\"`\n\013" +
-      "StringEvent\022\014\n\004type\030\001 \001(\t\022=\n\nattributes\030" +
-      "\002 \003(\0132#.cosmos.base.abci.v1beta1.Attribu" +
-      "teB\004\310\336\037\000:\004\200\334 \001\"\'\n\tAttribute\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t\"[\n\007GasInfo\022)\n\ngas_wanted" +
-      "\030\001 \001(\004B\025\362\336\037\021yaml:\"gas_wanted\"\022%\n\010gas_use" +
-      "d\030\002 \001(\004B\023\362\336\037\017yaml:\"gas_used\"\"W\n\006Result\022\014" +
-      "\n\004data\030\001 \001(\014\022\013\n\003log\030\002 \001(\t\022,\n\006events\030\003 \003(" +
-      "\0132\026.tendermint.abci.EventB\004\310\336\037\000:\004\210\240\037\000\"\205\001" +
-      "\n\022SimulationResponse\022=\n\010gas_info\030\001 \001(\0132!" +
-      ".cosmos.base.abci.v1beta1.GasInfoB\010\320\336\037\001\310" +
-      "\336\037\000\0220\n\006result\030\002 \001(\0132 .cosmos.base.abci.v" +
-      "1beta1.Result\"/\n\007MsgData\022\020\n\010msg_type\030\001 \001" +
-      "(\t\022\014\n\004data\030\002 \001(\014:\004\200\334 \001\"B\n\tTxMsgData\022/\n\004d" +
-      "ata\030\001 \003(\0132!.cosmos.base.abci.v1beta1.Msg" +
-      "Data:\004\200\334 \001\"\231\002\n\017SearchTxsResult\022:\n\013total_" +
-      "count\030\001 \001(\004B%\362\336\037\022yaml:\"total_count\"\352\336\037\013t" +
-      "otal_count\022\r\n\005count\030\002 \001(\004\022:\n\013page_number" +
-      "\030\003 \001(\004B%\362\336\037\022yaml:\"page_number\"\352\336\037\013page_n" +
-      "umber\0227\n\npage_total\030\004 \001(\004B#\362\336\037\021yaml:\"pag" +
-      "e_total\"\352\336\037\npage_total\022\r\n\005limit\030\005 \001(\004\0221\n" +
-      "\003txs\030\006 \003(\0132$.cosmos.base.abci.v1beta1.Tx" +
-      "Response:\004\200\334 \001B(Z\"github.com/cosmos/cosm" +
-      "os-sdk/types\330\341\036\000b\006proto3"
+      "tamp\030\014 \001(\t:\004\210\240\037\000\"\203\001\n\016ABCIMessageLog\022\021\n\tm" +
+      "sg_index\030\001 \001(\r\022\013\n\003log\030\002 \001(\t\022K\n\006events\030\003 " +
+      "\003(\0132%.cosmos.base.abci.v1beta1.StringEve" +
+      "ntB\024\252\337\037\014StringEvents\310\336\037\000:\004\200\334 \001\"`\n\013String" +
+      "Event\022\014\n\004type\030\001 \001(\t\022=\n\nattributes\030\002 \003(\0132" +
+      "#.cosmos.base.abci.v1beta1.AttributeB\004\310\336" +
+      "\037\000:\004\200\334 \001\"\'\n\tAttribute\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t\"[\n\007GasInfo\022)\n\ngas_wanted\030\001 \001(\004" +
+      "B\025\362\336\037\021yaml:\"gas_wanted\"\022%\n\010gas_used\030\002 \001(" +
+      "\004B\023\362\336\037\017yaml:\"gas_used\"\"W\n\006Result\022\014\n\004data" +
+      "\030\001 \001(\014\022\013\n\003log\030\002 \001(\t\022,\n\006events\030\003 \003(\0132\026.te" +
+      "ndermint.abci.EventB\004\310\336\037\000:\004\210\240\037\000\"\205\001\n\022Simu" +
+      "lationResponse\022=\n\010gas_info\030\001 \001(\0132!.cosmo" +
+      "s.base.abci.v1beta1.GasInfoB\010\320\336\037\001\310\336\037\000\0220\n" +
+      "\006result\030\002 \001(\0132 .cosmos.base.abci.v1beta1" +
+      ".Result\"/\n\007MsgData\022\020\n\010msg_type\030\001 \001(\t\022\014\n\004" +
+      "data\030\002 \001(\014:\004\200\334 \001\"B\n\tTxMsgData\022/\n\004data\030\001 " +
+      "\003(\0132!.cosmos.base.abci.v1beta1.MsgData:\004" +
+      "\200\334 \001\"\231\002\n\017SearchTxsResult\022:\n\013total_count\030" +
+      "\001 \001(\004B%\362\336\037\022yaml:\"total_count\"\352\336\037\013total_c" +
+      "ount\022\r\n\005count\030\002 \001(\004\022:\n\013page_number\030\003 \001(\004" +
+      "B%\362\336\037\022yaml:\"page_number\"\352\336\037\013page_number\022" +
+      "7\n\npage_total\030\004 \001(\004B#\362\336\037\021yaml:\"page_tota" +
+      "l\"\352\336\037\npage_total\022\r\n\005limit\030\005 \001(\004\0221\n\003txs\030\006" +
+      " \003(\0132$.cosmos.base.abci.v1beta1.TxRespon" +
+      "se:\004\200\334 \001B(Z\"github.com/cosmos/cosmos-sdk" +
+      "/types\330\341\036\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11625,7 +11141,7 @@ public final class Abci {
     internal_static_cosmos_base_abci_v1beta1_TxResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cosmos_base_abci_v1beta1_TxResponse_descriptor,
-        new java.lang.String[] { "Height", "Txhash", "Codespace", "Code", "Data", "RawLog", "Logs", "Info", "GasWanted", "GasUsed", "Tx", "Timestamp", "Events", });
+        new java.lang.String[] { "Height", "Txhash", "Codespace", "Code", "Data", "RawLog", "Logs", "Info", "GasWanted", "GasUsed", "Tx", "Timestamp", });
     internal_static_cosmos_base_abci_v1beta1_ABCIMessageLog_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_cosmos_base_abci_v1beta1_ABCIMessageLog_fieldAccessorTable = new

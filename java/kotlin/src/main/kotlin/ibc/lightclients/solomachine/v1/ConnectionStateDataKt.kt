@@ -3,16 +3,16 @@
 
 package ibc.lightclients.solomachine.v1;
 
-@kotlin.jvm.JvmName("-initializeconnectionStateData")
-public inline fun connectionStateData(block: ibc.lightclients.solomachine.v1.ConnectionStateDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v1.Solomachine.ConnectionStateData =
+@kotlin.jvm.JvmSynthetic
+inline fun connectionStateData(block: ibc.lightclients.solomachine.v1.ConnectionStateDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v1.Solomachine.ConnectionStateData =
   ibc.lightclients.solomachine.v1.ConnectionStateDataKt.Dsl._create(ibc.lightclients.solomachine.v1.Solomachine.ConnectionStateData.newBuilder()).apply { block() }._build()
-public object ConnectionStateDataKt {
+object ConnectionStateDataKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.lightclients.solomachine.v1.Solomachine.ConnectionStateData.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.lightclients.solomachine.v1.Solomachine.ConnectionStateData.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.lightclients.solomachine.v1.Solomachine.ConnectionStateData.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ConnectionStateDataKt {
     /**
      * <code>bytes path = 1;</code>
      */
-    public var path: com.google.protobuf.ByteString
+    var path: com.google.protobuf.ByteString
       @JvmName("getPath")
       get() = _builder.getPath()
       @JvmName("setPath")
@@ -35,14 +35,14 @@ public object ConnectionStateDataKt {
     /**
      * <code>bytes path = 1;</code>
      */
-    public fun clearPath() {
+    fun clearPath() {
       _builder.clearPath()
     }
 
     /**
      * <code>.ibc.core.connection.v1.ConnectionEnd connection = 2;</code>
      */
-    public var connection: ibc.core.connection.v1.Connection.ConnectionEnd
+    var connection: ibc.core.connection.v1.Connection.ConnectionEnd
       @JvmName("getConnection")
       get() = _builder.getConnection()
       @JvmName("setConnection")
@@ -52,22 +52,18 @@ public object ConnectionStateDataKt {
     /**
      * <code>.ibc.core.connection.v1.ConnectionEnd connection = 2;</code>
      */
-    public fun clearConnection() {
+    fun clearConnection() {
       _builder.clearConnection()
     }
     /**
      * <code>.ibc.core.connection.v1.ConnectionEnd connection = 2;</code>
      * @return Whether the connection field is set.
      */
-    public fun hasConnection(): kotlin.Boolean {
+    fun hasConnection(): kotlin.Boolean {
       return _builder.hasConnection()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.lightclients.solomachine.v1.Solomachine.ConnectionStateData.copy(block: ibc.lightclients.solomachine.v1.ConnectionStateDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v1.Solomachine.ConnectionStateData =
+inline fun ibc.lightclients.solomachine.v1.Solomachine.ConnectionStateData.copy(block: ibc.lightclients.solomachine.v1.ConnectionStateDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v1.Solomachine.ConnectionStateData =
   ibc.lightclients.solomachine.v1.ConnectionStateDataKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.lightclients.solomachine.v1.Solomachine.ConnectionStateDataOrBuilder.connectionOrNull: ibc.core.connection.v1.Connection.ConnectionEnd?
-  get() = if (hasConnection()) getConnection() else null
-

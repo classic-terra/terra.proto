@@ -28,43 +28,41 @@ import terra.wasm.v1beta1.MsgGrpc.getServiceDescriptor
 /**
  * Holder for Kotlin coroutine-based client and server APIs for terra.wasm.v1beta1.Msg.
  */
-public object MsgGrpcKt {
-  public const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
+object MsgGrpcKt {
+  const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = MsgGrpc.getServiceDescriptor()
 
-  public val storeCodeMethod: MethodDescriptor<Tx.MsgStoreCode, Tx.MsgStoreCodeResponse>
+  val storeCodeMethod: MethodDescriptor<Tx.MsgStoreCode, Tx.MsgStoreCodeResponse>
     @JvmStatic
     get() = MsgGrpc.getStoreCodeMethod()
 
-  public val migrateCodeMethod: MethodDescriptor<Tx.MsgMigrateCode, Tx.MsgMigrateCodeResponse>
+  val migrateCodeMethod: MethodDescriptor<Tx.MsgMigrateCode, Tx.MsgMigrateCodeResponse>
     @JvmStatic
     get() = MsgGrpc.getMigrateCodeMethod()
 
-  public val instantiateContractMethod:
-      MethodDescriptor<Tx.MsgInstantiateContract, Tx.MsgInstantiateContractResponse>
+  val instantiateContractMethod: MethodDescriptor<Tx.MsgInstantiateContract,
+      Tx.MsgInstantiateContractResponse>
     @JvmStatic
     get() = MsgGrpc.getInstantiateContractMethod()
 
-  public val executeContractMethod:
-      MethodDescriptor<Tx.MsgExecuteContract, Tx.MsgExecuteContractResponse>
+  val executeContractMethod: MethodDescriptor<Tx.MsgExecuteContract, Tx.MsgExecuteContractResponse>
     @JvmStatic
     get() = MsgGrpc.getExecuteContractMethod()
 
-  public val migrateContractMethod:
-      MethodDescriptor<Tx.MsgMigrateContract, Tx.MsgMigrateContractResponse>
+  val migrateContractMethod: MethodDescriptor<Tx.MsgMigrateContract, Tx.MsgMigrateContractResponse>
     @JvmStatic
     get() = MsgGrpc.getMigrateContractMethod()
 
-  public val updateContractAdminMethod:
-      MethodDescriptor<Tx.MsgUpdateContractAdmin, Tx.MsgUpdateContractAdminResponse>
+  val updateContractAdminMethod: MethodDescriptor<Tx.MsgUpdateContractAdmin,
+      Tx.MsgUpdateContractAdminResponse>
     @JvmStatic
     get() = MsgGrpc.getUpdateContractAdminMethod()
 
-  public val clearContractAdminMethod:
-      MethodDescriptor<Tx.MsgClearContractAdmin, Tx.MsgClearContractAdminResponse>
+  val clearContractAdminMethod: MethodDescriptor<Tx.MsgClearContractAdmin,
+      Tx.MsgClearContractAdminResponse>
     @JvmStatic
     get() = MsgGrpc.getClearContractAdminMethod()
 
@@ -72,11 +70,11 @@ public object MsgGrpcKt {
    * A stub for issuing RPCs to a(n) terra.wasm.v1beta1.Msg service as suspending coroutines.
    */
   @StubFor(MsgGrpc::class)
-  public class MsgCoroutineStub @JvmOverloads constructor(
+  class MsgCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<MsgCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
         MsgCoroutineStub(channel, callOptions)
 
     /**
@@ -87,19 +85,15 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun storeCode(request: Tx.MsgStoreCode, headers: Metadata = Metadata()):
-        Tx.MsgStoreCodeResponse = unaryRpc(
+    suspend fun storeCode(request: Tx.MsgStoreCode): Tx.MsgStoreCodeResponse = unaryRpc(
       channel,
       MsgGrpc.getStoreCodeMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -108,19 +102,15 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun migrateCode(request: Tx.MsgMigrateCode, headers: Metadata = Metadata()):
-        Tx.MsgMigrateCodeResponse = unaryRpc(
+    suspend fun migrateCode(request: Tx.MsgMigrateCode): Tx.MsgMigrateCodeResponse = unaryRpc(
       channel,
       MsgGrpc.getMigrateCodeMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -129,19 +119,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun instantiateContract(request: Tx.MsgInstantiateContract, headers: Metadata =
-        Metadata()): Tx.MsgInstantiateContractResponse = unaryRpc(
+    suspend fun instantiateContract(request: Tx.MsgInstantiateContract):
+        Tx.MsgInstantiateContractResponse = unaryRpc(
       channel,
       MsgGrpc.getInstantiateContractMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -150,19 +137,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun executeContract(request: Tx.MsgExecuteContract, headers: Metadata =
-        Metadata()): Tx.MsgExecuteContractResponse = unaryRpc(
+    suspend fun executeContract(request: Tx.MsgExecuteContract): Tx.MsgExecuteContractResponse =
+        unaryRpc(
       channel,
       MsgGrpc.getExecuteContractMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -171,19 +155,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun migrateContract(request: Tx.MsgMigrateContract, headers: Metadata =
-        Metadata()): Tx.MsgMigrateContractResponse = unaryRpc(
+    suspend fun migrateContract(request: Tx.MsgMigrateContract): Tx.MsgMigrateContractResponse =
+        unaryRpc(
       channel,
       MsgGrpc.getMigrateContractMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -192,19 +173,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun updateContractAdmin(request: Tx.MsgUpdateContractAdmin, headers: Metadata =
-        Metadata()): Tx.MsgUpdateContractAdminResponse = unaryRpc(
+    suspend fun updateContractAdmin(request: Tx.MsgUpdateContractAdmin):
+        Tx.MsgUpdateContractAdminResponse = unaryRpc(
       channel,
       MsgGrpc.getUpdateContractAdminMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -213,25 +191,22 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun clearContractAdmin(request: Tx.MsgClearContractAdmin, headers: Metadata =
-        Metadata()): Tx.MsgClearContractAdminResponse = unaryRpc(
+    suspend fun clearContractAdmin(request: Tx.MsgClearContractAdmin):
+        Tx.MsgClearContractAdminResponse = unaryRpc(
       channel,
       MsgGrpc.getClearContractAdminMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the terra.wasm.v1beta1.Msg service based on Kotlin coroutines.
    */
-  public abstract class MsgCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class MsgCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for terra.wasm.v1beta1.Msg.StoreCode.
@@ -244,7 +219,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun storeCode(request: Tx.MsgStoreCode): Tx.MsgStoreCodeResponse = throw
+    open suspend fun storeCode(request: Tx.MsgStoreCode): Tx.MsgStoreCodeResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Msg.StoreCode is unimplemented"))
 
     /**
@@ -258,8 +233,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun migrateCode(request: Tx.MsgMigrateCode): Tx.MsgMigrateCodeResponse =
-        throw
+    open suspend fun migrateCode(request: Tx.MsgMigrateCode): Tx.MsgMigrateCodeResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Msg.MigrateCode is unimplemented"))
 
     /**
@@ -273,7 +247,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun instantiateContract(request: Tx.MsgInstantiateContract):
+    open suspend fun instantiateContract(request: Tx.MsgInstantiateContract):
         Tx.MsgInstantiateContractResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Msg.InstantiateContract is unimplemented"))
 
@@ -288,8 +262,8 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun executeContract(request: Tx.MsgExecuteContract):
-        Tx.MsgExecuteContractResponse = throw
+    open suspend fun executeContract(request: Tx.MsgExecuteContract): Tx.MsgExecuteContractResponse
+        = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Msg.ExecuteContract is unimplemented"))
 
     /**
@@ -303,8 +277,8 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun migrateContract(request: Tx.MsgMigrateContract):
-        Tx.MsgMigrateContractResponse = throw
+    open suspend fun migrateContract(request: Tx.MsgMigrateContract): Tx.MsgMigrateContractResponse
+        = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Msg.MigrateContract is unimplemented"))
 
     /**
@@ -318,7 +292,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun updateContractAdmin(request: Tx.MsgUpdateContractAdmin):
+    open suspend fun updateContractAdmin(request: Tx.MsgUpdateContractAdmin):
         Tx.MsgUpdateContractAdminResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Msg.UpdateContractAdmin is unimplemented"))
 
@@ -333,12 +307,11 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun clearContractAdmin(request: Tx.MsgClearContractAdmin):
+    open suspend fun clearContractAdmin(request: Tx.MsgClearContractAdmin):
         Tx.MsgClearContractAdminResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Msg.ClearContractAdmin is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = MsgGrpc.getStoreCodeMethod(),

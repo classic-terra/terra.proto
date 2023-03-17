@@ -3,16 +3,16 @@
 
 package cosmos.evidence.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryAllEvidenceResponse")
-public inline fun queryAllEvidenceResponse(block: cosmos.evidence.v1beta1.QueryAllEvidenceResponseKt.Dsl.() -> kotlin.Unit): cosmos.evidence.v1beta1.QueryOuterClass.QueryAllEvidenceResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryAllEvidenceResponse(block: cosmos.evidence.v1beta1.QueryAllEvidenceResponseKt.Dsl.() -> Unit): cosmos.evidence.v1beta1.QueryOuterClass.QueryAllEvidenceResponse =
   cosmos.evidence.v1beta1.QueryAllEvidenceResponseKt.Dsl._create(cosmos.evidence.v1beta1.QueryOuterClass.QueryAllEvidenceResponse.newBuilder()).apply { block() }._build()
-public object QueryAllEvidenceResponseKt {
+object QueryAllEvidenceResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.evidence.v1beta1.QueryOuterClass.QueryAllEvidenceResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.evidence.v1beta1.QueryOuterClass.QueryAllEvidenceResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.evidence.v1beta1.QueryOuterClass.QueryAllEvidenceResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryAllEvidenceResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class EvidenceProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class EvidenceProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * evidence returns all evidences.
@@ -35,7 +35,7 @@ public object QueryAllEvidenceResponseKt {
      *
      * <code>repeated .google.protobuf.Any evidence = 1;</code>
      */
-     public val evidence: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>
+     val evidence: com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getEvidenceList()
@@ -50,10 +50,9 @@ public object QueryAllEvidenceResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addEvidence")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.add(value: com.google.protobuf.Any) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.add(value: com.google.protobuf.Any) {
       _builder.addEvidence(value)
-    }
-    /**
+    }/**
      * <pre>
      * evidence returns all evidences.
      * </pre>
@@ -63,11 +62,9 @@ public object QueryAllEvidenceResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignEvidence")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.plusAssign(value: com.google.protobuf.Any) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.plusAssign(value: com.google.protobuf.Any) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * evidence returns all evidences.
      * </pre>
@@ -77,10 +74,9 @@ public object QueryAllEvidenceResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllEvidence")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       _builder.addAllEvidence(values)
-    }
-    /**
+    }/**
      * <pre>
      * evidence returns all evidences.
      * </pre>
@@ -90,11 +86,9 @@ public object QueryAllEvidenceResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllEvidence")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.Any>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * evidence returns all evidences.
      * </pre>
@@ -105,10 +99,9 @@ public object QueryAllEvidenceResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setEvidence")
-    public operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
+    operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.set(index: kotlin.Int, value: com.google.protobuf.Any) {
       _builder.setEvidence(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * evidence returns all evidences.
      * </pre>
@@ -117,11 +110,9 @@ public object QueryAllEvidenceResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearEvidence")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.Any, EvidenceProxy>.clear() {
       _builder.clearEvidence()
     }
-
-
     /**
      * <pre>
      * pagination defines the pagination in the response.
@@ -129,7 +120,7 @@ public object QueryAllEvidenceResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -143,7 +134,7 @@ public object QueryAllEvidenceResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -154,15 +145,11 @@ public object QueryAllEvidenceResponseKt {
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.evidence.v1beta1.QueryOuterClass.QueryAllEvidenceResponse.copy(block: cosmos.evidence.v1beta1.QueryAllEvidenceResponseKt.Dsl.() -> kotlin.Unit): cosmos.evidence.v1beta1.QueryOuterClass.QueryAllEvidenceResponse =
+inline fun cosmos.evidence.v1beta1.QueryOuterClass.QueryAllEvidenceResponse.copy(block: cosmos.evidence.v1beta1.QueryAllEvidenceResponseKt.Dsl.() -> Unit): cosmos.evidence.v1beta1.QueryOuterClass.QueryAllEvidenceResponse =
   cosmos.evidence.v1beta1.QueryAllEvidenceResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.evidence.v1beta1.QueryOuterClass.QueryAllEvidenceResponseOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageResponse?
-  get() = if (hasPagination()) getPagination() else null
-

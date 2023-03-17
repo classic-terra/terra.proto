@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgSetWithdrawAddress")
-public inline fun msgSetWithdrawAddress(block: cosmos.distribution.v1beta1.MsgSetWithdrawAddressKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddress =
+@kotlin.jvm.JvmSynthetic
+inline fun msgSetWithdrawAddress(block: cosmos.distribution.v1beta1.MsgSetWithdrawAddressKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddress =
   cosmos.distribution.v1beta1.MsgSetWithdrawAddressKt.Dsl._create(cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddress.newBuilder()).apply { block() }._build()
-public object MsgSetWithdrawAddressKt {
+object MsgSetWithdrawAddressKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddress.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddress.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddress.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgSetWithdrawAddressKt {
     /**
      * <code>string delegator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"delegator_address&#92;""];</code>
      */
-    public var delegatorAddress: kotlin.String
+    var delegatorAddress: kotlin.String
       @JvmName("getDelegatorAddress")
       get() = _builder.getDelegatorAddress()
       @JvmName("setDelegatorAddress")
@@ -35,14 +35,14 @@ public object MsgSetWithdrawAddressKt {
     /**
      * <code>string delegator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"delegator_address&#92;""];</code>
      */
-    public fun clearDelegatorAddress() {
+    fun clearDelegatorAddress() {
       _builder.clearDelegatorAddress()
     }
 
     /**
      * <code>string withdraw_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"withdraw_address&#92;""];</code>
      */
-    public var withdrawAddress: kotlin.String
+    var withdrawAddress: kotlin.String
       @JvmName("getWithdrawAddress")
       get() = _builder.getWithdrawAddress()
       @JvmName("setWithdrawAddress")
@@ -52,12 +52,11 @@ public object MsgSetWithdrawAddressKt {
     /**
      * <code>string withdraw_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"withdraw_address&#92;""];</code>
      */
-    public fun clearWithdrawAddress() {
+    fun clearWithdrawAddress() {
       _builder.clearWithdrawAddress()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddress.copy(block: cosmos.distribution.v1beta1.MsgSetWithdrawAddressKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddress =
+inline fun cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddress.copy(block: cosmos.distribution.v1beta1.MsgSetWithdrawAddressKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddress =
   cosmos.distribution.v1beta1.MsgSetWithdrawAddressKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

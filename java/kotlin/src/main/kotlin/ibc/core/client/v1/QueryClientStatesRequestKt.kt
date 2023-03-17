@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializequeryClientStatesRequest")
-public inline fun queryClientStatesRequest(block: ibc.core.client.v1.QueryClientStatesRequestKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatesRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryClientStatesRequest(block: ibc.core.client.v1.QueryClientStatesRequestKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatesRequest =
   ibc.core.client.v1.QueryClientStatesRequestKt.Dsl._create(ibc.core.client.v1.QueryOuterClass.QueryClientStatesRequest.newBuilder()).apply { block() }._build()
-public object QueryClientStatesRequestKt {
+object QueryClientStatesRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.QueryOuterClass.QueryClientStatesRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.QueryOuterClass.QueryClientStatesRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.QueryOuterClass.QueryClientStatesRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryClientStatesRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 1;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageRequest
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -43,7 +43,7 @@ public object QueryClientStatesRequestKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 1;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -54,15 +54,11 @@ public object QueryClientStatesRequestKt {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 1;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.QueryOuterClass.QueryClientStatesRequest.copy(block: ibc.core.client.v1.QueryClientStatesRequestKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatesRequest =
+inline fun ibc.core.client.v1.QueryOuterClass.QueryClientStatesRequest.copy(block: ibc.core.client.v1.QueryClientStatesRequestKt.Dsl.() -> Unit): ibc.core.client.v1.QueryOuterClass.QueryClientStatesRequest =
   ibc.core.client.v1.QueryClientStatesRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.client.v1.QueryOuterClass.QueryClientStatesRequestOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageRequest?
-  get() = if (hasPagination()) getPagination() else null
-

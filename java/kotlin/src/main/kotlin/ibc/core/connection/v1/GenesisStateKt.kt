@@ -3,16 +3,16 @@
 
 package ibc.core.connection.v1;
 
-@kotlin.jvm.JvmName("-initializegenesisState")
-public inline fun genesisState(block: ibc.core.connection.v1.GenesisStateKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Genesis.GenesisState =
+@kotlin.jvm.JvmSynthetic
+inline fun genesisState(block: ibc.core.connection.v1.GenesisStateKt.Dsl.() -> Unit): ibc.core.connection.v1.Genesis.GenesisState =
   ibc.core.connection.v1.GenesisStateKt.Dsl._create(ibc.core.connection.v1.Genesis.GenesisState.newBuilder()).apply { block() }._build()
-public object GenesisStateKt {
+object GenesisStateKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.connection.v1.Genesis.GenesisState.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.connection.v1.Genesis.GenesisState.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.connection.v1.Genesis.GenesisState.Builder): Dsl = Dsl(builder)
@@ -27,11 +27,11 @@ public object GenesisStateKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ConnectionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ConnectionsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .ibc.core.connection.v1.IdentifiedConnection connections = 1 [(.gogoproto.nullable) = false];</code>
      */
-     public val connections: com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>
+     val connections: com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getConnectionsList()
@@ -42,68 +42,59 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addConnections")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.add(value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.add(value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
       _builder.addConnections(value)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.connection.v1.IdentifiedConnection connections = 1 [(.gogoproto.nullable) = false];</code>
      * @param value The connections to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignConnections")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.plusAssign(value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.plusAssign(value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.connection.v1.IdentifiedConnection connections = 1 [(.gogoproto.nullable) = false];</code>
      * @param values The connections to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllConnections")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.IdentifiedConnection>) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.IdentifiedConnection>) {
       _builder.addAllConnections(values)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.connection.v1.IdentifiedConnection connections = 1 [(.gogoproto.nullable) = false];</code>
      * @param values The connections to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllConnections")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.IdentifiedConnection>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.IdentifiedConnection>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.connection.v1.IdentifiedConnection connections = 1 [(.gogoproto.nullable) = false];</code>
      * @param index The index to set the value at.
      * @param value The connections to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setConnections")
-    public operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.set(index: kotlin.Int, value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
+    operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.set(index: kotlin.Int, value: ibc.core.connection.v1.Connection.IdentifiedConnection) {
       _builder.setConnections(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.connection.v1.IdentifiedConnection connections = 1 [(.gogoproto.nullable) = false];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearConnections")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.IdentifiedConnection, ConnectionsProxy>.clear() {
       _builder.clearConnections()
     }
-
-
     /**
      * An uninstantiable, behaviorless type to represent the field in
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ClientConnectionPathsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ClientConnectionPathsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .ibc.core.connection.v1.ConnectionPaths client_connection_paths = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_connection_paths&#92;""];</code>
      */
-     public val clientConnectionPaths: com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>
+     val clientConnectionPaths: com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getClientConnectionPathsList()
@@ -114,58 +105,49 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addClientConnectionPaths")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.add(value: ibc.core.connection.v1.Connection.ConnectionPaths) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.add(value: ibc.core.connection.v1.Connection.ConnectionPaths) {
       _builder.addClientConnectionPaths(value)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.connection.v1.ConnectionPaths client_connection_paths = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_connection_paths&#92;""];</code>
      * @param value The clientConnectionPaths to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignClientConnectionPaths")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.plusAssign(value: ibc.core.connection.v1.Connection.ConnectionPaths) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.plusAssign(value: ibc.core.connection.v1.Connection.ConnectionPaths) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.connection.v1.ConnectionPaths client_connection_paths = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_connection_paths&#92;""];</code>
      * @param values The clientConnectionPaths to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllClientConnectionPaths")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.ConnectionPaths>) {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.addAll(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.ConnectionPaths>) {
       _builder.addAllClientConnectionPaths(values)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.connection.v1.ConnectionPaths client_connection_paths = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_connection_paths&#92;""];</code>
      * @param values The clientConnectionPaths to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllClientConnectionPaths")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.ConnectionPaths>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.plusAssign(values: kotlin.collections.Iterable<ibc.core.connection.v1.Connection.ConnectionPaths>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.connection.v1.ConnectionPaths client_connection_paths = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_connection_paths&#92;""];</code>
      * @param index The index to set the value at.
      * @param value The clientConnectionPaths to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setClientConnectionPaths")
-    public operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.set(index: kotlin.Int, value: ibc.core.connection.v1.Connection.ConnectionPaths) {
+    operator fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.set(index: kotlin.Int, value: ibc.core.connection.v1.Connection.ConnectionPaths) {
       _builder.setClientConnectionPaths(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .ibc.core.connection.v1.ConnectionPaths client_connection_paths = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"client_connection_paths&#92;""];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearClientConnectionPaths")
-    public fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<ibc.core.connection.v1.Connection.ConnectionPaths, ClientConnectionPathsProxy>.clear() {
       _builder.clearClientConnectionPaths()
     }
-
-
     /**
      * <pre>
      * the sequence for the next generated connection identifier
@@ -173,7 +155,7 @@ public object GenesisStateKt {
      *
      * <code>uint64 next_connection_sequence = 3 [(.gogoproto.moretags) = "yaml:&#92;"next_connection_sequence&#92;""];</code>
      */
-    public var nextConnectionSequence: kotlin.Long
+    var nextConnectionSequence: kotlin.Long
       @JvmName("getNextConnectionSequence")
       get() = _builder.getNextConnectionSequence()
       @JvmName("setNextConnectionSequence")
@@ -187,14 +169,14 @@ public object GenesisStateKt {
      *
      * <code>uint64 next_connection_sequence = 3 [(.gogoproto.moretags) = "yaml:&#92;"next_connection_sequence&#92;""];</code>
      */
-    public fun clearNextConnectionSequence() {
+    fun clearNextConnectionSequence() {
       _builder.clearNextConnectionSequence()
     }
 
     /**
      * <code>.ibc.core.connection.v1.Params params = 4 [(.gogoproto.nullable) = false];</code>
      */
-    public var params: ibc.core.connection.v1.Connection.Params
+    var params: ibc.core.connection.v1.Connection.Params
       @JvmName("getParams")
       get() = _builder.getParams()
       @JvmName("setParams")
@@ -204,22 +186,18 @@ public object GenesisStateKt {
     /**
      * <code>.ibc.core.connection.v1.Params params = 4 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearParams() {
+    fun clearParams() {
       _builder.clearParams()
     }
     /**
      * <code>.ibc.core.connection.v1.Params params = 4 [(.gogoproto.nullable) = false];</code>
      * @return Whether the params field is set.
      */
-    public fun hasParams(): kotlin.Boolean {
+    fun hasParams(): kotlin.Boolean {
       return _builder.hasParams()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.connection.v1.Genesis.GenesisState.copy(block: ibc.core.connection.v1.GenesisStateKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Genesis.GenesisState =
+inline fun ibc.core.connection.v1.Genesis.GenesisState.copy(block: ibc.core.connection.v1.GenesisStateKt.Dsl.() -> Unit): ibc.core.connection.v1.Genesis.GenesisState =
   ibc.core.connection.v1.GenesisStateKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.connection.v1.Genesis.GenesisStateOrBuilder.paramsOrNull: ibc.core.connection.v1.Connection.Params?
-  get() = if (hasParams()) getParams() else null
-

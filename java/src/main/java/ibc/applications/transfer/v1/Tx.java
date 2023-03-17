@@ -203,6 +203,98 @@ public final class Tx {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MsgTransfer(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sourcePort_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sourceChannel_ = s;
+              break;
+            }
+            case 26: {
+              cosmos.base.v1beta1.CoinOuterClass.Coin.Builder subBuilder = null;
+              if (token_ != null) {
+                subBuilder = token_.toBuilder();
+              }
+              token_ = input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(token_);
+                token_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sender_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              receiver_ = s;
+              break;
+            }
+            case 50: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (timeoutHeight_ != null) {
+                subBuilder = timeoutHeight_.toBuilder();
+              }
+              timeoutHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(timeoutHeight_);
+                timeoutHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 56: {
+
+              timeoutTimestamp_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.applications.transfer.v1.Tx.internal_static_ibc_applications_transfer_v1_MsgTransfer_descriptor;
@@ -217,8 +309,7 @@ public final class Tx {
     }
 
     public static final int SOURCE_PORT_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object sourcePort_ = "";
+    private volatile java.lang.Object sourcePort_;
     /**
      * <pre>
      * the port on which the packet will be sent
@@ -264,8 +355,7 @@ public final class Tx {
     }
 
     public static final int SOURCE_CHANNEL_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object sourceChannel_ = "";
+    private volatile java.lang.Object sourceChannel_;
     /**
      * <pre>
      * the channel by which the packet will be sent
@@ -345,12 +435,11 @@ public final class Tx {
      */
     @java.lang.Override
     public cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder getTokenOrBuilder() {
-      return token_ == null ? cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance() : token_;
+      return getToken();
     }
 
     public static final int SENDER_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object sender_ = "";
+    private volatile java.lang.Object sender_;
     /**
      * <pre>
      * the sender address
@@ -396,8 +485,7 @@ public final class Tx {
     }
 
     public static final int RECEIVER_FIELD_NUMBER = 5;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object receiver_ = "";
+    private volatile java.lang.Object receiver_;
     /**
      * <pre>
      * the recipient address on the destination chain
@@ -480,11 +568,11 @@ public final class Tx {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getTimeoutHeightOrBuilder() {
-      return timeoutHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : timeoutHeight_;
+      return getTimeoutHeight();
     }
 
     public static final int TIMEOUT_TIMESTAMP_FIELD_NUMBER = 7;
-    private long timeoutTimestamp_ = 0L;
+    private long timeoutTimestamp_;
     /**
      * <pre>
      * Timeout timestamp (in nanoseconds) relative to the current block timestamp.
@@ -513,19 +601,19 @@ public final class Tx {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourcePort_)) {
+      if (!getSourcePortBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sourcePort_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceChannel_)) {
+      if (!getSourceChannelBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sourceChannel_);
       }
       if (token_ != null) {
         output.writeMessage(3, getToken());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sender_)) {
+      if (!getSenderBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, sender_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(receiver_)) {
+      if (!getReceiverBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, receiver_);
       }
       if (timeoutHeight_ != null) {
@@ -534,7 +622,7 @@ public final class Tx {
       if (timeoutTimestamp_ != 0L) {
         output.writeUInt64(7, timeoutTimestamp_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -543,20 +631,20 @@ public final class Tx {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourcePort_)) {
+      if (!getSourcePortBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sourcePort_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sourceChannel_)) {
+      if (!getSourceChannelBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sourceChannel_);
       }
       if (token_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getToken());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sender_)) {
+      if (!getSenderBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, sender_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(receiver_)) {
+      if (!getReceiverBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, receiver_);
       }
       if (timeoutHeight_ != null) {
@@ -567,7 +655,7 @@ public final class Tx {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(7, timeoutTimestamp_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -602,7 +690,7 @@ public final class Tx {
       }
       if (getTimeoutTimestamp()
           != other.getTimeoutTimestamp()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -632,7 +720,7 @@ public final class Tx {
       hash = (37 * hash) + TIMEOUT_TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTimeoutTimestamp());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -755,33 +843,44 @@ public final class Tx {
 
       // Construct using ibc.applications.transfer.v1.Tx.MsgTransfer.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         sourcePort_ = "";
+
         sourceChannel_ = "";
-        token_ = null;
-        if (tokenBuilder_ != null) {
-          tokenBuilder_.dispose();
+
+        if (tokenBuilder_ == null) {
+          token_ = null;
+        } else {
+          token_ = null;
           tokenBuilder_ = null;
         }
         sender_ = "";
+
         receiver_ = "";
-        timeoutHeight_ = null;
-        if (timeoutHeightBuilder_ != null) {
-          timeoutHeightBuilder_.dispose();
+
+        if (timeoutHeightBuilder_ == null) {
+          timeoutHeight_ = null;
+        } else {
+          timeoutHeight_ = null;
           timeoutHeightBuilder_ = null;
         }
         timeoutTimestamp_ = 0L;
+
         return this;
       }
 
@@ -808,38 +907,23 @@ public final class Tx {
       @java.lang.Override
       public ibc.applications.transfer.v1.Tx.MsgTransfer buildPartial() {
         ibc.applications.transfer.v1.Tx.MsgTransfer result = new ibc.applications.transfer.v1.Tx.MsgTransfer(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.sourcePort_ = sourcePort_;
+        result.sourceChannel_ = sourceChannel_;
+        if (tokenBuilder_ == null) {
+          result.token_ = token_;
+        } else {
+          result.token_ = tokenBuilder_.build();
+        }
+        result.sender_ = sender_;
+        result.receiver_ = receiver_;
+        if (timeoutHeightBuilder_ == null) {
+          result.timeoutHeight_ = timeoutHeight_;
+        } else {
+          result.timeoutHeight_ = timeoutHeightBuilder_.build();
+        }
+        result.timeoutTimestamp_ = timeoutTimestamp_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.applications.transfer.v1.Tx.MsgTransfer result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.sourcePort_ = sourcePort_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.sourceChannel_ = sourceChannel_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.token_ = tokenBuilder_ == null
-              ? token_
-              : tokenBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.sender_ = sender_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.receiver_ = receiver_;
-        }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
-          result.timeoutHeight_ = timeoutHeightBuilder_ == null
-              ? timeoutHeight_
-              : timeoutHeightBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
-          result.timeoutTimestamp_ = timeoutTimestamp_;
-        }
       }
 
       @java.lang.Override
@@ -888,12 +972,10 @@ public final class Tx {
         if (other == ibc.applications.transfer.v1.Tx.MsgTransfer.getDefaultInstance()) return this;
         if (!other.getSourcePort().isEmpty()) {
           sourcePort_ = other.sourcePort_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getSourceChannel().isEmpty()) {
           sourceChannel_ = other.sourceChannel_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasToken()) {
@@ -901,12 +983,10 @@ public final class Tx {
         }
         if (!other.getSender().isEmpty()) {
           sender_ = other.sender_;
-          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getReceiver().isEmpty()) {
           receiver_ = other.receiver_;
-          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (other.hasTimeoutHeight()) {
@@ -915,7 +995,7 @@ public final class Tx {
         if (other.getTimeoutTimestamp() != 0L) {
           setTimeoutTimestamp(other.getTimeoutTimestamp());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -930,72 +1010,19 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.applications.transfer.v1.Tx.MsgTransfer parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                sourcePort_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                sourceChannel_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getTokenFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                sender_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 42: {
-                receiver_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              case 50: {
-                input.readMessage(
-                    getTimeoutHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000020;
-                break;
-              } // case 50
-              case 56: {
-                timeoutTimestamp_ = input.readUInt64();
-                bitField0_ |= 0x00000040;
-                break;
-              } // case 56
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.applications.transfer.v1.Tx.MsgTransfer) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object sourcePort_ = "";
       /**
@@ -1050,9 +1077,11 @@ public final class Tx {
        */
       public Builder setSourcePort(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         sourcePort_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1065,8 +1094,8 @@ public final class Tx {
        * @return This builder for chaining.
        */
       public Builder clearSourcePort() {
+        
         sourcePort_ = getDefaultInstance().getSourcePort();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1081,10 +1110,12 @@ public final class Tx {
        */
       public Builder setSourcePortBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         sourcePort_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1142,9 +1173,11 @@ public final class Tx {
        */
       public Builder setSourceChannel(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         sourceChannel_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1157,8 +1190,8 @@ public final class Tx {
        * @return This builder for chaining.
        */
       public Builder clearSourceChannel() {
+        
         sourceChannel_ = getDefaultInstance().getSourceChannel();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1173,10 +1206,12 @@ public final class Tx {
        */
       public Builder setSourceChannelBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         sourceChannel_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1193,7 +1228,7 @@ public final class Tx {
        * @return Whether the token field is set.
        */
       public boolean hasToken() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return tokenBuilder_ != null || token_ != null;
       }
       /**
        * <pre>
@@ -1223,11 +1258,11 @@ public final class Tx {
             throw new NullPointerException();
           }
           token_ = value;
+          onChanged();
         } else {
           tokenBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1241,11 +1276,11 @@ public final class Tx {
           cosmos.base.v1beta1.CoinOuterClass.Coin.Builder builderForValue) {
         if (tokenBuilder_ == null) {
           token_ = builderForValue.build();
+          onChanged();
         } else {
           tokenBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1257,18 +1292,17 @@ public final class Tx {
        */
       public Builder mergeToken(cosmos.base.v1beta1.CoinOuterClass.Coin value) {
         if (tokenBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            token_ != null &&
-            token_ != cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance()) {
-            getTokenBuilder().mergeFrom(value);
+          if (token_ != null) {
+            token_ =
+              cosmos.base.v1beta1.CoinOuterClass.Coin.newBuilder(token_).mergeFrom(value).buildPartial();
           } else {
             token_ = value;
           }
+          onChanged();
         } else {
           tokenBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1279,13 +1313,14 @@ public final class Tx {
        * <code>.cosmos.base.v1beta1.Coin token = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearToken() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        token_ = null;
-        if (tokenBuilder_ != null) {
-          tokenBuilder_.dispose();
+        if (tokenBuilder_ == null) {
+          token_ = null;
+          onChanged();
+        } else {
+          token_ = null;
           tokenBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1296,7 +1331,7 @@ public final class Tx {
        * <code>.cosmos.base.v1beta1.Coin token = 3 [(.gogoproto.nullable) = false];</code>
        */
       public cosmos.base.v1beta1.CoinOuterClass.Coin.Builder getTokenBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getTokenFieldBuilder().getBuilder();
       }
@@ -1389,9 +1424,11 @@ public final class Tx {
        */
       public Builder setSender(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         sender_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1404,8 +1441,8 @@ public final class Tx {
        * @return This builder for chaining.
        */
       public Builder clearSender() {
+        
         sender_ = getDefaultInstance().getSender();
-        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1420,10 +1457,12 @@ public final class Tx {
        */
       public Builder setSenderBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         sender_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1481,9 +1520,11 @@ public final class Tx {
        */
       public Builder setReceiver(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         receiver_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1496,8 +1537,8 @@ public final class Tx {
        * @return This builder for chaining.
        */
       public Builder clearReceiver() {
+        
         receiver_ = getDefaultInstance().getReceiver();
-        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -1512,10 +1553,12 @@ public final class Tx {
        */
       public Builder setReceiverBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         receiver_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1533,7 +1576,7 @@ public final class Tx {
        * @return Whether the timeoutHeight field is set.
        */
       public boolean hasTimeoutHeight() {
-        return ((bitField0_ & 0x00000020) != 0);
+        return timeoutHeightBuilder_ != null || timeoutHeight_ != null;
       }
       /**
        * <pre>
@@ -1565,11 +1608,11 @@ public final class Tx {
             throw new NullPointerException();
           }
           timeoutHeight_ = value;
+          onChanged();
         } else {
           timeoutHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000020;
-        onChanged();
+
         return this;
       }
       /**
@@ -1584,11 +1627,11 @@ public final class Tx {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (timeoutHeightBuilder_ == null) {
           timeoutHeight_ = builderForValue.build();
+          onChanged();
         } else {
           timeoutHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000020;
-        onChanged();
+
         return this;
       }
       /**
@@ -1601,18 +1644,17 @@ public final class Tx {
        */
       public Builder mergeTimeoutHeight(ibc.core.client.v1.Client.Height value) {
         if (timeoutHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) != 0) &&
-            timeoutHeight_ != null &&
-            timeoutHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getTimeoutHeightBuilder().mergeFrom(value);
+          if (timeoutHeight_ != null) {
+            timeoutHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(timeoutHeight_).mergeFrom(value).buildPartial();
           } else {
             timeoutHeight_ = value;
           }
+          onChanged();
         } else {
           timeoutHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000020;
-        onChanged();
+
         return this;
       }
       /**
@@ -1624,13 +1666,14 @@ public final class Tx {
        * <code>.ibc.core.client.v1.Height timeout_height = 6 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"timeout_height&#92;""];</code>
        */
       public Builder clearTimeoutHeight() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        timeoutHeight_ = null;
-        if (timeoutHeightBuilder_ != null) {
-          timeoutHeightBuilder_.dispose();
+        if (timeoutHeightBuilder_ == null) {
+          timeoutHeight_ = null;
+          onChanged();
+        } else {
+          timeoutHeight_ = null;
           timeoutHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1642,7 +1685,7 @@ public final class Tx {
        * <code>.ibc.core.client.v1.Height timeout_height = 6 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"timeout_height&#92;""];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getTimeoutHeightBuilder() {
-        bitField0_ |= 0x00000020;
+        
         onChanged();
         return getTimeoutHeightFieldBuilder().getBuilder();
       }
@@ -1711,7 +1754,6 @@ public final class Tx {
       public Builder setTimeoutTimestamp(long value) {
         
         timeoutTimestamp_ = value;
-        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1725,7 +1767,7 @@ public final class Tx {
        * @return This builder for chaining.
        */
       public Builder clearTimeoutTimestamp() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        
         timeoutTimestamp_ = 0L;
         onChanged();
         return this;
@@ -1763,18 +1805,7 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MsgTransfer(input, extensionRegistry);
       }
     };
 
@@ -1829,6 +1860,43 @@ public final class Tx {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MsgTransferResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.applications.transfer.v1.Tx.internal_static_ibc_applications_transfer_v1_MsgTransferResponse_descriptor;
@@ -1856,7 +1924,7 @@ public final class Tx {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1865,7 +1933,7 @@ public final class Tx {
       if (size != -1) return size;
 
       size = 0;
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1880,7 +1948,7 @@ public final class Tx {
       }
       ibc.applications.transfer.v1.Tx.MsgTransferResponse other = (ibc.applications.transfer.v1.Tx.MsgTransferResponse) obj;
 
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1891,7 +1959,7 @@ public final class Tx {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2012,13 +2080,18 @@ public final class Tx {
 
       // Construct using ibc.applications.transfer.v1.Tx.MsgTransferResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -2097,7 +2170,7 @@ public final class Tx {
 
       public Builder mergeFrom(ibc.applications.transfer.v1.Tx.MsgTransferResponse other) {
         if (other == ibc.applications.transfer.v1.Tx.MsgTransferResponse.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2112,30 +2185,17 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.applications.transfer.v1.Tx.MsgTransferResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.applications.transfer.v1.Tx.MsgTransferResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       @java.lang.Override
@@ -2171,18 +2231,7 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MsgTransferResponse(input, extensionRegistry);
       }
     };
 

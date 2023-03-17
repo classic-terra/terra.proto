@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryRewardWeightResponse")
-public inline fun queryRewardWeightResponse(block: terra.treasury.v1beta1.QueryRewardWeightResponseKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryRewardWeightResponse(block: terra.treasury.v1beta1.QueryRewardWeightResponseKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightResponse =
   terra.treasury.v1beta1.QueryRewardWeightResponseKt.Dsl._create(terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightResponse.newBuilder()).apply { block() }._build()
-public object QueryRewardWeightResponseKt {
+object QueryRewardWeightResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryRewardWeightResponseKt {
     /**
      * <code>string reward_weight = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var rewardWeight: kotlin.String
+    var rewardWeight: kotlin.String
       @JvmName("getRewardWeight")
       get() = _builder.getRewardWeight()
       @JvmName("setRewardWeight")
@@ -35,12 +35,11 @@ public object QueryRewardWeightResponseKt {
     /**
      * <code>string reward_weight = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearRewardWeight() {
+    fun clearRewardWeight() {
       _builder.clearRewardWeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightResponse.copy(block: terra.treasury.v1beta1.QueryRewardWeightResponseKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightResponse =
+inline fun terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightResponse.copy(block: terra.treasury.v1beta1.QueryRewardWeightResponseKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryRewardWeightResponse =
   terra.treasury.v1beta1.QueryRewardWeightResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

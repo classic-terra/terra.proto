@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgClearContractAdminResponse")
-public inline fun msgClearContractAdminResponse(block: terra.wasm.v1beta1.MsgClearContractAdminResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgClearContractAdminResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgClearContractAdminResponse(block: terra.wasm.v1beta1.MsgClearContractAdminResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgClearContractAdminResponse =
   terra.wasm.v1beta1.MsgClearContractAdminResponseKt.Dsl._create(terra.wasm.v1beta1.Tx.MsgClearContractAdminResponse.newBuilder()).apply { block() }._build()
-public object MsgClearContractAdminResponseKt {
+object MsgClearContractAdminResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Tx.MsgClearContractAdminResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Tx.MsgClearContractAdminResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Tx.MsgClearContractAdminResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgClearContractAdminResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Tx.MsgClearContractAdminResponse.copy(block: terra.wasm.v1beta1.MsgClearContractAdminResponseKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Tx.MsgClearContractAdminResponse =
+inline fun terra.wasm.v1beta1.Tx.MsgClearContractAdminResponse.copy(block: terra.wasm.v1beta1.MsgClearContractAdminResponseKt.Dsl.() -> Unit): terra.wasm.v1beta1.Tx.MsgClearContractAdminResponse =
   terra.wasm.v1beta1.MsgClearContractAdminResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

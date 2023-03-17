@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeredelegationResponse")
-public inline fun redelegationResponse(block: cosmos.staking.v1beta1.RedelegationResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.RedelegationResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun redelegationResponse(block: cosmos.staking.v1beta1.RedelegationResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.RedelegationResponse =
   cosmos.staking.v1beta1.RedelegationResponseKt.Dsl._create(cosmos.staking.v1beta1.Staking.RedelegationResponse.newBuilder()).apply { block() }._build()
-public object RedelegationResponseKt {
+object RedelegationResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Staking.RedelegationResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Staking.RedelegationResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Staking.RedelegationResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object RedelegationResponseKt {
     /**
      * <code>.cosmos.staking.v1beta1.Redelegation redelegation = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var redelegation: cosmos.staking.v1beta1.Staking.Redelegation
+    var redelegation: cosmos.staking.v1beta1.Staking.Redelegation
       @JvmName("getRedelegation")
       get() = _builder.getRedelegation()
       @JvmName("setRedelegation")
@@ -35,14 +35,14 @@ public object RedelegationResponseKt {
     /**
      * <code>.cosmos.staking.v1beta1.Redelegation redelegation = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearRedelegation() {
+    fun clearRedelegation() {
       _builder.clearRedelegation()
     }
     /**
      * <code>.cosmos.staking.v1beta1.Redelegation redelegation = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the redelegation field is set.
      */
-    public fun hasRedelegation(): kotlin.Boolean {
+    fun hasRedelegation(): kotlin.Boolean {
       return _builder.hasRedelegation()
     }
 
@@ -51,11 +51,11 @@ public object RedelegationResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class EntriesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class EntriesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .cosmos.staking.v1beta1.RedelegationEntryResponse entries = 2 [(.gogoproto.nullable) = false];</code>
      */
-     public val entries: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>
+     val entries: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getEntriesList()
@@ -66,63 +66,50 @@ public object RedelegationResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addEntries")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.add(value: cosmos.staking.v1beta1.Staking.RedelegationEntryResponse) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.add(value: cosmos.staking.v1beta1.Staking.RedelegationEntryResponse) {
       _builder.addEntries(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.staking.v1beta1.RedelegationEntryResponse entries = 2 [(.gogoproto.nullable) = false];</code>
      * @param value The entries to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignEntries")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.RedelegationEntryResponse) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.RedelegationEntryResponse) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.staking.v1beta1.RedelegationEntryResponse entries = 2 [(.gogoproto.nullable) = false];</code>
      * @param values The entries to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllEntries")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse>) {
       _builder.addAllEntries(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.staking.v1beta1.RedelegationEntryResponse entries = 2 [(.gogoproto.nullable) = false];</code>
      * @param values The entries to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllEntries")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.staking.v1beta1.RedelegationEntryResponse entries = 2 [(.gogoproto.nullable) = false];</code>
      * @param index The index to set the value at.
      * @param value The entries to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setEntries")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.RedelegationEntryResponse) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.RedelegationEntryResponse) {
       _builder.setEntries(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.staking.v1beta1.RedelegationEntryResponse entries = 2 [(.gogoproto.nullable) = false];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearEntries")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntryResponse, EntriesProxy>.clear() {
       _builder.clearEntries()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Staking.RedelegationResponse.copy(block: cosmos.staking.v1beta1.RedelegationResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.RedelegationResponse =
+inline fun cosmos.staking.v1beta1.Staking.RedelegationResponse.copy(block: cosmos.staking.v1beta1.RedelegationResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.RedelegationResponse =
   cosmos.staking.v1beta1.RedelegationResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.Staking.RedelegationResponseOrBuilder.redelegationOrNull: cosmos.staking.v1beta1.Staking.Redelegation?
-  get() = if (hasRedelegation()) getRedelegation() else null
-

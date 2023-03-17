@@ -3,16 +3,16 @@
 
 package ibc.lightclients.tendermint.v1;
 
-@kotlin.jvm.JvmName("-initializemisbehaviour")
-public inline fun misbehaviour(block: ibc.lightclients.tendermint.v1.MisbehaviourKt.Dsl.() -> kotlin.Unit): ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour =
+@kotlin.jvm.JvmSynthetic
+inline fun misbehaviour(block: ibc.lightclients.tendermint.v1.MisbehaviourKt.Dsl.() -> Unit): ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour =
   ibc.lightclients.tendermint.v1.MisbehaviourKt.Dsl._create(ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour.newBuilder()).apply { block() }._build()
-public object MisbehaviourKt {
+object MisbehaviourKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MisbehaviourKt {
     /**
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public var clientId: kotlin.String
+    var clientId: kotlin.String
       @JvmName("getClientId")
       get() = _builder.getClientId()
       @JvmName("setClientId")
@@ -35,14 +35,14 @@ public object MisbehaviourKt {
     /**
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public fun clearClientId() {
+    fun clearClientId() {
       _builder.clearClientId()
     }
 
     /**
      * <code>.ibc.lightclients.tendermint.v1.Header header_1 = 2 [(.gogoproto.customname) = "Header1", (.gogoproto.moretags) = "yaml:&#92;"header_1&#92;""];</code>
      */
-    public var header1: ibc.lightclients.tendermint.v1.Tendermint.Header
+    var header1: ibc.lightclients.tendermint.v1.Tendermint.Header
       @JvmName("getHeader1")
       get() = _builder.getHeader1()
       @JvmName("setHeader1")
@@ -52,21 +52,21 @@ public object MisbehaviourKt {
     /**
      * <code>.ibc.lightclients.tendermint.v1.Header header_1 = 2 [(.gogoproto.customname) = "Header1", (.gogoproto.moretags) = "yaml:&#92;"header_1&#92;""];</code>
      */
-    public fun clearHeader1() {
+    fun clearHeader1() {
       _builder.clearHeader1()
     }
     /**
      * <code>.ibc.lightclients.tendermint.v1.Header header_1 = 2 [(.gogoproto.customname) = "Header1", (.gogoproto.moretags) = "yaml:&#92;"header_1&#92;""];</code>
      * @return Whether the header1 field is set.
      */
-    public fun hasHeader1(): kotlin.Boolean {
+    fun hasHeader1(): kotlin.Boolean {
       return _builder.hasHeader1()
     }
 
     /**
      * <code>.ibc.lightclients.tendermint.v1.Header header_2 = 3 [(.gogoproto.customname) = "Header2", (.gogoproto.moretags) = "yaml:&#92;"header_2&#92;""];</code>
      */
-    public var header2: ibc.lightclients.tendermint.v1.Tendermint.Header
+    var header2: ibc.lightclients.tendermint.v1.Tendermint.Header
       @JvmName("getHeader2")
       get() = _builder.getHeader2()
       @JvmName("setHeader2")
@@ -76,25 +76,18 @@ public object MisbehaviourKt {
     /**
      * <code>.ibc.lightclients.tendermint.v1.Header header_2 = 3 [(.gogoproto.customname) = "Header2", (.gogoproto.moretags) = "yaml:&#92;"header_2&#92;""];</code>
      */
-    public fun clearHeader2() {
+    fun clearHeader2() {
       _builder.clearHeader2()
     }
     /**
      * <code>.ibc.lightclients.tendermint.v1.Header header_2 = 3 [(.gogoproto.customname) = "Header2", (.gogoproto.moretags) = "yaml:&#92;"header_2&#92;""];</code>
      * @return Whether the header2 field is set.
      */
-    public fun hasHeader2(): kotlin.Boolean {
+    fun hasHeader2(): kotlin.Boolean {
       return _builder.hasHeader2()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour.copy(block: ibc.lightclients.tendermint.v1.MisbehaviourKt.Dsl.() -> kotlin.Unit): ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour =
+inline fun ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour.copy(block: ibc.lightclients.tendermint.v1.MisbehaviourKt.Dsl.() -> Unit): ibc.lightclients.tendermint.v1.Tendermint.Misbehaviour =
   ibc.lightclients.tendermint.v1.MisbehaviourKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.lightclients.tendermint.v1.Tendermint.MisbehaviourOrBuilder.header1OrNull: ibc.lightclients.tendermint.v1.Tendermint.Header?
-  get() = if (hasHeader1()) getHeader1() else null
-
-public val ibc.lightclients.tendermint.v1.Tendermint.MisbehaviourOrBuilder.header2OrNull: ibc.lightclients.tendermint.v1.Tendermint.Header?
-  get() = if (hasHeader2()) getHeader2() else null
-

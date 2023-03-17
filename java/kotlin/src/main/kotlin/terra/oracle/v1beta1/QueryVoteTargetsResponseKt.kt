@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryVoteTargetsResponse")
-public inline fun queryVoteTargetsResponse(block: terra.oracle.v1beta1.QueryVoteTargetsResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryVoteTargetsResponse(block: terra.oracle.v1beta1.QueryVoteTargetsResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse =
   terra.oracle.v1beta1.QueryVoteTargetsResponseKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse.newBuilder()).apply { block() }._build()
-public object QueryVoteTargetsResponseKt {
+object QueryVoteTargetsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryVoteTargetsResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class VoteTargetsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class VoteTargetsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * vote_targets defines a list of the denomination in which everyone
@@ -37,8 +37,8 @@ public object QueryVoteTargetsResponseKt {
      * <code>repeated string vote_targets = 1;</code>
      * @return A list containing the voteTargets.
      */
-    public val voteTargets: com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>
-      @kotlin.jvm.JvmSynthetic
+    val voteTargets: com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>
+      @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getVoteTargetsList()
       )
@@ -53,7 +53,7 @@ public object QueryVoteTargetsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addVoteTargets")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.add(value: kotlin.String) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.add(value: kotlin.String) {
       _builder.addVoteTargets(value)
     }
     /**
@@ -67,9 +67,8 @@ public object QueryVoteTargetsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignVoteTargets")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.plusAssign(value: kotlin.String) {
-      add(value)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.plusAssign(value: kotlin.String) {
+      _builder.addVoteTargets(value)
     }
     /**
      * <pre>
@@ -82,7 +81,7 @@ public object QueryVoteTargetsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllVoteTargets")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllVoteTargets(values)
     }
     /**
@@ -96,9 +95,8 @@ public object QueryVoteTargetsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllVoteTargets")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
-      addAll(values)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
+      _builder.addAllVoteTargets(values)
     }
     /**
      * <pre>
@@ -112,7 +110,7 @@ public object QueryVoteTargetsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setVoteTargets")
-    public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.set(index: kotlin.Int, value: kotlin.String) {
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setVoteTargets(index, value)
     }/**
      * <pre>
@@ -124,11 +122,10 @@ public object QueryVoteTargetsResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearVoteTargets")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, VoteTargetsProxy>.clear() {
       _builder.clearVoteTargets()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse.copy(block: terra.oracle.v1beta1.QueryVoteTargetsResponseKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse.copy(block: terra.oracle.v1beta1.QueryVoteTargetsResponseKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryVoteTargetsResponse =
   terra.oracle.v1beta1.QueryVoteTargetsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

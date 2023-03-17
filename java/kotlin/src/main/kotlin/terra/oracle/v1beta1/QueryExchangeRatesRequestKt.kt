@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryExchangeRatesRequest")
-public inline fun queryExchangeRatesRequest(block: terra.oracle.v1beta1.QueryExchangeRatesRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryExchangeRatesRequest(block: terra.oracle.v1beta1.QueryExchangeRatesRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest =
   terra.oracle.v1beta1.QueryExchangeRatesRequestKt.Dsl._create(terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest.newBuilder()).apply { block() }._build()
-public object QueryExchangeRatesRequestKt {
+object QueryExchangeRatesRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object QueryExchangeRatesRequestKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest.copy(block: terra.oracle.v1beta1.QueryExchangeRatesRequestKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest =
+inline fun terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest.copy(block: terra.oracle.v1beta1.QueryExchangeRatesRequestKt.Dsl.() -> Unit): terra.oracle.v1beta1.QueryOuterClass.QueryExchangeRatesRequest =
   terra.oracle.v1beta1.QueryExchangeRatesRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

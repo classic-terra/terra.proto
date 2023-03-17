@@ -3,16 +3,16 @@
 
 package tendermint.types;
 
-@kotlin.jvm.JvmName("-initializeevidence")
-public inline fun evidence(block: tendermint.types.EvidenceKt.Dsl.() -> kotlin.Unit): tendermint.types.EvidenceOuterClass.Evidence =
+@kotlin.jvm.JvmSynthetic
+inline fun evidence(block: tendermint.types.EvidenceKt.Dsl.() -> Unit): tendermint.types.EvidenceOuterClass.Evidence =
   tendermint.types.EvidenceKt.Dsl._create(tendermint.types.EvidenceOuterClass.Evidence.newBuilder()).apply { block() }._build()
-public object EvidenceKt {
+object EvidenceKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.types.EvidenceOuterClass.Evidence.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.types.EvidenceOuterClass.Evidence.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.types.EvidenceOuterClass.Evidence.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object EvidenceKt {
     /**
      * <code>.tendermint.types.DuplicateVoteEvidence duplicate_vote_evidence = 1;</code>
      */
-    public var duplicateVoteEvidence: tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence
+    var duplicateVoteEvidence: tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence
       @JvmName("getDuplicateVoteEvidence")
       get() = _builder.getDuplicateVoteEvidence()
       @JvmName("setDuplicateVoteEvidence")
@@ -35,21 +35,21 @@ public object EvidenceKt {
     /**
      * <code>.tendermint.types.DuplicateVoteEvidence duplicate_vote_evidence = 1;</code>
      */
-    public fun clearDuplicateVoteEvidence() {
+    fun clearDuplicateVoteEvidence() {
       _builder.clearDuplicateVoteEvidence()
     }
     /**
      * <code>.tendermint.types.DuplicateVoteEvidence duplicate_vote_evidence = 1;</code>
      * @return Whether the duplicateVoteEvidence field is set.
      */
-    public fun hasDuplicateVoteEvidence(): kotlin.Boolean {
+    fun hasDuplicateVoteEvidence(): kotlin.Boolean {
       return _builder.hasDuplicateVoteEvidence()
     }
 
     /**
      * <code>.tendermint.types.LightClientAttackEvidence light_client_attack_evidence = 2;</code>
      */
-    public var lightClientAttackEvidence: tendermint.types.EvidenceOuterClass.LightClientAttackEvidence
+    var lightClientAttackEvidence: tendermint.types.EvidenceOuterClass.LightClientAttackEvidence
       @JvmName("getLightClientAttackEvidence")
       get() = _builder.getLightClientAttackEvidence()
       @JvmName("setLightClientAttackEvidence")
@@ -59,32 +59,25 @@ public object EvidenceKt {
     /**
      * <code>.tendermint.types.LightClientAttackEvidence light_client_attack_evidence = 2;</code>
      */
-    public fun clearLightClientAttackEvidence() {
+    fun clearLightClientAttackEvidence() {
       _builder.clearLightClientAttackEvidence()
     }
     /**
      * <code>.tendermint.types.LightClientAttackEvidence light_client_attack_evidence = 2;</code>
      * @return Whether the lightClientAttackEvidence field is set.
      */
-    public fun hasLightClientAttackEvidence(): kotlin.Boolean {
+    fun hasLightClientAttackEvidence(): kotlin.Boolean {
       return _builder.hasLightClientAttackEvidence()
     }
-    public val sumCase: tendermint.types.EvidenceOuterClass.Evidence.SumCase
+    val sumCase: tendermint.types.EvidenceOuterClass.Evidence.SumCase
       @JvmName("getSumCase")
       get() = _builder.getSumCase()
 
-    public fun clearSum() {
+    fun clearSum() {
       _builder.clearSum()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.types.EvidenceOuterClass.Evidence.copy(block: tendermint.types.EvidenceKt.Dsl.() -> kotlin.Unit): tendermint.types.EvidenceOuterClass.Evidence =
+inline fun tendermint.types.EvidenceOuterClass.Evidence.copy(block: tendermint.types.EvidenceKt.Dsl.() -> Unit): tendermint.types.EvidenceOuterClass.Evidence =
   tendermint.types.EvidenceKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.types.EvidenceOuterClass.EvidenceOrBuilder.duplicateVoteEvidenceOrNull: tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence?
-  get() = if (hasDuplicateVoteEvidence()) getDuplicateVoteEvidence() else null
-
-public val tendermint.types.EvidenceOuterClass.EvidenceOrBuilder.lightClientAttackEvidenceOrNull: tendermint.types.EvidenceOuterClass.LightClientAttackEvidence?
-  get() = if (hasLightClientAttackEvidence()) getLightClientAttackEvidence() else null
-

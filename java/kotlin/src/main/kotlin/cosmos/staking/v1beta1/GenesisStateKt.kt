@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegenesisState")
-public inline fun genesisState(block: cosmos.staking.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Genesis.GenesisState =
+@kotlin.jvm.JvmSynthetic
+inline fun genesisState(block: cosmos.staking.v1beta1.GenesisStateKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Genesis.GenesisState =
   cosmos.staking.v1beta1.GenesisStateKt.Dsl._create(cosmos.staking.v1beta1.Genesis.GenesisState.newBuilder()).apply { block() }._build()
-public object GenesisStateKt {
+object GenesisStateKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Genesis.GenesisState.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Genesis.GenesisState.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Genesis.GenesisState.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object GenesisStateKt {
      *
      * <code>.cosmos.staking.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var params: cosmos.staking.v1beta1.Staking.Params
+    var params: cosmos.staking.v1beta1.Staking.Params
       @JvmName("getParams")
       get() = _builder.getParams()
       @JvmName("setParams")
@@ -43,7 +43,7 @@ public object GenesisStateKt {
      *
      * <code>.cosmos.staking.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearParams() {
+    fun clearParams() {
       _builder.clearParams()
     }
     /**
@@ -54,7 +54,7 @@ public object GenesisStateKt {
      * <code>.cosmos.staking.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the params field is set.
      */
-    public fun hasParams(): kotlin.Boolean {
+    fun hasParams(): kotlin.Boolean {
       return _builder.hasParams()
     }
 
@@ -66,7 +66,7 @@ public object GenesisStateKt {
      *
      * <code>bytes last_total_power = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int", (.gogoproto.moretags) = "yaml:&#92;"last_total_power&#92;""];</code>
      */
-    public var lastTotalPower: com.google.protobuf.ByteString
+    var lastTotalPower: com.google.protobuf.ByteString
       @JvmName("getLastTotalPower")
       get() = _builder.getLastTotalPower()
       @JvmName("setLastTotalPower")
@@ -81,7 +81,7 @@ public object GenesisStateKt {
      *
      * <code>bytes last_total_power = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int", (.gogoproto.moretags) = "yaml:&#92;"last_total_power&#92;""];</code>
      */
-    public fun clearLastTotalPower() {
+    fun clearLastTotalPower() {
       _builder.clearLastTotalPower()
     }
 
@@ -90,7 +90,7 @@ public object GenesisStateKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class LastValidatorPowersProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class LastValidatorPowersProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * last_validator_powers is a special index that provides a historical list
@@ -99,7 +99,7 @@ public object GenesisStateKt {
      *
      * <code>repeated .cosmos.staking.v1beta1.LastValidatorPower last_validator_powers = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"last_validator_powers&#92;""];</code>
      */
-     public val lastValidatorPowers: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>
+     val lastValidatorPowers: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getLastValidatorPowersList()
@@ -115,10 +115,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addLastValidatorPowers")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.add(value: cosmos.staking.v1beta1.Genesis.LastValidatorPower) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.add(value: cosmos.staking.v1beta1.Genesis.LastValidatorPower) {
       _builder.addLastValidatorPowers(value)
-    }
-    /**
+    }/**
      * <pre>
      * last_validator_powers is a special index that provides a historical list
      * of the last-block's bonded validators.
@@ -129,11 +128,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignLastValidatorPowers")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.plusAssign(value: cosmos.staking.v1beta1.Genesis.LastValidatorPower) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.plusAssign(value: cosmos.staking.v1beta1.Genesis.LastValidatorPower) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * last_validator_powers is a special index that provides a historical list
      * of the last-block's bonded validators.
@@ -144,10 +141,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllLastValidatorPowers")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Genesis.LastValidatorPower>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Genesis.LastValidatorPower>) {
       _builder.addAllLastValidatorPowers(values)
-    }
-    /**
+    }/**
      * <pre>
      * last_validator_powers is a special index that provides a historical list
      * of the last-block's bonded validators.
@@ -158,11 +154,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllLastValidatorPowers")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Genesis.LastValidatorPower>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Genesis.LastValidatorPower>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * last_validator_powers is a special index that provides a historical list
      * of the last-block's bonded validators.
@@ -174,10 +168,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setLastValidatorPowers")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Genesis.LastValidatorPower) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Genesis.LastValidatorPower) {
       _builder.setLastValidatorPowers(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * last_validator_powers is a special index that provides a historical list
      * of the last-block's bonded validators.
@@ -187,17 +180,15 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearLastValidatorPowers")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Genesis.LastValidatorPower, LastValidatorPowersProxy>.clear() {
       _builder.clearLastValidatorPowers()
     }
-
-
     /**
      * An uninstantiable, behaviorless type to represent the field in
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ValidatorsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ValidatorsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * delegations defines the validator set at genesis.
@@ -205,7 +196,7 @@ public object GenesisStateKt {
      *
      * <code>repeated .cosmos.staking.v1beta1.Validator validators = 4 [(.gogoproto.nullable) = false];</code>
      */
-     public val validators: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>
+     val validators: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getValidatorsList()
@@ -220,10 +211,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addValidators")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.add(value: cosmos.staking.v1beta1.Staking.Validator) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.add(value: cosmos.staking.v1beta1.Staking.Validator) {
       _builder.addValidators(value)
-    }
-    /**
+    }/**
      * <pre>
      * delegations defines the validator set at genesis.
      * </pre>
@@ -233,11 +223,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignValidators")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.Validator) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.Validator) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * delegations defines the validator set at genesis.
      * </pre>
@@ -247,10 +235,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllValidators")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Validator>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Validator>) {
       _builder.addAllValidators(values)
-    }
-    /**
+    }/**
      * <pre>
      * delegations defines the validator set at genesis.
      * </pre>
@@ -260,11 +247,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllValidators")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Validator>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Validator>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * delegations defines the validator set at genesis.
      * </pre>
@@ -275,10 +260,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setValidators")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.Validator) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.Validator) {
       _builder.setValidators(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * delegations defines the validator set at genesis.
      * </pre>
@@ -287,17 +271,15 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearValidators")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Validator, ValidatorsProxy>.clear() {
       _builder.clearValidators()
     }
-
-
     /**
      * An uninstantiable, behaviorless type to represent the field in
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class DelegationsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class DelegationsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * delegations defines the delegations active at genesis.
@@ -305,7 +287,7 @@ public object GenesisStateKt {
      *
      * <code>repeated .cosmos.staking.v1beta1.Delegation delegations = 5 [(.gogoproto.nullable) = false];</code>
      */
-     public val delegations: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>
+     val delegations: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getDelegationsList()
@@ -320,10 +302,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addDelegations")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.add(value: cosmos.staking.v1beta1.Staking.Delegation) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.add(value: cosmos.staking.v1beta1.Staking.Delegation) {
       _builder.addDelegations(value)
-    }
-    /**
+    }/**
      * <pre>
      * delegations defines the delegations active at genesis.
      * </pre>
@@ -333,11 +314,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignDelegations")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.Delegation) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.Delegation) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * delegations defines the delegations active at genesis.
      * </pre>
@@ -347,10 +326,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllDelegations")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Delegation>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Delegation>) {
       _builder.addAllDelegations(values)
-    }
-    /**
+    }/**
      * <pre>
      * delegations defines the delegations active at genesis.
      * </pre>
@@ -360,11 +338,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllDelegations")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Delegation>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Delegation>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * delegations defines the delegations active at genesis.
      * </pre>
@@ -375,10 +351,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setDelegations")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.Delegation) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.Delegation) {
       _builder.setDelegations(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * delegations defines the delegations active at genesis.
      * </pre>
@@ -387,17 +362,15 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearDelegations")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Delegation, DelegationsProxy>.clear() {
       _builder.clearDelegations()
     }
-
-
     /**
      * An uninstantiable, behaviorless type to represent the field in
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class UnbondingDelegationsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class UnbondingDelegationsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * unbonding_delegations defines the unbonding delegations active at genesis.
@@ -405,7 +378,7 @@ public object GenesisStateKt {
      *
      * <code>repeated .cosmos.staking.v1beta1.UnbondingDelegation unbonding_delegations = 6 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"unbonding_delegations&#92;""];</code>
      */
-     public val unbondingDelegations: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>
+     val unbondingDelegations: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getUnbondingDelegationsList()
@@ -420,10 +393,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addUnbondingDelegations")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.add(value: cosmos.staking.v1beta1.Staking.UnbondingDelegation) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.add(value: cosmos.staking.v1beta1.Staking.UnbondingDelegation) {
       _builder.addUnbondingDelegations(value)
-    }
-    /**
+    }/**
      * <pre>
      * unbonding_delegations defines the unbonding delegations active at genesis.
      * </pre>
@@ -433,11 +405,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignUnbondingDelegations")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.UnbondingDelegation) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.UnbondingDelegation) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * unbonding_delegations defines the unbonding delegations active at genesis.
      * </pre>
@@ -447,10 +417,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllUnbondingDelegations")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.UnbondingDelegation>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.UnbondingDelegation>) {
       _builder.addAllUnbondingDelegations(values)
-    }
-    /**
+    }/**
      * <pre>
      * unbonding_delegations defines the unbonding delegations active at genesis.
      * </pre>
@@ -460,11 +429,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllUnbondingDelegations")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.UnbondingDelegation>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.UnbondingDelegation>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * unbonding_delegations defines the unbonding delegations active at genesis.
      * </pre>
@@ -475,10 +442,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setUnbondingDelegations")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.UnbondingDelegation) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.UnbondingDelegation) {
       _builder.setUnbondingDelegations(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * unbonding_delegations defines the unbonding delegations active at genesis.
      * </pre>
@@ -487,17 +453,15 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearUnbondingDelegations")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.UnbondingDelegation, UnbondingDelegationsProxy>.clear() {
       _builder.clearUnbondingDelegations()
     }
-
-
     /**
      * An uninstantiable, behaviorless type to represent the field in
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class RedelegationsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class RedelegationsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * redelegations defines the redelegations active at genesis.
@@ -505,7 +469,7 @@ public object GenesisStateKt {
      *
      * <code>repeated .cosmos.staking.v1beta1.Redelegation redelegations = 7 [(.gogoproto.nullable) = false];</code>
      */
-     public val redelegations: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>
+     val redelegations: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getRedelegationsList()
@@ -520,10 +484,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addRedelegations")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.add(value: cosmos.staking.v1beta1.Staking.Redelegation) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.add(value: cosmos.staking.v1beta1.Staking.Redelegation) {
       _builder.addRedelegations(value)
-    }
-    /**
+    }/**
      * <pre>
      * redelegations defines the redelegations active at genesis.
      * </pre>
@@ -533,11 +496,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignRedelegations")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.Redelegation) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.Redelegation) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * redelegations defines the redelegations active at genesis.
      * </pre>
@@ -547,10 +508,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllRedelegations")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Redelegation>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Redelegation>) {
       _builder.addAllRedelegations(values)
-    }
-    /**
+    }/**
      * <pre>
      * redelegations defines the redelegations active at genesis.
      * </pre>
@@ -560,11 +520,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllRedelegations")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Redelegation>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.Redelegation>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * redelegations defines the redelegations active at genesis.
      * </pre>
@@ -575,10 +533,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setRedelegations")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.Redelegation) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.Redelegation) {
       _builder.setRedelegations(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * redelegations defines the redelegations active at genesis.
      * </pre>
@@ -587,15 +544,13 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearRedelegations")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.Redelegation, RedelegationsProxy>.clear() {
       _builder.clearRedelegations()
     }
-
-
     /**
      * <code>bool exported = 8;</code>
      */
-    public var exported: kotlin.Boolean
+    var exported: kotlin.Boolean
       @JvmName("getExported")
       get() = _builder.getExported()
       @JvmName("setExported")
@@ -605,15 +560,11 @@ public object GenesisStateKt {
     /**
      * <code>bool exported = 8;</code>
      */
-    public fun clearExported() {
+    fun clearExported() {
       _builder.clearExported()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Genesis.GenesisState.copy(block: cosmos.staking.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Genesis.GenesisState =
+inline fun cosmos.staking.v1beta1.Genesis.GenesisState.copy(block: cosmos.staking.v1beta1.GenesisStateKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Genesis.GenesisState =
   cosmos.staking.v1beta1.GenesisStateKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.Genesis.GenesisStateOrBuilder.paramsOrNull: cosmos.staking.v1beta1.Staking.Params?
-  get() = if (hasParams()) getParams() else null
-

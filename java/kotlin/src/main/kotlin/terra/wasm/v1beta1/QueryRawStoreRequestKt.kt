@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryRawStoreRequest")
-public inline fun queryRawStoreRequest(block: terra.wasm.v1beta1.QueryRawStoreRequestKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryRawStoreRequest(block: terra.wasm.v1beta1.QueryRawStoreRequestKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest =
   terra.wasm.v1beta1.QueryRawStoreRequestKt.Dsl._create(terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest.newBuilder()).apply { block() }._build()
-public object QueryRawStoreRequestKt {
+object QueryRawStoreRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryRawStoreRequestKt {
     /**
      * <code>string contract_address = 1;</code>
      */
-    public var contractAddress: kotlin.String
+    var contractAddress: kotlin.String
       @JvmName("getContractAddress")
       get() = _builder.getContractAddress()
       @JvmName("setContractAddress")
@@ -35,14 +35,14 @@ public object QueryRawStoreRequestKt {
     /**
      * <code>string contract_address = 1;</code>
      */
-    public fun clearContractAddress() {
+    fun clearContractAddress() {
       _builder.clearContractAddress()
     }
 
     /**
      * <code>bytes key = 2;</code>
      */
-    public var key: com.google.protobuf.ByteString
+    var key: com.google.protobuf.ByteString
       @JvmName("getKey")
       get() = _builder.getKey()
       @JvmName("setKey")
@@ -52,12 +52,11 @@ public object QueryRawStoreRequestKt {
     /**
      * <code>bytes key = 2;</code>
      */
-    public fun clearKey() {
+    fun clearKey() {
       _builder.clearKey()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest.copy(block: terra.wasm.v1beta1.QueryRawStoreRequestKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest =
+inline fun terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest.copy(block: terra.wasm.v1beta1.QueryRawStoreRequestKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryRawStoreRequest =
   terra.wasm.v1beta1.QueryRawStoreRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializedelegationResponse")
-public inline fun delegationResponse(block: cosmos.staking.v1beta1.DelegationResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.DelegationResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun delegationResponse(block: cosmos.staking.v1beta1.DelegationResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.DelegationResponse =
   cosmos.staking.v1beta1.DelegationResponseKt.Dsl._create(cosmos.staking.v1beta1.Staking.DelegationResponse.newBuilder()).apply { block() }._build()
-public object DelegationResponseKt {
+object DelegationResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Staking.DelegationResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Staking.DelegationResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Staking.DelegationResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object DelegationResponseKt {
     /**
      * <code>.cosmos.staking.v1beta1.Delegation delegation = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var delegation: cosmos.staking.v1beta1.Staking.Delegation
+    var delegation: cosmos.staking.v1beta1.Staking.Delegation
       @JvmName("getDelegation")
       get() = _builder.getDelegation()
       @JvmName("setDelegation")
@@ -35,21 +35,21 @@ public object DelegationResponseKt {
     /**
      * <code>.cosmos.staking.v1beta1.Delegation delegation = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearDelegation() {
+    fun clearDelegation() {
       _builder.clearDelegation()
     }
     /**
      * <code>.cosmos.staking.v1beta1.Delegation delegation = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the delegation field is set.
      */
-    public fun hasDelegation(): kotlin.Boolean {
+    fun hasDelegation(): kotlin.Boolean {
       return _builder.hasDelegation()
     }
 
     /**
      * <code>.cosmos.base.v1beta1.Coin balance = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public var balance: cosmos.base.v1beta1.CoinOuterClass.Coin
+    var balance: cosmos.base.v1beta1.CoinOuterClass.Coin
       @JvmName("getBalance")
       get() = _builder.getBalance()
       @JvmName("setBalance")
@@ -59,25 +59,18 @@ public object DelegationResponseKt {
     /**
      * <code>.cosmos.base.v1beta1.Coin balance = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearBalance() {
+    fun clearBalance() {
       _builder.clearBalance()
     }
     /**
      * <code>.cosmos.base.v1beta1.Coin balance = 2 [(.gogoproto.nullable) = false];</code>
      * @return Whether the balance field is set.
      */
-    public fun hasBalance(): kotlin.Boolean {
+    fun hasBalance(): kotlin.Boolean {
       return _builder.hasBalance()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Staking.DelegationResponse.copy(block: cosmos.staking.v1beta1.DelegationResponseKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.DelegationResponse =
+inline fun cosmos.staking.v1beta1.Staking.DelegationResponse.copy(block: cosmos.staking.v1beta1.DelegationResponseKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.DelegationResponse =
   cosmos.staking.v1beta1.DelegationResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.staking.v1beta1.Staking.DelegationResponseOrBuilder.delegationOrNull: cosmos.staking.v1beta1.Staking.Delegation?
-  get() = if (hasDelegation()) getDelegation() else null
-
-public val cosmos.staking.v1beta1.Staking.DelegationResponseOrBuilder.balanceOrNull: cosmos.base.v1beta1.CoinOuterClass.Coin?
-  get() = if (hasBalance()) getBalance() else null
-

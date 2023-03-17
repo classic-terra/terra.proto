@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeparams")
-public inline fun params(block: terra.wasm.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Wasm.Params =
+@kotlin.jvm.JvmSynthetic
+inline fun params(block: terra.wasm.v1beta1.ParamsKt.Dsl.() -> Unit): terra.wasm.v1beta1.Wasm.Params =
   terra.wasm.v1beta1.ParamsKt.Dsl._create(terra.wasm.v1beta1.Wasm.Params.newBuilder()).apply { block() }._build()
-public object ParamsKt {
+object ParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.Wasm.Params.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.Wasm.Params.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.Wasm.Params.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ParamsKt {
     /**
      * <code>uint64 max_contract_size = 1 [(.gogoproto.moretags) = "yaml:&#92;"max_contract_size&#92;""];</code>
      */
-    public var maxContractSize: kotlin.Long
+    var maxContractSize: kotlin.Long
       @JvmName("getMaxContractSize")
       get() = _builder.getMaxContractSize()
       @JvmName("setMaxContractSize")
@@ -35,14 +35,14 @@ public object ParamsKt {
     /**
      * <code>uint64 max_contract_size = 1 [(.gogoproto.moretags) = "yaml:&#92;"max_contract_size&#92;""];</code>
      */
-    public fun clearMaxContractSize() {
+    fun clearMaxContractSize() {
       _builder.clearMaxContractSize()
     }
 
     /**
      * <code>uint64 max_contract_gas = 2 [(.gogoproto.moretags) = "yaml:&#92;"max_contract_gas&#92;""];</code>
      */
-    public var maxContractGas: kotlin.Long
+    var maxContractGas: kotlin.Long
       @JvmName("getMaxContractGas")
       get() = _builder.getMaxContractGas()
       @JvmName("setMaxContractGas")
@@ -52,14 +52,14 @@ public object ParamsKt {
     /**
      * <code>uint64 max_contract_gas = 2 [(.gogoproto.moretags) = "yaml:&#92;"max_contract_gas&#92;""];</code>
      */
-    public fun clearMaxContractGas() {
+    fun clearMaxContractGas() {
       _builder.clearMaxContractGas()
     }
 
     /**
      * <code>uint64 max_contract_msg_size = 3 [(.gogoproto.moretags) = "yaml:&#92;"max_contract_msg_size&#92;""];</code>
      */
-    public var maxContractMsgSize: kotlin.Long
+    var maxContractMsgSize: kotlin.Long
       @JvmName("getMaxContractMsgSize")
       get() = _builder.getMaxContractMsgSize()
       @JvmName("setMaxContractMsgSize")
@@ -69,12 +69,11 @@ public object ParamsKt {
     /**
      * <code>uint64 max_contract_msg_size = 3 [(.gogoproto.moretags) = "yaml:&#92;"max_contract_msg_size&#92;""];</code>
      */
-    public fun clearMaxContractMsgSize() {
+    fun clearMaxContractMsgSize() {
       _builder.clearMaxContractMsgSize()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.Wasm.Params.copy(block: terra.wasm.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.Wasm.Params =
+inline fun terra.wasm.v1beta1.Wasm.Params.copy(block: terra.wasm.v1beta1.ParamsKt.Dsl.() -> Unit): terra.wasm.v1beta1.Wasm.Params =
   terra.wasm.v1beta1.ParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

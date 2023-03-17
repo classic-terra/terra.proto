@@ -28,25 +28,25 @@ import terra.oracle.v1beta1.MsgGrpc.getServiceDescriptor
 /**
  * Holder for Kotlin coroutine-based client and server APIs for terra.oracle.v1beta1.Msg.
  */
-public object MsgGrpcKt {
-  public const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
+object MsgGrpcKt {
+  const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = MsgGrpc.getServiceDescriptor()
 
-  public val aggregateExchangeRatePrevoteMethod:
-      MethodDescriptor<Tx.MsgAggregateExchangeRatePrevote, Tx.MsgAggregateExchangeRatePrevoteResponse>
+  val aggregateExchangeRatePrevoteMethod: MethodDescriptor<Tx.MsgAggregateExchangeRatePrevote,
+      Tx.MsgAggregateExchangeRatePrevoteResponse>
     @JvmStatic
     get() = MsgGrpc.getAggregateExchangeRatePrevoteMethod()
 
-  public val aggregateExchangeRateVoteMethod:
-      MethodDescriptor<Tx.MsgAggregateExchangeRateVote, Tx.MsgAggregateExchangeRateVoteResponse>
+  val aggregateExchangeRateVoteMethod: MethodDescriptor<Tx.MsgAggregateExchangeRateVote,
+      Tx.MsgAggregateExchangeRateVoteResponse>
     @JvmStatic
     get() = MsgGrpc.getAggregateExchangeRateVoteMethod()
 
-  public val delegateFeedConsentMethod:
-      MethodDescriptor<Tx.MsgDelegateFeedConsent, Tx.MsgDelegateFeedConsentResponse>
+  val delegateFeedConsentMethod: MethodDescriptor<Tx.MsgDelegateFeedConsent,
+      Tx.MsgDelegateFeedConsentResponse>
     @JvmStatic
     get() = MsgGrpc.getDelegateFeedConsentMethod()
 
@@ -54,11 +54,11 @@ public object MsgGrpcKt {
    * A stub for issuing RPCs to a(n) terra.oracle.v1beta1.Msg service as suspending coroutines.
    */
   @StubFor(MsgGrpc::class)
-  public class MsgCoroutineStub @JvmOverloads constructor(
+  class MsgCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<MsgCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
         MsgCoroutineStub(channel, callOptions)
 
     /**
@@ -69,19 +69,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun aggregateExchangeRatePrevote(request: Tx.MsgAggregateExchangeRatePrevote,
-        headers: Metadata = Metadata()): Tx.MsgAggregateExchangeRatePrevoteResponse = unaryRpc(
+    suspend fun aggregateExchangeRatePrevote(request: Tx.MsgAggregateExchangeRatePrevote):
+        Tx.MsgAggregateExchangeRatePrevoteResponse = unaryRpc(
       channel,
       MsgGrpc.getAggregateExchangeRatePrevoteMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -90,19 +87,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun aggregateExchangeRateVote(request: Tx.MsgAggregateExchangeRateVote,
-        headers: Metadata = Metadata()): Tx.MsgAggregateExchangeRateVoteResponse = unaryRpc(
+    suspend fun aggregateExchangeRateVote(request: Tx.MsgAggregateExchangeRateVote):
+        Tx.MsgAggregateExchangeRateVoteResponse = unaryRpc(
       channel,
       MsgGrpc.getAggregateExchangeRateVoteMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -111,25 +105,22 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun delegateFeedConsent(request: Tx.MsgDelegateFeedConsent, headers: Metadata =
-        Metadata()): Tx.MsgDelegateFeedConsentResponse = unaryRpc(
+    suspend fun delegateFeedConsent(request: Tx.MsgDelegateFeedConsent):
+        Tx.MsgDelegateFeedConsentResponse = unaryRpc(
       channel,
       MsgGrpc.getDelegateFeedConsentMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the terra.oracle.v1beta1.Msg service based on Kotlin coroutines.
    */
-  public abstract class MsgCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class MsgCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for terra.oracle.v1beta1.Msg.AggregateExchangeRatePrevote.
@@ -142,8 +133,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
-        fun aggregateExchangeRatePrevote(request: Tx.MsgAggregateExchangeRatePrevote):
+    open suspend fun aggregateExchangeRatePrevote(request: Tx.MsgAggregateExchangeRatePrevote):
         Tx.MsgAggregateExchangeRatePrevoteResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Msg.AggregateExchangeRatePrevote is unimplemented"))
 
@@ -158,7 +148,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun aggregateExchangeRateVote(request: Tx.MsgAggregateExchangeRateVote):
+    open suspend fun aggregateExchangeRateVote(request: Tx.MsgAggregateExchangeRateVote):
         Tx.MsgAggregateExchangeRateVoteResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Msg.AggregateExchangeRateVote is unimplemented"))
 
@@ -173,12 +163,11 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun delegateFeedConsent(request: Tx.MsgDelegateFeedConsent):
+    open suspend fun delegateFeedConsent(request: Tx.MsgDelegateFeedConsent):
         Tx.MsgDelegateFeedConsentResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.oracle.v1beta1.Msg.DelegateFeedConsent is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = MsgGrpc.getAggregateExchangeRatePrevoteMethod(),

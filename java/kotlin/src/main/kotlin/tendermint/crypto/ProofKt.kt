@@ -3,16 +3,16 @@
 
 package tendermint.crypto;
 
-@kotlin.jvm.JvmName("-initializeproof")
-public inline fun proof(block: tendermint.crypto.ProofKt.Dsl.() -> kotlin.Unit): tendermint.crypto.ProofOuterClass.Proof =
+@kotlin.jvm.JvmSynthetic
+inline fun proof(block: tendermint.crypto.ProofKt.Dsl.() -> Unit): tendermint.crypto.ProofOuterClass.Proof =
   tendermint.crypto.ProofKt.Dsl._create(tendermint.crypto.ProofOuterClass.Proof.newBuilder()).apply { block() }._build()
-public object ProofKt {
+object ProofKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.crypto.ProofOuterClass.Proof.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.crypto.ProofOuterClass.Proof.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.crypto.ProofOuterClass.Proof.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ProofKt {
     /**
      * <code>int64 total = 1;</code>
      */
-    public var total: kotlin.Long
+    var total: kotlin.Long
       @JvmName("getTotal")
       get() = _builder.getTotal()
       @JvmName("setTotal")
@@ -35,14 +35,14 @@ public object ProofKt {
     /**
      * <code>int64 total = 1;</code>
      */
-    public fun clearTotal() {
+    fun clearTotal() {
       _builder.clearTotal()
     }
 
     /**
      * <code>int64 index = 2;</code>
      */
-    public var index: kotlin.Long
+    var index: kotlin.Long
       @JvmName("getIndex")
       get() = _builder.getIndex()
       @JvmName("setIndex")
@@ -52,14 +52,14 @@ public object ProofKt {
     /**
      * <code>int64 index = 2;</code>
      */
-    public fun clearIndex() {
+    fun clearIndex() {
       _builder.clearIndex()
     }
 
     /**
      * <code>bytes leaf_hash = 3;</code>
      */
-    public var leafHash: com.google.protobuf.ByteString
+    var leafHash: com.google.protobuf.ByteString
       @JvmName("getLeafHash")
       get() = _builder.getLeafHash()
       @JvmName("setLeafHash")
@@ -69,7 +69,7 @@ public object ProofKt {
     /**
      * <code>bytes leaf_hash = 3;</code>
      */
-    public fun clearLeafHash() {
+    fun clearLeafHash() {
       _builder.clearLeafHash()
     }
 
@@ -78,11 +78,11 @@ public object ProofKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class AuntsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class AuntsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated bytes aunts = 4;</code>
      */
-     public val aunts: com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>
+     val aunts: com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getAuntsList()
@@ -93,7 +93,7 @@ public object ProofKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAunts")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.add(value: com.google.protobuf.ByteString) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.add(value: com.google.protobuf.ByteString) {
       _builder.addAunts(value)
     }/**
      * <code>repeated bytes aunts = 4;</code>
@@ -101,8 +101,7 @@ public object ProofKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAunts")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.plusAssign(value: com.google.protobuf.ByteString) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.plusAssign(value: com.google.protobuf.ByteString) {
       add(value)
     }/**
      * <code>repeated bytes aunts = 4;</code>
@@ -110,7 +109,7 @@ public object ProofKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllAunts")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
       _builder.addAllAunts(values)
     }/**
      * <code>repeated bytes aunts = 4;</code>
@@ -118,8 +117,7 @@ public object ProofKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllAunts")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
       addAll(values)
     }/**
      * <code>repeated bytes aunts = 4;</code>
@@ -128,18 +126,17 @@ public object ProofKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setAunts")
-    public operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.set(index: kotlin.Int, value: com.google.protobuf.ByteString) {
+    operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.set(index: kotlin.Int, value: com.google.protobuf.ByteString) {
       _builder.setAunts(index, value)
     }/**
      * <code>repeated bytes aunts = 4;</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearAunts")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, AuntsProxy>.clear() {
       _builder.clearAunts()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.crypto.ProofOuterClass.Proof.copy(block: tendermint.crypto.ProofKt.Dsl.() -> kotlin.Unit): tendermint.crypto.ProofOuterClass.Proof =
+inline fun tendermint.crypto.ProofOuterClass.Proof.copy(block: tendermint.crypto.ProofKt.Dsl.() -> Unit): tendermint.crypto.ProofOuterClass.Proof =
   tendermint.crypto.ProofKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

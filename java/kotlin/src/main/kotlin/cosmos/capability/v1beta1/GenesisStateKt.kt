@@ -3,16 +3,16 @@
 
 package cosmos.capability.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegenesisState")
-public inline fun genesisState(block: cosmos.capability.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): cosmos.capability.v1beta1.Genesis.GenesisState =
+@kotlin.jvm.JvmSynthetic
+inline fun genesisState(block: cosmos.capability.v1beta1.GenesisStateKt.Dsl.() -> Unit): cosmos.capability.v1beta1.Genesis.GenesisState =
   cosmos.capability.v1beta1.GenesisStateKt.Dsl._create(cosmos.capability.v1beta1.Genesis.GenesisState.newBuilder()).apply { block() }._build()
-public object GenesisStateKt {
+object GenesisStateKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.capability.v1beta1.Genesis.GenesisState.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.capability.v1beta1.Genesis.GenesisState.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.capability.v1beta1.Genesis.GenesisState.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object GenesisStateKt {
      *
      * <code>uint64 index = 1;</code>
      */
-    public var index: kotlin.Long
+    var index: kotlin.Long
       @JvmName("getIndex")
       get() = _builder.getIndex()
       @JvmName("setIndex")
@@ -43,7 +43,7 @@ public object GenesisStateKt {
      *
      * <code>uint64 index = 1;</code>
      */
-    public fun clearIndex() {
+    fun clearIndex() {
       _builder.clearIndex()
     }
 
@@ -52,7 +52,7 @@ public object GenesisStateKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class OwnersProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class OwnersProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * owners represents a map from index to owners of the capability index
@@ -61,7 +61,7 @@ public object GenesisStateKt {
      *
      * <code>repeated .cosmos.capability.v1beta1.GenesisOwners owners = 2 [(.gogoproto.nullable) = false];</code>
      */
-     public val owners: com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>
+     val owners: com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getOwnersList()
@@ -77,10 +77,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addOwners")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.add(value: cosmos.capability.v1beta1.Genesis.GenesisOwners) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.add(value: cosmos.capability.v1beta1.Genesis.GenesisOwners) {
       _builder.addOwners(value)
-    }
-    /**
+    }/**
      * <pre>
      * owners represents a map from index to owners of the capability index
      * index key is string to allow amino marshalling.
@@ -91,11 +90,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignOwners")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.plusAssign(value: cosmos.capability.v1beta1.Genesis.GenesisOwners) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.plusAssign(value: cosmos.capability.v1beta1.Genesis.GenesisOwners) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * owners represents a map from index to owners of the capability index
      * index key is string to allow amino marshalling.
@@ -106,10 +103,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllOwners")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.addAll(values: kotlin.collections.Iterable<cosmos.capability.v1beta1.Genesis.GenesisOwners>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.addAll(values: kotlin.collections.Iterable<cosmos.capability.v1beta1.Genesis.GenesisOwners>) {
       _builder.addAllOwners(values)
-    }
-    /**
+    }/**
      * <pre>
      * owners represents a map from index to owners of the capability index
      * index key is string to allow amino marshalling.
@@ -120,11 +116,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllOwners")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.capability.v1beta1.Genesis.GenesisOwners>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.capability.v1beta1.Genesis.GenesisOwners>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * owners represents a map from index to owners of the capability index
      * index key is string to allow amino marshalling.
@@ -136,10 +130,9 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setOwners")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.set(index: kotlin.Int, value: cosmos.capability.v1beta1.Genesis.GenesisOwners) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.set(index: kotlin.Int, value: cosmos.capability.v1beta1.Genesis.GenesisOwners) {
       _builder.setOwners(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * owners represents a map from index to owners of the capability index
      * index key is string to allow amino marshalling.
@@ -149,13 +142,10 @@ public object GenesisStateKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearOwners")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.capability.v1beta1.Genesis.GenesisOwners, OwnersProxy>.clear() {
       _builder.clearOwners()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.capability.v1beta1.Genesis.GenesisState.copy(block: cosmos.capability.v1beta1.GenesisStateKt.Dsl.() -> kotlin.Unit): cosmos.capability.v1beta1.Genesis.GenesisState =
+inline fun cosmos.capability.v1beta1.Genesis.GenesisState.copy(block: cosmos.capability.v1beta1.GenesisStateKt.Dsl.() -> Unit): cosmos.capability.v1beta1.Genesis.GenesisState =
   cosmos.capability.v1beta1.GenesisStateKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

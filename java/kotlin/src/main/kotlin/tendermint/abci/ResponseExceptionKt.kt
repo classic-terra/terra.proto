@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializeresponseException")
-public inline fun responseException(block: tendermint.abci.ResponseExceptionKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseException =
+@kotlin.jvm.JvmSynthetic
+inline fun responseException(block: tendermint.abci.ResponseExceptionKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseException =
   tendermint.abci.ResponseExceptionKt.Dsl._create(tendermint.abci.Types.ResponseException.newBuilder()).apply { block() }._build()
-public object ResponseExceptionKt {
+object ResponseExceptionKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.ResponseException.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.ResponseException.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.ResponseException.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ResponseExceptionKt {
     /**
      * <code>string error = 1;</code>
      */
-    public var error: kotlin.String
+    var error: kotlin.String
       @JvmName("getError")
       get() = _builder.getError()
       @JvmName("setError")
@@ -35,12 +35,11 @@ public object ResponseExceptionKt {
     /**
      * <code>string error = 1;</code>
      */
-    public fun clearError() {
+    fun clearError() {
       _builder.clearError()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.ResponseException.copy(block: tendermint.abci.ResponseExceptionKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseException =
+inline fun tendermint.abci.Types.ResponseException.copy(block: tendermint.abci.ResponseExceptionKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseException =
   tendermint.abci.ResponseExceptionKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

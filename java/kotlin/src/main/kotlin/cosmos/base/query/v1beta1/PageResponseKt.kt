@@ -3,16 +3,16 @@
 
 package cosmos.base.query.v1beta1;
 
-@kotlin.jvm.JvmName("-initializepageResponse")
-public inline fun pageResponse(block: cosmos.base.query.v1beta1.PageResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.query.v1beta1.Pagination.PageResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun pageResponse(block: cosmos.base.query.v1beta1.PageResponseKt.Dsl.() -> Unit): cosmos.base.query.v1beta1.Pagination.PageResponse =
   cosmos.base.query.v1beta1.PageResponseKt.Dsl._create(cosmos.base.query.v1beta1.Pagination.PageResponse.newBuilder()).apply { block() }._build()
-public object PageResponseKt {
+object PageResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.query.v1beta1.Pagination.PageResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.query.v1beta1.Pagination.PageResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.query.v1beta1.Pagination.PageResponse.Builder): Dsl = Dsl(builder)
@@ -30,7 +30,7 @@ public object PageResponseKt {
      *
      * <code>bytes next_key = 1;</code>
      */
-    public var nextKey: com.google.protobuf.ByteString
+    var nextKey: com.google.protobuf.ByteString
       @JvmName("getNextKey")
       get() = _builder.getNextKey()
       @JvmName("setNextKey")
@@ -45,7 +45,7 @@ public object PageResponseKt {
      *
      * <code>bytes next_key = 1;</code>
      */
-    public fun clearNextKey() {
+    fun clearNextKey() {
       _builder.clearNextKey()
     }
 
@@ -57,7 +57,7 @@ public object PageResponseKt {
      *
      * <code>uint64 total = 2;</code>
      */
-    public var total: kotlin.Long
+    var total: kotlin.Long
       @JvmName("getTotal")
       get() = _builder.getTotal()
       @JvmName("setTotal")
@@ -72,12 +72,11 @@ public object PageResponseKt {
      *
      * <code>uint64 total = 2;</code>
      */
-    public fun clearTotal() {
+    fun clearTotal() {
       _builder.clearTotal()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.query.v1beta1.Pagination.PageResponse.copy(block: cosmos.base.query.v1beta1.PageResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.query.v1beta1.Pagination.PageResponse =
+inline fun cosmos.base.query.v1beta1.Pagination.PageResponse.copy(block: cosmos.base.query.v1beta1.PageResponseKt.Dsl.() -> Unit): cosmos.base.query.v1beta1.Pagination.PageResponse =
   cosmos.base.query.v1beta1.PageResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

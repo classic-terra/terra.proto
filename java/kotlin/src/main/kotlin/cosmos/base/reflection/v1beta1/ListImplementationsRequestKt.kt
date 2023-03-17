@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v1beta1;
 
-@kotlin.jvm.JvmName("-initializelistImplementationsRequest")
-public inline fun listImplementationsRequest(block: cosmos.base.reflection.v1beta1.ListImplementationsRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v1beta1.Reflection.ListImplementationsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun listImplementationsRequest(block: cosmos.base.reflection.v1beta1.ListImplementationsRequestKt.Dsl.() -> Unit): cosmos.base.reflection.v1beta1.Reflection.ListImplementationsRequest =
   cosmos.base.reflection.v1beta1.ListImplementationsRequestKt.Dsl._create(cosmos.base.reflection.v1beta1.Reflection.ListImplementationsRequest.newBuilder()).apply { block() }._build()
-public object ListImplementationsRequestKt {
+object ListImplementationsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v1beta1.Reflection.ListImplementationsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v1beta1.Reflection.ListImplementationsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v1beta1.Reflection.ListImplementationsRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ListImplementationsRequestKt {
      *
      * <code>string interface_name = 1;</code>
      */
-    public var interfaceName: kotlin.String
+    var interfaceName: kotlin.String
       @JvmName("getInterfaceName")
       get() = _builder.getInterfaceName()
       @JvmName("setInterfaceName")
@@ -43,12 +43,11 @@ public object ListImplementationsRequestKt {
      *
      * <code>string interface_name = 1;</code>
      */
-    public fun clearInterfaceName() {
+    fun clearInterfaceName() {
       _builder.clearInterfaceName()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v1beta1.Reflection.ListImplementationsRequest.copy(block: cosmos.base.reflection.v1beta1.ListImplementationsRequestKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v1beta1.Reflection.ListImplementationsRequest =
+inline fun cosmos.base.reflection.v1beta1.Reflection.ListImplementationsRequest.copy(block: cosmos.base.reflection.v1beta1.ListImplementationsRequestKt.Dsl.() -> Unit): cosmos.base.reflection.v1beta1.Reflection.ListImplementationsRequest =
   cosmos.base.reflection.v1beta1.ListImplementationsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

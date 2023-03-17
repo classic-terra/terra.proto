@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializevalidatorAccumulatedCommission")
-public inline fun validatorAccumulatedCommission(block: cosmos.distribution.v1beta1.ValidatorAccumulatedCommissionKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission =
+@kotlin.jvm.JvmSynthetic
+inline fun validatorAccumulatedCommission(block: cosmos.distribution.v1beta1.ValidatorAccumulatedCommissionKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission =
   cosmos.distribution.v1beta1.ValidatorAccumulatedCommissionKt.Dsl._create(cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission.newBuilder()).apply { block() }._build()
-public object ValidatorAccumulatedCommissionKt {
+object ValidatorAccumulatedCommissionKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission.Builder): Dsl = Dsl(builder)
@@ -27,11 +27,11 @@ public object ValidatorAccumulatedCommissionKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class CommissionProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class CommissionProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .cosmos.base.v1beta1.DecCoin commission = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      */
-     public val commission: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>
+     val commission: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getCommissionList()
@@ -42,60 +42,50 @@ public object ValidatorAccumulatedCommissionKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addCommission")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       _builder.addCommission(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin commission = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param value The commission to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignCommission")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin commission = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param values The commission to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllCommission")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
       _builder.addAllCommission(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin commission = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param values The commission to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllCommission")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.DecCoin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin commission = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      * @param index The index to set the value at.
      * @param value The commission to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setCommission")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.DecCoin) {
       _builder.setCommission(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.v1beta1.DecCoin commission = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearCommission")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.DecCoin, CommissionProxy>.clear() {
       _builder.clearCommission()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission.copy(block: cosmos.distribution.v1beta1.ValidatorAccumulatedCommissionKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission =
+inline fun cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission.copy(block: cosmos.distribution.v1beta1.ValidatorAccumulatedCommissionKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission =
   cosmos.distribution.v1beta1.ValidatorAccumulatedCommissionKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

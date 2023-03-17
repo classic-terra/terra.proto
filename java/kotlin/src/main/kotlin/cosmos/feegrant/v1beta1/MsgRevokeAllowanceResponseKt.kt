@@ -3,16 +3,16 @@
 
 package cosmos.feegrant.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgRevokeAllowanceResponse")
-public inline fun msgRevokeAllowanceResponse(block: cosmos.feegrant.v1beta1.MsgRevokeAllowanceResponseKt.Dsl.() -> kotlin.Unit): cosmos.feegrant.v1beta1.Tx.MsgRevokeAllowanceResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgRevokeAllowanceResponse(block: cosmos.feegrant.v1beta1.MsgRevokeAllowanceResponseKt.Dsl.() -> Unit): cosmos.feegrant.v1beta1.Tx.MsgRevokeAllowanceResponse =
   cosmos.feegrant.v1beta1.MsgRevokeAllowanceResponseKt.Dsl._create(cosmos.feegrant.v1beta1.Tx.MsgRevokeAllowanceResponse.newBuilder()).apply { block() }._build()
-public object MsgRevokeAllowanceResponseKt {
+object MsgRevokeAllowanceResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.feegrant.v1beta1.Tx.MsgRevokeAllowanceResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.feegrant.v1beta1.Tx.MsgRevokeAllowanceResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.feegrant.v1beta1.Tx.MsgRevokeAllowanceResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgRevokeAllowanceResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.feegrant.v1beta1.Tx.MsgRevokeAllowanceResponse.copy(block: cosmos.feegrant.v1beta1.MsgRevokeAllowanceResponseKt.Dsl.() -> kotlin.Unit): cosmos.feegrant.v1beta1.Tx.MsgRevokeAllowanceResponse =
+inline fun cosmos.feegrant.v1beta1.Tx.MsgRevokeAllowanceResponse.copy(block: cosmos.feegrant.v1beta1.MsgRevokeAllowanceResponseKt.Dsl.() -> Unit): cosmos.feegrant.v1beta1.Tx.MsgRevokeAllowanceResponse =
   cosmos.feegrant.v1beta1.MsgRevokeAllowanceResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

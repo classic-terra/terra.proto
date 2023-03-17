@@ -3,16 +3,16 @@
 
 package cosmos.authz.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgRevokeResponse")
-public inline fun msgRevokeResponse(block: cosmos.authz.v1beta1.MsgRevokeResponseKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Tx.MsgRevokeResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgRevokeResponse(block: cosmos.authz.v1beta1.MsgRevokeResponseKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Tx.MsgRevokeResponse =
   cosmos.authz.v1beta1.MsgRevokeResponseKt.Dsl._create(cosmos.authz.v1beta1.Tx.MsgRevokeResponse.newBuilder()).apply { block() }._build()
-public object MsgRevokeResponseKt {
+object MsgRevokeResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.authz.v1beta1.Tx.MsgRevokeResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.authz.v1beta1.Tx.MsgRevokeResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.authz.v1beta1.Tx.MsgRevokeResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgRevokeResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.authz.v1beta1.Tx.MsgRevokeResponse.copy(block: cosmos.authz.v1beta1.MsgRevokeResponseKt.Dsl.() -> kotlin.Unit): cosmos.authz.v1beta1.Tx.MsgRevokeResponse =
+inline fun cosmos.authz.v1beta1.Tx.MsgRevokeResponse.copy(block: cosmos.authz.v1beta1.MsgRevokeResponseKt.Dsl.() -> Unit): cosmos.authz.v1beta1.Tx.MsgRevokeResponse =
   cosmos.authz.v1beta1.MsgRevokeResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

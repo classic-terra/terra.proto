@@ -3,16 +3,16 @@
 
 package cosmos.bank.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryTotalSupplyResponse")
-public inline fun queryTotalSupplyResponse(block: cosmos.bank.v1beta1.QueryTotalSupplyResponseKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryTotalSupplyResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryTotalSupplyResponse(block: cosmos.bank.v1beta1.QueryTotalSupplyResponseKt.Dsl.() -> Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryTotalSupplyResponse =
   cosmos.bank.v1beta1.QueryTotalSupplyResponseKt.Dsl._create(cosmos.bank.v1beta1.QueryOuterClass.QueryTotalSupplyResponse.newBuilder()).apply { block() }._build()
-public object QueryTotalSupplyResponseKt {
+object QueryTotalSupplyResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.bank.v1beta1.QueryOuterClass.QueryTotalSupplyResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.bank.v1beta1.QueryOuterClass.QueryTotalSupplyResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.bank.v1beta1.QueryOuterClass.QueryTotalSupplyResponse.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object QueryTotalSupplyResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class SupplyProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class SupplyProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * supply is the supply of the coins
@@ -35,7 +35,7 @@ public object QueryTotalSupplyResponseKt {
      *
      * <code>repeated .cosmos.base.v1beta1.Coin supply = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
-     public val supply: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>
+     val supply: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getSupplyList()
@@ -50,10 +50,9 @@ public object QueryTotalSupplyResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addSupply")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.addSupply(value)
-    }
-    /**
+    }/**
      * <pre>
      * supply is the supply of the coins
      * </pre>
@@ -63,11 +62,9 @@ public object QueryTotalSupplyResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignSupply")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * supply is the supply of the coins
      * </pre>
@@ -77,10 +74,9 @@ public object QueryTotalSupplyResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllSupply")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       _builder.addAllSupply(values)
-    }
-    /**
+    }/**
      * <pre>
      * supply is the supply of the coins
      * </pre>
@@ -90,11 +86,9 @@ public object QueryTotalSupplyResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllSupply")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * supply is the supply of the coins
      * </pre>
@@ -105,10 +99,9 @@ public object QueryTotalSupplyResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setSupply")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.setSupply(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * supply is the supply of the coins
      * </pre>
@@ -117,20 +110,17 @@ public object QueryTotalSupplyResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearSupply")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, SupplyProxy>.clear() {
       _builder.clearSupply()
     }
-
-
     /**
      * <pre>
      * pagination defines the pagination in the response.
-     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -140,32 +130,26 @@ public object QueryTotalSupplyResponseKt {
     /**
      * <pre>
      * pagination defines the pagination in the response.
-     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
      * <pre>
      * pagination defines the pagination in the response.
-     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.bank.v1beta1.QueryOuterClass.QueryTotalSupplyResponse.copy(block: cosmos.bank.v1beta1.QueryTotalSupplyResponseKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryTotalSupplyResponse =
+inline fun cosmos.bank.v1beta1.QueryOuterClass.QueryTotalSupplyResponse.copy(block: cosmos.bank.v1beta1.QueryTotalSupplyResponseKt.Dsl.() -> Unit): cosmos.bank.v1beta1.QueryOuterClass.QueryTotalSupplyResponse =
   cosmos.bank.v1beta1.QueryTotalSupplyResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.bank.v1beta1.QueryOuterClass.QueryTotalSupplyResponseOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageResponse?
-  get() = if (hasPagination()) getPagination() else null
-

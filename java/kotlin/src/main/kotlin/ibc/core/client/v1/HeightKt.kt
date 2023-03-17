@@ -3,16 +3,16 @@
 
 package ibc.core.client.v1;
 
-@kotlin.jvm.JvmName("-initializeheight")
-public inline fun height(block: ibc.core.client.v1.HeightKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Client.Height =
+@kotlin.jvm.JvmSynthetic
+inline fun height(block: ibc.core.client.v1.HeightKt.Dsl.() -> Unit): ibc.core.client.v1.Client.Height =
   ibc.core.client.v1.HeightKt.Dsl._create(ibc.core.client.v1.Client.Height.newBuilder()).apply { block() }._build()
-public object HeightKt {
+object HeightKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.client.v1.Client.Height.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.client.v1.Client.Height.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.client.v1.Client.Height.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object HeightKt {
      *
      * <code>uint64 revision_number = 1 [(.gogoproto.moretags) = "yaml:&#92;"revision_number&#92;""];</code>
      */
-    public var revisionNumber: kotlin.Long
+    var revisionNumber: kotlin.Long
       @JvmName("getRevisionNumber")
       get() = _builder.getRevisionNumber()
       @JvmName("setRevisionNumber")
@@ -43,7 +43,7 @@ public object HeightKt {
      *
      * <code>uint64 revision_number = 1 [(.gogoproto.moretags) = "yaml:&#92;"revision_number&#92;""];</code>
      */
-    public fun clearRevisionNumber() {
+    fun clearRevisionNumber() {
       _builder.clearRevisionNumber()
     }
 
@@ -54,7 +54,7 @@ public object HeightKt {
      *
      * <code>uint64 revision_height = 2 [(.gogoproto.moretags) = "yaml:&#92;"revision_height&#92;""];</code>
      */
-    public var revisionHeight: kotlin.Long
+    var revisionHeight: kotlin.Long
       @JvmName("getRevisionHeight")
       get() = _builder.getRevisionHeight()
       @JvmName("setRevisionHeight")
@@ -68,12 +68,11 @@ public object HeightKt {
      *
      * <code>uint64 revision_height = 2 [(.gogoproto.moretags) = "yaml:&#92;"revision_height&#92;""];</code>
      */
-    public fun clearRevisionHeight() {
+    fun clearRevisionHeight() {
       _builder.clearRevisionHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.client.v1.Client.Height.copy(block: ibc.core.client.v1.HeightKt.Dsl.() -> kotlin.Unit): ibc.core.client.v1.Client.Height =
+inline fun ibc.core.client.v1.Client.Height.copy(block: ibc.core.client.v1.HeightKt.Dsl.() -> Unit): ibc.core.client.v1.Client.Height =
   ibc.core.client.v1.HeightKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

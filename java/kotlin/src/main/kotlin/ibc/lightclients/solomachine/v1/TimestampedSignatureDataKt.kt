@@ -3,16 +3,16 @@
 
 package ibc.lightclients.solomachine.v1;
 
-@kotlin.jvm.JvmName("-initializetimestampedSignatureData")
-public inline fun timestampedSignatureData(block: ibc.lightclients.solomachine.v1.TimestampedSignatureDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v1.Solomachine.TimestampedSignatureData =
+@kotlin.jvm.JvmSynthetic
+inline fun timestampedSignatureData(block: ibc.lightclients.solomachine.v1.TimestampedSignatureDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v1.Solomachine.TimestampedSignatureData =
   ibc.lightclients.solomachine.v1.TimestampedSignatureDataKt.Dsl._create(ibc.lightclients.solomachine.v1.Solomachine.TimestampedSignatureData.newBuilder()).apply { block() }._build()
-public object TimestampedSignatureDataKt {
+object TimestampedSignatureDataKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.lightclients.solomachine.v1.Solomachine.TimestampedSignatureData.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.lightclients.solomachine.v1.Solomachine.TimestampedSignatureData.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.lightclients.solomachine.v1.Solomachine.TimestampedSignatureData.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object TimestampedSignatureDataKt {
     /**
      * <code>bytes signature_data = 1 [(.gogoproto.moretags) = "yaml:&#92;"signature_data&#92;""];</code>
      */
-    public var signatureData: com.google.protobuf.ByteString
+    var signatureData: com.google.protobuf.ByteString
       @JvmName("getSignatureData")
       get() = _builder.getSignatureData()
       @JvmName("setSignatureData")
@@ -35,14 +35,14 @@ public object TimestampedSignatureDataKt {
     /**
      * <code>bytes signature_data = 1 [(.gogoproto.moretags) = "yaml:&#92;"signature_data&#92;""];</code>
      */
-    public fun clearSignatureData() {
+    fun clearSignatureData() {
       _builder.clearSignatureData()
     }
 
     /**
      * <code>uint64 timestamp = 2;</code>
      */
-    public var timestamp: kotlin.Long
+    var timestamp: kotlin.Long
       @JvmName("getTimestamp")
       get() = _builder.getTimestamp()
       @JvmName("setTimestamp")
@@ -52,12 +52,11 @@ public object TimestampedSignatureDataKt {
     /**
      * <code>uint64 timestamp = 2;</code>
      */
-    public fun clearTimestamp() {
+    fun clearTimestamp() {
       _builder.clearTimestamp()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.lightclients.solomachine.v1.Solomachine.TimestampedSignatureData.copy(block: ibc.lightclients.solomachine.v1.TimestampedSignatureDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v1.Solomachine.TimestampedSignatureData =
+inline fun ibc.lightclients.solomachine.v1.Solomachine.TimestampedSignatureData.copy(block: ibc.lightclients.solomachine.v1.TimestampedSignatureDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v1.Solomachine.TimestampedSignatureData =
   ibc.lightclients.solomachine.v1.TimestampedSignatureDataKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

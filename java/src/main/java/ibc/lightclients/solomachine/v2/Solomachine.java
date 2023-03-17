@@ -361,6 +361,71 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ClientState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              sequence_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              isFrozen_ = input.readBool();
+              break;
+            }
+            case 26: {
+              ibc.lightclients.solomachine.v2.Solomachine.ConsensusState.Builder subBuilder = null;
+              if (consensusState_ != null) {
+                subBuilder = consensusState_.toBuilder();
+              }
+              consensusState_ = input.readMessage(ibc.lightclients.solomachine.v2.Solomachine.ConsensusState.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(consensusState_);
+                consensusState_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 32: {
+
+              allowUpdateAfterProposal_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_ClientState_descriptor;
@@ -375,7 +440,7 @@ public final class Solomachine {
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 1;
-    private long sequence_ = 0L;
+    private long sequence_;
     /**
      * <pre>
      * latest sequence of the client state
@@ -390,7 +455,7 @@ public final class Solomachine {
     }
 
     public static final int IS_FROZEN_FIELD_NUMBER = 2;
-    private boolean isFrozen_ = false;
+    private boolean isFrozen_;
     /**
      * <pre>
      * frozen sequence of the solo machine
@@ -427,11 +492,11 @@ public final class Solomachine {
      */
     @java.lang.Override
     public ibc.lightclients.solomachine.v2.Solomachine.ConsensusStateOrBuilder getConsensusStateOrBuilder() {
-      return consensusState_ == null ? ibc.lightclients.solomachine.v2.Solomachine.ConsensusState.getDefaultInstance() : consensusState_;
+      return getConsensusState();
     }
 
     public static final int ALLOW_UPDATE_AFTER_PROPOSAL_FIELD_NUMBER = 4;
-    private boolean allowUpdateAfterProposal_ = false;
+    private boolean allowUpdateAfterProposal_;
     /**
      * <pre>
      * when set to true, will allow governance to update a solo machine client.
@@ -472,7 +537,7 @@ public final class Solomachine {
       if (allowUpdateAfterProposal_ != false) {
         output.writeBool(4, allowUpdateAfterProposal_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -497,7 +562,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, allowUpdateAfterProposal_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -523,7 +588,7 @@ public final class Solomachine {
       }
       if (getAllowUpdateAfterProposal()
           != other.getAllowUpdateAfterProposal()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -547,7 +612,7 @@ public final class Solomachine {
       hash = (37 * hash) + ALLOW_UPDATE_AFTER_PROPOSAL_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAllowUpdateAfterProposal());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -669,26 +734,34 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.ClientState.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         sequence_ = 0L;
+
         isFrozen_ = false;
-        consensusState_ = null;
-        if (consensusStateBuilder_ != null) {
-          consensusStateBuilder_.dispose();
+
+        if (consensusStateBuilder_ == null) {
+          consensusState_ = null;
+        } else {
+          consensusState_ = null;
           consensusStateBuilder_ = null;
         }
         allowUpdateAfterProposal_ = false;
+
         return this;
       }
 
@@ -715,27 +788,16 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.ClientState buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.ClientState result = new ibc.lightclients.solomachine.v2.Solomachine.ClientState(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.sequence_ = sequence_;
+        result.isFrozen_ = isFrozen_;
+        if (consensusStateBuilder_ == null) {
+          result.consensusState_ = consensusState_;
+        } else {
+          result.consensusState_ = consensusStateBuilder_.build();
+        }
+        result.allowUpdateAfterProposal_ = allowUpdateAfterProposal_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.ClientState result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.sequence_ = sequence_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.isFrozen_ = isFrozen_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.consensusState_ = consensusStateBuilder_ == null
-              ? consensusState_
-              : consensusStateBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.allowUpdateAfterProposal_ = allowUpdateAfterProposal_;
-        }
       }
 
       @java.lang.Override
@@ -794,7 +856,7 @@ public final class Solomachine {
         if (other.getAllowUpdateAfterProposal() != false) {
           setAllowUpdateAfterProposal(other.getAllowUpdateAfterProposal());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -809,55 +871,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.ClientState parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                sequence_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                isFrozen_ = input.readBool();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                input.readMessage(
-                    getConsensusStateFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 32: {
-                allowUpdateAfterProposal_ = input.readBool();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.ClientState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long sequence_ ;
       /**
@@ -884,7 +910,6 @@ public final class Solomachine {
       public Builder setSequence(long value) {
         
         sequence_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -897,7 +922,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         sequence_ = 0L;
         onChanged();
         return this;
@@ -928,7 +953,6 @@ public final class Solomachine {
       public Builder setIsFrozen(boolean value) {
         
         isFrozen_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -941,7 +965,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearIsFrozen() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         isFrozen_ = false;
         onChanged();
         return this;
@@ -955,7 +979,7 @@ public final class Solomachine {
        * @return Whether the consensusState field is set.
        */
       public boolean hasConsensusState() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return consensusStateBuilder_ != null || consensusState_ != null;
       }
       /**
        * <code>.ibc.lightclients.solomachine.v2.ConsensusState consensus_state = 3 [(.gogoproto.moretags) = "yaml:&#92;"consensus_state&#92;""];</code>
@@ -977,11 +1001,11 @@ public final class Solomachine {
             throw new NullPointerException();
           }
           consensusState_ = value;
+          onChanged();
         } else {
           consensusStateBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -991,11 +1015,11 @@ public final class Solomachine {
           ibc.lightclients.solomachine.v2.Solomachine.ConsensusState.Builder builderForValue) {
         if (consensusStateBuilder_ == null) {
           consensusState_ = builderForValue.build();
+          onChanged();
         } else {
           consensusStateBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1003,38 +1027,38 @@ public final class Solomachine {
        */
       public Builder mergeConsensusState(ibc.lightclients.solomachine.v2.Solomachine.ConsensusState value) {
         if (consensusStateBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            consensusState_ != null &&
-            consensusState_ != ibc.lightclients.solomachine.v2.Solomachine.ConsensusState.getDefaultInstance()) {
-            getConsensusStateBuilder().mergeFrom(value);
+          if (consensusState_ != null) {
+            consensusState_ =
+              ibc.lightclients.solomachine.v2.Solomachine.ConsensusState.newBuilder(consensusState_).mergeFrom(value).buildPartial();
           } else {
             consensusState_ = value;
           }
+          onChanged();
         } else {
           consensusStateBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.solomachine.v2.ConsensusState consensus_state = 3 [(.gogoproto.moretags) = "yaml:&#92;"consensus_state&#92;""];</code>
        */
       public Builder clearConsensusState() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        consensusState_ = null;
-        if (consensusStateBuilder_ != null) {
-          consensusStateBuilder_.dispose();
+        if (consensusStateBuilder_ == null) {
+          consensusState_ = null;
+          onChanged();
+        } else {
+          consensusState_ = null;
           consensusStateBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.solomachine.v2.ConsensusState consensus_state = 3 [(.gogoproto.moretags) = "yaml:&#92;"consensus_state&#92;""];</code>
        */
       public ibc.lightclients.solomachine.v2.Solomachine.ConsensusState.Builder getConsensusStateBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getConsensusStateFieldBuilder().getBuilder();
       }
@@ -1093,7 +1117,6 @@ public final class Solomachine {
       public Builder setAllowUpdateAfterProposal(boolean value) {
         
         allowUpdateAfterProposal_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1107,7 +1130,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearAllowUpdateAfterProposal() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         allowUpdateAfterProposal_ = false;
         onChanged();
         return this;
@@ -1145,18 +1168,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ClientState(input, extensionRegistry);
       }
     };
 
@@ -1271,6 +1283,67 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ConsensusState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (publicKey_ != null) {
+                subBuilder = publicKey_.toBuilder();
+              }
+              publicKey_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(publicKey_);
+                publicKey_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              diversifier_ = s;
+              break;
+            }
+            case 24: {
+
+              timestamp_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_ConsensusState_descriptor;
@@ -1319,12 +1392,11 @@ public final class Solomachine {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getPublicKeyOrBuilder() {
-      return publicKey_ == null ? com.google.protobuf.Any.getDefaultInstance() : publicKey_;
+      return getPublicKey();
     }
 
     public static final int DIVERSIFIER_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object diversifier_ = "";
+    private volatile java.lang.Object diversifier_;
     /**
      * <pre>
      * diversifier allows the same public key to be re-used across different solo
@@ -1374,7 +1446,7 @@ public final class Solomachine {
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 3;
-    private long timestamp_ = 0L;
+    private long timestamp_;
     /**
      * <code>uint64 timestamp = 3;</code>
      * @return The timestamp.
@@ -1401,13 +1473,13 @@ public final class Solomachine {
       if (publicKey_ != null) {
         output.writeMessage(1, getPublicKey());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(diversifier_)) {
+      if (!getDiversifierBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, diversifier_);
       }
       if (timestamp_ != 0L) {
         output.writeUInt64(3, timestamp_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1420,14 +1492,14 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getPublicKey());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(diversifier_)) {
+      if (!getDiversifierBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, diversifier_);
       }
       if (timestamp_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, timestamp_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1451,7 +1523,7 @@ public final class Solomachine {
           .equals(other.getDiversifier())) return false;
       if (getTimestamp()
           != other.getTimestamp()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1471,7 +1543,7 @@ public final class Solomachine {
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTimestamp());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1594,25 +1666,32 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.ConsensusState.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        publicKey_ = null;
-        if (publicKeyBuilder_ != null) {
-          publicKeyBuilder_.dispose();
+        if (publicKeyBuilder_ == null) {
+          publicKey_ = null;
+        } else {
+          publicKey_ = null;
           publicKeyBuilder_ = null;
         }
         diversifier_ = "";
+
         timestamp_ = 0L;
+
         return this;
       }
 
@@ -1639,24 +1718,15 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.ConsensusState buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.ConsensusState result = new ibc.lightclients.solomachine.v2.Solomachine.ConsensusState(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (publicKeyBuilder_ == null) {
+          result.publicKey_ = publicKey_;
+        } else {
+          result.publicKey_ = publicKeyBuilder_.build();
+        }
+        result.diversifier_ = diversifier_;
+        result.timestamp_ = timestamp_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.ConsensusState result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.publicKey_ = publicKeyBuilder_ == null
-              ? publicKey_
-              : publicKeyBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.diversifier_ = diversifier_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.timestamp_ = timestamp_;
-        }
       }
 
       @java.lang.Override
@@ -1708,13 +1778,12 @@ public final class Solomachine {
         }
         if (!other.getDiversifier().isEmpty()) {
           diversifier_ = other.diversifier_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getTimestamp() != 0L) {
           setTimestamp(other.getTimestamp());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1729,50 +1798,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.ConsensusState parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getPublicKeyFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                diversifier_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                timestamp_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.ConsensusState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.Any publicKey_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1786,7 +1824,7 @@ public final class Solomachine {
        * @return Whether the publicKey field is set.
        */
       public boolean hasPublicKey() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return publicKeyBuilder_ != null || publicKey_ != null;
       }
       /**
        * <pre>
@@ -1816,11 +1854,11 @@ public final class Solomachine {
             throw new NullPointerException();
           }
           publicKey_ = value;
+          onChanged();
         } else {
           publicKeyBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1834,11 +1872,11 @@ public final class Solomachine {
           com.google.protobuf.Any.Builder builderForValue) {
         if (publicKeyBuilder_ == null) {
           publicKey_ = builderForValue.build();
+          onChanged();
         } else {
           publicKeyBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1850,18 +1888,17 @@ public final class Solomachine {
        */
       public Builder mergePublicKey(com.google.protobuf.Any value) {
         if (publicKeyBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            publicKey_ != null &&
-            publicKey_ != com.google.protobuf.Any.getDefaultInstance()) {
-            getPublicKeyBuilder().mergeFrom(value);
+          if (publicKey_ != null) {
+            publicKey_ =
+              com.google.protobuf.Any.newBuilder(publicKey_).mergeFrom(value).buildPartial();
           } else {
             publicKey_ = value;
           }
+          onChanged();
         } else {
           publicKeyBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1872,13 +1909,14 @@ public final class Solomachine {
        * <code>.google.protobuf.Any public_key = 1 [(.gogoproto.moretags) = "yaml:&#92;"public_key&#92;""];</code>
        */
       public Builder clearPublicKey() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        publicKey_ = null;
-        if (publicKeyBuilder_ != null) {
-          publicKeyBuilder_.dispose();
+        if (publicKeyBuilder_ == null) {
+          publicKey_ = null;
+          onChanged();
+        } else {
+          publicKey_ = null;
           publicKeyBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1889,7 +1927,7 @@ public final class Solomachine {
        * <code>.google.protobuf.Any public_key = 1 [(.gogoproto.moretags) = "yaml:&#92;"public_key&#92;""];</code>
        */
       public com.google.protobuf.Any.Builder getPublicKeyBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getPublicKeyFieldBuilder().getBuilder();
       }
@@ -1988,9 +2026,11 @@ public final class Solomachine {
        */
       public Builder setDiversifier(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         diversifier_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2005,8 +2045,8 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearDiversifier() {
+        
         diversifier_ = getDefaultInstance().getDiversifier();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2023,10 +2063,12 @@ public final class Solomachine {
        */
       public Builder setDiversifierBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         diversifier_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2048,7 +2090,6 @@ public final class Solomachine {
       public Builder setTimestamp(long value) {
         
         timestamp_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2057,7 +2098,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         timestamp_ = 0L;
         onChanged();
         return this;
@@ -2095,18 +2136,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ConsensusState(input, extensionRegistry);
       }
     };
 
@@ -2212,6 +2242,77 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Header(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              sequence_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              timestamp_ = input.readUInt64();
+              break;
+            }
+            case 26: {
+
+              signature_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (newPublicKey_ != null) {
+                subBuilder = newPublicKey_.toBuilder();
+              }
+              newPublicKey_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(newPublicKey_);
+                newPublicKey_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              newDiversifier_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_Header_descriptor;
@@ -2226,7 +2327,7 @@ public final class Solomachine {
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 1;
-    private long sequence_ = 0L;
+    private long sequence_;
     /**
      * <pre>
      * sequence to update solo machine public key at
@@ -2241,7 +2342,7 @@ public final class Solomachine {
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 2;
-    private long timestamp_ = 0L;
+    private long timestamp_;
     /**
      * <code>uint64 timestamp = 2;</code>
      * @return The timestamp.
@@ -2252,7 +2353,7 @@ public final class Solomachine {
     }
 
     public static final int SIGNATURE_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString signature_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString signature_;
     /**
      * <code>bytes signature = 3;</code>
      * @return The signature.
@@ -2285,12 +2386,11 @@ public final class Solomachine {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getNewPublicKeyOrBuilder() {
-      return newPublicKey_ == null ? com.google.protobuf.Any.getDefaultInstance() : newPublicKey_;
+      return getNewPublicKey();
     }
 
     public static final int NEW_DIVERSIFIER_FIELD_NUMBER = 5;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object newDiversifier_ = "";
+    private volatile java.lang.Object newDiversifier_;
     /**
      * <code>string new_diversifier = 5 [(.gogoproto.moretags) = "yaml:&#92;"new_diversifier&#92;""];</code>
      * @return The newDiversifier.
@@ -2353,10 +2453,10 @@ public final class Solomachine {
       if (newPublicKey_ != null) {
         output.writeMessage(4, getNewPublicKey());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newDiversifier_)) {
+      if (!getNewDiversifierBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, newDiversifier_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2381,10 +2481,10 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getNewPublicKey());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newDiversifier_)) {
+      if (!getNewDiversifierBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, newDiversifier_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2412,7 +2512,7 @@ public final class Solomachine {
       }
       if (!getNewDiversifier()
           .equals(other.getNewDiversifier())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2437,7 +2537,7 @@ public final class Solomachine {
       }
       hash = (37 * hash) + NEW_DIVERSIFIER_FIELD_NUMBER;
       hash = (53 * hash) + getNewDiversifier().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2558,27 +2658,36 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.Header.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         sequence_ = 0L;
+
         timestamp_ = 0L;
+
         signature_ = com.google.protobuf.ByteString.EMPTY;
-        newPublicKey_ = null;
-        if (newPublicKeyBuilder_ != null) {
-          newPublicKeyBuilder_.dispose();
+
+        if (newPublicKeyBuilder_ == null) {
+          newPublicKey_ = null;
+        } else {
+          newPublicKey_ = null;
           newPublicKeyBuilder_ = null;
         }
         newDiversifier_ = "";
+
         return this;
       }
 
@@ -2605,30 +2714,17 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.Header buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.Header result = new ibc.lightclients.solomachine.v2.Solomachine.Header(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.sequence_ = sequence_;
+        result.timestamp_ = timestamp_;
+        result.signature_ = signature_;
+        if (newPublicKeyBuilder_ == null) {
+          result.newPublicKey_ = newPublicKey_;
+        } else {
+          result.newPublicKey_ = newPublicKeyBuilder_.build();
+        }
+        result.newDiversifier_ = newDiversifier_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.Header result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.sequence_ = sequence_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.timestamp_ = timestamp_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.signature_ = signature_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.newPublicKey_ = newPublicKeyBuilder_ == null
-              ? newPublicKey_
-              : newPublicKeyBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.newDiversifier_ = newDiversifier_;
-        }
       }
 
       @java.lang.Override
@@ -2689,10 +2785,9 @@ public final class Solomachine {
         }
         if (!other.getNewDiversifier().isEmpty()) {
           newDiversifier_ = other.newDiversifier_;
-          bitField0_ |= 0x00000010;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2707,60 +2802,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.Header parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                sequence_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                timestamp_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                signature_ = input.readBytes();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getNewPublicKeyFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              case 42: {
-                newDiversifier_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.Header) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long sequence_ ;
       /**
@@ -2787,7 +2841,6 @@ public final class Solomachine {
       public Builder setSequence(long value) {
         
         sequence_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2800,7 +2853,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         sequence_ = 0L;
         onChanged();
         return this;
@@ -2823,7 +2876,6 @@ public final class Solomachine {
       public Builder setTimestamp(long value) {
         
         timestamp_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2832,7 +2884,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         timestamp_ = 0L;
         onChanged();
         return this;
@@ -2853,9 +2905,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setSignature(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         signature_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2864,7 +2918,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearSignature() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         signature_ = getDefaultInstance().getSignature();
         onChanged();
         return this;
@@ -2878,7 +2932,7 @@ public final class Solomachine {
        * @return Whether the newPublicKey field is set.
        */
       public boolean hasNewPublicKey() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return newPublicKeyBuilder_ != null || newPublicKey_ != null;
       }
       /**
        * <code>.google.protobuf.Any new_public_key = 4 [(.gogoproto.moretags) = "yaml:&#92;"new_public_key&#92;""];</code>
@@ -2900,11 +2954,11 @@ public final class Solomachine {
             throw new NullPointerException();
           }
           newPublicKey_ = value;
+          onChanged();
         } else {
           newPublicKeyBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -2914,11 +2968,11 @@ public final class Solomachine {
           com.google.protobuf.Any.Builder builderForValue) {
         if (newPublicKeyBuilder_ == null) {
           newPublicKey_ = builderForValue.build();
+          onChanged();
         } else {
           newPublicKeyBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -2926,38 +2980,38 @@ public final class Solomachine {
        */
       public Builder mergeNewPublicKey(com.google.protobuf.Any value) {
         if (newPublicKeyBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            newPublicKey_ != null &&
-            newPublicKey_ != com.google.protobuf.Any.getDefaultInstance()) {
-            getNewPublicKeyBuilder().mergeFrom(value);
+          if (newPublicKey_ != null) {
+            newPublicKey_ =
+              com.google.protobuf.Any.newBuilder(newPublicKey_).mergeFrom(value).buildPartial();
           } else {
             newPublicKey_ = value;
           }
+          onChanged();
         } else {
           newPublicKeyBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Any new_public_key = 4 [(.gogoproto.moretags) = "yaml:&#92;"new_public_key&#92;""];</code>
        */
       public Builder clearNewPublicKey() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        newPublicKey_ = null;
-        if (newPublicKeyBuilder_ != null) {
-          newPublicKeyBuilder_.dispose();
+        if (newPublicKeyBuilder_ == null) {
+          newPublicKey_ = null;
+          onChanged();
+        } else {
+          newPublicKey_ = null;
           newPublicKeyBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Any new_public_key = 4 [(.gogoproto.moretags) = "yaml:&#92;"new_public_key&#92;""];</code>
        */
       public com.google.protobuf.Any.Builder getNewPublicKeyBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getNewPublicKeyFieldBuilder().getBuilder();
       }
@@ -3030,9 +3084,11 @@ public final class Solomachine {
        */
       public Builder setNewDiversifier(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         newDiversifier_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -3041,8 +3097,8 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearNewDiversifier() {
+        
         newDiversifier_ = getDefaultInstance().getNewDiversifier();
-        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -3053,10 +3109,12 @@ public final class Solomachine {
        */
       public Builder setNewDiversifierBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         newDiversifier_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -3093,18 +3151,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Header(input, extensionRegistry);
       }
     };
 
@@ -3209,6 +3256,80 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Misbehaviour(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              clientId_ = s;
+              break;
+            }
+            case 16: {
+
+              sequence_ = input.readUInt64();
+              break;
+            }
+            case 26: {
+              ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.Builder subBuilder = null;
+              if (signatureOne_ != null) {
+                subBuilder = signatureOne_.toBuilder();
+              }
+              signatureOne_ = input.readMessage(ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(signatureOne_);
+                signatureOne_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.Builder subBuilder = null;
+              if (signatureTwo_ != null) {
+                subBuilder = signatureTwo_.toBuilder();
+              }
+              signatureTwo_ = input.readMessage(ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(signatureTwo_);
+                signatureTwo_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_Misbehaviour_descriptor;
@@ -3223,8 +3344,7 @@ public final class Solomachine {
     }
 
     public static final int CLIENT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object clientId_ = "";
+    private volatile java.lang.Object clientId_;
     /**
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      * @return The clientId.
@@ -3262,7 +3382,7 @@ public final class Solomachine {
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 2;
-    private long sequence_ = 0L;
+    private long sequence_;
     /**
      * <code>uint64 sequence = 2;</code>
      * @return The sequence.
@@ -3295,7 +3415,7 @@ public final class Solomachine {
      */
     @java.lang.Override
     public ibc.lightclients.solomachine.v2.Solomachine.SignatureAndDataOrBuilder getSignatureOneOrBuilder() {
-      return signatureOne_ == null ? ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.getDefaultInstance() : signatureOne_;
+      return getSignatureOne();
     }
 
     public static final int SIGNATURE_TWO_FIELD_NUMBER = 4;
@@ -3321,7 +3441,7 @@ public final class Solomachine {
      */
     @java.lang.Override
     public ibc.lightclients.solomachine.v2.Solomachine.SignatureAndDataOrBuilder getSignatureTwoOrBuilder() {
-      return signatureTwo_ == null ? ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.getDefaultInstance() : signatureTwo_;
+      return getSignatureTwo();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3338,7 +3458,7 @@ public final class Solomachine {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+      if (!getClientIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, clientId_);
       }
       if (sequence_ != 0L) {
@@ -3350,7 +3470,7 @@ public final class Solomachine {
       if (signatureTwo_ != null) {
         output.writeMessage(4, getSignatureTwo());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3359,7 +3479,7 @@ public final class Solomachine {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+      if (!getClientIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, clientId_);
       }
       if (sequence_ != 0L) {
@@ -3374,7 +3494,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getSignatureTwo());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3403,7 +3523,7 @@ public final class Solomachine {
         if (!getSignatureTwo()
             .equals(other.getSignatureTwo())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3427,7 +3547,7 @@ public final class Solomachine {
         hash = (37 * hash) + SIGNATURE_TWO_FIELD_NUMBER;
         hash = (53 * hash) + getSignatureTwo().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3549,28 +3669,36 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.Misbehaviour.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         clientId_ = "";
+
         sequence_ = 0L;
-        signatureOne_ = null;
-        if (signatureOneBuilder_ != null) {
-          signatureOneBuilder_.dispose();
+
+        if (signatureOneBuilder_ == null) {
+          signatureOne_ = null;
+        } else {
+          signatureOne_ = null;
           signatureOneBuilder_ = null;
         }
-        signatureTwo_ = null;
-        if (signatureTwoBuilder_ != null) {
-          signatureTwoBuilder_.dispose();
+        if (signatureTwoBuilder_ == null) {
+          signatureTwo_ = null;
+        } else {
+          signatureTwo_ = null;
           signatureTwoBuilder_ = null;
         }
         return this;
@@ -3599,29 +3727,20 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.Misbehaviour buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.Misbehaviour result = new ibc.lightclients.solomachine.v2.Solomachine.Misbehaviour(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.clientId_ = clientId_;
+        result.sequence_ = sequence_;
+        if (signatureOneBuilder_ == null) {
+          result.signatureOne_ = signatureOne_;
+        } else {
+          result.signatureOne_ = signatureOneBuilder_.build();
+        }
+        if (signatureTwoBuilder_ == null) {
+          result.signatureTwo_ = signatureTwo_;
+        } else {
+          result.signatureTwo_ = signatureTwoBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.Misbehaviour result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.clientId_ = clientId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.sequence_ = sequence_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.signatureOne_ = signatureOneBuilder_ == null
-              ? signatureOne_
-              : signatureOneBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.signatureTwo_ = signatureTwoBuilder_ == null
-              ? signatureTwo_
-              : signatureTwoBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -3670,7 +3789,6 @@ public final class Solomachine {
         if (other == ibc.lightclients.solomachine.v2.Solomachine.Misbehaviour.getDefaultInstance()) return this;
         if (!other.getClientId().isEmpty()) {
           clientId_ = other.clientId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getSequence() != 0L) {
@@ -3682,7 +3800,7 @@ public final class Solomachine {
         if (other.hasSignatureTwo()) {
           mergeSignatureTwo(other.getSignatureTwo());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3697,57 +3815,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.Misbehaviour parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                clientId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                sequence_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                input.readMessage(
-                    getSignatureOneFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getSignatureTwoFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.Misbehaviour) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object clientId_ = "";
       /**
@@ -3790,9 +3870,11 @@ public final class Solomachine {
        */
       public Builder setClientId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         clientId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3801,8 +3883,8 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearClientId() {
+        
         clientId_ = getDefaultInstance().getClientId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3813,10 +3895,12 @@ public final class Solomachine {
        */
       public Builder setClientIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         clientId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3838,7 +3922,6 @@ public final class Solomachine {
       public Builder setSequence(long value) {
         
         sequence_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3847,7 +3930,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         sequence_ = 0L;
         onChanged();
         return this;
@@ -3861,7 +3944,7 @@ public final class Solomachine {
        * @return Whether the signatureOne field is set.
        */
       public boolean hasSignatureOne() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return signatureOneBuilder_ != null || signatureOne_ != null;
       }
       /**
        * <code>.ibc.lightclients.solomachine.v2.SignatureAndData signature_one = 3 [(.gogoproto.moretags) = "yaml:&#92;"signature_one&#92;""];</code>
@@ -3883,11 +3966,11 @@ public final class Solomachine {
             throw new NullPointerException();
           }
           signatureOne_ = value;
+          onChanged();
         } else {
           signatureOneBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -3897,11 +3980,11 @@ public final class Solomachine {
           ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.Builder builderForValue) {
         if (signatureOneBuilder_ == null) {
           signatureOne_ = builderForValue.build();
+          onChanged();
         } else {
           signatureOneBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -3909,38 +3992,38 @@ public final class Solomachine {
        */
       public Builder mergeSignatureOne(ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData value) {
         if (signatureOneBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            signatureOne_ != null &&
-            signatureOne_ != ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.getDefaultInstance()) {
-            getSignatureOneBuilder().mergeFrom(value);
+          if (signatureOne_ != null) {
+            signatureOne_ =
+              ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.newBuilder(signatureOne_).mergeFrom(value).buildPartial();
           } else {
             signatureOne_ = value;
           }
+          onChanged();
         } else {
           signatureOneBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.solomachine.v2.SignatureAndData signature_one = 3 [(.gogoproto.moretags) = "yaml:&#92;"signature_one&#92;""];</code>
        */
       public Builder clearSignatureOne() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        signatureOne_ = null;
-        if (signatureOneBuilder_ != null) {
-          signatureOneBuilder_.dispose();
+        if (signatureOneBuilder_ == null) {
+          signatureOne_ = null;
+          onChanged();
+        } else {
+          signatureOne_ = null;
           signatureOneBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.solomachine.v2.SignatureAndData signature_one = 3 [(.gogoproto.moretags) = "yaml:&#92;"signature_one&#92;""];</code>
        */
       public ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.Builder getSignatureOneBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getSignatureOneFieldBuilder().getBuilder();
       }
@@ -3980,7 +4063,7 @@ public final class Solomachine {
        * @return Whether the signatureTwo field is set.
        */
       public boolean hasSignatureTwo() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return signatureTwoBuilder_ != null || signatureTwo_ != null;
       }
       /**
        * <code>.ibc.lightclients.solomachine.v2.SignatureAndData signature_two = 4 [(.gogoproto.moretags) = "yaml:&#92;"signature_two&#92;""];</code>
@@ -4002,11 +4085,11 @@ public final class Solomachine {
             throw new NullPointerException();
           }
           signatureTwo_ = value;
+          onChanged();
         } else {
           signatureTwoBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -4016,11 +4099,11 @@ public final class Solomachine {
           ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.Builder builderForValue) {
         if (signatureTwoBuilder_ == null) {
           signatureTwo_ = builderForValue.build();
+          onChanged();
         } else {
           signatureTwoBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -4028,38 +4111,38 @@ public final class Solomachine {
        */
       public Builder mergeSignatureTwo(ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData value) {
         if (signatureTwoBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            signatureTwo_ != null &&
-            signatureTwo_ != ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.getDefaultInstance()) {
-            getSignatureTwoBuilder().mergeFrom(value);
+          if (signatureTwo_ != null) {
+            signatureTwo_ =
+              ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.newBuilder(signatureTwo_).mergeFrom(value).buildPartial();
           } else {
             signatureTwo_ = value;
           }
+          onChanged();
         } else {
           signatureTwoBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.solomachine.v2.SignatureAndData signature_two = 4 [(.gogoproto.moretags) = "yaml:&#92;"signature_two&#92;""];</code>
        */
       public Builder clearSignatureTwo() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        signatureTwo_ = null;
-        if (signatureTwoBuilder_ != null) {
-          signatureTwoBuilder_.dispose();
+        if (signatureTwoBuilder_ == null) {
+          signatureTwo_ = null;
+          onChanged();
+        } else {
+          signatureTwo_ = null;
           signatureTwoBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.lightclients.solomachine.v2.SignatureAndData signature_two = 4 [(.gogoproto.moretags) = "yaml:&#92;"signature_two&#92;""];</code>
        */
       public ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.Builder getSignatureTwoBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getSignatureTwoFieldBuilder().getBuilder();
       }
@@ -4123,18 +4206,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Misbehaviour(input, extensionRegistry);
       }
     };
 
@@ -4222,6 +4294,64 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private SignatureAndData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              signature_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              dataType_ = rawValue;
+              break;
+            }
+            case 26: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            case 32: {
+
+              timestamp_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_SignatureAndData_descriptor;
@@ -4236,7 +4366,7 @@ public final class Solomachine {
     }
 
     public static final int SIGNATURE_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString signature_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString signature_;
     /**
      * <code>bytes signature = 1;</code>
      * @return The signature.
@@ -4247,7 +4377,7 @@ public final class Solomachine {
     }
 
     public static final int DATA_TYPE_FIELD_NUMBER = 2;
-    private int dataType_ = 0;
+    private int dataType_;
     /**
      * <code>.ibc.lightclients.solomachine.v2.DataType data_type = 2 [(.gogoproto.moretags) = "yaml:&#92;"data_type&#92;""];</code>
      * @return The enum numeric value on the wire for dataType.
@@ -4260,12 +4390,13 @@ public final class Solomachine {
      * @return The dataType.
      */
     @java.lang.Override public ibc.lightclients.solomachine.v2.Solomachine.DataType getDataType() {
-      ibc.lightclients.solomachine.v2.Solomachine.DataType result = ibc.lightclients.solomachine.v2.Solomachine.DataType.forNumber(dataType_);
+      @SuppressWarnings("deprecation")
+      ibc.lightclients.solomachine.v2.Solomachine.DataType result = ibc.lightclients.solomachine.v2.Solomachine.DataType.valueOf(dataType_);
       return result == null ? ibc.lightclients.solomachine.v2.Solomachine.DataType.UNRECOGNIZED : result;
     }
 
     public static final int DATA_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_;
     /**
      * <code>bytes data = 3;</code>
      * @return The data.
@@ -4276,7 +4407,7 @@ public final class Solomachine {
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 4;
-    private long timestamp_ = 0L;
+    private long timestamp_;
     /**
      * <code>uint64 timestamp = 4;</code>
      * @return The timestamp.
@@ -4312,7 +4443,7 @@ public final class Solomachine {
       if (timestamp_ != 0L) {
         output.writeUInt64(4, timestamp_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4337,7 +4468,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(4, timestamp_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4359,7 +4490,7 @@ public final class Solomachine {
           .equals(other.getData())) return false;
       if (getTimestamp()
           != other.getTimestamp()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4379,7 +4510,7 @@ public final class Solomachine {
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTimestamp());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4501,22 +4632,30 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         signature_ = com.google.protobuf.ByteString.EMPTY;
+
         dataType_ = 0;
+
         data_ = com.google.protobuf.ByteString.EMPTY;
+
         timestamp_ = 0L;
+
         return this;
       }
 
@@ -4543,25 +4682,12 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData result = new ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.signature_ = signature_;
+        result.dataType_ = dataType_;
+        result.data_ = data_;
+        result.timestamp_ = timestamp_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.signature_ = signature_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.dataType_ = dataType_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.data_ = data_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.timestamp_ = timestamp_;
-        }
       }
 
       @java.lang.Override
@@ -4620,7 +4746,7 @@ public final class Solomachine {
         if (other.getTimestamp() != 0L) {
           setTimestamp(other.getTimestamp());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4635,53 +4761,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                signature_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                dataType_ = input.readEnum();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 32: {
-                timestamp_ = input.readUInt64();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.SignatureAndData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString signature_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -4698,9 +4790,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setSignature(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         signature_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4709,7 +4803,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearSignature() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         signature_ = getDefaultInstance().getSignature();
         onChanged();
         return this;
@@ -4729,8 +4823,8 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setDataTypeValue(int value) {
+        
         dataType_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4740,7 +4834,8 @@ public final class Solomachine {
        */
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.DataType getDataType() {
-        ibc.lightclients.solomachine.v2.Solomachine.DataType result = ibc.lightclients.solomachine.v2.Solomachine.DataType.forNumber(dataType_);
+        @SuppressWarnings("deprecation")
+        ibc.lightclients.solomachine.v2.Solomachine.DataType result = ibc.lightclients.solomachine.v2.Solomachine.DataType.valueOf(dataType_);
         return result == null ? ibc.lightclients.solomachine.v2.Solomachine.DataType.UNRECOGNIZED : result;
       }
       /**
@@ -4752,7 +4847,7 @@ public final class Solomachine {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000002;
+        
         dataType_ = value.getNumber();
         onChanged();
         return this;
@@ -4762,7 +4857,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearDataType() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         dataType_ = 0;
         onChanged();
         return this;
@@ -4783,9 +4878,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4794,7 +4891,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -4817,7 +4914,6 @@ public final class Solomachine {
       public Builder setTimestamp(long value) {
         
         timestamp_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -4826,7 +4922,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         timestamp_ = 0L;
         onChanged();
         return this;
@@ -4864,18 +4960,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new SignatureAndData(input, extensionRegistry);
       }
     };
 
@@ -4944,6 +5029,53 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TimestampedSignatureData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              signatureData_ = input.readBytes();
+              break;
+            }
+            case 16: {
+
+              timestamp_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_TimestampedSignatureData_descriptor;
@@ -4958,7 +5090,7 @@ public final class Solomachine {
     }
 
     public static final int SIGNATURE_DATA_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString signatureData_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString signatureData_;
     /**
      * <code>bytes signature_data = 1 [(.gogoproto.moretags) = "yaml:&#92;"signature_data&#92;""];</code>
      * @return The signatureData.
@@ -4969,7 +5101,7 @@ public final class Solomachine {
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 2;
-    private long timestamp_ = 0L;
+    private long timestamp_;
     /**
      * <code>uint64 timestamp = 2;</code>
      * @return The timestamp.
@@ -4999,7 +5131,7 @@ public final class Solomachine {
       if (timestamp_ != 0L) {
         output.writeUInt64(2, timestamp_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5016,7 +5148,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, timestamp_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5035,7 +5167,7 @@ public final class Solomachine {
           .equals(other.getSignatureData())) return false;
       if (getTimestamp()
           != other.getTimestamp()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5051,7 +5183,7 @@ public final class Solomachine {
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTimestamp());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5173,20 +5305,26 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.TimestampedSignatureData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         signatureData_ = com.google.protobuf.ByteString.EMPTY;
+
         timestamp_ = 0L;
+
         return this;
       }
 
@@ -5213,19 +5351,10 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.TimestampedSignatureData buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.TimestampedSignatureData result = new ibc.lightclients.solomachine.v2.Solomachine.TimestampedSignatureData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.signatureData_ = signatureData_;
+        result.timestamp_ = timestamp_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.TimestampedSignatureData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.signatureData_ = signatureData_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.timestamp_ = timestamp_;
-        }
       }
 
       @java.lang.Override
@@ -5278,7 +5407,7 @@ public final class Solomachine {
         if (other.getTimestamp() != 0L) {
           setTimestamp(other.getTimestamp());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5293,43 +5422,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.TimestampedSignatureData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                signatureData_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                timestamp_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.TimestampedSignatureData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString signatureData_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -5346,9 +5451,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setSignatureData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         signatureData_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5357,7 +5464,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearSignatureData() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         signatureData_ = getDefaultInstance().getSignatureData();
         onChanged();
         return this;
@@ -5380,7 +5487,6 @@ public final class Solomachine {
       public Builder setTimestamp(long value) {
         
         timestamp_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5389,7 +5495,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         timestamp_ = 0L;
         onChanged();
         return this;
@@ -5427,18 +5533,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TimestampedSignatureData(input, extensionRegistry);
       }
     };
 
@@ -5549,6 +5644,70 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private SignBytes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              sequence_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              timestamp_ = input.readUInt64();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              diversifier_ = s;
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              dataType_ = rawValue;
+              break;
+            }
+            case 42: {
+
+              data_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_SignBytes_descriptor;
@@ -5563,7 +5722,7 @@ public final class Solomachine {
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 1;
-    private long sequence_ = 0L;
+    private long sequence_;
     /**
      * <code>uint64 sequence = 1;</code>
      * @return The sequence.
@@ -5574,7 +5733,7 @@ public final class Solomachine {
     }
 
     public static final int TIMESTAMP_FIELD_NUMBER = 2;
-    private long timestamp_ = 0L;
+    private long timestamp_;
     /**
      * <code>uint64 timestamp = 2;</code>
      * @return The timestamp.
@@ -5585,8 +5744,7 @@ public final class Solomachine {
     }
 
     public static final int DIVERSIFIER_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object diversifier_ = "";
+    private volatile java.lang.Object diversifier_;
     /**
      * <code>string diversifier = 3;</code>
      * @return The diversifier.
@@ -5624,7 +5782,7 @@ public final class Solomachine {
     }
 
     public static final int DATA_TYPE_FIELD_NUMBER = 4;
-    private int dataType_ = 0;
+    private int dataType_;
     /**
      * <pre>
      * type of the data used
@@ -5645,12 +5803,13 @@ public final class Solomachine {
      * @return The dataType.
      */
     @java.lang.Override public ibc.lightclients.solomachine.v2.Solomachine.DataType getDataType() {
-      ibc.lightclients.solomachine.v2.Solomachine.DataType result = ibc.lightclients.solomachine.v2.Solomachine.DataType.forNumber(dataType_);
+      @SuppressWarnings("deprecation")
+      ibc.lightclients.solomachine.v2.Solomachine.DataType result = ibc.lightclients.solomachine.v2.Solomachine.DataType.valueOf(dataType_);
       return result == null ? ibc.lightclients.solomachine.v2.Solomachine.DataType.UNRECOGNIZED : result;
     }
 
     public static final int DATA_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString data_;
     /**
      * <pre>
      * marshaled data
@@ -5684,7 +5843,7 @@ public final class Solomachine {
       if (timestamp_ != 0L) {
         output.writeUInt64(2, timestamp_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(diversifier_)) {
+      if (!getDiversifierBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, diversifier_);
       }
       if (dataType_ != ibc.lightclients.solomachine.v2.Solomachine.DataType.DATA_TYPE_UNINITIALIZED_UNSPECIFIED.getNumber()) {
@@ -5693,7 +5852,7 @@ public final class Solomachine {
       if (!data_.isEmpty()) {
         output.writeBytes(5, data_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5710,7 +5869,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, timestamp_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(diversifier_)) {
+      if (!getDiversifierBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, diversifier_);
       }
       if (dataType_ != ibc.lightclients.solomachine.v2.Solomachine.DataType.DATA_TYPE_UNINITIALIZED_UNSPECIFIED.getNumber()) {
@@ -5721,7 +5880,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, data_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5745,7 +5904,7 @@ public final class Solomachine {
       if (dataType_ != other.dataType_) return false;
       if (!getData()
           .equals(other.getData())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5768,7 +5927,7 @@ public final class Solomachine {
       hash = (53 * hash) + dataType_;
       hash = (37 * hash) + DATA_FIELD_NUMBER;
       hash = (53 * hash) + getData().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5889,23 +6048,32 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.SignBytes.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         sequence_ = 0L;
+
         timestamp_ = 0L;
+
         diversifier_ = "";
+
         dataType_ = 0;
+
         data_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -5932,28 +6100,13 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.SignBytes buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.SignBytes result = new ibc.lightclients.solomachine.v2.Solomachine.SignBytes(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.sequence_ = sequence_;
+        result.timestamp_ = timestamp_;
+        result.diversifier_ = diversifier_;
+        result.dataType_ = dataType_;
+        result.data_ = data_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.SignBytes result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.sequence_ = sequence_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.timestamp_ = timestamp_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.diversifier_ = diversifier_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.dataType_ = dataType_;
-        }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
-          result.data_ = data_;
-        }
       }
 
       @java.lang.Override
@@ -6008,7 +6161,6 @@ public final class Solomachine {
         }
         if (!other.getDiversifier().isEmpty()) {
           diversifier_ = other.diversifier_;
-          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.dataType_ != 0) {
@@ -6017,7 +6169,7 @@ public final class Solomachine {
         if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
           setData(other.getData());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6032,58 +6184,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.SignBytes parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                sequence_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 16: {
-                timestamp_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              case 26: {
-                diversifier_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 32: {
-                dataType_ = input.readEnum();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              case 42: {
-                data_ = input.readBytes();
-                bitField0_ |= 0x00000010;
-                break;
-              } // case 42
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.SignBytes) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long sequence_ ;
       /**
@@ -6102,7 +6215,6 @@ public final class Solomachine {
       public Builder setSequence(long value) {
         
         sequence_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6111,7 +6223,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         sequence_ = 0L;
         onChanged();
         return this;
@@ -6134,7 +6246,6 @@ public final class Solomachine {
       public Builder setTimestamp(long value) {
         
         timestamp_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6143,7 +6254,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearTimestamp() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         timestamp_ = 0L;
         onChanged();
         return this;
@@ -6190,9 +6301,11 @@ public final class Solomachine {
        */
       public Builder setDiversifier(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         diversifier_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6201,8 +6314,8 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearDiversifier() {
+        
         diversifier_ = getDefaultInstance().getDiversifier();
-        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -6213,10 +6326,12 @@ public final class Solomachine {
        */
       public Builder setDiversifierBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         diversifier_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6243,8 +6358,8 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setDataTypeValue(int value) {
+        
         dataType_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -6258,7 +6373,8 @@ public final class Solomachine {
        */
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.DataType getDataType() {
-        ibc.lightclients.solomachine.v2.Solomachine.DataType result = ibc.lightclients.solomachine.v2.Solomachine.DataType.forNumber(dataType_);
+        @SuppressWarnings("deprecation")
+        ibc.lightclients.solomachine.v2.Solomachine.DataType result = ibc.lightclients.solomachine.v2.Solomachine.DataType.valueOf(dataType_);
         return result == null ? ibc.lightclients.solomachine.v2.Solomachine.DataType.UNRECOGNIZED : result;
       }
       /**
@@ -6274,7 +6390,7 @@ public final class Solomachine {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000008;
+        
         dataType_ = value.getNumber();
         onChanged();
         return this;
@@ -6288,7 +6404,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearDataType() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         dataType_ = 0;
         onChanged();
         return this;
@@ -6317,9 +6433,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         data_ = value;
-        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -6332,7 +6450,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -6370,18 +6488,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new SignBytes(input, extensionRegistry);
       }
     };
 
@@ -6484,6 +6591,62 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private HeaderData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (newPubKey_ != null) {
+                subBuilder = newPubKey_.toBuilder();
+              }
+              newPubKey_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(newPubKey_);
+                newPubKey_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              newDiversifier_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_HeaderData_descriptor;
@@ -6532,12 +6695,11 @@ public final class Solomachine {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getNewPubKeyOrBuilder() {
-      return newPubKey_ == null ? com.google.protobuf.Any.getDefaultInstance() : newPubKey_;
+      return getNewPubKey();
     }
 
     public static final int NEW_DIVERSIFIER_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object newDiversifier_ = "";
+    private volatile java.lang.Object newDiversifier_;
     /**
      * <pre>
      * header diversifier
@@ -6599,10 +6761,10 @@ public final class Solomachine {
       if (newPubKey_ != null) {
         output.writeMessage(1, getNewPubKey());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newDiversifier_)) {
+      if (!getNewDiversifierBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, newDiversifier_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -6615,10 +6777,10 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getNewPubKey());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newDiversifier_)) {
+      if (!getNewDiversifierBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, newDiversifier_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6640,7 +6802,7 @@ public final class Solomachine {
       }
       if (!getNewDiversifier()
           .equals(other.getNewDiversifier())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -6657,7 +6819,7 @@ public final class Solomachine {
       }
       hash = (37 * hash) + NEW_DIVERSIFIER_FIELD_NUMBER;
       hash = (53 * hash) + getNewDiversifier().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6778,24 +6940,30 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.HeaderData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        newPubKey_ = null;
-        if (newPubKeyBuilder_ != null) {
-          newPubKeyBuilder_.dispose();
+        if (newPubKeyBuilder_ == null) {
+          newPubKey_ = null;
+        } else {
+          newPubKey_ = null;
           newPubKeyBuilder_ = null;
         }
         newDiversifier_ = "";
+
         return this;
       }
 
@@ -6822,21 +6990,14 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.HeaderData buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.HeaderData result = new ibc.lightclients.solomachine.v2.Solomachine.HeaderData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (newPubKeyBuilder_ == null) {
+          result.newPubKey_ = newPubKey_;
+        } else {
+          result.newPubKey_ = newPubKeyBuilder_.build();
+        }
+        result.newDiversifier_ = newDiversifier_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.HeaderData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.newPubKey_ = newPubKeyBuilder_ == null
-              ? newPubKey_
-              : newPubKeyBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.newDiversifier_ = newDiversifier_;
-        }
       }
 
       @java.lang.Override
@@ -6888,10 +7049,9 @@ public final class Solomachine {
         }
         if (!other.getNewDiversifier().isEmpty()) {
           newDiversifier_ = other.newDiversifier_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6906,45 +7066,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.HeaderData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getNewPubKeyFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                newDiversifier_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.HeaderData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.Any newPubKey_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6958,7 +7092,7 @@ public final class Solomachine {
        * @return Whether the newPubKey field is set.
        */
       public boolean hasNewPubKey() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return newPubKeyBuilder_ != null || newPubKey_ != null;
       }
       /**
        * <pre>
@@ -6988,11 +7122,11 @@ public final class Solomachine {
             throw new NullPointerException();
           }
           newPubKey_ = value;
+          onChanged();
         } else {
           newPubKeyBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -7006,11 +7140,11 @@ public final class Solomachine {
           com.google.protobuf.Any.Builder builderForValue) {
         if (newPubKeyBuilder_ == null) {
           newPubKey_ = builderForValue.build();
+          onChanged();
         } else {
           newPubKeyBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -7022,18 +7156,17 @@ public final class Solomachine {
        */
       public Builder mergeNewPubKey(com.google.protobuf.Any value) {
         if (newPubKeyBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            newPubKey_ != null &&
-            newPubKey_ != com.google.protobuf.Any.getDefaultInstance()) {
-            getNewPubKeyBuilder().mergeFrom(value);
+          if (newPubKey_ != null) {
+            newPubKey_ =
+              com.google.protobuf.Any.newBuilder(newPubKey_).mergeFrom(value).buildPartial();
           } else {
             newPubKey_ = value;
           }
+          onChanged();
         } else {
           newPubKeyBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -7044,13 +7177,14 @@ public final class Solomachine {
        * <code>.google.protobuf.Any new_pub_key = 1 [(.gogoproto.moretags) = "yaml:&#92;"new_pub_key&#92;""];</code>
        */
       public Builder clearNewPubKey() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        newPubKey_ = null;
-        if (newPubKeyBuilder_ != null) {
-          newPubKeyBuilder_.dispose();
+        if (newPubKeyBuilder_ == null) {
+          newPubKey_ = null;
+          onChanged();
+        } else {
+          newPubKey_ = null;
           newPubKeyBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -7061,7 +7195,7 @@ public final class Solomachine {
        * <code>.google.protobuf.Any new_pub_key = 1 [(.gogoproto.moretags) = "yaml:&#92;"new_pub_key&#92;""];</code>
        */
       public com.google.protobuf.Any.Builder getNewPubKeyBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getNewPubKeyFieldBuilder().getBuilder();
       }
@@ -7154,9 +7288,11 @@ public final class Solomachine {
        */
       public Builder setNewDiversifier(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         newDiversifier_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7169,8 +7305,8 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearNewDiversifier() {
+        
         newDiversifier_ = getDefaultInstance().getNewDiversifier();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -7185,10 +7321,12 @@ public final class Solomachine {
        */
       public Builder setNewDiversifierBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         newDiversifier_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7225,18 +7363,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new HeaderData(input, extensionRegistry);
       }
     };
 
@@ -7313,6 +7440,61 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ClientStateData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              path_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (clientState_ != null) {
+                subBuilder = clientState_.toBuilder();
+              }
+              clientState_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(clientState_);
+                clientState_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_ClientStateData_descriptor;
@@ -7327,7 +7509,7 @@ public final class Solomachine {
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString path_;
     /**
      * <code>bytes path = 1;</code>
      * @return The path.
@@ -7360,7 +7542,7 @@ public final class Solomachine {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getClientStateOrBuilder() {
-      return clientState_ == null ? com.google.protobuf.Any.getDefaultInstance() : clientState_;
+      return getClientState();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7383,7 +7565,7 @@ public final class Solomachine {
       if (clientState_ != null) {
         output.writeMessage(2, getClientState());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -7400,7 +7582,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getClientState());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7422,7 +7604,7 @@ public final class Solomachine {
         if (!getClientState()
             .equals(other.getClientState())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -7439,7 +7621,7 @@ public final class Solomachine {
         hash = (37 * hash) + CLIENT_STATE_FIELD_NUMBER;
         hash = (53 * hash) + getClientState().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7560,22 +7742,28 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.ClientStateData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         path_ = com.google.protobuf.ByteString.EMPTY;
-        clientState_ = null;
-        if (clientStateBuilder_ != null) {
-          clientStateBuilder_.dispose();
+
+        if (clientStateBuilder_ == null) {
+          clientState_ = null;
+        } else {
+          clientState_ = null;
           clientStateBuilder_ = null;
         }
         return this;
@@ -7604,21 +7792,14 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.ClientStateData buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.ClientStateData result = new ibc.lightclients.solomachine.v2.Solomachine.ClientStateData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.path_ = path_;
+        if (clientStateBuilder_ == null) {
+          result.clientState_ = clientState_;
+        } else {
+          result.clientState_ = clientStateBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.ClientStateData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.path_ = path_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.clientState_ = clientStateBuilder_ == null
-              ? clientState_
-              : clientStateBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -7671,7 +7852,7 @@ public final class Solomachine {
         if (other.hasClientState()) {
           mergeClientState(other.getClientState());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -7686,45 +7867,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.ClientStateData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                path_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getClientStateFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.ClientStateData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -7741,9 +7896,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setPath(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         path_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7752,7 +7909,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         path_ = getDefaultInstance().getPath();
         onChanged();
         return this;
@@ -7766,7 +7923,7 @@ public final class Solomachine {
        * @return Whether the clientState field is set.
        */
       public boolean hasClientState() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return clientStateBuilder_ != null || clientState_ != null;
       }
       /**
        * <code>.google.protobuf.Any client_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
@@ -7788,11 +7945,11 @@ public final class Solomachine {
             throw new NullPointerException();
           }
           clientState_ = value;
+          onChanged();
         } else {
           clientStateBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -7802,11 +7959,11 @@ public final class Solomachine {
           com.google.protobuf.Any.Builder builderForValue) {
         if (clientStateBuilder_ == null) {
           clientState_ = builderForValue.build();
+          onChanged();
         } else {
           clientStateBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -7814,38 +7971,38 @@ public final class Solomachine {
        */
       public Builder mergeClientState(com.google.protobuf.Any value) {
         if (clientStateBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            clientState_ != null &&
-            clientState_ != com.google.protobuf.Any.getDefaultInstance()) {
-            getClientStateBuilder().mergeFrom(value);
+          if (clientState_ != null) {
+            clientState_ =
+              com.google.protobuf.Any.newBuilder(clientState_).mergeFrom(value).buildPartial();
           } else {
             clientState_ = value;
           }
+          onChanged();
         } else {
           clientStateBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Any client_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
        */
       public Builder clearClientState() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        clientState_ = null;
-        if (clientStateBuilder_ != null) {
-          clientStateBuilder_.dispose();
+        if (clientStateBuilder_ == null) {
+          clientState_ = null;
+          onChanged();
+        } else {
+          clientState_ = null;
           clientStateBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Any client_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
        */
       public com.google.protobuf.Any.Builder getClientStateBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getClientStateFieldBuilder().getBuilder();
       }
@@ -7909,18 +8066,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ClientStateData(input, extensionRegistry);
       }
     };
 
@@ -7998,6 +8144,61 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ConsensusStateData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              path_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (consensusState_ != null) {
+                subBuilder = consensusState_.toBuilder();
+              }
+              consensusState_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(consensusState_);
+                consensusState_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_ConsensusStateData_descriptor;
@@ -8012,7 +8213,7 @@ public final class Solomachine {
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString path_;
     /**
      * <code>bytes path = 1;</code>
      * @return The path.
@@ -8045,7 +8246,7 @@ public final class Solomachine {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getConsensusStateOrBuilder() {
-      return consensusState_ == null ? com.google.protobuf.Any.getDefaultInstance() : consensusState_;
+      return getConsensusState();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8068,7 +8269,7 @@ public final class Solomachine {
       if (consensusState_ != null) {
         output.writeMessage(2, getConsensusState());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -8085,7 +8286,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getConsensusState());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8107,7 +8308,7 @@ public final class Solomachine {
         if (!getConsensusState()
             .equals(other.getConsensusState())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -8124,7 +8325,7 @@ public final class Solomachine {
         hash = (37 * hash) + CONSENSUS_STATE_FIELD_NUMBER;
         hash = (53 * hash) + getConsensusState().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8246,22 +8447,28 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.ConsensusStateData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         path_ = com.google.protobuf.ByteString.EMPTY;
-        consensusState_ = null;
-        if (consensusStateBuilder_ != null) {
-          consensusStateBuilder_.dispose();
+
+        if (consensusStateBuilder_ == null) {
+          consensusState_ = null;
+        } else {
+          consensusState_ = null;
           consensusStateBuilder_ = null;
         }
         return this;
@@ -8290,21 +8497,14 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.ConsensusStateData buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.ConsensusStateData result = new ibc.lightclients.solomachine.v2.Solomachine.ConsensusStateData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.path_ = path_;
+        if (consensusStateBuilder_ == null) {
+          result.consensusState_ = consensusState_;
+        } else {
+          result.consensusState_ = consensusStateBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.ConsensusStateData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.path_ = path_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.consensusState_ = consensusStateBuilder_ == null
-              ? consensusState_
-              : consensusStateBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -8357,7 +8557,7 @@ public final class Solomachine {
         if (other.hasConsensusState()) {
           mergeConsensusState(other.getConsensusState());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -8372,45 +8572,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.ConsensusStateData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                path_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getConsensusStateFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.ConsensusStateData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -8427,9 +8601,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setPath(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         path_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8438,7 +8614,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         path_ = getDefaultInstance().getPath();
         onChanged();
         return this;
@@ -8452,7 +8628,7 @@ public final class Solomachine {
        * @return Whether the consensusState field is set.
        */
       public boolean hasConsensusState() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return consensusStateBuilder_ != null || consensusState_ != null;
       }
       /**
        * <code>.google.protobuf.Any consensus_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"consensus_state&#92;""];</code>
@@ -8474,11 +8650,11 @@ public final class Solomachine {
             throw new NullPointerException();
           }
           consensusState_ = value;
+          onChanged();
         } else {
           consensusStateBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -8488,11 +8664,11 @@ public final class Solomachine {
           com.google.protobuf.Any.Builder builderForValue) {
         if (consensusStateBuilder_ == null) {
           consensusState_ = builderForValue.build();
+          onChanged();
         } else {
           consensusStateBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -8500,38 +8676,38 @@ public final class Solomachine {
        */
       public Builder mergeConsensusState(com.google.protobuf.Any value) {
         if (consensusStateBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            consensusState_ != null &&
-            consensusState_ != com.google.protobuf.Any.getDefaultInstance()) {
-            getConsensusStateBuilder().mergeFrom(value);
+          if (consensusState_ != null) {
+            consensusState_ =
+              com.google.protobuf.Any.newBuilder(consensusState_).mergeFrom(value).buildPartial();
           } else {
             consensusState_ = value;
           }
+          onChanged();
         } else {
           consensusStateBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Any consensus_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"consensus_state&#92;""];</code>
        */
       public Builder clearConsensusState() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        consensusState_ = null;
-        if (consensusStateBuilder_ != null) {
-          consensusStateBuilder_.dispose();
+        if (consensusStateBuilder_ == null) {
+          consensusState_ = null;
+          onChanged();
+        } else {
+          consensusState_ = null;
           consensusStateBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.google.protobuf.Any consensus_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"consensus_state&#92;""];</code>
        */
       public com.google.protobuf.Any.Builder getConsensusStateBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getConsensusStateFieldBuilder().getBuilder();
       }
@@ -8595,18 +8771,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ConsensusStateData(input, extensionRegistry);
       }
     };
 
@@ -8684,6 +8849,61 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ConnectionStateData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              path_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              ibc.core.connection.v1.Connection.ConnectionEnd.Builder subBuilder = null;
+              if (connection_ != null) {
+                subBuilder = connection_.toBuilder();
+              }
+              connection_ = input.readMessage(ibc.core.connection.v1.Connection.ConnectionEnd.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(connection_);
+                connection_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_ConnectionStateData_descriptor;
@@ -8698,7 +8918,7 @@ public final class Solomachine {
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString path_;
     /**
      * <code>bytes path = 1;</code>
      * @return The path.
@@ -8731,7 +8951,7 @@ public final class Solomachine {
      */
     @java.lang.Override
     public ibc.core.connection.v1.Connection.ConnectionEndOrBuilder getConnectionOrBuilder() {
-      return connection_ == null ? ibc.core.connection.v1.Connection.ConnectionEnd.getDefaultInstance() : connection_;
+      return getConnection();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8754,7 +8974,7 @@ public final class Solomachine {
       if (connection_ != null) {
         output.writeMessage(2, getConnection());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -8771,7 +8991,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getConnection());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8793,7 +9013,7 @@ public final class Solomachine {
         if (!getConnection()
             .equals(other.getConnection())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -8810,7 +9030,7 @@ public final class Solomachine {
         hash = (37 * hash) + CONNECTION_FIELD_NUMBER;
         hash = (53 * hash) + getConnection().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8932,22 +9152,28 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.ConnectionStateData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         path_ = com.google.protobuf.ByteString.EMPTY;
-        connection_ = null;
-        if (connectionBuilder_ != null) {
-          connectionBuilder_.dispose();
+
+        if (connectionBuilder_ == null) {
+          connection_ = null;
+        } else {
+          connection_ = null;
           connectionBuilder_ = null;
         }
         return this;
@@ -8976,21 +9202,14 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.ConnectionStateData buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.ConnectionStateData result = new ibc.lightclients.solomachine.v2.Solomachine.ConnectionStateData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.path_ = path_;
+        if (connectionBuilder_ == null) {
+          result.connection_ = connection_;
+        } else {
+          result.connection_ = connectionBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.ConnectionStateData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.path_ = path_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.connection_ = connectionBuilder_ == null
-              ? connection_
-              : connectionBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -9043,7 +9262,7 @@ public final class Solomachine {
         if (other.hasConnection()) {
           mergeConnection(other.getConnection());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -9058,45 +9277,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.ConnectionStateData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                path_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getConnectionFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.ConnectionStateData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -9113,9 +9306,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setPath(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         path_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9124,7 +9319,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         path_ = getDefaultInstance().getPath();
         onChanged();
         return this;
@@ -9138,7 +9333,7 @@ public final class Solomachine {
        * @return Whether the connection field is set.
        */
       public boolean hasConnection() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return connectionBuilder_ != null || connection_ != null;
       }
       /**
        * <code>.ibc.core.connection.v1.ConnectionEnd connection = 2;</code>
@@ -9160,11 +9355,11 @@ public final class Solomachine {
             throw new NullPointerException();
           }
           connection_ = value;
+          onChanged();
         } else {
           connectionBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -9174,11 +9369,11 @@ public final class Solomachine {
           ibc.core.connection.v1.Connection.ConnectionEnd.Builder builderForValue) {
         if (connectionBuilder_ == null) {
           connection_ = builderForValue.build();
+          onChanged();
         } else {
           connectionBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -9186,38 +9381,38 @@ public final class Solomachine {
        */
       public Builder mergeConnection(ibc.core.connection.v1.Connection.ConnectionEnd value) {
         if (connectionBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            connection_ != null &&
-            connection_ != ibc.core.connection.v1.Connection.ConnectionEnd.getDefaultInstance()) {
-            getConnectionBuilder().mergeFrom(value);
+          if (connection_ != null) {
+            connection_ =
+              ibc.core.connection.v1.Connection.ConnectionEnd.newBuilder(connection_).mergeFrom(value).buildPartial();
           } else {
             connection_ = value;
           }
+          onChanged();
         } else {
           connectionBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.core.connection.v1.ConnectionEnd connection = 2;</code>
        */
       public Builder clearConnection() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        connection_ = null;
-        if (connectionBuilder_ != null) {
-          connectionBuilder_.dispose();
+        if (connectionBuilder_ == null) {
+          connection_ = null;
+          onChanged();
+        } else {
+          connection_ = null;
           connectionBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.core.connection.v1.ConnectionEnd connection = 2;</code>
        */
       public ibc.core.connection.v1.Connection.ConnectionEnd.Builder getConnectionBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getConnectionFieldBuilder().getBuilder();
       }
@@ -9281,18 +9476,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ConnectionStateData(input, extensionRegistry);
       }
     };
 
@@ -9370,6 +9554,61 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private ChannelStateData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              path_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              ibc.core.channel.v1.ChannelOuterClass.Channel.Builder subBuilder = null;
+              if (channel_ != null) {
+                subBuilder = channel_.toBuilder();
+              }
+              channel_ = input.readMessage(ibc.core.channel.v1.ChannelOuterClass.Channel.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(channel_);
+                channel_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_ChannelStateData_descriptor;
@@ -9384,7 +9623,7 @@ public final class Solomachine {
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString path_;
     /**
      * <code>bytes path = 1;</code>
      * @return The path.
@@ -9417,7 +9656,7 @@ public final class Solomachine {
      */
     @java.lang.Override
     public ibc.core.channel.v1.ChannelOuterClass.ChannelOrBuilder getChannelOrBuilder() {
-      return channel_ == null ? ibc.core.channel.v1.ChannelOuterClass.Channel.getDefaultInstance() : channel_;
+      return getChannel();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9440,7 +9679,7 @@ public final class Solomachine {
       if (channel_ != null) {
         output.writeMessage(2, getChannel());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -9457,7 +9696,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getChannel());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9479,7 +9718,7 @@ public final class Solomachine {
         if (!getChannel()
             .equals(other.getChannel())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -9496,7 +9735,7 @@ public final class Solomachine {
         hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
         hash = (53 * hash) + getChannel().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9618,22 +9857,28 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         path_ = com.google.protobuf.ByteString.EMPTY;
-        channel_ = null;
-        if (channelBuilder_ != null) {
-          channelBuilder_.dispose();
+
+        if (channelBuilder_ == null) {
+          channel_ = null;
+        } else {
+          channel_ = null;
           channelBuilder_ = null;
         }
         return this;
@@ -9662,21 +9907,14 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData result = new ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.path_ = path_;
+        if (channelBuilder_ == null) {
+          result.channel_ = channel_;
+        } else {
+          result.channel_ = channelBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.path_ = path_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channel_ = channelBuilder_ == null
-              ? channel_
-              : channelBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -9729,7 +9967,7 @@ public final class Solomachine {
         if (other.hasChannel()) {
           mergeChannel(other.getChannel());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -9744,45 +9982,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                path_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getChannelFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.ChannelStateData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -9799,9 +10011,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setPath(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         path_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9810,7 +10024,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         path_ = getDefaultInstance().getPath();
         onChanged();
         return this;
@@ -9824,7 +10038,7 @@ public final class Solomachine {
        * @return Whether the channel field is set.
        */
       public boolean hasChannel() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return channelBuilder_ != null || channel_ != null;
       }
       /**
        * <code>.ibc.core.channel.v1.Channel channel = 2;</code>
@@ -9846,11 +10060,11 @@ public final class Solomachine {
             throw new NullPointerException();
           }
           channel_ = value;
+          onChanged();
         } else {
           channelBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -9860,11 +10074,11 @@ public final class Solomachine {
           ibc.core.channel.v1.ChannelOuterClass.Channel.Builder builderForValue) {
         if (channelBuilder_ == null) {
           channel_ = builderForValue.build();
+          onChanged();
         } else {
           channelBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -9872,38 +10086,38 @@ public final class Solomachine {
        */
       public Builder mergeChannel(ibc.core.channel.v1.ChannelOuterClass.Channel value) {
         if (channelBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            channel_ != null &&
-            channel_ != ibc.core.channel.v1.ChannelOuterClass.Channel.getDefaultInstance()) {
-            getChannelBuilder().mergeFrom(value);
+          if (channel_ != null) {
+            channel_ =
+              ibc.core.channel.v1.ChannelOuterClass.Channel.newBuilder(channel_).mergeFrom(value).buildPartial();
           } else {
             channel_ = value;
           }
+          onChanged();
         } else {
           channelBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.core.channel.v1.Channel channel = 2;</code>
        */
       public Builder clearChannel() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        channel_ = null;
-        if (channelBuilder_ != null) {
-          channelBuilder_.dispose();
+        if (channelBuilder_ == null) {
+          channel_ = null;
+          onChanged();
+        } else {
+          channel_ = null;
           channelBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.ibc.core.channel.v1.Channel channel = 2;</code>
        */
       public ibc.core.channel.v1.ChannelOuterClass.Channel.Builder getChannelBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getChannelFieldBuilder().getBuilder();
       }
@@ -9967,18 +10181,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new ChannelStateData(input, extensionRegistry);
       }
     };
 
@@ -10048,6 +10251,53 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private PacketCommitmentData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              path_ = input.readBytes();
+              break;
+            }
+            case 18: {
+
+              commitment_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_PacketCommitmentData_descriptor;
@@ -10062,7 +10312,7 @@ public final class Solomachine {
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString path_;
     /**
      * <code>bytes path = 1;</code>
      * @return The path.
@@ -10073,7 +10323,7 @@ public final class Solomachine {
     }
 
     public static final int COMMITMENT_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString commitment_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString commitment_;
     /**
      * <code>bytes commitment = 2;</code>
      * @return The commitment.
@@ -10103,7 +10353,7 @@ public final class Solomachine {
       if (!commitment_.isEmpty()) {
         output.writeBytes(2, commitment_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -10120,7 +10370,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, commitment_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10139,7 +10389,7 @@ public final class Solomachine {
           .equals(other.getPath())) return false;
       if (!getCommitment()
           .equals(other.getCommitment())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -10154,7 +10404,7 @@ public final class Solomachine {
       hash = (53 * hash) + getPath().hashCode();
       hash = (37 * hash) + COMMITMENT_FIELD_NUMBER;
       hash = (53 * hash) + getCommitment().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10276,20 +10526,26 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.PacketCommitmentData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         path_ = com.google.protobuf.ByteString.EMPTY;
+
         commitment_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -10316,19 +10572,10 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.PacketCommitmentData buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.PacketCommitmentData result = new ibc.lightclients.solomachine.v2.Solomachine.PacketCommitmentData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.path_ = path_;
+        result.commitment_ = commitment_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.PacketCommitmentData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.path_ = path_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.commitment_ = commitment_;
-        }
       }
 
       @java.lang.Override
@@ -10381,7 +10628,7 @@ public final class Solomachine {
         if (other.getCommitment() != com.google.protobuf.ByteString.EMPTY) {
           setCommitment(other.getCommitment());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -10396,43 +10643,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.PacketCommitmentData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                path_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                commitment_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.PacketCommitmentData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -10449,9 +10672,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setPath(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         path_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10460,7 +10685,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         path_ = getDefaultInstance().getPath();
         onChanged();
         return this;
@@ -10481,9 +10706,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setCommitment(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         commitment_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -10492,7 +10719,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearCommitment() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         commitment_ = getDefaultInstance().getCommitment();
         onChanged();
         return this;
@@ -10530,18 +10757,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PacketCommitmentData(input, extensionRegistry);
       }
     };
 
@@ -10611,6 +10827,53 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private PacketAcknowledgementData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              path_ = input.readBytes();
+              break;
+            }
+            case 18: {
+
+              acknowledgement_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_PacketAcknowledgementData_descriptor;
@@ -10625,7 +10888,7 @@ public final class Solomachine {
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString path_;
     /**
      * <code>bytes path = 1;</code>
      * @return The path.
@@ -10636,7 +10899,7 @@ public final class Solomachine {
     }
 
     public static final int ACKNOWLEDGEMENT_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString acknowledgement_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString acknowledgement_;
     /**
      * <code>bytes acknowledgement = 2;</code>
      * @return The acknowledgement.
@@ -10666,7 +10929,7 @@ public final class Solomachine {
       if (!acknowledgement_.isEmpty()) {
         output.writeBytes(2, acknowledgement_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -10683,7 +10946,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, acknowledgement_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10702,7 +10965,7 @@ public final class Solomachine {
           .equals(other.getPath())) return false;
       if (!getAcknowledgement()
           .equals(other.getAcknowledgement())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -10717,7 +10980,7 @@ public final class Solomachine {
       hash = (53 * hash) + getPath().hashCode();
       hash = (37 * hash) + ACKNOWLEDGEMENT_FIELD_NUMBER;
       hash = (53 * hash) + getAcknowledgement().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10839,20 +11102,26 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.PacketAcknowledgementData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         path_ = com.google.protobuf.ByteString.EMPTY;
+
         acknowledgement_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -10879,19 +11148,10 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.PacketAcknowledgementData buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.PacketAcknowledgementData result = new ibc.lightclients.solomachine.v2.Solomachine.PacketAcknowledgementData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.path_ = path_;
+        result.acknowledgement_ = acknowledgement_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.PacketAcknowledgementData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.path_ = path_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.acknowledgement_ = acknowledgement_;
-        }
       }
 
       @java.lang.Override
@@ -10944,7 +11204,7 @@ public final class Solomachine {
         if (other.getAcknowledgement() != com.google.protobuf.ByteString.EMPTY) {
           setAcknowledgement(other.getAcknowledgement());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -10959,43 +11219,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.PacketAcknowledgementData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                path_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                acknowledgement_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.PacketAcknowledgementData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -11012,9 +11248,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setPath(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         path_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11023,7 +11261,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         path_ = getDefaultInstance().getPath();
         onChanged();
         return this;
@@ -11044,9 +11282,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setAcknowledgement(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         acknowledgement_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -11055,7 +11295,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearAcknowledgement() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         acknowledgement_ = getDefaultInstance().getAcknowledgement();
         onChanged();
         return this;
@@ -11093,18 +11333,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PacketAcknowledgementData(input, extensionRegistry);
       }
     };
 
@@ -11167,6 +11396,48 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private PacketReceiptAbsenceData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              path_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_PacketReceiptAbsenceData_descriptor;
@@ -11181,7 +11452,7 @@ public final class Solomachine {
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString path_;
     /**
      * <code>bytes path = 1;</code>
      * @return The path.
@@ -11208,7 +11479,7 @@ public final class Solomachine {
       if (!path_.isEmpty()) {
         output.writeBytes(1, path_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -11221,7 +11492,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, path_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11238,7 +11509,7 @@ public final class Solomachine {
 
       if (!getPath()
           .equals(other.getPath())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -11251,7 +11522,7 @@ public final class Solomachine {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + PATH_FIELD_NUMBER;
       hash = (53 * hash) + getPath().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11373,19 +11644,24 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.PacketReceiptAbsenceData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         path_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -11412,16 +11688,9 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.PacketReceiptAbsenceData buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.PacketReceiptAbsenceData result = new ibc.lightclients.solomachine.v2.Solomachine.PacketReceiptAbsenceData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.path_ = path_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.PacketReceiptAbsenceData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.path_ = path_;
-        }
       }
 
       @java.lang.Override
@@ -11471,7 +11740,7 @@ public final class Solomachine {
         if (other.getPath() != com.google.protobuf.ByteString.EMPTY) {
           setPath(other.getPath());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -11486,38 +11755,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.PacketReceiptAbsenceData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                path_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.PacketReceiptAbsenceData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -11534,9 +11784,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setPath(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         path_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11545,7 +11797,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         path_ = getDefaultInstance().getPath();
         onChanged();
         return this;
@@ -11583,18 +11835,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PacketReceiptAbsenceData(input, extensionRegistry);
       }
     };
 
@@ -11663,6 +11904,53 @@ public final class Solomachine {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private NextSequenceRecvData(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              path_ = input.readBytes();
+              break;
+            }
+            case 16: {
+
+              nextSeqRecv_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.lightclients.solomachine.v2.Solomachine.internal_static_ibc_lightclients_solomachine_v2_NextSequenceRecvData_descriptor;
@@ -11677,7 +11965,7 @@ public final class Solomachine {
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString path_;
     /**
      * <code>bytes path = 1;</code>
      * @return The path.
@@ -11688,7 +11976,7 @@ public final class Solomachine {
     }
 
     public static final int NEXT_SEQ_RECV_FIELD_NUMBER = 2;
-    private long nextSeqRecv_ = 0L;
+    private long nextSeqRecv_;
     /**
      * <code>uint64 next_seq_recv = 2 [(.gogoproto.moretags) = "yaml:&#92;"next_seq_recv&#92;""];</code>
      * @return The nextSeqRecv.
@@ -11718,7 +12006,7 @@ public final class Solomachine {
       if (nextSeqRecv_ != 0L) {
         output.writeUInt64(2, nextSeqRecv_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -11735,7 +12023,7 @@ public final class Solomachine {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, nextSeqRecv_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11754,7 +12042,7 @@ public final class Solomachine {
           .equals(other.getPath())) return false;
       if (getNextSeqRecv()
           != other.getNextSeqRecv()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -11770,7 +12058,7 @@ public final class Solomachine {
       hash = (37 * hash) + NEXT_SEQ_RECV_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getNextSeqRecv());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11892,20 +12180,26 @@ public final class Solomachine {
 
       // Construct using ibc.lightclients.solomachine.v2.Solomachine.NextSequenceRecvData.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         path_ = com.google.protobuf.ByteString.EMPTY;
+
         nextSeqRecv_ = 0L;
+
         return this;
       }
 
@@ -11932,19 +12226,10 @@ public final class Solomachine {
       @java.lang.Override
       public ibc.lightclients.solomachine.v2.Solomachine.NextSequenceRecvData buildPartial() {
         ibc.lightclients.solomachine.v2.Solomachine.NextSequenceRecvData result = new ibc.lightclients.solomachine.v2.Solomachine.NextSequenceRecvData(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.path_ = path_;
+        result.nextSeqRecv_ = nextSeqRecv_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.lightclients.solomachine.v2.Solomachine.NextSequenceRecvData result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.path_ = path_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.nextSeqRecv_ = nextSeqRecv_;
-        }
       }
 
       @java.lang.Override
@@ -11997,7 +12282,7 @@ public final class Solomachine {
         if (other.getNextSeqRecv() != 0L) {
           setNextSeqRecv(other.getNextSeqRecv());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -12012,43 +12297,19 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.lightclients.solomachine.v2.Solomachine.NextSequenceRecvData parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                path_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                nextSeqRecv_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.lightclients.solomachine.v2.Solomachine.NextSequenceRecvData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString path_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -12065,9 +12326,11 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder setPath(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         path_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -12076,7 +12339,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         path_ = getDefaultInstance().getPath();
         onChanged();
         return this;
@@ -12099,7 +12362,6 @@ public final class Solomachine {
       public Builder setNextSeqRecv(long value) {
         
         nextSeqRecv_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -12108,7 +12370,7 @@ public final class Solomachine {
        * @return This builder for chaining.
        */
       public Builder clearNextSeqRecv() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         nextSeqRecv_ = 0L;
         onChanged();
         return this;
@@ -12146,18 +12408,7 @@ public final class Solomachine {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new NextSequenceRecvData(input, extensionRegistry);
       }
     };
 

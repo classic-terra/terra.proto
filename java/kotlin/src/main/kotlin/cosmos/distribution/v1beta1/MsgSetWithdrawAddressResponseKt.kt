@@ -3,16 +3,16 @@
 
 package cosmos.distribution.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgSetWithdrawAddressResponse")
-public inline fun msgSetWithdrawAddressResponse(block: cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponseKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddressResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgSetWithdrawAddressResponse(block: cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponseKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddressResponse =
   cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponseKt.Dsl._create(cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddressResponse.newBuilder()).apply { block() }._build()
-public object MsgSetWithdrawAddressResponseKt {
+object MsgSetWithdrawAddressResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddressResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddressResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddressResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgSetWithdrawAddressResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddressResponse.copy(block: cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponseKt.Dsl.() -> kotlin.Unit): cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddressResponse =
+inline fun cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddressResponse.copy(block: cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponseKt.Dsl.() -> Unit): cosmos.distribution.v1beta1.Tx.MsgSetWithdrawAddressResponse =
   cosmos.distribution.v1beta1.MsgSetWithdrawAddressResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

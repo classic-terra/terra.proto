@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeepochState")
-public inline fun epochState(block: terra.treasury.v1beta1.EpochStateKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.Genesis.EpochState =
+@kotlin.jvm.JvmSynthetic
+inline fun epochState(block: terra.treasury.v1beta1.EpochStateKt.Dsl.() -> Unit): terra.treasury.v1beta1.Genesis.EpochState =
   terra.treasury.v1beta1.EpochStateKt.Dsl._create(terra.treasury.v1beta1.Genesis.EpochState.newBuilder()).apply { block() }._build()
-public object EpochStateKt {
+object EpochStateKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.Genesis.EpochState.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.Genesis.EpochState.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.Genesis.EpochState.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object EpochStateKt {
     /**
      * <code>uint64 epoch = 1;</code>
      */
-    public var epoch: kotlin.Long
+    var epoch: kotlin.Long
       @JvmName("getEpoch")
       get() = _builder.getEpoch()
       @JvmName("setEpoch")
@@ -35,14 +35,14 @@ public object EpochStateKt {
     /**
      * <code>uint64 epoch = 1;</code>
      */
-    public fun clearEpoch() {
+    fun clearEpoch() {
       _builder.clearEpoch()
     }
 
     /**
      * <code>string tax_reward = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var taxReward: kotlin.String
+    var taxReward: kotlin.String
       @JvmName("getTaxReward")
       get() = _builder.getTaxReward()
       @JvmName("setTaxReward")
@@ -52,14 +52,14 @@ public object EpochStateKt {
     /**
      * <code>string tax_reward = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearTaxReward() {
+    fun clearTaxReward() {
       _builder.clearTaxReward()
     }
 
     /**
      * <code>string seigniorage_reward = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public var seigniorageReward: kotlin.String
+    var seigniorageReward: kotlin.String
       @JvmName("getSeigniorageReward")
       get() = _builder.getSeigniorageReward()
       @JvmName("setSeigniorageReward")
@@ -69,14 +69,14 @@ public object EpochStateKt {
     /**
      * <code>string seigniorage_reward = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      */
-    public fun clearSeigniorageReward() {
+    fun clearSeigniorageReward() {
       _builder.clearSeigniorageReward()
     }
 
     /**
      * <code>string total_staked_luna = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public var totalStakedLuna: kotlin.String
+    var totalStakedLuna: kotlin.String
       @JvmName("getTotalStakedLuna")
       get() = _builder.getTotalStakedLuna()
       @JvmName("setTotalStakedLuna")
@@ -86,12 +86,11 @@ public object EpochStateKt {
     /**
      * <code>string total_staked_luna = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int"];</code>
      */
-    public fun clearTotalStakedLuna() {
+    fun clearTotalStakedLuna() {
       _builder.clearTotalStakedLuna()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.Genesis.EpochState.copy(block: terra.treasury.v1beta1.EpochStateKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.Genesis.EpochState =
+inline fun terra.treasury.v1beta1.Genesis.EpochState.copy(block: terra.treasury.v1beta1.EpochStateKt.Dsl.() -> Unit): terra.treasury.v1beta1.Genesis.EpochState =
   terra.treasury.v1beta1.EpochStateKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

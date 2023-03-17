@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializecodecDescriptor")
-public inline fun codecDescriptor(block: cosmos.base.reflection.v2alpha1.CodecDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor =
+@kotlin.jvm.JvmSynthetic
+inline fun codecDescriptor(block: cosmos.base.reflection.v2alpha1.CodecDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor =
   cosmos.base.reflection.v2alpha1.CodecDescriptorKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor.newBuilder()).apply { block() }._build()
-public object CodecDescriptorKt {
+object CodecDescriptorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object CodecDescriptorKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class InterfacesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class InterfacesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * interfaces is a list of the registerted interfaces descriptors
@@ -35,7 +35,7 @@ public object CodecDescriptorKt {
      *
      * <code>repeated .cosmos.base.reflection.v2alpha1.InterfaceDescriptor interfaces = 1;</code>
      */
-     public val interfaces: com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>
+     val interfaces: com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getInterfacesList()
@@ -50,10 +50,9 @@ public object CodecDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addInterfaces")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.add(value: cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.add(value: cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor) {
       _builder.addInterfaces(value)
-    }
-    /**
+    }/**
      * <pre>
      * interfaces is a list of the registerted interfaces descriptors
      * </pre>
@@ -63,11 +62,9 @@ public object CodecDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignInterfaces")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.plusAssign(value: cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.plusAssign(value: cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * interfaces is a list of the registerted interfaces descriptors
      * </pre>
@@ -77,10 +74,9 @@ public object CodecDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllInterfaces")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor>) {
       _builder.addAllInterfaces(values)
-    }
-    /**
+    }/**
      * <pre>
      * interfaces is a list of the registerted interfaces descriptors
      * </pre>
@@ -90,11 +86,9 @@ public object CodecDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllInterfaces")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * interfaces is a list of the registerted interfaces descriptors
      * </pre>
@@ -105,10 +99,9 @@ public object CodecDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setInterfaces")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.set(index: kotlin.Int, value: cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.set(index: kotlin.Int, value: cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor) {
       _builder.setInterfaces(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * interfaces is a list of the registerted interfaces descriptors
      * </pre>
@@ -117,13 +110,10 @@ public object CodecDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearInterfaces")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.InterfaceDescriptor, InterfacesProxy>.clear() {
       _builder.clearInterfaces()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor.copy(block: cosmos.base.reflection.v2alpha1.CodecDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor.copy(block: cosmos.base.reflection.v2alpha1.CodecDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor =
   cosmos.base.reflection.v2alpha1.CodecDescriptorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

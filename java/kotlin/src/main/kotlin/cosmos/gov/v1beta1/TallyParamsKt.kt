@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializetallyParams")
-public inline fun tallyParams(block: cosmos.gov.v1beta1.TallyParamsKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Gov.TallyParams =
+@kotlin.jvm.JvmSynthetic
+inline fun tallyParams(block: cosmos.gov.v1beta1.TallyParamsKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Gov.TallyParams =
   cosmos.gov.v1beta1.TallyParamsKt.Dsl._create(cosmos.gov.v1beta1.Gov.TallyParams.newBuilder()).apply { block() }._build()
-public object TallyParamsKt {
+object TallyParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.Gov.TallyParams.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.Gov.TallyParams.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.Gov.TallyParams.Builder): Dsl = Dsl(builder)
@@ -30,7 +30,7 @@ public object TallyParamsKt {
      *
      * <code>bytes quorum = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.jsontag) = "quorum,omitempty"];</code>
      */
-    public var quorum: com.google.protobuf.ByteString
+    var quorum: com.google.protobuf.ByteString
       @JvmName("getQuorum")
       get() = _builder.getQuorum()
       @JvmName("setQuorum")
@@ -45,7 +45,7 @@ public object TallyParamsKt {
      *
      * <code>bytes quorum = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.jsontag) = "quorum,omitempty"];</code>
      */
-    public fun clearQuorum() {
+    fun clearQuorum() {
       _builder.clearQuorum()
     }
 
@@ -56,7 +56,7 @@ public object TallyParamsKt {
      *
      * <code>bytes threshold = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.jsontag) = "threshold,omitempty"];</code>
      */
-    public var threshold: com.google.protobuf.ByteString
+    var threshold: com.google.protobuf.ByteString
       @JvmName("getThreshold")
       get() = _builder.getThreshold()
       @JvmName("setThreshold")
@@ -70,7 +70,7 @@ public object TallyParamsKt {
      *
      * <code>bytes threshold = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.jsontag) = "threshold,omitempty"];</code>
      */
-    public fun clearThreshold() {
+    fun clearThreshold() {
       _builder.clearThreshold()
     }
 
@@ -82,7 +82,7 @@ public object TallyParamsKt {
      *
      * <code>bytes veto_threshold = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.jsontag) = "veto_threshold,omitempty", (.gogoproto.moretags) = "yaml:&#92;"veto_threshold&#92;""];</code>
      */
-    public var vetoThreshold: com.google.protobuf.ByteString
+    var vetoThreshold: com.google.protobuf.ByteString
       @JvmName("getVetoThreshold")
       get() = _builder.getVetoThreshold()
       @JvmName("setVetoThreshold")
@@ -97,12 +97,11 @@ public object TallyParamsKt {
      *
      * <code>bytes veto_threshold = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.jsontag) = "veto_threshold,omitempty", (.gogoproto.moretags) = "yaml:&#92;"veto_threshold&#92;""];</code>
      */
-    public fun clearVetoThreshold() {
+    fun clearVetoThreshold() {
       _builder.clearVetoThreshold()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.Gov.TallyParams.copy(block: cosmos.gov.v1beta1.TallyParamsKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Gov.TallyParams =
+inline fun cosmos.gov.v1beta1.Gov.TallyParams.copy(block: cosmos.gov.v1beta1.TallyParamsKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Gov.TallyParams =
   cosmos.gov.v1beta1.TallyParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

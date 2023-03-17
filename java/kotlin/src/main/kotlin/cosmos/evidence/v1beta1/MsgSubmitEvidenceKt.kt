@@ -3,16 +3,16 @@
 
 package cosmos.evidence.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgSubmitEvidence")
-public inline fun msgSubmitEvidence(block: cosmos.evidence.v1beta1.MsgSubmitEvidenceKt.Dsl.() -> kotlin.Unit): cosmos.evidence.v1beta1.Tx.MsgSubmitEvidence =
+@kotlin.jvm.JvmSynthetic
+inline fun msgSubmitEvidence(block: cosmos.evidence.v1beta1.MsgSubmitEvidenceKt.Dsl.() -> Unit): cosmos.evidence.v1beta1.Tx.MsgSubmitEvidence =
   cosmos.evidence.v1beta1.MsgSubmitEvidenceKt.Dsl._create(cosmos.evidence.v1beta1.Tx.MsgSubmitEvidence.newBuilder()).apply { block() }._build()
-public object MsgSubmitEvidenceKt {
+object MsgSubmitEvidenceKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.evidence.v1beta1.Tx.MsgSubmitEvidence.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.evidence.v1beta1.Tx.MsgSubmitEvidence.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.evidence.v1beta1.Tx.MsgSubmitEvidence.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgSubmitEvidenceKt {
     /**
      * <code>string submitter = 1;</code>
      */
-    public var submitter: kotlin.String
+    var submitter: kotlin.String
       @JvmName("getSubmitter")
       get() = _builder.getSubmitter()
       @JvmName("setSubmitter")
@@ -35,14 +35,14 @@ public object MsgSubmitEvidenceKt {
     /**
      * <code>string submitter = 1;</code>
      */
-    public fun clearSubmitter() {
+    fun clearSubmitter() {
       _builder.clearSubmitter()
     }
 
     /**
      * <code>.google.protobuf.Any evidence = 2 [(.cosmos_proto.accepts_interface) = "Evidence"];</code>
      */
-    public var evidence: com.google.protobuf.Any
+    var evidence: com.google.protobuf.Any
       @JvmName("getEvidence")
       get() = _builder.getEvidence()
       @JvmName("setEvidence")
@@ -52,22 +52,18 @@ public object MsgSubmitEvidenceKt {
     /**
      * <code>.google.protobuf.Any evidence = 2 [(.cosmos_proto.accepts_interface) = "Evidence"];</code>
      */
-    public fun clearEvidence() {
+    fun clearEvidence() {
       _builder.clearEvidence()
     }
     /**
      * <code>.google.protobuf.Any evidence = 2 [(.cosmos_proto.accepts_interface) = "Evidence"];</code>
      * @return Whether the evidence field is set.
      */
-    public fun hasEvidence(): kotlin.Boolean {
+    fun hasEvidence(): kotlin.Boolean {
       return _builder.hasEvidence()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.evidence.v1beta1.Tx.MsgSubmitEvidence.copy(block: cosmos.evidence.v1beta1.MsgSubmitEvidenceKt.Dsl.() -> kotlin.Unit): cosmos.evidence.v1beta1.Tx.MsgSubmitEvidence =
+inline fun cosmos.evidence.v1beta1.Tx.MsgSubmitEvidence.copy(block: cosmos.evidence.v1beta1.MsgSubmitEvidenceKt.Dsl.() -> Unit): cosmos.evidence.v1beta1.Tx.MsgSubmitEvidence =
   cosmos.evidence.v1beta1.MsgSubmitEvidenceKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.evidence.v1beta1.Tx.MsgSubmitEvidenceOrBuilder.evidenceOrNull: com.google.protobuf.Any?
-  get() = if (hasEvidence()) getEvidence() else null
-

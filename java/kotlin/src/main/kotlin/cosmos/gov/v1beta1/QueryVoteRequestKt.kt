@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryVoteRequest")
-public inline fun queryVoteRequest(block: cosmos.gov.v1beta1.QueryVoteRequestKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVoteRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryVoteRequest(block: cosmos.gov.v1beta1.QueryVoteRequestKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVoteRequest =
   cosmos.gov.v1beta1.QueryVoteRequestKt.Dsl._create(cosmos.gov.v1beta1.QueryOuterClass.QueryVoteRequest.newBuilder()).apply { block() }._build()
-public object QueryVoteRequestKt {
+object QueryVoteRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryVoteRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.QueryOuterClass.QueryVoteRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.QueryOuterClass.QueryVoteRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryVoteRequestKt {
      *
      * <code>uint64 proposal_id = 1;</code>
      */
-    public var proposalId: kotlin.Long
+    var proposalId: kotlin.Long
       @JvmName("getProposalId")
       get() = _builder.getProposalId()
       @JvmName("setProposalId")
@@ -43,7 +43,7 @@ public object QueryVoteRequestKt {
      *
      * <code>uint64 proposal_id = 1;</code>
      */
-    public fun clearProposalId() {
+    fun clearProposalId() {
       _builder.clearProposalId()
     }
 
@@ -54,7 +54,7 @@ public object QueryVoteRequestKt {
      *
      * <code>string voter = 2;</code>
      */
-    public var voter: kotlin.String
+    var voter: kotlin.String
       @JvmName("getVoter")
       get() = _builder.getVoter()
       @JvmName("setVoter")
@@ -68,12 +68,11 @@ public object QueryVoteRequestKt {
      *
      * <code>string voter = 2;</code>
      */
-    public fun clearVoter() {
+    fun clearVoter() {
       _builder.clearVoter()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryVoteRequest.copy(block: cosmos.gov.v1beta1.QueryVoteRequestKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVoteRequest =
+inline fun cosmos.gov.v1beta1.QueryOuterClass.QueryVoteRequest.copy(block: cosmos.gov.v1beta1.QueryVoteRequestKt.Dsl.() -> Unit): cosmos.gov.v1beta1.QueryOuterClass.QueryVoteRequest =
   cosmos.gov.v1beta1.QueryVoteRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

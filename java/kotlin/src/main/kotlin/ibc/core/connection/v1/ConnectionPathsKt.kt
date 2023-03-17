@@ -3,16 +3,16 @@
 
 package ibc.core.connection.v1;
 
-@kotlin.jvm.JvmName("-initializeconnectionPaths")
-public inline fun connectionPaths(block: ibc.core.connection.v1.ConnectionPathsKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Connection.ConnectionPaths =
+@kotlin.jvm.JvmSynthetic
+inline fun connectionPaths(block: ibc.core.connection.v1.ConnectionPathsKt.Dsl.() -> Unit): ibc.core.connection.v1.Connection.ConnectionPaths =
   ibc.core.connection.v1.ConnectionPathsKt.Dsl._create(ibc.core.connection.v1.Connection.ConnectionPaths.newBuilder()).apply { block() }._build()
-public object ConnectionPathsKt {
+object ConnectionPathsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.connection.v1.Connection.ConnectionPaths.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.connection.v1.Connection.ConnectionPaths.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.connection.v1.Connection.ConnectionPaths.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object ConnectionPathsKt {
      *
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public var clientId: kotlin.String
+    var clientId: kotlin.String
       @JvmName("getClientId")
       get() = _builder.getClientId()
       @JvmName("setClientId")
@@ -43,7 +43,7 @@ public object ConnectionPathsKt {
      *
      * <code>string client_id = 1 [(.gogoproto.moretags) = "yaml:&#92;"client_id&#92;""];</code>
      */
-    public fun clearClientId() {
+    fun clearClientId() {
       _builder.clearClientId()
     }
 
@@ -52,7 +52,7 @@ public object ConnectionPathsKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class PathsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class PathsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * list of connection paths
@@ -61,8 +61,8 @@ public object ConnectionPathsKt {
      * <code>repeated string paths = 2;</code>
      * @return A list containing the paths.
      */
-    public val paths: com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>
-      @kotlin.jvm.JvmSynthetic
+    val paths: com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>
+      @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getPathsList()
       )
@@ -76,7 +76,7 @@ public object ConnectionPathsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addPaths")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.add(value: kotlin.String) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.add(value: kotlin.String) {
       _builder.addPaths(value)
     }
     /**
@@ -89,9 +89,8 @@ public object ConnectionPathsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignPaths")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.plusAssign(value: kotlin.String) {
-      add(value)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.plusAssign(value: kotlin.String) {
+      _builder.addPaths(value)
     }
     /**
      * <pre>
@@ -103,7 +102,7 @@ public object ConnectionPathsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllPaths")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllPaths(values)
     }
     /**
@@ -116,9 +115,8 @@ public object ConnectionPathsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllPaths")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
-      addAll(values)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
+      _builder.addAllPaths(values)
     }
     /**
      * <pre>
@@ -131,7 +129,7 @@ public object ConnectionPathsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setPaths")
-    public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.set(index: kotlin.Int, value: kotlin.String) {
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setPaths(index, value)
     }/**
      * <pre>
@@ -142,11 +140,10 @@ public object ConnectionPathsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearPaths")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, PathsProxy>.clear() {
       _builder.clearPaths()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.connection.v1.Connection.ConnectionPaths.copy(block: ibc.core.connection.v1.ConnectionPathsKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Connection.ConnectionPaths =
+inline fun ibc.core.connection.v1.Connection.ConnectionPaths.copy(block: ibc.core.connection.v1.ConnectionPathsKt.Dsl.() -> Unit): ibc.core.connection.v1.Connection.ConnectionPaths =
   ibc.core.connection.v1.ConnectionPathsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

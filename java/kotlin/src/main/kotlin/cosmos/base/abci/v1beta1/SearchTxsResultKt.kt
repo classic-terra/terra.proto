@@ -3,16 +3,16 @@
 
 package cosmos.base.abci.v1beta1;
 
-@kotlin.jvm.JvmName("-initializesearchTxsResult")
-public inline fun searchTxsResult(block: cosmos.base.abci.v1beta1.SearchTxsResultKt.Dsl.() -> kotlin.Unit): cosmos.base.abci.v1beta1.Abci.SearchTxsResult =
+@kotlin.jvm.JvmSynthetic
+inline fun searchTxsResult(block: cosmos.base.abci.v1beta1.SearchTxsResultKt.Dsl.() -> Unit): cosmos.base.abci.v1beta1.Abci.SearchTxsResult =
   cosmos.base.abci.v1beta1.SearchTxsResultKt.Dsl._create(cosmos.base.abci.v1beta1.Abci.SearchTxsResult.newBuilder()).apply { block() }._build()
-public object SearchTxsResultKt {
+object SearchTxsResultKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.abci.v1beta1.Abci.SearchTxsResult.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.abci.v1beta1.Abci.SearchTxsResult.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.abci.v1beta1.Abci.SearchTxsResult.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object SearchTxsResultKt {
      *
      * <code>uint64 total_count = 1 [(.gogoproto.jsontag) = "total_count", (.gogoproto.moretags) = "yaml:&#92;"total_count&#92;""];</code>
      */
-    public var totalCount: kotlin.Long
+    var totalCount: kotlin.Long
       @JvmName("getTotalCount")
       get() = _builder.getTotalCount()
       @JvmName("setTotalCount")
@@ -43,7 +43,7 @@ public object SearchTxsResultKt {
      *
      * <code>uint64 total_count = 1 [(.gogoproto.jsontag) = "total_count", (.gogoproto.moretags) = "yaml:&#92;"total_count&#92;""];</code>
      */
-    public fun clearTotalCount() {
+    fun clearTotalCount() {
       _builder.clearTotalCount()
     }
 
@@ -54,7 +54,7 @@ public object SearchTxsResultKt {
      *
      * <code>uint64 count = 2;</code>
      */
-    public var count: kotlin.Long
+    var count: kotlin.Long
       @JvmName("getCount")
       get() = _builder.getCount()
       @JvmName("setCount")
@@ -68,7 +68,7 @@ public object SearchTxsResultKt {
      *
      * <code>uint64 count = 2;</code>
      */
-    public fun clearCount() {
+    fun clearCount() {
       _builder.clearCount()
     }
 
@@ -79,7 +79,7 @@ public object SearchTxsResultKt {
      *
      * <code>uint64 page_number = 3 [(.gogoproto.jsontag) = "page_number", (.gogoproto.moretags) = "yaml:&#92;"page_number&#92;""];</code>
      */
-    public var pageNumber: kotlin.Long
+    var pageNumber: kotlin.Long
       @JvmName("getPageNumber")
       get() = _builder.getPageNumber()
       @JvmName("setPageNumber")
@@ -93,7 +93,7 @@ public object SearchTxsResultKt {
      *
      * <code>uint64 page_number = 3 [(.gogoproto.jsontag) = "page_number", (.gogoproto.moretags) = "yaml:&#92;"page_number&#92;""];</code>
      */
-    public fun clearPageNumber() {
+    fun clearPageNumber() {
       _builder.clearPageNumber()
     }
 
@@ -104,7 +104,7 @@ public object SearchTxsResultKt {
      *
      * <code>uint64 page_total = 4 [(.gogoproto.jsontag) = "page_total", (.gogoproto.moretags) = "yaml:&#92;"page_total&#92;""];</code>
      */
-    public var pageTotal: kotlin.Long
+    var pageTotal: kotlin.Long
       @JvmName("getPageTotal")
       get() = _builder.getPageTotal()
       @JvmName("setPageTotal")
@@ -118,7 +118,7 @@ public object SearchTxsResultKt {
      *
      * <code>uint64 page_total = 4 [(.gogoproto.jsontag) = "page_total", (.gogoproto.moretags) = "yaml:&#92;"page_total&#92;""];</code>
      */
-    public fun clearPageTotal() {
+    fun clearPageTotal() {
       _builder.clearPageTotal()
     }
 
@@ -129,7 +129,7 @@ public object SearchTxsResultKt {
      *
      * <code>uint64 limit = 5;</code>
      */
-    public var limit: kotlin.Long
+    var limit: kotlin.Long
       @JvmName("getLimit")
       get() = _builder.getLimit()
       @JvmName("setLimit")
@@ -143,7 +143,7 @@ public object SearchTxsResultKt {
      *
      * <code>uint64 limit = 5;</code>
      */
-    public fun clearLimit() {
+    fun clearLimit() {
       _builder.clearLimit()
     }
 
@@ -152,7 +152,7 @@ public object SearchTxsResultKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class TxsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class TxsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * List of txs in current page
@@ -160,7 +160,7 @@ public object SearchTxsResultKt {
      *
      * <code>repeated .cosmos.base.abci.v1beta1.TxResponse txs = 6;</code>
      */
-     public val txs: com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>
+     val txs: com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getTxsList()
@@ -175,10 +175,9 @@ public object SearchTxsResultKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addTxs")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.add(value: cosmos.base.abci.v1beta1.Abci.TxResponse) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.add(value: cosmos.base.abci.v1beta1.Abci.TxResponse) {
       _builder.addTxs(value)
-    }
-    /**
+    }/**
      * <pre>
      * List of txs in current page
      * </pre>
@@ -188,11 +187,9 @@ public object SearchTxsResultKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignTxs")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.plusAssign(value: cosmos.base.abci.v1beta1.Abci.TxResponse) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.plusAssign(value: cosmos.base.abci.v1beta1.Abci.TxResponse) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * List of txs in current page
      * </pre>
@@ -202,10 +199,9 @@ public object SearchTxsResultKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllTxs")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.TxResponse>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.TxResponse>) {
       _builder.addAllTxs(values)
-    }
-    /**
+    }/**
      * <pre>
      * List of txs in current page
      * </pre>
@@ -215,11 +211,9 @@ public object SearchTxsResultKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllTxs")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.TxResponse>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.abci.v1beta1.Abci.TxResponse>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * List of txs in current page
      * </pre>
@@ -230,10 +224,9 @@ public object SearchTxsResultKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setTxs")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.set(index: kotlin.Int, value: cosmos.base.abci.v1beta1.Abci.TxResponse) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.set(index: kotlin.Int, value: cosmos.base.abci.v1beta1.Abci.TxResponse) {
       _builder.setTxs(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * List of txs in current page
      * </pre>
@@ -242,13 +235,10 @@ public object SearchTxsResultKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearTxs")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.abci.v1beta1.Abci.TxResponse, TxsProxy>.clear() {
       _builder.clearTxs()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.abci.v1beta1.Abci.SearchTxsResult.copy(block: cosmos.base.abci.v1beta1.SearchTxsResultKt.Dsl.() -> kotlin.Unit): cosmos.base.abci.v1beta1.Abci.SearchTxsResult =
+inline fun cosmos.base.abci.v1beta1.Abci.SearchTxsResult.copy(block: cosmos.base.abci.v1beta1.SearchTxsResultKt.Dsl.() -> Unit): cosmos.base.abci.v1beta1.Abci.SearchTxsResult =
   cosmos.base.abci.v1beta1.SearchTxsResultKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.base.store.v1beta1;
 
-@kotlin.jvm.JvmName("-initializesnapshotStoreItem")
-public inline fun snapshotStoreItem(block: cosmos.base.store.v1beta1.SnapshotStoreItemKt.Dsl.() -> kotlin.Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem =
+@kotlin.jvm.JvmSynthetic
+inline fun snapshotStoreItem(block: cosmos.base.store.v1beta1.SnapshotStoreItemKt.Dsl.() -> Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem =
   cosmos.base.store.v1beta1.SnapshotStoreItemKt.Dsl._create(cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem.newBuilder()).apply { block() }._build()
-public object SnapshotStoreItemKt {
+object SnapshotStoreItemKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object SnapshotStoreItemKt {
     /**
      * <code>string name = 1;</code>
      */
-    public var name: kotlin.String
+    var name: kotlin.String
       @JvmName("getName")
       get() = _builder.getName()
       @JvmName("setName")
@@ -35,12 +35,11 @@ public object SnapshotStoreItemKt {
     /**
      * <code>string name = 1;</code>
      */
-    public fun clearName() {
+    fun clearName() {
       _builder.clearName()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem.copy(block: cosmos.base.store.v1beta1.SnapshotStoreItemKt.Dsl.() -> kotlin.Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem =
+inline fun cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem.copy(block: cosmos.base.store.v1beta1.SnapshotStoreItemKt.Dsl.() -> Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem =
   cosmos.base.store.v1beta1.SnapshotStoreItemKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

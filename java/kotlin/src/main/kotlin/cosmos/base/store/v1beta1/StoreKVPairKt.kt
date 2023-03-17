@@ -3,16 +3,16 @@
 
 package cosmos.base.store.v1beta1;
 
-@kotlin.jvm.JvmName("-initializestoreKVPair")
-public inline fun storeKVPair(block: cosmos.base.store.v1beta1.StoreKVPairKt.Dsl.() -> kotlin.Unit): cosmos.base.store.v1beta1.Listening.StoreKVPair =
+@kotlin.jvm.JvmSynthetic
+inline fun storeKVPair(block: cosmos.base.store.v1beta1.StoreKVPairKt.Dsl.() -> Unit): cosmos.base.store.v1beta1.Listening.StoreKVPair =
   cosmos.base.store.v1beta1.StoreKVPairKt.Dsl._create(cosmos.base.store.v1beta1.Listening.StoreKVPair.newBuilder()).apply { block() }._build()
-public object StoreKVPairKt {
+object StoreKVPairKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.store.v1beta1.Listening.StoreKVPair.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.store.v1beta1.Listening.StoreKVPair.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.store.v1beta1.Listening.StoreKVPair.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object StoreKVPairKt {
      *
      * <code>string store_key = 1;</code>
      */
-    public var storeKey: kotlin.String
+    var storeKey: kotlin.String
       @JvmName("getStoreKey")
       get() = _builder.getStoreKey()
       @JvmName("setStoreKey")
@@ -43,7 +43,7 @@ public object StoreKVPairKt {
      *
      * <code>string store_key = 1;</code>
      */
-    public fun clearStoreKey() {
+    fun clearStoreKey() {
       _builder.clearStoreKey()
     }
 
@@ -54,7 +54,7 @@ public object StoreKVPairKt {
      *
      * <code>bool delete = 2;</code>
      */
-    public var delete: kotlin.Boolean
+    var delete: kotlin.Boolean
       @JvmName("getDelete")
       get() = _builder.getDelete()
       @JvmName("setDelete")
@@ -68,14 +68,14 @@ public object StoreKVPairKt {
      *
      * <code>bool delete = 2;</code>
      */
-    public fun clearDelete() {
+    fun clearDelete() {
       _builder.clearDelete()
     }
 
     /**
      * <code>bytes key = 3;</code>
      */
-    public var key: com.google.protobuf.ByteString
+    var key: com.google.protobuf.ByteString
       @JvmName("getKey")
       get() = _builder.getKey()
       @JvmName("setKey")
@@ -85,14 +85,14 @@ public object StoreKVPairKt {
     /**
      * <code>bytes key = 3;</code>
      */
-    public fun clearKey() {
+    fun clearKey() {
       _builder.clearKey()
     }
 
     /**
      * <code>bytes value = 4;</code>
      */
-    public var value: com.google.protobuf.ByteString
+    var value: com.google.protobuf.ByteString
       @JvmName("getValue")
       get() = _builder.getValue()
       @JvmName("setValue")
@@ -102,12 +102,11 @@ public object StoreKVPairKt {
     /**
      * <code>bytes value = 4;</code>
      */
-    public fun clearValue() {
+    fun clearValue() {
       _builder.clearValue()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.store.v1beta1.Listening.StoreKVPair.copy(block: cosmos.base.store.v1beta1.StoreKVPairKt.Dsl.() -> kotlin.Unit): cosmos.base.store.v1beta1.Listening.StoreKVPair =
+inline fun cosmos.base.store.v1beta1.Listening.StoreKVPair.copy(block: cosmos.base.store.v1beta1.StoreKVPairKt.Dsl.() -> Unit): cosmos.base.store.v1beta1.Listening.StoreKVPair =
   cosmos.base.store.v1beta1.StoreKVPairKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

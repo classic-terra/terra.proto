@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemsgAggregateExchangeRatePrevote")
-public inline fun msgAggregateExchangeRatePrevote(block: terra.oracle.v1beta1.MsgAggregateExchangeRatePrevoteKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRatePrevote =
+@kotlin.jvm.JvmSynthetic
+inline fun msgAggregateExchangeRatePrevote(block: terra.oracle.v1beta1.MsgAggregateExchangeRatePrevoteKt.Dsl.() -> Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRatePrevote =
   terra.oracle.v1beta1.MsgAggregateExchangeRatePrevoteKt.Dsl._create(terra.oracle.v1beta1.Tx.MsgAggregateExchangeRatePrevote.newBuilder()).apply { block() }._build()
-public object MsgAggregateExchangeRatePrevoteKt {
+object MsgAggregateExchangeRatePrevoteKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.Tx.MsgAggregateExchangeRatePrevote.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.Tx.MsgAggregateExchangeRatePrevote.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.Tx.MsgAggregateExchangeRatePrevote.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgAggregateExchangeRatePrevoteKt {
     /**
      * <code>string hash = 1 [(.gogoproto.moretags) = "yaml:&#92;"hash&#92;""];</code>
      */
-    public var hash: kotlin.String
+    var hash: kotlin.String
       @JvmName("getHash")
       get() = _builder.getHash()
       @JvmName("setHash")
@@ -35,14 +35,14 @@ public object MsgAggregateExchangeRatePrevoteKt {
     /**
      * <code>string hash = 1 [(.gogoproto.moretags) = "yaml:&#92;"hash&#92;""];</code>
      */
-    public fun clearHash() {
+    fun clearHash() {
       _builder.clearHash()
     }
 
     /**
      * <code>string feeder = 2 [(.gogoproto.moretags) = "yaml:&#92;"feeder&#92;""];</code>
      */
-    public var feeder: kotlin.String
+    var feeder: kotlin.String
       @JvmName("getFeeder")
       get() = _builder.getFeeder()
       @JvmName("setFeeder")
@@ -52,14 +52,14 @@ public object MsgAggregateExchangeRatePrevoteKt {
     /**
      * <code>string feeder = 2 [(.gogoproto.moretags) = "yaml:&#92;"feeder&#92;""];</code>
      */
-    public fun clearFeeder() {
+    fun clearFeeder() {
       _builder.clearFeeder()
     }
 
     /**
      * <code>string validator = 3 [(.gogoproto.moretags) = "yaml:&#92;"validator&#92;""];</code>
      */
-    public var validator: kotlin.String
+    var validator: kotlin.String
       @JvmName("getValidator")
       get() = _builder.getValidator()
       @JvmName("setValidator")
@@ -69,12 +69,11 @@ public object MsgAggregateExchangeRatePrevoteKt {
     /**
      * <code>string validator = 3 [(.gogoproto.moretags) = "yaml:&#92;"validator&#92;""];</code>
      */
-    public fun clearValidator() {
+    fun clearValidator() {
       _builder.clearValidator()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.Tx.MsgAggregateExchangeRatePrevote.copy(block: terra.oracle.v1beta1.MsgAggregateExchangeRatePrevoteKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRatePrevote =
+inline fun terra.oracle.v1beta1.Tx.MsgAggregateExchangeRatePrevote.copy(block: terra.oracle.v1beta1.MsgAggregateExchangeRatePrevoteKt.Dsl.() -> Unit): terra.oracle.v1beta1.Tx.MsgAggregateExchangeRatePrevote =
   terra.oracle.v1beta1.MsgAggregateExchangeRatePrevoteKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

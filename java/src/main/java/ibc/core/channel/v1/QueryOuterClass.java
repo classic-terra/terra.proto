@@ -91,6 +91,55 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryChannelRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryChannelRequest_descriptor;
@@ -105,8 +154,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port unique identifier
@@ -152,8 +200,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier
@@ -212,13 +259,13 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -227,13 +274,13 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -252,7 +299,7 @@ public final class QueryOuterClass {
           .equals(other.getPortId())) return false;
       if (!getChannelId()
           .equals(other.getChannelId())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -267,7 +314,7 @@ public final class QueryOuterClass {
       hash = (53 * hash) + getPortId().hashCode();
       hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
       hash = (53 * hash) + getChannelId().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -388,20 +435,26 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
+
         return this;
       }
 
@@ -428,19 +481,10 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
       }
 
       @java.lang.Override
@@ -489,15 +533,13 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -512,43 +554,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryChannelRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object portId_ = "";
       /**
@@ -603,9 +621,11 @@ public final class QueryOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -618,8 +638,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -634,10 +654,12 @@ public final class QueryOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -695,9 +717,11 @@ public final class QueryOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -710,8 +734,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -726,10 +750,12 @@ public final class QueryOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -766,18 +792,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryChannelRequest(input, extensionRegistry);
       }
     };
 
@@ -899,6 +914,74 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryChannelResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              ibc.core.channel.v1.ChannelOuterClass.Channel.Builder subBuilder = null;
+              if (channel_ != null) {
+                subBuilder = channel_.toBuilder();
+              }
+              channel_ = input.readMessage(ibc.core.channel.v1.ChannelOuterClass.Channel.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(channel_);
+                channel_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+
+              proof_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (proofHeight_ != null) {
+                subBuilder = proofHeight_.toBuilder();
+              }
+              proofHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(proofHeight_);
+                proofHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryChannelResponse_descriptor;
@@ -947,11 +1030,11 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.channel.v1.ChannelOuterClass.ChannelOrBuilder getChannelOrBuilder() {
-      return channel_ == null ? ibc.core.channel.v1.ChannelOuterClass.Channel.getDefaultInstance() : channel_;
+      return getChannel();
     }
 
     public static final int PROOF_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString proof_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString proof_;
     /**
      * <pre>
      * merkle proof of existence
@@ -1000,7 +1083,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getProofHeightOrBuilder() {
-      return proofHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : proofHeight_;
+      return getProofHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1026,7 +1109,7 @@ public final class QueryOuterClass {
       if (proofHeight_ != null) {
         output.writeMessage(3, getProofHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1047,7 +1130,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getProofHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1074,7 +1157,7 @@ public final class QueryOuterClass {
         if (!getProofHeight()
             .equals(other.getProofHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1095,7 +1178,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PROOF_HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getProofHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1218,27 +1301,34 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        channel_ = null;
-        if (channelBuilder_ != null) {
-          channelBuilder_.dispose();
+        if (channelBuilder_ == null) {
+          channel_ = null;
+        } else {
+          channel_ = null;
           channelBuilder_ = null;
         }
         proof_ = com.google.protobuf.ByteString.EMPTY;
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
         return this;
@@ -1267,26 +1357,19 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (channelBuilder_ == null) {
+          result.channel_ = channel_;
+        } else {
+          result.channel_ = channelBuilder_.build();
+        }
+        result.proof_ = proof_;
+        if (proofHeightBuilder_ == null) {
+          result.proofHeight_ = proofHeight_;
+        } else {
+          result.proofHeight_ = proofHeightBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.channel_ = channelBuilder_ == null
-              ? channel_
-              : channelBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.proof_ = proof_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.proofHeight_ = proofHeightBuilder_ == null
-              ? proofHeight_
-              : proofHeightBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -1342,7 +1425,7 @@ public final class QueryOuterClass {
         if (other.hasProofHeight()) {
           mergeProofHeight(other.getProofHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1357,52 +1440,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getChannelFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                proof_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getProofHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryChannelResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private ibc.core.channel.v1.ChannelOuterClass.Channel channel_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1416,7 +1466,7 @@ public final class QueryOuterClass {
        * @return Whether the channel field is set.
        */
       public boolean hasChannel() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return channelBuilder_ != null || channel_ != null;
       }
       /**
        * <pre>
@@ -1446,11 +1496,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           channel_ = value;
+          onChanged();
         } else {
           channelBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1464,11 +1514,11 @@ public final class QueryOuterClass {
           ibc.core.channel.v1.ChannelOuterClass.Channel.Builder builderForValue) {
         if (channelBuilder_ == null) {
           channel_ = builderForValue.build();
+          onChanged();
         } else {
           channelBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1480,18 +1530,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeChannel(ibc.core.channel.v1.ChannelOuterClass.Channel value) {
         if (channelBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            channel_ != null &&
-            channel_ != ibc.core.channel.v1.ChannelOuterClass.Channel.getDefaultInstance()) {
-            getChannelBuilder().mergeFrom(value);
+          if (channel_ != null) {
+            channel_ =
+              ibc.core.channel.v1.ChannelOuterClass.Channel.newBuilder(channel_).mergeFrom(value).buildPartial();
           } else {
             channel_ = value;
           }
+          onChanged();
         } else {
           channelBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1502,13 +1551,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.channel.v1.Channel channel = 1;</code>
        */
       public Builder clearChannel() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        channel_ = null;
-        if (channelBuilder_ != null) {
-          channelBuilder_.dispose();
+        if (channelBuilder_ == null) {
+          channel_ = null;
+          onChanged();
+        } else {
+          channel_ = null;
           channelBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1519,7 +1569,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.channel.v1.Channel channel = 1;</code>
        */
       public ibc.core.channel.v1.ChannelOuterClass.Channel.Builder getChannelBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getChannelFieldBuilder().getBuilder();
       }
@@ -1582,9 +1632,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setProof(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         proof_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1597,7 +1649,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearProof() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         proof_ = getDefaultInstance().getProof();
         onChanged();
         return this;
@@ -1615,7 +1667,7 @@ public final class QueryOuterClass {
        * @return Whether the proofHeight field is set.
        */
       public boolean hasProofHeight() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return proofHeightBuilder_ != null || proofHeight_ != null;
       }
       /**
        * <pre>
@@ -1645,11 +1697,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           proofHeight_ = value;
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1663,11 +1715,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (proofHeightBuilder_ == null) {
           proofHeight_ = builderForValue.build();
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1679,18 +1731,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeProofHeight(ibc.core.client.v1.Client.Height value) {
         if (proofHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            proofHeight_ != null &&
-            proofHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getProofHeightBuilder().mergeFrom(value);
+          if (proofHeight_ != null) {
+            proofHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(proofHeight_).mergeFrom(value).buildPartial();
           } else {
             proofHeight_ = value;
           }
+          onChanged();
         } else {
           proofHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -1701,13 +1752,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearProofHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+          onChanged();
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -1718,7 +1770,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getProofHeightBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getProofHeightFieldBuilder().getBuilder();
       }
@@ -1790,18 +1842,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryChannelResponse(input, extensionRegistry);
       }
     };
 
@@ -1883,6 +1924,56 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryChannelsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cosmos.base.query.v1beta1.Pagination.PageRequest.Builder subBuilder = null;
+              if (pagination_ != null) {
+                subBuilder = pagination_.toBuilder();
+              }
+              pagination_ = input.readMessage(cosmos.base.query.v1beta1.Pagination.PageRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pagination_);
+                pagination_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryChannelsRequest_descriptor;
@@ -1931,7 +2022,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public cosmos.base.query.v1beta1.Pagination.PageRequestOrBuilder getPaginationOrBuilder() {
-      return pagination_ == null ? cosmos.base.query.v1beta1.Pagination.PageRequest.getDefaultInstance() : pagination_;
+      return getPagination();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1951,7 +2042,7 @@ public final class QueryOuterClass {
       if (pagination_ != null) {
         output.writeMessage(1, getPagination());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1964,7 +2055,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getPagination());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1984,7 +2075,7 @@ public final class QueryOuterClass {
         if (!getPagination()
             .equals(other.getPagination())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1999,7 +2090,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PAGINATION_FIELD_NUMBER;
         hash = (53 * hash) + getPagination().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2120,21 +2211,26 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryChannelsRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
         return this;
@@ -2163,18 +2259,13 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryChannelsRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryChannelsRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryChannelsRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (paginationBuilder_ == null) {
+          result.pagination_ = pagination_;
+        } else {
+          result.pagination_ = paginationBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryChannelsRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.pagination_ = paginationBuilder_ == null
-              ? pagination_
-              : paginationBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -2224,7 +2315,7 @@ public final class QueryOuterClass {
         if (other.hasPagination()) {
           mergePagination(other.getPagination());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2239,40 +2330,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryChannelsRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getPaginationFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryChannelsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private cosmos.base.query.v1beta1.Pagination.PageRequest pagination_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2286,7 +2356,7 @@ public final class QueryOuterClass {
        * @return Whether the pagination field is set.
        */
       public boolean hasPagination() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return paginationBuilder_ != null || pagination_ != null;
       }
       /**
        * <pre>
@@ -2316,11 +2386,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           pagination_ = value;
+          onChanged();
         } else {
           paginationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -2334,11 +2404,11 @@ public final class QueryOuterClass {
           cosmos.base.query.v1beta1.Pagination.PageRequest.Builder builderForValue) {
         if (paginationBuilder_ == null) {
           pagination_ = builderForValue.build();
+          onChanged();
         } else {
           paginationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -2350,18 +2420,17 @@ public final class QueryOuterClass {
        */
       public Builder mergePagination(cosmos.base.query.v1beta1.Pagination.PageRequest value) {
         if (paginationBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            pagination_ != null &&
-            pagination_ != cosmos.base.query.v1beta1.Pagination.PageRequest.getDefaultInstance()) {
-            getPaginationBuilder().mergeFrom(value);
+          if (pagination_ != null) {
+            pagination_ =
+              cosmos.base.query.v1beta1.Pagination.PageRequest.newBuilder(pagination_).mergeFrom(value).buildPartial();
           } else {
             pagination_ = value;
           }
+          onChanged();
         } else {
           paginationBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -2372,13 +2441,14 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 1;</code>
        */
       public Builder clearPagination() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+          onChanged();
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -2389,7 +2459,7 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 1;</code>
        */
       public cosmos.base.query.v1beta1.Pagination.PageRequest.Builder getPaginationBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getPaginationFieldBuilder().getBuilder();
       }
@@ -2461,18 +2531,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryChannelsRequest(input, extensionRegistry);
       }
     };
 
@@ -2626,6 +2685,82 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryChannelsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                channels_ = new java.util.ArrayList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              channels_.add(
+                  input.readMessage(ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              cosmos.base.query.v1beta1.Pagination.PageResponse.Builder subBuilder = null;
+              if (pagination_ != null) {
+                subBuilder = pagination_.toBuilder();
+              }
+              pagination_ = input.readMessage(cosmos.base.query.v1beta1.Pagination.PageResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pagination_);
+                pagination_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (height_ != null) {
+                subBuilder = height_.toBuilder();
+              }
+              height_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(height_);
+                height_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          channels_ = java.util.Collections.unmodifiableList(channels_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryChannelsResponse_descriptor;
@@ -2640,7 +2775,6 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNELS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel> channels_;
     /**
      * <pre>
@@ -2735,7 +2869,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public cosmos.base.query.v1beta1.Pagination.PageResponseOrBuilder getPaginationOrBuilder() {
-      return pagination_ == null ? cosmos.base.query.v1beta1.Pagination.PageResponse.getDefaultInstance() : pagination_;
+      return getPagination();
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 3;
@@ -2773,7 +2907,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getHeightOrBuilder() {
-      return height_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : height_;
+      return getHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2799,7 +2933,7 @@ public final class QueryOuterClass {
       if (height_ != null) {
         output.writeMessage(3, getHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2820,7 +2954,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2847,7 +2981,7 @@ public final class QueryOuterClass {
         if (!getHeight()
             .equals(other.getHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2870,7 +3004,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2991,33 +3125,39 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getChannelsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (channelsBuilder_ == null) {
           channels_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          channels_ = null;
           channelsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
         return this;
@@ -3046,13 +3186,7 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse result) {
+        int from_bitField0_ = bitField0_;
         if (channelsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             channels_ = java.util.Collections.unmodifiableList(channels_);
@@ -3062,20 +3196,18 @@ public final class QueryOuterClass {
         } else {
           result.channels_ = channelsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.pagination_ = paginationBuilder_ == null
-              ? pagination_
-              : paginationBuilder_.build();
+        if (paginationBuilder_ == null) {
+          result.pagination_ = pagination_;
+        } else {
+          result.pagination_ = paginationBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.height_ = heightBuilder_ == null
-              ? height_
-              : heightBuilder_.build();
+        if (heightBuilder_ == null) {
+          result.height_ = height_;
+        } else {
+          result.height_ = heightBuilder_.build();
         }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -3154,7 +3286,7 @@ public final class QueryOuterClass {
         if (other.hasHeight()) {
           mergeHeight(other.getHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3169,57 +3301,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel m =
-                    input.readMessage(
-                        ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel.parser(),
-                        extensionRegistry);
-                if (channelsBuilder_ == null) {
-                  ensureChannelsIsMutable();
-                  channels_.add(m);
-                } else {
-                  channelsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getPaginationFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryChannelsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -3548,7 +3640,7 @@ public final class QueryOuterClass {
        * @return Whether the pagination field is set.
        */
       public boolean hasPagination() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return paginationBuilder_ != null || pagination_ != null;
       }
       /**
        * <pre>
@@ -3578,11 +3670,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           pagination_ = value;
+          onChanged();
         } else {
           paginationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -3596,11 +3688,11 @@ public final class QueryOuterClass {
           cosmos.base.query.v1beta1.Pagination.PageResponse.Builder builderForValue) {
         if (paginationBuilder_ == null) {
           pagination_ = builderForValue.build();
+          onChanged();
         } else {
           paginationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -3612,18 +3704,17 @@ public final class QueryOuterClass {
        */
       public Builder mergePagination(cosmos.base.query.v1beta1.Pagination.PageResponse value) {
         if (paginationBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            pagination_ != null &&
-            pagination_ != cosmos.base.query.v1beta1.Pagination.PageResponse.getDefaultInstance()) {
-            getPaginationBuilder().mergeFrom(value);
+          if (pagination_ != null) {
+            pagination_ =
+              cosmos.base.query.v1beta1.Pagination.PageResponse.newBuilder(pagination_).mergeFrom(value).buildPartial();
           } else {
             pagination_ = value;
           }
+          onChanged();
         } else {
           paginationBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -3634,13 +3725,14 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
        */
       public Builder clearPagination() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+          onChanged();
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -3651,7 +3743,7 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
        */
       public cosmos.base.query.v1beta1.Pagination.PageResponse.Builder getPaginationBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getPaginationFieldBuilder().getBuilder();
       }
@@ -3703,7 +3795,7 @@ public final class QueryOuterClass {
        * @return Whether the height field is set.
        */
       public boolean hasHeight() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return heightBuilder_ != null || height_ != null;
       }
       /**
        * <pre>
@@ -3733,11 +3825,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           height_ = value;
+          onChanged();
         } else {
           heightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -3751,11 +3843,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (heightBuilder_ == null) {
           height_ = builderForValue.build();
+          onChanged();
         } else {
           heightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -3767,18 +3859,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeHeight(ibc.core.client.v1.Client.Height value) {
         if (heightBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            height_ != null &&
-            height_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getHeightBuilder().mergeFrom(value);
+          if (height_ != null) {
+            height_ =
+              ibc.core.client.v1.Client.Height.newBuilder(height_).mergeFrom(value).buildPartial();
           } else {
             height_ = value;
           }
+          onChanged();
         } else {
           heightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -3789,13 +3880,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+          onChanged();
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -3806,7 +3898,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getHeightBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getHeightFieldBuilder().getBuilder();
       }
@@ -3878,18 +3970,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryChannelsResponse(input, extensionRegistry);
       }
     };
 
@@ -3993,6 +4074,62 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryConnectionChannelsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              connection_ = s;
+              break;
+            }
+            case 18: {
+              cosmos.base.query.v1beta1.Pagination.PageRequest.Builder subBuilder = null;
+              if (pagination_ != null) {
+                subBuilder = pagination_.toBuilder();
+              }
+              pagination_ = input.readMessage(cosmos.base.query.v1beta1.Pagination.PageRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pagination_);
+                pagination_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryConnectionChannelsRequest_descriptor;
@@ -4007,8 +4144,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CONNECTION_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object connection_ = "";
+    private volatile java.lang.Object connection_;
     /**
      * <pre>
      * connection unique identifier
@@ -4088,7 +4224,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public cosmos.base.query.v1beta1.Pagination.PageRequestOrBuilder getPaginationOrBuilder() {
-      return pagination_ == null ? cosmos.base.query.v1beta1.Pagination.PageRequest.getDefaultInstance() : pagination_;
+      return getPagination();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4105,13 +4241,13 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(connection_)) {
+      if (!getConnectionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, connection_);
       }
       if (pagination_ != null) {
         output.writeMessage(2, getPagination());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4120,14 +4256,14 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(connection_)) {
+      if (!getConnectionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, connection_);
       }
       if (pagination_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getPagination());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4149,7 +4285,7 @@ public final class QueryOuterClass {
         if (!getPagination()
             .equals(other.getPagination())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4166,7 +4302,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PAGINATION_FIELD_NUMBER;
         hash = (53 * hash) + getPagination().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4288,22 +4424,28 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         connection_ = "";
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
         return this;
@@ -4332,21 +4474,14 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.connection_ = connection_;
+        if (paginationBuilder_ == null) {
+          result.pagination_ = pagination_;
+        } else {
+          result.pagination_ = paginationBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.connection_ = connection_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.pagination_ = paginationBuilder_ == null
-              ? pagination_
-              : paginationBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -4395,13 +4530,12 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest.getDefaultInstance()) return this;
         if (!other.getConnection().isEmpty()) {
           connection_ = other.connection_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasPagination()) {
           mergePagination(other.getPagination());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4416,45 +4550,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                connection_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getPaginationFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object connection_ = "";
       /**
@@ -4509,9 +4617,11 @@ public final class QueryOuterClass {
        */
       public Builder setConnection(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         connection_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4524,8 +4634,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearConnection() {
+        
         connection_ = getDefaultInstance().getConnection();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4540,10 +4650,12 @@ public final class QueryOuterClass {
        */
       public Builder setConnectionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         connection_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4560,7 +4672,7 @@ public final class QueryOuterClass {
        * @return Whether the pagination field is set.
        */
       public boolean hasPagination() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return paginationBuilder_ != null || pagination_ != null;
       }
       /**
        * <pre>
@@ -4590,11 +4702,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           pagination_ = value;
+          onChanged();
         } else {
           paginationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -4608,11 +4720,11 @@ public final class QueryOuterClass {
           cosmos.base.query.v1beta1.Pagination.PageRequest.Builder builderForValue) {
         if (paginationBuilder_ == null) {
           pagination_ = builderForValue.build();
+          onChanged();
         } else {
           paginationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -4624,18 +4736,17 @@ public final class QueryOuterClass {
        */
       public Builder mergePagination(cosmos.base.query.v1beta1.Pagination.PageRequest value) {
         if (paginationBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            pagination_ != null &&
-            pagination_ != cosmos.base.query.v1beta1.Pagination.PageRequest.getDefaultInstance()) {
-            getPaginationBuilder().mergeFrom(value);
+          if (pagination_ != null) {
+            pagination_ =
+              cosmos.base.query.v1beta1.Pagination.PageRequest.newBuilder(pagination_).mergeFrom(value).buildPartial();
           } else {
             pagination_ = value;
           }
+          onChanged();
         } else {
           paginationBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -4646,13 +4757,14 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
        */
       public Builder clearPagination() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+          onChanged();
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -4663,7 +4775,7 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 2;</code>
        */
       public cosmos.base.query.v1beta1.Pagination.PageRequest.Builder getPaginationBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getPaginationFieldBuilder().getBuilder();
       }
@@ -4735,18 +4847,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryConnectionChannelsRequest(input, extensionRegistry);
       }
     };
 
@@ -4901,6 +5002,82 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryConnectionChannelsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                channels_ = new java.util.ArrayList<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              channels_.add(
+                  input.readMessage(ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              cosmos.base.query.v1beta1.Pagination.PageResponse.Builder subBuilder = null;
+              if (pagination_ != null) {
+                subBuilder = pagination_.toBuilder();
+              }
+              pagination_ = input.readMessage(cosmos.base.query.v1beta1.Pagination.PageResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pagination_);
+                pagination_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (height_ != null) {
+                subBuilder = height_.toBuilder();
+              }
+              height_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(height_);
+                height_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          channels_ = java.util.Collections.unmodifiableList(channels_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryConnectionChannelsResponse_descriptor;
@@ -4915,7 +5092,6 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNELS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel> channels_;
     /**
      * <pre>
@@ -5010,7 +5186,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public cosmos.base.query.v1beta1.Pagination.PageResponseOrBuilder getPaginationOrBuilder() {
-      return pagination_ == null ? cosmos.base.query.v1beta1.Pagination.PageResponse.getDefaultInstance() : pagination_;
+      return getPagination();
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 3;
@@ -5048,7 +5224,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getHeightOrBuilder() {
-      return height_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : height_;
+      return getHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5074,7 +5250,7 @@ public final class QueryOuterClass {
       if (height_ != null) {
         output.writeMessage(3, getHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5095,7 +5271,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5122,7 +5298,7 @@ public final class QueryOuterClass {
         if (!getHeight()
             .equals(other.getHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5145,7 +5321,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5267,33 +5443,39 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getChannelsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (channelsBuilder_ == null) {
           channels_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          channels_ = null;
           channelsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
         return this;
@@ -5322,13 +5504,7 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsResponse result) {
+        int from_bitField0_ = bitField0_;
         if (channelsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             channels_ = java.util.Collections.unmodifiableList(channels_);
@@ -5338,20 +5514,18 @@ public final class QueryOuterClass {
         } else {
           result.channels_ = channelsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.pagination_ = paginationBuilder_ == null
-              ? pagination_
-              : paginationBuilder_.build();
+        if (paginationBuilder_ == null) {
+          result.pagination_ = pagination_;
+        } else {
+          result.pagination_ = paginationBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.height_ = heightBuilder_ == null
-              ? height_
-              : heightBuilder_.build();
+        if (heightBuilder_ == null) {
+          result.height_ = height_;
+        } else {
+          result.height_ = heightBuilder_.build();
         }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -5430,7 +5604,7 @@ public final class QueryOuterClass {
         if (other.hasHeight()) {
           mergeHeight(other.getHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -5445,57 +5619,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel m =
-                    input.readMessage(
-                        ibc.core.channel.v1.ChannelOuterClass.IdentifiedChannel.parser(),
-                        extensionRegistry);
-                if (channelsBuilder_ == null) {
-                  ensureChannelsIsMutable();
-                  channels_.add(m);
-                } else {
-                  channelsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getPaginationFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryConnectionChannelsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -5824,7 +5958,7 @@ public final class QueryOuterClass {
        * @return Whether the pagination field is set.
        */
       public boolean hasPagination() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return paginationBuilder_ != null || pagination_ != null;
       }
       /**
        * <pre>
@@ -5854,11 +5988,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           pagination_ = value;
+          onChanged();
         } else {
           paginationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -5872,11 +6006,11 @@ public final class QueryOuterClass {
           cosmos.base.query.v1beta1.Pagination.PageResponse.Builder builderForValue) {
         if (paginationBuilder_ == null) {
           pagination_ = builderForValue.build();
+          onChanged();
         } else {
           paginationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -5888,18 +6022,17 @@ public final class QueryOuterClass {
        */
       public Builder mergePagination(cosmos.base.query.v1beta1.Pagination.PageResponse value) {
         if (paginationBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            pagination_ != null &&
-            pagination_ != cosmos.base.query.v1beta1.Pagination.PageResponse.getDefaultInstance()) {
-            getPaginationBuilder().mergeFrom(value);
+          if (pagination_ != null) {
+            pagination_ =
+              cosmos.base.query.v1beta1.Pagination.PageResponse.newBuilder(pagination_).mergeFrom(value).buildPartial();
           } else {
             pagination_ = value;
           }
+          onChanged();
         } else {
           paginationBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -5910,13 +6043,14 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
        */
       public Builder clearPagination() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+          onChanged();
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -5927,7 +6061,7 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
        */
       public cosmos.base.query.v1beta1.Pagination.PageResponse.Builder getPaginationBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getPaginationFieldBuilder().getBuilder();
       }
@@ -5979,7 +6113,7 @@ public final class QueryOuterClass {
        * @return Whether the height field is set.
        */
       public boolean hasHeight() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return heightBuilder_ != null || height_ != null;
       }
       /**
        * <pre>
@@ -6009,11 +6143,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           height_ = value;
+          onChanged();
         } else {
           heightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -6027,11 +6161,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (heightBuilder_ == null) {
           height_ = builderForValue.build();
+          onChanged();
         } else {
           heightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -6043,18 +6177,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeHeight(ibc.core.client.v1.Client.Height value) {
         if (heightBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            height_ != null &&
-            height_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getHeightBuilder().mergeFrom(value);
+          if (height_ != null) {
+            height_ =
+              ibc.core.client.v1.Client.Height.newBuilder(height_).mergeFrom(value).buildPartial();
           } else {
             height_ = value;
           }
+          onChanged();
         } else {
           heightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -6065,13 +6198,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+          onChanged();
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -6082,7 +6216,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getHeightBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getHeightFieldBuilder().getBuilder();
       }
@@ -6154,18 +6288,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryConnectionChannelsResponse(input, extensionRegistry);
       }
     };
 
@@ -6263,6 +6386,55 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryChannelClientStateRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryChannelClientStateRequest_descriptor;
@@ -6277,8 +6449,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port unique identifier
@@ -6324,8 +6495,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier
@@ -6384,13 +6554,13 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -6399,13 +6569,13 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6424,7 +6594,7 @@ public final class QueryOuterClass {
           .equals(other.getPortId())) return false;
       if (!getChannelId()
           .equals(other.getChannelId())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -6439,7 +6609,7 @@ public final class QueryOuterClass {
       hash = (53 * hash) + getPortId().hashCode();
       hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
       hash = (53 * hash) + getChannelId().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6561,20 +6731,26 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
+
         return this;
       }
 
@@ -6601,19 +6777,10 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
       }
 
       @java.lang.Override
@@ -6662,15 +6829,13 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6685,43 +6850,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object portId_ = "";
       /**
@@ -6776,9 +6917,11 @@ public final class QueryOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6791,8 +6934,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -6807,10 +6950,12 @@ public final class QueryOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6868,9 +7013,11 @@ public final class QueryOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6883,8 +7030,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -6899,10 +7046,12 @@ public final class QueryOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6939,18 +7088,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryChannelClientStateRequest(input, extensionRegistry);
       }
     };
 
@@ -7071,6 +7209,74 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryChannelClientStateResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              ibc.core.client.v1.Client.IdentifiedClientState.Builder subBuilder = null;
+              if (identifiedClientState_ != null) {
+                subBuilder = identifiedClientState_.toBuilder();
+              }
+              identifiedClientState_ = input.readMessage(ibc.core.client.v1.Client.IdentifiedClientState.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(identifiedClientState_);
+                identifiedClientState_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+
+              proof_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (proofHeight_ != null) {
+                subBuilder = proofHeight_.toBuilder();
+              }
+              proofHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(proofHeight_);
+                proofHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryChannelClientStateResponse_descriptor;
@@ -7119,11 +7325,11 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.IdentifiedClientStateOrBuilder getIdentifiedClientStateOrBuilder() {
-      return identifiedClientState_ == null ? ibc.core.client.v1.Client.IdentifiedClientState.getDefaultInstance() : identifiedClientState_;
+      return getIdentifiedClientState();
     }
 
     public static final int PROOF_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString proof_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString proof_;
     /**
      * <pre>
      * merkle proof of existence
@@ -7172,7 +7378,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getProofHeightOrBuilder() {
-      return proofHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : proofHeight_;
+      return getProofHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7198,7 +7404,7 @@ public final class QueryOuterClass {
       if (proofHeight_ != null) {
         output.writeMessage(3, getProofHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -7219,7 +7425,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getProofHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7246,7 +7452,7 @@ public final class QueryOuterClass {
         if (!getProofHeight()
             .equals(other.getProofHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -7267,7 +7473,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PROOF_HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getProofHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7389,27 +7595,34 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        identifiedClientState_ = null;
-        if (identifiedClientStateBuilder_ != null) {
-          identifiedClientStateBuilder_.dispose();
+        if (identifiedClientStateBuilder_ == null) {
+          identifiedClientState_ = null;
+        } else {
+          identifiedClientState_ = null;
           identifiedClientStateBuilder_ = null;
         }
         proof_ = com.google.protobuf.ByteString.EMPTY;
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
         return this;
@@ -7438,26 +7651,19 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (identifiedClientStateBuilder_ == null) {
+          result.identifiedClientState_ = identifiedClientState_;
+        } else {
+          result.identifiedClientState_ = identifiedClientStateBuilder_.build();
+        }
+        result.proof_ = proof_;
+        if (proofHeightBuilder_ == null) {
+          result.proofHeight_ = proofHeight_;
+        } else {
+          result.proofHeight_ = proofHeightBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.identifiedClientState_ = identifiedClientStateBuilder_ == null
-              ? identifiedClientState_
-              : identifiedClientStateBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.proof_ = proof_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.proofHeight_ = proofHeightBuilder_ == null
-              ? proofHeight_
-              : proofHeightBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -7513,7 +7719,7 @@ public final class QueryOuterClass {
         if (other.hasProofHeight()) {
           mergeProofHeight(other.getProofHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -7528,52 +7734,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getIdentifiedClientStateFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                proof_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getProofHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private ibc.core.client.v1.Client.IdentifiedClientState identifiedClientState_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -7587,7 +7760,7 @@ public final class QueryOuterClass {
        * @return Whether the identifiedClientState field is set.
        */
       public boolean hasIdentifiedClientState() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return identifiedClientStateBuilder_ != null || identifiedClientState_ != null;
       }
       /**
        * <pre>
@@ -7617,11 +7790,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           identifiedClientState_ = value;
+          onChanged();
         } else {
           identifiedClientStateBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -7635,11 +7808,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.IdentifiedClientState.Builder builderForValue) {
         if (identifiedClientStateBuilder_ == null) {
           identifiedClientState_ = builderForValue.build();
+          onChanged();
         } else {
           identifiedClientStateBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -7651,18 +7824,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeIdentifiedClientState(ibc.core.client.v1.Client.IdentifiedClientState value) {
         if (identifiedClientStateBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            identifiedClientState_ != null &&
-            identifiedClientState_ != ibc.core.client.v1.Client.IdentifiedClientState.getDefaultInstance()) {
-            getIdentifiedClientStateBuilder().mergeFrom(value);
+          if (identifiedClientState_ != null) {
+            identifiedClientState_ =
+              ibc.core.client.v1.Client.IdentifiedClientState.newBuilder(identifiedClientState_).mergeFrom(value).buildPartial();
           } else {
             identifiedClientState_ = value;
           }
+          onChanged();
         } else {
           identifiedClientStateBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -7673,13 +7845,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.IdentifiedClientState identified_client_state = 1;</code>
        */
       public Builder clearIdentifiedClientState() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        identifiedClientState_ = null;
-        if (identifiedClientStateBuilder_ != null) {
-          identifiedClientStateBuilder_.dispose();
+        if (identifiedClientStateBuilder_ == null) {
+          identifiedClientState_ = null;
+          onChanged();
+        } else {
+          identifiedClientState_ = null;
           identifiedClientStateBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -7690,7 +7863,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.IdentifiedClientState identified_client_state = 1;</code>
        */
       public ibc.core.client.v1.Client.IdentifiedClientState.Builder getIdentifiedClientStateBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getIdentifiedClientStateFieldBuilder().getBuilder();
       }
@@ -7753,9 +7926,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setProof(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         proof_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7768,7 +7943,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearProof() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         proof_ = getDefaultInstance().getProof();
         onChanged();
         return this;
@@ -7786,7 +7961,7 @@ public final class QueryOuterClass {
        * @return Whether the proofHeight field is set.
        */
       public boolean hasProofHeight() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return proofHeightBuilder_ != null || proofHeight_ != null;
       }
       /**
        * <pre>
@@ -7816,11 +7991,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           proofHeight_ = value;
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -7834,11 +8009,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (proofHeightBuilder_ == null) {
           proofHeight_ = builderForValue.build();
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -7850,18 +8025,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeProofHeight(ibc.core.client.v1.Client.Height value) {
         if (proofHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            proofHeight_ != null &&
-            proofHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getProofHeightBuilder().mergeFrom(value);
+          if (proofHeight_ != null) {
+            proofHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(proofHeight_).mergeFrom(value).buildPartial();
           } else {
             proofHeight_ = value;
           }
+          onChanged();
         } else {
           proofHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -7872,13 +8046,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearProofHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+          onChanged();
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -7889,7 +8064,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getProofHeightBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getProofHeightFieldBuilder().getBuilder();
       }
@@ -7961,18 +8136,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryChannelClientStateResponse(input, extensionRegistry);
       }
     };
 
@@ -8090,6 +8254,65 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryChannelConsensusStateRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            case 24: {
+
+              revisionNumber_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+
+              revisionHeight_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryChannelConsensusStateRequest_descriptor;
@@ -8104,8 +8327,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port unique identifier
@@ -8151,8 +8373,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier
@@ -8198,7 +8419,7 @@ public final class QueryOuterClass {
     }
 
     public static final int REVISION_NUMBER_FIELD_NUMBER = 3;
-    private long revisionNumber_ = 0L;
+    private long revisionNumber_;
     /**
      * <pre>
      * revision number of the consensus state
@@ -8213,7 +8434,7 @@ public final class QueryOuterClass {
     }
 
     public static final int REVISION_HEIGHT_FIELD_NUMBER = 4;
-    private long revisionHeight_ = 0L;
+    private long revisionHeight_;
     /**
      * <pre>
      * revision height of the consensus state
@@ -8241,10 +8462,10 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
       if (revisionNumber_ != 0L) {
@@ -8253,7 +8474,7 @@ public final class QueryOuterClass {
       if (revisionHeight_ != 0L) {
         output.writeUInt64(4, revisionHeight_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -8262,10 +8483,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
       if (revisionNumber_ != 0L) {
@@ -8276,7 +8497,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(4, revisionHeight_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8299,7 +8520,7 @@ public final class QueryOuterClass {
           != other.getRevisionNumber()) return false;
       if (getRevisionHeight()
           != other.getRevisionHeight()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -8320,7 +8541,7 @@ public final class QueryOuterClass {
       hash = (37 * hash) + REVISION_HEIGHT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getRevisionHeight());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8442,22 +8663,30 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
+
         revisionNumber_ = 0L;
+
         revisionHeight_ = 0L;
+
         return this;
       }
 
@@ -8484,25 +8713,12 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
+        result.revisionNumber_ = revisionNumber_;
+        result.revisionHeight_ = revisionHeight_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.revisionNumber_ = revisionNumber_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.revisionHeight_ = revisionHeight_;
-        }
       }
 
       @java.lang.Override
@@ -8551,12 +8767,10 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateRequest.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getRevisionNumber() != 0L) {
@@ -8565,7 +8779,7 @@ public final class QueryOuterClass {
         if (other.getRevisionHeight() != 0L) {
           setRevisionHeight(other.getRevisionHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -8580,53 +8794,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                revisionNumber_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              case 32: {
-                revisionHeight_ = input.readUInt64();
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 32
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object portId_ = "";
       /**
@@ -8681,9 +8861,11 @@ public final class QueryOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8696,8 +8878,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -8712,10 +8894,12 @@ public final class QueryOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8773,9 +8957,11 @@ public final class QueryOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -8788,8 +8974,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -8804,10 +8990,12 @@ public final class QueryOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -8837,7 +9025,6 @@ public final class QueryOuterClass {
       public Builder setRevisionNumber(long value) {
         
         revisionNumber_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8850,7 +9037,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRevisionNumber() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         revisionNumber_ = 0L;
         onChanged();
         return this;
@@ -8881,7 +9068,6 @@ public final class QueryOuterClass {
       public Builder setRevisionHeight(long value) {
         
         revisionHeight_ = value;
-        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -8894,7 +9080,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearRevisionHeight() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
         revisionHeight_ = 0L;
         onChanged();
         return this;
@@ -8932,18 +9118,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryChannelConsensusStateRequest(input, extensionRegistry);
       }
     };
 
@@ -9085,6 +9260,80 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryChannelConsensusStateResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (consensusState_ != null) {
+                subBuilder = consensusState_.toBuilder();
+              }
+              consensusState_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(consensusState_);
+                consensusState_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              clientId_ = s;
+              break;
+            }
+            case 26: {
+
+              proof_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (proofHeight_ != null) {
+                subBuilder = proofHeight_.toBuilder();
+              }
+              proofHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(proofHeight_);
+                proofHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryChannelConsensusStateResponse_descriptor;
@@ -9133,12 +9382,11 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getConsensusStateOrBuilder() {
-      return consensusState_ == null ? com.google.protobuf.Any.getDefaultInstance() : consensusState_;
+      return getConsensusState();
     }
 
     public static final int CLIENT_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object clientId_ = "";
+    private volatile java.lang.Object clientId_;
     /**
      * <pre>
      * client ID associated with the consensus state
@@ -9184,7 +9432,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PROOF_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString proof_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString proof_;
     /**
      * <pre>
      * merkle proof of existence
@@ -9233,7 +9481,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getProofHeightOrBuilder() {
-      return proofHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : proofHeight_;
+      return getProofHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9253,7 +9501,7 @@ public final class QueryOuterClass {
       if (consensusState_ != null) {
         output.writeMessage(1, getConsensusState());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+      if (!getClientIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, clientId_);
       }
       if (!proof_.isEmpty()) {
@@ -9262,7 +9510,7 @@ public final class QueryOuterClass {
       if (proofHeight_ != null) {
         output.writeMessage(4, getProofHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -9275,7 +9523,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getConsensusState());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientId_)) {
+      if (!getClientIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, clientId_);
       }
       if (!proof_.isEmpty()) {
@@ -9286,7 +9534,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getProofHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9315,7 +9563,7 @@ public final class QueryOuterClass {
         if (!getProofHeight()
             .equals(other.getProofHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -9338,7 +9586,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PROOF_HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getProofHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9460,28 +9708,36 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        consensusState_ = null;
-        if (consensusStateBuilder_ != null) {
-          consensusStateBuilder_.dispose();
+        if (consensusStateBuilder_ == null) {
+          consensusState_ = null;
+        } else {
+          consensusState_ = null;
           consensusStateBuilder_ = null;
         }
         clientId_ = "";
+
         proof_ = com.google.protobuf.ByteString.EMPTY;
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
         return this;
@@ -9510,29 +9766,20 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        if (consensusStateBuilder_ == null) {
+          result.consensusState_ = consensusState_;
+        } else {
+          result.consensusState_ = consensusStateBuilder_.build();
+        }
+        result.clientId_ = clientId_;
+        result.proof_ = proof_;
+        if (proofHeightBuilder_ == null) {
+          result.proofHeight_ = proofHeight_;
+        } else {
+          result.proofHeight_ = proofHeightBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.consensusState_ = consensusStateBuilder_ == null
-              ? consensusState_
-              : consensusStateBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.clientId_ = clientId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.proof_ = proof_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
-          result.proofHeight_ = proofHeightBuilder_ == null
-              ? proofHeight_
-              : proofHeightBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -9584,7 +9831,6 @@ public final class QueryOuterClass {
         }
         if (!other.getClientId().isEmpty()) {
           clientId_ = other.clientId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getProof() != com.google.protobuf.ByteString.EMPTY) {
@@ -9593,7 +9839,7 @@ public final class QueryOuterClass {
         if (other.hasProofHeight()) {
           mergeProofHeight(other.getProofHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -9608,57 +9854,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getConsensusStateFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                clientId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                proof_ = input.readBytes();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getProofHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000008;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryChannelConsensusStateResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.Any consensusState_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -9672,7 +9880,7 @@ public final class QueryOuterClass {
        * @return Whether the consensusState field is set.
        */
       public boolean hasConsensusState() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return consensusStateBuilder_ != null || consensusState_ != null;
       }
       /**
        * <pre>
@@ -9702,11 +9910,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           consensusState_ = value;
+          onChanged();
         } else {
           consensusStateBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -9720,11 +9928,11 @@ public final class QueryOuterClass {
           com.google.protobuf.Any.Builder builderForValue) {
         if (consensusStateBuilder_ == null) {
           consensusState_ = builderForValue.build();
+          onChanged();
         } else {
           consensusStateBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -9736,18 +9944,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeConsensusState(com.google.protobuf.Any value) {
         if (consensusStateBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            consensusState_ != null &&
-            consensusState_ != com.google.protobuf.Any.getDefaultInstance()) {
-            getConsensusStateBuilder().mergeFrom(value);
+          if (consensusState_ != null) {
+            consensusState_ =
+              com.google.protobuf.Any.newBuilder(consensusState_).mergeFrom(value).buildPartial();
           } else {
             consensusState_ = value;
           }
+          onChanged();
         } else {
           consensusStateBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -9758,13 +9965,14 @@ public final class QueryOuterClass {
        * <code>.google.protobuf.Any consensus_state = 1;</code>
        */
       public Builder clearConsensusState() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        consensusState_ = null;
-        if (consensusStateBuilder_ != null) {
-          consensusStateBuilder_.dispose();
+        if (consensusStateBuilder_ == null) {
+          consensusState_ = null;
+          onChanged();
+        } else {
+          consensusState_ = null;
           consensusStateBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -9775,7 +9983,7 @@ public final class QueryOuterClass {
        * <code>.google.protobuf.Any consensus_state = 1;</code>
        */
       public com.google.protobuf.Any.Builder getConsensusStateBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getConsensusStateFieldBuilder().getBuilder();
       }
@@ -9868,9 +10076,11 @@ public final class QueryOuterClass {
        */
       public Builder setClientId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         clientId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -9883,8 +10093,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearClientId() {
+        
         clientId_ = getDefaultInstance().getClientId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -9899,10 +10109,12 @@ public final class QueryOuterClass {
        */
       public Builder setClientIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         clientId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -9930,9 +10142,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setProof(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         proof_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -9945,7 +10159,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearProof() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         proof_ = getDefaultInstance().getProof();
         onChanged();
         return this;
@@ -9963,7 +10177,7 @@ public final class QueryOuterClass {
        * @return Whether the proofHeight field is set.
        */
       public boolean hasProofHeight() {
-        return ((bitField0_ & 0x00000008) != 0);
+        return proofHeightBuilder_ != null || proofHeight_ != null;
       }
       /**
        * <pre>
@@ -9993,11 +10207,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           proofHeight_ = value;
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -10011,11 +10225,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (proofHeightBuilder_ == null) {
           proofHeight_ = builderForValue.build();
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -10027,18 +10241,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeProofHeight(ibc.core.client.v1.Client.Height value) {
         if (proofHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0) &&
-            proofHeight_ != null &&
-            proofHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getProofHeightBuilder().mergeFrom(value);
+          if (proofHeight_ != null) {
+            proofHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(proofHeight_).mergeFrom(value).buildPartial();
           } else {
             proofHeight_ = value;
           }
+          onChanged();
         } else {
           proofHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
-        onChanged();
+
         return this;
       }
       /**
@@ -10049,13 +10262,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearProofHeight() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+          onChanged();
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -10066,7 +10280,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getProofHeightBuilder() {
-        bitField0_ |= 0x00000008;
+        
         onChanged();
         return getProofHeightFieldBuilder().getBuilder();
       }
@@ -10138,18 +10352,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryChannelConsensusStateResponse(input, extensionRegistry);
       }
     };
 
@@ -10257,6 +10460,60 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryPacketCommitmentRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            case 24: {
+
+              sequence_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryPacketCommitmentRequest_descriptor;
@@ -10271,8 +10528,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port unique identifier
@@ -10318,8 +10574,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier
@@ -10365,7 +10620,7 @@ public final class QueryOuterClass {
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 3;
-    private long sequence_ = 0L;
+    private long sequence_;
     /**
      * <pre>
      * packet sequence
@@ -10393,16 +10648,16 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
       if (sequence_ != 0L) {
         output.writeUInt64(3, sequence_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -10411,17 +10666,17 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
       if (sequence_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, sequence_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10442,7 +10697,7 @@ public final class QueryOuterClass {
           .equals(other.getChannelId())) return false;
       if (getSequence()
           != other.getSequence()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -10460,7 +10715,7 @@ public final class QueryOuterClass {
       hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSequence());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10582,21 +10837,28 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
+
         sequence_ = 0L;
+
         return this;
       }
 
@@ -10623,22 +10885,11 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
+        result.sequence_ = sequence_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.sequence_ = sequence_;
-        }
       }
 
       @java.lang.Override
@@ -10687,18 +10938,16 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getSequence() != 0L) {
           setSequence(other.getSequence());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -10713,48 +10962,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                sequence_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object portId_ = "";
       /**
@@ -10809,9 +11029,11 @@ public final class QueryOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10824,8 +11046,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -10840,10 +11062,12 @@ public final class QueryOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10901,9 +11125,11 @@ public final class QueryOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -10916,8 +11142,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -10932,10 +11158,12 @@ public final class QueryOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -10965,7 +11193,6 @@ public final class QueryOuterClass {
       public Builder setSequence(long value) {
         
         sequence_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -10978,7 +11205,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         sequence_ = 0L;
         onChanged();
         return this;
@@ -11016,18 +11243,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryPacketCommitmentRequest(input, extensionRegistry);
       }
     };
 
@@ -11133,6 +11349,66 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryPacketCommitmentResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              commitment_ = input.readBytes();
+              break;
+            }
+            case 18: {
+
+              proof_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (proofHeight_ != null) {
+                subBuilder = proofHeight_.toBuilder();
+              }
+              proofHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(proofHeight_);
+                proofHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryPacketCommitmentResponse_descriptor;
@@ -11147,7 +11423,7 @@ public final class QueryOuterClass {
     }
 
     public static final int COMMITMENT_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString commitment_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString commitment_;
     /**
      * <pre>
      * packet associated with the request fields
@@ -11162,7 +11438,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PROOF_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString proof_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString proof_;
     /**
      * <pre>
      * merkle proof of existence
@@ -11211,7 +11487,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getProofHeightOrBuilder() {
-      return proofHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : proofHeight_;
+      return getProofHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -11237,7 +11513,7 @@ public final class QueryOuterClass {
       if (proofHeight_ != null) {
         output.writeMessage(3, getProofHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -11258,7 +11534,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getProofHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11282,7 +11558,7 @@ public final class QueryOuterClass {
         if (!getProofHeight()
             .equals(other.getProofHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -11301,7 +11577,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PROOF_HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getProofHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11424,23 +11700,30 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         commitment_ = com.google.protobuf.ByteString.EMPTY;
+
         proof_ = com.google.protobuf.ByteString.EMPTY;
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
         return this;
@@ -11469,24 +11752,15 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.commitment_ = commitment_;
+        result.proof_ = proof_;
+        if (proofHeightBuilder_ == null) {
+          result.proofHeight_ = proofHeight_;
+        } else {
+          result.proofHeight_ = proofHeightBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.commitment_ = commitment_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.proof_ = proof_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.proofHeight_ = proofHeightBuilder_ == null
-              ? proofHeight_
-              : proofHeightBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -11542,7 +11816,7 @@ public final class QueryOuterClass {
         if (other.hasProofHeight()) {
           mergeProofHeight(other.getProofHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -11557,50 +11831,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                commitment_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                proof_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getProofHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString commitment_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -11625,9 +11868,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setCommitment(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         commitment_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11640,7 +11885,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCommitment() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         commitment_ = getDefaultInstance().getCommitment();
         onChanged();
         return this;
@@ -11669,9 +11914,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setProof(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         proof_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -11684,7 +11931,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearProof() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         proof_ = getDefaultInstance().getProof();
         onChanged();
         return this;
@@ -11702,7 +11949,7 @@ public final class QueryOuterClass {
        * @return Whether the proofHeight field is set.
        */
       public boolean hasProofHeight() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return proofHeightBuilder_ != null || proofHeight_ != null;
       }
       /**
        * <pre>
@@ -11732,11 +11979,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           proofHeight_ = value;
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -11750,11 +11997,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (proofHeightBuilder_ == null) {
           proofHeight_ = builderForValue.build();
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -11766,18 +12013,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeProofHeight(ibc.core.client.v1.Client.Height value) {
         if (proofHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            proofHeight_ != null &&
-            proofHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getProofHeightBuilder().mergeFrom(value);
+          if (proofHeight_ != null) {
+            proofHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(proofHeight_).mergeFrom(value).buildPartial();
           } else {
             proofHeight_ = value;
           }
+          onChanged();
         } else {
           proofHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -11788,13 +12034,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearProofHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+          onChanged();
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -11805,7 +12052,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getProofHeightBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getProofHeightFieldBuilder().getBuilder();
       }
@@ -11877,18 +12124,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryPacketCommitmentResponse(input, extensionRegistry);
       }
     };
 
@@ -12013,6 +12249,68 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryPacketCommitmentsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            case 26: {
+              cosmos.base.query.v1beta1.Pagination.PageRequest.Builder subBuilder = null;
+              if (pagination_ != null) {
+                subBuilder = pagination_.toBuilder();
+              }
+              pagination_ = input.readMessage(cosmos.base.query.v1beta1.Pagination.PageRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pagination_);
+                pagination_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryPacketCommitmentsRequest_descriptor;
@@ -12027,8 +12325,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port unique identifier
@@ -12074,8 +12371,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier
@@ -12155,7 +12451,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public cosmos.base.query.v1beta1.Pagination.PageRequestOrBuilder getPaginationOrBuilder() {
-      return pagination_ == null ? cosmos.base.query.v1beta1.Pagination.PageRequest.getDefaultInstance() : pagination_;
+      return getPagination();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -12172,16 +12468,16 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
       if (pagination_ != null) {
         output.writeMessage(3, getPagination());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -12190,17 +12486,17 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
       if (pagination_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getPagination());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -12224,7 +12520,7 @@ public final class QueryOuterClass {
         if (!getPagination()
             .equals(other.getPagination())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -12243,7 +12539,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PAGINATION_FIELD_NUMBER;
         hash = (53 * hash) + getPagination().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -12365,23 +12661,30 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
         return this;
@@ -12410,24 +12713,15 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
+        if (paginationBuilder_ == null) {
+          result.pagination_ = pagination_;
+        } else {
+          result.pagination_ = paginationBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.pagination_ = paginationBuilder_ == null
-              ? pagination_
-              : paginationBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -12476,18 +12770,16 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsRequest.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasPagination()) {
           mergePagination(other.getPagination());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -12502,50 +12794,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getPaginationFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object portId_ = "";
       /**
@@ -12600,9 +12861,11 @@ public final class QueryOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -12615,8 +12878,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -12631,10 +12894,12 @@ public final class QueryOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -12692,9 +12957,11 @@ public final class QueryOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -12707,8 +12974,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -12723,10 +12990,12 @@ public final class QueryOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -12743,7 +13012,7 @@ public final class QueryOuterClass {
        * @return Whether the pagination field is set.
        */
       public boolean hasPagination() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return paginationBuilder_ != null || pagination_ != null;
       }
       /**
        * <pre>
@@ -12773,11 +13042,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           pagination_ = value;
+          onChanged();
         } else {
           paginationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -12791,11 +13060,11 @@ public final class QueryOuterClass {
           cosmos.base.query.v1beta1.Pagination.PageRequest.Builder builderForValue) {
         if (paginationBuilder_ == null) {
           pagination_ = builderForValue.build();
+          onChanged();
         } else {
           paginationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -12807,18 +13076,17 @@ public final class QueryOuterClass {
        */
       public Builder mergePagination(cosmos.base.query.v1beta1.Pagination.PageRequest value) {
         if (paginationBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            pagination_ != null &&
-            pagination_ != cosmos.base.query.v1beta1.Pagination.PageRequest.getDefaultInstance()) {
-            getPaginationBuilder().mergeFrom(value);
+          if (pagination_ != null) {
+            pagination_ =
+              cosmos.base.query.v1beta1.Pagination.PageRequest.newBuilder(pagination_).mergeFrom(value).buildPartial();
           } else {
             pagination_ = value;
           }
+          onChanged();
         } else {
           paginationBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -12829,13 +13097,14 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 3;</code>
        */
       public Builder clearPagination() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+          onChanged();
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -12846,7 +13115,7 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 3;</code>
        */
       public cosmos.base.query.v1beta1.Pagination.PageRequest.Builder getPaginationBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getPaginationFieldBuilder().getBuilder();
       }
@@ -12918,18 +13187,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryPacketCommitmentsRequest(input, extensionRegistry);
       }
     };
 
@@ -13064,6 +13322,82 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryPacketCommitmentsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                commitments_ = new java.util.ArrayList<ibc.core.channel.v1.ChannelOuterClass.PacketState>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              commitments_.add(
+                  input.readMessage(ibc.core.channel.v1.ChannelOuterClass.PacketState.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              cosmos.base.query.v1beta1.Pagination.PageResponse.Builder subBuilder = null;
+              if (pagination_ != null) {
+                subBuilder = pagination_.toBuilder();
+              }
+              pagination_ = input.readMessage(cosmos.base.query.v1beta1.Pagination.PageResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pagination_);
+                pagination_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (height_ != null) {
+                subBuilder = height_.toBuilder();
+              }
+              height_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(height_);
+                height_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          commitments_ = java.util.Collections.unmodifiableList(commitments_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryPacketCommitmentsResponse_descriptor;
@@ -13078,7 +13412,6 @@ public final class QueryOuterClass {
     }
 
     public static final int COMMITMENTS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<ibc.core.channel.v1.ChannelOuterClass.PacketState> commitments_;
     /**
      * <code>repeated .ibc.core.channel.v1.PacketState commitments = 1;</code>
@@ -13153,7 +13486,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public cosmos.base.query.v1beta1.Pagination.PageResponseOrBuilder getPaginationOrBuilder() {
-      return pagination_ == null ? cosmos.base.query.v1beta1.Pagination.PageResponse.getDefaultInstance() : pagination_;
+      return getPagination();
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 3;
@@ -13191,7 +13524,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getHeightOrBuilder() {
-      return height_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : height_;
+      return getHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -13217,7 +13550,7 @@ public final class QueryOuterClass {
       if (height_ != null) {
         output.writeMessage(3, getHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -13238,7 +13571,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -13265,7 +13598,7 @@ public final class QueryOuterClass {
         if (!getHeight()
             .equals(other.getHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -13288,7 +13621,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -13410,33 +13743,39 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getCommitmentsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (commitmentsBuilder_ == null) {
           commitments_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          commitments_ = null;
           commitmentsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
         return this;
@@ -13465,13 +13804,7 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsResponse result) {
+        int from_bitField0_ = bitField0_;
         if (commitmentsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             commitments_ = java.util.Collections.unmodifiableList(commitments_);
@@ -13481,20 +13814,18 @@ public final class QueryOuterClass {
         } else {
           result.commitments_ = commitmentsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.pagination_ = paginationBuilder_ == null
-              ? pagination_
-              : paginationBuilder_.build();
+        if (paginationBuilder_ == null) {
+          result.pagination_ = pagination_;
+        } else {
+          result.pagination_ = paginationBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.height_ = heightBuilder_ == null
-              ? height_
-              : heightBuilder_.build();
+        if (heightBuilder_ == null) {
+          result.height_ = height_;
+        } else {
+          result.height_ = heightBuilder_.build();
         }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -13573,7 +13904,7 @@ public final class QueryOuterClass {
         if (other.hasHeight()) {
           mergeHeight(other.getHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -13588,57 +13919,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                ibc.core.channel.v1.ChannelOuterClass.PacketState m =
-                    input.readMessage(
-                        ibc.core.channel.v1.ChannelOuterClass.PacketState.parser(),
-                        extensionRegistry);
-                if (commitmentsBuilder_ == null) {
-                  ensureCommitmentsIsMutable();
-                  commitments_.add(m);
-                } else {
-                  commitmentsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getPaginationFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryPacketCommitmentsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -13895,7 +14186,7 @@ public final class QueryOuterClass {
        * @return Whether the pagination field is set.
        */
       public boolean hasPagination() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return paginationBuilder_ != null || pagination_ != null;
       }
       /**
        * <pre>
@@ -13925,11 +14216,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           pagination_ = value;
+          onChanged();
         } else {
           paginationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -13943,11 +14234,11 @@ public final class QueryOuterClass {
           cosmos.base.query.v1beta1.Pagination.PageResponse.Builder builderForValue) {
         if (paginationBuilder_ == null) {
           pagination_ = builderForValue.build();
+          onChanged();
         } else {
           paginationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -13959,18 +14250,17 @@ public final class QueryOuterClass {
        */
       public Builder mergePagination(cosmos.base.query.v1beta1.Pagination.PageResponse value) {
         if (paginationBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            pagination_ != null &&
-            pagination_ != cosmos.base.query.v1beta1.Pagination.PageResponse.getDefaultInstance()) {
-            getPaginationBuilder().mergeFrom(value);
+          if (pagination_ != null) {
+            pagination_ =
+              cosmos.base.query.v1beta1.Pagination.PageResponse.newBuilder(pagination_).mergeFrom(value).buildPartial();
           } else {
             pagination_ = value;
           }
+          onChanged();
         } else {
           paginationBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -13981,13 +14271,14 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
        */
       public Builder clearPagination() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+          onChanged();
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -13998,7 +14289,7 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
        */
       public cosmos.base.query.v1beta1.Pagination.PageResponse.Builder getPaginationBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getPaginationFieldBuilder().getBuilder();
       }
@@ -14050,7 +14341,7 @@ public final class QueryOuterClass {
        * @return Whether the height field is set.
        */
       public boolean hasHeight() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return heightBuilder_ != null || height_ != null;
       }
       /**
        * <pre>
@@ -14080,11 +14371,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           height_ = value;
+          onChanged();
         } else {
           heightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -14098,11 +14389,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (heightBuilder_ == null) {
           height_ = builderForValue.build();
+          onChanged();
         } else {
           heightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -14114,18 +14405,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeHeight(ibc.core.client.v1.Client.Height value) {
         if (heightBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            height_ != null &&
-            height_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getHeightBuilder().mergeFrom(value);
+          if (height_ != null) {
+            height_ =
+              ibc.core.client.v1.Client.Height.newBuilder(height_).mergeFrom(value).buildPartial();
           } else {
             height_ = value;
           }
+          onChanged();
         } else {
           heightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -14136,13 +14426,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+          onChanged();
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -14153,7 +14444,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getHeightBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getHeightFieldBuilder().getBuilder();
       }
@@ -14225,18 +14516,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryPacketCommitmentsResponse(input, extensionRegistry);
       }
     };
 
@@ -14344,6 +14624,60 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryPacketReceiptRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            case 24: {
+
+              sequence_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryPacketReceiptRequest_descriptor;
@@ -14358,8 +14692,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port unique identifier
@@ -14405,8 +14738,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier
@@ -14452,7 +14784,7 @@ public final class QueryOuterClass {
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 3;
-    private long sequence_ = 0L;
+    private long sequence_;
     /**
      * <pre>
      * packet sequence
@@ -14480,16 +14812,16 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
       if (sequence_ != 0L) {
         output.writeUInt64(3, sequence_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -14498,17 +14830,17 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
       if (sequence_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, sequence_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -14529,7 +14861,7 @@ public final class QueryOuterClass {
           .equals(other.getChannelId())) return false;
       if (getSequence()
           != other.getSequence()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -14547,7 +14879,7 @@ public final class QueryOuterClass {
       hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSequence());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -14669,21 +15001,28 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
+
         sequence_ = 0L;
+
         return this;
       }
 
@@ -14710,22 +15049,11 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
+        result.sequence_ = sequence_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.sequence_ = sequence_;
-        }
       }
 
       @java.lang.Override
@@ -14774,18 +15102,16 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptRequest.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getSequence() != 0L) {
           setSequence(other.getSequence());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -14800,48 +15126,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                sequence_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object portId_ = "";
       /**
@@ -14896,9 +15193,11 @@ public final class QueryOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -14911,8 +15210,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -14927,10 +15226,12 @@ public final class QueryOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -14988,9 +15289,11 @@ public final class QueryOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -15003,8 +15306,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -15019,10 +15322,12 @@ public final class QueryOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -15052,7 +15357,6 @@ public final class QueryOuterClass {
       public Builder setSequence(long value) {
         
         sequence_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -15065,7 +15369,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         sequence_ = 0L;
         onChanged();
         return this;
@@ -15103,18 +15407,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryPacketReceiptRequest(input, extensionRegistry);
       }
     };
 
@@ -15219,6 +15512,66 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryPacketReceiptResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+
+              received_ = input.readBool();
+              break;
+            }
+            case 26: {
+
+              proof_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (proofHeight_ != null) {
+                subBuilder = proofHeight_.toBuilder();
+              }
+              proofHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(proofHeight_);
+                proofHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryPacketReceiptResponse_descriptor;
@@ -15233,7 +15586,7 @@ public final class QueryOuterClass {
     }
 
     public static final int RECEIVED_FIELD_NUMBER = 2;
-    private boolean received_ = false;
+    private boolean received_;
     /**
      * <pre>
      * success flag for if receipt exists
@@ -15248,7 +15601,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PROOF_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString proof_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString proof_;
     /**
      * <pre>
      * merkle proof of existence
@@ -15297,7 +15650,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getProofHeightOrBuilder() {
-      return proofHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : proofHeight_;
+      return getProofHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -15323,7 +15676,7 @@ public final class QueryOuterClass {
       if (proofHeight_ != null) {
         output.writeMessage(4, getProofHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -15344,7 +15697,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getProofHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -15368,7 +15721,7 @@ public final class QueryOuterClass {
         if (!getProofHeight()
             .equals(other.getProofHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -15388,7 +15741,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PROOF_HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getProofHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -15511,23 +15864,30 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         received_ = false;
+
         proof_ = com.google.protobuf.ByteString.EMPTY;
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
         return this;
@@ -15556,24 +15916,15 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.received_ = received_;
+        result.proof_ = proof_;
+        if (proofHeightBuilder_ == null) {
+          result.proofHeight_ = proofHeight_;
+        } else {
+          result.proofHeight_ = proofHeightBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.received_ = received_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.proof_ = proof_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.proofHeight_ = proofHeightBuilder_ == null
-              ? proofHeight_
-              : proofHeightBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -15629,7 +15980,7 @@ public final class QueryOuterClass {
         if (other.hasProofHeight()) {
           mergeProofHeight(other.getProofHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -15644,50 +15995,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 16: {
-                received_ = input.readBool();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 16
-              case 26: {
-                proof_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 26
-              case 34: {
-                input.readMessage(
-                    getProofHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryPacketReceiptResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private boolean received_ ;
       /**
@@ -15714,7 +16034,6 @@ public final class QueryOuterClass {
       public Builder setReceived(boolean value) {
         
         received_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -15727,7 +16046,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearReceived() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         received_ = false;
         onChanged();
         return this;
@@ -15756,9 +16075,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setProof(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         proof_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -15771,7 +16092,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearProof() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         proof_ = getDefaultInstance().getProof();
         onChanged();
         return this;
@@ -15789,7 +16110,7 @@ public final class QueryOuterClass {
        * @return Whether the proofHeight field is set.
        */
       public boolean hasProofHeight() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return proofHeightBuilder_ != null || proofHeight_ != null;
       }
       /**
        * <pre>
@@ -15819,11 +16140,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           proofHeight_ = value;
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -15837,11 +16158,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (proofHeightBuilder_ == null) {
           proofHeight_ = builderForValue.build();
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -15853,18 +16174,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeProofHeight(ibc.core.client.v1.Client.Height value) {
         if (proofHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            proofHeight_ != null &&
-            proofHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getProofHeightBuilder().mergeFrom(value);
+          if (proofHeight_ != null) {
+            proofHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(proofHeight_).mergeFrom(value).buildPartial();
           } else {
             proofHeight_ = value;
           }
+          onChanged();
         } else {
           proofHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -15875,13 +16195,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearProofHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+          onChanged();
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -15892,7 +16213,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getProofHeightBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getProofHeightFieldBuilder().getBuilder();
       }
@@ -15964,18 +16285,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryPacketReceiptResponse(input, extensionRegistry);
       }
     };
 
@@ -16083,6 +16393,60 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryPacketAcknowledgementRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            case 24: {
+
+              sequence_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryPacketAcknowledgementRequest_descriptor;
@@ -16097,8 +16461,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port unique identifier
@@ -16144,8 +16507,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier
@@ -16191,7 +16553,7 @@ public final class QueryOuterClass {
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 3;
-    private long sequence_ = 0L;
+    private long sequence_;
     /**
      * <pre>
      * packet sequence
@@ -16219,16 +16581,16 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
       if (sequence_ != 0L) {
         output.writeUInt64(3, sequence_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -16237,17 +16599,17 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
       if (sequence_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, sequence_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -16268,7 +16630,7 @@ public final class QueryOuterClass {
           .equals(other.getChannelId())) return false;
       if (getSequence()
           != other.getSequence()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -16286,7 +16648,7 @@ public final class QueryOuterClass {
       hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSequence());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -16408,21 +16770,28 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
+
         sequence_ = 0L;
+
         return this;
       }
 
@@ -16449,22 +16818,11 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
+        result.sequence_ = sequence_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.sequence_ = sequence_;
-        }
       }
 
       @java.lang.Override
@@ -16513,18 +16871,16 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementRequest.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getSequence() != 0L) {
           setSequence(other.getSequence());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -16539,48 +16895,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                sequence_ = input.readUInt64();
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object portId_ = "";
       /**
@@ -16635,9 +16962,11 @@ public final class QueryOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -16650,8 +16979,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -16666,10 +16995,12 @@ public final class QueryOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -16727,9 +17058,11 @@ public final class QueryOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -16742,8 +17075,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -16758,10 +17091,12 @@ public final class QueryOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -16791,7 +17126,6 @@ public final class QueryOuterClass {
       public Builder setSequence(long value) {
         
         sequence_ = value;
-        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -16804,7 +17138,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         sequence_ = 0L;
         onChanged();
         return this;
@@ -16842,18 +17176,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryPacketAcknowledgementRequest(input, extensionRegistry);
       }
     };
 
@@ -16959,6 +17282,66 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryPacketAcknowledgementResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              acknowledgement_ = input.readBytes();
+              break;
+            }
+            case 18: {
+
+              proof_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (proofHeight_ != null) {
+                subBuilder = proofHeight_.toBuilder();
+              }
+              proofHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(proofHeight_);
+                proofHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryPacketAcknowledgementResponse_descriptor;
@@ -16973,7 +17356,7 @@ public final class QueryOuterClass {
     }
 
     public static final int ACKNOWLEDGEMENT_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString acknowledgement_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString acknowledgement_;
     /**
      * <pre>
      * packet associated with the request fields
@@ -16988,7 +17371,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PROOF_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString proof_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString proof_;
     /**
      * <pre>
      * merkle proof of existence
@@ -17037,7 +17420,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getProofHeightOrBuilder() {
-      return proofHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : proofHeight_;
+      return getProofHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -17063,7 +17446,7 @@ public final class QueryOuterClass {
       if (proofHeight_ != null) {
         output.writeMessage(3, getProofHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -17084,7 +17467,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getProofHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -17108,7 +17491,7 @@ public final class QueryOuterClass {
         if (!getProofHeight()
             .equals(other.getProofHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -17127,7 +17510,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PROOF_HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getProofHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -17250,23 +17633,30 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         acknowledgement_ = com.google.protobuf.ByteString.EMPTY;
+
         proof_ = com.google.protobuf.ByteString.EMPTY;
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
         return this;
@@ -17295,24 +17685,15 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.acknowledgement_ = acknowledgement_;
+        result.proof_ = proof_;
+        if (proofHeightBuilder_ == null) {
+          result.proofHeight_ = proofHeight_;
+        } else {
+          result.proofHeight_ = proofHeightBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.acknowledgement_ = acknowledgement_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.proof_ = proof_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.proofHeight_ = proofHeightBuilder_ == null
-              ? proofHeight_
-              : proofHeightBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -17368,7 +17749,7 @@ public final class QueryOuterClass {
         if (other.hasProofHeight()) {
           mergeProofHeight(other.getProofHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -17383,50 +17764,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                acknowledgement_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                proof_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getProofHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString acknowledgement_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -17451,9 +17801,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setAcknowledgement(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         acknowledgement_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -17466,7 +17818,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAcknowledgement() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         acknowledgement_ = getDefaultInstance().getAcknowledgement();
         onChanged();
         return this;
@@ -17495,9 +17847,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setProof(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         proof_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -17510,7 +17864,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearProof() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         proof_ = getDefaultInstance().getProof();
         onChanged();
         return this;
@@ -17528,7 +17882,7 @@ public final class QueryOuterClass {
        * @return Whether the proofHeight field is set.
        */
       public boolean hasProofHeight() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return proofHeightBuilder_ != null || proofHeight_ != null;
       }
       /**
        * <pre>
@@ -17558,11 +17912,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           proofHeight_ = value;
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -17576,11 +17930,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (proofHeightBuilder_ == null) {
           proofHeight_ = builderForValue.build();
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -17592,18 +17946,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeProofHeight(ibc.core.client.v1.Client.Height value) {
         if (proofHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            proofHeight_ != null &&
-            proofHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getProofHeightBuilder().mergeFrom(value);
+          if (proofHeight_ != null) {
+            proofHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(proofHeight_).mergeFrom(value).buildPartial();
           } else {
             proofHeight_ = value;
           }
+          onChanged();
         } else {
           proofHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -17614,13 +17967,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearProofHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+          onChanged();
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -17631,7 +17985,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getProofHeightBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getProofHeightFieldBuilder().getBuilder();
       }
@@ -17703,18 +18057,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryPacketAcknowledgementResponse(input, extensionRegistry);
       }
     };
 
@@ -17804,35 +18147,6 @@ public final class QueryOuterClass {
      * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 3;</code>
      */
     cosmos.base.query.v1beta1.Pagination.PageRequestOrBuilder getPaginationOrBuilder();
-
-    /**
-     * <pre>
-     * list of packet sequences
-     * </pre>
-     *
-     * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-     * @return A list containing the packetCommitmentSequences.
-     */
-    java.util.List<java.lang.Long> getPacketCommitmentSequencesList();
-    /**
-     * <pre>
-     * list of packet sequences
-     * </pre>
-     *
-     * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-     * @return The count of packetCommitmentSequences.
-     */
-    int getPacketCommitmentSequencesCount();
-    /**
-     * <pre>
-     * list of packet sequences
-     * </pre>
-     *
-     * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-     * @param index The index of the element to return.
-     * @return The packetCommitmentSequences at the given index.
-     */
-    long getPacketCommitmentSequences(int index);
   }
   /**
    * <pre>
@@ -17854,7 +18168,6 @@ public final class QueryOuterClass {
     private QueryPacketAcknowledgementsRequest() {
       portId_ = "";
       channelId_ = "";
-      packetCommitmentSequences_ = emptyLongList();
     }
 
     @java.lang.Override
@@ -17868,6 +18181,68 @@ public final class QueryOuterClass {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private QueryPacketAcknowledgementsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            case 26: {
+              cosmos.base.query.v1beta1.Pagination.PageRequest.Builder subBuilder = null;
+              if (pagination_ != null) {
+                subBuilder = pagination_.toBuilder();
+              }
+              pagination_ = input.readMessage(cosmos.base.query.v1beta1.Pagination.PageRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pagination_);
+                pagination_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -17883,8 +18258,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port unique identifier
@@ -17930,8 +18304,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier
@@ -18011,49 +18384,8 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public cosmos.base.query.v1beta1.Pagination.PageRequestOrBuilder getPaginationOrBuilder() {
-      return pagination_ == null ? cosmos.base.query.v1beta1.Pagination.PageRequest.getDefaultInstance() : pagination_;
+      return getPagination();
     }
-
-    public static final int PACKET_COMMITMENT_SEQUENCES_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private com.google.protobuf.Internal.LongList packetCommitmentSequences_;
-    /**
-     * <pre>
-     * list of packet sequences
-     * </pre>
-     *
-     * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-     * @return A list containing the packetCommitmentSequences.
-     */
-    @java.lang.Override
-    public java.util.List<java.lang.Long>
-        getPacketCommitmentSequencesList() {
-      return packetCommitmentSequences_;
-    }
-    /**
-     * <pre>
-     * list of packet sequences
-     * </pre>
-     *
-     * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-     * @return The count of packetCommitmentSequences.
-     */
-    public int getPacketCommitmentSequencesCount() {
-      return packetCommitmentSequences_.size();
-    }
-    /**
-     * <pre>
-     * list of packet sequences
-     * </pre>
-     *
-     * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-     * @param index The index of the element to return.
-     * @return The packetCommitmentSequences at the given index.
-     */
-    public long getPacketCommitmentSequences(int index) {
-      return packetCommitmentSequences_.getLong(index);
-    }
-    private int packetCommitmentSequencesMemoizedSerializedSize = -1;
 
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
@@ -18069,24 +18401,16 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
       if (pagination_ != null) {
         output.writeMessage(3, getPagination());
       }
-      if (getPacketCommitmentSequencesList().size() > 0) {
-        output.writeUInt32NoTag(34);
-        output.writeUInt32NoTag(packetCommitmentSequencesMemoizedSerializedSize);
-      }
-      for (int i = 0; i < packetCommitmentSequences_.size(); i++) {
-        output.writeUInt64NoTag(packetCommitmentSequences_.getLong(i));
-      }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -18095,31 +18419,17 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
       if (pagination_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getPagination());
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < packetCommitmentSequences_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt64SizeNoTag(packetCommitmentSequences_.getLong(i));
-        }
-        size += dataSize;
-        if (!getPacketCommitmentSequencesList().isEmpty()) {
-          size += 1;
-          size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
-        }
-        packetCommitmentSequencesMemoizedSerializedSize = dataSize;
-      }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -18143,9 +18453,7 @@ public final class QueryOuterClass {
         if (!getPagination()
             .equals(other.getPagination())) return false;
       }
-      if (!getPacketCommitmentSequencesList()
-          .equals(other.getPacketCommitmentSequencesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -18164,11 +18472,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PAGINATION_FIELD_NUMBER;
         hash = (53 * hash) + getPagination().hashCode();
       }
-      if (getPacketCommitmentSequencesCount() > 0) {
-        hash = (37 * hash) + PACKET_COMMITMENT_SEQUENCES_FIELD_NUMBER;
-        hash = (53 * hash) + getPacketCommitmentSequencesList().hashCode();
-      }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -18290,26 +18594,32 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        packetCommitmentSequences_ = emptyLongList();
         return this;
       }
 
@@ -18336,33 +18646,15 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsRequest(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
+        if (paginationBuilder_ == null) {
+          result.pagination_ = pagination_;
+        } else {
+          result.pagination_ = paginationBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsRequest result) {
-        if (((bitField0_ & 0x00000008) != 0)) {
-          packetCommitmentSequences_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.packetCommitmentSequences_ = packetCommitmentSequences_;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.pagination_ = paginationBuilder_ == null
-              ? pagination_
-              : paginationBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -18411,28 +18703,16 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsRequest.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasPagination()) {
           mergePagination(other.getPagination());
         }
-        if (!other.packetCommitmentSequences_.isEmpty()) {
-          if (packetCommitmentSequences_.isEmpty()) {
-            packetCommitmentSequences_ = other.packetCommitmentSequences_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensurePacketCommitmentSequencesIsMutable();
-            packetCommitmentSequences_.addAll(other.packetCommitmentSequences_);
-          }
-          onChanged();
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -18447,66 +18727,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getPaginationFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              case 32: {
-                long v = input.readUInt64();
-                ensurePacketCommitmentSequencesIsMutable();
-                packetCommitmentSequences_.addLong(v);
-                break;
-              } // case 32
-              case 34: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensurePacketCommitmentSequencesIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  packetCommitmentSequences_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object portId_ = "";
       /**
@@ -18561,9 +18794,11 @@ public final class QueryOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -18576,8 +18811,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -18592,10 +18827,12 @@ public final class QueryOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -18653,9 +18890,11 @@ public final class QueryOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -18668,8 +18907,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -18684,10 +18923,12 @@ public final class QueryOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -18704,7 +18945,7 @@ public final class QueryOuterClass {
        * @return Whether the pagination field is set.
        */
       public boolean hasPagination() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return paginationBuilder_ != null || pagination_ != null;
       }
       /**
        * <pre>
@@ -18734,11 +18975,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           pagination_ = value;
+          onChanged();
         } else {
           paginationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -18752,11 +18993,11 @@ public final class QueryOuterClass {
           cosmos.base.query.v1beta1.Pagination.PageRequest.Builder builderForValue) {
         if (paginationBuilder_ == null) {
           pagination_ = builderForValue.build();
+          onChanged();
         } else {
           paginationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -18768,18 +19009,17 @@ public final class QueryOuterClass {
        */
       public Builder mergePagination(cosmos.base.query.v1beta1.Pagination.PageRequest value) {
         if (paginationBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            pagination_ != null &&
-            pagination_ != cosmos.base.query.v1beta1.Pagination.PageRequest.getDefaultInstance()) {
-            getPaginationBuilder().mergeFrom(value);
+          if (pagination_ != null) {
+            pagination_ =
+              cosmos.base.query.v1beta1.Pagination.PageRequest.newBuilder(pagination_).mergeFrom(value).buildPartial();
           } else {
             pagination_ = value;
           }
+          onChanged();
         } else {
           paginationBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -18790,13 +19030,14 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 3;</code>
        */
       public Builder clearPagination() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+          onChanged();
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -18807,7 +19048,7 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageRequest pagination = 3;</code>
        */
       public cosmos.base.query.v1beta1.Pagination.PageRequest.Builder getPaginationBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getPaginationFieldBuilder().getBuilder();
       }
@@ -18846,115 +19087,6 @@ public final class QueryOuterClass {
         }
         return paginationBuilder_;
       }
-
-      private com.google.protobuf.Internal.LongList packetCommitmentSequences_ = emptyLongList();
-      private void ensurePacketCommitmentSequencesIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
-          packetCommitmentSequences_ = mutableCopy(packetCommitmentSequences_);
-          bitField0_ |= 0x00000008;
-        }
-      }
-      /**
-       * <pre>
-       * list of packet sequences
-       * </pre>
-       *
-       * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-       * @return A list containing the packetCommitmentSequences.
-       */
-      public java.util.List<java.lang.Long>
-          getPacketCommitmentSequencesList() {
-        return ((bitField0_ & 0x00000008) != 0) ?
-                 java.util.Collections.unmodifiableList(packetCommitmentSequences_) : packetCommitmentSequences_;
-      }
-      /**
-       * <pre>
-       * list of packet sequences
-       * </pre>
-       *
-       * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-       * @return The count of packetCommitmentSequences.
-       */
-      public int getPacketCommitmentSequencesCount() {
-        return packetCommitmentSequences_.size();
-      }
-      /**
-       * <pre>
-       * list of packet sequences
-       * </pre>
-       *
-       * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-       * @param index The index of the element to return.
-       * @return The packetCommitmentSequences at the given index.
-       */
-      public long getPacketCommitmentSequences(int index) {
-        return packetCommitmentSequences_.getLong(index);
-      }
-      /**
-       * <pre>
-       * list of packet sequences
-       * </pre>
-       *
-       * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-       * @param index The index to set the value at.
-       * @param value The packetCommitmentSequences to set.
-       * @return This builder for chaining.
-       */
-      public Builder setPacketCommitmentSequences(
-          int index, long value) {
-        
-        ensurePacketCommitmentSequencesIsMutable();
-        packetCommitmentSequences_.setLong(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * list of packet sequences
-       * </pre>
-       *
-       * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-       * @param value The packetCommitmentSequences to add.
-       * @return This builder for chaining.
-       */
-      public Builder addPacketCommitmentSequences(long value) {
-        
-        ensurePacketCommitmentSequencesIsMutable();
-        packetCommitmentSequences_.addLong(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * list of packet sequences
-       * </pre>
-       *
-       * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-       * @param values The packetCommitmentSequences to add.
-       * @return This builder for chaining.
-       */
-      public Builder addAllPacketCommitmentSequences(
-          java.lang.Iterable<? extends java.lang.Long> values) {
-        ensurePacketCommitmentSequencesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, packetCommitmentSequences_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * list of packet sequences
-       * </pre>
-       *
-       * <code>repeated uint64 packet_commitment_sequences = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearPacketCommitmentSequences() {
-        packetCommitmentSequences_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -18988,18 +19120,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryPacketAcknowledgementsRequest(input, extensionRegistry);
       }
     };
 
@@ -19134,6 +19255,82 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryPacketAcknowledgementsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                acknowledgements_ = new java.util.ArrayList<ibc.core.channel.v1.ChannelOuterClass.PacketState>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              acknowledgements_.add(
+                  input.readMessage(ibc.core.channel.v1.ChannelOuterClass.PacketState.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              cosmos.base.query.v1beta1.Pagination.PageResponse.Builder subBuilder = null;
+              if (pagination_ != null) {
+                subBuilder = pagination_.toBuilder();
+              }
+              pagination_ = input.readMessage(cosmos.base.query.v1beta1.Pagination.PageResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pagination_);
+                pagination_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (height_ != null) {
+                subBuilder = height_.toBuilder();
+              }
+              height_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(height_);
+                height_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          acknowledgements_ = java.util.Collections.unmodifiableList(acknowledgements_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryPacketAcknowledgementsResponse_descriptor;
@@ -19148,7 +19345,6 @@ public final class QueryOuterClass {
     }
 
     public static final int ACKNOWLEDGEMENTS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<ibc.core.channel.v1.ChannelOuterClass.PacketState> acknowledgements_;
     /**
      * <code>repeated .ibc.core.channel.v1.PacketState acknowledgements = 1;</code>
@@ -19223,7 +19419,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public cosmos.base.query.v1beta1.Pagination.PageResponseOrBuilder getPaginationOrBuilder() {
-      return pagination_ == null ? cosmos.base.query.v1beta1.Pagination.PageResponse.getDefaultInstance() : pagination_;
+      return getPagination();
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 3;
@@ -19261,7 +19457,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getHeightOrBuilder() {
-      return height_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : height_;
+      return getHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -19287,7 +19483,7 @@ public final class QueryOuterClass {
       if (height_ != null) {
         output.writeMessage(3, getHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -19308,7 +19504,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -19335,7 +19531,7 @@ public final class QueryOuterClass {
         if (!getHeight()
             .equals(other.getHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -19358,7 +19554,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -19480,33 +19676,39 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getAcknowledgementsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (acknowledgementsBuilder_ == null) {
           acknowledgements_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          acknowledgements_ = null;
           acknowledgementsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
         return this;
@@ -19535,13 +19737,7 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsResponse result) {
+        int from_bitField0_ = bitField0_;
         if (acknowledgementsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             acknowledgements_ = java.util.Collections.unmodifiableList(acknowledgements_);
@@ -19551,20 +19747,18 @@ public final class QueryOuterClass {
         } else {
           result.acknowledgements_ = acknowledgementsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.pagination_ = paginationBuilder_ == null
-              ? pagination_
-              : paginationBuilder_.build();
+        if (paginationBuilder_ == null) {
+          result.pagination_ = pagination_;
+        } else {
+          result.pagination_ = paginationBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.height_ = heightBuilder_ == null
-              ? height_
-              : heightBuilder_.build();
+        if (heightBuilder_ == null) {
+          result.height_ = height_;
+        } else {
+          result.height_ = heightBuilder_.build();
         }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -19643,7 +19837,7 @@ public final class QueryOuterClass {
         if (other.hasHeight()) {
           mergeHeight(other.getHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -19658,57 +19852,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                ibc.core.channel.v1.ChannelOuterClass.PacketState m =
-                    input.readMessage(
-                        ibc.core.channel.v1.ChannelOuterClass.PacketState.parser(),
-                        extensionRegistry);
-                if (acknowledgementsBuilder_ == null) {
-                  ensureAcknowledgementsIsMutable();
-                  acknowledgements_.add(m);
-                } else {
-                  acknowledgementsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getPaginationFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryPacketAcknowledgementsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -19965,7 +20119,7 @@ public final class QueryOuterClass {
        * @return Whether the pagination field is set.
        */
       public boolean hasPagination() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return paginationBuilder_ != null || pagination_ != null;
       }
       /**
        * <pre>
@@ -19995,11 +20149,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           pagination_ = value;
+          onChanged();
         } else {
           paginationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -20013,11 +20167,11 @@ public final class QueryOuterClass {
           cosmos.base.query.v1beta1.Pagination.PageResponse.Builder builderForValue) {
         if (paginationBuilder_ == null) {
           pagination_ = builderForValue.build();
+          onChanged();
         } else {
           paginationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -20029,18 +20183,17 @@ public final class QueryOuterClass {
        */
       public Builder mergePagination(cosmos.base.query.v1beta1.Pagination.PageResponse value) {
         if (paginationBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            pagination_ != null &&
-            pagination_ != cosmos.base.query.v1beta1.Pagination.PageResponse.getDefaultInstance()) {
-            getPaginationBuilder().mergeFrom(value);
+          if (pagination_ != null) {
+            pagination_ =
+              cosmos.base.query.v1beta1.Pagination.PageResponse.newBuilder(pagination_).mergeFrom(value).buildPartial();
           } else {
             pagination_ = value;
           }
+          onChanged();
         } else {
           paginationBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -20051,13 +20204,14 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
        */
       public Builder clearPagination() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        pagination_ = null;
-        if (paginationBuilder_ != null) {
-          paginationBuilder_.dispose();
+        if (paginationBuilder_ == null) {
+          pagination_ = null;
+          onChanged();
+        } else {
+          pagination_ = null;
           paginationBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -20068,7 +20222,7 @@ public final class QueryOuterClass {
        * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 2;</code>
        */
       public cosmos.base.query.v1beta1.Pagination.PageResponse.Builder getPaginationBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getPaginationFieldBuilder().getBuilder();
       }
@@ -20120,7 +20274,7 @@ public final class QueryOuterClass {
        * @return Whether the height field is set.
        */
       public boolean hasHeight() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return heightBuilder_ != null || height_ != null;
       }
       /**
        * <pre>
@@ -20150,11 +20304,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           height_ = value;
+          onChanged();
         } else {
           heightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -20168,11 +20322,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (heightBuilder_ == null) {
           height_ = builderForValue.build();
+          onChanged();
         } else {
           heightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -20184,18 +20338,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeHeight(ibc.core.client.v1.Client.Height value) {
         if (heightBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            height_ != null &&
-            height_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getHeightBuilder().mergeFrom(value);
+          if (height_ != null) {
+            height_ =
+              ibc.core.client.v1.Client.Height.newBuilder(height_).mergeFrom(value).buildPartial();
           } else {
             height_ = value;
           }
+          onChanged();
         } else {
           heightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -20206,13 +20359,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+          onChanged();
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -20223,7 +20377,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getHeightBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getHeightFieldBuilder().getBuilder();
       }
@@ -20295,18 +20449,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryPacketAcknowledgementsResponse(input, extensionRegistry);
       }
     };
 
@@ -20434,6 +20577,80 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryUnreceivedPacketsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            case 24: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                packetCommitmentSequences_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              packetCommitmentSequences_.addLong(input.readUInt64());
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                packetCommitmentSequences_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                packetCommitmentSequences_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          packetCommitmentSequences_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryUnreceivedPacketsRequest_descriptor;
@@ -20448,8 +20665,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port unique identifier
@@ -20495,8 +20711,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier
@@ -20542,7 +20757,6 @@ public final class QueryOuterClass {
     }
 
     public static final int PACKET_COMMITMENT_SEQUENCES_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList packetCommitmentSequences_;
     /**
      * <pre>
@@ -20597,10 +20811,10 @@ public final class QueryOuterClass {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
       if (getPacketCommitmentSequencesList().size() > 0) {
@@ -20610,7 +20824,7 @@ public final class QueryOuterClass {
       for (int i = 0; i < packetCommitmentSequences_.size(); i++) {
         output.writeUInt64NoTag(packetCommitmentSequences_.getLong(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -20619,10 +20833,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
       {
@@ -20639,7 +20853,7 @@ public final class QueryOuterClass {
         }
         packetCommitmentSequencesMemoizedSerializedSize = dataSize;
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -20660,7 +20874,7 @@ public final class QueryOuterClass {
           .equals(other.getChannelId())) return false;
       if (!getPacketCommitmentSequencesList()
           .equals(other.getPacketCommitmentSequencesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -20679,7 +20893,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PACKET_COMMITMENT_SEQUENCES_FIELD_NUMBER;
         hash = (53 * hash) + getPacketCommitmentSequencesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -20801,21 +21015,28 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
+
         packetCommitmentSequences_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -20842,28 +21063,16 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsRequest(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsRequest result) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           packetCommitmentSequences_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.packetCommitmentSequences_ = packetCommitmentSequences_;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -20912,25 +21121,23 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsRequest.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.packetCommitmentSequences_.isEmpty()) {
           if (packetCommitmentSequences_.isEmpty()) {
             packetCommitmentSequences_ = other.packetCommitmentSequences_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensurePacketCommitmentSequencesIsMutable();
             packetCommitmentSequences_.addAll(other.packetCommitmentSequences_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -20945,56 +21152,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                long v = input.readUInt64();
-                ensurePacketCommitmentSequencesIsMutable();
-                packetCommitmentSequences_.addLong(v);
-                break;
-              } // case 24
-              case 26: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensurePacketCommitmentSequencesIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  packetCommitmentSequences_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -21052,9 +21220,11 @@ public final class QueryOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -21067,8 +21237,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -21083,10 +21253,12 @@ public final class QueryOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -21144,9 +21316,11 @@ public final class QueryOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -21159,8 +21333,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -21175,20 +21349,22 @@ public final class QueryOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.Internal.LongList packetCommitmentSequences_ = emptyLongList();
       private void ensurePacketCommitmentSequencesIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           packetCommitmentSequences_ = mutableCopy(packetCommitmentSequences_);
-          bitField0_ |= 0x00000004;
-        }
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
        * <pre>
@@ -21200,7 +21376,7 @@ public final class QueryOuterClass {
        */
       public java.util.List<java.lang.Long>
           getPacketCommitmentSequencesList() {
-        return ((bitField0_ & 0x00000004) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(packetCommitmentSequences_) : packetCommitmentSequences_;
       }
       /**
@@ -21238,7 +21414,6 @@ public final class QueryOuterClass {
        */
       public Builder setPacketCommitmentSequences(
           int index, long value) {
-        
         ensurePacketCommitmentSequencesIsMutable();
         packetCommitmentSequences_.setLong(index, value);
         onChanged();
@@ -21254,7 +21429,6 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder addPacketCommitmentSequences(long value) {
-        
         ensurePacketCommitmentSequencesIsMutable();
         packetCommitmentSequences_.addLong(value);
         onChanged();
@@ -21287,7 +21461,7 @@ public final class QueryOuterClass {
        */
       public Builder clearPacketCommitmentSequences() {
         packetCommitmentSequences_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -21324,18 +21498,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryUnreceivedPacketsRequest(input, extensionRegistry);
       }
     };
 
@@ -21448,6 +21611,81 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryUnreceivedPacketsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                sequences_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              sequences_.addLong(input.readUInt64());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                sequences_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                sequences_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 18: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (height_ != null) {
+                subBuilder = height_.toBuilder();
+              }
+              height_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(height_);
+                height_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          sequences_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryUnreceivedPacketsResponse_descriptor;
@@ -21462,7 +21700,6 @@ public final class QueryOuterClass {
     }
 
     public static final int SEQUENCES_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList sequences_;
     /**
      * <pre>
@@ -21537,7 +21774,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getHeightOrBuilder() {
-      return height_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : height_;
+      return getHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -21565,7 +21802,7 @@ public final class QueryOuterClass {
       if (height_ != null) {
         output.writeMessage(2, getHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -21592,7 +21829,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -21614,7 +21851,7 @@ public final class QueryOuterClass {
         if (!getHeight()
             .equals(other.getHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -21633,7 +21870,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -21755,22 +21992,28 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         sequences_ = emptyLongList();
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (heightBuilder_ == null) {
+          height_ = null;
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
         return this;
@@ -21799,27 +22042,19 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsResponse result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           sequences_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.sequences_ = sequences_;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.height_ = heightBuilder_ == null
-              ? height_
-              : heightBuilder_.build();
+        if (heightBuilder_ == null) {
+          result.height_ = height_;
+        } else {
+          result.height_ = heightBuilder_.build();
         }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -21879,7 +22114,7 @@ public final class QueryOuterClass {
         if (other.hasHeight()) {
           mergeHeight(other.getHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -21894,53 +22129,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                long v = input.readUInt64();
-                ensureSequencesIsMutable();
-                sequences_.addLong(v);
-                break;
-              } // case 8
-              case 10: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureSequencesIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  sequences_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedPacketsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -21950,7 +22149,7 @@ public final class QueryOuterClass {
         if (!((bitField0_ & 0x00000001) != 0)) {
           sequences_ = mutableCopy(sequences_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
        * <pre>
@@ -22000,7 +22199,6 @@ public final class QueryOuterClass {
        */
       public Builder setSequences(
           int index, long value) {
-        
         ensureSequencesIsMutable();
         sequences_.setLong(index, value);
         onChanged();
@@ -22016,7 +22214,6 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder addSequences(long value) {
-        
         ensureSequencesIsMutable();
         sequences_.addLong(value);
         onChanged();
@@ -22066,7 +22263,7 @@ public final class QueryOuterClass {
        * @return Whether the height field is set.
        */
       public boolean hasHeight() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return heightBuilder_ != null || height_ != null;
       }
       /**
        * <pre>
@@ -22096,11 +22293,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           height_ = value;
+          onChanged();
         } else {
           heightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -22114,11 +22311,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (heightBuilder_ == null) {
           height_ = builderForValue.build();
+          onChanged();
         } else {
           heightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -22130,18 +22327,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeHeight(ibc.core.client.v1.Client.Height value) {
         if (heightBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            height_ != null &&
-            height_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getHeightBuilder().mergeFrom(value);
+          if (height_ != null) {
+            height_ =
+              ibc.core.client.v1.Client.Height.newBuilder(height_).mergeFrom(value).buildPartial();
           } else {
             height_ = value;
           }
+          onChanged();
         } else {
           heightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -22152,13 +22348,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 2 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+          onChanged();
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -22169,7 +22366,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 2 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getHeightBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getHeightFieldBuilder().getBuilder();
       }
@@ -22241,18 +22438,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryUnreceivedPacketsResponse(input, extensionRegistry);
       }
     };
 
@@ -22380,6 +22566,80 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryUnreceivedAcksRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            case 24: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                packetAckSequences_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              packetAckSequences_.addLong(input.readUInt64());
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                packetAckSequences_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                packetAckSequences_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          packetAckSequences_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryUnreceivedAcksRequest_descriptor;
@@ -22394,8 +22654,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port unique identifier
@@ -22441,8 +22700,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier
@@ -22488,7 +22746,6 @@ public final class QueryOuterClass {
     }
 
     public static final int PACKET_ACK_SEQUENCES_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList packetAckSequences_;
     /**
      * <pre>
@@ -22543,10 +22800,10 @@ public final class QueryOuterClass {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
       if (getPacketAckSequencesList().size() > 0) {
@@ -22556,7 +22813,7 @@ public final class QueryOuterClass {
       for (int i = 0; i < packetAckSequences_.size(); i++) {
         output.writeUInt64NoTag(packetAckSequences_.getLong(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -22565,10 +22822,10 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
       {
@@ -22585,7 +22842,7 @@ public final class QueryOuterClass {
         }
         packetAckSequencesMemoizedSerializedSize = dataSize;
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -22606,7 +22863,7 @@ public final class QueryOuterClass {
           .equals(other.getChannelId())) return false;
       if (!getPacketAckSequencesList()
           .equals(other.getPacketAckSequencesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -22625,7 +22882,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PACKET_ACK_SEQUENCES_FIELD_NUMBER;
         hash = (53 * hash) + getPacketAckSequencesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -22747,21 +23004,28 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
+
         packetAckSequences_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -22788,28 +23052,16 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksRequest(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksRequest result) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        int from_bitField0_ = bitField0_;
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
+        if (((bitField0_ & 0x00000001) != 0)) {
           packetAckSequences_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.packetAckSequences_ = packetAckSequences_;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -22858,25 +23110,23 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksRequest.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.packetAckSequences_.isEmpty()) {
           if (packetAckSequences_.isEmpty()) {
             packetAckSequences_ = other.packetAckSequences_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensurePacketAckSequencesIsMutable();
             packetAckSequences_.addAll(other.packetAckSequences_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -22891,56 +23141,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 24: {
-                long v = input.readUInt64();
-                ensurePacketAckSequencesIsMutable();
-                packetAckSequences_.addLong(v);
-                break;
-              } // case 24
-              case 26: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensurePacketAckSequencesIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  packetAckSequences_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -22998,9 +23209,11 @@ public final class QueryOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -23013,8 +23226,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -23029,10 +23242,12 @@ public final class QueryOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -23090,9 +23305,11 @@ public final class QueryOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -23105,8 +23322,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -23121,20 +23338,22 @@ public final class QueryOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.Internal.LongList packetAckSequences_ = emptyLongList();
       private void ensurePacketAckSequencesIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           packetAckSequences_ = mutableCopy(packetAckSequences_);
-          bitField0_ |= 0x00000004;
-        }
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
        * <pre>
@@ -23146,7 +23365,7 @@ public final class QueryOuterClass {
        */
       public java.util.List<java.lang.Long>
           getPacketAckSequencesList() {
-        return ((bitField0_ & 0x00000004) != 0) ?
+        return ((bitField0_ & 0x00000001) != 0) ?
                  java.util.Collections.unmodifiableList(packetAckSequences_) : packetAckSequences_;
       }
       /**
@@ -23184,7 +23403,6 @@ public final class QueryOuterClass {
        */
       public Builder setPacketAckSequences(
           int index, long value) {
-        
         ensurePacketAckSequencesIsMutable();
         packetAckSequences_.setLong(index, value);
         onChanged();
@@ -23200,7 +23418,6 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder addPacketAckSequences(long value) {
-        
         ensurePacketAckSequencesIsMutable();
         packetAckSequences_.addLong(value);
         onChanged();
@@ -23233,7 +23450,7 @@ public final class QueryOuterClass {
        */
       public Builder clearPacketAckSequences() {
         packetAckSequences_ = emptyLongList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -23270,18 +23487,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryUnreceivedAcksRequest(input, extensionRegistry);
       }
     };
 
@@ -23394,6 +23600,81 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryUnreceivedAcksResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                sequences_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              sequences_.addLong(input.readUInt64());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                sequences_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                sequences_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 18: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (height_ != null) {
+                subBuilder = height_.toBuilder();
+              }
+              height_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(height_);
+                height_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          sequences_.makeImmutable(); // C
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryUnreceivedAcksResponse_descriptor;
@@ -23408,7 +23689,6 @@ public final class QueryOuterClass {
     }
 
     public static final int SEQUENCES_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.LongList sequences_;
     /**
      * <pre>
@@ -23483,7 +23763,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getHeightOrBuilder() {
-      return height_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : height_;
+      return getHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -23511,7 +23791,7 @@ public final class QueryOuterClass {
       if (height_ != null) {
         output.writeMessage(2, getHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -23538,7 +23818,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -23560,7 +23840,7 @@ public final class QueryOuterClass {
         if (!getHeight()
             .equals(other.getHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -23579,7 +23859,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -23701,22 +23981,28 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         sequences_ = emptyLongList();
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (heightBuilder_ == null) {
+          height_ = null;
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
         return this;
@@ -23745,27 +24031,19 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksResponse(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksResponse result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           sequences_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.sequences_ = sequences_;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.height_ = heightBuilder_ == null
-              ? height_
-              : heightBuilder_.build();
+        if (heightBuilder_ == null) {
+          result.height_ = height_;
+        } else {
+          result.height_ = heightBuilder_.build();
         }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -23825,7 +24103,7 @@ public final class QueryOuterClass {
         if (other.hasHeight()) {
           mergeHeight(other.getHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -23840,53 +24118,17 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                long v = input.readUInt64();
-                ensureSequencesIsMutable();
-                sequences_.addLong(v);
-                break;
-              } // case 8
-              case 10: {
-                int length = input.readRawVarint32();
-                int limit = input.pushLimit(length);
-                ensureSequencesIsMutable();
-                while (input.getBytesUntilLimit() > 0) {
-                  sequences_.addLong(input.readUInt64());
-                }
-                input.popLimit(limit);
-                break;
-              } // case 10
-              case 18: {
-                input.readMessage(
-                    getHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryUnreceivedAcksResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -23896,7 +24138,7 @@ public final class QueryOuterClass {
         if (!((bitField0_ & 0x00000001) != 0)) {
           sequences_ = mutableCopy(sequences_);
           bitField0_ |= 0x00000001;
-        }
+         }
       }
       /**
        * <pre>
@@ -23946,7 +24188,6 @@ public final class QueryOuterClass {
        */
       public Builder setSequences(
           int index, long value) {
-        
         ensureSequencesIsMutable();
         sequences_.setLong(index, value);
         onChanged();
@@ -23962,7 +24203,6 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder addSequences(long value) {
-        
         ensureSequencesIsMutable();
         sequences_.addLong(value);
         onChanged();
@@ -24012,7 +24252,7 @@ public final class QueryOuterClass {
        * @return Whether the height field is set.
        */
       public boolean hasHeight() {
-        return ((bitField0_ & 0x00000002) != 0);
+        return heightBuilder_ != null || height_ != null;
       }
       /**
        * <pre>
@@ -24042,11 +24282,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           height_ = value;
+          onChanged();
         } else {
           heightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -24060,11 +24300,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (heightBuilder_ == null) {
           height_ = builderForValue.build();
+          onChanged();
         } else {
           heightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -24076,18 +24316,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeHeight(ibc.core.client.v1.Client.Height value) {
         if (heightBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0) &&
-            height_ != null &&
-            height_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getHeightBuilder().mergeFrom(value);
+          if (height_ != null) {
+            height_ =
+              ibc.core.client.v1.Client.Height.newBuilder(height_).mergeFrom(value).buildPartial();
           } else {
             height_ = value;
           }
+          onChanged();
         } else {
           heightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
-        onChanged();
+
         return this;
       }
       /**
@@ -24098,13 +24337,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 2 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearHeight() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        height_ = null;
-        if (heightBuilder_ != null) {
-          heightBuilder_.dispose();
+        if (heightBuilder_ == null) {
+          height_ = null;
+          onChanged();
+        } else {
+          height_ = null;
           heightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -24115,7 +24355,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height height = 2 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getHeightBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getHeightFieldBuilder().getBuilder();
       }
@@ -24187,18 +24427,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryUnreceivedAcksResponse(input, extensionRegistry);
       }
     };
 
@@ -24296,6 +24525,55 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryNextSequenceReceiveRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              portId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channelId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryNextSequenceReceiveRequest_descriptor;
@@ -24310,8 +24588,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PORT_ID_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object portId_ = "";
+    private volatile java.lang.Object portId_;
     /**
      * <pre>
      * port unique identifier
@@ -24357,8 +24634,7 @@ public final class QueryOuterClass {
     }
 
     public static final int CHANNEL_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object channelId_ = "";
+    private volatile java.lang.Object channelId_;
     /**
      * <pre>
      * channel unique identifier
@@ -24417,13 +24693,13 @@ public final class QueryOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, channelId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -24432,13 +24708,13 @@ public final class QueryOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(portId_)) {
+      if (!getPortIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, portId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(channelId_)) {
+      if (!getChannelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, channelId_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -24457,7 +24733,7 @@ public final class QueryOuterClass {
           .equals(other.getPortId())) return false;
       if (!getChannelId()
           .equals(other.getChannelId())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -24472,7 +24748,7 @@ public final class QueryOuterClass {
       hash = (53 * hash) + getPortId().hashCode();
       hash = (37 * hash) + CHANNEL_ID_FIELD_NUMBER;
       hash = (53 * hash) + getChannelId().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -24594,20 +24870,26 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         portId_ = "";
+
         channelId_ = "";
+
         return this;
       }
 
@@ -24634,19 +24916,10 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveRequest buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveRequest result = new ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveRequest(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.portId_ = portId_;
+        result.channelId_ = channelId_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveRequest result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.portId_ = portId_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.channelId_ = channelId_;
-        }
       }
 
       @java.lang.Override
@@ -24695,15 +24968,13 @@ public final class QueryOuterClass {
         if (other == ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveRequest.getDefaultInstance()) return this;
         if (!other.getPortId().isEmpty()) {
           portId_ = other.portId_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getChannelId().isEmpty()) {
           channelId_ = other.channelId_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -24718,43 +24989,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                portId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                channelId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object portId_ = "";
       /**
@@ -24809,9 +25056,11 @@ public final class QueryOuterClass {
        */
       public Builder setPortId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -24824,8 +25073,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPortId() {
+        
         portId_ = getDefaultInstance().getPortId();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -24840,10 +25089,12 @@ public final class QueryOuterClass {
        */
       public Builder setPortIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         portId_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -24901,9 +25152,11 @@ public final class QueryOuterClass {
        */
       public Builder setChannelId(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -24916,8 +25169,8 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChannelId() {
+        
         channelId_ = getDefaultInstance().getChannelId();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -24932,10 +25185,12 @@ public final class QueryOuterClass {
        */
       public Builder setChannelIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         channelId_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -24972,18 +25227,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryNextSequenceReceiveRequest(input, extensionRegistry);
       }
     };
 
@@ -25087,6 +25331,66 @@ public final class QueryOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private QueryNextSequenceReceiveResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              nextSequenceReceive_ = input.readUInt64();
+              break;
+            }
+            case 18: {
+
+              proof_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              ibc.core.client.v1.Client.Height.Builder subBuilder = null;
+              if (proofHeight_ != null) {
+                subBuilder = proofHeight_.toBuilder();
+              }
+              proofHeight_ = input.readMessage(ibc.core.client.v1.Client.Height.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(proofHeight_);
+                proofHeight_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.channel.v1.QueryOuterClass.internal_static_ibc_core_channel_v1_QueryNextSequenceReceiveResponse_descriptor;
@@ -25101,7 +25405,7 @@ public final class QueryOuterClass {
     }
 
     public static final int NEXT_SEQUENCE_RECEIVE_FIELD_NUMBER = 1;
-    private long nextSequenceReceive_ = 0L;
+    private long nextSequenceReceive_;
     /**
      * <pre>
      * next sequence receive number
@@ -25116,7 +25420,7 @@ public final class QueryOuterClass {
     }
 
     public static final int PROOF_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString proof_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString proof_;
     /**
      * <pre>
      * merkle proof of existence
@@ -25165,7 +25469,7 @@ public final class QueryOuterClass {
      */
     @java.lang.Override
     public ibc.core.client.v1.Client.HeightOrBuilder getProofHeightOrBuilder() {
-      return proofHeight_ == null ? ibc.core.client.v1.Client.Height.getDefaultInstance() : proofHeight_;
+      return getProofHeight();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -25191,7 +25495,7 @@ public final class QueryOuterClass {
       if (proofHeight_ != null) {
         output.writeMessage(3, getProofHeight());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -25212,7 +25516,7 @@ public final class QueryOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getProofHeight());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -25236,7 +25540,7 @@ public final class QueryOuterClass {
         if (!getProofHeight()
             .equals(other.getProofHeight())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -25256,7 +25560,7 @@ public final class QueryOuterClass {
         hash = (37 * hash) + PROOF_HEIGHT_FIELD_NUMBER;
         hash = (53 * hash) + getProofHeight().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -25378,23 +25682,30 @@ public final class QueryOuterClass {
 
       // Construct using ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         nextSequenceReceive_ = 0L;
+
         proof_ = com.google.protobuf.ByteString.EMPTY;
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
         return this;
@@ -25423,24 +25734,15 @@ public final class QueryOuterClass {
       @java.lang.Override
       public ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveResponse buildPartial() {
         ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveResponse result = new ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveResponse(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.nextSequenceReceive_ = nextSequenceReceive_;
+        result.proof_ = proof_;
+        if (proofHeightBuilder_ == null) {
+          result.proofHeight_ = proofHeight_;
+        } else {
+          result.proofHeight_ = proofHeightBuilder_.build();
+        }
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveResponse result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.nextSequenceReceive_ = nextSequenceReceive_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.proof_ = proof_;
-        }
-        if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.proofHeight_ = proofHeightBuilder_ == null
-              ? proofHeight_
-              : proofHeightBuilder_.build();
-        }
       }
 
       @java.lang.Override
@@ -25496,7 +25798,7 @@ public final class QueryOuterClass {
         if (other.hasProofHeight()) {
           mergeProofHeight(other.getProofHeight());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -25511,50 +25813,19 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                nextSequenceReceive_ = input.readUInt64();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 8
-              case 18: {
-                proof_ = input.readBytes();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              case 26: {
-                input.readMessage(
-                    getProofHeightFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000004;
-                break;
-              } // case 26
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.channel.v1.QueryOuterClass.QueryNextSequenceReceiveResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private long nextSequenceReceive_ ;
       /**
@@ -25581,7 +25852,6 @@ public final class QueryOuterClass {
       public Builder setNextSequenceReceive(long value) {
         
         nextSequenceReceive_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -25594,7 +25864,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearNextSequenceReceive() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         nextSequenceReceive_ = 0L;
         onChanged();
         return this;
@@ -25623,9 +25893,11 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder setProof(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         proof_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -25638,7 +25910,7 @@ public final class QueryOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearProof() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         proof_ = getDefaultInstance().getProof();
         onChanged();
         return this;
@@ -25656,7 +25928,7 @@ public final class QueryOuterClass {
        * @return Whether the proofHeight field is set.
        */
       public boolean hasProofHeight() {
-        return ((bitField0_ & 0x00000004) != 0);
+        return proofHeightBuilder_ != null || proofHeight_ != null;
       }
       /**
        * <pre>
@@ -25686,11 +25958,11 @@ public final class QueryOuterClass {
             throw new NullPointerException();
           }
           proofHeight_ = value;
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -25704,11 +25976,11 @@ public final class QueryOuterClass {
           ibc.core.client.v1.Client.Height.Builder builderForValue) {
         if (proofHeightBuilder_ == null) {
           proofHeight_ = builderForValue.build();
+          onChanged();
         } else {
           proofHeightBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -25720,18 +25992,17 @@ public final class QueryOuterClass {
        */
       public Builder mergeProofHeight(ibc.core.client.v1.Client.Height value) {
         if (proofHeightBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0) &&
-            proofHeight_ != null &&
-            proofHeight_ != ibc.core.client.v1.Client.Height.getDefaultInstance()) {
-            getProofHeightBuilder().mergeFrom(value);
+          if (proofHeight_ != null) {
+            proofHeight_ =
+              ibc.core.client.v1.Client.Height.newBuilder(proofHeight_).mergeFrom(value).buildPartial();
           } else {
             proofHeight_ = value;
           }
+          onChanged();
         } else {
           proofHeightBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
-        onChanged();
+
         return this;
       }
       /**
@@ -25742,13 +26013,14 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearProofHeight() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        proofHeight_ = null;
-        if (proofHeightBuilder_ != null) {
-          proofHeightBuilder_.dispose();
+        if (proofHeightBuilder_ == null) {
+          proofHeight_ = null;
+          onChanged();
+        } else {
+          proofHeight_ = null;
           proofHeightBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
@@ -25759,7 +26031,7 @@ public final class QueryOuterClass {
        * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
        */
       public ibc.core.client.v1.Client.Height.Builder getProofHeightBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getProofHeightFieldBuilder().getBuilder();
       }
@@ -25831,18 +26103,7 @@ public final class QueryOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new QueryNextSequenceReceiveResponse(input, extensionRegistry);
       }
     };
 
@@ -26065,104 +26326,103 @@ public final class QueryOuterClass {
       "\001\n\"QueryPacketAcknowledgementResponse\022\027\n" +
       "\017acknowledgement\030\001 \001(\014\022\r\n\005proof\030\002 \001(\014\0226\n" +
       "\014proof_height\030\003 \001(\0132\032.ibc.core.client.v1" +
-      ".HeightB\004\310\336\037\000\"\252\001\n\"QueryPacketAcknowledge" +
+      ".HeightB\004\310\336\037\000\"\205\001\n\"QueryPacketAcknowledge" +
       "mentsRequest\022\017\n\007port_id\030\001 \001(\t\022\022\n\nchannel" +
       "_id\030\002 \001(\t\022:\n\npagination\030\003 \001(\0132&.cosmos.b" +
-      "ase.query.v1beta1.PageRequest\022#\n\033packet_" +
-      "commitment_sequences\030\004 \003(\004\"\320\001\n#QueryPack" +
-      "etAcknowledgementsResponse\022:\n\020acknowledg" +
-      "ements\030\001 \003(\0132 .ibc.core.channel.v1.Packe" +
-      "tState\022;\n\npagination\030\002 \001(\0132\'.cosmos.base" +
-      ".query.v1beta1.PageResponse\0220\n\006height\030\003 " +
-      "\001(\0132\032.ibc.core.client.v1.HeightB\004\310\336\037\000\"i\n" +
-      "\035QueryUnreceivedPacketsRequest\022\017\n\007port_i" +
-      "d\030\001 \001(\t\022\022\n\nchannel_id\030\002 \001(\t\022#\n\033packet_co" +
-      "mmitment_sequences\030\003 \003(\004\"e\n\036QueryUnrecei" +
-      "vedPacketsResponse\022\021\n\tsequences\030\001 \003(\004\0220\n" +
+      "ase.query.v1beta1.PageRequest\"\320\001\n#QueryP" +
+      "acketAcknowledgementsResponse\022:\n\020acknowl" +
+      "edgements\030\001 \003(\0132 .ibc.core.channel.v1.Pa" +
+      "cketState\022;\n\npagination\030\002 \001(\0132\'.cosmos.b" +
+      "ase.query.v1beta1.PageResponse\0220\n\006height" +
+      "\030\003 \001(\0132\032.ibc.core.client.v1.HeightB\004\310\336\037\000" +
+      "\"i\n\035QueryUnreceivedPacketsRequest\022\017\n\007por" +
+      "t_id\030\001 \001(\t\022\022\n\nchannel_id\030\002 \001(\t\022#\n\033packet" +
+      "_commitment_sequences\030\003 \003(\004\"e\n\036QueryUnre" +
+      "ceivedPacketsResponse\022\021\n\tsequences\030\001 \003(\004" +
+      "\0220\n\006height\030\002 \001(\0132\032.ibc.core.client.v1.He" +
+      "ightB\004\310\336\037\000\"_\n\032QueryUnreceivedAcksRequest" +
+      "\022\017\n\007port_id\030\001 \001(\t\022\022\n\nchannel_id\030\002 \001(\t\022\034\n" +
+      "\024packet_ack_sequences\030\003 \003(\004\"b\n\033QueryUnre" +
+      "ceivedAcksResponse\022\021\n\tsequences\030\001 \003(\004\0220\n" +
       "\006height\030\002 \001(\0132\032.ibc.core.client.v1.Heigh" +
-      "tB\004\310\336\037\000\"_\n\032QueryUnreceivedAcksRequest\022\017\n" +
-      "\007port_id\030\001 \001(\t\022\022\n\nchannel_id\030\002 \001(\t\022\034\n\024pa" +
-      "cket_ack_sequences\030\003 \003(\004\"b\n\033QueryUnrecei" +
-      "vedAcksResponse\022\021\n\tsequences\030\001 \003(\004\0220\n\006he" +
-      "ight\030\002 \001(\0132\032.ibc.core.client.v1.HeightB\004" +
-      "\310\336\037\000\"F\n\037QueryNextSequenceReceiveRequest\022" +
-      "\017\n\007port_id\030\001 \001(\t\022\022\n\nchannel_id\030\002 \001(\t\"\210\001\n" +
-      " QueryNextSequenceReceiveResponse\022\035\n\025nex" +
-      "t_sequence_receive\030\001 \001(\004\022\r\n\005proof\030\002 \001(\014\022" +
-      "6\n\014proof_height\030\003 \001(\0132\032.ibc.core.client." +
-      "v1.HeightB\004\310\336\037\0002\213\026\n\005Query\022\242\001\n\007Channel\022(." +
-      "ibc.core.channel.v1.QueryChannelRequest\032" +
-      ").ibc.core.channel.v1.QueryChannelRespon" +
-      "se\"B\202\323\344\223\002<\022:/ibc/core/channel/v1/channel" +
-      "s/{channel_id}/ports/{port_id}\022\210\001\n\010Chann" +
-      "els\022).ibc.core.channel.v1.QueryChannelsR" +
-      "equest\032*.ibc.core.channel.v1.QueryChanne" +
-      "lsResponse\"%\202\323\344\223\002\037\022\035/ibc/core/channel/v1" +
-      "/channels\022\277\001\n\022ConnectionChannels\0223.ibc.c" +
-      "ore.channel.v1.QueryConnectionChannelsRe" +
-      "quest\0324.ibc.core.channel.v1.QueryConnect" +
-      "ionChannelsResponse\">\202\323\344\223\0028\0226/ibc/core/c" +
-      "hannel/v1/connections/{connection}/chann" +
-      "els\022\320\001\n\022ChannelClientState\0223.ibc.core.ch" +
-      "annel.v1.QueryChannelClientStateRequest\032" +
-      "4.ibc.core.channel.v1.QueryChannelClient" +
-      "StateResponse\"O\202\323\344\223\002I\022G/ibc/core/channel" +
+      "tB\004\310\336\037\000\"F\n\037QueryNextSequenceReceiveReque" +
+      "st\022\017\n\007port_id\030\001 \001(\t\022\022\n\nchannel_id\030\002 \001(\t\"" +
+      "\210\001\n QueryNextSequenceReceiveResponse\022\035\n\025" +
+      "next_sequence_receive\030\001 \001(\004\022\r\n\005proof\030\002 \001" +
+      "(\014\0226\n\014proof_height\030\003 \001(\0132\032.ibc.core.clie" +
+      "nt.v1.HeightB\004\310\336\037\0002\213\026\n\005Query\022\242\001\n\007Channel" +
+      "\022(.ibc.core.channel.v1.QueryChannelReque" +
+      "st\032).ibc.core.channel.v1.QueryChannelRes" +
+      "ponse\"B\202\323\344\223\002<\022:/ibc/core/channel/v1/chan" +
+      "nels/{channel_id}/ports/{port_id}\022\210\001\n\010Ch" +
+      "annels\022).ibc.core.channel.v1.QueryChanne" +
+      "lsRequest\032*.ibc.core.channel.v1.QueryCha" +
+      "nnelsResponse\"%\202\323\344\223\002\037\022\035/ibc/core/channel" +
+      "/v1/channels\022\277\001\n\022ConnectionChannels\0223.ib" +
+      "c.core.channel.v1.QueryConnectionChannel" +
+      "sRequest\0324.ibc.core.channel.v1.QueryConn" +
+      "ectionChannelsResponse\">\202\323\344\223\0028\0226/ibc/cor" +
+      "e/channel/v1/connections/{connection}/ch" +
+      "annels\022\320\001\n\022ChannelClientState\0223.ibc.core" +
+      ".channel.v1.QueryChannelClientStateReque" +
+      "st\0324.ibc.core.channel.v1.QueryChannelCli" +
+      "entStateResponse\"O\202\323\344\223\002I\022G/ibc/core/chan" +
+      "nel/v1/channels/{channel_id}/ports/{port" +
+      "_id}/client_state\022\222\002\n\025ChannelConsensusSt" +
+      "ate\0226.ibc.core.channel.v1.QueryChannelCo" +
+      "nsensusStateRequest\0327.ibc.core.channel.v" +
+      "1.QueryChannelConsensusStateResponse\"\207\001\202" +
+      "\323\344\223\002\200\001\022~/ibc/core/channel/v1/channels/{c" +
+      "hannel_id}/ports/{port_id}/consensus_sta" +
+      "te/revision/{revision_number}/height/{re" +
+      "vision_height}\022\333\001\n\020PacketCommitment\0221.ib" +
+      "c.core.channel.v1.QueryPacketCommitmentR" +
+      "equest\0322.ibc.core.channel.v1.QueryPacket" +
+      "CommitmentResponse\"`\202\323\344\223\002Z\022X/ibc/core/ch" +
+      "annel/v1/channels/{channel_id}/ports/{po" +
+      "rt_id}/packet_commitments/{sequence}\022\323\001\n" +
+      "\021PacketCommitments\0222.ibc.core.channel.v1" +
+      ".QueryPacketCommitmentsRequest\0323.ibc.cor" +
+      "e.channel.v1.QueryPacketCommitmentsRespo" +
+      "nse\"U\202\323\344\223\002O\022M/ibc/core/channel/v1/channe" +
+      "ls/{channel_id}/ports/{port_id}/packet_c" +
+      "ommitments\022\317\001\n\rPacketReceipt\022..ibc.core." +
+      "channel.v1.QueryPacketReceiptRequest\032/.i" +
+      "bc.core.channel.v1.QueryPacketReceiptRes" +
+      "ponse\"]\202\323\344\223\002W\022U/ibc/core/channel/v1/chan" +
+      "nels/{channel_id}/ports/{port_id}/packet" +
+      "_receipts/{sequence}\022\343\001\n\025PacketAcknowled" +
+      "gement\0226.ibc.core.channel.v1.QueryPacket" +
+      "AcknowledgementRequest\0327.ibc.core.channe" +
+      "l.v1.QueryPacketAcknowledgementResponse\"" +
+      "Y\202\323\344\223\002S\022Q/ibc/core/channel/v1/channels/{" +
+      "channel_id}/ports/{port_id}/packet_acks/" +
+      "{sequence}\022\347\001\n\026PacketAcknowledgements\0227." +
+      "ibc.core.channel.v1.QueryPacketAcknowled" +
+      "gementsRequest\0328.ibc.core.channel.v1.Que" +
+      "ryPacketAcknowledgementsResponse\"Z\202\323\344\223\002T" +
+      "\022R/ibc/core/channel/v1/channels/{channel" +
+      "_id}/ports/{port_id}/packet_acknowledgem" +
+      "ents\022\206\002\n\021UnreceivedPackets\0222.ibc.core.ch" +
+      "annel.v1.QueryUnreceivedPacketsRequest\0323" +
+      ".ibc.core.channel.v1.QueryUnreceivedPack" +
+      "etsResponse\"\207\001\202\323\344\223\002\200\001\022~/ibc/core/channel" +
       "/v1/channels/{channel_id}/ports/{port_id" +
-      "}/client_state\022\222\002\n\025ChannelConsensusState" +
-      "\0226.ibc.core.channel.v1.QueryChannelConse" +
-      "nsusStateRequest\0327.ibc.core.channel.v1.Q" +
-      "ueryChannelConsensusStateResponse\"\207\001\202\323\344\223" +
-      "\002\200\001\022~/ibc/core/channel/v1/channels/{chan" +
-      "nel_id}/ports/{port_id}/consensus_state/" +
-      "revision/{revision_number}/height/{revis" +
-      "ion_height}\022\333\001\n\020PacketCommitment\0221.ibc.c" +
-      "ore.channel.v1.QueryPacketCommitmentRequ" +
-      "est\0322.ibc.core.channel.v1.QueryPacketCom" +
-      "mitmentResponse\"`\202\323\344\223\002Z\022X/ibc/core/chann" +
-      "el/v1/channels/{channel_id}/ports/{port_" +
-      "id}/packet_commitments/{sequence}\022\323\001\n\021Pa" +
-      "cketCommitments\0222.ibc.core.channel.v1.Qu" +
-      "eryPacketCommitmentsRequest\0323.ibc.core.c" +
-      "hannel.v1.QueryPacketCommitmentsResponse" +
-      "\"U\202\323\344\223\002O\022M/ibc/core/channel/v1/channels/" +
-      "{channel_id}/ports/{port_id}/packet_comm" +
-      "itments\022\317\001\n\rPacketReceipt\022..ibc.core.cha" +
-      "nnel.v1.QueryPacketReceiptRequest\032/.ibc." +
-      "core.channel.v1.QueryPacketReceiptRespon" +
-      "se\"]\202\323\344\223\002W\022U/ibc/core/channel/v1/channel" +
-      "s/{channel_id}/ports/{port_id}/packet_re" +
-      "ceipts/{sequence}\022\343\001\n\025PacketAcknowledgem" +
-      "ent\0226.ibc.core.channel.v1.QueryPacketAck" +
-      "nowledgementRequest\0327.ibc.core.channel.v" +
-      "1.QueryPacketAcknowledgementResponse\"Y\202\323" +
-      "\344\223\002S\022Q/ibc/core/channel/v1/channels/{cha" +
-      "nnel_id}/ports/{port_id}/packet_acks/{se" +
-      "quence}\022\347\001\n\026PacketAcknowledgements\0227.ibc" +
-      ".core.channel.v1.QueryPacketAcknowledgem" +
-      "entsRequest\0328.ibc.core.channel.v1.QueryP" +
-      "acketAcknowledgementsResponse\"Z\202\323\344\223\002T\022R/" +
-      "ibc/core/channel/v1/channels/{channel_id" +
-      "}/ports/{port_id}/packet_acknowledgement" +
-      "s\022\206\002\n\021UnreceivedPackets\0222.ibc.core.chann" +
-      "el.v1.QueryUnreceivedPacketsRequest\0323.ib" +
-      "c.core.channel.v1.QueryUnreceivedPackets" +
-      "Response\"\207\001\202\323\344\223\002\200\001\022~/ibc/core/channel/v1" +
-      "/channels/{channel_id}/ports/{port_id}/p" +
-      "acket_commitments/{packet_commitment_seq" +
-      "uences}/unreceived_packets\022\361\001\n\016Unreceive" +
-      "dAcks\022/.ibc.core.channel.v1.QueryUnrecei" +
-      "vedAcksRequest\0320.ibc.core.channel.v1.Que" +
-      "ryUnreceivedAcksResponse\"|\202\323\344\223\002v\022t/ibc/c" +
-      "ore/channel/v1/channels/{channel_id}/por" +
-      "ts/{port_id}/packet_commitments/{packet_" +
-      "ack_sequences}/unreceived_acks\022\324\001\n\023NextS" +
-      "equenceReceive\0224.ibc.core.channel.v1.Que" +
-      "ryNextSequenceReceiveRequest\0325.ibc.core." +
-      "channel.v1.QueryNextSequenceReceiveRespo" +
-      "nse\"P\202\323\344\223\002J\022H/ibc/core/channel/v1/channe" +
-      "ls/{channel_id}/ports/{port_id}/next_seq" +
-      "uenceB8Z6github.com/cosmos/ibc-go/module" +
-      "s/core/04-channel/typesb\006proto3"
+      "}/packet_commitments/{packet_commitment_" +
+      "sequences}/unreceived_packets\022\361\001\n\016Unrece" +
+      "ivedAcks\022/.ibc.core.channel.v1.QueryUnre" +
+      "ceivedAcksRequest\0320.ibc.core.channel.v1." +
+      "QueryUnreceivedAcksResponse\"|\202\323\344\223\002v\022t/ib" +
+      "c/core/channel/v1/channels/{channel_id}/" +
+      "ports/{port_id}/packet_commitments/{pack" +
+      "et_ack_sequences}/unreceived_acks\022\324\001\n\023Ne" +
+      "xtSequenceReceive\0224.ibc.core.channel.v1." +
+      "QueryNextSequenceReceiveRequest\0325.ibc.co" +
+      "re.channel.v1.QueryNextSequenceReceiveRe" +
+      "sponse\"P\202\323\344\223\002J\022H/ibc/core/channel/v1/cha" +
+      "nnels/{channel_id}/ports/{port_id}/next_" +
+      "sequenceB8Z6github.com/cosmos/ibc-go/mod" +
+      "ules/core/04-channel/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -26287,7 +26547,7 @@ public final class QueryOuterClass {
     internal_static_ibc_core_channel_v1_QueryPacketAcknowledgementsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ibc_core_channel_v1_QueryPacketAcknowledgementsRequest_descriptor,
-        new java.lang.String[] { "PortId", "ChannelId", "Pagination", "PacketCommitmentSequences", });
+        new java.lang.String[] { "PortId", "ChannelId", "Pagination", });
     internal_static_ibc_core_channel_v1_QueryPacketAcknowledgementsResponse_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_ibc_core_channel_v1_QueryPacketAcknowledgementsResponse_fieldAccessorTable = new

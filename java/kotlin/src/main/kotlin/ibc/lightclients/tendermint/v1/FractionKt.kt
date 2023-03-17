@@ -3,16 +3,16 @@
 
 package ibc.lightclients.tendermint.v1;
 
-@kotlin.jvm.JvmName("-initializefraction")
-public inline fun fraction(block: ibc.lightclients.tendermint.v1.FractionKt.Dsl.() -> kotlin.Unit): ibc.lightclients.tendermint.v1.Tendermint.Fraction =
+@kotlin.jvm.JvmSynthetic
+inline fun fraction(block: ibc.lightclients.tendermint.v1.FractionKt.Dsl.() -> Unit): ibc.lightclients.tendermint.v1.Tendermint.Fraction =
   ibc.lightclients.tendermint.v1.FractionKt.Dsl._create(ibc.lightclients.tendermint.v1.Tendermint.Fraction.newBuilder()).apply { block() }._build()
-public object FractionKt {
+object FractionKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.lightclients.tendermint.v1.Tendermint.Fraction.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.lightclients.tendermint.v1.Tendermint.Fraction.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.lightclients.tendermint.v1.Tendermint.Fraction.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object FractionKt {
     /**
      * <code>uint64 numerator = 1;</code>
      */
-    public var numerator: kotlin.Long
+    var numerator: kotlin.Long
       @JvmName("getNumerator")
       get() = _builder.getNumerator()
       @JvmName("setNumerator")
@@ -35,14 +35,14 @@ public object FractionKt {
     /**
      * <code>uint64 numerator = 1;</code>
      */
-    public fun clearNumerator() {
+    fun clearNumerator() {
       _builder.clearNumerator()
     }
 
     /**
      * <code>uint64 denominator = 2;</code>
      */
-    public var denominator: kotlin.Long
+    var denominator: kotlin.Long
       @JvmName("getDenominator")
       get() = _builder.getDenominator()
       @JvmName("setDenominator")
@@ -52,12 +52,11 @@ public object FractionKt {
     /**
      * <code>uint64 denominator = 2;</code>
      */
-    public fun clearDenominator() {
+    fun clearDenominator() {
       _builder.clearDenominator()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.lightclients.tendermint.v1.Tendermint.Fraction.copy(block: ibc.lightclients.tendermint.v1.FractionKt.Dsl.() -> kotlin.Unit): ibc.lightclients.tendermint.v1.Tendermint.Fraction =
+inline fun ibc.lightclients.tendermint.v1.Tendermint.Fraction.copy(block: ibc.lightclients.tendermint.v1.FractionKt.Dsl.() -> Unit): ibc.lightclients.tendermint.v1.Tendermint.Fraction =
   ibc.lightclients.tendermint.v1.FractionKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

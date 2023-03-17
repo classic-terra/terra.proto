@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializemsgDescriptor")
-public inline fun msgDescriptor(block: cosmos.base.reflection.v2alpha1.MsgDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor =
+@kotlin.jvm.JvmSynthetic
+inline fun msgDescriptor(block: cosmos.base.reflection.v2alpha1.MsgDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor =
   cosmos.base.reflection.v2alpha1.MsgDescriptorKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor.newBuilder()).apply { block() }._build()
-public object MsgDescriptorKt {
+object MsgDescriptorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MsgDescriptorKt {
      *
      * <code>string msg_type_url = 1;</code>
      */
-    public var msgTypeUrl: kotlin.String
+    var msgTypeUrl: kotlin.String
       @JvmName("getMsgTypeUrl")
       get() = _builder.getMsgTypeUrl()
       @JvmName("setMsgTypeUrl")
@@ -43,12 +43,11 @@ public object MsgDescriptorKt {
      *
      * <code>string msg_type_url = 1;</code>
      */
-    public fun clearMsgTypeUrl() {
+    fun clearMsgTypeUrl() {
       _builder.clearMsgTypeUrl()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor.copy(block: cosmos.base.reflection.v2alpha1.MsgDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor.copy(block: cosmos.base.reflection.v2alpha1.MsgDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor =
   cosmos.base.reflection.v2alpha1.MsgDescriptorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

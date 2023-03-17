@@ -3,16 +3,16 @@
 
 package cosmos.slashing.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemissedBlock")
-public inline fun missedBlock(block: cosmos.slashing.v1beta1.MissedBlockKt.Dsl.() -> kotlin.Unit): cosmos.slashing.v1beta1.Genesis.MissedBlock =
+@kotlin.jvm.JvmSynthetic
+inline fun missedBlock(block: cosmos.slashing.v1beta1.MissedBlockKt.Dsl.() -> Unit): cosmos.slashing.v1beta1.Genesis.MissedBlock =
   cosmos.slashing.v1beta1.MissedBlockKt.Dsl._create(cosmos.slashing.v1beta1.Genesis.MissedBlock.newBuilder()).apply { block() }._build()
-public object MissedBlockKt {
+object MissedBlockKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.slashing.v1beta1.Genesis.MissedBlock.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.slashing.v1beta1.Genesis.MissedBlock.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.slashing.v1beta1.Genesis.MissedBlock.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object MissedBlockKt {
      *
      * <code>int64 index = 1;</code>
      */
-    public var index: kotlin.Long
+    var index: kotlin.Long
       @JvmName("getIndex")
       get() = _builder.getIndex()
       @JvmName("setIndex")
@@ -43,7 +43,7 @@ public object MissedBlockKt {
      *
      * <code>int64 index = 1;</code>
      */
-    public fun clearIndex() {
+    fun clearIndex() {
       _builder.clearIndex()
     }
 
@@ -54,7 +54,7 @@ public object MissedBlockKt {
      *
      * <code>bool missed = 2;</code>
      */
-    public var missed: kotlin.Boolean
+    var missed: kotlin.Boolean
       @JvmName("getMissed")
       get() = _builder.getMissed()
       @JvmName("setMissed")
@@ -68,12 +68,11 @@ public object MissedBlockKt {
      *
      * <code>bool missed = 2;</code>
      */
-    public fun clearMissed() {
+    fun clearMissed() {
       _builder.clearMissed()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.slashing.v1beta1.Genesis.MissedBlock.copy(block: cosmos.slashing.v1beta1.MissedBlockKt.Dsl.() -> kotlin.Unit): cosmos.slashing.v1beta1.Genesis.MissedBlock =
+inline fun cosmos.slashing.v1beta1.Genesis.MissedBlock.copy(block: cosmos.slashing.v1beta1.MissedBlockKt.Dsl.() -> Unit): cosmos.slashing.v1beta1.Genesis.MissedBlock =
   cosmos.slashing.v1beta1.MissedBlockKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

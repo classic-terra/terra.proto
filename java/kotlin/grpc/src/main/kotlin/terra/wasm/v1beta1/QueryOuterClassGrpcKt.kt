@@ -28,40 +28,40 @@ import terra.wasm.v1beta1.QueryGrpc.getServiceDescriptor
 /**
  * Holder for Kotlin coroutine-based client and server APIs for terra.wasm.v1beta1.Query.
  */
-public object QueryGrpcKt {
-  public const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
+object QueryGrpcKt {
+  const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = QueryGrpc.getServiceDescriptor()
 
-  public val codeInfoMethod:
-      MethodDescriptor<QueryOuterClass.QueryCodeInfoRequest, QueryOuterClass.QueryCodeInfoResponse>
+  val codeInfoMethod: MethodDescriptor<QueryOuterClass.QueryCodeInfoRequest,
+      QueryOuterClass.QueryCodeInfoResponse>
     @JvmStatic
     get() = QueryGrpc.getCodeInfoMethod()
 
-  public val byteCodeMethod:
-      MethodDescriptor<QueryOuterClass.QueryByteCodeRequest, QueryOuterClass.QueryByteCodeResponse>
+  val byteCodeMethod: MethodDescriptor<QueryOuterClass.QueryByteCodeRequest,
+      QueryOuterClass.QueryByteCodeResponse>
     @JvmStatic
     get() = QueryGrpc.getByteCodeMethod()
 
-  public val contractInfoMethod:
-      MethodDescriptor<QueryOuterClass.QueryContractInfoRequest, QueryOuterClass.QueryContractInfoResponse>
+  val contractInfoMethod: MethodDescriptor<QueryOuterClass.QueryContractInfoRequest,
+      QueryOuterClass.QueryContractInfoResponse>
     @JvmStatic
     get() = QueryGrpc.getContractInfoMethod()
 
-  public val contractStoreMethod:
-      MethodDescriptor<QueryOuterClass.QueryContractStoreRequest, QueryOuterClass.QueryContractStoreResponse>
+  val contractStoreMethod: MethodDescriptor<QueryOuterClass.QueryContractStoreRequest,
+      QueryOuterClass.QueryContractStoreResponse>
     @JvmStatic
     get() = QueryGrpc.getContractStoreMethod()
 
-  public val rawStoreMethod:
-      MethodDescriptor<QueryOuterClass.QueryRawStoreRequest, QueryOuterClass.QueryRawStoreResponse>
+  val rawStoreMethod: MethodDescriptor<QueryOuterClass.QueryRawStoreRequest,
+      QueryOuterClass.QueryRawStoreResponse>
     @JvmStatic
     get() = QueryGrpc.getRawStoreMethod()
 
-  public val paramsMethod:
-      MethodDescriptor<QueryOuterClass.QueryParamsRequest, QueryOuterClass.QueryParamsResponse>
+  val paramsMethod: MethodDescriptor<QueryOuterClass.QueryParamsRequest,
+      QueryOuterClass.QueryParamsResponse>
     @JvmStatic
     get() = QueryGrpc.getParamsMethod()
 
@@ -69,11 +69,11 @@ public object QueryGrpcKt {
    * A stub for issuing RPCs to a(n) terra.wasm.v1beta1.Query service as suspending coroutines.
    */
   @StubFor(QueryGrpc::class)
-  public class QueryCoroutineStub @JvmOverloads constructor(
+  class QueryCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<QueryCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
         QueryCoroutineStub(channel, callOptions)
 
     /**
@@ -84,19 +84,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun codeInfo(request: QueryOuterClass.QueryCodeInfoRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryCodeInfoResponse = unaryRpc(
+    suspend fun codeInfo(request: QueryOuterClass.QueryCodeInfoRequest):
+        QueryOuterClass.QueryCodeInfoResponse = unaryRpc(
       channel,
       QueryGrpc.getCodeInfoMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -105,19 +102,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun byteCode(request: QueryOuterClass.QueryByteCodeRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryByteCodeResponse = unaryRpc(
+    suspend fun byteCode(request: QueryOuterClass.QueryByteCodeRequest):
+        QueryOuterClass.QueryByteCodeResponse = unaryRpc(
       channel,
       QueryGrpc.getByteCodeMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -126,19 +120,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun contractInfo(request: QueryOuterClass.QueryContractInfoRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryContractInfoResponse = unaryRpc(
+    suspend fun contractInfo(request: QueryOuterClass.QueryContractInfoRequest):
+        QueryOuterClass.QueryContractInfoResponse = unaryRpc(
       channel,
       QueryGrpc.getContractInfoMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -147,19 +138,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun contractStore(request: QueryOuterClass.QueryContractStoreRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryContractStoreResponse = unaryRpc(
+    suspend fun contractStore(request: QueryOuterClass.QueryContractStoreRequest):
+        QueryOuterClass.QueryContractStoreResponse = unaryRpc(
       channel,
       QueryGrpc.getContractStoreMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -168,19 +156,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun rawStore(request: QueryOuterClass.QueryRawStoreRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryRawStoreResponse = unaryRpc(
+    suspend fun rawStore(request: QueryOuterClass.QueryRawStoreRequest):
+        QueryOuterClass.QueryRawStoreResponse = unaryRpc(
       channel,
       QueryGrpc.getRawStoreMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -189,25 +174,22 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun params(request: QueryOuterClass.QueryParamsRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryParamsResponse = unaryRpc(
+    suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+        QueryOuterClass.QueryParamsResponse = unaryRpc(
       channel,
       QueryGrpc.getParamsMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the terra.wasm.v1beta1.Query service based on Kotlin coroutines.
    */
-  public abstract class QueryCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class QueryCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for terra.wasm.v1beta1.Query.CodeInfo.
@@ -220,7 +202,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun codeInfo(request: QueryOuterClass.QueryCodeInfoRequest):
+    open suspend fun codeInfo(request: QueryOuterClass.QueryCodeInfoRequest):
         QueryOuterClass.QueryCodeInfoResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Query.CodeInfo is unimplemented"))
 
@@ -235,7 +217,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun byteCode(request: QueryOuterClass.QueryByteCodeRequest):
+    open suspend fun byteCode(request: QueryOuterClass.QueryByteCodeRequest):
         QueryOuterClass.QueryByteCodeResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Query.ByteCode is unimplemented"))
 
@@ -250,7 +232,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun contractInfo(request: QueryOuterClass.QueryContractInfoRequest):
+    open suspend fun contractInfo(request: QueryOuterClass.QueryContractInfoRequest):
         QueryOuterClass.QueryContractInfoResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Query.ContractInfo is unimplemented"))
 
@@ -265,7 +247,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun contractStore(request: QueryOuterClass.QueryContractStoreRequest):
+    open suspend fun contractStore(request: QueryOuterClass.QueryContractStoreRequest):
         QueryOuterClass.QueryContractStoreResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Query.ContractStore is unimplemented"))
 
@@ -280,7 +262,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun rawStore(request: QueryOuterClass.QueryRawStoreRequest):
+    open suspend fun rawStore(request: QueryOuterClass.QueryRawStoreRequest):
         QueryOuterClass.QueryRawStoreResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Query.RawStore is unimplemented"))
 
@@ -295,12 +277,11 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+    open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
         QueryOuterClass.QueryParamsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method terra.wasm.v1beta1.Query.Params is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = QueryGrpc.getCodeInfoMethod(),

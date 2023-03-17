@@ -28,55 +28,58 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for cosmos.distribution.v1beta1.Query.
  */
-public object QueryGrpcKt {
-  public const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
+object QueryGrpcKt {
+  const val SERVICE_NAME: String = QueryGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = QueryGrpc.getServiceDescriptor()
 
-  public val paramsMethod:
-      MethodDescriptor<QueryOuterClass.QueryParamsRequest, QueryOuterClass.QueryParamsResponse>
+  val paramsMethod: MethodDescriptor<QueryOuterClass.QueryParamsRequest,
+      QueryOuterClass.QueryParamsResponse>
     @JvmStatic
     get() = QueryGrpc.getParamsMethod()
 
-  public val validatorOutstandingRewardsMethod:
-      MethodDescriptor<QueryOuterClass.QueryValidatorOutstandingRewardsRequest, QueryOuterClass.QueryValidatorOutstandingRewardsResponse>
+  val validatorOutstandingRewardsMethod:
+      MethodDescriptor<QueryOuterClass.QueryValidatorOutstandingRewardsRequest,
+      QueryOuterClass.QueryValidatorOutstandingRewardsResponse>
     @JvmStatic
     get() = QueryGrpc.getValidatorOutstandingRewardsMethod()
 
-  public val validatorCommissionMethod:
-      MethodDescriptor<QueryOuterClass.QueryValidatorCommissionRequest, QueryOuterClass.QueryValidatorCommissionResponse>
+  val validatorCommissionMethod: MethodDescriptor<QueryOuterClass.QueryValidatorCommissionRequest,
+      QueryOuterClass.QueryValidatorCommissionResponse>
     @JvmStatic
     get() = QueryGrpc.getValidatorCommissionMethod()
 
-  public val validatorSlashesMethod:
-      MethodDescriptor<QueryOuterClass.QueryValidatorSlashesRequest, QueryOuterClass.QueryValidatorSlashesResponse>
+  val validatorSlashesMethod: MethodDescriptor<QueryOuterClass.QueryValidatorSlashesRequest,
+      QueryOuterClass.QueryValidatorSlashesResponse>
     @JvmStatic
     get() = QueryGrpc.getValidatorSlashesMethod()
 
-  public val delegationRewardsMethod:
-      MethodDescriptor<QueryOuterClass.QueryDelegationRewardsRequest, QueryOuterClass.QueryDelegationRewardsResponse>
+  val delegationRewardsMethod: MethodDescriptor<QueryOuterClass.QueryDelegationRewardsRequest,
+      QueryOuterClass.QueryDelegationRewardsResponse>
     @JvmStatic
     get() = QueryGrpc.getDelegationRewardsMethod()
 
-  public val delegationTotalRewardsMethod:
-      MethodDescriptor<QueryOuterClass.QueryDelegationTotalRewardsRequest, QueryOuterClass.QueryDelegationTotalRewardsResponse>
+  val delegationTotalRewardsMethod:
+      MethodDescriptor<QueryOuterClass.QueryDelegationTotalRewardsRequest,
+      QueryOuterClass.QueryDelegationTotalRewardsResponse>
     @JvmStatic
     get() = QueryGrpc.getDelegationTotalRewardsMethod()
 
-  public val delegatorValidatorsMethod:
-      MethodDescriptor<QueryOuterClass.QueryDelegatorValidatorsRequest, QueryOuterClass.QueryDelegatorValidatorsResponse>
+  val delegatorValidatorsMethod: MethodDescriptor<QueryOuterClass.QueryDelegatorValidatorsRequest,
+      QueryOuterClass.QueryDelegatorValidatorsResponse>
     @JvmStatic
     get() = QueryGrpc.getDelegatorValidatorsMethod()
 
-  public val delegatorWithdrawAddressMethod:
-      MethodDescriptor<QueryOuterClass.QueryDelegatorWithdrawAddressRequest, QueryOuterClass.QueryDelegatorWithdrawAddressResponse>
+  val delegatorWithdrawAddressMethod:
+      MethodDescriptor<QueryOuterClass.QueryDelegatorWithdrawAddressRequest,
+      QueryOuterClass.QueryDelegatorWithdrawAddressResponse>
     @JvmStatic
     get() = QueryGrpc.getDelegatorWithdrawAddressMethod()
 
-  public val communityPoolMethod:
-      MethodDescriptor<QueryOuterClass.QueryCommunityPoolRequest, QueryOuterClass.QueryCommunityPoolResponse>
+  val communityPoolMethod: MethodDescriptor<QueryOuterClass.QueryCommunityPoolRequest,
+      QueryOuterClass.QueryCommunityPoolResponse>
     @JvmStatic
     get() = QueryGrpc.getCommunityPoolMethod()
 
@@ -85,11 +88,11 @@ public object QueryGrpcKt {
    * coroutines.
    */
   @StubFor(QueryGrpc::class)
-  public class QueryCoroutineStub @JvmOverloads constructor(
+  class QueryCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<QueryCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): QueryCoroutineStub =
         QueryCoroutineStub(channel, callOptions)
 
     /**
@@ -100,19 +103,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun params(request: QueryOuterClass.QueryParamsRequest, headers: Metadata =
-        Metadata()): QueryOuterClass.QueryParamsResponse = unaryRpc(
+    suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+        QueryOuterClass.QueryParamsResponse = unaryRpc(
       channel,
       QueryGrpc.getParamsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -121,21 +121,17 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend
-        fun validatorOutstandingRewards(request: QueryOuterClass.QueryValidatorOutstandingRewardsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryValidatorOutstandingRewardsResponse =
-        unaryRpc(
+    suspend
+        fun validatorOutstandingRewards(request: QueryOuterClass.QueryValidatorOutstandingRewardsRequest):
+        QueryOuterClass.QueryValidatorOutstandingRewardsResponse = unaryRpc(
       channel,
       QueryGrpc.getValidatorOutstandingRewardsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -144,20 +140,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun validatorCommission(request: QueryOuterClass.QueryValidatorCommissionRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryValidatorCommissionResponse =
-        unaryRpc(
+    suspend fun validatorCommission(request: QueryOuterClass.QueryValidatorCommissionRequest):
+        QueryOuterClass.QueryValidatorCommissionResponse = unaryRpc(
       channel,
       QueryGrpc.getValidatorCommissionMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -166,19 +158,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun validatorSlashes(request: QueryOuterClass.QueryValidatorSlashesRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryValidatorSlashesResponse = unaryRpc(
+    suspend fun validatorSlashes(request: QueryOuterClass.QueryValidatorSlashesRequest):
+        QueryOuterClass.QueryValidatorSlashesResponse = unaryRpc(
       channel,
       QueryGrpc.getValidatorSlashesMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -187,19 +176,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun delegationRewards(request: QueryOuterClass.QueryDelegationRewardsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryDelegationRewardsResponse = unaryRpc(
+    suspend fun delegationRewards(request: QueryOuterClass.QueryDelegationRewardsRequest):
+        QueryOuterClass.QueryDelegationRewardsResponse = unaryRpc(
       channel,
       QueryGrpc.getDelegationRewardsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -208,21 +194,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend
-        fun delegationTotalRewards(request: QueryOuterClass.QueryDelegationTotalRewardsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryDelegationTotalRewardsResponse =
-        unaryRpc(
+    suspend fun delegationTotalRewards(request: QueryOuterClass.QueryDelegationTotalRewardsRequest):
+        QueryOuterClass.QueryDelegationTotalRewardsResponse = unaryRpc(
       channel,
       QueryGrpc.getDelegationTotalRewardsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -231,20 +212,16 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun delegatorValidators(request: QueryOuterClass.QueryDelegatorValidatorsRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryDelegatorValidatorsResponse =
-        unaryRpc(
+    suspend fun delegatorValidators(request: QueryOuterClass.QueryDelegatorValidatorsRequest):
+        QueryOuterClass.QueryDelegatorValidatorsResponse = unaryRpc(
       channel,
       QueryGrpc.getDelegatorValidatorsMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -253,21 +230,17 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend
-        fun delegatorWithdrawAddress(request: QueryOuterClass.QueryDelegatorWithdrawAddressRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryDelegatorWithdrawAddressResponse =
-        unaryRpc(
+    suspend
+        fun delegatorWithdrawAddress(request: QueryOuterClass.QueryDelegatorWithdrawAddressRequest):
+        QueryOuterClass.QueryDelegatorWithdrawAddressResponse = unaryRpc(
       channel,
       QueryGrpc.getDelegatorWithdrawAddressMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -276,26 +249,23 @@ public object QueryGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun communityPool(request: QueryOuterClass.QueryCommunityPoolRequest,
-        headers: Metadata = Metadata()): QueryOuterClass.QueryCommunityPoolResponse = unaryRpc(
+    suspend fun communityPool(request: QueryOuterClass.QueryCommunityPoolRequest):
+        QueryOuterClass.QueryCommunityPoolResponse = unaryRpc(
       channel,
       QueryGrpc.getCommunityPoolMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.distribution.v1beta1.Query service based on Kotlin
    * coroutines.
    */
-  public abstract class QueryCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class QueryCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for cosmos.distribution.v1beta1.Query.Params.
@@ -308,7 +278,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
+    open suspend fun params(request: QueryOuterClass.QueryParamsRequest):
         QueryOuterClass.QueryParamsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Query.Params is unimplemented"))
 
@@ -324,7 +294,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
+    open suspend
         fun validatorOutstandingRewards(request: QueryOuterClass.QueryValidatorOutstandingRewardsRequest):
         QueryOuterClass.QueryValidatorOutstandingRewardsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Query.ValidatorOutstandingRewards is unimplemented"))
@@ -340,8 +310,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
-        fun validatorCommission(request: QueryOuterClass.QueryValidatorCommissionRequest):
+    open suspend fun validatorCommission(request: QueryOuterClass.QueryValidatorCommissionRequest):
         QueryOuterClass.QueryValidatorCommissionResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Query.ValidatorCommission is unimplemented"))
 
@@ -356,7 +325,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun validatorSlashes(request: QueryOuterClass.QueryValidatorSlashesRequest):
+    open suspend fun validatorSlashes(request: QueryOuterClass.QueryValidatorSlashesRequest):
         QueryOuterClass.QueryValidatorSlashesResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Query.ValidatorSlashes is unimplemented"))
 
@@ -371,8 +340,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
-        fun delegationRewards(request: QueryOuterClass.QueryDelegationRewardsRequest):
+    open suspend fun delegationRewards(request: QueryOuterClass.QueryDelegationRewardsRequest):
         QueryOuterClass.QueryDelegationRewardsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Query.DelegationRewards is unimplemented"))
 
@@ -387,7 +355,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
+    open suspend
         fun delegationTotalRewards(request: QueryOuterClass.QueryDelegationTotalRewardsRequest):
         QueryOuterClass.QueryDelegationTotalRewardsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Query.DelegationTotalRewards is unimplemented"))
@@ -403,8 +371,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
-        fun delegatorValidators(request: QueryOuterClass.QueryDelegatorValidatorsRequest):
+    open suspend fun delegatorValidators(request: QueryOuterClass.QueryDelegatorValidatorsRequest):
         QueryOuterClass.QueryDelegatorValidatorsResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Query.DelegatorValidators is unimplemented"))
 
@@ -420,7 +387,7 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
+    open suspend
         fun delegatorWithdrawAddress(request: QueryOuterClass.QueryDelegatorWithdrawAddressRequest):
         QueryOuterClass.QueryDelegatorWithdrawAddressResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Query.DelegatorWithdrawAddress is unimplemented"))
@@ -436,12 +403,11 @@ public object QueryGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun communityPool(request: QueryOuterClass.QueryCommunityPoolRequest):
+    open suspend fun communityPool(request: QueryOuterClass.QueryCommunityPoolRequest):
         QueryOuterClass.QueryCommunityPoolResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.distribution.v1beta1.Query.CommunityPool is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = QueryGrpc.getParamsMethod(),

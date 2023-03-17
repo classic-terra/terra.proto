@@ -3,16 +3,16 @@
 
 package terra.wasm.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryContractStoreRequest")
-public inline fun queryContractStoreRequest(block: terra.wasm.v1beta1.QueryContractStoreRequestKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryContractStoreRequest(block: terra.wasm.v1beta1.QueryContractStoreRequestKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest =
   terra.wasm.v1beta1.QueryContractStoreRequestKt.Dsl._create(terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest.newBuilder()).apply { block() }._build()
-public object QueryContractStoreRequestKt {
+object QueryContractStoreRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryContractStoreRequestKt {
     /**
      * <code>string contract_address = 1;</code>
      */
-    public var contractAddress: kotlin.String
+    var contractAddress: kotlin.String
       @JvmName("getContractAddress")
       get() = _builder.getContractAddress()
       @JvmName("setContractAddress")
@@ -35,14 +35,14 @@ public object QueryContractStoreRequestKt {
     /**
      * <code>string contract_address = 1;</code>
      */
-    public fun clearContractAddress() {
+    fun clearContractAddress() {
       _builder.clearContractAddress()
     }
 
     /**
      * <code>bytes query_msg = 2 [(.gogoproto.casttype) = "encoding/json.RawMessage"];</code>
      */
-    public var queryMsg: com.google.protobuf.ByteString
+    var queryMsg: com.google.protobuf.ByteString
       @JvmName("getQueryMsg")
       get() = _builder.getQueryMsg()
       @JvmName("setQueryMsg")
@@ -52,12 +52,11 @@ public object QueryContractStoreRequestKt {
     /**
      * <code>bytes query_msg = 2 [(.gogoproto.casttype) = "encoding/json.RawMessage"];</code>
      */
-    public fun clearQueryMsg() {
+    fun clearQueryMsg() {
       _builder.clearQueryMsg()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest.copy(block: terra.wasm.v1beta1.QueryContractStoreRequestKt.Dsl.() -> kotlin.Unit): terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest =
+inline fun terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest.copy(block: terra.wasm.v1beta1.QueryContractStoreRequestKt.Dsl.() -> Unit): terra.wasm.v1beta1.QueryOuterClass.QueryContractStoreRequest =
   terra.wasm.v1beta1.QueryContractStoreRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

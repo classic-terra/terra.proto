@@ -3,16 +3,16 @@
 
 package cosmos.tx.v1beta1;
 
-@kotlin.jvm.JvmName("-initializefee")
-public inline fun fee(block: cosmos.tx.v1beta1.FeeKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.TxOuterClass.Fee =
+@kotlin.jvm.JvmSynthetic
+inline fun fee(block: cosmos.tx.v1beta1.FeeKt.Dsl.() -> Unit): cosmos.tx.v1beta1.TxOuterClass.Fee =
   cosmos.tx.v1beta1.FeeKt.Dsl._create(cosmos.tx.v1beta1.TxOuterClass.Fee.newBuilder()).apply { block() }._build()
-public object FeeKt {
+object FeeKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.tx.v1beta1.TxOuterClass.Fee.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.tx.v1beta1.TxOuterClass.Fee.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.tx.v1beta1.TxOuterClass.Fee.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object FeeKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class AmountProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class AmountProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * amount is the amount of coins to be paid as a fee
@@ -35,7 +35,7 @@ public object FeeKt {
      *
      * <code>repeated .cosmos.base.v1beta1.Coin amount = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
      */
-     public val amount: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>
+     val amount: com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getAmountList()
@@ -50,10 +50,9 @@ public object FeeKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAmount")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.add(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.addAmount(value)
-    }
-    /**
+    }/**
      * <pre>
      * amount is the amount of coins to be paid as a fee
      * </pre>
@@ -63,11 +62,9 @@ public object FeeKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAmount")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.plusAssign(value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * amount is the amount of coins to be paid as a fee
      * </pre>
@@ -77,10 +74,9 @@ public object FeeKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllAmount")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       _builder.addAllAmount(values)
-    }
-    /**
+    }/**
      * <pre>
      * amount is the amount of coins to be paid as a fee
      * </pre>
@@ -90,11 +86,9 @@ public object FeeKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllAmount")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.v1beta1.CoinOuterClass.Coin>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * amount is the amount of coins to be paid as a fee
      * </pre>
@@ -105,10 +99,9 @@ public object FeeKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setAmount")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.set(index: kotlin.Int, value: cosmos.base.v1beta1.CoinOuterClass.Coin) {
       _builder.setAmount(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * amount is the amount of coins to be paid as a fee
      * </pre>
@@ -117,11 +110,9 @@ public object FeeKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearAmount")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.v1beta1.CoinOuterClass.Coin, AmountProxy>.clear() {
       _builder.clearAmount()
     }
-
-
     /**
      * <pre>
      * gas_limit is the maximum gas that can be used in transaction processing
@@ -130,7 +121,7 @@ public object FeeKt {
      *
      * <code>uint64 gas_limit = 2;</code>
      */
-    public var gasLimit: kotlin.Long
+    var gasLimit: kotlin.Long
       @JvmName("getGasLimit")
       get() = _builder.getGasLimit()
       @JvmName("setGasLimit")
@@ -145,7 +136,7 @@ public object FeeKt {
      *
      * <code>uint64 gas_limit = 2;</code>
      */
-    public fun clearGasLimit() {
+    fun clearGasLimit() {
       _builder.clearGasLimit()
     }
 
@@ -158,7 +149,7 @@ public object FeeKt {
      *
      * <code>string payer = 3;</code>
      */
-    public var payer: kotlin.String
+    var payer: kotlin.String
       @JvmName("getPayer")
       get() = _builder.getPayer()
       @JvmName("setPayer")
@@ -174,7 +165,7 @@ public object FeeKt {
      *
      * <code>string payer = 3;</code>
      */
-    public fun clearPayer() {
+    fun clearPayer() {
       _builder.clearPayer()
     }
 
@@ -187,7 +178,7 @@ public object FeeKt {
      *
      * <code>string granter = 4;</code>
      */
-    public var granter: kotlin.String
+    var granter: kotlin.String
       @JvmName("getGranter")
       get() = _builder.getGranter()
       @JvmName("setGranter")
@@ -203,12 +194,11 @@ public object FeeKt {
      *
      * <code>string granter = 4;</code>
      */
-    public fun clearGranter() {
+    fun clearGranter() {
       _builder.clearGranter()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.tx.v1beta1.TxOuterClass.Fee.copy(block: cosmos.tx.v1beta1.FeeKt.Dsl.() -> kotlin.Unit): cosmos.tx.v1beta1.TxOuterClass.Fee =
+inline fun cosmos.tx.v1beta1.TxOuterClass.Fee.copy(block: cosmos.tx.v1beta1.FeeKt.Dsl.() -> Unit): cosmos.tx.v1beta1.TxOuterClass.Fee =
   cosmos.tx.v1beta1.FeeKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

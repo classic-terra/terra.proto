@@ -3,16 +3,16 @@
 
 package ibc.lightclients.solomachine.v2;
 
-@kotlin.jvm.JvmName("-initializeclientStateData")
-public inline fun clientStateData(block: ibc.lightclients.solomachine.v2.ClientStateDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v2.Solomachine.ClientStateData =
+@kotlin.jvm.JvmSynthetic
+inline fun clientStateData(block: ibc.lightclients.solomachine.v2.ClientStateDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v2.Solomachine.ClientStateData =
   ibc.lightclients.solomachine.v2.ClientStateDataKt.Dsl._create(ibc.lightclients.solomachine.v2.Solomachine.ClientStateData.newBuilder()).apply { block() }._build()
-public object ClientStateDataKt {
+object ClientStateDataKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.lightclients.solomachine.v2.Solomachine.ClientStateData.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.lightclients.solomachine.v2.Solomachine.ClientStateData.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.lightclients.solomachine.v2.Solomachine.ClientStateData.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ClientStateDataKt {
     /**
      * <code>bytes path = 1;</code>
      */
-    public var path: com.google.protobuf.ByteString
+    var path: com.google.protobuf.ByteString
       @JvmName("getPath")
       get() = _builder.getPath()
       @JvmName("setPath")
@@ -35,14 +35,14 @@ public object ClientStateDataKt {
     /**
      * <code>bytes path = 1;</code>
      */
-    public fun clearPath() {
+    fun clearPath() {
       _builder.clearPath()
     }
 
     /**
      * <code>.google.protobuf.Any client_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
      */
-    public var clientState: com.google.protobuf.Any
+    var clientState: com.google.protobuf.Any
       @JvmName("getClientState")
       get() = _builder.getClientState()
       @JvmName("setClientState")
@@ -52,22 +52,18 @@ public object ClientStateDataKt {
     /**
      * <code>.google.protobuf.Any client_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
      */
-    public fun clearClientState() {
+    fun clearClientState() {
       _builder.clearClientState()
     }
     /**
      * <code>.google.protobuf.Any client_state = 2 [(.gogoproto.moretags) = "yaml:&#92;"client_state&#92;""];</code>
      * @return Whether the clientState field is set.
      */
-    public fun hasClientState(): kotlin.Boolean {
+    fun hasClientState(): kotlin.Boolean {
       return _builder.hasClientState()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.lightclients.solomachine.v2.Solomachine.ClientStateData.copy(block: ibc.lightclients.solomachine.v2.ClientStateDataKt.Dsl.() -> kotlin.Unit): ibc.lightclients.solomachine.v2.Solomachine.ClientStateData =
+inline fun ibc.lightclients.solomachine.v2.Solomachine.ClientStateData.copy(block: ibc.lightclients.solomachine.v2.ClientStateDataKt.Dsl.() -> Unit): ibc.lightclients.solomachine.v2.Solomachine.ClientStateData =
   ibc.lightclients.solomachine.v2.ClientStateDataKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.lightclients.solomachine.v2.Solomachine.ClientStateDataOrBuilder.clientStateOrNull: com.google.protobuf.Any?
-  get() = if (hasClientState()) getClientState() else null
-

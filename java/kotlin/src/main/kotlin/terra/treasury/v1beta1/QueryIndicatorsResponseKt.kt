@@ -3,16 +3,16 @@
 
 package terra.treasury.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryIndicatorsResponse")
-public inline fun queryIndicatorsResponse(block: terra.treasury.v1beta1.QueryIndicatorsResponseKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryIndicatorsResponse(block: terra.treasury.v1beta1.QueryIndicatorsResponseKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse =
   terra.treasury.v1beta1.QueryIndicatorsResponseKt.Dsl._create(terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse.newBuilder()).apply { block() }._build()
-public object QueryIndicatorsResponseKt {
+object QueryIndicatorsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object QueryIndicatorsResponseKt {
     /**
      * <code>string trl_year = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.customname) = "TRLYear"];</code>
      */
-    public var trlYear: kotlin.String
+    var trlYear: kotlin.String
       @JvmName("getTrlYear")
       get() = _builder.getTrlYear()
       @JvmName("setTrlYear")
@@ -35,14 +35,14 @@ public object QueryIndicatorsResponseKt {
     /**
      * <code>string trl_year = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.customname) = "TRLYear"];</code>
      */
-    public fun clearTrlYear() {
+    fun clearTrlYear() {
       _builder.clearTrlYear()
     }
 
     /**
      * <code>string trl_month = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.customname) = "TRLMonth"];</code>
      */
-    public var trlMonth: kotlin.String
+    var trlMonth: kotlin.String
       @JvmName("getTrlMonth")
       get() = _builder.getTrlMonth()
       @JvmName("setTrlMonth")
@@ -52,12 +52,11 @@ public object QueryIndicatorsResponseKt {
     /**
      * <code>string trl_month = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.customname) = "TRLMonth"];</code>
      */
-    public fun clearTrlMonth() {
+    fun clearTrlMonth() {
       _builder.clearTrlMonth()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse.copy(block: terra.treasury.v1beta1.QueryIndicatorsResponseKt.Dsl.() -> kotlin.Unit): terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse =
+inline fun terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse.copy(block: terra.treasury.v1beta1.QueryIndicatorsResponseKt.Dsl.() -> Unit): terra.treasury.v1beta1.QueryOuterClass.QueryIndicatorsResponse =
   terra.treasury.v1beta1.QueryIndicatorsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

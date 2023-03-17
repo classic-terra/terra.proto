@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializeevent")
-public inline fun event(block: tendermint.abci.EventKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.Event =
+@kotlin.jvm.JvmSynthetic
+inline fun event(block: tendermint.abci.EventKt.Dsl.() -> Unit): tendermint.abci.Types.Event =
   tendermint.abci.EventKt.Dsl._create(tendermint.abci.Types.Event.newBuilder()).apply { block() }._build()
-public object EventKt {
+object EventKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.Event.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.Event.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.Event.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object EventKt {
     /**
      * <code>string type = 1;</code>
      */
-    public var type: kotlin.String
+    var type: kotlin.String
       @JvmName("getType")
       get() = _builder.getType()
       @JvmName("setType")
@@ -35,7 +35,7 @@ public object EventKt {
     /**
      * <code>string type = 1;</code>
      */
-    public fun clearType() {
+    fun clearType() {
       _builder.clearType()
     }
 
@@ -44,11 +44,11 @@ public object EventKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class AttributesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class AttributesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .tendermint.abci.EventAttribute attributes = 2 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "attributes,omitempty"];</code>
      */
-     public val attributes: com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>
+     val attributes: com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getAttributesList()
@@ -59,60 +59,50 @@ public object EventKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAttributes")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.add(value: tendermint.abci.Types.EventAttribute) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.add(value: tendermint.abci.Types.EventAttribute) {
       _builder.addAttributes(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.EventAttribute attributes = 2 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "attributes,omitempty"];</code>
      * @param value The attributes to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAttributes")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.plusAssign(value: tendermint.abci.Types.EventAttribute) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.plusAssign(value: tendermint.abci.Types.EventAttribute) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.EventAttribute attributes = 2 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "attributes,omitempty"];</code>
      * @param values The attributes to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllAttributes")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.addAll(values: kotlin.collections.Iterable<tendermint.abci.Types.EventAttribute>) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.addAll(values: kotlin.collections.Iterable<tendermint.abci.Types.EventAttribute>) {
       _builder.addAllAttributes(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.EventAttribute attributes = 2 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "attributes,omitempty"];</code>
      * @param values The attributes to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllAttributes")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.abci.Types.EventAttribute>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.abci.Types.EventAttribute>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.EventAttribute attributes = 2 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "attributes,omitempty"];</code>
      * @param index The index to set the value at.
      * @param value The attributes to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setAttributes")
-    public operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.set(index: kotlin.Int, value: tendermint.abci.Types.EventAttribute) {
+    operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.set(index: kotlin.Int, value: tendermint.abci.Types.EventAttribute) {
       _builder.setAttributes(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.EventAttribute attributes = 2 [(.gogoproto.nullable) = false, (.gogoproto.jsontag) = "attributes,omitempty"];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearAttributes")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.EventAttribute, AttributesProxy>.clear() {
       _builder.clearAttributes()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.Event.copy(block: tendermint.abci.EventKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.Event =
+inline fun tendermint.abci.Types.Event.copy(block: tendermint.abci.EventKt.Dsl.() -> Unit): tendermint.abci.Types.Event =
   tendermint.abci.EventKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

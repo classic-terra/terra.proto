@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializeresponseSetOption")
-public inline fun responseSetOption(block: tendermint.abci.ResponseSetOptionKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseSetOption =
+@kotlin.jvm.JvmSynthetic
+inline fun responseSetOption(block: tendermint.abci.ResponseSetOptionKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseSetOption =
   tendermint.abci.ResponseSetOptionKt.Dsl._create(tendermint.abci.Types.ResponseSetOption.newBuilder()).apply { block() }._build()
-public object ResponseSetOptionKt {
+object ResponseSetOptionKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.ResponseSetOption.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.ResponseSetOption.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.ResponseSetOption.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ResponseSetOptionKt {
     /**
      * <code>uint32 code = 1;</code>
      */
-    public var code: kotlin.Int
+    var code: kotlin.Int
       @JvmName("getCode")
       get() = _builder.getCode()
       @JvmName("setCode")
@@ -35,7 +35,7 @@ public object ResponseSetOptionKt {
     /**
      * <code>uint32 code = 1;</code>
      */
-    public fun clearCode() {
+    fun clearCode() {
       _builder.clearCode()
     }
 
@@ -46,7 +46,7 @@ public object ResponseSetOptionKt {
      *
      * <code>string log = 3;</code>
      */
-    public var log: kotlin.String
+    var log: kotlin.String
       @JvmName("getLog")
       get() = _builder.getLog()
       @JvmName("setLog")
@@ -60,14 +60,14 @@ public object ResponseSetOptionKt {
      *
      * <code>string log = 3;</code>
      */
-    public fun clearLog() {
+    fun clearLog() {
       _builder.clearLog()
     }
 
     /**
      * <code>string info = 4;</code>
      */
-    public var info: kotlin.String
+    var info: kotlin.String
       @JvmName("getInfo")
       get() = _builder.getInfo()
       @JvmName("setInfo")
@@ -77,12 +77,11 @@ public object ResponseSetOptionKt {
     /**
      * <code>string info = 4;</code>
      */
-    public fun clearInfo() {
+    fun clearInfo() {
       _builder.clearInfo()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.ResponseSetOption.copy(block: tendermint.abci.ResponseSetOptionKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseSetOption =
+inline fun tendermint.abci.Types.ResponseSetOption.copy(block: tendermint.abci.ResponseSetOptionKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseSetOption =
   tendermint.abci.ResponseSetOptionKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

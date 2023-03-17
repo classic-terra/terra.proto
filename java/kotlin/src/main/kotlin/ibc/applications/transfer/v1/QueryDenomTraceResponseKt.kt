@@ -3,16 +3,16 @@
 
 package ibc.applications.transfer.v1;
 
-@kotlin.jvm.JvmName("-initializequeryDenomTraceResponse")
-public inline fun queryDenomTraceResponse(block: ibc.applications.transfer.v1.QueryDenomTraceResponseKt.Dsl.() -> kotlin.Unit): ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryDenomTraceResponse(block: ibc.applications.transfer.v1.QueryDenomTraceResponseKt.Dsl.() -> Unit): ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceResponse =
   ibc.applications.transfer.v1.QueryDenomTraceResponseKt.Dsl._create(ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceResponse.newBuilder()).apply { block() }._build()
-public object QueryDenomTraceResponseKt {
+object QueryDenomTraceResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryDenomTraceResponseKt {
      *
      * <code>.ibc.applications.transfer.v1.DenomTrace denom_trace = 1;</code>
      */
-    public var denomTrace: ibc.applications.transfer.v1.Transfer.DenomTrace
+    var denomTrace: ibc.applications.transfer.v1.Transfer.DenomTrace
       @JvmName("getDenomTrace")
       get() = _builder.getDenomTrace()
       @JvmName("setDenomTrace")
@@ -43,7 +43,7 @@ public object QueryDenomTraceResponseKt {
      *
      * <code>.ibc.applications.transfer.v1.DenomTrace denom_trace = 1;</code>
      */
-    public fun clearDenomTrace() {
+    fun clearDenomTrace() {
       _builder.clearDenomTrace()
     }
     /**
@@ -54,15 +54,11 @@ public object QueryDenomTraceResponseKt {
      * <code>.ibc.applications.transfer.v1.DenomTrace denom_trace = 1;</code>
      * @return Whether the denomTrace field is set.
      */
-    public fun hasDenomTrace(): kotlin.Boolean {
+    fun hasDenomTrace(): kotlin.Boolean {
       return _builder.hasDenomTrace()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceResponse.copy(block: ibc.applications.transfer.v1.QueryDenomTraceResponseKt.Dsl.() -> kotlin.Unit): ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceResponse =
+inline fun ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceResponse.copy(block: ibc.applications.transfer.v1.QueryDenomTraceResponseKt.Dsl.() -> Unit): ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceResponse =
   ibc.applications.transfer.v1.QueryDenomTraceResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.applications.transfer.v1.QueryOuterClass.QueryDenomTraceResponseOrBuilder.denomTraceOrNull: ibc.applications.transfer.v1.Transfer.DenomTrace?
-  get() = if (hasDenomTrace()) getDenomTrace() else null
-

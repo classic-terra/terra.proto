@@ -3,16 +3,16 @@
 
 package terra.oracle.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeparams")
-public inline fun params(block: terra.oracle.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Oracle.Params =
+@kotlin.jvm.JvmSynthetic
+inline fun params(block: terra.oracle.v1beta1.ParamsKt.Dsl.() -> Unit): terra.oracle.v1beta1.Oracle.Params =
   terra.oracle.v1beta1.ParamsKt.Dsl._create(terra.oracle.v1beta1.Oracle.Params.newBuilder()).apply { block() }._build()
-public object ParamsKt {
+object ParamsKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.oracle.v1beta1.Oracle.Params.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.oracle.v1beta1.Oracle.Params.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.oracle.v1beta1.Oracle.Params.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ParamsKt {
     /**
      * <code>uint64 vote_period = 1 [(.gogoproto.moretags) = "yaml:&#92;"vote_period&#92;""];</code>
      */
-    public var votePeriod: kotlin.Long
+    var votePeriod: kotlin.Long
       @JvmName("getVotePeriod")
       get() = _builder.getVotePeriod()
       @JvmName("setVotePeriod")
@@ -35,14 +35,14 @@ public object ParamsKt {
     /**
      * <code>uint64 vote_period = 1 [(.gogoproto.moretags) = "yaml:&#92;"vote_period&#92;""];</code>
      */
-    public fun clearVotePeriod() {
+    fun clearVotePeriod() {
       _builder.clearVotePeriod()
     }
 
     /**
      * <code>string vote_threshold = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"vote_threshold&#92;""];</code>
      */
-    public var voteThreshold: kotlin.String
+    var voteThreshold: kotlin.String
       @JvmName("getVoteThreshold")
       get() = _builder.getVoteThreshold()
       @JvmName("setVoteThreshold")
@@ -52,14 +52,14 @@ public object ParamsKt {
     /**
      * <code>string vote_threshold = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"vote_threshold&#92;""];</code>
      */
-    public fun clearVoteThreshold() {
+    fun clearVoteThreshold() {
       _builder.clearVoteThreshold()
     }
 
     /**
      * <code>string reward_band = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"reward_band&#92;""];</code>
      */
-    public var rewardBand: kotlin.String
+    var rewardBand: kotlin.String
       @JvmName("getRewardBand")
       get() = _builder.getRewardBand()
       @JvmName("setRewardBand")
@@ -69,14 +69,14 @@ public object ParamsKt {
     /**
      * <code>string reward_band = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"reward_band&#92;""];</code>
      */
-    public fun clearRewardBand() {
+    fun clearRewardBand() {
       _builder.clearRewardBand()
     }
 
     /**
      * <code>uint64 reward_distribution_window = 4 [(.gogoproto.moretags) = "yaml:&#92;"reward_distribution_window&#92;""];</code>
      */
-    public var rewardDistributionWindow: kotlin.Long
+    var rewardDistributionWindow: kotlin.Long
       @JvmName("getRewardDistributionWindow")
       get() = _builder.getRewardDistributionWindow()
       @JvmName("setRewardDistributionWindow")
@@ -86,7 +86,7 @@ public object ParamsKt {
     /**
      * <code>uint64 reward_distribution_window = 4 [(.gogoproto.moretags) = "yaml:&#92;"reward_distribution_window&#92;""];</code>
      */
-    public fun clearRewardDistributionWindow() {
+    fun clearRewardDistributionWindow() {
       _builder.clearRewardDistributionWindow()
     }
 
@@ -95,11 +95,11 @@ public object ParamsKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class WhitelistProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class WhitelistProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .terra.oracle.v1beta1.Denom whitelist = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"whitelist&#92;"", (.gogoproto.castrepeated) = "DenomList"];</code>
      */
-     public val whitelist: com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>
+     val whitelist: com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getWhitelistList()
@@ -110,62 +110,53 @@ public object ParamsKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addWhitelist")
-    public fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.add(value: terra.oracle.v1beta1.Oracle.Denom) {
+    fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.add(value: terra.oracle.v1beta1.Oracle.Denom) {
       _builder.addWhitelist(value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.oracle.v1beta1.Denom whitelist = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"whitelist&#92;"", (.gogoproto.castrepeated) = "DenomList"];</code>
      * @param value The whitelist to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignWhitelist")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.plusAssign(value: terra.oracle.v1beta1.Oracle.Denom) {
+    inline operator fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.plusAssign(value: terra.oracle.v1beta1.Oracle.Denom) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.oracle.v1beta1.Denom whitelist = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"whitelist&#92;"", (.gogoproto.castrepeated) = "DenomList"];</code>
      * @param values The whitelist to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllWhitelist")
-    public fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.addAll(values: kotlin.collections.Iterable<terra.oracle.v1beta1.Oracle.Denom>) {
+    fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.addAll(values: kotlin.collections.Iterable<terra.oracle.v1beta1.Oracle.Denom>) {
       _builder.addAllWhitelist(values)
-    }
-    /**
+    }/**
      * <code>repeated .terra.oracle.v1beta1.Denom whitelist = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"whitelist&#92;"", (.gogoproto.castrepeated) = "DenomList"];</code>
      * @param values The whitelist to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllWhitelist")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.plusAssign(values: kotlin.collections.Iterable<terra.oracle.v1beta1.Oracle.Denom>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.plusAssign(values: kotlin.collections.Iterable<terra.oracle.v1beta1.Oracle.Denom>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .terra.oracle.v1beta1.Denom whitelist = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"whitelist&#92;"", (.gogoproto.castrepeated) = "DenomList"];</code>
      * @param index The index to set the value at.
      * @param value The whitelist to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setWhitelist")
-    public operator fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.set(index: kotlin.Int, value: terra.oracle.v1beta1.Oracle.Denom) {
+    operator fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.set(index: kotlin.Int, value: terra.oracle.v1beta1.Oracle.Denom) {
       _builder.setWhitelist(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .terra.oracle.v1beta1.Denom whitelist = 5 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"whitelist&#92;"", (.gogoproto.castrepeated) = "DenomList"];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearWhitelist")
-    public fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<terra.oracle.v1beta1.Oracle.Denom, WhitelistProxy>.clear() {
       _builder.clearWhitelist()
     }
-
-
     /**
      * <code>string slash_fraction = 6 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"slash_fraction&#92;""];</code>
      */
-    public var slashFraction: kotlin.String
+    var slashFraction: kotlin.String
       @JvmName("getSlashFraction")
       get() = _builder.getSlashFraction()
       @JvmName("setSlashFraction")
@@ -175,14 +166,14 @@ public object ParamsKt {
     /**
      * <code>string slash_fraction = 6 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"slash_fraction&#92;""];</code>
      */
-    public fun clearSlashFraction() {
+    fun clearSlashFraction() {
       _builder.clearSlashFraction()
     }
 
     /**
      * <code>uint64 slash_window = 7 [(.gogoproto.moretags) = "yaml:&#92;"slash_window&#92;""];</code>
      */
-    public var slashWindow: kotlin.Long
+    var slashWindow: kotlin.Long
       @JvmName("getSlashWindow")
       get() = _builder.getSlashWindow()
       @JvmName("setSlashWindow")
@@ -192,14 +183,14 @@ public object ParamsKt {
     /**
      * <code>uint64 slash_window = 7 [(.gogoproto.moretags) = "yaml:&#92;"slash_window&#92;""];</code>
      */
-    public fun clearSlashWindow() {
+    fun clearSlashWindow() {
       _builder.clearSlashWindow()
     }
 
     /**
      * <code>string min_valid_per_window = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"min_valid_per_window&#92;""];</code>
      */
-    public var minValidPerWindow: kotlin.String
+    var minValidPerWindow: kotlin.String
       @JvmName("getMinValidPerWindow")
       get() = _builder.getMinValidPerWindow()
       @JvmName("setMinValidPerWindow")
@@ -209,12 +200,11 @@ public object ParamsKt {
     /**
      * <code>string min_valid_per_window = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"min_valid_per_window&#92;""];</code>
      */
-    public fun clearMinValidPerWindow() {
+    fun clearMinValidPerWindow() {
       _builder.clearMinValidPerWindow()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.oracle.v1beta1.Oracle.Params.copy(block: terra.oracle.v1beta1.ParamsKt.Dsl.() -> kotlin.Unit): terra.oracle.v1beta1.Oracle.Params =
+inline fun terra.oracle.v1beta1.Oracle.Params.copy(block: terra.oracle.v1beta1.ParamsKt.Dsl.() -> Unit): terra.oracle.v1beta1.Oracle.Params =
   terra.oracle.v1beta1.ParamsKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.base.snapshots.v1beta1;
 
-@kotlin.jvm.JvmName("-initializemetadata")
-public inline fun metadata(block: cosmos.base.snapshots.v1beta1.MetadataKt.Dsl.() -> kotlin.Unit): cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata =
+@kotlin.jvm.JvmSynthetic
+inline fun metadata(block: cosmos.base.snapshots.v1beta1.MetadataKt.Dsl.() -> Unit): cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata =
   cosmos.base.snapshots.v1beta1.MetadataKt.Dsl._create(cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.newBuilder()).apply { block() }._build()
-public object MetadataKt {
+object MetadataKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.Builder): Dsl = Dsl(builder)
@@ -27,7 +27,7 @@ public object MetadataKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ChunkHashesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ChunkHashesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * SHA-256 chunk hashes
@@ -35,7 +35,7 @@ public object MetadataKt {
      *
      * <code>repeated bytes chunk_hashes = 1;</code>
      */
-     public val chunkHashes: com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>
+     val chunkHashes: com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getChunkHashesList()
@@ -50,7 +50,7 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addChunkHashes")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.add(value: com.google.protobuf.ByteString) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.add(value: com.google.protobuf.ByteString) {
       _builder.addChunkHashes(value)
     }/**
      * <pre>
@@ -62,8 +62,7 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignChunkHashes")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.plusAssign(value: com.google.protobuf.ByteString) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.plusAssign(value: com.google.protobuf.ByteString) {
       add(value)
     }/**
      * <pre>
@@ -75,7 +74,7 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllChunkHashes")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.addAll(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
       _builder.addAllChunkHashes(values)
     }/**
      * <pre>
@@ -87,8 +86,7 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllChunkHashes")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.plusAssign(values: kotlin.collections.Iterable<com.google.protobuf.ByteString>) {
       addAll(values)
     }/**
      * <pre>
@@ -101,7 +99,7 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setChunkHashes")
-    public operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.set(index: kotlin.Int, value: com.google.protobuf.ByteString) {
+    operator fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.set(index: kotlin.Int, value: com.google.protobuf.ByteString) {
       _builder.setChunkHashes(index, value)
     }/**
      * <pre>
@@ -112,11 +110,10 @@ public object MetadataKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearChunkHashes")
-    public fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<com.google.protobuf.ByteString, ChunkHashesProxy>.clear() {
       _builder.clearChunkHashes()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.copy(block: cosmos.base.snapshots.v1beta1.MetadataKt.Dsl.() -> kotlin.Unit): cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata =
+inline fun cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.copy(block: cosmos.base.snapshots.v1beta1.MetadataKt.Dsl.() -> Unit): cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata =
   cosmos.base.snapshots.v1beta1.MetadataKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializemsgChannelCloseConfirmResponse")
-public inline fun msgChannelCloseConfirmResponse(block: ibc.core.channel.v1.MsgChannelCloseConfirmResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgChannelCloseConfirmResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgChannelCloseConfirmResponse(block: ibc.core.channel.v1.MsgChannelCloseConfirmResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgChannelCloseConfirmResponse =
   ibc.core.channel.v1.MsgChannelCloseConfirmResponseKt.Dsl._create(ibc.core.channel.v1.Tx.MsgChannelCloseConfirmResponse.newBuilder()).apply { block() }._build()
-public object MsgChannelCloseConfirmResponseKt {
+object MsgChannelCloseConfirmResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.Tx.MsgChannelCloseConfirmResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.Tx.MsgChannelCloseConfirmResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.Tx.MsgChannelCloseConfirmResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgChannelCloseConfirmResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.Tx.MsgChannelCloseConfirmResponse.copy(block: ibc.core.channel.v1.MsgChannelCloseConfirmResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgChannelCloseConfirmResponse =
+inline fun ibc.core.channel.v1.Tx.MsgChannelCloseConfirmResponse.copy(block: ibc.core.channel.v1.MsgChannelCloseConfirmResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgChannelCloseConfirmResponse =
   ibc.core.channel.v1.MsgChannelCloseConfirmResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.base.store.v1beta1;
 
-@kotlin.jvm.JvmName("-initializesnapshotItem")
-public inline fun snapshotItem(block: cosmos.base.store.v1beta1.SnapshotItemKt.Dsl.() -> kotlin.Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotItem =
+@kotlin.jvm.JvmSynthetic
+inline fun snapshotItem(block: cosmos.base.store.v1beta1.SnapshotItemKt.Dsl.() -> Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotItem =
   cosmos.base.store.v1beta1.SnapshotItemKt.Dsl._create(cosmos.base.store.v1beta1.Snapshot.SnapshotItem.newBuilder()).apply { block() }._build()
-public object SnapshotItemKt {
+object SnapshotItemKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.store.v1beta1.Snapshot.SnapshotItem.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.store.v1beta1.Snapshot.SnapshotItem.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.store.v1beta1.Snapshot.SnapshotItem.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object SnapshotItemKt {
     /**
      * <code>.cosmos.base.store.v1beta1.SnapshotStoreItem store = 1;</code>
      */
-    public var store: cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem
+    var store: cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem
       @JvmName("getStore")
       get() = _builder.getStore()
       @JvmName("setStore")
@@ -35,21 +35,21 @@ public object SnapshotItemKt {
     /**
      * <code>.cosmos.base.store.v1beta1.SnapshotStoreItem store = 1;</code>
      */
-    public fun clearStore() {
+    fun clearStore() {
       _builder.clearStore()
     }
     /**
      * <code>.cosmos.base.store.v1beta1.SnapshotStoreItem store = 1;</code>
      * @return Whether the store field is set.
      */
-    public fun hasStore(): kotlin.Boolean {
+    fun hasStore(): kotlin.Boolean {
       return _builder.hasStore()
     }
 
     /**
      * <code>.cosmos.base.store.v1beta1.SnapshotIAVLItem iavl = 2 [(.gogoproto.customname) = "IAVL"];</code>
      */
-    public var iavl: cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem
+    var iavl: cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem
       @JvmName("getIavl")
       get() = _builder.getIavl()
       @JvmName("setIavl")
@@ -59,32 +59,25 @@ public object SnapshotItemKt {
     /**
      * <code>.cosmos.base.store.v1beta1.SnapshotIAVLItem iavl = 2 [(.gogoproto.customname) = "IAVL"];</code>
      */
-    public fun clearIavl() {
+    fun clearIavl() {
       _builder.clearIavl()
     }
     /**
      * <code>.cosmos.base.store.v1beta1.SnapshotIAVLItem iavl = 2 [(.gogoproto.customname) = "IAVL"];</code>
      * @return Whether the iavl field is set.
      */
-    public fun hasIavl(): kotlin.Boolean {
+    fun hasIavl(): kotlin.Boolean {
       return _builder.hasIavl()
     }
-    public val itemCase: cosmos.base.store.v1beta1.Snapshot.SnapshotItem.ItemCase
+    val itemCase: cosmos.base.store.v1beta1.Snapshot.SnapshotItem.ItemCase
       @JvmName("getItemCase")
       get() = _builder.getItemCase()
 
-    public fun clearItem() {
+    fun clearItem() {
       _builder.clearItem()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.store.v1beta1.Snapshot.SnapshotItem.copy(block: cosmos.base.store.v1beta1.SnapshotItemKt.Dsl.() -> kotlin.Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotItem =
+inline fun cosmos.base.store.v1beta1.Snapshot.SnapshotItem.copy(block: cosmos.base.store.v1beta1.SnapshotItemKt.Dsl.() -> Unit): cosmos.base.store.v1beta1.Snapshot.SnapshotItem =
   cosmos.base.store.v1beta1.SnapshotItemKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.store.v1beta1.Snapshot.SnapshotItemOrBuilder.storeOrNull: cosmos.base.store.v1beta1.Snapshot.SnapshotStoreItem?
-  get() = if (hasStore()) getStore() else null
-
-public val cosmos.base.store.v1beta1.Snapshot.SnapshotItemOrBuilder.iavlOrNull: cosmos.base.store.v1beta1.Snapshot.SnapshotIAVLItem?
-  get() = if (hasIavl()) getIavl() else null
-

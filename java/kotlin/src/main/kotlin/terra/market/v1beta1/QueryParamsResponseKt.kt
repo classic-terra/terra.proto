@@ -3,16 +3,16 @@
 
 package terra.market.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryParamsResponse")
-public inline fun queryParamsResponse(block: terra.market.v1beta1.QueryParamsResponseKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QueryParamsResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryParamsResponse(block: terra.market.v1beta1.QueryParamsResponseKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QueryParamsResponse =
   terra.market.v1beta1.QueryParamsResponseKt.Dsl._create(terra.market.v1beta1.QueryOuterClass.QueryParamsResponse.newBuilder()).apply { block() }._build()
-public object QueryParamsResponseKt {
+object QueryParamsResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: terra.market.v1beta1.QueryOuterClass.QueryParamsResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: terra.market.v1beta1.QueryOuterClass.QueryParamsResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: terra.market.v1beta1.QueryOuterClass.QueryParamsResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryParamsResponseKt {
      *
      * <code>.terra.market.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var params: terra.market.v1beta1.Market.Params
+    var params: terra.market.v1beta1.Market.Params
       @JvmName("getParams")
       get() = _builder.getParams()
       @JvmName("setParams")
@@ -43,7 +43,7 @@ public object QueryParamsResponseKt {
      *
      * <code>.terra.market.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearParams() {
+    fun clearParams() {
       _builder.clearParams()
     }
     /**
@@ -54,15 +54,11 @@ public object QueryParamsResponseKt {
      * <code>.terra.market.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the params field is set.
      */
-    public fun hasParams(): kotlin.Boolean {
+    fun hasParams(): kotlin.Boolean {
       return _builder.hasParams()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun terra.market.v1beta1.QueryOuterClass.QueryParamsResponse.copy(block: terra.market.v1beta1.QueryParamsResponseKt.Dsl.() -> kotlin.Unit): terra.market.v1beta1.QueryOuterClass.QueryParamsResponse =
+inline fun terra.market.v1beta1.QueryOuterClass.QueryParamsResponse.copy(block: terra.market.v1beta1.QueryParamsResponseKt.Dsl.() -> Unit): terra.market.v1beta1.QueryOuterClass.QueryParamsResponse =
   terra.market.v1beta1.QueryParamsResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val terra.market.v1beta1.QueryOuterClass.QueryParamsResponseOrBuilder.paramsOrNull: terra.market.v1beta1.Market.Params?
-  get() = if (hasParams()) getParams() else null
-

@@ -3,16 +3,16 @@
 
 package cosmos.auth.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryAccountRequest")
-public inline fun queryAccountRequest(block: cosmos.auth.v1beta1.QueryAccountRequestKt.Dsl.() -> kotlin.Unit): cosmos.auth.v1beta1.QueryOuterClass.QueryAccountRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryAccountRequest(block: cosmos.auth.v1beta1.QueryAccountRequestKt.Dsl.() -> Unit): cosmos.auth.v1beta1.QueryOuterClass.QueryAccountRequest =
   cosmos.auth.v1beta1.QueryAccountRequestKt.Dsl._create(cosmos.auth.v1beta1.QueryOuterClass.QueryAccountRequest.newBuilder()).apply { block() }._build()
-public object QueryAccountRequestKt {
+object QueryAccountRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.auth.v1beta1.QueryOuterClass.QueryAccountRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.auth.v1beta1.QueryOuterClass.QueryAccountRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.auth.v1beta1.QueryOuterClass.QueryAccountRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryAccountRequestKt {
      *
      * <code>string address = 1;</code>
      */
-    public var address: kotlin.String
+    var address: kotlin.String
       @JvmName("getAddress")
       get() = _builder.getAddress()
       @JvmName("setAddress")
@@ -43,12 +43,11 @@ public object QueryAccountRequestKt {
      *
      * <code>string address = 1;</code>
      */
-    public fun clearAddress() {
+    fun clearAddress() {
       _builder.clearAddress()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.auth.v1beta1.QueryOuterClass.QueryAccountRequest.copy(block: cosmos.auth.v1beta1.QueryAccountRequestKt.Dsl.() -> kotlin.Unit): cosmos.auth.v1beta1.QueryOuterClass.QueryAccountRequest =
+inline fun cosmos.auth.v1beta1.QueryOuterClass.QueryAccountRequest.copy(block: cosmos.auth.v1beta1.QueryAccountRequestKt.Dsl.() -> Unit): cosmos.auth.v1beta1.QueryOuterClass.QueryAccountRequest =
   cosmos.auth.v1beta1.QueryAccountRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

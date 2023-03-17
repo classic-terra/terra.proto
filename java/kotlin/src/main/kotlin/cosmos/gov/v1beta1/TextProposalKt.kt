@@ -3,16 +3,16 @@
 
 package cosmos.gov.v1beta1;
 
-@kotlin.jvm.JvmName("-initializetextProposal")
-public inline fun textProposal(block: cosmos.gov.v1beta1.TextProposalKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Gov.TextProposal =
+@kotlin.jvm.JvmSynthetic
+inline fun textProposal(block: cosmos.gov.v1beta1.TextProposalKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Gov.TextProposal =
   cosmos.gov.v1beta1.TextProposalKt.Dsl._create(cosmos.gov.v1beta1.Gov.TextProposal.newBuilder()).apply { block() }._build()
-public object TextProposalKt {
+object TextProposalKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.gov.v1beta1.Gov.TextProposal.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.gov.v1beta1.Gov.TextProposal.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.gov.v1beta1.Gov.TextProposal.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object TextProposalKt {
     /**
      * <code>string title = 1;</code>
      */
-    public var title: kotlin.String
+    var title: kotlin.String
       @JvmName("getTitle")
       get() = _builder.getTitle()
       @JvmName("setTitle")
@@ -35,14 +35,14 @@ public object TextProposalKt {
     /**
      * <code>string title = 1;</code>
      */
-    public fun clearTitle() {
+    fun clearTitle() {
       _builder.clearTitle()
     }
 
     /**
      * <code>string description = 2;</code>
      */
-    public var description: kotlin.String
+    var description: kotlin.String
       @JvmName("getDescription")
       get() = _builder.getDescription()
       @JvmName("setDescription")
@@ -52,12 +52,11 @@ public object TextProposalKt {
     /**
      * <code>string description = 2;</code>
      */
-    public fun clearDescription() {
+    fun clearDescription() {
       _builder.clearDescription()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.gov.v1beta1.Gov.TextProposal.copy(block: cosmos.gov.v1beta1.TextProposalKt.Dsl.() -> kotlin.Unit): cosmos.gov.v1beta1.Gov.TextProposal =
+inline fun cosmos.gov.v1beta1.Gov.TextProposal.copy(block: cosmos.gov.v1beta1.TextProposalKt.Dsl.() -> Unit): cosmos.gov.v1beta1.Gov.TextProposal =
   cosmos.gov.v1beta1.TextProposalKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

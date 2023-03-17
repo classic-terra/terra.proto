@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializerequestEndBlock")
-public inline fun requestEndBlock(block: tendermint.abci.RequestEndBlockKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.RequestEndBlock =
+@kotlin.jvm.JvmSynthetic
+inline fun requestEndBlock(block: tendermint.abci.RequestEndBlockKt.Dsl.() -> Unit): tendermint.abci.Types.RequestEndBlock =
   tendermint.abci.RequestEndBlockKt.Dsl._create(tendermint.abci.Types.RequestEndBlock.newBuilder()).apply { block() }._build()
-public object RequestEndBlockKt {
+object RequestEndBlockKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.RequestEndBlock.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.RequestEndBlock.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.RequestEndBlock.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object RequestEndBlockKt {
     /**
      * <code>int64 height = 1;</code>
      */
-    public var height: kotlin.Long
+    var height: kotlin.Long
       @JvmName("getHeight")
       get() = _builder.getHeight()
       @JvmName("setHeight")
@@ -35,12 +35,11 @@ public object RequestEndBlockKt {
     /**
      * <code>int64 height = 1;</code>
      */
-    public fun clearHeight() {
+    fun clearHeight() {
       _builder.clearHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.RequestEndBlock.copy(block: tendermint.abci.RequestEndBlockKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.RequestEndBlock =
+inline fun tendermint.abci.Types.RequestEndBlock.copy(block: tendermint.abci.RequestEndBlockKt.Dsl.() -> Unit): tendermint.abci.Types.RequestEndBlock =
   tendermint.abci.RequestEndBlockKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

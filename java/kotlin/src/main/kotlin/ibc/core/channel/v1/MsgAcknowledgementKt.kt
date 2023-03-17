@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializemsgAcknowledgement")
-public inline fun msgAcknowledgement(block: ibc.core.channel.v1.MsgAcknowledgementKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgAcknowledgement =
+@kotlin.jvm.JvmSynthetic
+inline fun msgAcknowledgement(block: ibc.core.channel.v1.MsgAcknowledgementKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgAcknowledgement =
   ibc.core.channel.v1.MsgAcknowledgementKt.Dsl._create(ibc.core.channel.v1.Tx.MsgAcknowledgement.newBuilder()).apply { block() }._build()
-public object MsgAcknowledgementKt {
+object MsgAcknowledgementKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.Tx.MsgAcknowledgement.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.Tx.MsgAcknowledgement.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.Tx.MsgAcknowledgement.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object MsgAcknowledgementKt {
     /**
      * <code>.ibc.core.channel.v1.Packet packet = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public var packet: ibc.core.channel.v1.ChannelOuterClass.Packet
+    var packet: ibc.core.channel.v1.ChannelOuterClass.Packet
       @JvmName("getPacket")
       get() = _builder.getPacket()
       @JvmName("setPacket")
@@ -35,21 +35,21 @@ public object MsgAcknowledgementKt {
     /**
      * <code>.ibc.core.channel.v1.Packet packet = 1 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearPacket() {
+    fun clearPacket() {
       _builder.clearPacket()
     }
     /**
      * <code>.ibc.core.channel.v1.Packet packet = 1 [(.gogoproto.nullable) = false];</code>
      * @return Whether the packet field is set.
      */
-    public fun hasPacket(): kotlin.Boolean {
+    fun hasPacket(): kotlin.Boolean {
       return _builder.hasPacket()
     }
 
     /**
      * <code>bytes acknowledgement = 2;</code>
      */
-    public var acknowledgement: com.google.protobuf.ByteString
+    var acknowledgement: com.google.protobuf.ByteString
       @JvmName("getAcknowledgement")
       get() = _builder.getAcknowledgement()
       @JvmName("setAcknowledgement")
@@ -59,14 +59,14 @@ public object MsgAcknowledgementKt {
     /**
      * <code>bytes acknowledgement = 2;</code>
      */
-    public fun clearAcknowledgement() {
+    fun clearAcknowledgement() {
       _builder.clearAcknowledgement()
     }
 
     /**
      * <code>bytes proof_acked = 3 [(.gogoproto.moretags) = "yaml:&#92;"proof_acked&#92;""];</code>
      */
-    public var proofAcked: com.google.protobuf.ByteString
+    var proofAcked: com.google.protobuf.ByteString
       @JvmName("getProofAcked")
       get() = _builder.getProofAcked()
       @JvmName("setProofAcked")
@@ -76,14 +76,14 @@ public object MsgAcknowledgementKt {
     /**
      * <code>bytes proof_acked = 3 [(.gogoproto.moretags) = "yaml:&#92;"proof_acked&#92;""];</code>
      */
-    public fun clearProofAcked() {
+    fun clearProofAcked() {
       _builder.clearProofAcked()
     }
 
     /**
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"proof_height&#92;""];</code>
      */
-    public var proofHeight: ibc.core.client.v1.Client.Height
+    var proofHeight: ibc.core.client.v1.Client.Height
       @JvmName("getProofHeight")
       get() = _builder.getProofHeight()
       @JvmName("setProofHeight")
@@ -93,21 +93,21 @@ public object MsgAcknowledgementKt {
     /**
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"proof_height&#92;""];</code>
      */
-    public fun clearProofHeight() {
+    fun clearProofHeight() {
       _builder.clearProofHeight()
     }
     /**
      * <code>.ibc.core.client.v1.Height proof_height = 4 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"proof_height&#92;""];</code>
      * @return Whether the proofHeight field is set.
      */
-    public fun hasProofHeight(): kotlin.Boolean {
+    fun hasProofHeight(): kotlin.Boolean {
       return _builder.hasProofHeight()
     }
 
     /**
      * <code>string signer = 5;</code>
      */
-    public var signer: kotlin.String
+    var signer: kotlin.String
       @JvmName("getSigner")
       get() = _builder.getSigner()
       @JvmName("setSigner")
@@ -117,18 +117,11 @@ public object MsgAcknowledgementKt {
     /**
      * <code>string signer = 5;</code>
      */
-    public fun clearSigner() {
+    fun clearSigner() {
       _builder.clearSigner()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.Tx.MsgAcknowledgement.copy(block: ibc.core.channel.v1.MsgAcknowledgementKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.Tx.MsgAcknowledgement =
+inline fun ibc.core.channel.v1.Tx.MsgAcknowledgement.copy(block: ibc.core.channel.v1.MsgAcknowledgementKt.Dsl.() -> Unit): ibc.core.channel.v1.Tx.MsgAcknowledgement =
   ibc.core.channel.v1.MsgAcknowledgementKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.channel.v1.Tx.MsgAcknowledgementOrBuilder.packetOrNull: ibc.core.channel.v1.ChannelOuterClass.Packet?
-  get() = if (hasPacket()) getPacket() else null
-
-public val ibc.core.channel.v1.Tx.MsgAcknowledgementOrBuilder.proofHeightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasProofHeight()) getProofHeight() else null
-

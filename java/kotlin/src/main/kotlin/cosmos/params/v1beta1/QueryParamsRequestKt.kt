@@ -3,16 +3,16 @@
 
 package cosmos.params.v1beta1;
 
-@kotlin.jvm.JvmName("-initializequeryParamsRequest")
-public inline fun queryParamsRequest(block: cosmos.params.v1beta1.QueryParamsRequestKt.Dsl.() -> kotlin.Unit): cosmos.params.v1beta1.QueryOuterClass.QueryParamsRequest =
+@kotlin.jvm.JvmSynthetic
+inline fun queryParamsRequest(block: cosmos.params.v1beta1.QueryParamsRequestKt.Dsl.() -> Unit): cosmos.params.v1beta1.QueryOuterClass.QueryParamsRequest =
   cosmos.params.v1beta1.QueryParamsRequestKt.Dsl._create(cosmos.params.v1beta1.QueryOuterClass.QueryParamsRequest.newBuilder()).apply { block() }._build()
-public object QueryParamsRequestKt {
+object QueryParamsRequestKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.params.v1beta1.QueryOuterClass.QueryParamsRequest.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.params.v1beta1.QueryOuterClass.QueryParamsRequest.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.params.v1beta1.QueryOuterClass.QueryParamsRequest.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryParamsRequestKt {
      *
      * <code>string subspace = 1;</code>
      */
-    public var subspace: kotlin.String
+    var subspace: kotlin.String
       @JvmName("getSubspace")
       get() = _builder.getSubspace()
       @JvmName("setSubspace")
@@ -43,7 +43,7 @@ public object QueryParamsRequestKt {
      *
      * <code>string subspace = 1;</code>
      */
-    public fun clearSubspace() {
+    fun clearSubspace() {
       _builder.clearSubspace()
     }
 
@@ -54,7 +54,7 @@ public object QueryParamsRequestKt {
      *
      * <code>string key = 2;</code>
      */
-    public var key: kotlin.String
+    var key: kotlin.String
       @JvmName("getKey")
       get() = _builder.getKey()
       @JvmName("setKey")
@@ -68,12 +68,11 @@ public object QueryParamsRequestKt {
      *
      * <code>string key = 2;</code>
      */
-    public fun clearKey() {
+    fun clearKey() {
       _builder.clearKey()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.params.v1beta1.QueryOuterClass.QueryParamsRequest.copy(block: cosmos.params.v1beta1.QueryParamsRequestKt.Dsl.() -> kotlin.Unit): cosmos.params.v1beta1.QueryOuterClass.QueryParamsRequest =
+inline fun cosmos.params.v1beta1.QueryOuterClass.QueryParamsRequest.copy(block: cosmos.params.v1beta1.QueryParamsRequestKt.Dsl.() -> Unit): cosmos.params.v1beta1.QueryOuterClass.QueryParamsRequest =
   cosmos.params.v1beta1.QueryParamsRequestKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

@@ -3,16 +3,16 @@
 
 package cosmos.bank.v1beta1;
 
-@kotlin.jvm.JvmName("-initializedenomUnit")
-public inline fun denomUnit(block: cosmos.bank.v1beta1.DenomUnitKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.Bank.DenomUnit =
+@kotlin.jvm.JvmSynthetic
+inline fun denomUnit(block: cosmos.bank.v1beta1.DenomUnitKt.Dsl.() -> Unit): cosmos.bank.v1beta1.Bank.DenomUnit =
   cosmos.bank.v1beta1.DenomUnitKt.Dsl._create(cosmos.bank.v1beta1.Bank.DenomUnit.newBuilder()).apply { block() }._build()
-public object DenomUnitKt {
+object DenomUnitKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.bank.v1beta1.Bank.DenomUnit.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.bank.v1beta1.Bank.DenomUnit.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.bank.v1beta1.Bank.DenomUnit.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object DenomUnitKt {
      *
      * <code>string denom = 1;</code>
      */
-    public var denom: kotlin.String
+    var denom: kotlin.String
       @JvmName("getDenom")
       get() = _builder.getDenom()
       @JvmName("setDenom")
@@ -43,7 +43,7 @@ public object DenomUnitKt {
      *
      * <code>string denom = 1;</code>
      */
-    public fun clearDenom() {
+    fun clearDenom() {
       _builder.clearDenom()
     }
 
@@ -58,7 +58,7 @@ public object DenomUnitKt {
      *
      * <code>uint32 exponent = 2;</code>
      */
-    public var exponent: kotlin.Int
+    var exponent: kotlin.Int
       @JvmName("getExponent")
       get() = _builder.getExponent()
       @JvmName("setExponent")
@@ -76,7 +76,7 @@ public object DenomUnitKt {
      *
      * <code>uint32 exponent = 2;</code>
      */
-    public fun clearExponent() {
+    fun clearExponent() {
       _builder.clearExponent()
     }
 
@@ -85,7 +85,7 @@ public object DenomUnitKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class AliasesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class AliasesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * aliases is a list of string aliases for the given denom
@@ -94,8 +94,8 @@ public object DenomUnitKt {
      * <code>repeated string aliases = 3;</code>
      * @return A list containing the aliases.
      */
-    public val aliases: com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>
-      @kotlin.jvm.JvmSynthetic
+    val aliases: com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>
+      @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getAliasesList()
       )
@@ -109,7 +109,7 @@ public object DenomUnitKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAliases")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.add(value: kotlin.String) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.add(value: kotlin.String) {
       _builder.addAliases(value)
     }
     /**
@@ -122,9 +122,8 @@ public object DenomUnitKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAliases")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.plusAssign(value: kotlin.String) {
-      add(value)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.plusAssign(value: kotlin.String) {
+      _builder.addAliases(value)
     }
     /**
      * <pre>
@@ -136,7 +135,7 @@ public object DenomUnitKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllAliases")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.addAll(values: kotlin.collections.Iterable<kotlin.String>) {
       _builder.addAllAliases(values)
     }
     /**
@@ -149,9 +148,8 @@ public object DenomUnitKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllAliases")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
-      addAll(values)
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.plusAssign(values: kotlin.collections.Iterable<kotlin.String>) {
+      _builder.addAllAliases(values)
     }
     /**
      * <pre>
@@ -164,7 +162,7 @@ public object DenomUnitKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setAliases")
-    public operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.set(index: kotlin.Int, value: kotlin.String) {
+    operator fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.set(index: kotlin.Int, value: kotlin.String) {
       _builder.setAliases(index, value)
     }/**
      * <pre>
@@ -175,11 +173,10 @@ public object DenomUnitKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearAliases")
-    public fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<kotlin.String, AliasesProxy>.clear() {
       _builder.clearAliases()
     }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.bank.v1beta1.Bank.DenomUnit.copy(block: cosmos.bank.v1beta1.DenomUnitKt.Dsl.() -> kotlin.Unit): cosmos.bank.v1beta1.Bank.DenomUnit =
+inline fun cosmos.bank.v1beta1.Bank.DenomUnit.copy(block: cosmos.bank.v1beta1.DenomUnitKt.Dsl.() -> Unit): cosmos.bank.v1beta1.Bank.DenomUnit =
   cosmos.bank.v1beta1.DenomUnitKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

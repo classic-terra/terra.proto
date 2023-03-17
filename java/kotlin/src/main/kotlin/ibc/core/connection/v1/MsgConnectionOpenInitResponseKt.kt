@@ -3,16 +3,16 @@
 
 package ibc.core.connection.v1;
 
-@kotlin.jvm.JvmName("-initializemsgConnectionOpenInitResponse")
-public inline fun msgConnectionOpenInitResponse(block: ibc.core.connection.v1.MsgConnectionOpenInitResponseKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenInitResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgConnectionOpenInitResponse(block: ibc.core.connection.v1.MsgConnectionOpenInitResponseKt.Dsl.() -> Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenInitResponse =
   ibc.core.connection.v1.MsgConnectionOpenInitResponseKt.Dsl._create(ibc.core.connection.v1.Tx.MsgConnectionOpenInitResponse.newBuilder()).apply { block() }._build()
-public object MsgConnectionOpenInitResponseKt {
+object MsgConnectionOpenInitResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.connection.v1.Tx.MsgConnectionOpenInitResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.connection.v1.Tx.MsgConnectionOpenInitResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.connection.v1.Tx.MsgConnectionOpenInitResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgConnectionOpenInitResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.connection.v1.Tx.MsgConnectionOpenInitResponse.copy(block: ibc.core.connection.v1.MsgConnectionOpenInitResponseKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenInitResponse =
+inline fun ibc.core.connection.v1.Tx.MsgConnectionOpenInitResponse.copy(block: ibc.core.connection.v1.MsgConnectionOpenInitResponseKt.Dsl.() -> Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenInitResponse =
   ibc.core.connection.v1.MsgConnectionOpenInitResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

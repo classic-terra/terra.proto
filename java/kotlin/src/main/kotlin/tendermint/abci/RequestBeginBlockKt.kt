@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializerequestBeginBlock")
-public inline fun requestBeginBlock(block: tendermint.abci.RequestBeginBlockKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.RequestBeginBlock =
+@kotlin.jvm.JvmSynthetic
+inline fun requestBeginBlock(block: tendermint.abci.RequestBeginBlockKt.Dsl.() -> Unit): tendermint.abci.Types.RequestBeginBlock =
   tendermint.abci.RequestBeginBlockKt.Dsl._create(tendermint.abci.Types.RequestBeginBlock.newBuilder()).apply { block() }._build()
-public object RequestBeginBlockKt {
+object RequestBeginBlockKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.RequestBeginBlock.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.RequestBeginBlock.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.RequestBeginBlock.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object RequestBeginBlockKt {
     /**
      * <code>bytes hash = 1;</code>
      */
-    public var hash: com.google.protobuf.ByteString
+    var hash: com.google.protobuf.ByteString
       @JvmName("getHash")
       get() = _builder.getHash()
       @JvmName("setHash")
@@ -35,14 +35,14 @@ public object RequestBeginBlockKt {
     /**
      * <code>bytes hash = 1;</code>
      */
-    public fun clearHash() {
+    fun clearHash() {
       _builder.clearHash()
     }
 
     /**
      * <code>.tendermint.types.Header header = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public var header: tendermint.types.Types.Header
+    var header: tendermint.types.Types.Header
       @JvmName("getHeader")
       get() = _builder.getHeader()
       @JvmName("setHeader")
@@ -52,21 +52,21 @@ public object RequestBeginBlockKt {
     /**
      * <code>.tendermint.types.Header header = 2 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearHeader() {
+    fun clearHeader() {
       _builder.clearHeader()
     }
     /**
      * <code>.tendermint.types.Header header = 2 [(.gogoproto.nullable) = false];</code>
      * @return Whether the header field is set.
      */
-    public fun hasHeader(): kotlin.Boolean {
+    fun hasHeader(): kotlin.Boolean {
       return _builder.hasHeader()
     }
 
     /**
      * <code>.tendermint.abci.LastCommitInfo last_commit_info = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public var lastCommitInfo: tendermint.abci.Types.LastCommitInfo
+    var lastCommitInfo: tendermint.abci.Types.LastCommitInfo
       @JvmName("getLastCommitInfo")
       get() = _builder.getLastCommitInfo()
       @JvmName("setLastCommitInfo")
@@ -76,14 +76,14 @@ public object RequestBeginBlockKt {
     /**
      * <code>.tendermint.abci.LastCommitInfo last_commit_info = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearLastCommitInfo() {
+    fun clearLastCommitInfo() {
       _builder.clearLastCommitInfo()
     }
     /**
      * <code>.tendermint.abci.LastCommitInfo last_commit_info = 3 [(.gogoproto.nullable) = false];</code>
      * @return Whether the lastCommitInfo field is set.
      */
-    public fun hasLastCommitInfo(): kotlin.Boolean {
+    fun hasLastCommitInfo(): kotlin.Boolean {
       return _builder.hasLastCommitInfo()
     }
 
@@ -92,11 +92,11 @@ public object RequestBeginBlockKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ByzantineValidatorsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ByzantineValidatorsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .tendermint.abci.Evidence byzantine_validators = 4 [(.gogoproto.nullable) = false];</code>
      */
-     public val byzantineValidators: com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>
+     val byzantineValidators: com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getByzantineValidatorsList()
@@ -107,66 +107,50 @@ public object RequestBeginBlockKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addByzantineValidators")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.add(value: tendermint.abci.Types.Evidence) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.add(value: tendermint.abci.Types.Evidence) {
       _builder.addByzantineValidators(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.Evidence byzantine_validators = 4 [(.gogoproto.nullable) = false];</code>
      * @param value The byzantineValidators to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignByzantineValidators")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.plusAssign(value: tendermint.abci.Types.Evidence) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.plusAssign(value: tendermint.abci.Types.Evidence) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.Evidence byzantine_validators = 4 [(.gogoproto.nullable) = false];</code>
      * @param values The byzantineValidators to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllByzantineValidators")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.addAll(values: kotlin.collections.Iterable<tendermint.abci.Types.Evidence>) {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.addAll(values: kotlin.collections.Iterable<tendermint.abci.Types.Evidence>) {
       _builder.addAllByzantineValidators(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.Evidence byzantine_validators = 4 [(.gogoproto.nullable) = false];</code>
      * @param values The byzantineValidators to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllByzantineValidators")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.abci.Types.Evidence>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.plusAssign(values: kotlin.collections.Iterable<tendermint.abci.Types.Evidence>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.Evidence byzantine_validators = 4 [(.gogoproto.nullable) = false];</code>
      * @param index The index to set the value at.
      * @param value The byzantineValidators to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setByzantineValidators")
-    public operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.set(index: kotlin.Int, value: tendermint.abci.Types.Evidence) {
+    operator fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.set(index: kotlin.Int, value: tendermint.abci.Types.Evidence) {
       _builder.setByzantineValidators(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .tendermint.abci.Evidence byzantine_validators = 4 [(.gogoproto.nullable) = false];</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearByzantineValidators")
-    public fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<tendermint.abci.Types.Evidence, ByzantineValidatorsProxy>.clear() {
       _builder.clearByzantineValidators()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.RequestBeginBlock.copy(block: tendermint.abci.RequestBeginBlockKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.RequestBeginBlock =
+inline fun tendermint.abci.Types.RequestBeginBlock.copy(block: tendermint.abci.RequestBeginBlockKt.Dsl.() -> Unit): tendermint.abci.Types.RequestBeginBlock =
   tendermint.abci.RequestBeginBlockKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val tendermint.abci.Types.RequestBeginBlockOrBuilder.headerOrNull: tendermint.types.Types.Header?
-  get() = if (hasHeader()) getHeader() else null
-
-public val tendermint.abci.Types.RequestBeginBlockOrBuilder.lastCommitInfoOrNull: tendermint.abci.Types.LastCommitInfo?
-  get() = if (hasLastCommitInfo()) getLastCommitInfo() else null
-

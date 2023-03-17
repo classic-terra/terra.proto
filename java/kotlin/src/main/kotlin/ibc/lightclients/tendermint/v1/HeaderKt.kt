@@ -3,16 +3,16 @@
 
 package ibc.lightclients.tendermint.v1;
 
-@kotlin.jvm.JvmName("-initializeheader")
-public inline fun header(block: ibc.lightclients.tendermint.v1.HeaderKt.Dsl.() -> kotlin.Unit): ibc.lightclients.tendermint.v1.Tendermint.Header =
+@kotlin.jvm.JvmSynthetic
+inline fun header(block: ibc.lightclients.tendermint.v1.HeaderKt.Dsl.() -> Unit): ibc.lightclients.tendermint.v1.Tendermint.Header =
   ibc.lightclients.tendermint.v1.HeaderKt.Dsl._create(ibc.lightclients.tendermint.v1.Tendermint.Header.newBuilder()).apply { block() }._build()
-public object HeaderKt {
+object HeaderKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.lightclients.tendermint.v1.Tendermint.Header.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.lightclients.tendermint.v1.Tendermint.Header.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.lightclients.tendermint.v1.Tendermint.Header.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object HeaderKt {
     /**
      * <code>.tendermint.types.SignedHeader signed_header = 1 [(.gogoproto.embed) = true, (.gogoproto.moretags) = "yaml:&#92;"signed_header&#92;""];</code>
      */
-    public var signedHeader: tendermint.types.Types.SignedHeader
+    var signedHeader: tendermint.types.Types.SignedHeader
       @JvmName("getSignedHeader")
       get() = _builder.getSignedHeader()
       @JvmName("setSignedHeader")
@@ -35,21 +35,21 @@ public object HeaderKt {
     /**
      * <code>.tendermint.types.SignedHeader signed_header = 1 [(.gogoproto.embed) = true, (.gogoproto.moretags) = "yaml:&#92;"signed_header&#92;""];</code>
      */
-    public fun clearSignedHeader() {
+    fun clearSignedHeader() {
       _builder.clearSignedHeader()
     }
     /**
      * <code>.tendermint.types.SignedHeader signed_header = 1 [(.gogoproto.embed) = true, (.gogoproto.moretags) = "yaml:&#92;"signed_header&#92;""];</code>
      * @return Whether the signedHeader field is set.
      */
-    public fun hasSignedHeader(): kotlin.Boolean {
+    fun hasSignedHeader(): kotlin.Boolean {
       return _builder.hasSignedHeader()
     }
 
     /**
      * <code>.tendermint.types.ValidatorSet validator_set = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_set&#92;""];</code>
      */
-    public var validatorSet: tendermint.types.ValidatorOuterClass.ValidatorSet
+    var validatorSet: tendermint.types.ValidatorOuterClass.ValidatorSet
       @JvmName("getValidatorSet")
       get() = _builder.getValidatorSet()
       @JvmName("setValidatorSet")
@@ -59,21 +59,21 @@ public object HeaderKt {
     /**
      * <code>.tendermint.types.ValidatorSet validator_set = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_set&#92;""];</code>
      */
-    public fun clearValidatorSet() {
+    fun clearValidatorSet() {
       _builder.clearValidatorSet()
     }
     /**
      * <code>.tendermint.types.ValidatorSet validator_set = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_set&#92;""];</code>
      * @return Whether the validatorSet field is set.
      */
-    public fun hasValidatorSet(): kotlin.Boolean {
+    fun hasValidatorSet(): kotlin.Boolean {
       return _builder.hasValidatorSet()
     }
 
     /**
      * <code>.ibc.core.client.v1.Height trusted_height = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"trusted_height&#92;""];</code>
      */
-    public var trustedHeight: ibc.core.client.v1.Client.Height
+    var trustedHeight: ibc.core.client.v1.Client.Height
       @JvmName("getTrustedHeight")
       get() = _builder.getTrustedHeight()
       @JvmName("setTrustedHeight")
@@ -83,21 +83,21 @@ public object HeaderKt {
     /**
      * <code>.ibc.core.client.v1.Height trusted_height = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"trusted_height&#92;""];</code>
      */
-    public fun clearTrustedHeight() {
+    fun clearTrustedHeight() {
       _builder.clearTrustedHeight()
     }
     /**
      * <code>.ibc.core.client.v1.Height trusted_height = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"trusted_height&#92;""];</code>
      * @return Whether the trustedHeight field is set.
      */
-    public fun hasTrustedHeight(): kotlin.Boolean {
+    fun hasTrustedHeight(): kotlin.Boolean {
       return _builder.hasTrustedHeight()
     }
 
     /**
      * <code>.tendermint.types.ValidatorSet trusted_validators = 4 [(.gogoproto.moretags) = "yaml:&#92;"trusted_validators&#92;""];</code>
      */
-    public var trustedValidators: tendermint.types.ValidatorOuterClass.ValidatorSet
+    var trustedValidators: tendermint.types.ValidatorOuterClass.ValidatorSet
       @JvmName("getTrustedValidators")
       get() = _builder.getTrustedValidators()
       @JvmName("setTrustedValidators")
@@ -107,31 +107,18 @@ public object HeaderKt {
     /**
      * <code>.tendermint.types.ValidatorSet trusted_validators = 4 [(.gogoproto.moretags) = "yaml:&#92;"trusted_validators&#92;""];</code>
      */
-    public fun clearTrustedValidators() {
+    fun clearTrustedValidators() {
       _builder.clearTrustedValidators()
     }
     /**
      * <code>.tendermint.types.ValidatorSet trusted_validators = 4 [(.gogoproto.moretags) = "yaml:&#92;"trusted_validators&#92;""];</code>
      * @return Whether the trustedValidators field is set.
      */
-    public fun hasTrustedValidators(): kotlin.Boolean {
+    fun hasTrustedValidators(): kotlin.Boolean {
       return _builder.hasTrustedValidators()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.lightclients.tendermint.v1.Tendermint.Header.copy(block: ibc.lightclients.tendermint.v1.HeaderKt.Dsl.() -> kotlin.Unit): ibc.lightclients.tendermint.v1.Tendermint.Header =
+inline fun ibc.lightclients.tendermint.v1.Tendermint.Header.copy(block: ibc.lightclients.tendermint.v1.HeaderKt.Dsl.() -> Unit): ibc.lightclients.tendermint.v1.Tendermint.Header =
   ibc.lightclients.tendermint.v1.HeaderKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.lightclients.tendermint.v1.Tendermint.HeaderOrBuilder.signedHeaderOrNull: tendermint.types.Types.SignedHeader?
-  get() = if (hasSignedHeader()) getSignedHeader() else null
-
-public val ibc.lightclients.tendermint.v1.Tendermint.HeaderOrBuilder.validatorSetOrNull: tendermint.types.ValidatorOuterClass.ValidatorSet?
-  get() = if (hasValidatorSet()) getValidatorSet() else null
-
-public val ibc.lightclients.tendermint.v1.Tendermint.HeaderOrBuilder.trustedHeightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasTrustedHeight()) getTrustedHeight() else null
-
-public val ibc.lightclients.tendermint.v1.Tendermint.HeaderOrBuilder.trustedValidatorsOrNull: tendermint.types.ValidatorOuterClass.ValidatorSet?
-  get() = if (hasTrustedValidators()) getTrustedValidators() else null
-

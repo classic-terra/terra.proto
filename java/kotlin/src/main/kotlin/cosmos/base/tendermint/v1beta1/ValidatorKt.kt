@@ -3,16 +3,16 @@
 
 package cosmos.base.tendermint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializevalidator")
-public inline fun validator(block: cosmos.base.tendermint.v1beta1.ValidatorKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.Validator =
+@kotlin.jvm.JvmSynthetic
+inline fun validator(block: cosmos.base.tendermint.v1beta1.ValidatorKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.Validator =
   cosmos.base.tendermint.v1beta1.ValidatorKt.Dsl._create(cosmos.base.tendermint.v1beta1.Query.Validator.newBuilder()).apply { block() }._build()
-public object ValidatorKt {
+object ValidatorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.tendermint.v1beta1.Query.Validator.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.tendermint.v1beta1.Query.Validator.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.tendermint.v1beta1.Query.Validator.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ValidatorKt {
     /**
      * <code>string address = 1;</code>
      */
-    public var address: kotlin.String
+    var address: kotlin.String
       @JvmName("getAddress")
       get() = _builder.getAddress()
       @JvmName("setAddress")
@@ -35,14 +35,14 @@ public object ValidatorKt {
     /**
      * <code>string address = 1;</code>
      */
-    public fun clearAddress() {
+    fun clearAddress() {
       _builder.clearAddress()
     }
 
     /**
      * <code>.google.protobuf.Any pub_key = 2;</code>
      */
-    public var pubKey: com.google.protobuf.Any
+    var pubKey: com.google.protobuf.Any
       @JvmName("getPubKey")
       get() = _builder.getPubKey()
       @JvmName("setPubKey")
@@ -52,21 +52,21 @@ public object ValidatorKt {
     /**
      * <code>.google.protobuf.Any pub_key = 2;</code>
      */
-    public fun clearPubKey() {
+    fun clearPubKey() {
       _builder.clearPubKey()
     }
     /**
      * <code>.google.protobuf.Any pub_key = 2;</code>
      * @return Whether the pubKey field is set.
      */
-    public fun hasPubKey(): kotlin.Boolean {
+    fun hasPubKey(): kotlin.Boolean {
       return _builder.hasPubKey()
     }
 
     /**
      * <code>int64 voting_power = 3;</code>
      */
-    public var votingPower: kotlin.Long
+    var votingPower: kotlin.Long
       @JvmName("getVotingPower")
       get() = _builder.getVotingPower()
       @JvmName("setVotingPower")
@@ -76,14 +76,14 @@ public object ValidatorKt {
     /**
      * <code>int64 voting_power = 3;</code>
      */
-    public fun clearVotingPower() {
+    fun clearVotingPower() {
       _builder.clearVotingPower()
     }
 
     /**
      * <code>int64 proposer_priority = 4;</code>
      */
-    public var proposerPriority: kotlin.Long
+    var proposerPriority: kotlin.Long
       @JvmName("getProposerPriority")
       get() = _builder.getProposerPriority()
       @JvmName("setProposerPriority")
@@ -93,15 +93,11 @@ public object ValidatorKt {
     /**
      * <code>int64 proposer_priority = 4;</code>
      */
-    public fun clearProposerPriority() {
+    fun clearProposerPriority() {
       _builder.clearProposerPriority()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.tendermint.v1beta1.Query.Validator.copy(block: cosmos.base.tendermint.v1beta1.ValidatorKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.Validator =
+inline fun cosmos.base.tendermint.v1beta1.Query.Validator.copy(block: cosmos.base.tendermint.v1beta1.ValidatorKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.Validator =
   cosmos.base.tendermint.v1beta1.ValidatorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.tendermint.v1beta1.Query.ValidatorOrBuilder.pubKeyOrNull: com.google.protobuf.Any?
-  get() = if (hasPubKey()) getPubKey() else null
-

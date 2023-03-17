@@ -57,6 +57,48 @@ public final class Commitment {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MerkleRoot(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              hash_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.commitment.v1.Commitment.internal_static_ibc_core_commitment_v1_MerkleRoot_descriptor;
@@ -71,7 +113,7 @@ public final class Commitment {
     }
 
     public static final int HASH_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString hash_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString hash_;
     /**
      * <code>bytes hash = 1;</code>
      * @return The hash.
@@ -98,7 +140,7 @@ public final class Commitment {
       if (!hash_.isEmpty()) {
         output.writeBytes(1, hash_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -111,7 +153,7 @@ public final class Commitment {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, hash_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -128,7 +170,7 @@ public final class Commitment {
 
       if (!getHash()
           .equals(other.getHash())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -141,7 +183,7 @@ public final class Commitment {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + HASH_FIELD_NUMBER;
       hash = (53 * hash) + getHash().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -263,19 +305,24 @@ public final class Commitment {
 
       // Construct using ibc.core.commitment.v1.Commitment.MerkleRoot.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         hash_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -302,16 +349,9 @@ public final class Commitment {
       @java.lang.Override
       public ibc.core.commitment.v1.Commitment.MerkleRoot buildPartial() {
         ibc.core.commitment.v1.Commitment.MerkleRoot result = new ibc.core.commitment.v1.Commitment.MerkleRoot(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.hash_ = hash_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.commitment.v1.Commitment.MerkleRoot result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.hash_ = hash_;
-        }
       }
 
       @java.lang.Override
@@ -361,7 +401,7 @@ public final class Commitment {
         if (other.getHash() != com.google.protobuf.ByteString.EMPTY) {
           setHash(other.getHash());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -376,38 +416,19 @@ public final class Commitment {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.commitment.v1.Commitment.MerkleRoot parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                hash_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.commitment.v1.Commitment.MerkleRoot) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString hash_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -424,9 +445,11 @@ public final class Commitment {
        * @return This builder for chaining.
        */
       public Builder setHash(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         hash_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -435,7 +458,7 @@ public final class Commitment {
        * @return This builder for chaining.
        */
       public Builder clearHash() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         hash_ = getDefaultInstance().getHash();
         onChanged();
         return this;
@@ -473,18 +496,7 @@ public final class Commitment {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MerkleRoot(input, extensionRegistry);
       }
     };
 
@@ -548,6 +560,48 @@ public final class Commitment {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MerklePrefix(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              keyPrefix_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.commitment.v1.Commitment.internal_static_ibc_core_commitment_v1_MerklePrefix_descriptor;
@@ -562,7 +616,7 @@ public final class Commitment {
     }
 
     public static final int KEY_PREFIX_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString keyPrefix_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString keyPrefix_;
     /**
      * <code>bytes key_prefix = 1 [(.gogoproto.moretags) = "yaml:&#92;"key_prefix&#92;""];</code>
      * @return The keyPrefix.
@@ -589,7 +643,7 @@ public final class Commitment {
       if (!keyPrefix_.isEmpty()) {
         output.writeBytes(1, keyPrefix_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -602,7 +656,7 @@ public final class Commitment {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, keyPrefix_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -619,7 +673,7 @@ public final class Commitment {
 
       if (!getKeyPrefix()
           .equals(other.getKeyPrefix())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -632,7 +686,7 @@ public final class Commitment {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + KEY_PREFIX_FIELD_NUMBER;
       hash = (53 * hash) + getKeyPrefix().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -755,19 +809,24 @@ public final class Commitment {
 
       // Construct using ibc.core.commitment.v1.Commitment.MerklePrefix.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         keyPrefix_ = com.google.protobuf.ByteString.EMPTY;
+
         return this;
       }
 
@@ -794,16 +853,9 @@ public final class Commitment {
       @java.lang.Override
       public ibc.core.commitment.v1.Commitment.MerklePrefix buildPartial() {
         ibc.core.commitment.v1.Commitment.MerklePrefix result = new ibc.core.commitment.v1.Commitment.MerklePrefix(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.keyPrefix_ = keyPrefix_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(ibc.core.commitment.v1.Commitment.MerklePrefix result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.keyPrefix_ = keyPrefix_;
-        }
       }
 
       @java.lang.Override
@@ -853,7 +905,7 @@ public final class Commitment {
         if (other.getKeyPrefix() != com.google.protobuf.ByteString.EMPTY) {
           setKeyPrefix(other.getKeyPrefix());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -868,38 +920,19 @@ public final class Commitment {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.commitment.v1.Commitment.MerklePrefix parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                keyPrefix_ = input.readBytes();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.commitment.v1.Commitment.MerklePrefix) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private com.google.protobuf.ByteString keyPrefix_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -916,9 +949,11 @@ public final class Commitment {
        * @return This builder for chaining.
        */
       public Builder setKeyPrefix(com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         keyPrefix_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -927,7 +962,7 @@ public final class Commitment {
        * @return This builder for chaining.
        */
       public Builder clearKeyPrefix() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         keyPrefix_ = getDefaultInstance().getKeyPrefix();
         onChanged();
         return this;
@@ -965,18 +1000,7 @@ public final class Commitment {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MerklePrefix(input, extensionRegistry);
       }
     };
 
@@ -1059,6 +1083,56 @@ public final class Commitment {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MerklePath(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                keyPath_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              keyPath_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          keyPath_ = keyPath_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.commitment.v1.Commitment.internal_static_ibc_core_commitment_v1_MerklePath_descriptor;
@@ -1073,7 +1147,6 @@ public final class Commitment {
     }
 
     public static final int KEY_PATH_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList keyPath_;
     /**
      * <code>repeated string key_path = 1 [(.gogoproto.moretags) = "yaml:&#92;"key_path&#92;""];</code>
@@ -1125,7 +1198,7 @@ public final class Commitment {
       for (int i = 0; i < keyPath_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyPath_.getRaw(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1142,7 +1215,7 @@ public final class Commitment {
         size += dataSize;
         size += 1 * getKeyPathList().size();
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1159,7 +1232,7 @@ public final class Commitment {
 
       if (!getKeyPathList()
           .equals(other.getKeyPathList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1174,7 +1247,7 @@ public final class Commitment {
         hash = (37 * hash) + KEY_PATH_FIELD_NUMBER;
         hash = (53 * hash) + getKeyPathList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1297,18 +1370,22 @@ public final class Commitment {
 
       // Construct using ibc.core.commitment.v1.Commitment.MerklePath.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         keyPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -1337,22 +1414,14 @@ public final class Commitment {
       @java.lang.Override
       public ibc.core.commitment.v1.Commitment.MerklePath buildPartial() {
         ibc.core.commitment.v1.Commitment.MerklePath result = new ibc.core.commitment.v1.Commitment.MerklePath(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.commitment.v1.Commitment.MerklePath result) {
+        int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           keyPath_ = keyPath_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.keyPath_ = keyPath_;
-      }
-
-      private void buildPartial0(ibc.core.commitment.v1.Commitment.MerklePath result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -1409,7 +1478,7 @@ public final class Commitment {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1424,36 +1493,17 @@ public final class Commitment {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.commitment.v1.Commitment.MerklePath parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-                ensureKeyPathIsMutable();
-                keyPath_.add(s);
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.commitment.v1.Commitment.MerklePath) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -1505,8 +1555,10 @@ public final class Commitment {
        */
       public Builder setKeyPath(
           int index, java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureKeyPathIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureKeyPathIsMutable();
         keyPath_.set(index, value);
         onChanged();
         return this;
@@ -1518,8 +1570,10 @@ public final class Commitment {
        */
       public Builder addKeyPath(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        ensureKeyPathIsMutable();
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureKeyPathIsMutable();
         keyPath_.add(value);
         onChanged();
         return this;
@@ -1554,8 +1608,10 @@ public final class Commitment {
        */
       public Builder addKeyPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
         ensureKeyPathIsMutable();
         keyPath_.add(value);
         onChanged();
@@ -1594,18 +1650,7 @@ public final class Commitment {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MerklePath(input, extensionRegistry);
       }
     };
 
@@ -1689,6 +1734,56 @@ public final class Commitment {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MerkleProof(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                proofs_ = new java.util.ArrayList<ics23.Proofs.CommitmentProof>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              proofs_.add(
+                  input.readMessage(ics23.Proofs.CommitmentProof.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          proofs_ = java.util.Collections.unmodifiableList(proofs_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ibc.core.commitment.v1.Commitment.internal_static_ibc_core_commitment_v1_MerkleProof_descriptor;
@@ -1703,7 +1798,6 @@ public final class Commitment {
     }
 
     public static final int PROOFS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
     private java.util.List<ics23.Proofs.CommitmentProof> proofs_;
     /**
      * <code>repeated .ics23.CommitmentProof proofs = 1;</code>
@@ -1760,7 +1854,7 @@ public final class Commitment {
       for (int i = 0; i < proofs_.size(); i++) {
         output.writeMessage(1, proofs_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1773,7 +1867,7 @@ public final class Commitment {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, proofs_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1790,7 +1884,7 @@ public final class Commitment {
 
       if (!getProofsList()
           .equals(other.getProofsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1805,7 +1899,7 @@ public final class Commitment {
         hash = (37 * hash) + PROOFS_FIELD_NUMBER;
         hash = (53 * hash) + getProofsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1930,25 +2024,29 @@ public final class Commitment {
 
       // Construct using ibc.core.commitment.v1.Commitment.MerkleProof.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getProofsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         if (proofsBuilder_ == null) {
           proofs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          proofs_ = null;
           proofsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1975,13 +2073,7 @@ public final class Commitment {
       @java.lang.Override
       public ibc.core.commitment.v1.Commitment.MerkleProof buildPartial() {
         ibc.core.commitment.v1.Commitment.MerkleProof result = new ibc.core.commitment.v1.Commitment.MerkleProof(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(ibc.core.commitment.v1.Commitment.MerkleProof result) {
+        int from_bitField0_ = bitField0_;
         if (proofsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             proofs_ = java.util.Collections.unmodifiableList(proofs_);
@@ -1991,10 +2083,8 @@ public final class Commitment {
         } else {
           result.proofs_ = proofsBuilder_.build();
         }
-      }
-
-      private void buildPartial0(ibc.core.commitment.v1.Commitment.MerkleProof result) {
-        int from_bitField0_ = bitField0_;
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -2067,7 +2157,7 @@ public final class Commitment {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2082,43 +2172,17 @@ public final class Commitment {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        ibc.core.commitment.v1.Commitment.MerkleProof parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                ics23.Proofs.CommitmentProof m =
-                    input.readMessage(
-                        ics23.Proofs.CommitmentProof.parser(),
-                        extensionRegistry);
-                if (proofsBuilder_ == null) {
-                  ensureProofsIsMutable();
-                  proofs_.add(m);
-                } else {
-                  proofsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ibc.core.commitment.v1.Commitment.MerkleProof) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -2395,18 +2459,7 @@ public final class Commitment {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MerkleProof(input, extensionRegistry);
       }
     };
 
@@ -2457,14 +2510,14 @@ public final class Commitment {
     java.lang.String[] descriptorData = {
       "\n\'ibc/core/commitment/v1/commitment.prot" +
       "o\022\026ibc.core.commitment.v1\032\024gogoproto/gog" +
-      "o.proto\032\014proofs.proto\" \n\nMerkleRoot\022\014\n\004h" +
-      "ash\030\001 \001(\014:\004\210\240\037\000\"9\n\014MerklePrefix\022)\n\nkey_p" +
-      "refix\030\001 \001(\014B\025\362\336\037\021yaml:\"key_prefix\"\"9\n\nMe" +
-      "rklePath\022%\n\010key_path\030\001 \003(\tB\023\362\336\037\017yaml:\"ke" +
-      "y_path\":\004\230\240\037\000\"5\n\013MerkleProof\022&\n\006proofs\030\001" +
-      " \003(\0132\026.ics23.CommitmentProofB;Z9github.c" +
-      "om/cosmos/ibc-go/modules/core/23-commitm" +
-      "ent/typesb\006proto3"
+      "o.proto\032\023confio/proofs.proto\" \n\nMerkleRo" +
+      "ot\022\014\n\004hash\030\001 \001(\014:\004\210\240\037\000\"9\n\014MerklePrefix\022)" +
+      "\n\nkey_prefix\030\001 \001(\014B\025\362\336\037\021yaml:\"key_prefix" +
+      "\"\"9\n\nMerklePath\022%\n\010key_path\030\001 \003(\tB\023\362\336\037\017y" +
+      "aml:\"key_path\":\004\230\240\037\000\"5\n\013MerkleProof\022&\n\006p" +
+      "roofs\030\001 \003(\0132\026.ics23.CommitmentProofB;Z9g" +
+      "ithub.com/cosmos/ibc-go/modules/core/23-" +
+      "commitment/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

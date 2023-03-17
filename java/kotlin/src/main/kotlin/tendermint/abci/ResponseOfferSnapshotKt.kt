@@ -3,16 +3,16 @@
 
 package tendermint.abci;
 
-@kotlin.jvm.JvmName("-initializeresponseOfferSnapshot")
-public inline fun responseOfferSnapshot(block: tendermint.abci.ResponseOfferSnapshotKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseOfferSnapshot =
+@kotlin.jvm.JvmSynthetic
+inline fun responseOfferSnapshot(block: tendermint.abci.ResponseOfferSnapshotKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseOfferSnapshot =
   tendermint.abci.ResponseOfferSnapshotKt.Dsl._create(tendermint.abci.Types.ResponseOfferSnapshot.newBuilder()).apply { block() }._build()
-public object ResponseOfferSnapshotKt {
+object ResponseOfferSnapshotKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: tendermint.abci.Types.ResponseOfferSnapshot.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: tendermint.abci.Types.ResponseOfferSnapshot.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: tendermint.abci.Types.ResponseOfferSnapshot.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object ResponseOfferSnapshotKt {
     /**
      * <code>.tendermint.abci.ResponseOfferSnapshot.Result result = 1;</code>
      */
-    public var result: tendermint.abci.Types.ResponseOfferSnapshot.Result
+    var result: tendermint.abci.Types.ResponseOfferSnapshot.Result
       @JvmName("getResult")
       get() = _builder.getResult()
       @JvmName("setResult")
@@ -35,12 +35,11 @@ public object ResponseOfferSnapshotKt {
     /**
      * <code>.tendermint.abci.ResponseOfferSnapshot.Result result = 1;</code>
      */
-    public fun clearResult() {
+    fun clearResult() {
       _builder.clearResult()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun tendermint.abci.Types.ResponseOfferSnapshot.copy(block: tendermint.abci.ResponseOfferSnapshotKt.Dsl.() -> kotlin.Unit): tendermint.abci.Types.ResponseOfferSnapshot =
+inline fun tendermint.abci.Types.ResponseOfferSnapshot.copy(block: tendermint.abci.ResponseOfferSnapshotKt.Dsl.() -> Unit): tendermint.abci.Types.ResponseOfferSnapshot =
   tendermint.abci.ResponseOfferSnapshotKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

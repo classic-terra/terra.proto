@@ -28,27 +28,26 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for cosmos.gov.v1beta1.Msg.
  */
-public object MsgGrpcKt {
-  public const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
+object MsgGrpcKt {
+  const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = MsgGrpc.getServiceDescriptor()
 
-  public val submitProposalMethod:
-      MethodDescriptor<Tx.MsgSubmitProposal, Tx.MsgSubmitProposalResponse>
+  val submitProposalMethod: MethodDescriptor<Tx.MsgSubmitProposal, Tx.MsgSubmitProposalResponse>
     @JvmStatic
     get() = MsgGrpc.getSubmitProposalMethod()
 
-  public val voteMethod: MethodDescriptor<Tx.MsgVote, Tx.MsgVoteResponse>
+  val voteMethod: MethodDescriptor<Tx.MsgVote, Tx.MsgVoteResponse>
     @JvmStatic
     get() = MsgGrpc.getVoteMethod()
 
-  public val voteWeightedMethod: MethodDescriptor<Tx.MsgVoteWeighted, Tx.MsgVoteWeightedResponse>
+  val voteWeightedMethod: MethodDescriptor<Tx.MsgVoteWeighted, Tx.MsgVoteWeightedResponse>
     @JvmStatic
     get() = MsgGrpc.getVoteWeightedMethod()
 
-  public val depositMethod: MethodDescriptor<Tx.MsgDeposit, Tx.MsgDepositResponse>
+  val depositMethod: MethodDescriptor<Tx.MsgDeposit, Tx.MsgDepositResponse>
     @JvmStatic
     get() = MsgGrpc.getDepositMethod()
 
@@ -56,11 +55,11 @@ public object MsgGrpcKt {
    * A stub for issuing RPCs to a(n) cosmos.gov.v1beta1.Msg service as suspending coroutines.
    */
   @StubFor(MsgGrpc::class)
-  public class MsgCoroutineStub @JvmOverloads constructor(
+  class MsgCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<MsgCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
         MsgCoroutineStub(channel, callOptions)
 
     /**
@@ -71,19 +70,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun submitProposal(request: Tx.MsgSubmitProposal, headers: Metadata =
-        Metadata()): Tx.MsgSubmitProposalResponse = unaryRpc(
+    suspend fun submitProposal(request: Tx.MsgSubmitProposal): Tx.MsgSubmitProposalResponse =
+        unaryRpc(
       channel,
       MsgGrpc.getSubmitProposalMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -92,19 +88,15 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun vote(request: Tx.MsgVote, headers: Metadata = Metadata()): Tx.MsgVoteResponse
-        = unaryRpc(
+    suspend fun vote(request: Tx.MsgVote): Tx.MsgVoteResponse = unaryRpc(
       channel,
       MsgGrpc.getVoteMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -113,19 +105,15 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun voteWeighted(request: Tx.MsgVoteWeighted, headers: Metadata = Metadata()):
-        Tx.MsgVoteWeightedResponse = unaryRpc(
+    suspend fun voteWeighted(request: Tx.MsgVoteWeighted): Tx.MsgVoteWeightedResponse = unaryRpc(
       channel,
       MsgGrpc.getVoteWeightedMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -134,25 +122,21 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun deposit(request: Tx.MsgDeposit, headers: Metadata = Metadata()):
-        Tx.MsgDepositResponse = unaryRpc(
+    suspend fun deposit(request: Tx.MsgDeposit): Tx.MsgDepositResponse = unaryRpc(
       channel,
       MsgGrpc.getDepositMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.gov.v1beta1.Msg service based on Kotlin coroutines.
    */
-  public abstract class MsgCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class MsgCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for cosmos.gov.v1beta1.Msg.SubmitProposal.
@@ -165,8 +149,8 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun submitProposal(request: Tx.MsgSubmitProposal):
-        Tx.MsgSubmitProposalResponse = throw
+    open suspend fun submitProposal(request: Tx.MsgSubmitProposal): Tx.MsgSubmitProposalResponse =
+        throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.gov.v1beta1.Msg.SubmitProposal is unimplemented"))
 
     /**
@@ -180,7 +164,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun vote(request: Tx.MsgVote): Tx.MsgVoteResponse = throw
+    open suspend fun vote(request: Tx.MsgVote): Tx.MsgVoteResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.gov.v1beta1.Msg.Vote is unimplemented"))
 
     /**
@@ -194,8 +178,7 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun voteWeighted(request: Tx.MsgVoteWeighted): Tx.MsgVoteWeightedResponse =
-        throw
+    open suspend fun voteWeighted(request: Tx.MsgVoteWeighted): Tx.MsgVoteWeightedResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.gov.v1beta1.Msg.VoteWeighted is unimplemented"))
 
     /**
@@ -209,11 +192,10 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun deposit(request: Tx.MsgDeposit): Tx.MsgDepositResponse = throw
+    open suspend fun deposit(request: Tx.MsgDeposit): Tx.MsgDepositResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.gov.v1beta1.Msg.Deposit is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = MsgGrpc.getSubmitProposalMethod(),

@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializeappDescriptor")
-public inline fun appDescriptor(block: cosmos.base.reflection.v2alpha1.AppDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.AppDescriptor =
+@kotlin.jvm.JvmSynthetic
+inline fun appDescriptor(block: cosmos.base.reflection.v2alpha1.AppDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.AppDescriptor =
   cosmos.base.reflection.v2alpha1.AppDescriptorKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.AppDescriptor.newBuilder()).apply { block() }._build()
-public object AppDescriptorKt {
+object AppDescriptorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.AppDescriptor.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.AppDescriptor.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.AppDescriptor.Builder): Dsl = Dsl(builder)
@@ -30,7 +30,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.AuthnDescriptor authn = 1;</code>
      */
-    public var authn: cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor
+    var authn: cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor
       @JvmName("getAuthn")
       get() = _builder.getAuthn()
       @JvmName("setAuthn")
@@ -45,7 +45,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.AuthnDescriptor authn = 1;</code>
      */
-    public fun clearAuthn() {
+    fun clearAuthn() {
       _builder.clearAuthn()
     }
     /**
@@ -57,7 +57,7 @@ public object AppDescriptorKt {
      * <code>.cosmos.base.reflection.v2alpha1.AuthnDescriptor authn = 1;</code>
      * @return Whether the authn field is set.
      */
-    public fun hasAuthn(): kotlin.Boolean {
+    fun hasAuthn(): kotlin.Boolean {
       return _builder.hasAuthn()
     }
 
@@ -68,7 +68,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.ChainDescriptor chain = 2;</code>
      */
-    public var chain: cosmos.base.reflection.v2alpha1.Reflection.ChainDescriptor
+    var chain: cosmos.base.reflection.v2alpha1.Reflection.ChainDescriptor
       @JvmName("getChain")
       get() = _builder.getChain()
       @JvmName("setChain")
@@ -82,7 +82,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.ChainDescriptor chain = 2;</code>
      */
-    public fun clearChain() {
+    fun clearChain() {
       _builder.clearChain()
     }
     /**
@@ -93,7 +93,7 @@ public object AppDescriptorKt {
      * <code>.cosmos.base.reflection.v2alpha1.ChainDescriptor chain = 2;</code>
      * @return Whether the chain field is set.
      */
-    public fun hasChain(): kotlin.Boolean {
+    fun hasChain(): kotlin.Boolean {
       return _builder.hasChain()
     }
 
@@ -104,7 +104,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.CodecDescriptor codec = 3;</code>
      */
-    public var codec: cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor
+    var codec: cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor
       @JvmName("getCodec")
       get() = _builder.getCodec()
       @JvmName("setCodec")
@@ -118,7 +118,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.CodecDescriptor codec = 3;</code>
      */
-    public fun clearCodec() {
+    fun clearCodec() {
       _builder.clearCodec()
     }
     /**
@@ -129,7 +129,7 @@ public object AppDescriptorKt {
      * <code>.cosmos.base.reflection.v2alpha1.CodecDescriptor codec = 3;</code>
      * @return Whether the codec field is set.
      */
-    public fun hasCodec(): kotlin.Boolean {
+    fun hasCodec(): kotlin.Boolean {
       return _builder.hasCodec()
     }
 
@@ -140,7 +140,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.ConfigurationDescriptor configuration = 4;</code>
      */
-    public var configuration: cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor
+    var configuration: cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor
       @JvmName("getConfiguration")
       get() = _builder.getConfiguration()
       @JvmName("setConfiguration")
@@ -154,7 +154,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.ConfigurationDescriptor configuration = 4;</code>
      */
-    public fun clearConfiguration() {
+    fun clearConfiguration() {
       _builder.clearConfiguration()
     }
     /**
@@ -165,7 +165,7 @@ public object AppDescriptorKt {
      * <code>.cosmos.base.reflection.v2alpha1.ConfigurationDescriptor configuration = 4;</code>
      * @return Whether the configuration field is set.
      */
-    public fun hasConfiguration(): kotlin.Boolean {
+    fun hasConfiguration(): kotlin.Boolean {
       return _builder.hasConfiguration()
     }
 
@@ -176,7 +176,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.QueryServicesDescriptor query_services = 5;</code>
      */
-    public var queryServices: cosmos.base.reflection.v2alpha1.Reflection.QueryServicesDescriptor
+    var queryServices: cosmos.base.reflection.v2alpha1.Reflection.QueryServicesDescriptor
       @JvmName("getQueryServices")
       get() = _builder.getQueryServices()
       @JvmName("setQueryServices")
@@ -190,7 +190,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.QueryServicesDescriptor query_services = 5;</code>
      */
-    public fun clearQueryServices() {
+    fun clearQueryServices() {
       _builder.clearQueryServices()
     }
     /**
@@ -201,7 +201,7 @@ public object AppDescriptorKt {
      * <code>.cosmos.base.reflection.v2alpha1.QueryServicesDescriptor query_services = 5;</code>
      * @return Whether the queryServices field is set.
      */
-    public fun hasQueryServices(): kotlin.Boolean {
+    fun hasQueryServices(): kotlin.Boolean {
       return _builder.hasQueryServices()
     }
 
@@ -212,7 +212,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.TxDescriptor tx = 6;</code>
      */
-    public var tx: cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor
+    var tx: cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor
       @JvmName("getTx")
       get() = _builder.getTx()
       @JvmName("setTx")
@@ -226,7 +226,7 @@ public object AppDescriptorKt {
      *
      * <code>.cosmos.base.reflection.v2alpha1.TxDescriptor tx = 6;</code>
      */
-    public fun clearTx() {
+    fun clearTx() {
       _builder.clearTx()
     }
     /**
@@ -237,30 +237,11 @@ public object AppDescriptorKt {
      * <code>.cosmos.base.reflection.v2alpha1.TxDescriptor tx = 6;</code>
      * @return Whether the tx field is set.
      */
-    public fun hasTx(): kotlin.Boolean {
+    fun hasTx(): kotlin.Boolean {
       return _builder.hasTx()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.AppDescriptor.copy(block: cosmos.base.reflection.v2alpha1.AppDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.AppDescriptor =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.AppDescriptor.copy(block: cosmos.base.reflection.v2alpha1.AppDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.AppDescriptor =
   cosmos.base.reflection.v2alpha1.AppDescriptorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.reflection.v2alpha1.Reflection.AppDescriptorOrBuilder.authnOrNull: cosmos.base.reflection.v2alpha1.Reflection.AuthnDescriptor?
-  get() = if (hasAuthn()) getAuthn() else null
-
-public val cosmos.base.reflection.v2alpha1.Reflection.AppDescriptorOrBuilder.chainOrNull: cosmos.base.reflection.v2alpha1.Reflection.ChainDescriptor?
-  get() = if (hasChain()) getChain() else null
-
-public val cosmos.base.reflection.v2alpha1.Reflection.AppDescriptorOrBuilder.codecOrNull: cosmos.base.reflection.v2alpha1.Reflection.CodecDescriptor?
-  get() = if (hasCodec()) getCodec() else null
-
-public val cosmos.base.reflection.v2alpha1.Reflection.AppDescriptorOrBuilder.configurationOrNull: cosmos.base.reflection.v2alpha1.Reflection.ConfigurationDescriptor?
-  get() = if (hasConfiguration()) getConfiguration() else null
-
-public val cosmos.base.reflection.v2alpha1.Reflection.AppDescriptorOrBuilder.queryServicesOrNull: cosmos.base.reflection.v2alpha1.Reflection.QueryServicesDescriptor?
-  get() = if (hasQueryServices()) getQueryServices() else null
-
-public val cosmos.base.reflection.v2alpha1.Reflection.AppDescriptorOrBuilder.txOrNull: cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor?
-  get() = if (hasTx()) getTx() else null
-

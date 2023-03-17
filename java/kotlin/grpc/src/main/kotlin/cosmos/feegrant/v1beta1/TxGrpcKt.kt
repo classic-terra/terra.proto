@@ -28,20 +28,18 @@ import kotlin.jvm.JvmStatic
 /**
  * Holder for Kotlin coroutine-based client and server APIs for cosmos.feegrant.v1beta1.Msg.
  */
-public object MsgGrpcKt {
-  public const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
+object MsgGrpcKt {
+  const val SERVICE_NAME: String = MsgGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = MsgGrpc.getServiceDescriptor()
 
-  public val grantAllowanceMethod:
-      MethodDescriptor<Tx.MsgGrantAllowance, Tx.MsgGrantAllowanceResponse>
+  val grantAllowanceMethod: MethodDescriptor<Tx.MsgGrantAllowance, Tx.MsgGrantAllowanceResponse>
     @JvmStatic
     get() = MsgGrpc.getGrantAllowanceMethod()
 
-  public val revokeAllowanceMethod:
-      MethodDescriptor<Tx.MsgRevokeAllowance, Tx.MsgRevokeAllowanceResponse>
+  val revokeAllowanceMethod: MethodDescriptor<Tx.MsgRevokeAllowance, Tx.MsgRevokeAllowanceResponse>
     @JvmStatic
     get() = MsgGrpc.getRevokeAllowanceMethod()
 
@@ -49,11 +47,11 @@ public object MsgGrpcKt {
    * A stub for issuing RPCs to a(n) cosmos.feegrant.v1beta1.Msg service as suspending coroutines.
    */
   @StubFor(MsgGrpc::class)
-  public class MsgCoroutineStub @JvmOverloads constructor(
+  class MsgCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<MsgCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
+    override fun build(channel: Channel, callOptions: CallOptions): MsgCoroutineStub =
         MsgCoroutineStub(channel, callOptions)
 
     /**
@@ -64,19 +62,16 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun grantAllowance(request: Tx.MsgGrantAllowance, headers: Metadata =
-        Metadata()): Tx.MsgGrantAllowanceResponse = unaryRpc(
+    suspend fun grantAllowance(request: Tx.MsgGrantAllowance): Tx.MsgGrantAllowanceResponse =
+        unaryRpc(
       channel,
       MsgGrpc.getGrantAllowanceMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -85,25 +80,22 @@ public object MsgGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun revokeAllowance(request: Tx.MsgRevokeAllowance, headers: Metadata =
-        Metadata()): Tx.MsgRevokeAllowanceResponse = unaryRpc(
+    suspend fun revokeAllowance(request: Tx.MsgRevokeAllowance): Tx.MsgRevokeAllowanceResponse =
+        unaryRpc(
       channel,
       MsgGrpc.getRevokeAllowanceMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.feegrant.v1beta1.Msg service based on Kotlin coroutines.
    */
-  public abstract class MsgCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class MsgCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for cosmos.feegrant.v1beta1.Msg.GrantAllowance.
@@ -116,8 +108,8 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun grantAllowance(request: Tx.MsgGrantAllowance):
-        Tx.MsgGrantAllowanceResponse = throw
+    open suspend fun grantAllowance(request: Tx.MsgGrantAllowance): Tx.MsgGrantAllowanceResponse =
+        throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.feegrant.v1beta1.Msg.GrantAllowance is unimplemented"))
 
     /**
@@ -131,12 +123,11 @@ public object MsgGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun revokeAllowance(request: Tx.MsgRevokeAllowance):
-        Tx.MsgRevokeAllowanceResponse = throw
+    open suspend fun revokeAllowance(request: Tx.MsgRevokeAllowance): Tx.MsgRevokeAllowanceResponse
+        = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.feegrant.v1beta1.Msg.RevokeAllowance is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = MsgGrpc.getGrantAllowanceMethod(),

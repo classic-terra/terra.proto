@@ -214,6 +214,129 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private GenesisState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              terra.oracle.v1beta1.Oracle.Params.Builder subBuilder = null;
+              if (params_ != null) {
+                subBuilder = params_.toBuilder();
+              }
+              params_ = input.readMessage(terra.oracle.v1beta1.Oracle.Params.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(params_);
+                params_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                feederDelegations_ = new java.util.ArrayList<terra.oracle.v1beta1.Genesis.FeederDelegation>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              feederDelegations_.add(
+                  input.readMessage(terra.oracle.v1beta1.Genesis.FeederDelegation.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                exchangeRates_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.ExchangeRateTuple>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              exchangeRates_.add(
+                  input.readMessage(terra.oracle.v1beta1.Oracle.ExchangeRateTuple.parser(), extensionRegistry));
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                missCounters_ = new java.util.ArrayList<terra.oracle.v1beta1.Genesis.MissCounter>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              missCounters_.add(
+                  input.readMessage(terra.oracle.v1beta1.Genesis.MissCounter.parser(), extensionRegistry));
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
+                aggregateExchangeRatePrevotes_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              aggregateExchangeRatePrevotes_.add(
+                  input.readMessage(terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.parser(), extensionRegistry));
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+                aggregateExchangeRateVotes_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              aggregateExchangeRateVotes_.add(
+                  input.readMessage(terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.parser(), extensionRegistry));
+              break;
+            }
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
+                tobinTaxes_ = new java.util.ArrayList<terra.oracle.v1beta1.Genesis.TobinTax>();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              tobinTaxes_.add(
+                  input.readMessage(terra.oracle.v1beta1.Genesis.TobinTax.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          feederDelegations_ = java.util.Collections.unmodifiableList(feederDelegations_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          exchangeRates_ = java.util.Collections.unmodifiableList(exchangeRates_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          missCounters_ = java.util.Collections.unmodifiableList(missCounters_);
+        }
+        if (((mutable_bitField0_ & 0x00000008) != 0)) {
+          aggregateExchangeRatePrevotes_ = java.util.Collections.unmodifiableList(aggregateExchangeRatePrevotes_);
+        }
+        if (((mutable_bitField0_ & 0x00000010) != 0)) {
+          aggregateExchangeRateVotes_ = java.util.Collections.unmodifiableList(aggregateExchangeRateVotes_);
+        }
+        if (((mutable_bitField0_ & 0x00000020) != 0)) {
+          tobinTaxes_ = java.util.Collections.unmodifiableList(tobinTaxes_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.Genesis.internal_static_terra_oracle_v1beta1_GenesisState_descriptor;
@@ -250,11 +373,10 @@ public final class Genesis {
      */
     @java.lang.Override
     public terra.oracle.v1beta1.Oracle.ParamsOrBuilder getParamsOrBuilder() {
-      return params_ == null ? terra.oracle.v1beta1.Oracle.Params.getDefaultInstance() : params_;
+      return getParams();
     }
 
     public static final int FEEDER_DELEGATIONS_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
     private java.util.List<terra.oracle.v1beta1.Genesis.FeederDelegation> feederDelegations_;
     /**
      * <code>repeated .terra.oracle.v1beta1.FeederDelegation feeder_delegations = 2 [(.gogoproto.nullable) = false];</code>
@@ -295,7 +417,6 @@ public final class Genesis {
     }
 
     public static final int EXCHANGE_RATES_FIELD_NUMBER = 3;
-    @SuppressWarnings("serial")
     private java.util.List<terra.oracle.v1beta1.Oracle.ExchangeRateTuple> exchangeRates_;
     /**
      * <code>repeated .terra.oracle.v1beta1.ExchangeRateTuple exchange_rates = 3 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "ExchangeRateTuples"];</code>
@@ -336,7 +457,6 @@ public final class Genesis {
     }
 
     public static final int MISS_COUNTERS_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
     private java.util.List<terra.oracle.v1beta1.Genesis.MissCounter> missCounters_;
     /**
      * <code>repeated .terra.oracle.v1beta1.MissCounter miss_counters = 4 [(.gogoproto.nullable) = false];</code>
@@ -377,7 +497,6 @@ public final class Genesis {
     }
 
     public static final int AGGREGATE_EXCHANGE_RATE_PREVOTES_FIELD_NUMBER = 5;
-    @SuppressWarnings("serial")
     private java.util.List<terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote> aggregateExchangeRatePrevotes_;
     /**
      * <code>repeated .terra.oracle.v1beta1.AggregateExchangeRatePrevote aggregate_exchange_rate_prevotes = 5 [(.gogoproto.nullable) = false];</code>
@@ -418,7 +537,6 @@ public final class Genesis {
     }
 
     public static final int AGGREGATE_EXCHANGE_RATE_VOTES_FIELD_NUMBER = 6;
-    @SuppressWarnings("serial")
     private java.util.List<terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote> aggregateExchangeRateVotes_;
     /**
      * <code>repeated .terra.oracle.v1beta1.AggregateExchangeRateVote aggregate_exchange_rate_votes = 6 [(.gogoproto.nullable) = false];</code>
@@ -459,7 +577,6 @@ public final class Genesis {
     }
 
     public static final int TOBIN_TAXES_FIELD_NUMBER = 7;
-    @SuppressWarnings("serial")
     private java.util.List<terra.oracle.v1beta1.Genesis.TobinTax> tobinTaxes_;
     /**
      * <code>repeated .terra.oracle.v1beta1.TobinTax tobin_taxes = 7 [(.gogoproto.nullable) = false];</code>
@@ -534,7 +651,7 @@ public final class Genesis {
       for (int i = 0; i < tobinTaxes_.size(); i++) {
         output.writeMessage(7, tobinTaxes_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -571,7 +688,7 @@ public final class Genesis {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, tobinTaxes_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -603,7 +720,7 @@ public final class Genesis {
           .equals(other.getAggregateExchangeRateVotesList())) return false;
       if (!getTobinTaxesList()
           .equals(other.getTobinTaxesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -642,7 +759,7 @@ public final class Genesis {
         hash = (37 * hash) + TOBIN_TAXES_FIELD_NUMBER;
         hash = (53 * hash) + getTobinTaxesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -763,65 +880,70 @@ public final class Genesis {
 
       // Construct using terra.oracle.v1beta1.Genesis.GenesisState.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getFeederDelegationsFieldBuilder();
+          getExchangeRatesFieldBuilder();
+          getMissCountersFieldBuilder();
+          getAggregateExchangeRatePrevotesFieldBuilder();
+          getAggregateExchangeRateVotesFieldBuilder();
+          getTobinTaxesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
-        params_ = null;
-        if (paramsBuilder_ != null) {
-          paramsBuilder_.dispose();
+        if (paramsBuilder_ == null) {
+          params_ = null;
+        } else {
+          params_ = null;
           paramsBuilder_ = null;
         }
         if (feederDelegationsBuilder_ == null) {
           feederDelegations_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          feederDelegations_ = null;
           feederDelegationsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         if (exchangeRatesBuilder_ == null) {
           exchangeRates_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
-          exchangeRates_ = null;
           exchangeRatesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         if (missCountersBuilder_ == null) {
           missCounters_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
-          missCounters_ = null;
           missCountersBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
         if (aggregateExchangeRatePrevotesBuilder_ == null) {
           aggregateExchangeRatePrevotes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
-          aggregateExchangeRatePrevotes_ = null;
           aggregateExchangeRatePrevotesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
         if (aggregateExchangeRateVotesBuilder_ == null) {
           aggregateExchangeRateVotes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
-          aggregateExchangeRateVotes_ = null;
           aggregateExchangeRateVotesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000020);
         if (tobinTaxesBuilder_ == null) {
           tobinTaxes_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
-          tobinTaxes_ = null;
           tobinTaxesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -848,76 +970,68 @@ public final class Genesis {
       @java.lang.Override
       public terra.oracle.v1beta1.Genesis.GenesisState buildPartial() {
         terra.oracle.v1beta1.Genesis.GenesisState result = new terra.oracle.v1beta1.Genesis.GenesisState(this);
-        buildPartialRepeatedFields(result);
-        if (bitField0_ != 0) { buildPartial0(result); }
-        onBuilt();
-        return result;
-      }
-
-      private void buildPartialRepeatedFields(terra.oracle.v1beta1.Genesis.GenesisState result) {
+        int from_bitField0_ = bitField0_;
+        if (paramsBuilder_ == null) {
+          result.params_ = params_;
+        } else {
+          result.params_ = paramsBuilder_.build();
+        }
         if (feederDelegationsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             feederDelegations_ = java.util.Collections.unmodifiableList(feederDelegations_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.feederDelegations_ = feederDelegations_;
         } else {
           result.feederDelegations_ = feederDelegationsBuilder_.build();
         }
         if (exchangeRatesBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             exchangeRates_ = java.util.Collections.unmodifiableList(exchangeRates_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.exchangeRates_ = exchangeRates_;
         } else {
           result.exchangeRates_ = exchangeRatesBuilder_.build();
         }
         if (missCountersBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             missCounters_ = java.util.Collections.unmodifiableList(missCounters_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.missCounters_ = missCounters_;
         } else {
           result.missCounters_ = missCountersBuilder_.build();
         }
         if (aggregateExchangeRatePrevotesBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             aggregateExchangeRatePrevotes_ = java.util.Collections.unmodifiableList(aggregateExchangeRatePrevotes_);
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.aggregateExchangeRatePrevotes_ = aggregateExchangeRatePrevotes_;
         } else {
           result.aggregateExchangeRatePrevotes_ = aggregateExchangeRatePrevotesBuilder_.build();
         }
         if (aggregateExchangeRateVotesBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) != 0)) {
+          if (((bitField0_ & 0x00000010) != 0)) {
             aggregateExchangeRateVotes_ = java.util.Collections.unmodifiableList(aggregateExchangeRateVotes_);
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.aggregateExchangeRateVotes_ = aggregateExchangeRateVotes_;
         } else {
           result.aggregateExchangeRateVotes_ = aggregateExchangeRateVotesBuilder_.build();
         }
         if (tobinTaxesBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) != 0)) {
+          if (((bitField0_ & 0x00000020) != 0)) {
             tobinTaxes_ = java.util.Collections.unmodifiableList(tobinTaxes_);
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000020);
           }
           result.tobinTaxes_ = tobinTaxes_;
         } else {
           result.tobinTaxes_ = tobinTaxesBuilder_.build();
         }
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.Genesis.GenesisState result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.params_ = paramsBuilder_ == null
-              ? params_
-              : paramsBuilder_.build();
-        }
+        onBuilt();
+        return result;
       }
 
       @java.lang.Override
@@ -971,7 +1085,7 @@ public final class Genesis {
           if (!other.feederDelegations_.isEmpty()) {
             if (feederDelegations_.isEmpty()) {
               feederDelegations_ = other.feederDelegations_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureFeederDelegationsIsMutable();
               feederDelegations_.addAll(other.feederDelegations_);
@@ -984,7 +1098,7 @@ public final class Genesis {
               feederDelegationsBuilder_.dispose();
               feederDelegationsBuilder_ = null;
               feederDelegations_ = other.feederDelegations_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               feederDelegationsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getFeederDelegationsFieldBuilder() : null;
@@ -997,7 +1111,7 @@ public final class Genesis {
           if (!other.exchangeRates_.isEmpty()) {
             if (exchangeRates_.isEmpty()) {
               exchangeRates_ = other.exchangeRates_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureExchangeRatesIsMutable();
               exchangeRates_.addAll(other.exchangeRates_);
@@ -1010,7 +1124,7 @@ public final class Genesis {
               exchangeRatesBuilder_.dispose();
               exchangeRatesBuilder_ = null;
               exchangeRates_ = other.exchangeRates_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000002);
               exchangeRatesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getExchangeRatesFieldBuilder() : null;
@@ -1023,7 +1137,7 @@ public final class Genesis {
           if (!other.missCounters_.isEmpty()) {
             if (missCounters_.isEmpty()) {
               missCounters_ = other.missCounters_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureMissCountersIsMutable();
               missCounters_.addAll(other.missCounters_);
@@ -1036,7 +1150,7 @@ public final class Genesis {
               missCountersBuilder_.dispose();
               missCountersBuilder_ = null;
               missCounters_ = other.missCounters_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000004);
               missCountersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getMissCountersFieldBuilder() : null;
@@ -1049,7 +1163,7 @@ public final class Genesis {
           if (!other.aggregateExchangeRatePrevotes_.isEmpty()) {
             if (aggregateExchangeRatePrevotes_.isEmpty()) {
               aggregateExchangeRatePrevotes_ = other.aggregateExchangeRatePrevotes_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureAggregateExchangeRatePrevotesIsMutable();
               aggregateExchangeRatePrevotes_.addAll(other.aggregateExchangeRatePrevotes_);
@@ -1062,7 +1176,7 @@ public final class Genesis {
               aggregateExchangeRatePrevotesBuilder_.dispose();
               aggregateExchangeRatePrevotesBuilder_ = null;
               aggregateExchangeRatePrevotes_ = other.aggregateExchangeRatePrevotes_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000008);
               aggregateExchangeRatePrevotesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAggregateExchangeRatePrevotesFieldBuilder() : null;
@@ -1075,7 +1189,7 @@ public final class Genesis {
           if (!other.aggregateExchangeRateVotes_.isEmpty()) {
             if (aggregateExchangeRateVotes_.isEmpty()) {
               aggregateExchangeRateVotes_ = other.aggregateExchangeRateVotes_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureAggregateExchangeRateVotesIsMutable();
               aggregateExchangeRateVotes_.addAll(other.aggregateExchangeRateVotes_);
@@ -1088,7 +1202,7 @@ public final class Genesis {
               aggregateExchangeRateVotesBuilder_.dispose();
               aggregateExchangeRateVotesBuilder_ = null;
               aggregateExchangeRateVotes_ = other.aggregateExchangeRateVotes_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000010);
               aggregateExchangeRateVotesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAggregateExchangeRateVotesFieldBuilder() : null;
@@ -1101,7 +1215,7 @@ public final class Genesis {
           if (!other.tobinTaxes_.isEmpty()) {
             if (tobinTaxes_.isEmpty()) {
               tobinTaxes_ = other.tobinTaxes_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000020);
             } else {
               ensureTobinTaxesIsMutable();
               tobinTaxes_.addAll(other.tobinTaxes_);
@@ -1114,7 +1228,7 @@ public final class Genesis {
               tobinTaxesBuilder_.dispose();
               tobinTaxesBuilder_ = null;
               tobinTaxes_ = other.tobinTaxes_;
-              bitField0_ = (bitField0_ & ~0x00000040);
+              bitField0_ = (bitField0_ & ~0x00000020);
               tobinTaxesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTobinTaxesFieldBuilder() : null;
@@ -1123,7 +1237,7 @@ public final class Genesis {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1138,115 +1252,17 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.Genesis.GenesisState parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getParamsFieldBuilder().getBuilder(),
-                    extensionRegistry);
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                terra.oracle.v1beta1.Genesis.FeederDelegation m =
-                    input.readMessage(
-                        terra.oracle.v1beta1.Genesis.FeederDelegation.parser(),
-                        extensionRegistry);
-                if (feederDelegationsBuilder_ == null) {
-                  ensureFeederDelegationsIsMutable();
-                  feederDelegations_.add(m);
-                } else {
-                  feederDelegationsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 18
-              case 26: {
-                terra.oracle.v1beta1.Oracle.ExchangeRateTuple m =
-                    input.readMessage(
-                        terra.oracle.v1beta1.Oracle.ExchangeRateTuple.parser(),
-                        extensionRegistry);
-                if (exchangeRatesBuilder_ == null) {
-                  ensureExchangeRatesIsMutable();
-                  exchangeRates_.add(m);
-                } else {
-                  exchangeRatesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 26
-              case 34: {
-                terra.oracle.v1beta1.Genesis.MissCounter m =
-                    input.readMessage(
-                        terra.oracle.v1beta1.Genesis.MissCounter.parser(),
-                        extensionRegistry);
-                if (missCountersBuilder_ == null) {
-                  ensureMissCountersIsMutable();
-                  missCounters_.add(m);
-                } else {
-                  missCountersBuilder_.addMessage(m);
-                }
-                break;
-              } // case 34
-              case 42: {
-                terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote m =
-                    input.readMessage(
-                        terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.parser(),
-                        extensionRegistry);
-                if (aggregateExchangeRatePrevotesBuilder_ == null) {
-                  ensureAggregateExchangeRatePrevotesIsMutable();
-                  aggregateExchangeRatePrevotes_.add(m);
-                } else {
-                  aggregateExchangeRatePrevotesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 42
-              case 50: {
-                terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote m =
-                    input.readMessage(
-                        terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.parser(),
-                        extensionRegistry);
-                if (aggregateExchangeRateVotesBuilder_ == null) {
-                  ensureAggregateExchangeRateVotesIsMutable();
-                  aggregateExchangeRateVotes_.add(m);
-                } else {
-                  aggregateExchangeRateVotesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 50
-              case 58: {
-                terra.oracle.v1beta1.Genesis.TobinTax m =
-                    input.readMessage(
-                        terra.oracle.v1beta1.Genesis.TobinTax.parser(),
-                        extensionRegistry);
-                if (tobinTaxesBuilder_ == null) {
-                  ensureTobinTaxesIsMutable();
-                  tobinTaxes_.add(m);
-                } else {
-                  tobinTaxesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 58
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.Genesis.GenesisState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -1259,7 +1275,7 @@ public final class Genesis {
        * @return Whether the params field is set.
        */
       public boolean hasParams() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return paramsBuilder_ != null || params_ != null;
       }
       /**
        * <code>.terra.oracle.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
@@ -1281,11 +1297,11 @@ public final class Genesis {
             throw new NullPointerException();
           }
           params_ = value;
+          onChanged();
         } else {
           paramsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1295,11 +1311,11 @@ public final class Genesis {
           terra.oracle.v1beta1.Oracle.Params.Builder builderForValue) {
         if (paramsBuilder_ == null) {
           params_ = builderForValue.build();
+          onChanged();
         } else {
           paramsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
@@ -1307,38 +1323,38 @@ public final class Genesis {
        */
       public Builder mergeParams(terra.oracle.v1beta1.Oracle.Params value) {
         if (paramsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-            params_ != null &&
-            params_ != terra.oracle.v1beta1.Oracle.Params.getDefaultInstance()) {
-            getParamsBuilder().mergeFrom(value);
+          if (params_ != null) {
+            params_ =
+              terra.oracle.v1beta1.Oracle.Params.newBuilder(params_).mergeFrom(value).buildPartial();
           } else {
             params_ = value;
           }
+          onChanged();
         } else {
           paramsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
-        onChanged();
+
         return this;
       }
       /**
        * <code>.terra.oracle.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearParams() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        params_ = null;
-        if (paramsBuilder_ != null) {
-          paramsBuilder_.dispose();
+        if (paramsBuilder_ == null) {
+          params_ = null;
+          onChanged();
+        } else {
+          params_ = null;
           paramsBuilder_ = null;
         }
-        onChanged();
+
         return this;
       }
       /**
        * <code>.terra.oracle.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
        */
       public terra.oracle.v1beta1.Oracle.Params.Builder getParamsBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getParamsFieldBuilder().getBuilder();
       }
@@ -1373,9 +1389,9 @@ public final class Genesis {
       private java.util.List<terra.oracle.v1beta1.Genesis.FeederDelegation> feederDelegations_ =
         java.util.Collections.emptyList();
       private void ensureFeederDelegationsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           feederDelegations_ = new java.util.ArrayList<terra.oracle.v1beta1.Genesis.FeederDelegation>(feederDelegations_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -1525,7 +1541,7 @@ public final class Genesis {
       public Builder clearFeederDelegations() {
         if (feederDelegationsBuilder_ == null) {
           feederDelegations_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           feederDelegationsBuilder_.clear();
@@ -1602,7 +1618,7 @@ public final class Genesis {
           feederDelegationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.oracle.v1beta1.Genesis.FeederDelegation, terra.oracle.v1beta1.Genesis.FeederDelegation.Builder, terra.oracle.v1beta1.Genesis.FeederDelegationOrBuilder>(
                   feederDelegations_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           feederDelegations_ = null;
@@ -1613,9 +1629,9 @@ public final class Genesis {
       private java.util.List<terra.oracle.v1beta1.Oracle.ExchangeRateTuple> exchangeRates_ =
         java.util.Collections.emptyList();
       private void ensureExchangeRatesIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           exchangeRates_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.ExchangeRateTuple>(exchangeRates_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1765,7 +1781,7 @@ public final class Genesis {
       public Builder clearExchangeRates() {
         if (exchangeRatesBuilder_ == null) {
           exchangeRates_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           exchangeRatesBuilder_.clear();
@@ -1842,7 +1858,7 @@ public final class Genesis {
           exchangeRatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.oracle.v1beta1.Oracle.ExchangeRateTuple, terra.oracle.v1beta1.Oracle.ExchangeRateTuple.Builder, terra.oracle.v1beta1.Oracle.ExchangeRateTupleOrBuilder>(
                   exchangeRates_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           exchangeRates_ = null;
@@ -1853,9 +1869,9 @@ public final class Genesis {
       private java.util.List<terra.oracle.v1beta1.Genesis.MissCounter> missCounters_ =
         java.util.Collections.emptyList();
       private void ensureMissCountersIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           missCounters_ = new java.util.ArrayList<terra.oracle.v1beta1.Genesis.MissCounter>(missCounters_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -2005,7 +2021,7 @@ public final class Genesis {
       public Builder clearMissCounters() {
         if (missCountersBuilder_ == null) {
           missCounters_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           missCountersBuilder_.clear();
@@ -2082,7 +2098,7 @@ public final class Genesis {
           missCountersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.oracle.v1beta1.Genesis.MissCounter, terra.oracle.v1beta1.Genesis.MissCounter.Builder, terra.oracle.v1beta1.Genesis.MissCounterOrBuilder>(
                   missCounters_,
-                  ((bitField0_ & 0x00000008) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           missCounters_ = null;
@@ -2093,9 +2109,9 @@ public final class Genesis {
       private java.util.List<terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote> aggregateExchangeRatePrevotes_ =
         java.util.Collections.emptyList();
       private void ensureAggregateExchangeRatePrevotesIsMutable() {
-        if (!((bitField0_ & 0x00000010) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           aggregateExchangeRatePrevotes_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote>(aggregateExchangeRatePrevotes_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -2245,7 +2261,7 @@ public final class Genesis {
       public Builder clearAggregateExchangeRatePrevotes() {
         if (aggregateExchangeRatePrevotesBuilder_ == null) {
           aggregateExchangeRatePrevotes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           aggregateExchangeRatePrevotesBuilder_.clear();
@@ -2322,7 +2338,7 @@ public final class Genesis {
           aggregateExchangeRatePrevotesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote, terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevote.Builder, terra.oracle.v1beta1.Oracle.AggregateExchangeRatePrevoteOrBuilder>(
                   aggregateExchangeRatePrevotes_,
-                  ((bitField0_ & 0x00000010) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           aggregateExchangeRatePrevotes_ = null;
@@ -2333,9 +2349,9 @@ public final class Genesis {
       private java.util.List<terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote> aggregateExchangeRateVotes_ =
         java.util.Collections.emptyList();
       private void ensureAggregateExchangeRateVotesIsMutable() {
-        if (!((bitField0_ & 0x00000020) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           aggregateExchangeRateVotes_ = new java.util.ArrayList<terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote>(aggregateExchangeRateVotes_);
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -2485,7 +2501,7 @@ public final class Genesis {
       public Builder clearAggregateExchangeRateVotes() {
         if (aggregateExchangeRateVotesBuilder_ == null) {
           aggregateExchangeRateVotes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           aggregateExchangeRateVotesBuilder_.clear();
@@ -2562,7 +2578,7 @@ public final class Genesis {
           aggregateExchangeRateVotesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote, terra.oracle.v1beta1.Oracle.AggregateExchangeRateVote.Builder, terra.oracle.v1beta1.Oracle.AggregateExchangeRateVoteOrBuilder>(
                   aggregateExchangeRateVotes_,
-                  ((bitField0_ & 0x00000020) != 0),
+                  ((bitField0_ & 0x00000010) != 0),
                   getParentForChildren(),
                   isClean());
           aggregateExchangeRateVotes_ = null;
@@ -2573,9 +2589,9 @@ public final class Genesis {
       private java.util.List<terra.oracle.v1beta1.Genesis.TobinTax> tobinTaxes_ =
         java.util.Collections.emptyList();
       private void ensureTobinTaxesIsMutable() {
-        if (!((bitField0_ & 0x00000040) != 0)) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           tobinTaxes_ = new java.util.ArrayList<terra.oracle.v1beta1.Genesis.TobinTax>(tobinTaxes_);
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000020;
          }
       }
 
@@ -2725,7 +2741,7 @@ public final class Genesis {
       public Builder clearTobinTaxes() {
         if (tobinTaxesBuilder_ == null) {
           tobinTaxes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000020);
           onChanged();
         } else {
           tobinTaxesBuilder_.clear();
@@ -2802,7 +2818,7 @@ public final class Genesis {
           tobinTaxesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.oracle.v1beta1.Genesis.TobinTax, terra.oracle.v1beta1.Genesis.TobinTax.Builder, terra.oracle.v1beta1.Genesis.TobinTaxOrBuilder>(
                   tobinTaxes_,
-                  ((bitField0_ & 0x00000040) != 0),
+                  ((bitField0_ & 0x00000020) != 0),
                   getParentForChildren(),
                   isClean());
           tobinTaxes_ = null;
@@ -2842,18 +2858,7 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new GenesisState(input, extensionRegistry);
       }
     };
 
@@ -2936,6 +2941,55 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private FeederDelegation(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              feederAddress_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              validatorAddress_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.Genesis.internal_static_terra_oracle_v1beta1_FeederDelegation_descriptor;
@@ -2950,8 +3004,7 @@ public final class Genesis {
     }
 
     public static final int FEEDER_ADDRESS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object feederAddress_ = "";
+    private volatile java.lang.Object feederAddress_;
     /**
      * <code>string feeder_address = 1;</code>
      * @return The feederAddress.
@@ -2989,8 +3042,7 @@ public final class Genesis {
     }
 
     public static final int VALIDATOR_ADDRESS_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object validatorAddress_ = "";
+    private volatile java.lang.Object validatorAddress_;
     /**
      * <code>string validator_address = 2;</code>
      * @return The validatorAddress.
@@ -3041,13 +3093,13 @@ public final class Genesis {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(feederAddress_)) {
+      if (!getFeederAddressBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, feederAddress_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddress_)) {
+      if (!getValidatorAddressBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, validatorAddress_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3056,13 +3108,13 @@ public final class Genesis {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(feederAddress_)) {
+      if (!getFeederAddressBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, feederAddress_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddress_)) {
+      if (!getValidatorAddressBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, validatorAddress_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3081,7 +3133,7 @@ public final class Genesis {
           .equals(other.getFeederAddress())) return false;
       if (!getValidatorAddress()
           .equals(other.getValidatorAddress())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3096,7 +3148,7 @@ public final class Genesis {
       hash = (53 * hash) + getFeederAddress().hashCode();
       hash = (37 * hash) + VALIDATOR_ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getValidatorAddress().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3219,20 +3271,26 @@ public final class Genesis {
 
       // Construct using terra.oracle.v1beta1.Genesis.FeederDelegation.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         feederAddress_ = "";
+
         validatorAddress_ = "";
+
         return this;
       }
 
@@ -3259,19 +3317,10 @@ public final class Genesis {
       @java.lang.Override
       public terra.oracle.v1beta1.Genesis.FeederDelegation buildPartial() {
         terra.oracle.v1beta1.Genesis.FeederDelegation result = new terra.oracle.v1beta1.Genesis.FeederDelegation(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.feederAddress_ = feederAddress_;
+        result.validatorAddress_ = validatorAddress_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.Genesis.FeederDelegation result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.feederAddress_ = feederAddress_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.validatorAddress_ = validatorAddress_;
-        }
       }
 
       @java.lang.Override
@@ -3320,15 +3369,13 @@ public final class Genesis {
         if (other == terra.oracle.v1beta1.Genesis.FeederDelegation.getDefaultInstance()) return this;
         if (!other.getFeederAddress().isEmpty()) {
           feederAddress_ = other.feederAddress_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getValidatorAddress().isEmpty()) {
           validatorAddress_ = other.validatorAddress_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3343,43 +3390,19 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.Genesis.FeederDelegation parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                feederAddress_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                validatorAddress_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.Genesis.FeederDelegation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object feederAddress_ = "";
       /**
@@ -3422,9 +3445,11 @@ public final class Genesis {
        */
       public Builder setFeederAddress(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         feederAddress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3433,8 +3458,8 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearFeederAddress() {
+        
         feederAddress_ = getDefaultInstance().getFeederAddress();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3445,10 +3470,12 @@ public final class Genesis {
        */
       public Builder setFeederAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         feederAddress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3494,9 +3521,11 @@ public final class Genesis {
        */
       public Builder setValidatorAddress(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         validatorAddress_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3505,8 +3534,8 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearValidatorAddress() {
+        
         validatorAddress_ = getDefaultInstance().getValidatorAddress();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -3517,10 +3546,12 @@ public final class Genesis {
        */
       public Builder setValidatorAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         validatorAddress_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3557,18 +3588,7 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new FeederDelegation(input, extensionRegistry);
       }
     };
 
@@ -3643,6 +3663,54 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private MissCounter(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              validatorAddress_ = s;
+              break;
+            }
+            case 16: {
+
+              missCounter_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.Genesis.internal_static_terra_oracle_v1beta1_MissCounter_descriptor;
@@ -3657,8 +3725,7 @@ public final class Genesis {
     }
 
     public static final int VALIDATOR_ADDRESS_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object validatorAddress_ = "";
+    private volatile java.lang.Object validatorAddress_;
     /**
      * <code>string validator_address = 1;</code>
      * @return The validatorAddress.
@@ -3696,7 +3763,7 @@ public final class Genesis {
     }
 
     public static final int MISS_COUNTER_FIELD_NUMBER = 2;
-    private long missCounter_ = 0L;
+    private long missCounter_;
     /**
      * <code>uint64 miss_counter = 2;</code>
      * @return The missCounter.
@@ -3720,13 +3787,13 @@ public final class Genesis {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddress_)) {
+      if (!getValidatorAddressBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, validatorAddress_);
       }
       if (missCounter_ != 0L) {
         output.writeUInt64(2, missCounter_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3735,14 +3802,14 @@ public final class Genesis {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddress_)) {
+      if (!getValidatorAddressBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, validatorAddress_);
       }
       if (missCounter_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, missCounter_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3761,7 +3828,7 @@ public final class Genesis {
           .equals(other.getValidatorAddress())) return false;
       if (getMissCounter()
           != other.getMissCounter()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3777,7 +3844,7 @@ public final class Genesis {
       hash = (37 * hash) + MISS_COUNTER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMissCounter());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3899,20 +3966,26 @@ public final class Genesis {
 
       // Construct using terra.oracle.v1beta1.Genesis.MissCounter.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         validatorAddress_ = "";
+
         missCounter_ = 0L;
+
         return this;
       }
 
@@ -3939,19 +4012,10 @@ public final class Genesis {
       @java.lang.Override
       public terra.oracle.v1beta1.Genesis.MissCounter buildPartial() {
         terra.oracle.v1beta1.Genesis.MissCounter result = new terra.oracle.v1beta1.Genesis.MissCounter(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.validatorAddress_ = validatorAddress_;
+        result.missCounter_ = missCounter_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.Genesis.MissCounter result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.validatorAddress_ = validatorAddress_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.missCounter_ = missCounter_;
-        }
       }
 
       @java.lang.Override
@@ -4000,13 +4064,12 @@ public final class Genesis {
         if (other == terra.oracle.v1beta1.Genesis.MissCounter.getDefaultInstance()) return this;
         if (!other.getValidatorAddress().isEmpty()) {
           validatorAddress_ = other.validatorAddress_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getMissCounter() != 0L) {
           setMissCounter(other.getMissCounter());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4021,43 +4084,19 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.Genesis.MissCounter parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                validatorAddress_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 16: {
-                missCounter_ = input.readUInt64();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 16
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.Genesis.MissCounter) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object validatorAddress_ = "";
       /**
@@ -4100,9 +4139,11 @@ public final class Genesis {
        */
       public Builder setValidatorAddress(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         validatorAddress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4111,8 +4152,8 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearValidatorAddress() {
+        
         validatorAddress_ = getDefaultInstance().getValidatorAddress();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4123,10 +4164,12 @@ public final class Genesis {
        */
       public Builder setValidatorAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         validatorAddress_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4148,7 +4191,6 @@ public final class Genesis {
       public Builder setMissCounter(long value) {
         
         missCounter_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4157,7 +4199,7 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearMissCounter() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         missCounter_ = 0L;
         onChanged();
         return this;
@@ -4195,18 +4237,7 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new MissCounter(input, extensionRegistry);
       }
     };
 
@@ -4288,6 +4319,55 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private TobinTax(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              denom_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tobinTax_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.oracle.v1beta1.Genesis.internal_static_terra_oracle_v1beta1_TobinTax_descriptor;
@@ -4302,8 +4382,7 @@ public final class Genesis {
     }
 
     public static final int DENOM_FIELD_NUMBER = 1;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object denom_ = "";
+    private volatile java.lang.Object denom_;
     /**
      * <code>string denom = 1;</code>
      * @return The denom.
@@ -4341,8 +4420,7 @@ public final class Genesis {
     }
 
     public static final int TOBIN_TAX_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object tobinTax_ = "";
+    private volatile java.lang.Object tobinTax_;
     /**
      * <code>string tobin_tax = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      * @return The tobinTax.
@@ -4393,13 +4471,13 @@ public final class Genesis {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, denom_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tobinTax_)) {
+      if (!getTobinTaxBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tobinTax_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4408,13 +4486,13 @@ public final class Genesis {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(denom_)) {
+      if (!getDenomBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, denom_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tobinTax_)) {
+      if (!getTobinTaxBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tobinTax_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4433,7 +4511,7 @@ public final class Genesis {
           .equals(other.getDenom())) return false;
       if (!getTobinTax()
           .equals(other.getTobinTax())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4448,7 +4526,7 @@ public final class Genesis {
       hash = (53 * hash) + getDenom().hashCode();
       hash = (37 * hash) + TOBIN_TAX_FIELD_NUMBER;
       hash = (53 * hash) + getTobinTax().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4570,20 +4648,26 @@ public final class Genesis {
 
       // Construct using terra.oracle.v1beta1.Genesis.TobinTax.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        bitField0_ = 0;
         denom_ = "";
+
         tobinTax_ = "";
+
         return this;
       }
 
@@ -4610,19 +4694,10 @@ public final class Genesis {
       @java.lang.Override
       public terra.oracle.v1beta1.Genesis.TobinTax buildPartial() {
         terra.oracle.v1beta1.Genesis.TobinTax result = new terra.oracle.v1beta1.Genesis.TobinTax(this);
-        if (bitField0_ != 0) { buildPartial0(result); }
+        result.denom_ = denom_;
+        result.tobinTax_ = tobinTax_;
         onBuilt();
         return result;
-      }
-
-      private void buildPartial0(terra.oracle.v1beta1.Genesis.TobinTax result) {
-        int from_bitField0_ = bitField0_;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          result.denom_ = denom_;
-        }
-        if (((from_bitField0_ & 0x00000002) != 0)) {
-          result.tobinTax_ = tobinTax_;
-        }
       }
 
       @java.lang.Override
@@ -4671,15 +4746,13 @@ public final class Genesis {
         if (other == terra.oracle.v1beta1.Genesis.TobinTax.getDefaultInstance()) return this;
         if (!other.getDenom().isEmpty()) {
           denom_ = other.denom_;
-          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getTobinTax().isEmpty()) {
           tobinTax_ = other.tobinTax_;
-          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4694,43 +4767,19 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        terra.oracle.v1beta1.Genesis.TobinTax parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                denom_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000001;
-                break;
-              } // case 10
-              case 18: {
-                tobinTax_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000002;
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (terra.oracle.v1beta1.Genesis.TobinTax) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object denom_ = "";
       /**
@@ -4773,9 +4822,11 @@ public final class Genesis {
        */
       public Builder setDenom(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4784,8 +4835,8 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearDenom() {
+        
         denom_ = getDefaultInstance().getDenom();
-        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4796,10 +4847,12 @@ public final class Genesis {
        */
       public Builder setDenomBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         denom_ = value;
-        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4845,9 +4898,11 @@ public final class Genesis {
        */
       public Builder setTobinTax(
           java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         tobinTax_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4856,8 +4911,8 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearTobinTax() {
+        
         tobinTax_ = getDefaultInstance().getTobinTax();
-        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4868,10 +4923,12 @@ public final class Genesis {
        */
       public Builder setTobinTaxBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
         tobinTax_ = value;
-        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4908,18 +4965,7 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new TobinTax(input, extensionRegistry);
       }
     };
 
@@ -4970,34 +5016,36 @@ public final class Genesis {
     java.lang.String[] descriptorData = {
       "\n\"terra/oracle/v1beta1/genesis.proto\022\024te" +
       "rra.oracle.v1beta1\032\024gogoproto/gogo.proto" +
-      "\032!terra/oracle/v1beta1/oracle.proto\"\246\004\n\014" +
-      "GenesisState\0222\n\006params\030\001 \001(\0132\034.terra.ora" +
-      "cle.v1beta1.ParamsB\004\310\336\037\000\022H\n\022feeder_deleg" +
-      "ations\030\002 \003(\0132&.terra.oracle.v1beta1.Feed" +
-      "erDelegationB\004\310\336\037\000\022[\n\016exchange_rates\030\003 \003" +
-      "(\0132\'.terra.oracle.v1beta1.ExchangeRateTu" +
-      "pleB\032\252\337\037\022ExchangeRateTuples\310\336\037\000\022>\n\rmiss_" +
-      "counters\030\004 \003(\0132!.terra.oracle.v1beta1.Mi" +
-      "ssCounterB\004\310\336\037\000\022b\n aggregate_exchange_ra" +
-      "te_prevotes\030\005 \003(\01322.terra.oracle.v1beta1" +
-      ".AggregateExchangeRatePrevoteB\004\310\336\037\000\022\\\n\035a" +
-      "ggregate_exchange_rate_votes\030\006 \003(\0132/.ter" +
-      "ra.oracle.v1beta1.AggregateExchangeRateV" +
-      "oteB\004\310\336\037\000\0229\n\013tobin_taxes\030\007 \003(\0132\036.terra.o" +
-      "racle.v1beta1.TobinTaxB\004\310\336\037\000\"E\n\020FeederDe" +
-      "legation\022\026\n\016feeder_address\030\001 \001(\t\022\031\n\021vali" +
-      "dator_address\030\002 \001(\t\">\n\013MissCounter\022\031\n\021va" +
-      "lidator_address\030\001 \001(\t\022\024\n\014miss_counter\030\002 " +
-      "\001(\004\"\\\n\010TobinTax\022\r\n\005denom\030\001 \001(\t\022A\n\ttobin_" +
-      "tax\030\002 \001(\tB.\332\336\037&github.com/cosmos/cosmos-" +
-      "sdk/types.Dec\310\336\037\000B.Z,github.com/classic-" +
-      "terra/core/x/oracle/typesb\006proto3"
+      "\032!terra/oracle/v1beta1/oracle.proto\032\036cos" +
+      "mos/base/v1beta1/coin.proto\"\246\004\n\014GenesisS" +
+      "tate\0222\n\006params\030\001 \001(\0132\034.terra.oracle.v1be" +
+      "ta1.ParamsB\004\310\336\037\000\022H\n\022feeder_delegations\030\002" +
+      " \003(\0132&.terra.oracle.v1beta1.FeederDelega" +
+      "tionB\004\310\336\037\000\022[\n\016exchange_rates\030\003 \003(\0132\'.ter" +
+      "ra.oracle.v1beta1.ExchangeRateTupleB\032\252\337\037" +
+      "\022ExchangeRateTuples\310\336\037\000\022>\n\rmiss_counters" +
+      "\030\004 \003(\0132!.terra.oracle.v1beta1.MissCounte" +
+      "rB\004\310\336\037\000\022b\n aggregate_exchange_rate_prevo" +
+      "tes\030\005 \003(\01322.terra.oracle.v1beta1.Aggrega" +
+      "teExchangeRatePrevoteB\004\310\336\037\000\022\\\n\035aggregate" +
+      "_exchange_rate_votes\030\006 \003(\0132/.terra.oracl" +
+      "e.v1beta1.AggregateExchangeRateVoteB\004\310\336\037" +
+      "\000\0229\n\013tobin_taxes\030\007 \003(\0132\036.terra.oracle.v1" +
+      "beta1.TobinTaxB\004\310\336\037\000\"E\n\020FeederDelegation" +
+      "\022\026\n\016feeder_address\030\001 \001(\t\022\031\n\021validator_ad" +
+      "dress\030\002 \001(\t\">\n\013MissCounter\022\031\n\021validator_" +
+      "address\030\001 \001(\t\022\024\n\014miss_counter\030\002 \001(\004\"\\\n\010T" +
+      "obinTax\022\r\n\005denom\030\001 \001(\t\022A\n\ttobin_tax\030\002 \001(" +
+      "\tB.\332\336\037&github.com/cosmos/cosmos-sdk/type" +
+      "s.Dec\310\336\037\000B,Z*github.com/terra-money/core" +
+      "/x/oracle/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.GoGoProtos.getDescriptor(),
           terra.oracle.v1beta1.Oracle.getDescriptor(),
+          cosmos.base.v1beta1.CoinOuterClass.getDescriptor(),
         });
     internal_static_terra_oracle_v1beta1_GenesisState_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -5032,6 +5080,7 @@ public final class Genesis {
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.protobuf.GoGoProtos.getDescriptor();
     terra.oracle.v1beta1.Oracle.getDescriptor();
+    cosmos.base.v1beta1.CoinOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

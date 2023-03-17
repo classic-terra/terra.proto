@@ -3,16 +3,16 @@
 
 package ibc.core.connection.v1;
 
-@kotlin.jvm.JvmName("-initializemsgConnectionOpenAckResponse")
-public inline fun msgConnectionOpenAckResponse(block: ibc.core.connection.v1.MsgConnectionOpenAckResponseKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenAckResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun msgConnectionOpenAckResponse(block: ibc.core.connection.v1.MsgConnectionOpenAckResponseKt.Dsl.() -> Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenAckResponse =
   ibc.core.connection.v1.MsgConnectionOpenAckResponseKt.Dsl._create(ibc.core.connection.v1.Tx.MsgConnectionOpenAckResponse.newBuilder()).apply { block() }._build()
-public object MsgConnectionOpenAckResponseKt {
+object MsgConnectionOpenAckResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.connection.v1.Tx.MsgConnectionOpenAckResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.connection.v1.Tx.MsgConnectionOpenAckResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.connection.v1.Tx.MsgConnectionOpenAckResponse.Builder): Dsl = Dsl(builder)
@@ -24,6 +24,5 @@ public object MsgConnectionOpenAckResponseKt {
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.connection.v1.Tx.MsgConnectionOpenAckResponse.copy(block: ibc.core.connection.v1.MsgConnectionOpenAckResponseKt.Dsl.() -> kotlin.Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenAckResponse =
+inline fun ibc.core.connection.v1.Tx.MsgConnectionOpenAckResponse.copy(block: ibc.core.connection.v1.MsgConnectionOpenAckResponseKt.Dsl.() -> Unit): ibc.core.connection.v1.Tx.MsgConnectionOpenAckResponse =
   ibc.core.connection.v1.MsgConnectionOpenAckResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

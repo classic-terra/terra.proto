@@ -3,16 +3,16 @@
 
 package cosmos.base.tendermint.v1beta1;
 
-@kotlin.jvm.JvmName("-initializegetValidatorSetByHeightResponse")
-public inline fun getValidatorSetByHeightResponse(block: cosmos.base.tendermint.v1beta1.GetValidatorSetByHeightResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.GetValidatorSetByHeightResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun getValidatorSetByHeightResponse(block: cosmos.base.tendermint.v1beta1.GetValidatorSetByHeightResponseKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.GetValidatorSetByHeightResponse =
   cosmos.base.tendermint.v1beta1.GetValidatorSetByHeightResponseKt.Dsl._create(cosmos.base.tendermint.v1beta1.Query.GetValidatorSetByHeightResponse.newBuilder()).apply { block() }._build()
-public object GetValidatorSetByHeightResponseKt {
+object GetValidatorSetByHeightResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.tendermint.v1beta1.Query.GetValidatorSetByHeightResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.tendermint.v1beta1.Query.GetValidatorSetByHeightResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.tendermint.v1beta1.Query.GetValidatorSetByHeightResponse.Builder): Dsl = Dsl(builder)
@@ -25,7 +25,7 @@ public object GetValidatorSetByHeightResponseKt {
     /**
      * <code>int64 block_height = 1;</code>
      */
-    public var blockHeight: kotlin.Long
+    var blockHeight: kotlin.Long
       @JvmName("getBlockHeight")
       get() = _builder.getBlockHeight()
       @JvmName("setBlockHeight")
@@ -35,7 +35,7 @@ public object GetValidatorSetByHeightResponseKt {
     /**
      * <code>int64 block_height = 1;</code>
      */
-    public fun clearBlockHeight() {
+    fun clearBlockHeight() {
       _builder.clearBlockHeight()
     }
 
@@ -44,11 +44,11 @@ public object GetValidatorSetByHeightResponseKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class ValidatorsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class ValidatorsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <code>repeated .cosmos.base.tendermint.v1beta1.Validator validators = 2;</code>
      */
-     public val validators: com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>
+     val validators: com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getValidatorsList()
@@ -59,58 +59,49 @@ public object GetValidatorSetByHeightResponseKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addValidators")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.add(value: cosmos.base.tendermint.v1beta1.Query.Validator) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.add(value: cosmos.base.tendermint.v1beta1.Query.Validator) {
       _builder.addValidators(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.tendermint.v1beta1.Validator validators = 2;</code>
      * @param value The validators to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignValidators")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.plusAssign(value: cosmos.base.tendermint.v1beta1.Query.Validator) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.plusAssign(value: cosmos.base.tendermint.v1beta1.Query.Validator) {
       add(value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.tendermint.v1beta1.Validator validators = 2;</code>
      * @param values The validators to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllValidators")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.tendermint.v1beta1.Query.Validator>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.tendermint.v1beta1.Query.Validator>) {
       _builder.addAllValidators(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.tendermint.v1beta1.Validator validators = 2;</code>
      * @param values The validators to add.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllValidators")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.tendermint.v1beta1.Query.Validator>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.tendermint.v1beta1.Query.Validator>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.tendermint.v1beta1.Validator validators = 2;</code>
      * @param index The index to set the value at.
      * @param value The validators to set.
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setValidators")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.set(index: kotlin.Int, value: cosmos.base.tendermint.v1beta1.Query.Validator) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.set(index: kotlin.Int, value: cosmos.base.tendermint.v1beta1.Query.Validator) {
       _builder.setValidators(index, value)
-    }
-    /**
+    }/**
      * <code>repeated .cosmos.base.tendermint.v1beta1.Validator validators = 2;</code>
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearValidators")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.tendermint.v1beta1.Query.Validator, ValidatorsProxy>.clear() {
       _builder.clearValidators()
     }
-
-
     /**
      * <pre>
      * pagination defines an pagination for the response.
@@ -118,7 +109,7 @@ public object GetValidatorSetByHeightResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 3;</code>
      */
-    public var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
+    var pagination: cosmos.base.query.v1beta1.Pagination.PageResponse
       @JvmName("getPagination")
       get() = _builder.getPagination()
       @JvmName("setPagination")
@@ -132,7 +123,7 @@ public object GetValidatorSetByHeightResponseKt {
      *
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 3;</code>
      */
-    public fun clearPagination() {
+    fun clearPagination() {
       _builder.clearPagination()
     }
     /**
@@ -143,15 +134,11 @@ public object GetValidatorSetByHeightResponseKt {
      * <code>.cosmos.base.query.v1beta1.PageResponse pagination = 3;</code>
      * @return Whether the pagination field is set.
      */
-    public fun hasPagination(): kotlin.Boolean {
+    fun hasPagination(): kotlin.Boolean {
       return _builder.hasPagination()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.tendermint.v1beta1.Query.GetValidatorSetByHeightResponse.copy(block: cosmos.base.tendermint.v1beta1.GetValidatorSetByHeightResponseKt.Dsl.() -> kotlin.Unit): cosmos.base.tendermint.v1beta1.Query.GetValidatorSetByHeightResponse =
+inline fun cosmos.base.tendermint.v1beta1.Query.GetValidatorSetByHeightResponse.copy(block: cosmos.base.tendermint.v1beta1.GetValidatorSetByHeightResponseKt.Dsl.() -> Unit): cosmos.base.tendermint.v1beta1.Query.GetValidatorSetByHeightResponse =
   cosmos.base.tendermint.v1beta1.GetValidatorSetByHeightResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val cosmos.base.tendermint.v1beta1.Query.GetValidatorSetByHeightResponseOrBuilder.paginationOrNull: cosmos.base.query.v1beta1.Pagination.PageResponse?
-  get() = if (hasPagination()) getPagination() else null
-

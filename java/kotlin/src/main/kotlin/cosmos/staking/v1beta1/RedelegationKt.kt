@@ -3,16 +3,16 @@
 
 package cosmos.staking.v1beta1;
 
-@kotlin.jvm.JvmName("-initializeredelegation")
-public inline fun redelegation(block: cosmos.staking.v1beta1.RedelegationKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Redelegation =
+@kotlin.jvm.JvmSynthetic
+inline fun redelegation(block: cosmos.staking.v1beta1.RedelegationKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Redelegation =
   cosmos.staking.v1beta1.RedelegationKt.Dsl._create(cosmos.staking.v1beta1.Staking.Redelegation.newBuilder()).apply { block() }._build()
-public object RedelegationKt {
+object RedelegationKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.staking.v1beta1.Staking.Redelegation.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.staking.v1beta1.Staking.Redelegation.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.staking.v1beta1.Staking.Redelegation.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object RedelegationKt {
      *
      * <code>string delegator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"delegator_address&#92;""];</code>
      */
-    public var delegatorAddress: kotlin.String
+    var delegatorAddress: kotlin.String
       @JvmName("getDelegatorAddress")
       get() = _builder.getDelegatorAddress()
       @JvmName("setDelegatorAddress")
@@ -43,7 +43,7 @@ public object RedelegationKt {
      *
      * <code>string delegator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"delegator_address&#92;""];</code>
      */
-    public fun clearDelegatorAddress() {
+    fun clearDelegatorAddress() {
       _builder.clearDelegatorAddress()
     }
 
@@ -54,7 +54,7 @@ public object RedelegationKt {
      *
      * <code>string validator_src_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_src_address&#92;""];</code>
      */
-    public var validatorSrcAddress: kotlin.String
+    var validatorSrcAddress: kotlin.String
       @JvmName("getValidatorSrcAddress")
       get() = _builder.getValidatorSrcAddress()
       @JvmName("setValidatorSrcAddress")
@@ -68,7 +68,7 @@ public object RedelegationKt {
      *
      * <code>string validator_src_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"validator_src_address&#92;""];</code>
      */
-    public fun clearValidatorSrcAddress() {
+    fun clearValidatorSrcAddress() {
       _builder.clearValidatorSrcAddress()
     }
 
@@ -79,7 +79,7 @@ public object RedelegationKt {
      *
      * <code>string validator_dst_address = 3 [(.gogoproto.moretags) = "yaml:&#92;"validator_dst_address&#92;""];</code>
      */
-    public var validatorDstAddress: kotlin.String
+    var validatorDstAddress: kotlin.String
       @JvmName("getValidatorDstAddress")
       get() = _builder.getValidatorDstAddress()
       @JvmName("setValidatorDstAddress")
@@ -93,7 +93,7 @@ public object RedelegationKt {
      *
      * <code>string validator_dst_address = 3 [(.gogoproto.moretags) = "yaml:&#92;"validator_dst_address&#92;""];</code>
      */
-    public fun clearValidatorDstAddress() {
+    fun clearValidatorDstAddress() {
       _builder.clearValidatorDstAddress()
     }
 
@@ -102,7 +102,7 @@ public object RedelegationKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class EntriesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class EntriesProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * entries are the redelegation entries.
@@ -110,7 +110,7 @@ public object RedelegationKt {
      *
      * <code>repeated .cosmos.staking.v1beta1.RedelegationEntry entries = 4 [(.gogoproto.nullable) = false];</code>
      */
-     public val entries: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>
+     val entries: com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getEntriesList()
@@ -125,10 +125,9 @@ public object RedelegationKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addEntries")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.add(value: cosmos.staking.v1beta1.Staking.RedelegationEntry) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.add(value: cosmos.staking.v1beta1.Staking.RedelegationEntry) {
       _builder.addEntries(value)
-    }
-    /**
+    }/**
      * <pre>
      * entries are the redelegation entries.
      * </pre>
@@ -138,11 +137,9 @@ public object RedelegationKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignEntries")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.RedelegationEntry) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.plusAssign(value: cosmos.staking.v1beta1.Staking.RedelegationEntry) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * entries are the redelegation entries.
      * </pre>
@@ -152,10 +149,9 @@ public object RedelegationKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllEntries")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.RedelegationEntry>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.addAll(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.RedelegationEntry>) {
       _builder.addAllEntries(values)
-    }
-    /**
+    }/**
      * <pre>
      * entries are the redelegation entries.
      * </pre>
@@ -165,11 +161,9 @@ public object RedelegationKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllEntries")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.RedelegationEntry>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.staking.v1beta1.Staking.RedelegationEntry>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * entries are the redelegation entries.
      * </pre>
@@ -180,10 +174,9 @@ public object RedelegationKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setEntries")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.RedelegationEntry) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.set(index: kotlin.Int, value: cosmos.staking.v1beta1.Staking.RedelegationEntry) {
       _builder.setEntries(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * entries are the redelegation entries.
      * </pre>
@@ -192,13 +185,10 @@ public object RedelegationKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearEntries")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.staking.v1beta1.Staking.RedelegationEntry, EntriesProxy>.clear() {
       _builder.clearEntries()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.staking.v1beta1.Staking.Redelegation.copy(block: cosmos.staking.v1beta1.RedelegationKt.Dsl.() -> kotlin.Unit): cosmos.staking.v1beta1.Staking.Redelegation =
+inline fun cosmos.staking.v1beta1.Staking.Redelegation.copy(block: cosmos.staking.v1beta1.RedelegationKt.Dsl.() -> Unit): cosmos.staking.v1beta1.Staking.Redelegation =
   cosmos.staking.v1beta1.RedelegationKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

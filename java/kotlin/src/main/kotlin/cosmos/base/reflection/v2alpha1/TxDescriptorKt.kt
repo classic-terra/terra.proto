@@ -3,16 +3,16 @@
 
 package cosmos.base.reflection.v2alpha1;
 
-@kotlin.jvm.JvmName("-initializetxDescriptor")
-public inline fun txDescriptor(block: cosmos.base.reflection.v2alpha1.TxDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor =
+@kotlin.jvm.JvmSynthetic
+inline fun txDescriptor(block: cosmos.base.reflection.v2alpha1.TxDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor =
   cosmos.base.reflection.v2alpha1.TxDescriptorKt.Dsl._create(cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor.newBuilder()).apply { block() }._build()
-public object TxDescriptorKt {
+object TxDescriptorKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor.Builder): Dsl = Dsl(builder)
@@ -31,7 +31,7 @@ public object TxDescriptorKt {
      *
      * <code>string fullname = 1;</code>
      */
-    public var fullname: kotlin.String
+    var fullname: kotlin.String
       @JvmName("getFullname")
       get() = _builder.getFullname()
       @JvmName("setFullname")
@@ -47,7 +47,7 @@ public object TxDescriptorKt {
      *
      * <code>string fullname = 1;</code>
      */
-    public fun clearFullname() {
+    fun clearFullname() {
       _builder.clearFullname()
     }
 
@@ -56,7 +56,7 @@ public object TxDescriptorKt {
      * generics.
      */
     @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
-    public class MsgsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
+    class MsgsProxy private constructor() : com.google.protobuf.kotlin.DslProxy()
     /**
      * <pre>
      * msgs lists the accepted application messages (sdk.Msg)
@@ -64,7 +64,7 @@ public object TxDescriptorKt {
      *
      * <code>repeated .cosmos.base.reflection.v2alpha1.MsgDescriptor msgs = 2;</code>
      */
-     public val msgs: com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>
+     val msgs: com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>
       @kotlin.jvm.JvmSynthetic
       get() = com.google.protobuf.kotlin.DslList(
         _builder.getMsgsList()
@@ -79,10 +79,9 @@ public object TxDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addMsgs")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.add(value: cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.add(value: cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor) {
       _builder.addMsgs(value)
-    }
-    /**
+    }/**
      * <pre>
      * msgs lists the accepted application messages (sdk.Msg)
      * </pre>
@@ -92,11 +91,9 @@ public object TxDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignMsgs")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.plusAssign(value: cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.plusAssign(value: cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor) {
       add(value)
-    }
-    /**
+    }/**
      * <pre>
      * msgs lists the accepted application messages (sdk.Msg)
      * </pre>
@@ -106,10 +103,9 @@ public object TxDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("addAllMsgs")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor>) {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.addAll(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor>) {
       _builder.addAllMsgs(values)
-    }
-    /**
+    }/**
      * <pre>
      * msgs lists the accepted application messages (sdk.Msg)
      * </pre>
@@ -119,11 +115,9 @@ public object TxDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("plusAssignAllMsgs")
-    @Suppress("NOTHING_TO_INLINE")
-    public inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor>) {
+    inline operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.plusAssign(values: kotlin.collections.Iterable<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor>) {
       addAll(values)
-    }
-    /**
+    }/**
      * <pre>
      * msgs lists the accepted application messages (sdk.Msg)
      * </pre>
@@ -134,10 +128,9 @@ public object TxDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("setMsgs")
-    public operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.set(index: kotlin.Int, value: cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor) {
+    operator fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.set(index: kotlin.Int, value: cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor) {
       _builder.setMsgs(index, value)
-    }
-    /**
+    }/**
      * <pre>
      * msgs lists the accepted application messages (sdk.Msg)
      * </pre>
@@ -146,13 +139,10 @@ public object TxDescriptorKt {
      */
     @kotlin.jvm.JvmSynthetic
     @kotlin.jvm.JvmName("clearMsgs")
-    public fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.clear() {
+    fun com.google.protobuf.kotlin.DslList<cosmos.base.reflection.v2alpha1.Reflection.MsgDescriptor, MsgsProxy>.clear() {
       _builder.clearMsgs()
-    }
-
-  }
+    }}
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor.copy(block: cosmos.base.reflection.v2alpha1.TxDescriptorKt.Dsl.() -> kotlin.Unit): cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor =
+inline fun cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor.copy(block: cosmos.base.reflection.v2alpha1.TxDescriptorKt.Dsl.() -> Unit): cosmos.base.reflection.v2alpha1.Reflection.TxDescriptor =
   cosmos.base.reflection.v2alpha1.TxDescriptorKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-

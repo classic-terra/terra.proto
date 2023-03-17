@@ -29,40 +29,42 @@ import kotlin.jvm.JvmStatic
  * Holder for Kotlin coroutine-based client and server APIs for
  * cosmos.base.reflection.v2alpha1.ReflectionService.
  */
-public object ReflectionServiceGrpcKt {
-  public const val SERVICE_NAME: String = ReflectionServiceGrpc.SERVICE_NAME
+object ReflectionServiceGrpcKt {
+  const val SERVICE_NAME: String = ReflectionServiceGrpc.SERVICE_NAME
 
   @JvmStatic
-  public val serviceDescriptor: ServiceDescriptor
+  val serviceDescriptor: ServiceDescriptor
     get() = ReflectionServiceGrpc.getServiceDescriptor()
 
-  public val getAuthnDescriptorMethod:
-      MethodDescriptor<Reflection.GetAuthnDescriptorRequest, Reflection.GetAuthnDescriptorResponse>
+  val getAuthnDescriptorMethod: MethodDescriptor<Reflection.GetAuthnDescriptorRequest,
+      Reflection.GetAuthnDescriptorResponse>
     @JvmStatic
     get() = ReflectionServiceGrpc.getGetAuthnDescriptorMethod()
 
-  public val getChainDescriptorMethod:
-      MethodDescriptor<Reflection.GetChainDescriptorRequest, Reflection.GetChainDescriptorResponse>
+  val getChainDescriptorMethod: MethodDescriptor<Reflection.GetChainDescriptorRequest,
+      Reflection.GetChainDescriptorResponse>
     @JvmStatic
     get() = ReflectionServiceGrpc.getGetChainDescriptorMethod()
 
-  public val getCodecDescriptorMethod:
-      MethodDescriptor<Reflection.GetCodecDescriptorRequest, Reflection.GetCodecDescriptorResponse>
+  val getCodecDescriptorMethod: MethodDescriptor<Reflection.GetCodecDescriptorRequest,
+      Reflection.GetCodecDescriptorResponse>
     @JvmStatic
     get() = ReflectionServiceGrpc.getGetCodecDescriptorMethod()
 
-  public val getConfigurationDescriptorMethod:
-      MethodDescriptor<Reflection.GetConfigurationDescriptorRequest, Reflection.GetConfigurationDescriptorResponse>
+  val getConfigurationDescriptorMethod:
+      MethodDescriptor<Reflection.GetConfigurationDescriptorRequest,
+      Reflection.GetConfigurationDescriptorResponse>
     @JvmStatic
     get() = ReflectionServiceGrpc.getGetConfigurationDescriptorMethod()
 
-  public val getQueryServicesDescriptorMethod:
-      MethodDescriptor<Reflection.GetQueryServicesDescriptorRequest, Reflection.GetQueryServicesDescriptorResponse>
+  val getQueryServicesDescriptorMethod:
+      MethodDescriptor<Reflection.GetQueryServicesDescriptorRequest,
+      Reflection.GetQueryServicesDescriptorResponse>
     @JvmStatic
     get() = ReflectionServiceGrpc.getGetQueryServicesDescriptorMethod()
 
-  public val getTxDescriptorMethod:
-      MethodDescriptor<Reflection.GetTxDescriptorRequest, Reflection.GetTxDescriptorResponse>
+  val getTxDescriptorMethod: MethodDescriptor<Reflection.GetTxDescriptorRequest,
+      Reflection.GetTxDescriptorResponse>
     @JvmStatic
     get() = ReflectionServiceGrpc.getGetTxDescriptorMethod()
 
@@ -71,12 +73,12 @@ public object ReflectionServiceGrpcKt {
    * suspending coroutines.
    */
   @StubFor(ReflectionServiceGrpc::class)
-  public class ReflectionServiceCoroutineStub @JvmOverloads constructor(
+  class ReflectionServiceCoroutineStub @JvmOverloads constructor(
     channel: Channel,
-    callOptions: CallOptions = DEFAULT,
+    callOptions: CallOptions = DEFAULT
   ) : AbstractCoroutineStub<ReflectionServiceCoroutineStub>(channel, callOptions) {
-    public override fun build(channel: Channel, callOptions: CallOptions):
-        ReflectionServiceCoroutineStub = ReflectionServiceCoroutineStub(channel, callOptions)
+    override fun build(channel: Channel, callOptions: CallOptions): ReflectionServiceCoroutineStub =
+        ReflectionServiceCoroutineStub(channel, callOptions)
 
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
@@ -86,19 +88,16 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun getAuthnDescriptor(request: Reflection.GetAuthnDescriptorRequest,
-        headers: Metadata = Metadata()): Reflection.GetAuthnDescriptorResponse = unaryRpc(
+    suspend fun getAuthnDescriptor(request: Reflection.GetAuthnDescriptorRequest):
+        Reflection.GetAuthnDescriptorResponse = unaryRpc(
       channel,
       ReflectionServiceGrpc.getGetAuthnDescriptorMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -107,19 +106,16 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun getChainDescriptor(request: Reflection.GetChainDescriptorRequest,
-        headers: Metadata = Metadata()): Reflection.GetChainDescriptorResponse = unaryRpc(
+    suspend fun getChainDescriptor(request: Reflection.GetChainDescriptorRequest):
+        Reflection.GetChainDescriptorResponse = unaryRpc(
       channel,
       ReflectionServiceGrpc.getGetChainDescriptorMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -128,19 +124,16 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun getCodecDescriptor(request: Reflection.GetCodecDescriptorRequest,
-        headers: Metadata = Metadata()): Reflection.GetCodecDescriptorResponse = unaryRpc(
+    suspend fun getCodecDescriptor(request: Reflection.GetCodecDescriptorRequest):
+        Reflection.GetCodecDescriptorResponse = unaryRpc(
       channel,
       ReflectionServiceGrpc.getGetCodecDescriptorMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -149,20 +142,16 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend
-        fun getConfigurationDescriptor(request: Reflection.GetConfigurationDescriptorRequest,
-        headers: Metadata = Metadata()): Reflection.GetConfigurationDescriptorResponse = unaryRpc(
+    suspend fun getConfigurationDescriptor(request: Reflection.GetConfigurationDescriptorRequest):
+        Reflection.GetConfigurationDescriptorResponse = unaryRpc(
       channel,
       ReflectionServiceGrpc.getGetConfigurationDescriptorMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -171,20 +160,16 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend
-        fun getQueryServicesDescriptor(request: Reflection.GetQueryServicesDescriptorRequest,
-        headers: Metadata = Metadata()): Reflection.GetQueryServicesDescriptorResponse = unaryRpc(
+    suspend fun getQueryServicesDescriptor(request: Reflection.GetQueryServicesDescriptorRequest):
+        Reflection.GetQueryServicesDescriptorResponse = unaryRpc(
       channel,
       ReflectionServiceGrpc.getGetQueryServicesDescriptorMethod(),
       request,
       callOptions,
-      headers
+      Metadata()
     )
-
     /**
      * Executes this RPC and returns the response message, suspending until the RPC completes
      * with [`Status.OK`][Status].  If the RPC completes with another status, a corresponding
@@ -193,26 +178,23 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request message to send to the server.
      *
-     * @param headers Metadata to attach to the request.  Most users will not need this.
-     *
      * @return The single response from the server.
      */
-    public suspend fun getTxDescriptor(request: Reflection.GetTxDescriptorRequest, headers: Metadata
-        = Metadata()): Reflection.GetTxDescriptorResponse = unaryRpc(
+    suspend fun getTxDescriptor(request: Reflection.GetTxDescriptorRequest):
+        Reflection.GetTxDescriptorResponse = unaryRpc(
       channel,
       ReflectionServiceGrpc.getGetTxDescriptorMethod(),
       request,
       callOptions,
-      headers
-    )
-  }
+      Metadata()
+    )}
 
   /**
    * Skeletal implementation of the cosmos.base.reflection.v2alpha1.ReflectionService service based
    * on Kotlin coroutines.
    */
-  public abstract class ReflectionServiceCoroutineImplBase(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+  abstract class ReflectionServiceCoroutineImplBase(
+    coroutineContext: CoroutineContext = EmptyCoroutineContext
   ) : AbstractCoroutineServerImpl(coroutineContext) {
     /**
      * Returns the response to an RPC for
@@ -226,7 +208,7 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun getAuthnDescriptor(request: Reflection.GetAuthnDescriptorRequest):
+    open suspend fun getAuthnDescriptor(request: Reflection.GetAuthnDescriptorRequest):
         Reflection.GetAuthnDescriptorResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.reflection.v2alpha1.ReflectionService.GetAuthnDescriptor is unimplemented"))
 
@@ -242,7 +224,7 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun getChainDescriptor(request: Reflection.GetChainDescriptorRequest):
+    open suspend fun getChainDescriptor(request: Reflection.GetChainDescriptorRequest):
         Reflection.GetChainDescriptorResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.reflection.v2alpha1.ReflectionService.GetChainDescriptor is unimplemented"))
 
@@ -258,7 +240,7 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun getCodecDescriptor(request: Reflection.GetCodecDescriptorRequest):
+    open suspend fun getCodecDescriptor(request: Reflection.GetCodecDescriptorRequest):
         Reflection.GetCodecDescriptorResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.reflection.v2alpha1.ReflectionService.GetCodecDescriptor is unimplemented"))
 
@@ -274,7 +256,7 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
+    open suspend
         fun getConfigurationDescriptor(request: Reflection.GetConfigurationDescriptorRequest):
         Reflection.GetConfigurationDescriptorResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.reflection.v2alpha1.ReflectionService.GetConfigurationDescriptor is unimplemented"))
@@ -291,7 +273,7 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend
+    open suspend
         fun getQueryServicesDescriptor(request: Reflection.GetQueryServicesDescriptorRequest):
         Reflection.GetQueryServicesDescriptorResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.reflection.v2alpha1.ReflectionService.GetQueryServicesDescriptor is unimplemented"))
@@ -308,12 +290,11 @@ public object ReflectionServiceGrpcKt {
      *
      * @param request The request from the client.
      */
-    public open suspend fun getTxDescriptor(request: Reflection.GetTxDescriptorRequest):
+    open suspend fun getTxDescriptor(request: Reflection.GetTxDescriptorRequest):
         Reflection.GetTxDescriptorResponse = throw
         StatusException(UNIMPLEMENTED.withDescription("Method cosmos.base.reflection.v2alpha1.ReflectionService.GetTxDescriptor is unimplemented"))
 
-    public final override fun bindService(): ServerServiceDefinition =
-        builder(getServiceDescriptor())
+    final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())
       .addMethod(unaryServerMethodDefinition(
       context = this.context,
       descriptor = ReflectionServiceGrpc.getGetAuthnDescriptorMethod(),

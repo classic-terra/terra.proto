@@ -3,16 +3,16 @@
 
 package ibc.core.channel.v1;
 
-@kotlin.jvm.JvmName("-initializequeryChannelClientStateResponse")
-public inline fun queryChannelClientStateResponse(block: ibc.core.channel.v1.QueryChannelClientStateResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse =
+@kotlin.jvm.JvmSynthetic
+inline fun queryChannelClientStateResponse(block: ibc.core.channel.v1.QueryChannelClientStateResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse =
   ibc.core.channel.v1.QueryChannelClientStateResponseKt.Dsl._create(ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse.newBuilder()).apply { block() }._build()
-public object QueryChannelClientStateResponseKt {
+object QueryChannelClientStateResponseKt {
   @kotlin.OptIn(com.google.protobuf.kotlin.OnlyForUseByGeneratedProtoCode::class)
   @com.google.protobuf.kotlin.ProtoDslMarker
-  public class Dsl private constructor(
-    private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse.Builder
+  class Dsl private constructor(
+    @kotlin.jvm.JvmField private val _builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse.Builder
   ) {
-    public companion object {
+    companion object {
       @kotlin.jvm.JvmSynthetic
       @kotlin.PublishedApi
       internal fun _create(builder: ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse.Builder): Dsl = Dsl(builder)
@@ -29,7 +29,7 @@ public object QueryChannelClientStateResponseKt {
      *
      * <code>.ibc.core.client.v1.IdentifiedClientState identified_client_state = 1;</code>
      */
-    public var identifiedClientState: ibc.core.client.v1.Client.IdentifiedClientState
+    var identifiedClientState: ibc.core.client.v1.Client.IdentifiedClientState
       @JvmName("getIdentifiedClientState")
       get() = _builder.getIdentifiedClientState()
       @JvmName("setIdentifiedClientState")
@@ -43,7 +43,7 @@ public object QueryChannelClientStateResponseKt {
      *
      * <code>.ibc.core.client.v1.IdentifiedClientState identified_client_state = 1;</code>
      */
-    public fun clearIdentifiedClientState() {
+    fun clearIdentifiedClientState() {
       _builder.clearIdentifiedClientState()
     }
     /**
@@ -54,7 +54,7 @@ public object QueryChannelClientStateResponseKt {
      * <code>.ibc.core.client.v1.IdentifiedClientState identified_client_state = 1;</code>
      * @return Whether the identifiedClientState field is set.
      */
-    public fun hasIdentifiedClientState(): kotlin.Boolean {
+    fun hasIdentifiedClientState(): kotlin.Boolean {
       return _builder.hasIdentifiedClientState()
     }
 
@@ -65,7 +65,7 @@ public object QueryChannelClientStateResponseKt {
      *
      * <code>bytes proof = 2;</code>
      */
-    public var proof: com.google.protobuf.ByteString
+    var proof: com.google.protobuf.ByteString
       @JvmName("getProof")
       get() = _builder.getProof()
       @JvmName("setProof")
@@ -79,7 +79,7 @@ public object QueryChannelClientStateResponseKt {
      *
      * <code>bytes proof = 2;</code>
      */
-    public fun clearProof() {
+    fun clearProof() {
       _builder.clearProof()
     }
 
@@ -90,7 +90,7 @@ public object QueryChannelClientStateResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public var proofHeight: ibc.core.client.v1.Client.Height
+    var proofHeight: ibc.core.client.v1.Client.Height
       @JvmName("getProofHeight")
       get() = _builder.getProofHeight()
       @JvmName("setProofHeight")
@@ -104,7 +104,7 @@ public object QueryChannelClientStateResponseKt {
      *
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      */
-    public fun clearProofHeight() {
+    fun clearProofHeight() {
       _builder.clearProofHeight()
     }
     /**
@@ -115,18 +115,11 @@ public object QueryChannelClientStateResponseKt {
      * <code>.ibc.core.client.v1.Height proof_height = 3 [(.gogoproto.nullable) = false];</code>
      * @return Whether the proofHeight field is set.
      */
-    public fun hasProofHeight(): kotlin.Boolean {
+    fun hasProofHeight(): kotlin.Boolean {
       return _builder.hasProofHeight()
     }
   }
 }
 @kotlin.jvm.JvmSynthetic
-public inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse.copy(block: ibc.core.channel.v1.QueryChannelClientStateResponseKt.Dsl.() -> kotlin.Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse =
+inline fun ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse.copy(block: ibc.core.channel.v1.QueryChannelClientStateResponseKt.Dsl.() -> Unit): ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponse =
   ibc.core.channel.v1.QueryChannelClientStateResponseKt.Dsl._create(this.toBuilder()).apply { block() }._build()
-
-public val ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponseOrBuilder.identifiedClientStateOrNull: ibc.core.client.v1.Client.IdentifiedClientState?
-  get() = if (hasIdentifiedClientState()) getIdentifiedClientState() else null
-
-public val ibc.core.channel.v1.QueryOuterClass.QueryChannelClientStateResponseOrBuilder.proofHeightOrNull: ibc.core.client.v1.Client.Height?
-  get() = if (hasProofHeight()) getProofHeight() else null
-
