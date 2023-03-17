@@ -94,66 +94,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Params(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              communityTax_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              baseProposerReward_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              bonusProposerReward_ = s;
-              break;
-            }
-            case 32: {
-
-              withdrawAddrEnabled_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_Params_descriptor;
@@ -168,7 +108,8 @@ public final class Distribution {
     }
 
     public static final int COMMUNITY_TAX_FIELD_NUMBER = 1;
-    private volatile java.lang.Object communityTax_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object communityTax_ = "";
     /**
      * <code>string community_tax = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"community_tax&#92;""];</code>
      * @return The communityTax.
@@ -206,7 +147,8 @@ public final class Distribution {
     }
 
     public static final int BASE_PROPOSER_REWARD_FIELD_NUMBER = 2;
-    private volatile java.lang.Object baseProposerReward_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object baseProposerReward_ = "";
     /**
      * <code>string base_proposer_reward = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"base_proposer_reward&#92;""];</code>
      * @return The baseProposerReward.
@@ -244,7 +186,8 @@ public final class Distribution {
     }
 
     public static final int BONUS_PROPOSER_REWARD_FIELD_NUMBER = 3;
-    private volatile java.lang.Object bonusProposerReward_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object bonusProposerReward_ = "";
     /**
      * <code>string bonus_proposer_reward = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"bonus_proposer_reward&#92;""];</code>
      * @return The bonusProposerReward.
@@ -282,7 +225,7 @@ public final class Distribution {
     }
 
     public static final int WITHDRAW_ADDR_ENABLED_FIELD_NUMBER = 4;
-    private boolean withdrawAddrEnabled_;
+    private boolean withdrawAddrEnabled_ = false;
     /**
      * <code>bool withdraw_addr_enabled = 4 [(.gogoproto.moretags) = "yaml:&#92;"withdraw_addr_enabled&#92;""];</code>
      * @return The withdrawAddrEnabled.
@@ -306,19 +249,19 @@ public final class Distribution {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getCommunityTaxBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(communityTax_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, communityTax_);
       }
-      if (!getBaseProposerRewardBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(baseProposerReward_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, baseProposerReward_);
       }
-      if (!getBonusProposerRewardBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bonusProposerReward_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, bonusProposerReward_);
       }
       if (withdrawAddrEnabled_ != false) {
         output.writeBool(4, withdrawAddrEnabled_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -327,20 +270,20 @@ public final class Distribution {
       if (size != -1) return size;
 
       size = 0;
-      if (!getCommunityTaxBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(communityTax_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, communityTax_);
       }
-      if (!getBaseProposerRewardBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(baseProposerReward_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, baseProposerReward_);
       }
-      if (!getBonusProposerRewardBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(bonusProposerReward_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, bonusProposerReward_);
       }
       if (withdrawAddrEnabled_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, withdrawAddrEnabled_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -363,7 +306,7 @@ public final class Distribution {
           .equals(other.getBonusProposerReward())) return false;
       if (getWithdrawAddrEnabled()
           != other.getWithdrawAddrEnabled()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -383,7 +326,7 @@ public final class Distribution {
       hash = (37 * hash) + WITHDRAW_ADDR_ENABLED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getWithdrawAddrEnabled());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -504,30 +447,22 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.Params.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         communityTax_ = "";
-
         baseProposerReward_ = "";
-
         bonusProposerReward_ = "";
-
         withdrawAddrEnabled_ = false;
-
         return this;
       }
 
@@ -554,12 +489,25 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.Params buildPartial() {
         cosmos.distribution.v1beta1.Distribution.Params result = new cosmos.distribution.v1beta1.Distribution.Params(this);
-        result.communityTax_ = communityTax_;
-        result.baseProposerReward_ = baseProposerReward_;
-        result.bonusProposerReward_ = bonusProposerReward_;
-        result.withdrawAddrEnabled_ = withdrawAddrEnabled_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.Params result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.communityTax_ = communityTax_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.baseProposerReward_ = baseProposerReward_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.bonusProposerReward_ = bonusProposerReward_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.withdrawAddrEnabled_ = withdrawAddrEnabled_;
+        }
       }
 
       @java.lang.Override
@@ -608,20 +556,23 @@ public final class Distribution {
         if (other == cosmos.distribution.v1beta1.Distribution.Params.getDefaultInstance()) return this;
         if (!other.getCommunityTax().isEmpty()) {
           communityTax_ = other.communityTax_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getBaseProposerReward().isEmpty()) {
           baseProposerReward_ = other.baseProposerReward_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getBonusProposerReward().isEmpty()) {
           bonusProposerReward_ = other.bonusProposerReward_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getWithdrawAddrEnabled() != false) {
           setWithdrawAddrEnabled(other.getWithdrawAddrEnabled());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -636,19 +587,53 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.Params parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                communityTax_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                baseProposerReward_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                bonusProposerReward_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                withdrawAddrEnabled_ = input.readBool();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.Params) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object communityTax_ = "";
       /**
@@ -691,11 +676,9 @@ public final class Distribution {
        */
       public Builder setCommunityTax(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         communityTax_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -704,8 +687,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearCommunityTax() {
-        
         communityTax_ = getDefaultInstance().getCommunityTax();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -716,12 +699,10 @@ public final class Distribution {
        */
       public Builder setCommunityTaxBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         communityTax_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -767,11 +748,9 @@ public final class Distribution {
        */
       public Builder setBaseProposerReward(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         baseProposerReward_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -780,8 +759,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearBaseProposerReward() {
-        
         baseProposerReward_ = getDefaultInstance().getBaseProposerReward();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -792,12 +771,10 @@ public final class Distribution {
        */
       public Builder setBaseProposerRewardBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         baseProposerReward_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -843,11 +820,9 @@ public final class Distribution {
        */
       public Builder setBonusProposerReward(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         bonusProposerReward_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -856,8 +831,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearBonusProposerReward() {
-        
         bonusProposerReward_ = getDefaultInstance().getBonusProposerReward();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -868,12 +843,10 @@ public final class Distribution {
        */
       public Builder setBonusProposerRewardBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         bonusProposerReward_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -895,6 +868,7 @@ public final class Distribution {
       public Builder setWithdrawAddrEnabled(boolean value) {
         
         withdrawAddrEnabled_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -903,7 +877,7 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearWithdrawAddrEnabled() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         withdrawAddrEnabled_ = false;
         onChanged();
         return this;
@@ -941,7 +915,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Params(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1038,61 +1023,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ValidatorHistoricalRewards(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                cumulativeRewardRatio_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.DecCoin>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              cumulativeRewardRatio_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(), extensionRegistry));
-              break;
-            }
-            case 16: {
-
-              referenceCount_ = input.readUInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          cumulativeRewardRatio_ = java.util.Collections.unmodifiableList(cumulativeRewardRatio_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_ValidatorHistoricalRewards_descriptor;
@@ -1107,6 +1037,7 @@ public final class Distribution {
     }
 
     public static final int CUMULATIVE_REWARD_RATIO_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.DecCoin> cumulativeRewardRatio_;
     /**
      * <code>repeated .cosmos.base.v1beta1.DecCoin cumulative_reward_ratio = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cumulative_reward_ratio&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
@@ -1147,7 +1078,7 @@ public final class Distribution {
     }
 
     public static final int REFERENCE_COUNT_FIELD_NUMBER = 2;
-    private int referenceCount_;
+    private int referenceCount_ = 0;
     /**
      * <code>uint32 reference_count = 2 [(.gogoproto.moretags) = "yaml:&#92;"reference_count&#92;""];</code>
      * @return The referenceCount.
@@ -1177,7 +1108,7 @@ public final class Distribution {
       if (referenceCount_ != 0) {
         output.writeUInt32(2, referenceCount_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1194,7 +1125,7 @@ public final class Distribution {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(2, referenceCount_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1213,7 +1144,7 @@ public final class Distribution {
           .equals(other.getCumulativeRewardRatioList())) return false;
       if (getReferenceCount()
           != other.getReferenceCount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1230,7 +1161,7 @@ public final class Distribution {
       }
       hash = (37 * hash) + REFERENCE_COUNT_FIELD_NUMBER;
       hash = (53 * hash) + getReferenceCount();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1362,31 +1293,26 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getCumulativeRewardRatioFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (cumulativeRewardRatioBuilder_ == null) {
           cumulativeRewardRatio_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          cumulativeRewardRatio_ = null;
           cumulativeRewardRatioBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         referenceCount_ = 0;
-
         return this;
       }
 
@@ -1413,7 +1339,13 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards buildPartial() {
         cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards result = new cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards result) {
         if (cumulativeRewardRatioBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             cumulativeRewardRatio_ = java.util.Collections.unmodifiableList(cumulativeRewardRatio_);
@@ -1423,9 +1355,13 @@ public final class Distribution {
         } else {
           result.cumulativeRewardRatio_ = cumulativeRewardRatioBuilder_.build();
         }
-        result.referenceCount_ = referenceCount_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.referenceCount_ = referenceCount_;
+        }
       }
 
       @java.lang.Override
@@ -1501,7 +1437,7 @@ public final class Distribution {
         if (other.getReferenceCount() != 0) {
           setReferenceCount(other.getReferenceCount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1516,17 +1452,48 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cosmos.base.v1beta1.CoinOuterClass.DecCoin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(),
+                        extensionRegistry);
+                if (cumulativeRewardRatioBuilder_ == null) {
+                  ensureCumulativeRewardRatioIsMutable();
+                  cumulativeRewardRatio_.add(m);
+                } else {
+                  cumulativeRewardRatioBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 16: {
+                referenceCount_ = input.readUInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.ValidatorHistoricalRewards) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1788,6 +1755,7 @@ public final class Distribution {
       public Builder setReferenceCount(int value) {
         
         referenceCount_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1796,7 +1764,7 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearReferenceCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         referenceCount_ = 0;
         onChanged();
         return this;
@@ -1834,7 +1802,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ValidatorHistoricalRewards(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1922,61 +1901,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ValidatorCurrentRewards(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                rewards_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.DecCoin>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              rewards_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(), extensionRegistry));
-              break;
-            }
-            case 16: {
-
-              period_ = input.readUInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          rewards_ = java.util.Collections.unmodifiableList(rewards_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_ValidatorCurrentRewards_descriptor;
@@ -1991,6 +1915,7 @@ public final class Distribution {
     }
 
     public static final int REWARDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.DecCoin> rewards_;
     /**
      * <code>repeated .cosmos.base.v1beta1.DecCoin rewards = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
@@ -2031,7 +1956,7 @@ public final class Distribution {
     }
 
     public static final int PERIOD_FIELD_NUMBER = 2;
-    private long period_;
+    private long period_ = 0L;
     /**
      * <code>uint64 period = 2;</code>
      * @return The period.
@@ -2061,7 +1986,7 @@ public final class Distribution {
       if (period_ != 0L) {
         output.writeUInt64(2, period_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2078,7 +2003,7 @@ public final class Distribution {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, period_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2097,7 +2022,7 @@ public final class Distribution {
           .equals(other.getRewardsList())) return false;
       if (getPeriod()
           != other.getPeriod()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2115,7 +2040,7 @@ public final class Distribution {
       hash = (37 * hash) + PERIOD_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getPeriod());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2238,31 +2163,26 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.ValidatorCurrentRewards.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRewardsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (rewardsBuilder_ == null) {
           rewards_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          rewards_ = null;
           rewardsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         period_ = 0L;
-
         return this;
       }
 
@@ -2289,7 +2209,13 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.ValidatorCurrentRewards buildPartial() {
         cosmos.distribution.v1beta1.Distribution.ValidatorCurrentRewards result = new cosmos.distribution.v1beta1.Distribution.ValidatorCurrentRewards(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.distribution.v1beta1.Distribution.ValidatorCurrentRewards result) {
         if (rewardsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             rewards_ = java.util.Collections.unmodifiableList(rewards_);
@@ -2299,9 +2225,13 @@ public final class Distribution {
         } else {
           result.rewards_ = rewardsBuilder_.build();
         }
-        result.period_ = period_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.ValidatorCurrentRewards result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.period_ = period_;
+        }
       }
 
       @java.lang.Override
@@ -2377,7 +2307,7 @@ public final class Distribution {
         if (other.getPeriod() != 0L) {
           setPeriod(other.getPeriod());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2392,17 +2322,48 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.ValidatorCurrentRewards parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cosmos.base.v1beta1.CoinOuterClass.DecCoin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(),
+                        extensionRegistry);
+                if (rewardsBuilder_ == null) {
+                  ensureRewardsIsMutable();
+                  rewards_.add(m);
+                } else {
+                  rewardsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 16: {
+                period_ = input.readUInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.ValidatorCurrentRewards) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2664,6 +2625,7 @@ public final class Distribution {
       public Builder setPeriod(long value) {
         
         period_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2672,7 +2634,7 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearPeriod() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         period_ = 0L;
         onChanged();
         return this;
@@ -2710,7 +2672,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ValidatorCurrentRewards(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2791,56 +2764,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ValidatorAccumulatedCommission(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                commission_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.DecCoin>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              commission_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          commission_ = java.util.Collections.unmodifiableList(commission_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_ValidatorAccumulatedCommission_descriptor;
@@ -2855,6 +2778,7 @@ public final class Distribution {
     }
 
     public static final int COMMISSION_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.DecCoin> commission_;
     /**
      * <code>repeated .cosmos.base.v1beta1.DecCoin commission = 1 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
@@ -2911,7 +2835,7 @@ public final class Distribution {
       for (int i = 0; i < commission_.size(); i++) {
         output.writeMessage(1, commission_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2924,7 +2848,7 @@ public final class Distribution {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, commission_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2941,7 +2865,7 @@ public final class Distribution {
 
       if (!getCommissionList()
           .equals(other.getCommissionList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2956,7 +2880,7 @@ public final class Distribution {
         hash = (37 * hash) + COMMISSION_FIELD_NUMBER;
         hash = (53 * hash) + getCommissionList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3078,29 +3002,25 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getCommissionFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (commissionBuilder_ == null) {
           commission_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          commission_ = null;
           commissionBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -3127,7 +3047,13 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission buildPartial() {
         cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission result = new cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission result) {
         if (commissionBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             commission_ = java.util.Collections.unmodifiableList(commission_);
@@ -3137,8 +3063,10 @@ public final class Distribution {
         } else {
           result.commission_ = commissionBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -3211,7 +3139,7 @@ public final class Distribution {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3226,17 +3154,43 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cosmos.base.v1beta1.CoinOuterClass.DecCoin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(),
+                        extensionRegistry);
+                if (commissionBuilder_ == null) {
+                  ensureCommissionIsMutable();
+                  commission_.add(m);
+                } else {
+                  commissionBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.ValidatorAccumulatedCommission) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3513,7 +3467,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ValidatorAccumulatedCommission(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3594,56 +3559,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ValidatorOutstandingRewards(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                rewards_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.DecCoin>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              rewards_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          rewards_ = java.util.Collections.unmodifiableList(rewards_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_ValidatorOutstandingRewards_descriptor;
@@ -3658,6 +3573,7 @@ public final class Distribution {
     }
 
     public static final int REWARDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.DecCoin> rewards_;
     /**
      * <code>repeated .cosmos.base.v1beta1.DecCoin rewards = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"rewards&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
@@ -3714,7 +3630,7 @@ public final class Distribution {
       for (int i = 0; i < rewards_.size(); i++) {
         output.writeMessage(1, rewards_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3727,7 +3643,7 @@ public final class Distribution {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, rewards_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3744,7 +3660,7 @@ public final class Distribution {
 
       if (!getRewardsList()
           .equals(other.getRewardsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3759,7 +3675,7 @@ public final class Distribution {
         hash = (37 * hash) + REWARDS_FIELD_NUMBER;
         hash = (53 * hash) + getRewardsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3881,29 +3797,25 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.ValidatorOutstandingRewards.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRewardsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (rewardsBuilder_ == null) {
           rewards_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          rewards_ = null;
           rewardsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -3930,7 +3842,13 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.ValidatorOutstandingRewards buildPartial() {
         cosmos.distribution.v1beta1.Distribution.ValidatorOutstandingRewards result = new cosmos.distribution.v1beta1.Distribution.ValidatorOutstandingRewards(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.distribution.v1beta1.Distribution.ValidatorOutstandingRewards result) {
         if (rewardsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             rewards_ = java.util.Collections.unmodifiableList(rewards_);
@@ -3940,8 +3858,10 @@ public final class Distribution {
         } else {
           result.rewards_ = rewardsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.ValidatorOutstandingRewards result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -4014,7 +3934,7 @@ public final class Distribution {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4029,17 +3949,43 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.ValidatorOutstandingRewards parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cosmos.base.v1beta1.CoinOuterClass.DecCoin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(),
+                        extensionRegistry);
+                if (rewardsBuilder_ == null) {
+                  ensureRewardsIsMutable();
+                  rewards_.add(m);
+                } else {
+                  rewardsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.ValidatorOutstandingRewards) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4316,7 +4262,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ValidatorOutstandingRewards(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4393,54 +4350,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ValidatorSlashEvent(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              validatorPeriod_ = input.readUInt64();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              fraction_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_ValidatorSlashEvent_descriptor;
@@ -4455,7 +4364,7 @@ public final class Distribution {
     }
 
     public static final int VALIDATOR_PERIOD_FIELD_NUMBER = 1;
-    private long validatorPeriod_;
+    private long validatorPeriod_ = 0L;
     /**
      * <code>uint64 validator_period = 1 [(.gogoproto.moretags) = "yaml:&#92;"validator_period&#92;""];</code>
      * @return The validatorPeriod.
@@ -4466,7 +4375,8 @@ public final class Distribution {
     }
 
     public static final int FRACTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object fraction_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fraction_ = "";
     /**
      * <code>string fraction = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec"];</code>
      * @return The fraction.
@@ -4520,10 +4430,10 @@ public final class Distribution {
       if (validatorPeriod_ != 0L) {
         output.writeUInt64(1, validatorPeriod_);
       }
-      if (!getFractionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fraction_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fraction_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4536,10 +4446,10 @@ public final class Distribution {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, validatorPeriod_);
       }
-      if (!getFractionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fraction_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fraction_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4558,7 +4468,7 @@ public final class Distribution {
           != other.getValidatorPeriod()) return false;
       if (!getFraction()
           .equals(other.getFraction())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4574,7 +4484,7 @@ public final class Distribution {
           getValidatorPeriod());
       hash = (37 * hash) + FRACTION_FIELD_NUMBER;
       hash = (53 * hash) + getFraction().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4698,26 +4608,20 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         validatorPeriod_ = 0L;
-
         fraction_ = "";
-
         return this;
       }
 
@@ -4744,10 +4648,19 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent buildPartial() {
         cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent result = new cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent(this);
-        result.validatorPeriod_ = validatorPeriod_;
-        result.fraction_ = fraction_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.validatorPeriod_ = validatorPeriod_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.fraction_ = fraction_;
+        }
       }
 
       @java.lang.Override
@@ -4799,9 +4712,10 @@ public final class Distribution {
         }
         if (!other.getFraction().isEmpty()) {
           fraction_ = other.fraction_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4816,19 +4730,43 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                validatorPeriod_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                fraction_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long validatorPeriod_ ;
       /**
@@ -4847,6 +4785,7 @@ public final class Distribution {
       public Builder setValidatorPeriod(long value) {
         
         validatorPeriod_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4855,7 +4794,7 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearValidatorPeriod() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         validatorPeriod_ = 0L;
         onChanged();
         return this;
@@ -4902,11 +4841,9 @@ public final class Distribution {
        */
       public Builder setFraction(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         fraction_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4915,8 +4852,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearFraction() {
-        
         fraction_ = getDefaultInstance().getFraction();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4927,12 +4864,10 @@ public final class Distribution {
        */
       public Builder setFractionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         fraction_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4969,7 +4904,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ValidatorSlashEvent(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5049,56 +4995,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ValidatorSlashEvents(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                validatorSlashEvents_ = new java.util.ArrayList<cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              validatorSlashEvents_.add(
-                  input.readMessage(cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          validatorSlashEvents_ = java.util.Collections.unmodifiableList(validatorSlashEvents_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_ValidatorSlashEvents_descriptor;
@@ -5113,6 +5009,7 @@ public final class Distribution {
     }
 
     public static final int VALIDATOR_SLASH_EVENTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent> validatorSlashEvents_;
     /**
      * <code>repeated .cosmos.distribution.v1beta1.ValidatorSlashEvent validator_slash_events = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"validator_slash_events&#92;""];</code>
@@ -5169,7 +5066,7 @@ public final class Distribution {
       for (int i = 0; i < validatorSlashEvents_.size(); i++) {
         output.writeMessage(1, validatorSlashEvents_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5182,7 +5079,7 @@ public final class Distribution {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, validatorSlashEvents_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5199,7 +5096,7 @@ public final class Distribution {
 
       if (!getValidatorSlashEventsList()
           .equals(other.getValidatorSlashEventsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5214,7 +5111,7 @@ public final class Distribution {
         hash = (37 * hash) + VALIDATOR_SLASH_EVENTS_FIELD_NUMBER;
         hash = (53 * hash) + getValidatorSlashEventsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5335,29 +5232,25 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvents.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getValidatorSlashEventsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (validatorSlashEventsBuilder_ == null) {
           validatorSlashEvents_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          validatorSlashEvents_ = null;
           validatorSlashEventsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -5384,7 +5277,13 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvents buildPartial() {
         cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvents result = new cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvents(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvents result) {
         if (validatorSlashEventsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             validatorSlashEvents_ = java.util.Collections.unmodifiableList(validatorSlashEvents_);
@@ -5394,8 +5293,10 @@ public final class Distribution {
         } else {
           result.validatorSlashEvents_ = validatorSlashEventsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvents result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -5468,7 +5369,7 @@ public final class Distribution {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5483,17 +5384,43 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvents parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent m =
+                    input.readMessage(
+                        cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvent.parser(),
+                        extensionRegistry);
+                if (validatorSlashEventsBuilder_ == null) {
+                  ensureValidatorSlashEventsIsMutable();
+                  validatorSlashEvents_.add(m);
+                } else {
+                  validatorSlashEventsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.ValidatorSlashEvents) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5770,7 +5697,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ValidatorSlashEvents(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5850,56 +5788,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FeePool(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                communityPool_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.DecCoin>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              communityPool_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          communityPool_ = java.util.Collections.unmodifiableList(communityPool_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_FeePool_descriptor;
@@ -5914,6 +5802,7 @@ public final class Distribution {
     }
 
     public static final int COMMUNITY_POOL_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.DecCoin> communityPool_;
     /**
      * <code>repeated .cosmos.base.v1beta1.DecCoin community_pool = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"community_pool&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
@@ -5970,7 +5859,7 @@ public final class Distribution {
       for (int i = 0; i < communityPool_.size(); i++) {
         output.writeMessage(1, communityPool_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5983,7 +5872,7 @@ public final class Distribution {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, communityPool_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6000,7 +5889,7 @@ public final class Distribution {
 
       if (!getCommunityPoolList()
           .equals(other.getCommunityPoolList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6015,7 +5904,7 @@ public final class Distribution {
         hash = (37 * hash) + COMMUNITY_POOL_FIELD_NUMBER;
         hash = (53 * hash) + getCommunityPoolList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6136,29 +6025,25 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.FeePool.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getCommunityPoolFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (communityPoolBuilder_ == null) {
           communityPool_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          communityPool_ = null;
           communityPoolBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -6185,7 +6070,13 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.FeePool buildPartial() {
         cosmos.distribution.v1beta1.Distribution.FeePool result = new cosmos.distribution.v1beta1.Distribution.FeePool(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.distribution.v1beta1.Distribution.FeePool result) {
         if (communityPoolBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             communityPool_ = java.util.Collections.unmodifiableList(communityPool_);
@@ -6195,8 +6086,10 @@ public final class Distribution {
         } else {
           result.communityPool_ = communityPoolBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.FeePool result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -6269,7 +6162,7 @@ public final class Distribution {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6284,17 +6177,43 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.FeePool parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cosmos.base.v1beta1.CoinOuterClass.DecCoin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(),
+                        extensionRegistry);
+                if (communityPoolBuilder_ == null) {
+                  ensureCommunityPoolIsMutable();
+                  communityPool_.add(m);
+                } else {
+                  communityPoolBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.FeePool) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -6571,7 +6490,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FeePool(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6692,74 +6622,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CommunityPoolSpendProposal(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              title_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              recipient_ = s;
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                amount_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.Coin>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              amount_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          amount_ = java.util.Collections.unmodifiableList(amount_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_CommunityPoolSpendProposal_descriptor;
@@ -6774,7 +6636,8 @@ public final class Distribution {
     }
 
     public static final int TITLE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object title_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object title_ = "";
     /**
      * <code>string title = 1;</code>
      * @return The title.
@@ -6812,7 +6675,8 @@ public final class Distribution {
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <code>string description = 2;</code>
      * @return The description.
@@ -6850,7 +6714,8 @@ public final class Distribution {
     }
 
     public static final int RECIPIENT_FIELD_NUMBER = 3;
-    private volatile java.lang.Object recipient_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object recipient_ = "";
     /**
      * <code>string recipient = 3;</code>
      * @return The recipient.
@@ -6888,6 +6753,7 @@ public final class Distribution {
     }
 
     public static final int AMOUNT_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.Coin> amount_;
     /**
      * <code>repeated .cosmos.base.v1beta1.Coin amount = 4 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
@@ -6941,19 +6807,19 @@ public final class Distribution {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, title_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
-      if (!getRecipientBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recipient_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, recipient_);
       }
       for (int i = 0; i < amount_.size(); i++) {
         output.writeMessage(4, amount_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6962,20 +6828,20 @@ public final class Distribution {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, title_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
-      if (!getRecipientBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recipient_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, recipient_);
       }
       for (int i = 0; i < amount_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, amount_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6998,7 +6864,7 @@ public final class Distribution {
           .equals(other.getRecipient())) return false;
       if (!getAmountList()
           .equals(other.getAmountList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7019,7 +6885,7 @@ public final class Distribution {
         hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
         hash = (53 * hash) + getAmountList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7142,35 +7008,28 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposal.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getAmountFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         title_ = "";
-
         description_ = "";
-
         recipient_ = "";
-
         if (amountBuilder_ == null) {
           amount_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          amount_ = null;
           amountBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -7197,21 +7056,35 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposal buildPartial() {
         cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposal result = new cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposal(this);
-        int from_bitField0_ = bitField0_;
-        result.title_ = title_;
-        result.description_ = description_;
-        result.recipient_ = recipient_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposal result) {
         if (amountBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             amount_ = java.util.Collections.unmodifiableList(amount_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.amount_ = amount_;
         } else {
           result.amount_ = amountBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposal result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.title_ = title_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.description_ = description_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.recipient_ = recipient_;
+        }
       }
 
       @java.lang.Override
@@ -7260,21 +7133,24 @@ public final class Distribution {
         if (other == cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposal.getDefaultInstance()) return this;
         if (!other.getTitle().isEmpty()) {
           title_ = other.title_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getRecipient().isEmpty()) {
           recipient_ = other.recipient_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (amountBuilder_ == null) {
           if (!other.amount_.isEmpty()) {
             if (amount_.isEmpty()) {
               amount_ = other.amount_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureAmountIsMutable();
               amount_.addAll(other.amount_);
@@ -7287,7 +7163,7 @@ public final class Distribution {
               amountBuilder_.dispose();
               amountBuilder_ = null;
               amount_ = other.amount_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
               amountBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAmountFieldBuilder() : null;
@@ -7296,7 +7172,7 @@ public final class Distribution {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7311,17 +7187,58 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposal parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                title_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                recipient_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                cosmos.base.v1beta1.CoinOuterClass.Coin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.Coin.parser(),
+                        extensionRegistry);
+                if (amountBuilder_ == null) {
+                  ensureAmountIsMutable();
+                  amount_.add(m);
+                } else {
+                  amountBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposal) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -7367,11 +7284,9 @@ public final class Distribution {
        */
       public Builder setTitle(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         title_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7380,8 +7295,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearTitle() {
-        
         title_ = getDefaultInstance().getTitle();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -7392,12 +7307,10 @@ public final class Distribution {
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         title_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7443,11 +7356,9 @@ public final class Distribution {
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7456,8 +7367,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -7468,12 +7379,10 @@ public final class Distribution {
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7519,11 +7428,9 @@ public final class Distribution {
        */
       public Builder setRecipient(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         recipient_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -7532,8 +7439,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearRecipient() {
-        
         recipient_ = getDefaultInstance().getRecipient();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -7544,12 +7451,10 @@ public final class Distribution {
        */
       public Builder setRecipientBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         recipient_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -7557,9 +7462,9 @@ public final class Distribution {
       private java.util.List<cosmos.base.v1beta1.CoinOuterClass.Coin> amount_ =
         java.util.Collections.emptyList();
       private void ensureAmountIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           amount_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.Coin>(amount_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -7709,7 +7614,7 @@ public final class Distribution {
       public Builder clearAmount() {
         if (amountBuilder_ == null) {
           amount_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           amountBuilder_.clear();
@@ -7786,7 +7691,7 @@ public final class Distribution {
           amountBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               cosmos.base.v1beta1.CoinOuterClass.Coin, cosmos.base.v1beta1.CoinOuterClass.Coin.Builder, cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder>(
                   amount_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           amount_ = null;
@@ -7826,7 +7731,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CommunityPoolSpendProposal(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7911,59 +7827,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DelegatorStartingInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              previousPeriod_ = input.readUInt64();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              stake_ = s;
-              break;
-            }
-            case 24: {
-
-              height_ = input.readUInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_DelegatorStartingInfo_descriptor;
@@ -7978,7 +7841,7 @@ public final class Distribution {
     }
 
     public static final int PREVIOUS_PERIOD_FIELD_NUMBER = 1;
-    private long previousPeriod_;
+    private long previousPeriod_ = 0L;
     /**
      * <code>uint64 previous_period = 1 [(.gogoproto.moretags) = "yaml:&#92;"previous_period&#92;""];</code>
      * @return The previousPeriod.
@@ -7989,7 +7852,8 @@ public final class Distribution {
     }
 
     public static final int STAKE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object stake_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object stake_ = "";
     /**
      * <code>string stake = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"stake&#92;""];</code>
      * @return The stake.
@@ -8027,7 +7891,7 @@ public final class Distribution {
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 3;
-    private long height_;
+    private long height_ = 0L;
     /**
      * <code>uint64 height = 3 [(.gogoproto.jsontag) = "creation_height", (.gogoproto.moretags) = "yaml:&#92;"creation_height&#92;""];</code>
      * @return The height.
@@ -8054,13 +7918,13 @@ public final class Distribution {
       if (previousPeriod_ != 0L) {
         output.writeUInt64(1, previousPeriod_);
       }
-      if (!getStakeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stake_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stake_);
       }
       if (height_ != 0L) {
         output.writeUInt64(3, height_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8073,14 +7937,14 @@ public final class Distribution {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, previousPeriod_);
       }
-      if (!getStakeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stake_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stake_);
       }
       if (height_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, height_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8101,7 +7965,7 @@ public final class Distribution {
           .equals(other.getStake())) return false;
       if (getHeight()
           != other.getHeight()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8120,7 +7984,7 @@ public final class Distribution {
       hash = (37 * hash) + HEIGHT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getHeight());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8246,28 +8110,21 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.DelegatorStartingInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         previousPeriod_ = 0L;
-
         stake_ = "";
-
         height_ = 0L;
-
         return this;
       }
 
@@ -8294,11 +8151,22 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.DelegatorStartingInfo buildPartial() {
         cosmos.distribution.v1beta1.Distribution.DelegatorStartingInfo result = new cosmos.distribution.v1beta1.Distribution.DelegatorStartingInfo(this);
-        result.previousPeriod_ = previousPeriod_;
-        result.stake_ = stake_;
-        result.height_ = height_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.DelegatorStartingInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.previousPeriod_ = previousPeriod_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.stake_ = stake_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.height_ = height_;
+        }
       }
 
       @java.lang.Override
@@ -8350,12 +8218,13 @@ public final class Distribution {
         }
         if (!other.getStake().isEmpty()) {
           stake_ = other.stake_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getHeight() != 0L) {
           setHeight(other.getHeight());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8370,19 +8239,48 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.DelegatorStartingInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                previousPeriod_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                stake_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                height_ = input.readUInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.DelegatorStartingInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long previousPeriod_ ;
       /**
@@ -8401,6 +8299,7 @@ public final class Distribution {
       public Builder setPreviousPeriod(long value) {
         
         previousPeriod_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8409,7 +8308,7 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearPreviousPeriod() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         previousPeriod_ = 0L;
         onChanged();
         return this;
@@ -8456,11 +8355,9 @@ public final class Distribution {
        */
       public Builder setStake(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         stake_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -8469,8 +8366,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearStake() {
-        
         stake_ = getDefaultInstance().getStake();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -8481,12 +8378,10 @@ public final class Distribution {
        */
       public Builder setStakeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         stake_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -8508,6 +8403,7 @@ public final class Distribution {
       public Builder setHeight(long value) {
         
         height_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8516,7 +8412,7 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         height_ = 0L;
         onChanged();
         return this;
@@ -8554,7 +8450,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DelegatorStartingInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8648,62 +8555,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DelegationDelegatorReward(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              validatorAddress_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                reward_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.DecCoin>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              reward_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          reward_ = java.util.Collections.unmodifiableList(reward_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_DelegationDelegatorReward_descriptor;
@@ -8718,7 +8569,8 @@ public final class Distribution {
     }
 
     public static final int VALIDATOR_ADDRESS_FIELD_NUMBER = 1;
-    private volatile java.lang.Object validatorAddress_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object validatorAddress_ = "";
     /**
      * <code>string validator_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"validator_address&#92;""];</code>
      * @return The validatorAddress.
@@ -8756,6 +8608,7 @@ public final class Distribution {
     }
 
     public static final int REWARD_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.DecCoin> reward_;
     /**
      * <code>repeated .cosmos.base.v1beta1.DecCoin reward = 2 [(.gogoproto.nullable) = false, (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"];</code>
@@ -8809,13 +8662,13 @@ public final class Distribution {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getValidatorAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddress_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, validatorAddress_);
       }
       for (int i = 0; i < reward_.size(); i++) {
         output.writeMessage(2, reward_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8824,14 +8677,14 @@ public final class Distribution {
       if (size != -1) return size;
 
       size = 0;
-      if (!getValidatorAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorAddress_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, validatorAddress_);
       }
       for (int i = 0; i < reward_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, reward_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8850,7 +8703,7 @@ public final class Distribution {
           .equals(other.getValidatorAddress())) return false;
       if (!getRewardList()
           .equals(other.getRewardList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8867,7 +8720,7 @@ public final class Distribution {
         hash = (37 * hash) + REWARD_FIELD_NUMBER;
         hash = (53 * hash) + getRewardList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8989,31 +8842,26 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRewardFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         validatorAddress_ = "";
-
         if (rewardBuilder_ == null) {
           reward_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          reward_ = null;
           rewardBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -9040,19 +8888,29 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward buildPartial() {
         cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward result = new cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward(this);
-        int from_bitField0_ = bitField0_;
-        result.validatorAddress_ = validatorAddress_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward result) {
         if (rewardBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             reward_ = java.util.Collections.unmodifiableList(reward_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.reward_ = reward_;
         } else {
           result.reward_ = rewardBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.validatorAddress_ = validatorAddress_;
+        }
       }
 
       @java.lang.Override
@@ -9101,13 +8959,14 @@ public final class Distribution {
         if (other == cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward.getDefaultInstance()) return this;
         if (!other.getValidatorAddress().isEmpty()) {
           validatorAddress_ = other.validatorAddress_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (rewardBuilder_ == null) {
           if (!other.reward_.isEmpty()) {
             if (reward_.isEmpty()) {
               reward_ = other.reward_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureRewardIsMutable();
               reward_.addAll(other.reward_);
@@ -9120,7 +8979,7 @@ public final class Distribution {
               rewardBuilder_.dispose();
               rewardBuilder_ = null;
               reward_ = other.reward_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               rewardBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getRewardFieldBuilder() : null;
@@ -9129,7 +8988,7 @@ public final class Distribution {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9144,17 +9003,48 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                validatorAddress_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                cosmos.base.v1beta1.CoinOuterClass.DecCoin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.DecCoin.parser(),
+                        extensionRegistry);
+                if (rewardBuilder_ == null) {
+                  ensureRewardIsMutable();
+                  reward_.add(m);
+                } else {
+                  rewardBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.DelegationDelegatorReward) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -9200,11 +9090,9 @@ public final class Distribution {
        */
       public Builder setValidatorAddress(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         validatorAddress_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9213,8 +9101,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearValidatorAddress() {
-        
         validatorAddress_ = getDefaultInstance().getValidatorAddress();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -9225,12 +9113,10 @@ public final class Distribution {
        */
       public Builder setValidatorAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         validatorAddress_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9238,9 +9124,9 @@ public final class Distribution {
       private java.util.List<cosmos.base.v1beta1.CoinOuterClass.DecCoin> reward_ =
         java.util.Collections.emptyList();
       private void ensureRewardIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           reward_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.DecCoin>(reward_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -9390,7 +9276,7 @@ public final class Distribution {
       public Builder clearReward() {
         if (rewardBuilder_ == null) {
           reward_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           rewardBuilder_.clear();
@@ -9467,7 +9353,7 @@ public final class Distribution {
           rewardBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               cosmos.base.v1beta1.CoinOuterClass.DecCoin, cosmos.base.v1beta1.CoinOuterClass.DecCoin.Builder, cosmos.base.v1beta1.CoinOuterClass.DecCoinOrBuilder>(
                   reward_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           reward_ = null;
@@ -9507,7 +9393,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DelegationDelegatorReward(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9628,73 +9525,6 @@ public final class Distribution {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CommunityPoolSpendProposalWithDeposit(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              title_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              recipient_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              amount_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              deposit_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.distribution.v1beta1.Distribution.internal_static_cosmos_distribution_v1beta1_CommunityPoolSpendProposalWithDeposit_descriptor;
@@ -9709,7 +9539,8 @@ public final class Distribution {
     }
 
     public static final int TITLE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object title_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object title_ = "";
     /**
      * <code>string title = 1 [(.gogoproto.moretags) = "yaml:&#92;"title&#92;""];</code>
      * @return The title.
@@ -9747,7 +9578,8 @@ public final class Distribution {
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <code>string description = 2 [(.gogoproto.moretags) = "yaml:&#92;"description&#92;""];</code>
      * @return The description.
@@ -9785,7 +9617,8 @@ public final class Distribution {
     }
 
     public static final int RECIPIENT_FIELD_NUMBER = 3;
-    private volatile java.lang.Object recipient_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object recipient_ = "";
     /**
      * <code>string recipient = 3 [(.gogoproto.moretags) = "yaml:&#92;"recipient&#92;""];</code>
      * @return The recipient.
@@ -9823,7 +9656,8 @@ public final class Distribution {
     }
 
     public static final int AMOUNT_FIELD_NUMBER = 4;
-    private volatile java.lang.Object amount_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object amount_ = "";
     /**
      * <code>string amount = 4 [(.gogoproto.moretags) = "yaml:&#92;"amount&#92;""];</code>
      * @return The amount.
@@ -9861,7 +9695,8 @@ public final class Distribution {
     }
 
     public static final int DEPOSIT_FIELD_NUMBER = 5;
-    private volatile java.lang.Object deposit_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object deposit_ = "";
     /**
      * <code>string deposit = 5 [(.gogoproto.moretags) = "yaml:&#92;"deposit&#92;""];</code>
      * @return The deposit.
@@ -9912,22 +9747,22 @@ public final class Distribution {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, title_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
-      if (!getRecipientBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recipient_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, recipient_);
       }
-      if (!getAmountBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(amount_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, amount_);
       }
-      if (!getDepositBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deposit_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, deposit_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9936,22 +9771,22 @@ public final class Distribution {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, title_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
-      if (!getRecipientBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recipient_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, recipient_);
       }
-      if (!getAmountBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(amount_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, amount_);
       }
-      if (!getDepositBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deposit_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, deposit_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9976,7 +9811,7 @@ public final class Distribution {
           .equals(other.getAmount())) return false;
       if (!getDeposit()
           .equals(other.getDeposit())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9997,7 +9832,7 @@ public final class Distribution {
       hash = (53 * hash) + getAmount().hashCode();
       hash = (37 * hash) + DEPOSIT_FIELD_NUMBER;
       hash = (53 * hash) + getDeposit().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10119,32 +9954,23 @@ public final class Distribution {
 
       // Construct using cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         title_ = "";
-
         description_ = "";
-
         recipient_ = "";
-
         amount_ = "";
-
         deposit_ = "";
-
         return this;
       }
 
@@ -10171,13 +9997,28 @@ public final class Distribution {
       @java.lang.Override
       public cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit buildPartial() {
         cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit result = new cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit(this);
-        result.title_ = title_;
-        result.description_ = description_;
-        result.recipient_ = recipient_;
-        result.amount_ = amount_;
-        result.deposit_ = deposit_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.title_ = title_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.description_ = description_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.recipient_ = recipient_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.amount_ = amount_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.deposit_ = deposit_;
+        }
       }
 
       @java.lang.Override
@@ -10226,25 +10067,30 @@ public final class Distribution {
         if (other == cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit.getDefaultInstance()) return this;
         if (!other.getTitle().isEmpty()) {
           title_ = other.title_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getRecipient().isEmpty()) {
           recipient_ = other.recipient_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getAmount().isEmpty()) {
           amount_ = other.amount_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getDeposit().isEmpty()) {
           deposit_ = other.deposit_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -10259,19 +10105,58 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                title_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                recipient_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                amount_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                deposit_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.distribution.v1beta1.Distribution.CommunityPoolSpendProposalWithDeposit) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object title_ = "";
       /**
@@ -10314,11 +10199,9 @@ public final class Distribution {
        */
       public Builder setTitle(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         title_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10327,8 +10210,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearTitle() {
-        
         title_ = getDefaultInstance().getTitle();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -10339,12 +10222,10 @@ public final class Distribution {
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         title_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10390,11 +10271,9 @@ public final class Distribution {
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -10403,8 +10282,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -10415,12 +10294,10 @@ public final class Distribution {
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -10466,11 +10343,9 @@ public final class Distribution {
        */
       public Builder setRecipient(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         recipient_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -10479,8 +10354,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearRecipient() {
-        
         recipient_ = getDefaultInstance().getRecipient();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -10491,12 +10366,10 @@ public final class Distribution {
        */
       public Builder setRecipientBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         recipient_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -10542,11 +10415,9 @@ public final class Distribution {
        */
       public Builder setAmount(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         amount_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -10555,8 +10426,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearAmount() {
-        
         amount_ = getDefaultInstance().getAmount();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -10567,12 +10438,10 @@ public final class Distribution {
        */
       public Builder setAmountBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         amount_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -10618,11 +10487,9 @@ public final class Distribution {
        */
       public Builder setDeposit(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         deposit_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -10631,8 +10498,8 @@ public final class Distribution {
        * @return This builder for chaining.
        */
       public Builder clearDeposit() {
-        
         deposit_ = getDefaultInstance().getDeposit();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -10643,12 +10510,10 @@ public final class Distribution {
        */
       public Builder setDepositBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         deposit_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -10685,7 +10550,18 @@ public final class Distribution {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CommunityPoolSpendProposalWithDeposit(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

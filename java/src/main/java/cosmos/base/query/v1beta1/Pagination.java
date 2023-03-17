@@ -69,6 +69,7 @@ public final class Pagination {
     /**
      * <pre>
      * reverse is set to true if results are to be returned in the descending order.
+     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * <code>bool reverse = 5;</code>
@@ -113,68 +114,6 @@ public final class Pagination {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PageRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-
-              key_ = input.readBytes();
-              break;
-            }
-            case 16: {
-
-              offset_ = input.readUInt64();
-              break;
-            }
-            case 24: {
-
-              limit_ = input.readUInt64();
-              break;
-            }
-            case 32: {
-
-              countTotal_ = input.readBool();
-              break;
-            }
-            case 40: {
-
-              reverse_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.query.v1beta1.Pagination.internal_static_cosmos_base_query_v1beta1_PageRequest_descriptor;
@@ -189,7 +128,7 @@ public final class Pagination {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString key_;
+    private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * key is a value returned in PageResponse.next_key to begin
@@ -206,7 +145,7 @@ public final class Pagination {
     }
 
     public static final int OFFSET_FIELD_NUMBER = 2;
-    private long offset_;
+    private long offset_ = 0L;
     /**
      * <pre>
      * offset is a numeric offset that can be used when key is unavailable.
@@ -223,7 +162,7 @@ public final class Pagination {
     }
 
     public static final int LIMIT_FIELD_NUMBER = 3;
-    private long limit_;
+    private long limit_ = 0L;
     /**
      * <pre>
      * limit is the total number of results to be returned in the result page.
@@ -239,7 +178,7 @@ public final class Pagination {
     }
 
     public static final int COUNT_TOTAL_FIELD_NUMBER = 4;
-    private boolean countTotal_;
+    private boolean countTotal_ = false;
     /**
      * <pre>
      * count_total is set to true  to indicate that the result set should include
@@ -257,10 +196,11 @@ public final class Pagination {
     }
 
     public static final int REVERSE_FIELD_NUMBER = 5;
-    private boolean reverse_;
+    private boolean reverse_ = false;
     /**
      * <pre>
      * reverse is set to true if results are to be returned in the descending order.
+     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * <code>bool reverse = 5;</code>
@@ -300,7 +240,7 @@ public final class Pagination {
       if (reverse_ != false) {
         output.writeBool(5, reverse_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -329,7 +269,7 @@ public final class Pagination {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(5, reverse_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -354,7 +294,7 @@ public final class Pagination {
           != other.getCountTotal()) return false;
       if (getReverse()
           != other.getReverse()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -379,7 +319,7 @@ public final class Pagination {
       hash = (37 * hash) + REVERSE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getReverse());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -505,32 +445,23 @@ public final class Pagination {
 
       // Construct using cosmos.base.query.v1beta1.Pagination.PageRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         key_ = com.google.protobuf.ByteString.EMPTY;
-
         offset_ = 0L;
-
         limit_ = 0L;
-
         countTotal_ = false;
-
         reverse_ = false;
-
         return this;
       }
 
@@ -557,13 +488,28 @@ public final class Pagination {
       @java.lang.Override
       public cosmos.base.query.v1beta1.Pagination.PageRequest buildPartial() {
         cosmos.base.query.v1beta1.Pagination.PageRequest result = new cosmos.base.query.v1beta1.Pagination.PageRequest(this);
-        result.key_ = key_;
-        result.offset_ = offset_;
-        result.limit_ = limit_;
-        result.countTotal_ = countTotal_;
-        result.reverse_ = reverse_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.base.query.v1beta1.Pagination.PageRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.key_ = key_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.offset_ = offset_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.limit_ = limit_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.countTotal_ = countTotal_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.reverse_ = reverse_;
+        }
       }
 
       @java.lang.Override
@@ -625,7 +571,7 @@ public final class Pagination {
         if (other.getReverse() != false) {
           setReverse(other.getReverse());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -640,19 +586,58 @@ public final class Pagination {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.base.query.v1beta1.Pagination.PageRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                key_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                offset_ = input.readUInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                limit_ = input.readUInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                countTotal_ = input.readBool();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                reverse_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.base.query.v1beta1.Pagination.PageRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -681,11 +666,9 @@ public final class Pagination {
        * @return This builder for chaining.
        */
       public Builder setKey(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         key_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -700,7 +683,7 @@ public final class Pagination {
        * @return This builder for chaining.
        */
       public Builder clearKey() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         key_ = getDefaultInstance().getKey();
         onChanged();
         return this;
@@ -735,6 +718,7 @@ public final class Pagination {
       public Builder setOffset(long value) {
         
         offset_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -749,7 +733,7 @@ public final class Pagination {
        * @return This builder for chaining.
        */
       public Builder clearOffset() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         offset_ = 0L;
         onChanged();
         return this;
@@ -782,6 +766,7 @@ public final class Pagination {
       public Builder setLimit(long value) {
         
         limit_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -795,7 +780,7 @@ public final class Pagination {
        * @return This builder for chaining.
        */
       public Builder clearLimit() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         limit_ = 0L;
         onChanged();
         return this;
@@ -832,6 +817,7 @@ public final class Pagination {
       public Builder setCountTotal(boolean value) {
         
         countTotal_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -847,7 +833,7 @@ public final class Pagination {
        * @return This builder for chaining.
        */
       public Builder clearCountTotal() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         countTotal_ = false;
         onChanged();
         return this;
@@ -857,6 +843,7 @@ public final class Pagination {
       /**
        * <pre>
        * reverse is set to true if results are to be returned in the descending order.
+       * Since: cosmos-sdk 0.43
        * </pre>
        *
        * <code>bool reverse = 5;</code>
@@ -869,6 +856,7 @@ public final class Pagination {
       /**
        * <pre>
        * reverse is set to true if results are to be returned in the descending order.
+       * Since: cosmos-sdk 0.43
        * </pre>
        *
        * <code>bool reverse = 5;</code>
@@ -878,19 +866,21 @@ public final class Pagination {
       public Builder setReverse(boolean value) {
         
         reverse_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
        * <pre>
        * reverse is set to true if results are to be returned in the descending order.
+       * Since: cosmos-sdk 0.43
        * </pre>
        *
        * <code>bool reverse = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearReverse() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         reverse_ = false;
         onChanged();
         return this;
@@ -928,7 +918,18 @@ public final class Pagination {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PageRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1011,53 +1012,6 @@ public final class Pagination {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PageResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-
-              nextKey_ = input.readBytes();
-              break;
-            }
-            case 16: {
-
-              total_ = input.readUInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.query.v1beta1.Pagination.internal_static_cosmos_base_query_v1beta1_PageResponse_descriptor;
@@ -1072,7 +1026,7 @@ public final class Pagination {
     }
 
     public static final int NEXT_KEY_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString nextKey_;
+    private com.google.protobuf.ByteString nextKey_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * next_key is the key to be passed to PageRequest.key to
@@ -1088,7 +1042,7 @@ public final class Pagination {
     }
 
     public static final int TOTAL_FIELD_NUMBER = 2;
-    private long total_;
+    private long total_ = 0L;
     /**
      * <pre>
      * total is total number of results available if PageRequest.count_total
@@ -1123,7 +1077,7 @@ public final class Pagination {
       if (total_ != 0L) {
         output.writeUInt64(2, total_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1140,7 +1094,7 @@ public final class Pagination {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, total_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1159,7 +1113,7 @@ public final class Pagination {
           .equals(other.getNextKey())) return false;
       if (getTotal()
           != other.getTotal()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1175,7 +1129,7 @@ public final class Pagination {
       hash = (37 * hash) + TOTAL_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getTotal());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1301,26 +1255,20 @@ public final class Pagination {
 
       // Construct using cosmos.base.query.v1beta1.Pagination.PageResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         nextKey_ = com.google.protobuf.ByteString.EMPTY;
-
         total_ = 0L;
-
         return this;
       }
 
@@ -1347,10 +1295,19 @@ public final class Pagination {
       @java.lang.Override
       public cosmos.base.query.v1beta1.Pagination.PageResponse buildPartial() {
         cosmos.base.query.v1beta1.Pagination.PageResponse result = new cosmos.base.query.v1beta1.Pagination.PageResponse(this);
-        result.nextKey_ = nextKey_;
-        result.total_ = total_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.base.query.v1beta1.Pagination.PageResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.nextKey_ = nextKey_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.total_ = total_;
+        }
       }
 
       @java.lang.Override
@@ -1403,7 +1360,7 @@ public final class Pagination {
         if (other.getTotal() != 0L) {
           setTotal(other.getTotal());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1418,19 +1375,43 @@ public final class Pagination {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.base.query.v1beta1.Pagination.PageResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                nextKey_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                total_ = input.readUInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.base.query.v1beta1.Pagination.PageResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.ByteString nextKey_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -1457,11 +1438,9 @@ public final class Pagination {
        * @return This builder for chaining.
        */
       public Builder setNextKey(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         nextKey_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1475,7 +1454,7 @@ public final class Pagination {
        * @return This builder for chaining.
        */
       public Builder clearNextKey() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         nextKey_ = getDefaultInstance().getNextKey();
         onChanged();
         return this;
@@ -1508,6 +1487,7 @@ public final class Pagination {
       public Builder setTotal(long value) {
         
         total_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1521,7 +1501,7 @@ public final class Pagination {
        * @return This builder for chaining.
        */
       public Builder clearTotal() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         total_ = 0L;
         onChanged();
         return this;
@@ -1559,7 +1539,18 @@ public final class Pagination {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PageResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

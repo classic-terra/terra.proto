@@ -86,61 +86,6 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GenesisOwners(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              index_ = input.readUInt64();
-              break;
-            }
-            case 18: {
-              cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.Builder subBuilder = null;
-              if (indexOwners_ != null) {
-                subBuilder = indexOwners_.toBuilder();
-              }
-              indexOwners_ = input.readMessage(cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(indexOwners_);
-                indexOwners_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.capability.v1beta1.Genesis.internal_static_cosmos_capability_v1beta1_GenesisOwners_descriptor;
@@ -155,7 +100,7 @@ public final class Genesis {
     }
 
     public static final int INDEX_FIELD_NUMBER = 1;
-    private long index_;
+    private long index_ = 0L;
     /**
      * <pre>
      * index is the index of the capability owner.
@@ -204,7 +149,7 @@ public final class Genesis {
      */
     @java.lang.Override
     public cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwnersOrBuilder getIndexOwnersOrBuilder() {
-      return getIndexOwners();
+      return indexOwners_ == null ? cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.getDefaultInstance() : indexOwners_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -227,7 +172,7 @@ public final class Genesis {
       if (indexOwners_ != null) {
         output.writeMessage(2, getIndexOwners());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -244,7 +189,7 @@ public final class Genesis {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getIndexOwners());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -266,7 +211,7 @@ public final class Genesis {
         if (!getIndexOwners()
             .equals(other.getIndexOwners())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -284,7 +229,7 @@ public final class Genesis {
         hash = (37 * hash) + INDEX_OWNERS_FIELD_NUMBER;
         hash = (53 * hash) + getIndexOwners().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -405,28 +350,22 @@ public final class Genesis {
 
       // Construct using cosmos.capability.v1beta1.Genesis.GenesisOwners.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         index_ = 0L;
-
-        if (indexOwnersBuilder_ == null) {
-          indexOwners_ = null;
-        } else {
-          indexOwners_ = null;
+        indexOwners_ = null;
+        if (indexOwnersBuilder_ != null) {
+          indexOwnersBuilder_.dispose();
           indexOwnersBuilder_ = null;
         }
         return this;
@@ -455,14 +394,21 @@ public final class Genesis {
       @java.lang.Override
       public cosmos.capability.v1beta1.Genesis.GenesisOwners buildPartial() {
         cosmos.capability.v1beta1.Genesis.GenesisOwners result = new cosmos.capability.v1beta1.Genesis.GenesisOwners(this);
-        result.index_ = index_;
-        if (indexOwnersBuilder_ == null) {
-          result.indexOwners_ = indexOwners_;
-        } else {
-          result.indexOwners_ = indexOwnersBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.capability.v1beta1.Genesis.GenesisOwners result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.index_ = index_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.indexOwners_ = indexOwnersBuilder_ == null
+              ? indexOwners_
+              : indexOwnersBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -515,7 +461,7 @@ public final class Genesis {
         if (other.hasIndexOwners()) {
           mergeIndexOwners(other.getIndexOwners());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -530,19 +476,45 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.capability.v1beta1.Genesis.GenesisOwners parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                index_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getIndexOwnersFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.capability.v1beta1.Genesis.GenesisOwners) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long index_ ;
       /**
@@ -569,6 +541,7 @@ public final class Genesis {
       public Builder setIndex(long value) {
         
         index_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -581,7 +554,7 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearIndex() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         index_ = 0L;
         onChanged();
         return this;
@@ -599,7 +572,7 @@ public final class Genesis {
        * @return Whether the indexOwners field is set.
        */
       public boolean hasIndexOwners() {
-        return indexOwnersBuilder_ != null || indexOwners_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -629,11 +602,11 @@ public final class Genesis {
             throw new NullPointerException();
           }
           indexOwners_ = value;
-          onChanged();
         } else {
           indexOwnersBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -647,11 +620,11 @@ public final class Genesis {
           cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.Builder builderForValue) {
         if (indexOwnersBuilder_ == null) {
           indexOwners_ = builderForValue.build();
-          onChanged();
         } else {
           indexOwnersBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -663,17 +636,18 @@ public final class Genesis {
        */
       public Builder mergeIndexOwners(cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners value) {
         if (indexOwnersBuilder_ == null) {
-          if (indexOwners_ != null) {
-            indexOwners_ =
-              cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.newBuilder(indexOwners_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            indexOwners_ != null &&
+            indexOwners_ != cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.getDefaultInstance()) {
+            getIndexOwnersBuilder().mergeFrom(value);
           } else {
             indexOwners_ = value;
           }
-          onChanged();
         } else {
           indexOwnersBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -684,14 +658,13 @@ public final class Genesis {
        * <code>.cosmos.capability.v1beta1.CapabilityOwners index_owners = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"index_owners&#92;""];</code>
        */
       public Builder clearIndexOwners() {
-        if (indexOwnersBuilder_ == null) {
-          indexOwners_ = null;
-          onChanged();
-        } else {
-          indexOwners_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        indexOwners_ = null;
+        if (indexOwnersBuilder_ != null) {
+          indexOwnersBuilder_.dispose();
           indexOwnersBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -702,7 +675,7 @@ public final class Genesis {
        * <code>.cosmos.capability.v1beta1.CapabilityOwners index_owners = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"index_owners&#92;""];</code>
        */
       public cosmos.capability.v1beta1.CapabilityOuterClass.CapabilityOwners.Builder getIndexOwnersBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getIndexOwnersFieldBuilder().getBuilder();
       }
@@ -774,7 +747,18 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GenesisOwners(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -889,61 +873,6 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GenesisState(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              index_ = input.readUInt64();
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                owners_ = new java.util.ArrayList<cosmos.capability.v1beta1.Genesis.GenesisOwners>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              owners_.add(
-                  input.readMessage(cosmos.capability.v1beta1.Genesis.GenesisOwners.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          owners_ = java.util.Collections.unmodifiableList(owners_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.capability.v1beta1.Genesis.internal_static_cosmos_capability_v1beta1_GenesisState_descriptor;
@@ -958,7 +887,7 @@ public final class Genesis {
     }
 
     public static final int INDEX_FIELD_NUMBER = 1;
-    private long index_;
+    private long index_ = 0L;
     /**
      * <pre>
      * index is the capability global index.
@@ -973,6 +902,7 @@ public final class Genesis {
     }
 
     public static final int OWNERS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.capability.v1beta1.Genesis.GenesisOwners> owners_;
     /**
      * <pre>
@@ -1057,7 +987,7 @@ public final class Genesis {
       for (int i = 0; i < owners_.size(); i++) {
         output.writeMessage(2, owners_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1074,7 +1004,7 @@ public final class Genesis {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, owners_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1093,7 +1023,7 @@ public final class Genesis {
           != other.getIndex()) return false;
       if (!getOwnersList()
           .equals(other.getOwnersList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1111,7 +1041,7 @@ public final class Genesis {
         hash = (37 * hash) + OWNERS_FIELD_NUMBER;
         hash = (53 * hash) + getOwnersList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1232,31 +1162,26 @@ public final class Genesis {
 
       // Construct using cosmos.capability.v1beta1.Genesis.GenesisState.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getOwnersFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         index_ = 0L;
-
         if (ownersBuilder_ == null) {
           owners_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          owners_ = null;
           ownersBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1283,19 +1208,29 @@ public final class Genesis {
       @java.lang.Override
       public cosmos.capability.v1beta1.Genesis.GenesisState buildPartial() {
         cosmos.capability.v1beta1.Genesis.GenesisState result = new cosmos.capability.v1beta1.Genesis.GenesisState(this);
-        int from_bitField0_ = bitField0_;
-        result.index_ = index_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.capability.v1beta1.Genesis.GenesisState result) {
         if (ownersBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             owners_ = java.util.Collections.unmodifiableList(owners_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.owners_ = owners_;
         } else {
           result.owners_ = ownersBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.capability.v1beta1.Genesis.GenesisState result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.index_ = index_;
+        }
       }
 
       @java.lang.Override
@@ -1349,7 +1284,7 @@ public final class Genesis {
           if (!other.owners_.isEmpty()) {
             if (owners_.isEmpty()) {
               owners_ = other.owners_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureOwnersIsMutable();
               owners_.addAll(other.owners_);
@@ -1362,7 +1297,7 @@ public final class Genesis {
               ownersBuilder_.dispose();
               ownersBuilder_ = null;
               owners_ = other.owners_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               ownersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getOwnersFieldBuilder() : null;
@@ -1371,7 +1306,7 @@ public final class Genesis {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1386,17 +1321,48 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.capability.v1beta1.Genesis.GenesisState parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                index_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                cosmos.capability.v1beta1.Genesis.GenesisOwners m =
+                    input.readMessage(
+                        cosmos.capability.v1beta1.Genesis.GenesisOwners.parser(),
+                        extensionRegistry);
+                if (ownersBuilder_ == null) {
+                  ensureOwnersIsMutable();
+                  owners_.add(m);
+                } else {
+                  ownersBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.capability.v1beta1.Genesis.GenesisState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1426,6 +1392,7 @@ public final class Genesis {
       public Builder setIndex(long value) {
         
         index_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1438,7 +1405,7 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearIndex() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         index_ = 0L;
         onChanged();
         return this;
@@ -1447,9 +1414,9 @@ public final class Genesis {
       private java.util.List<cosmos.capability.v1beta1.Genesis.GenesisOwners> owners_ =
         java.util.Collections.emptyList();
       private void ensureOwnersIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           owners_ = new java.util.ArrayList<cosmos.capability.v1beta1.Genesis.GenesisOwners>(owners_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -1654,7 +1621,7 @@ public final class Genesis {
       public Builder clearOwners() {
         if (ownersBuilder_ == null) {
           owners_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           ownersBuilder_.clear();
@@ -1766,7 +1733,7 @@ public final class Genesis {
           ownersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               cosmos.capability.v1beta1.Genesis.GenesisOwners, cosmos.capability.v1beta1.Genesis.GenesisOwners.Builder, cosmos.capability.v1beta1.Genesis.GenesisOwnersOrBuilder>(
                   owners_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           owners_ = null;
@@ -1806,7 +1773,18 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GenesisState(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

@@ -58,6 +58,8 @@ public final class Upgrade {
      * </pre>
      *
      * <code>.google.protobuf.Timestamp time = 2 [deprecated = true, (.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+     * @deprecated cosmos.upgrade.v1beta1.Plan.time is deprecated.
+     *     See cosmos/upgrade/v1beta1/upgrade.proto;l=27
      * @return Whether the time field is set.
      */
     @java.lang.Deprecated boolean hasTime();
@@ -69,6 +71,8 @@ public final class Upgrade {
      * </pre>
      *
      * <code>.google.protobuf.Timestamp time = 2 [deprecated = true, (.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+     * @deprecated cosmos.upgrade.v1beta1.Plan.time is deprecated.
+     *     See cosmos/upgrade/v1beta1/upgrade.proto;l=27
      * @return The time.
      */
     @java.lang.Deprecated com.google.protobuf.Timestamp getTime();
@@ -124,6 +128,8 @@ public final class Upgrade {
      * </pre>
      *
      * <code>.google.protobuf.Any upgraded_client_state = 5 [deprecated = true, (.gogoproto.moretags) = "yaml:&#92;"upgraded_client_state&#92;""];</code>
+     * @deprecated cosmos.upgrade.v1beta1.Plan.upgraded_client_state is deprecated.
+     *     See cosmos/upgrade/v1beta1/upgrade.proto;l=40
      * @return Whether the upgradedClientState field is set.
      */
     @java.lang.Deprecated boolean hasUpgradedClientState();
@@ -135,6 +141,8 @@ public final class Upgrade {
      * </pre>
      *
      * <code>.google.protobuf.Any upgraded_client_state = 5 [deprecated = true, (.gogoproto.moretags) = "yaml:&#92;"upgraded_client_state&#92;""];</code>
+     * @deprecated cosmos.upgrade.v1beta1.Plan.upgraded_client_state is deprecated.
+     *     See cosmos/upgrade/v1beta1/upgrade.proto;l=40
      * @return The upgradedClientState.
      */
     @java.lang.Deprecated com.google.protobuf.Any getUpgradedClientState();
@@ -182,86 +190,6 @@ public final class Upgrade {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Plan(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (time_ != null) {
-                subBuilder = time_.toBuilder();
-              }
-              time_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(time_);
-                time_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 24: {
-
-              height_ = input.readInt64();
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              info_ = s;
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Any.Builder subBuilder = null;
-              if (upgradedClientState_ != null) {
-                subBuilder = upgradedClientState_.toBuilder();
-              }
-              upgradedClientState_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(upgradedClientState_);
-                upgradedClientState_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.Upgrade.internal_static_cosmos_upgrade_v1beta1_Plan_descriptor;
@@ -276,7 +204,8 @@ public final class Upgrade {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Sets the name for the upgrade. This name will be used by the upgraded
@@ -343,6 +272,8 @@ public final class Upgrade {
      * </pre>
      *
      * <code>.google.protobuf.Timestamp time = 2 [deprecated = true, (.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+     * @deprecated cosmos.upgrade.v1beta1.Plan.time is deprecated.
+     *     See cosmos/upgrade/v1beta1/upgrade.proto;l=27
      * @return Whether the time field is set.
      */
     @java.lang.Override
@@ -357,6 +288,8 @@ public final class Upgrade {
      * </pre>
      *
      * <code>.google.protobuf.Timestamp time = 2 [deprecated = true, (.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+     * @deprecated cosmos.upgrade.v1beta1.Plan.time is deprecated.
+     *     See cosmos/upgrade/v1beta1/upgrade.proto;l=27
      * @return The time.
      */
     @java.lang.Override
@@ -374,11 +307,11 @@ public final class Upgrade {
      */
     @java.lang.Override
     @java.lang.Deprecated public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
-      return getTime();
+      return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 3;
-    private long height_;
+    private long height_ = 0L;
     /**
      * <pre>
      * The height at which the upgrade must be performed.
@@ -394,7 +327,8 @@ public final class Upgrade {
     }
 
     public static final int INFO_FIELD_NUMBER = 4;
-    private volatile java.lang.Object info_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object info_ = "";
     /**
      * <pre>
      * Any application specific upgrade info to be included on-chain
@@ -451,6 +385,8 @@ public final class Upgrade {
      * </pre>
      *
      * <code>.google.protobuf.Any upgraded_client_state = 5 [deprecated = true, (.gogoproto.moretags) = "yaml:&#92;"upgraded_client_state&#92;""];</code>
+     * @deprecated cosmos.upgrade.v1beta1.Plan.upgraded_client_state is deprecated.
+     *     See cosmos/upgrade/v1beta1/upgrade.proto;l=40
      * @return Whether the upgradedClientState field is set.
      */
     @java.lang.Override
@@ -465,6 +401,8 @@ public final class Upgrade {
      * </pre>
      *
      * <code>.google.protobuf.Any upgraded_client_state = 5 [deprecated = true, (.gogoproto.moretags) = "yaml:&#92;"upgraded_client_state&#92;""];</code>
+     * @deprecated cosmos.upgrade.v1beta1.Plan.upgraded_client_state is deprecated.
+     *     See cosmos/upgrade/v1beta1/upgrade.proto;l=40
      * @return The upgradedClientState.
      */
     @java.lang.Override
@@ -482,7 +420,7 @@ public final class Upgrade {
      */
     @java.lang.Override
     @java.lang.Deprecated public com.google.protobuf.AnyOrBuilder getUpgradedClientStateOrBuilder() {
-      return getUpgradedClientState();
+      return upgradedClientState_ == null ? com.google.protobuf.Any.getDefaultInstance() : upgradedClientState_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -499,7 +437,7 @@ public final class Upgrade {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
       if (time_ != null) {
@@ -508,13 +446,13 @@ public final class Upgrade {
       if (height_ != 0L) {
         output.writeInt64(3, height_);
       }
-      if (!getInfoBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, info_);
       }
       if (upgradedClientState_ != null) {
         output.writeMessage(5, getUpgradedClientState());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -523,7 +461,7 @@ public final class Upgrade {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
       if (time_ != null) {
@@ -534,14 +472,14 @@ public final class Upgrade {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, height_);
       }
-      if (!getInfoBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(info_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, info_);
       }
       if (upgradedClientState_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getUpgradedClientState());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -572,7 +510,7 @@ public final class Upgrade {
         if (!getUpgradedClientState()
             .equals(other.getUpgradedClientState())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -598,7 +536,7 @@ public final class Upgrade {
         hash = (37 * hash) + UPGRADED_CLIENT_STATE_FIELD_NUMBER;
         hash = (53 * hash) + getUpgradedClientState().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -719,38 +657,29 @@ public final class Upgrade {
 
       // Construct using cosmos.upgrade.v1beta1.Upgrade.Plan.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
-        if (timeBuilder_ == null) {
-          time_ = null;
-        } else {
-          time_ = null;
+        time_ = null;
+        if (timeBuilder_ != null) {
+          timeBuilder_.dispose();
           timeBuilder_ = null;
         }
         height_ = 0L;
-
         info_ = "";
-
-        if (upgradedClientStateBuilder_ == null) {
-          upgradedClientState_ = null;
-        } else {
-          upgradedClientState_ = null;
+        upgradedClientState_ = null;
+        if (upgradedClientStateBuilder_ != null) {
+          upgradedClientStateBuilder_.dispose();
           upgradedClientStateBuilder_ = null;
         }
         return this;
@@ -779,21 +708,32 @@ public final class Upgrade {
       @java.lang.Override
       public cosmos.upgrade.v1beta1.Upgrade.Plan buildPartial() {
         cosmos.upgrade.v1beta1.Upgrade.Plan result = new cosmos.upgrade.v1beta1.Upgrade.Plan(this);
-        result.name_ = name_;
-        if (timeBuilder_ == null) {
-          result.time_ = time_;
-        } else {
-          result.time_ = timeBuilder_.build();
-        }
-        result.height_ = height_;
-        result.info_ = info_;
-        if (upgradedClientStateBuilder_ == null) {
-          result.upgradedClientState_ = upgradedClientState_;
-        } else {
-          result.upgradedClientState_ = upgradedClientStateBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.upgrade.v1beta1.Upgrade.Plan result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.time_ = timeBuilder_ == null
+              ? time_
+              : timeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.height_ = height_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.info_ = info_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.upgradedClientState_ = upgradedClientStateBuilder_ == null
+              ? upgradedClientState_
+              : upgradedClientStateBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -842,6 +782,7 @@ public final class Upgrade {
         if (other == cosmos.upgrade.v1beta1.Upgrade.Plan.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasTime()) {
@@ -852,12 +793,13 @@ public final class Upgrade {
         }
         if (!other.getInfo().isEmpty()) {
           info_ = other.info_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.hasUpgradedClientState()) {
           mergeUpgradedClientState(other.getUpgradedClientState());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -872,19 +814,62 @@ public final class Upgrade {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.upgrade.v1beta1.Upgrade.Plan parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                height_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                info_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getUpgradedClientStateFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.upgrade.v1beta1.Upgrade.Plan) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -957,11 +942,9 @@ public final class Upgrade {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -980,8 +963,8 @@ public final class Upgrade {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1002,12 +985,10 @@ public final class Upgrade {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1023,10 +1004,12 @@ public final class Upgrade {
        * </pre>
        *
        * <code>.google.protobuf.Timestamp time = 2 [deprecated = true, (.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+       * @deprecated cosmos.upgrade.v1beta1.Plan.time is deprecated.
+       *     See cosmos/upgrade/v1beta1/upgrade.proto;l=27
        * @return Whether the time field is set.
        */
       @java.lang.Deprecated public boolean hasTime() {
-        return timeBuilder_ != null || time_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1036,6 +1019,8 @@ public final class Upgrade {
        * </pre>
        *
        * <code>.google.protobuf.Timestamp time = 2 [deprecated = true, (.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+       * @deprecated cosmos.upgrade.v1beta1.Plan.time is deprecated.
+       *     See cosmos/upgrade/v1beta1/upgrade.proto;l=27
        * @return The time.
        */
       @java.lang.Deprecated public com.google.protobuf.Timestamp getTime() {
@@ -1060,11 +1045,11 @@ public final class Upgrade {
             throw new NullPointerException();
           }
           time_ = value;
-          onChanged();
         } else {
           timeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1080,11 +1065,11 @@ public final class Upgrade {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (timeBuilder_ == null) {
           time_ = builderForValue.build();
-          onChanged();
         } else {
           timeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1098,17 +1083,18 @@ public final class Upgrade {
        */
       @java.lang.Deprecated public Builder mergeTime(com.google.protobuf.Timestamp value) {
         if (timeBuilder_ == null) {
-          if (time_ != null) {
-            time_ =
-              com.google.protobuf.Timestamp.newBuilder(time_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            time_ != null &&
+            time_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getTimeBuilder().mergeFrom(value);
           } else {
             time_ = value;
           }
-          onChanged();
         } else {
           timeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1121,14 +1107,13 @@ public final class Upgrade {
        * <code>.google.protobuf.Timestamp time = 2 [deprecated = true, (.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       @java.lang.Deprecated public Builder clearTime() {
-        if (timeBuilder_ == null) {
-          time_ = null;
-          onChanged();
-        } else {
-          time_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        time_ = null;
+        if (timeBuilder_ != null) {
+          timeBuilder_.dispose();
           timeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1141,7 +1126,7 @@ public final class Upgrade {
        * <code>.google.protobuf.Timestamp time = 2 [deprecated = true, (.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       @java.lang.Deprecated public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getTimeFieldBuilder().getBuilder();
       }
@@ -1212,6 +1197,7 @@ public final class Upgrade {
       public Builder setHeight(long value) {
         
         height_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1225,7 +1211,7 @@ public final class Upgrade {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         height_ = 0L;
         onChanged();
         return this;
@@ -1287,11 +1273,9 @@ public final class Upgrade {
        */
       public Builder setInfo(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         info_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1305,8 +1289,8 @@ public final class Upgrade {
        * @return This builder for chaining.
        */
       public Builder clearInfo() {
-        
         info_ = getDefaultInstance().getInfo();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1322,12 +1306,10 @@ public final class Upgrade {
        */
       public Builder setInfoBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         info_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1343,10 +1325,12 @@ public final class Upgrade {
        * </pre>
        *
        * <code>.google.protobuf.Any upgraded_client_state = 5 [deprecated = true, (.gogoproto.moretags) = "yaml:&#92;"upgraded_client_state&#92;""];</code>
+       * @deprecated cosmos.upgrade.v1beta1.Plan.upgraded_client_state is deprecated.
+       *     See cosmos/upgrade/v1beta1/upgrade.proto;l=40
        * @return Whether the upgradedClientState field is set.
        */
       @java.lang.Deprecated public boolean hasUpgradedClientState() {
-        return upgradedClientStateBuilder_ != null || upgradedClientState_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -1356,6 +1340,8 @@ public final class Upgrade {
        * </pre>
        *
        * <code>.google.protobuf.Any upgraded_client_state = 5 [deprecated = true, (.gogoproto.moretags) = "yaml:&#92;"upgraded_client_state&#92;""];</code>
+       * @deprecated cosmos.upgrade.v1beta1.Plan.upgraded_client_state is deprecated.
+       *     See cosmos/upgrade/v1beta1/upgrade.proto;l=40
        * @return The upgradedClientState.
        */
       @java.lang.Deprecated public com.google.protobuf.Any getUpgradedClientState() {
@@ -1380,11 +1366,11 @@ public final class Upgrade {
             throw new NullPointerException();
           }
           upgradedClientState_ = value;
-          onChanged();
         } else {
           upgradedClientStateBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -1400,11 +1386,11 @@ public final class Upgrade {
           com.google.protobuf.Any.Builder builderForValue) {
         if (upgradedClientStateBuilder_ == null) {
           upgradedClientState_ = builderForValue.build();
-          onChanged();
         } else {
           upgradedClientStateBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -1418,17 +1404,18 @@ public final class Upgrade {
        */
       @java.lang.Deprecated public Builder mergeUpgradedClientState(com.google.protobuf.Any value) {
         if (upgradedClientStateBuilder_ == null) {
-          if (upgradedClientState_ != null) {
-            upgradedClientState_ =
-              com.google.protobuf.Any.newBuilder(upgradedClientState_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            upgradedClientState_ != null &&
+            upgradedClientState_ != com.google.protobuf.Any.getDefaultInstance()) {
+            getUpgradedClientStateBuilder().mergeFrom(value);
           } else {
             upgradedClientState_ = value;
           }
-          onChanged();
         } else {
           upgradedClientStateBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -1441,14 +1428,13 @@ public final class Upgrade {
        * <code>.google.protobuf.Any upgraded_client_state = 5 [deprecated = true, (.gogoproto.moretags) = "yaml:&#92;"upgraded_client_state&#92;""];</code>
        */
       @java.lang.Deprecated public Builder clearUpgradedClientState() {
-        if (upgradedClientStateBuilder_ == null) {
-          upgradedClientState_ = null;
-          onChanged();
-        } else {
-          upgradedClientState_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        upgradedClientState_ = null;
+        if (upgradedClientStateBuilder_ != null) {
+          upgradedClientStateBuilder_.dispose();
           upgradedClientStateBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1461,7 +1447,7 @@ public final class Upgrade {
        * <code>.google.protobuf.Any upgraded_client_state = 5 [deprecated = true, (.gogoproto.moretags) = "yaml:&#92;"upgraded_client_state&#92;""];</code>
        */
       @java.lang.Deprecated public com.google.protobuf.Any.Builder getUpgradedClientStateBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getUpgradedClientStateFieldBuilder().getBuilder();
       }
@@ -1537,7 +1523,18 @@ public final class Upgrade {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Plan(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1634,68 +1631,6 @@ public final class Upgrade {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SoftwareUpgradeProposal(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              title_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 26: {
-              cosmos.upgrade.v1beta1.Upgrade.Plan.Builder subBuilder = null;
-              if (plan_ != null) {
-                subBuilder = plan_.toBuilder();
-              }
-              plan_ = input.readMessage(cosmos.upgrade.v1beta1.Upgrade.Plan.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(plan_);
-                plan_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.Upgrade.internal_static_cosmos_upgrade_v1beta1_SoftwareUpgradeProposal_descriptor;
@@ -1710,7 +1645,8 @@ public final class Upgrade {
     }
 
     public static final int TITLE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object title_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object title_ = "";
     /**
      * <code>string title = 1;</code>
      * @return The title.
@@ -1748,7 +1684,8 @@ public final class Upgrade {
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <code>string description = 2;</code>
      * @return The description.
@@ -1808,7 +1745,7 @@ public final class Upgrade {
      */
     @java.lang.Override
     public cosmos.upgrade.v1beta1.Upgrade.PlanOrBuilder getPlanOrBuilder() {
-      return getPlan();
+      return plan_ == null ? cosmos.upgrade.v1beta1.Upgrade.Plan.getDefaultInstance() : plan_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1825,16 +1762,16 @@ public final class Upgrade {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, title_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
       if (plan_ != null) {
         output.writeMessage(3, getPlan());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1843,17 +1780,17 @@ public final class Upgrade {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, title_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
       if (plan_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getPlan());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1877,7 +1814,7 @@ public final class Upgrade {
         if (!getPlan()
             .equals(other.getPlan())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1896,7 +1833,7 @@ public final class Upgrade {
         hash = (37 * hash) + PLAN_FIELD_NUMBER;
         hash = (53 * hash) + getPlan().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2018,30 +1955,23 @@ public final class Upgrade {
 
       // Construct using cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         title_ = "";
-
         description_ = "";
-
-        if (planBuilder_ == null) {
-          plan_ = null;
-        } else {
-          plan_ = null;
+        plan_ = null;
+        if (planBuilder_ != null) {
+          planBuilder_.dispose();
           planBuilder_ = null;
         }
         return this;
@@ -2070,15 +2000,24 @@ public final class Upgrade {
       @java.lang.Override
       public cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal buildPartial() {
         cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal result = new cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal(this);
-        result.title_ = title_;
-        result.description_ = description_;
-        if (planBuilder_ == null) {
-          result.plan_ = plan_;
-        } else {
-          result.plan_ = planBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.title_ = title_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.description_ = description_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.plan_ = planBuilder_ == null
+              ? plan_
+              : planBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2127,16 +2066,18 @@ public final class Upgrade {
         if (other == cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal.getDefaultInstance()) return this;
         if (!other.getTitle().isEmpty()) {
           title_ = other.title_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasPlan()) {
           mergePlan(other.getPlan());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2151,19 +2092,50 @@ public final class Upgrade {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                title_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getPlanFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.upgrade.v1beta1.Upgrade.SoftwareUpgradeProposal) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object title_ = "";
       /**
@@ -2206,11 +2178,9 @@ public final class Upgrade {
        */
       public Builder setTitle(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         title_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2219,8 +2189,8 @@ public final class Upgrade {
        * @return This builder for chaining.
        */
       public Builder clearTitle() {
-        
         title_ = getDefaultInstance().getTitle();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2231,12 +2201,10 @@ public final class Upgrade {
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         title_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2282,11 +2250,9 @@ public final class Upgrade {
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2295,8 +2261,8 @@ public final class Upgrade {
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2307,12 +2273,10 @@ public final class Upgrade {
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2325,7 +2289,7 @@ public final class Upgrade {
        * @return Whether the plan field is set.
        */
       public boolean hasPlan() {
-        return planBuilder_ != null || plan_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>.cosmos.upgrade.v1beta1.Plan plan = 3 [(.gogoproto.nullable) = false];</code>
@@ -2347,11 +2311,11 @@ public final class Upgrade {
             throw new NullPointerException();
           }
           plan_ = value;
-          onChanged();
         } else {
           planBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2361,11 +2325,11 @@ public final class Upgrade {
           cosmos.upgrade.v1beta1.Upgrade.Plan.Builder builderForValue) {
         if (planBuilder_ == null) {
           plan_ = builderForValue.build();
-          onChanged();
         } else {
           planBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2373,38 +2337,38 @@ public final class Upgrade {
        */
       public Builder mergePlan(cosmos.upgrade.v1beta1.Upgrade.Plan value) {
         if (planBuilder_ == null) {
-          if (plan_ != null) {
-            plan_ =
-              cosmos.upgrade.v1beta1.Upgrade.Plan.newBuilder(plan_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            plan_ != null &&
+            plan_ != cosmos.upgrade.v1beta1.Upgrade.Plan.getDefaultInstance()) {
+            getPlanBuilder().mergeFrom(value);
           } else {
             plan_ = value;
           }
-          onChanged();
         } else {
           planBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.upgrade.v1beta1.Plan plan = 3 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearPlan() {
-        if (planBuilder_ == null) {
-          plan_ = null;
-          onChanged();
-        } else {
-          plan_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        plan_ = null;
+        if (planBuilder_ != null) {
+          planBuilder_.dispose();
           planBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.upgrade.v1beta1.Plan plan = 3 [(.gogoproto.nullable) = false];</code>
        */
       public cosmos.upgrade.v1beta1.Upgrade.Plan.Builder getPlanBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getPlanFieldBuilder().getBuilder();
       }
@@ -2468,7 +2432,18 @@ public final class Upgrade {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SoftwareUpgradeProposal(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2550,55 +2525,6 @@ public final class Upgrade {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CancelSoftwareUpgradeProposal(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              title_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.Upgrade.internal_static_cosmos_upgrade_v1beta1_CancelSoftwareUpgradeProposal_descriptor;
@@ -2613,7 +2539,8 @@ public final class Upgrade {
     }
 
     public static final int TITLE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object title_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object title_ = "";
     /**
      * <code>string title = 1;</code>
      * @return The title.
@@ -2651,7 +2578,8 @@ public final class Upgrade {
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <code>string description = 2;</code>
      * @return The description.
@@ -2702,13 +2630,13 @@ public final class Upgrade {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, title_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2717,13 +2645,13 @@ public final class Upgrade {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, title_);
       }
-      if (!getDescriptionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2742,7 +2670,7 @@ public final class Upgrade {
           .equals(other.getTitle())) return false;
       if (!getDescription()
           .equals(other.getDescription())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2757,7 +2685,7 @@ public final class Upgrade {
       hash = (53 * hash) + getTitle().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2879,26 +2807,20 @@ public final class Upgrade {
 
       // Construct using cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         title_ = "";
-
         description_ = "";
-
         return this;
       }
 
@@ -2925,10 +2847,19 @@ public final class Upgrade {
       @java.lang.Override
       public cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal buildPartial() {
         cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal result = new cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal(this);
-        result.title_ = title_;
-        result.description_ = description_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.title_ = title_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.description_ = description_;
+        }
       }
 
       @java.lang.Override
@@ -2977,13 +2908,15 @@ public final class Upgrade {
         if (other == cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal.getDefaultInstance()) return this;
         if (!other.getTitle().isEmpty()) {
           title_ = other.title_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2998,19 +2931,43 @@ public final class Upgrade {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                title_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.upgrade.v1beta1.Upgrade.CancelSoftwareUpgradeProposal) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object title_ = "";
       /**
@@ -3053,11 +3010,9 @@ public final class Upgrade {
        */
       public Builder setTitle(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         title_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3066,8 +3021,8 @@ public final class Upgrade {
        * @return This builder for chaining.
        */
       public Builder clearTitle() {
-        
         title_ = getDefaultInstance().getTitle();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3078,12 +3033,10 @@ public final class Upgrade {
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         title_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3129,11 +3082,9 @@ public final class Upgrade {
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3142,8 +3093,8 @@ public final class Upgrade {
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -3154,12 +3105,10 @@ public final class Upgrade {
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3196,7 +3145,18 @@ public final class Upgrade {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CancelSoftwareUpgradeProposal(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3253,6 +3213,7 @@ public final class Upgrade {
   /**
    * <pre>
    * ModuleVersion specifies a module and its consensus version.
+   * Since: cosmos-sdk 0.43
    * </pre>
    *
    * Protobuf type {@code cosmos.upgrade.v1beta1.ModuleVersion}
@@ -3282,54 +3243,6 @@ public final class Upgrade {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ModuleVersion(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 16: {
-
-              version_ = input.readUInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.upgrade.v1beta1.Upgrade.internal_static_cosmos_upgrade_v1beta1_ModuleVersion_descriptor;
@@ -3344,7 +3257,8 @@ public final class Upgrade {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * name of the app module
@@ -3390,7 +3304,7 @@ public final class Upgrade {
     }
 
     public static final int VERSION_FIELD_NUMBER = 2;
-    private long version_;
+    private long version_ = 0L;
     /**
      * <pre>
      * consensus version of the app module
@@ -3418,13 +3332,13 @@ public final class Upgrade {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
       if (version_ != 0L) {
         output.writeUInt64(2, version_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3433,14 +3347,14 @@ public final class Upgrade {
       if (size != -1) return size;
 
       size = 0;
-      if (!getNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
       if (version_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, version_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3459,7 +3373,7 @@ public final class Upgrade {
           .equals(other.getName())) return false;
       if (getVersion()
           != other.getVersion()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3475,7 +3389,7 @@ public final class Upgrade {
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getVersion());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3573,6 +3487,7 @@ public final class Upgrade {
     /**
      * <pre>
      * ModuleVersion specifies a module and its consensus version.
+     * Since: cosmos-sdk 0.43
      * </pre>
      *
      * Protobuf type {@code cosmos.upgrade.v1beta1.ModuleVersion}
@@ -3596,26 +3511,20 @@ public final class Upgrade {
 
       // Construct using cosmos.upgrade.v1beta1.Upgrade.ModuleVersion.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         version_ = 0L;
-
         return this;
       }
 
@@ -3642,10 +3551,19 @@ public final class Upgrade {
       @java.lang.Override
       public cosmos.upgrade.v1beta1.Upgrade.ModuleVersion buildPartial() {
         cosmos.upgrade.v1beta1.Upgrade.ModuleVersion result = new cosmos.upgrade.v1beta1.Upgrade.ModuleVersion(this);
-        result.name_ = name_;
-        result.version_ = version_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.upgrade.v1beta1.Upgrade.ModuleVersion result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.version_ = version_;
+        }
       }
 
       @java.lang.Override
@@ -3694,12 +3612,13 @@ public final class Upgrade {
         if (other == cosmos.upgrade.v1beta1.Upgrade.ModuleVersion.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getVersion() != 0L) {
           setVersion(other.getVersion());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3714,19 +3633,43 @@ public final class Upgrade {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.upgrade.v1beta1.Upgrade.ModuleVersion parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                version_ = input.readUInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.upgrade.v1beta1.Upgrade.ModuleVersion) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -3781,11 +3724,9 @@ public final class Upgrade {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3798,8 +3739,8 @@ public final class Upgrade {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3814,12 +3755,10 @@ public final class Upgrade {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3849,6 +3788,7 @@ public final class Upgrade {
       public Builder setVersion(long value) {
         
         version_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3861,7 +3801,7 @@ public final class Upgrade {
        * @return This builder for chaining.
        */
       public Builder clearVersion() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         version_ = 0L;
         onChanged();
         return this;
@@ -3899,7 +3839,18 @@ public final class Upgrade {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ModuleVersion(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

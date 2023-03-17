@@ -67,58 +67,6 @@ public final class Wasm {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Params(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              maxContractSize_ = input.readUInt64();
-              break;
-            }
-            case 16: {
-
-              maxContractGas_ = input.readUInt64();
-              break;
-            }
-            case 24: {
-
-              maxContractMsgSize_ = input.readUInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.Wasm.internal_static_terra_wasm_v1beta1_Params_descriptor;
@@ -133,7 +81,7 @@ public final class Wasm {
     }
 
     public static final int MAX_CONTRACT_SIZE_FIELD_NUMBER = 1;
-    private long maxContractSize_;
+    private long maxContractSize_ = 0L;
     /**
      * <code>uint64 max_contract_size = 1 [(.gogoproto.moretags) = "yaml:&#92;"max_contract_size&#92;""];</code>
      * @return The maxContractSize.
@@ -144,7 +92,7 @@ public final class Wasm {
     }
 
     public static final int MAX_CONTRACT_GAS_FIELD_NUMBER = 2;
-    private long maxContractGas_;
+    private long maxContractGas_ = 0L;
     /**
      * <code>uint64 max_contract_gas = 2 [(.gogoproto.moretags) = "yaml:&#92;"max_contract_gas&#92;""];</code>
      * @return The maxContractGas.
@@ -155,7 +103,7 @@ public final class Wasm {
     }
 
     public static final int MAX_CONTRACT_MSG_SIZE_FIELD_NUMBER = 3;
-    private long maxContractMsgSize_;
+    private long maxContractMsgSize_ = 0L;
     /**
      * <code>uint64 max_contract_msg_size = 3 [(.gogoproto.moretags) = "yaml:&#92;"max_contract_msg_size&#92;""];</code>
      * @return The maxContractMsgSize.
@@ -188,7 +136,7 @@ public final class Wasm {
       if (maxContractMsgSize_ != 0L) {
         output.writeUInt64(3, maxContractMsgSize_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -209,7 +157,7 @@ public final class Wasm {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, maxContractMsgSize_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -230,7 +178,7 @@ public final class Wasm {
           != other.getMaxContractGas()) return false;
       if (getMaxContractMsgSize()
           != other.getMaxContractMsgSize()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -250,7 +198,7 @@ public final class Wasm {
       hash = (37 * hash) + MAX_CONTRACT_MSG_SIZE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMaxContractMsgSize());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -371,28 +319,21 @@ public final class Wasm {
 
       // Construct using terra.wasm.v1beta1.Wasm.Params.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         maxContractSize_ = 0L;
-
         maxContractGas_ = 0L;
-
         maxContractMsgSize_ = 0L;
-
         return this;
       }
 
@@ -419,11 +360,22 @@ public final class Wasm {
       @java.lang.Override
       public terra.wasm.v1beta1.Wasm.Params buildPartial() {
         terra.wasm.v1beta1.Wasm.Params result = new terra.wasm.v1beta1.Wasm.Params(this);
-        result.maxContractSize_ = maxContractSize_;
-        result.maxContractGas_ = maxContractGas_;
-        result.maxContractMsgSize_ = maxContractMsgSize_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.wasm.v1beta1.Wasm.Params result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.maxContractSize_ = maxContractSize_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.maxContractGas_ = maxContractGas_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.maxContractMsgSize_ = maxContractMsgSize_;
+        }
       }
 
       @java.lang.Override
@@ -479,7 +431,7 @@ public final class Wasm {
         if (other.getMaxContractMsgSize() != 0L) {
           setMaxContractMsgSize(other.getMaxContractMsgSize());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -494,19 +446,48 @@ public final class Wasm {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.wasm.v1beta1.Wasm.Params parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                maxContractSize_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                maxContractGas_ = input.readUInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                maxContractMsgSize_ = input.readUInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.wasm.v1beta1.Wasm.Params) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long maxContractSize_ ;
       /**
@@ -525,6 +506,7 @@ public final class Wasm {
       public Builder setMaxContractSize(long value) {
         
         maxContractSize_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -533,7 +515,7 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder clearMaxContractSize() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         maxContractSize_ = 0L;
         onChanged();
         return this;
@@ -556,6 +538,7 @@ public final class Wasm {
       public Builder setMaxContractGas(long value) {
         
         maxContractGas_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -564,7 +547,7 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder clearMaxContractGas() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         maxContractGas_ = 0L;
         onChanged();
         return this;
@@ -587,6 +570,7 @@ public final class Wasm {
       public Builder setMaxContractMsgSize(long value) {
         
         maxContractMsgSize_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -595,7 +579,7 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder clearMaxContractMsgSize() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         maxContractMsgSize_ = 0L;
         onChanged();
         return this;
@@ -633,7 +617,18 @@ public final class Wasm {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Params(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -730,59 +725,6 @@ public final class Wasm {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CodeInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              codeId_ = input.readUInt64();
-              break;
-            }
-            case 18: {
-
-              codeHash_ = input.readBytes();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              creator_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.Wasm.internal_static_terra_wasm_v1beta1_CodeInfo_descriptor;
@@ -797,7 +739,7 @@ public final class Wasm {
     }
 
     public static final int CODE_ID_FIELD_NUMBER = 1;
-    private long codeId_;
+    private long codeId_ = 0L;
     /**
      * <pre>
      * CodeID is the sequentially increasing unique identifier
@@ -812,7 +754,7 @@ public final class Wasm {
     }
 
     public static final int CODE_HASH_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString codeHash_;
+    private com.google.protobuf.ByteString codeHash_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * CodeHash is the unique identifier created by wasmvm
@@ -827,7 +769,8 @@ public final class Wasm {
     }
 
     public static final int CREATOR_FIELD_NUMBER = 3;
-    private volatile java.lang.Object creator_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object creator_ = "";
     /**
      * <pre>
      * Creator address who initially stored the code
@@ -892,10 +835,10 @@ public final class Wasm {
       if (!codeHash_.isEmpty()) {
         output.writeBytes(2, codeHash_);
       }
-      if (!getCreatorBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(creator_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, creator_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -912,10 +855,10 @@ public final class Wasm {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, codeHash_);
       }
-      if (!getCreatorBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(creator_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, creator_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -936,7 +879,7 @@ public final class Wasm {
           .equals(other.getCodeHash())) return false;
       if (!getCreator()
           .equals(other.getCreator())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -954,7 +897,7 @@ public final class Wasm {
       hash = (53 * hash) + getCodeHash().hashCode();
       hash = (37 * hash) + CREATOR_FIELD_NUMBER;
       hash = (53 * hash) + getCreator().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1075,28 +1018,21 @@ public final class Wasm {
 
       // Construct using terra.wasm.v1beta1.Wasm.CodeInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         codeId_ = 0L;
-
         codeHash_ = com.google.protobuf.ByteString.EMPTY;
-
         creator_ = "";
-
         return this;
       }
 
@@ -1123,11 +1059,22 @@ public final class Wasm {
       @java.lang.Override
       public terra.wasm.v1beta1.Wasm.CodeInfo buildPartial() {
         terra.wasm.v1beta1.Wasm.CodeInfo result = new terra.wasm.v1beta1.Wasm.CodeInfo(this);
-        result.codeId_ = codeId_;
-        result.codeHash_ = codeHash_;
-        result.creator_ = creator_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.wasm.v1beta1.Wasm.CodeInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.codeId_ = codeId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.codeHash_ = codeHash_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.creator_ = creator_;
+        }
       }
 
       @java.lang.Override
@@ -1182,9 +1129,10 @@ public final class Wasm {
         }
         if (!other.getCreator().isEmpty()) {
           creator_ = other.creator_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1199,19 +1147,48 @@ public final class Wasm {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.wasm.v1beta1.Wasm.CodeInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                codeId_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                codeHash_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                creator_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.wasm.v1beta1.Wasm.CodeInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long codeId_ ;
       /**
@@ -1238,6 +1215,7 @@ public final class Wasm {
       public Builder setCodeId(long value) {
         
         codeId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1250,7 +1228,7 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder clearCodeId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         codeId_ = 0L;
         onChanged();
         return this;
@@ -1279,11 +1257,9 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder setCodeHash(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         codeHash_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1296,7 +1272,7 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder clearCodeHash() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         codeHash_ = getDefaultInstance().getCodeHash();
         onChanged();
         return this;
@@ -1355,11 +1331,9 @@ public final class Wasm {
        */
       public Builder setCreator(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         creator_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1372,8 +1346,8 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder clearCreator() {
-        
         creator_ = getDefaultInstance().getCreator();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1388,12 +1362,10 @@ public final class Wasm {
        */
       public Builder setCreatorBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         creator_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1430,7 +1402,18 @@ public final class Wasm {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CodeInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1569,71 +1552,6 @@ public final class Wasm {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ContractInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              address_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              creator_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              admin_ = s;
-              break;
-            }
-            case 32: {
-
-              codeId_ = input.readUInt64();
-              break;
-            }
-            case 42: {
-
-              initMsg_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.Wasm.internal_static_terra_wasm_v1beta1_ContractInfo_descriptor;
@@ -1648,7 +1566,8 @@ public final class Wasm {
     }
 
     public static final int ADDRESS_FIELD_NUMBER = 1;
-    private volatile java.lang.Object address_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object address_ = "";
     /**
      * <pre>
      * Address is the address of the contract
@@ -1694,7 +1613,8 @@ public final class Wasm {
     }
 
     public static final int CREATOR_FIELD_NUMBER = 2;
-    private volatile java.lang.Object creator_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object creator_ = "";
     /**
      * <pre>
      * Creator is the contract creator address
@@ -1740,7 +1660,8 @@ public final class Wasm {
     }
 
     public static final int ADMIN_FIELD_NUMBER = 3;
-    private volatile java.lang.Object admin_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object admin_ = "";
     /**
      * <pre>
      * Admin is who can execute the contract migration
@@ -1786,7 +1707,7 @@ public final class Wasm {
     }
 
     public static final int CODE_ID_FIELD_NUMBER = 4;
-    private long codeId_;
+    private long codeId_ = 0L;
     /**
      * <pre>
      * CodeID is the reference to the stored Wasm code
@@ -1801,7 +1722,7 @@ public final class Wasm {
     }
 
     public static final int INIT_MSG_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString initMsg_;
+    private com.google.protobuf.ByteString initMsg_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * InitMsg is the raw message used when instantiating a contract
@@ -1829,13 +1750,13 @@ public final class Wasm {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, address_);
       }
-      if (!getCreatorBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(creator_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, creator_);
       }
-      if (!getAdminBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(admin_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, admin_);
       }
       if (codeId_ != 0L) {
@@ -1844,7 +1765,7 @@ public final class Wasm {
       if (!initMsg_.isEmpty()) {
         output.writeBytes(5, initMsg_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1853,13 +1774,13 @@ public final class Wasm {
       if (size != -1) return size;
 
       size = 0;
-      if (!getAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, address_);
       }
-      if (!getCreatorBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(creator_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, creator_);
       }
-      if (!getAdminBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(admin_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, admin_);
       }
       if (codeId_ != 0L) {
@@ -1870,7 +1791,7 @@ public final class Wasm {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, initMsg_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1895,7 +1816,7 @@ public final class Wasm {
           != other.getCodeId()) return false;
       if (!getInitMsg()
           .equals(other.getInitMsg())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1917,7 +1838,7 @@ public final class Wasm {
           getCodeId());
       hash = (37 * hash) + INIT_MSG_FIELD_NUMBER;
       hash = (53 * hash) + getInitMsg().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2038,32 +1959,23 @@ public final class Wasm {
 
       // Construct using terra.wasm.v1beta1.Wasm.ContractInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         address_ = "";
-
         creator_ = "";
-
         admin_ = "";
-
         codeId_ = 0L;
-
         initMsg_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
@@ -2090,13 +2002,28 @@ public final class Wasm {
       @java.lang.Override
       public terra.wasm.v1beta1.Wasm.ContractInfo buildPartial() {
         terra.wasm.v1beta1.Wasm.ContractInfo result = new terra.wasm.v1beta1.Wasm.ContractInfo(this);
-        result.address_ = address_;
-        result.creator_ = creator_;
-        result.admin_ = admin_;
-        result.codeId_ = codeId_;
-        result.initMsg_ = initMsg_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.wasm.v1beta1.Wasm.ContractInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.address_ = address_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.creator_ = creator_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.admin_ = admin_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.codeId_ = codeId_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.initMsg_ = initMsg_;
+        }
       }
 
       @java.lang.Override
@@ -2145,14 +2072,17 @@ public final class Wasm {
         if (other == terra.wasm.v1beta1.Wasm.ContractInfo.getDefaultInstance()) return this;
         if (!other.getAddress().isEmpty()) {
           address_ = other.address_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getCreator().isEmpty()) {
           creator_ = other.creator_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getAdmin().isEmpty()) {
           admin_ = other.admin_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getCodeId() != 0L) {
@@ -2161,7 +2091,7 @@ public final class Wasm {
         if (other.getInitMsg() != com.google.protobuf.ByteString.EMPTY) {
           setInitMsg(other.getInitMsg());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2176,19 +2106,58 @@ public final class Wasm {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.wasm.v1beta1.Wasm.ContractInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                address_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                creator_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                admin_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                codeId_ = input.readUInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                initMsg_ = input.readBytes();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.wasm.v1beta1.Wasm.ContractInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object address_ = "";
       /**
@@ -2243,11 +2212,9 @@ public final class Wasm {
        */
       public Builder setAddress(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         address_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2260,8 +2227,8 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder clearAddress() {
-        
         address_ = getDefaultInstance().getAddress();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2276,12 +2243,10 @@ public final class Wasm {
        */
       public Builder setAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         address_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2339,11 +2304,9 @@ public final class Wasm {
        */
       public Builder setCreator(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         creator_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2356,8 +2319,8 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder clearCreator() {
-        
         creator_ = getDefaultInstance().getCreator();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2372,12 +2335,10 @@ public final class Wasm {
        */
       public Builder setCreatorBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         creator_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2435,11 +2396,9 @@ public final class Wasm {
        */
       public Builder setAdmin(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         admin_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2452,8 +2411,8 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder clearAdmin() {
-        
         admin_ = getDefaultInstance().getAdmin();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -2468,12 +2427,10 @@ public final class Wasm {
        */
       public Builder setAdminBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         admin_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2503,6 +2460,7 @@ public final class Wasm {
       public Builder setCodeId(long value) {
         
         codeId_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2515,7 +2473,7 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder clearCodeId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         codeId_ = 0L;
         onChanged();
         return this;
@@ -2544,11 +2502,9 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder setInitMsg(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         initMsg_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2561,7 +2517,7 @@ public final class Wasm {
        * @return This builder for chaining.
        */
       public Builder clearInitMsg() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         initMsg_ = getDefaultInstance().getInitMsg();
         onChanged();
         return this;
@@ -2599,7 +2555,18 @@ public final class Wasm {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ContractInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2644,30 +2611,28 @@ public final class Wasm {
   static {
     java.lang.String[] descriptorData = {
       "\n\035terra/wasm/v1beta1/wasm.proto\022\022terra.w" +
-      "asm.v1beta1\032\024gogoproto/gogo.proto\032\036cosmo" +
-      "s/base/v1beta1/coin.proto\"\303\001\n\006Params\0227\n\021" +
-      "max_contract_size\030\001 \001(\004B\034\362\336\037\030yaml:\"max_c" +
-      "ontract_size\"\0225\n\020max_contract_gas\030\002 \001(\004B" +
-      "\033\362\336\037\027yaml:\"max_contract_gas\"\022?\n\025max_cont" +
-      "ract_msg_size\030\003 \001(\004B \362\336\037\034yaml:\"max_contr" +
-      "act_msg_size\":\010\350\240\037\001\230\240\037\000\"\207\001\n\010CodeInfo\022-\n\007" +
-      "code_id\030\001 \001(\004B\034\362\336\037\016yaml:\"code_id\"\342\336\037\006Cod" +
-      "eID\022\'\n\tcode_hash\030\002 \001(\014B\024\362\336\037\020yaml:\"code_h" +
-      "ash\"\022#\n\007creator\030\003 \001(\tB\022\362\336\037\016yaml:\"creator" +
-      "\"\"\361\001\n\014ContractInfo\022#\n\007address\030\001 \001(\tB\022\362\336\037" +
-      "\016yaml:\"address\"\022#\n\007creator\030\002 \001(\tB\022\362\336\037\016ya" +
-      "ml:\"creator\"\022\037\n\005admin\030\003 \001(\tB\020\362\336\037\014yaml:\"a" +
-      "dmin\"\022-\n\007code_id\030\004 \001(\004B\034\362\336\037\016yaml:\"code_i" +
-      "d\"\342\336\037\006CodeID\022A\n\010init_msg\030\005 \001(\014B/\362\336\037\017yaml" +
-      ":\"init_msg\"\372\336\037\030encoding/json.RawMessage:" +
-      "\004\350\240\037\001B*Z(github.com/terra-money/core/x/w" +
-      "asm/typesb\006proto3"
+      "asm.v1beta1\032\024gogoproto/gogo.proto\"\303\001\n\006Pa" +
+      "rams\0227\n\021max_contract_size\030\001 \001(\004B\034\362\336\037\030yam" +
+      "l:\"max_contract_size\"\0225\n\020max_contract_ga" +
+      "s\030\002 \001(\004B\033\362\336\037\027yaml:\"max_contract_gas\"\022?\n\025" +
+      "max_contract_msg_size\030\003 \001(\004B \362\336\037\034yaml:\"m" +
+      "ax_contract_msg_size\":\010\350\240\037\001\230\240\037\000\"\207\001\n\010Code" +
+      "Info\022-\n\007code_id\030\001 \001(\004B\034\362\336\037\016yaml:\"code_id" +
+      "\"\342\336\037\006CodeID\022\'\n\tcode_hash\030\002 \001(\014B\024\362\336\037\020yaml" +
+      ":\"code_hash\"\022#\n\007creator\030\003 \001(\tB\022\362\336\037\016yaml:" +
+      "\"creator\"\"\361\001\n\014ContractInfo\022#\n\007address\030\001 " +
+      "\001(\tB\022\362\336\037\016yaml:\"address\"\022#\n\007creator\030\002 \001(\t" +
+      "B\022\362\336\037\016yaml:\"creator\"\022\037\n\005admin\030\003 \001(\tB\020\362\336\037" +
+      "\014yaml:\"admin\"\022-\n\007code_id\030\004 \001(\004B\034\362\336\037\016yaml" +
+      ":\"code_id\"\342\336\037\006CodeID\022A\n\010init_msg\030\005 \001(\014B/" +
+      "\362\336\037\017yaml:\"init_msg\"\372\336\037\030encoding/json.Raw" +
+      "Message:\004\350\240\037\001B,Z*github.com/classic-terr" +
+      "a/core/x/wasm/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.GoGoProtos.getDescriptor(),
-          cosmos.base.v1beta1.CoinOuterClass.getDescriptor(),
         });
     internal_static_terra_wasm_v1beta1_Params_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2697,7 +2662,6 @@ public final class Wasm {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.protobuf.GoGoProtos.getDescriptor();
-    cosmos.base.v1beta1.CoinOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

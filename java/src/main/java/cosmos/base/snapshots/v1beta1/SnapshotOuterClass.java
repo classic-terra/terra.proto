@@ -89,76 +89,6 @@ public final class SnapshotOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Snapshot(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              height_ = input.readUInt64();
-              break;
-            }
-            case 16: {
-
-              format_ = input.readUInt32();
-              break;
-            }
-            case 24: {
-
-              chunks_ = input.readUInt32();
-              break;
-            }
-            case 34: {
-
-              hash_ = input.readBytes();
-              break;
-            }
-            case 42: {
-              cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.Builder subBuilder = null;
-              if (metadata_ != null) {
-                subBuilder = metadata_.toBuilder();
-              }
-              metadata_ = input.readMessage(cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(metadata_);
-                metadata_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.snapshots.v1beta1.SnapshotOuterClass.internal_static_cosmos_base_snapshots_v1beta1_Snapshot_descriptor;
@@ -173,7 +103,7 @@ public final class SnapshotOuterClass {
     }
 
     public static final int HEIGHT_FIELD_NUMBER = 1;
-    private long height_;
+    private long height_ = 0L;
     /**
      * <code>uint64 height = 1;</code>
      * @return The height.
@@ -184,7 +114,7 @@ public final class SnapshotOuterClass {
     }
 
     public static final int FORMAT_FIELD_NUMBER = 2;
-    private int format_;
+    private int format_ = 0;
     /**
      * <code>uint32 format = 2;</code>
      * @return The format.
@@ -195,7 +125,7 @@ public final class SnapshotOuterClass {
     }
 
     public static final int CHUNKS_FIELD_NUMBER = 3;
-    private int chunks_;
+    private int chunks_ = 0;
     /**
      * <code>uint32 chunks = 3;</code>
      * @return The chunks.
@@ -206,7 +136,7 @@ public final class SnapshotOuterClass {
     }
 
     public static final int HASH_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString hash_;
+    private com.google.protobuf.ByteString hash_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>bytes hash = 4;</code>
      * @return The hash.
@@ -239,7 +169,7 @@ public final class SnapshotOuterClass {
      */
     @java.lang.Override
     public cosmos.base.snapshots.v1beta1.SnapshotOuterClass.MetadataOrBuilder getMetadataOrBuilder() {
-      return getMetadata();
+      return metadata_ == null ? cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.getDefaultInstance() : metadata_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -271,7 +201,7 @@ public final class SnapshotOuterClass {
       if (metadata_ != null) {
         output.writeMessage(5, getMetadata());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -300,7 +230,7 @@ public final class SnapshotOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getMetadata());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -328,7 +258,7 @@ public final class SnapshotOuterClass {
         if (!getMetadata()
             .equals(other.getMetadata())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -352,7 +282,7 @@ public final class SnapshotOuterClass {
         hash = (37 * hash) + METADATA_FIELD_NUMBER;
         hash = (53 * hash) + getMetadata().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -473,34 +403,25 @@ public final class SnapshotOuterClass {
 
       // Construct using cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Snapshot.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         height_ = 0L;
-
         format_ = 0;
-
         chunks_ = 0;
-
         hash_ = com.google.protobuf.ByteString.EMPTY;
-
-        if (metadataBuilder_ == null) {
-          metadata_ = null;
-        } else {
-          metadata_ = null;
+        metadata_ = null;
+        if (metadataBuilder_ != null) {
+          metadataBuilder_.dispose();
           metadataBuilder_ = null;
         }
         return this;
@@ -529,17 +450,30 @@ public final class SnapshotOuterClass {
       @java.lang.Override
       public cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Snapshot buildPartial() {
         cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Snapshot result = new cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Snapshot(this);
-        result.height_ = height_;
-        result.format_ = format_;
-        result.chunks_ = chunks_;
-        result.hash_ = hash_;
-        if (metadataBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = metadataBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Snapshot result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.height_ = height_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.format_ = format_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.chunks_ = chunks_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.hash_ = hash_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.metadata_ = metadataBuilder_ == null
+              ? metadata_
+              : metadataBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -601,7 +535,7 @@ public final class SnapshotOuterClass {
         if (other.hasMetadata()) {
           mergeMetadata(other.getMetadata());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -616,19 +550,60 @@ public final class SnapshotOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Snapshot parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                height_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                format_ = input.readUInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                chunks_ = input.readUInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                hash_ = input.readBytes();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getMetadataFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Snapshot) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long height_ ;
       /**
@@ -647,6 +622,7 @@ public final class SnapshotOuterClass {
       public Builder setHeight(long value) {
         
         height_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -655,7 +631,7 @@ public final class SnapshotOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearHeight() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         height_ = 0L;
         onChanged();
         return this;
@@ -678,6 +654,7 @@ public final class SnapshotOuterClass {
       public Builder setFormat(int value) {
         
         format_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -686,7 +663,7 @@ public final class SnapshotOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearFormat() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         format_ = 0;
         onChanged();
         return this;
@@ -709,6 +686,7 @@ public final class SnapshotOuterClass {
       public Builder setChunks(int value) {
         
         chunks_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -717,7 +695,7 @@ public final class SnapshotOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearChunks() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         chunks_ = 0;
         onChanged();
         return this;
@@ -738,11 +716,9 @@ public final class SnapshotOuterClass {
        * @return This builder for chaining.
        */
       public Builder setHash(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         hash_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -751,7 +727,7 @@ public final class SnapshotOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearHash() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         hash_ = getDefaultInstance().getHash();
         onChanged();
         return this;
@@ -765,7 +741,7 @@ public final class SnapshotOuterClass {
        * @return Whether the metadata field is set.
        */
       public boolean hasMetadata() {
-        return metadataBuilder_ != null || metadata_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <code>.cosmos.base.snapshots.v1beta1.Metadata metadata = 5 [(.gogoproto.nullable) = false];</code>
@@ -787,11 +763,11 @@ public final class SnapshotOuterClass {
             throw new NullPointerException();
           }
           metadata_ = value;
-          onChanged();
         } else {
           metadataBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -801,11 +777,11 @@ public final class SnapshotOuterClass {
           cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.Builder builderForValue) {
         if (metadataBuilder_ == null) {
           metadata_ = builderForValue.build();
-          onChanged();
         } else {
           metadataBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -813,38 +789,38 @@ public final class SnapshotOuterClass {
        */
       public Builder mergeMetadata(cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata value) {
         if (metadataBuilder_ == null) {
-          if (metadata_ != null) {
-            metadata_ =
-              cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.newBuilder(metadata_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            metadata_ != null &&
+            metadata_ != cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.getDefaultInstance()) {
+            getMetadataBuilder().mergeFrom(value);
           } else {
             metadata_ = value;
           }
-          onChanged();
         } else {
           metadataBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.snapshots.v1beta1.Metadata metadata = 5 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearMetadata() {
-        if (metadataBuilder_ == null) {
-          metadata_ = null;
-          onChanged();
-        } else {
-          metadata_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        metadata_ = null;
+        if (metadataBuilder_ != null) {
+          metadataBuilder_.dispose();
           metadataBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.snapshots.v1beta1.Metadata metadata = 5 [(.gogoproto.nullable) = false];</code>
        */
       public cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.Builder getMetadataBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getMetadataFieldBuilder().getBuilder();
       }
@@ -908,7 +884,18 @@ public final class SnapshotOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Snapshot(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -993,55 +980,6 @@ public final class SnapshotOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Metadata(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                chunkHashes_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              chunkHashes_.add(input.readBytes());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          chunkHashes_ = java.util.Collections.unmodifiableList(chunkHashes_); // C
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.base.snapshots.v1beta1.SnapshotOuterClass.internal_static_cosmos_base_snapshots_v1beta1_Metadata_descriptor;
@@ -1056,6 +994,7 @@ public final class SnapshotOuterClass {
     }
 
     public static final int CHUNK_HASHES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protobuf.ByteString> chunkHashes_;
     /**
      * <pre>
@@ -1111,7 +1050,7 @@ public final class SnapshotOuterClass {
       for (int i = 0; i < chunkHashes_.size(); i++) {
         output.writeBytes(1, chunkHashes_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1129,7 +1068,7 @@ public final class SnapshotOuterClass {
         size += dataSize;
         size += 1 * getChunkHashesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1146,7 +1085,7 @@ public final class SnapshotOuterClass {
 
       if (!getChunkHashesList()
           .equals(other.getChunkHashesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1161,7 +1100,7 @@ public final class SnapshotOuterClass {
         hash = (37 * hash) + CHUNK_HASHES_FIELD_NUMBER;
         hash = (53 * hash) + getChunkHashesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1282,24 +1221,19 @@ public final class SnapshotOuterClass {
 
       // Construct using cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         chunkHashes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1326,14 +1260,22 @@ public final class SnapshotOuterClass {
       @java.lang.Override
       public cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata buildPartial() {
         cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata result = new cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           chunkHashes_ = java.util.Collections.unmodifiableList(chunkHashes_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.chunkHashes_ = chunkHashes_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -1390,7 +1332,7 @@ public final class SnapshotOuterClass {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1405,17 +1347,36 @@ public final class SnapshotOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.ByteString v = input.readBytes();
+                ensureChunkHashesIsMutable();
+                chunkHashes_.add(v);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.base.snapshots.v1beta1.SnapshotOuterClass.Metadata) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1425,7 +1386,7 @@ public final class SnapshotOuterClass {
         if (!((bitField0_ & 0x00000001) != 0)) {
           chunkHashes_ = new java.util.ArrayList<com.google.protobuf.ByteString>(chunkHashes_);
           bitField0_ |= 0x00000001;
-         }
+        }
       }
       /**
        * <pre>
@@ -1475,10 +1436,8 @@ public final class SnapshotOuterClass {
        */
       public Builder setChunkHashes(
           int index, com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureChunkHashesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureChunkHashesIsMutable();
         chunkHashes_.set(index, value);
         onChanged();
         return this;
@@ -1493,10 +1452,8 @@ public final class SnapshotOuterClass {
        * @return This builder for chaining.
        */
       public Builder addChunkHashes(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureChunkHashesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureChunkHashesIsMutable();
         chunkHashes_.add(value);
         onChanged();
         return this;
@@ -1565,7 +1522,18 @@ public final class SnapshotOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Metadata(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

@@ -126,91 +126,6 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GenesisState(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              terra.wasm.v1beta1.Wasm.Params.Builder subBuilder = null;
-              if (params_ != null) {
-                subBuilder = params_.toBuilder();
-              }
-              params_ = input.readMessage(terra.wasm.v1beta1.Wasm.Params.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(params_);
-                params_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-
-              lastCodeId_ = input.readUInt64();
-              break;
-            }
-            case 24: {
-
-              lastInstanceId_ = input.readUInt64();
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                codes_ = new java.util.ArrayList<terra.wasm.v1beta1.Genesis.Code>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              codes_.add(
-                  input.readMessage(terra.wasm.v1beta1.Genesis.Code.parser(), extensionRegistry));
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                contracts_ = new java.util.ArrayList<terra.wasm.v1beta1.Genesis.Contract>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              contracts_.add(
-                  input.readMessage(terra.wasm.v1beta1.Genesis.Contract.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          codes_ = java.util.Collections.unmodifiableList(codes_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          contracts_ = java.util.Collections.unmodifiableList(contracts_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.Genesis.internal_static_terra_wasm_v1beta1_GenesisState_descriptor;
@@ -247,11 +162,11 @@ public final class Genesis {
      */
     @java.lang.Override
     public terra.wasm.v1beta1.Wasm.ParamsOrBuilder getParamsOrBuilder() {
-      return getParams();
+      return params_ == null ? terra.wasm.v1beta1.Wasm.Params.getDefaultInstance() : params_;
     }
 
     public static final int LAST_CODE_ID_FIELD_NUMBER = 2;
-    private long lastCodeId_;
+    private long lastCodeId_ = 0L;
     /**
      * <code>uint64 last_code_id = 2 [(.gogoproto.customname) = "LastCodeID"];</code>
      * @return The lastCodeId.
@@ -262,7 +177,7 @@ public final class Genesis {
     }
 
     public static final int LAST_INSTANCE_ID_FIELD_NUMBER = 3;
-    private long lastInstanceId_;
+    private long lastInstanceId_ = 0L;
     /**
      * <code>uint64 last_instance_id = 3 [(.gogoproto.customname) = "LastInstanceID"];</code>
      * @return The lastInstanceId.
@@ -273,6 +188,7 @@ public final class Genesis {
     }
 
     public static final int CODES_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<terra.wasm.v1beta1.Genesis.Code> codes_;
     /**
      * <code>repeated .terra.wasm.v1beta1.Code codes = 4 [(.gogoproto.nullable) = false];</code>
@@ -313,6 +229,7 @@ public final class Genesis {
     }
 
     public static final int CONTRACTS_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<terra.wasm.v1beta1.Genesis.Contract> contracts_;
     /**
      * <code>repeated .terra.wasm.v1beta1.Contract contracts = 5 [(.gogoproto.nullable) = false];</code>
@@ -381,7 +298,7 @@ public final class Genesis {
       for (int i = 0; i < contracts_.size(); i++) {
         output.writeMessage(5, contracts_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -410,7 +327,7 @@ public final class Genesis {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, contracts_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -438,7 +355,7 @@ public final class Genesis {
           .equals(other.getCodesList())) return false;
       if (!getContractsList()
           .equals(other.getContractsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -467,7 +384,7 @@ public final class Genesis {
         hash = (37 * hash) + CONTRACTS_FIELD_NUMBER;
         hash = (53 * hash) + getContractsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -588,46 +505,39 @@ public final class Genesis {
 
       // Construct using terra.wasm.v1beta1.Genesis.GenesisState.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getCodesFieldBuilder();
-          getContractsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (paramsBuilder_ == null) {
-          params_ = null;
-        } else {
-          params_ = null;
+        bitField0_ = 0;
+        params_ = null;
+        if (paramsBuilder_ != null) {
+          paramsBuilder_.dispose();
           paramsBuilder_ = null;
         }
         lastCodeId_ = 0L;
-
         lastInstanceId_ = 0L;
-
         if (codesBuilder_ == null) {
           codes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          codes_ = null;
           codesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
         if (contractsBuilder_ == null) {
           contracts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          contracts_ = null;
           contractsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -654,34 +564,46 @@ public final class Genesis {
       @java.lang.Override
       public terra.wasm.v1beta1.Genesis.GenesisState buildPartial() {
         terra.wasm.v1beta1.Genesis.GenesisState result = new terra.wasm.v1beta1.Genesis.GenesisState(this);
-        int from_bitField0_ = bitField0_;
-        if (paramsBuilder_ == null) {
-          result.params_ = params_;
-        } else {
-          result.params_ = paramsBuilder_.build();
-        }
-        result.lastCodeId_ = lastCodeId_;
-        result.lastInstanceId_ = lastInstanceId_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(terra.wasm.v1beta1.Genesis.GenesisState result) {
         if (codesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             codes_ = java.util.Collections.unmodifiableList(codes_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.codes_ = codes_;
         } else {
           result.codes_ = codesBuilder_.build();
         }
         if (contractsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000010) != 0)) {
             contracts_ = java.util.Collections.unmodifiableList(contracts_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.contracts_ = contracts_;
         } else {
           result.contracts_ = contractsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(terra.wasm.v1beta1.Genesis.GenesisState result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.params_ = paramsBuilder_ == null
+              ? params_
+              : paramsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.lastCodeId_ = lastCodeId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.lastInstanceId_ = lastInstanceId_;
+        }
       }
 
       @java.lang.Override
@@ -741,7 +663,7 @@ public final class Genesis {
           if (!other.codes_.isEmpty()) {
             if (codes_.isEmpty()) {
               codes_ = other.codes_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureCodesIsMutable();
               codes_.addAll(other.codes_);
@@ -754,7 +676,7 @@ public final class Genesis {
               codesBuilder_.dispose();
               codesBuilder_ = null;
               codes_ = other.codes_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
               codesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getCodesFieldBuilder() : null;
@@ -767,7 +689,7 @@ public final class Genesis {
           if (!other.contracts_.isEmpty()) {
             if (contracts_.isEmpty()) {
               contracts_ = other.contracts_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureContractsIsMutable();
               contracts_.addAll(other.contracts_);
@@ -780,7 +702,7 @@ public final class Genesis {
               contractsBuilder_.dispose();
               contractsBuilder_ = null;
               contracts_ = other.contracts_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000010);
               contractsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getContractsFieldBuilder() : null;
@@ -789,7 +711,7 @@ public final class Genesis {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -804,17 +726,73 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.wasm.v1beta1.Genesis.GenesisState parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getParamsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                lastCodeId_ = input.readUInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                lastInstanceId_ = input.readUInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                terra.wasm.v1beta1.Genesis.Code m =
+                    input.readMessage(
+                        terra.wasm.v1beta1.Genesis.Code.parser(),
+                        extensionRegistry);
+                if (codesBuilder_ == null) {
+                  ensureCodesIsMutable();
+                  codes_.add(m);
+                } else {
+                  codesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              case 42: {
+                terra.wasm.v1beta1.Genesis.Contract m =
+                    input.readMessage(
+                        terra.wasm.v1beta1.Genesis.Contract.parser(),
+                        extensionRegistry);
+                if (contractsBuilder_ == null) {
+                  ensureContractsIsMutable();
+                  contracts_.add(m);
+                } else {
+                  contractsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.wasm.v1beta1.Genesis.GenesisState) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -827,7 +805,7 @@ public final class Genesis {
        * @return Whether the params field is set.
        */
       public boolean hasParams() {
-        return paramsBuilder_ != null || params_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.terra.wasm.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
@@ -849,11 +827,11 @@ public final class Genesis {
             throw new NullPointerException();
           }
           params_ = value;
-          onChanged();
         } else {
           paramsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -863,11 +841,11 @@ public final class Genesis {
           terra.wasm.v1beta1.Wasm.Params.Builder builderForValue) {
         if (paramsBuilder_ == null) {
           params_ = builderForValue.build();
-          onChanged();
         } else {
           paramsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -875,38 +853,38 @@ public final class Genesis {
        */
       public Builder mergeParams(terra.wasm.v1beta1.Wasm.Params value) {
         if (paramsBuilder_ == null) {
-          if (params_ != null) {
-            params_ =
-              terra.wasm.v1beta1.Wasm.Params.newBuilder(params_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            params_ != null &&
+            params_ != terra.wasm.v1beta1.Wasm.Params.getDefaultInstance()) {
+            getParamsBuilder().mergeFrom(value);
           } else {
             params_ = value;
           }
-          onChanged();
         } else {
           paramsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.terra.wasm.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearParams() {
-        if (paramsBuilder_ == null) {
-          params_ = null;
-          onChanged();
-        } else {
-          params_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        params_ = null;
+        if (paramsBuilder_ != null) {
+          paramsBuilder_.dispose();
           paramsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.terra.wasm.v1beta1.Params params = 1 [(.gogoproto.nullable) = false];</code>
        */
       public terra.wasm.v1beta1.Wasm.Params.Builder getParamsBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getParamsFieldBuilder().getBuilder();
       }
@@ -955,6 +933,7 @@ public final class Genesis {
       public Builder setLastCodeId(long value) {
         
         lastCodeId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -963,7 +942,7 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearLastCodeId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         lastCodeId_ = 0L;
         onChanged();
         return this;
@@ -986,6 +965,7 @@ public final class Genesis {
       public Builder setLastInstanceId(long value) {
         
         lastInstanceId_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -994,7 +974,7 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearLastInstanceId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         lastInstanceId_ = 0L;
         onChanged();
         return this;
@@ -1003,9 +983,9 @@ public final class Genesis {
       private java.util.List<terra.wasm.v1beta1.Genesis.Code> codes_ =
         java.util.Collections.emptyList();
       private void ensureCodesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           codes_ = new java.util.ArrayList<terra.wasm.v1beta1.Genesis.Code>(codes_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -1155,7 +1135,7 @@ public final class Genesis {
       public Builder clearCodes() {
         if (codesBuilder_ == null) {
           codes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           codesBuilder_.clear();
@@ -1232,7 +1212,7 @@ public final class Genesis {
           codesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.wasm.v1beta1.Genesis.Code, terra.wasm.v1beta1.Genesis.Code.Builder, terra.wasm.v1beta1.Genesis.CodeOrBuilder>(
                   codes_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           codes_ = null;
@@ -1243,9 +1223,9 @@ public final class Genesis {
       private java.util.List<terra.wasm.v1beta1.Genesis.Contract> contracts_ =
         java.util.Collections.emptyList();
       private void ensureContractsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           contracts_ = new java.util.ArrayList<terra.wasm.v1beta1.Genesis.Contract>(contracts_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -1395,7 +1375,7 @@ public final class Genesis {
       public Builder clearContracts() {
         if (contractsBuilder_ == null) {
           contracts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           contractsBuilder_.clear();
@@ -1472,7 +1452,7 @@ public final class Genesis {
           contractsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.wasm.v1beta1.Genesis.Contract, terra.wasm.v1beta1.Genesis.Contract.Builder, terra.wasm.v1beta1.Genesis.ContractOrBuilder>(
                   contracts_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000010) != 0),
                   getParentForChildren(),
                   isClean());
           contracts_ = null;
@@ -1512,7 +1492,18 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GenesisState(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1581,53 +1572,6 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Model(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-
-              key_ = input.readBytes();
-              break;
-            }
-            case 18: {
-
-              value_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.Genesis.internal_static_terra_wasm_v1beta1_Model_descriptor;
@@ -1642,7 +1586,7 @@ public final class Genesis {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString key_;
+    private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>bytes key = 1;</code>
      * @return The key.
@@ -1653,7 +1597,7 @@ public final class Genesis {
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString value_;
+    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>bytes value = 2;</code>
      * @return The value.
@@ -1683,7 +1627,7 @@ public final class Genesis {
       if (!value_.isEmpty()) {
         output.writeBytes(2, value_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1700,7 +1644,7 @@ public final class Genesis {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, value_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1719,7 +1663,7 @@ public final class Genesis {
           .equals(other.getKey())) return false;
       if (!getValue()
           .equals(other.getValue())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1734,7 +1678,7 @@ public final class Genesis {
       hash = (53 * hash) + getKey().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1855,26 +1799,20 @@ public final class Genesis {
 
       // Construct using terra.wasm.v1beta1.Genesis.Model.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         key_ = com.google.protobuf.ByteString.EMPTY;
-
         value_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
@@ -1901,10 +1839,19 @@ public final class Genesis {
       @java.lang.Override
       public terra.wasm.v1beta1.Genesis.Model buildPartial() {
         terra.wasm.v1beta1.Genesis.Model result = new terra.wasm.v1beta1.Genesis.Model(this);
-        result.key_ = key_;
-        result.value_ = value_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.wasm.v1beta1.Genesis.Model result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.key_ = key_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.value_ = value_;
+        }
       }
 
       @java.lang.Override
@@ -1957,7 +1904,7 @@ public final class Genesis {
         if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1972,19 +1919,43 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.wasm.v1beta1.Genesis.Model parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                key_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                value_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.wasm.v1beta1.Genesis.Model) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -2001,11 +1972,9 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder setKey(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         key_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2014,7 +1983,7 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearKey() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         key_ = getDefaultInstance().getKey();
         onChanged();
         return this;
@@ -2035,11 +2004,9 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder setValue(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         value_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2048,7 +2015,7 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         value_ = getDefaultInstance().getValue();
         onChanged();
         return this;
@@ -2086,7 +2053,18 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Model(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2163,61 +2141,6 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Code(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              terra.wasm.v1beta1.Wasm.CodeInfo.Builder subBuilder = null;
-              if (codeInfo_ != null) {
-                subBuilder = codeInfo_.toBuilder();
-              }
-              codeInfo_ = input.readMessage(terra.wasm.v1beta1.Wasm.CodeInfo.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(codeInfo_);
-                codeInfo_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-
-              codeBytes_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.Genesis.internal_static_terra_wasm_v1beta1_Code_descriptor;
@@ -2254,11 +2177,11 @@ public final class Genesis {
      */
     @java.lang.Override
     public terra.wasm.v1beta1.Wasm.CodeInfoOrBuilder getCodeInfoOrBuilder() {
-      return getCodeInfo();
+      return codeInfo_ == null ? terra.wasm.v1beta1.Wasm.CodeInfo.getDefaultInstance() : codeInfo_;
     }
 
     public static final int CODE_BYTES_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString codeBytes_;
+    private com.google.protobuf.ByteString codeBytes_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>bytes code_bytes = 2;</code>
      * @return The codeBytes.
@@ -2288,7 +2211,7 @@ public final class Genesis {
       if (!codeBytes_.isEmpty()) {
         output.writeBytes(2, codeBytes_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2305,7 +2228,7 @@ public final class Genesis {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, codeBytes_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2327,7 +2250,7 @@ public final class Genesis {
       }
       if (!getCodeBytes()
           .equals(other.getCodeBytes())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2344,7 +2267,7 @@ public final class Genesis {
       }
       hash = (37 * hash) + CODE_BYTES_FIELD_NUMBER;
       hash = (53 * hash) + getCodeBytes().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2465,30 +2388,24 @@ public final class Genesis {
 
       // Construct using terra.wasm.v1beta1.Genesis.Code.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (codeInfoBuilder_ == null) {
-          codeInfo_ = null;
-        } else {
-          codeInfo_ = null;
+        bitField0_ = 0;
+        codeInfo_ = null;
+        if (codeInfoBuilder_ != null) {
+          codeInfoBuilder_.dispose();
           codeInfoBuilder_ = null;
         }
         codeBytes_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
@@ -2515,14 +2432,21 @@ public final class Genesis {
       @java.lang.Override
       public terra.wasm.v1beta1.Genesis.Code buildPartial() {
         terra.wasm.v1beta1.Genesis.Code result = new terra.wasm.v1beta1.Genesis.Code(this);
-        if (codeInfoBuilder_ == null) {
-          result.codeInfo_ = codeInfo_;
-        } else {
-          result.codeInfo_ = codeInfoBuilder_.build();
-        }
-        result.codeBytes_ = codeBytes_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.wasm.v1beta1.Genesis.Code result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.codeInfo_ = codeInfoBuilder_ == null
+              ? codeInfo_
+              : codeInfoBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.codeBytes_ = codeBytes_;
+        }
       }
 
       @java.lang.Override
@@ -2575,7 +2499,7 @@ public final class Genesis {
         if (other.getCodeBytes() != com.google.protobuf.ByteString.EMPTY) {
           setCodeBytes(other.getCodeBytes());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2590,19 +2514,45 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.wasm.v1beta1.Genesis.Code parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getCodeInfoFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                codeBytes_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.wasm.v1beta1.Genesis.Code) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private terra.wasm.v1beta1.Wasm.CodeInfo codeInfo_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2612,7 +2562,7 @@ public final class Genesis {
        * @return Whether the codeInfo field is set.
        */
       public boolean hasCodeInfo() {
-        return codeInfoBuilder_ != null || codeInfo_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
@@ -2634,11 +2584,11 @@ public final class Genesis {
             throw new NullPointerException();
           }
           codeInfo_ = value;
-          onChanged();
         } else {
           codeInfoBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2648,11 +2598,11 @@ public final class Genesis {
           terra.wasm.v1beta1.Wasm.CodeInfo.Builder builderForValue) {
         if (codeInfoBuilder_ == null) {
           codeInfo_ = builderForValue.build();
-          onChanged();
         } else {
           codeInfoBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2660,38 +2610,38 @@ public final class Genesis {
        */
       public Builder mergeCodeInfo(terra.wasm.v1beta1.Wasm.CodeInfo value) {
         if (codeInfoBuilder_ == null) {
-          if (codeInfo_ != null) {
-            codeInfo_ =
-              terra.wasm.v1beta1.Wasm.CodeInfo.newBuilder(codeInfo_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            codeInfo_ != null &&
+            codeInfo_ != terra.wasm.v1beta1.Wasm.CodeInfo.getDefaultInstance()) {
+            getCodeInfoBuilder().mergeFrom(value);
           } else {
             codeInfo_ = value;
           }
-          onChanged();
         } else {
           codeInfoBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearCodeInfo() {
-        if (codeInfoBuilder_ == null) {
-          codeInfo_ = null;
-          onChanged();
-        } else {
-          codeInfo_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        codeInfo_ = null;
+        if (codeInfoBuilder_ != null) {
+          codeInfoBuilder_.dispose();
           codeInfoBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.terra.wasm.v1beta1.CodeInfo code_info = 1 [(.gogoproto.nullable) = false];</code>
        */
       public terra.wasm.v1beta1.Wasm.CodeInfo.Builder getCodeInfoBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getCodeInfoFieldBuilder().getBuilder();
       }
@@ -2738,11 +2688,9 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder setCodeBytes(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         codeBytes_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2751,7 +2699,7 @@ public final class Genesis {
        * @return This builder for chaining.
        */
       public Builder clearCodeBytes() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         codeBytes_ = getDefaultInstance().getCodeBytes();
         onChanged();
         return this;
@@ -2789,7 +2737,18 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Code(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2884,69 +2843,6 @@ public final class Genesis {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Contract(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              terra.wasm.v1beta1.Wasm.ContractInfo.Builder subBuilder = null;
-              if (contractInfo_ != null) {
-                subBuilder = contractInfo_.toBuilder();
-              }
-              contractInfo_ = input.readMessage(terra.wasm.v1beta1.Wasm.ContractInfo.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(contractInfo_);
-                contractInfo_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                contractStore_ = new java.util.ArrayList<terra.wasm.v1beta1.Genesis.Model>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              contractStore_.add(
-                  input.readMessage(terra.wasm.v1beta1.Genesis.Model.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          contractStore_ = java.util.Collections.unmodifiableList(contractStore_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.wasm.v1beta1.Genesis.internal_static_terra_wasm_v1beta1_Contract_descriptor;
@@ -2983,10 +2879,11 @@ public final class Genesis {
      */
     @java.lang.Override
     public terra.wasm.v1beta1.Wasm.ContractInfoOrBuilder getContractInfoOrBuilder() {
-      return getContractInfo();
+      return contractInfo_ == null ? terra.wasm.v1beta1.Wasm.ContractInfo.getDefaultInstance() : contractInfo_;
     }
 
     public static final int CONTRACT_STORE_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<terra.wasm.v1beta1.Genesis.Model> contractStore_;
     /**
      * <code>repeated .terra.wasm.v1beta1.Model contract_store = 2 [(.gogoproto.nullable) = false];</code>
@@ -3046,7 +2943,7 @@ public final class Genesis {
       for (int i = 0; i < contractStore_.size(); i++) {
         output.writeMessage(2, contractStore_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3063,7 +2960,7 @@ public final class Genesis {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, contractStore_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3085,7 +2982,7 @@ public final class Genesis {
       }
       if (!getContractStoreList()
           .equals(other.getContractStoreList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3104,7 +3001,7 @@ public final class Genesis {
         hash = (37 * hash) + CONTRACT_STORE_FIELD_NUMBER;
         hash = (53 * hash) + getContractStoreList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3225,35 +3122,30 @@ public final class Genesis {
 
       // Construct using terra.wasm.v1beta1.Genesis.Contract.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getContractStoreFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (contractInfoBuilder_ == null) {
-          contractInfo_ = null;
-        } else {
-          contractInfo_ = null;
+        bitField0_ = 0;
+        contractInfo_ = null;
+        if (contractInfoBuilder_ != null) {
+          contractInfoBuilder_.dispose();
           contractInfoBuilder_ = null;
         }
         if (contractStoreBuilder_ == null) {
           contractStore_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          contractStore_ = null;
           contractStoreBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -3280,23 +3172,31 @@ public final class Genesis {
       @java.lang.Override
       public terra.wasm.v1beta1.Genesis.Contract buildPartial() {
         terra.wasm.v1beta1.Genesis.Contract result = new terra.wasm.v1beta1.Genesis.Contract(this);
-        int from_bitField0_ = bitField0_;
-        if (contractInfoBuilder_ == null) {
-          result.contractInfo_ = contractInfo_;
-        } else {
-          result.contractInfo_ = contractInfoBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(terra.wasm.v1beta1.Genesis.Contract result) {
         if (contractStoreBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             contractStore_ = java.util.Collections.unmodifiableList(contractStore_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.contractStore_ = contractStore_;
         } else {
           result.contractStore_ = contractStoreBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(terra.wasm.v1beta1.Genesis.Contract result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.contractInfo_ = contractInfoBuilder_ == null
+              ? contractInfo_
+              : contractInfoBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3350,7 +3250,7 @@ public final class Genesis {
           if (!other.contractStore_.isEmpty()) {
             if (contractStore_.isEmpty()) {
               contractStore_ = other.contractStore_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureContractStoreIsMutable();
               contractStore_.addAll(other.contractStore_);
@@ -3363,7 +3263,7 @@ public final class Genesis {
               contractStoreBuilder_.dispose();
               contractStoreBuilder_ = null;
               contractStore_ = other.contractStore_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               contractStoreBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getContractStoreFieldBuilder() : null;
@@ -3372,7 +3272,7 @@ public final class Genesis {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3387,17 +3287,50 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.wasm.v1beta1.Genesis.Contract parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getContractInfoFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                terra.wasm.v1beta1.Genesis.Model m =
+                    input.readMessage(
+                        terra.wasm.v1beta1.Genesis.Model.parser(),
+                        extensionRegistry);
+                if (contractStoreBuilder_ == null) {
+                  ensureContractStoreIsMutable();
+                  contractStore_.add(m);
+                } else {
+                  contractStoreBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.wasm.v1beta1.Genesis.Contract) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3410,7 +3343,7 @@ public final class Genesis {
        * @return Whether the contractInfo field is set.
        */
       public boolean hasContractInfo() {
-        return contractInfoBuilder_ != null || contractInfo_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
@@ -3432,11 +3365,11 @@ public final class Genesis {
             throw new NullPointerException();
           }
           contractInfo_ = value;
-          onChanged();
         } else {
           contractInfoBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3446,11 +3379,11 @@ public final class Genesis {
           terra.wasm.v1beta1.Wasm.ContractInfo.Builder builderForValue) {
         if (contractInfoBuilder_ == null) {
           contractInfo_ = builderForValue.build();
-          onChanged();
         } else {
           contractInfoBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3458,38 +3391,38 @@ public final class Genesis {
        */
       public Builder mergeContractInfo(terra.wasm.v1beta1.Wasm.ContractInfo value) {
         if (contractInfoBuilder_ == null) {
-          if (contractInfo_ != null) {
-            contractInfo_ =
-              terra.wasm.v1beta1.Wasm.ContractInfo.newBuilder(contractInfo_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            contractInfo_ != null &&
+            contractInfo_ != terra.wasm.v1beta1.Wasm.ContractInfo.getDefaultInstance()) {
+            getContractInfoBuilder().mergeFrom(value);
           } else {
             contractInfo_ = value;
           }
-          onChanged();
         } else {
           contractInfoBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearContractInfo() {
-        if (contractInfoBuilder_ == null) {
-          contractInfo_ = null;
-          onChanged();
-        } else {
-          contractInfo_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        contractInfo_ = null;
+        if (contractInfoBuilder_ != null) {
+          contractInfoBuilder_.dispose();
           contractInfoBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.terra.wasm.v1beta1.ContractInfo contract_info = 1 [(.gogoproto.nullable) = false];</code>
        */
       public terra.wasm.v1beta1.Wasm.ContractInfo.Builder getContractInfoBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getContractInfoFieldBuilder().getBuilder();
       }
@@ -3524,9 +3457,9 @@ public final class Genesis {
       private java.util.List<terra.wasm.v1beta1.Genesis.Model> contractStore_ =
         java.util.Collections.emptyList();
       private void ensureContractStoreIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           contractStore_ = new java.util.ArrayList<terra.wasm.v1beta1.Genesis.Model>(contractStore_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -3676,7 +3609,7 @@ public final class Genesis {
       public Builder clearContractStore() {
         if (contractStoreBuilder_ == null) {
           contractStore_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           contractStoreBuilder_.clear();
@@ -3753,7 +3686,7 @@ public final class Genesis {
           contractStoreBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               terra.wasm.v1beta1.Genesis.Model, terra.wasm.v1beta1.Genesis.Model.Builder, terra.wasm.v1beta1.Genesis.ModelOrBuilder>(
                   contractStore_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           contractStore_ = null;
@@ -3793,7 +3726,18 @@ public final class Genesis {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Contract(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3844,29 +3788,27 @@ public final class Genesis {
     java.lang.String[] descriptorData = {
       "\n terra/wasm/v1beta1/genesis.proto\022\022terr" +
       "a.wasm.v1beta1\032\024gogoproto/gogo.proto\032\035te" +
-      "rra/wasm/v1beta1/wasm.proto\032\036cosmos/base" +
-      "/v1beta1/coin.proto\"\372\001\n\014GenesisState\0220\n\006" +
-      "params\030\001 \001(\0132\032.terra.wasm.v1beta1.Params" +
-      "B\004\310\336\037\000\022$\n\014last_code_id\030\002 \001(\004B\016\342\336\037\nLastCo" +
-      "deID\022,\n\020last_instance_id\030\003 \001(\004B\022\342\336\037\016Last" +
-      "InstanceID\022-\n\005codes\030\004 \003(\0132\030.terra.wasm.v" +
-      "1beta1.CodeB\004\310\336\037\000\0225\n\tcontracts\030\005 \003(\0132\034.t" +
-      "erra.wasm.v1beta1.ContractB\004\310\336\037\000\"#\n\005Mode" +
-      "l\022\013\n\003key\030\001 \001(\014\022\r\n\005value\030\002 \001(\014\"Q\n\004Code\0225\n" +
-      "\tcode_info\030\001 \001(\0132\034.terra.wasm.v1beta1.Co" +
-      "deInfoB\004\310\336\037\000\022\022\n\ncode_bytes\030\002 \001(\014\"\202\001\n\010Con" +
-      "tract\022=\n\rcontract_info\030\001 \001(\0132 .terra.was" +
-      "m.v1beta1.ContractInfoB\004\310\336\037\000\0227\n\016contract" +
-      "_store\030\002 \003(\0132\031.terra.wasm.v1beta1.ModelB" +
-      "\004\310\336\037\000B*Z(github.com/terra-money/core/x/w" +
-      "asm/typesb\006proto3"
+      "rra/wasm/v1beta1/wasm.proto\"\372\001\n\014GenesisS" +
+      "tate\0220\n\006params\030\001 \001(\0132\032.terra.wasm.v1beta" +
+      "1.ParamsB\004\310\336\037\000\022$\n\014last_code_id\030\002 \001(\004B\016\342\336" +
+      "\037\nLastCodeID\022,\n\020last_instance_id\030\003 \001(\004B\022" +
+      "\342\336\037\016LastInstanceID\022-\n\005codes\030\004 \003(\0132\030.terr" +
+      "a.wasm.v1beta1.CodeB\004\310\336\037\000\0225\n\tcontracts\030\005" +
+      " \003(\0132\034.terra.wasm.v1beta1.ContractB\004\310\336\037\000" +
+      "\"#\n\005Model\022\013\n\003key\030\001 \001(\014\022\r\n\005value\030\002 \001(\014\"Q\n" +
+      "\004Code\0225\n\tcode_info\030\001 \001(\0132\034.terra.wasm.v1" +
+      "beta1.CodeInfoB\004\310\336\037\000\022\022\n\ncode_bytes\030\002 \001(\014" +
+      "\"\202\001\n\010Contract\022=\n\rcontract_info\030\001 \001(\0132 .t" +
+      "erra.wasm.v1beta1.ContractInfoB\004\310\336\037\000\0227\n\016" +
+      "contract_store\030\002 \003(\0132\031.terra.wasm.v1beta" +
+      "1.ModelB\004\310\336\037\000B,Z*github.com/classic-terr" +
+      "a/core/x/wasm/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.GoGoProtos.getDescriptor(),
           terra.wasm.v1beta1.Wasm.getDescriptor(),
-          cosmos.base.v1beta1.CoinOuterClass.getDescriptor(),
         });
     internal_static_terra_wasm_v1beta1_GenesisState_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -3900,7 +3842,6 @@ public final class Genesis {
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.protobuf.GoGoProtos.getDescriptor();
     terra.wasm.v1beta1.Wasm.getDescriptor();
-    cosmos.base.v1beta1.CoinOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -77,71 +77,6 @@ public final class EvidenceOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Evidence(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence.Builder subBuilder = null;
-              if (sumCase_ == 1) {
-                subBuilder = ((tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence) sum_).toBuilder();
-              }
-              sum_ =
-                  input.readMessage(tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence) sum_);
-                sum_ = subBuilder.buildPartial();
-              }
-              sumCase_ = 1;
-              break;
-            }
-            case 18: {
-              tendermint.types.EvidenceOuterClass.LightClientAttackEvidence.Builder subBuilder = null;
-              if (sumCase_ == 2) {
-                subBuilder = ((tendermint.types.EvidenceOuterClass.LightClientAttackEvidence) sum_).toBuilder();
-              }
-              sum_ =
-                  input.readMessage(tendermint.types.EvidenceOuterClass.LightClientAttackEvidence.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((tendermint.types.EvidenceOuterClass.LightClientAttackEvidence) sum_);
-                sum_ = subBuilder.buildPartial();
-              }
-              sumCase_ = 2;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.types.EvidenceOuterClass.internal_static_tendermint_types_Evidence_descriptor;
@@ -278,7 +213,7 @@ public final class EvidenceOuterClass {
       if (sumCase_ == 2) {
         output.writeMessage(2, (tendermint.types.EvidenceOuterClass.LightClientAttackEvidence) sum_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -295,7 +230,7 @@ public final class EvidenceOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, (tendermint.types.EvidenceOuterClass.LightClientAttackEvidence) sum_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -323,7 +258,7 @@ public final class EvidenceOuterClass {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -346,7 +281,7 @@ public final class EvidenceOuterClass {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -463,22 +398,24 @@ public final class EvidenceOuterClass {
 
       // Construct using tendermint.types.EvidenceOuterClass.Evidence.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (duplicateVoteEvidenceBuilder_ != null) {
+          duplicateVoteEvidenceBuilder_.clear();
+        }
+        if (lightClientAttackEvidenceBuilder_ != null) {
+          lightClientAttackEvidenceBuilder_.clear();
+        }
         sumCase_ = 0;
         sum_ = null;
         return this;
@@ -507,23 +444,27 @@ public final class EvidenceOuterClass {
       @java.lang.Override
       public tendermint.types.EvidenceOuterClass.Evidence buildPartial() {
         tendermint.types.EvidenceOuterClass.Evidence result = new tendermint.types.EvidenceOuterClass.Evidence(this);
-        if (sumCase_ == 1) {
-          if (duplicateVoteEvidenceBuilder_ == null) {
-            result.sum_ = sum_;
-          } else {
-            result.sum_ = duplicateVoteEvidenceBuilder_.build();
-          }
-        }
-        if (sumCase_ == 2) {
-          if (lightClientAttackEvidenceBuilder_ == null) {
-            result.sum_ = sum_;
-          } else {
-            result.sum_ = lightClientAttackEvidenceBuilder_.build();
-          }
-        }
-        result.sumCase_ = sumCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(tendermint.types.EvidenceOuterClass.Evidence result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(tendermint.types.EvidenceOuterClass.Evidence result) {
+        result.sumCase_ = sumCase_;
+        result.sum_ = this.sum_;
+        if (sumCase_ == 1 &&
+            duplicateVoteEvidenceBuilder_ != null) {
+          result.sum_ = duplicateVoteEvidenceBuilder_.build();
+        }
+        if (sumCase_ == 2 &&
+            lightClientAttackEvidenceBuilder_ != null) {
+          result.sum_ = lightClientAttackEvidenceBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -583,7 +524,7 @@ public final class EvidenceOuterClass {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -598,17 +539,44 @@ public final class EvidenceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        tendermint.types.EvidenceOuterClass.Evidence parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getDuplicateVoteEvidenceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                sumCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getLightClientAttackEvidenceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                sumCase_ = 2;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (tendermint.types.EvidenceOuterClass.Evidence) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int sumCase_ = 0;
@@ -626,6 +594,7 @@ public final class EvidenceOuterClass {
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence, tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence.Builder, tendermint.types.EvidenceOuterClass.DuplicateVoteEvidenceOrBuilder> duplicateVoteEvidenceBuilder_;
@@ -701,8 +670,9 @@ public final class EvidenceOuterClass {
         } else {
           if (sumCase_ == 1) {
             duplicateVoteEvidenceBuilder_.mergeFrom(value);
+          } else {
+            duplicateVoteEvidenceBuilder_.setMessage(value);
           }
-          duplicateVoteEvidenceBuilder_.setMessage(value);
         }
         sumCase_ = 1;
         return this;
@@ -764,7 +734,7 @@ public final class EvidenceOuterClass {
           sum_ = null;
         }
         sumCase_ = 1;
-        onChanged();;
+        onChanged();
         return duplicateVoteEvidenceBuilder_;
       }
 
@@ -842,8 +812,9 @@ public final class EvidenceOuterClass {
         } else {
           if (sumCase_ == 2) {
             lightClientAttackEvidenceBuilder_.mergeFrom(value);
+          } else {
+            lightClientAttackEvidenceBuilder_.setMessage(value);
           }
-          lightClientAttackEvidenceBuilder_.setMessage(value);
         }
         sumCase_ = 2;
         return this;
@@ -905,7 +876,7 @@ public final class EvidenceOuterClass {
           sum_ = null;
         }
         sumCase_ = 2;
-        onChanged();;
+        onChanged();
         return lightClientAttackEvidenceBuilder_;
       }
       @java.lang.Override
@@ -941,7 +912,18 @@ public final class EvidenceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Evidence(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1053,92 +1035,6 @@ public final class EvidenceOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DuplicateVoteEvidence(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              tendermint.types.Types.Vote.Builder subBuilder = null;
-              if (voteA_ != null) {
-                subBuilder = voteA_.toBuilder();
-              }
-              voteA_ = input.readMessage(tendermint.types.Types.Vote.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(voteA_);
-                voteA_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              tendermint.types.Types.Vote.Builder subBuilder = null;
-              if (voteB_ != null) {
-                subBuilder = voteB_.toBuilder();
-              }
-              voteB_ = input.readMessage(tendermint.types.Types.Vote.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(voteB_);
-                voteB_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 24: {
-
-              totalVotingPower_ = input.readInt64();
-              break;
-            }
-            case 32: {
-
-              validatorPower_ = input.readInt64();
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (timestamp_ != null) {
-                subBuilder = timestamp_.toBuilder();
-              }
-              timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(timestamp_);
-                timestamp_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.types.EvidenceOuterClass.internal_static_tendermint_types_DuplicateVoteEvidence_descriptor;
@@ -1175,7 +1071,7 @@ public final class EvidenceOuterClass {
      */
     @java.lang.Override
     public tendermint.types.Types.VoteOrBuilder getVoteAOrBuilder() {
-      return getVoteA();
+      return voteA_ == null ? tendermint.types.Types.Vote.getDefaultInstance() : voteA_;
     }
 
     public static final int VOTE_B_FIELD_NUMBER = 2;
@@ -1201,11 +1097,11 @@ public final class EvidenceOuterClass {
      */
     @java.lang.Override
     public tendermint.types.Types.VoteOrBuilder getVoteBOrBuilder() {
-      return getVoteB();
+      return voteB_ == null ? tendermint.types.Types.Vote.getDefaultInstance() : voteB_;
     }
 
     public static final int TOTAL_VOTING_POWER_FIELD_NUMBER = 3;
-    private long totalVotingPower_;
+    private long totalVotingPower_ = 0L;
     /**
      * <code>int64 total_voting_power = 3;</code>
      * @return The totalVotingPower.
@@ -1216,7 +1112,7 @@ public final class EvidenceOuterClass {
     }
 
     public static final int VALIDATOR_POWER_FIELD_NUMBER = 4;
-    private long validatorPower_;
+    private long validatorPower_ = 0L;
     /**
      * <code>int64 validator_power = 4;</code>
      * @return The validatorPower.
@@ -1249,7 +1145,7 @@ public final class EvidenceOuterClass {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
-      return getTimestamp();
+      return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1281,7 +1177,7 @@ public final class EvidenceOuterClass {
       if (timestamp_ != null) {
         output.writeMessage(5, getTimestamp());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1310,7 +1206,7 @@ public final class EvidenceOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getTimestamp());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1344,7 +1240,7 @@ public final class EvidenceOuterClass {
         if (!getTimestamp()
             .equals(other.getTimestamp())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1373,7 +1269,7 @@ public final class EvidenceOuterClass {
         hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
         hash = (53 * hash) + getTimestamp().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1494,42 +1390,33 @@ public final class EvidenceOuterClass {
 
       // Construct using tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (voteABuilder_ == null) {
-          voteA_ = null;
-        } else {
-          voteA_ = null;
+        bitField0_ = 0;
+        voteA_ = null;
+        if (voteABuilder_ != null) {
+          voteABuilder_.dispose();
           voteABuilder_ = null;
         }
-        if (voteBBuilder_ == null) {
-          voteB_ = null;
-        } else {
-          voteB_ = null;
+        voteB_ = null;
+        if (voteBBuilder_ != null) {
+          voteBBuilder_.dispose();
           voteBBuilder_ = null;
         }
         totalVotingPower_ = 0L;
-
         validatorPower_ = 0L;
-
-        if (timestampBuilder_ == null) {
-          timestamp_ = null;
-        } else {
-          timestamp_ = null;
+        timestamp_ = null;
+        if (timestampBuilder_ != null) {
+          timestampBuilder_.dispose();
           timestampBuilder_ = null;
         }
         return this;
@@ -1558,25 +1445,34 @@ public final class EvidenceOuterClass {
       @java.lang.Override
       public tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence buildPartial() {
         tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence result = new tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence(this);
-        if (voteABuilder_ == null) {
-          result.voteA_ = voteA_;
-        } else {
-          result.voteA_ = voteABuilder_.build();
-        }
-        if (voteBBuilder_ == null) {
-          result.voteB_ = voteB_;
-        } else {
-          result.voteB_ = voteBBuilder_.build();
-        }
-        result.totalVotingPower_ = totalVotingPower_;
-        result.validatorPower_ = validatorPower_;
-        if (timestampBuilder_ == null) {
-          result.timestamp_ = timestamp_;
-        } else {
-          result.timestamp_ = timestampBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.voteA_ = voteABuilder_ == null
+              ? voteA_
+              : voteABuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.voteB_ = voteBBuilder_ == null
+              ? voteB_
+              : voteBBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.totalVotingPower_ = totalVotingPower_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.validatorPower_ = validatorPower_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.timestamp_ = timestampBuilder_ == null
+              ? timestamp_
+              : timestampBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1638,7 +1534,7 @@ public final class EvidenceOuterClass {
         if (other.hasTimestamp()) {
           mergeTimestamp(other.getTimestamp());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1653,19 +1549,64 @@ public final class EvidenceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getVoteAFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getVoteBFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                totalVotingPower_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                validatorPower_ = input.readInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                input.readMessage(
+                    getTimestampFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (tendermint.types.EvidenceOuterClass.DuplicateVoteEvidence) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private tendermint.types.Types.Vote voteA_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1675,7 +1616,7 @@ public final class EvidenceOuterClass {
        * @return Whether the voteA field is set.
        */
       public boolean hasVoteA() {
-        return voteABuilder_ != null || voteA_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.tendermint.types.Vote vote_a = 1;</code>
@@ -1697,11 +1638,11 @@ public final class EvidenceOuterClass {
             throw new NullPointerException();
           }
           voteA_ = value;
-          onChanged();
         } else {
           voteABuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1711,11 +1652,11 @@ public final class EvidenceOuterClass {
           tendermint.types.Types.Vote.Builder builderForValue) {
         if (voteABuilder_ == null) {
           voteA_ = builderForValue.build();
-          onChanged();
         } else {
           voteABuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1723,38 +1664,38 @@ public final class EvidenceOuterClass {
        */
       public Builder mergeVoteA(tendermint.types.Types.Vote value) {
         if (voteABuilder_ == null) {
-          if (voteA_ != null) {
-            voteA_ =
-              tendermint.types.Types.Vote.newBuilder(voteA_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            voteA_ != null &&
+            voteA_ != tendermint.types.Types.Vote.getDefaultInstance()) {
+            getVoteABuilder().mergeFrom(value);
           } else {
             voteA_ = value;
           }
-          onChanged();
         } else {
           voteABuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.tendermint.types.Vote vote_a = 1;</code>
        */
       public Builder clearVoteA() {
-        if (voteABuilder_ == null) {
-          voteA_ = null;
-          onChanged();
-        } else {
-          voteA_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        voteA_ = null;
+        if (voteABuilder_ != null) {
+          voteABuilder_.dispose();
           voteABuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.tendermint.types.Vote vote_a = 1;</code>
        */
       public tendermint.types.Types.Vote.Builder getVoteABuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getVoteAFieldBuilder().getBuilder();
       }
@@ -1794,7 +1735,7 @@ public final class EvidenceOuterClass {
        * @return Whether the voteB field is set.
        */
       public boolean hasVoteB() {
-        return voteBBuilder_ != null || voteB_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.tendermint.types.Vote vote_b = 2;</code>
@@ -1816,11 +1757,11 @@ public final class EvidenceOuterClass {
             throw new NullPointerException();
           }
           voteB_ = value;
-          onChanged();
         } else {
           voteBBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1830,11 +1771,11 @@ public final class EvidenceOuterClass {
           tendermint.types.Types.Vote.Builder builderForValue) {
         if (voteBBuilder_ == null) {
           voteB_ = builderForValue.build();
-          onChanged();
         } else {
           voteBBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1842,38 +1783,38 @@ public final class EvidenceOuterClass {
        */
       public Builder mergeVoteB(tendermint.types.Types.Vote value) {
         if (voteBBuilder_ == null) {
-          if (voteB_ != null) {
-            voteB_ =
-              tendermint.types.Types.Vote.newBuilder(voteB_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            voteB_ != null &&
+            voteB_ != tendermint.types.Types.Vote.getDefaultInstance()) {
+            getVoteBBuilder().mergeFrom(value);
           } else {
             voteB_ = value;
           }
-          onChanged();
         } else {
           voteBBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.tendermint.types.Vote vote_b = 2;</code>
        */
       public Builder clearVoteB() {
-        if (voteBBuilder_ == null) {
-          voteB_ = null;
-          onChanged();
-        } else {
-          voteB_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        voteB_ = null;
+        if (voteBBuilder_ != null) {
+          voteBBuilder_.dispose();
           voteBBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.tendermint.types.Vote vote_b = 2;</code>
        */
       public tendermint.types.Types.Vote.Builder getVoteBBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getVoteBFieldBuilder().getBuilder();
       }
@@ -1922,6 +1863,7 @@ public final class EvidenceOuterClass {
       public Builder setTotalVotingPower(long value) {
         
         totalVotingPower_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1930,7 +1872,7 @@ public final class EvidenceOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTotalVotingPower() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         totalVotingPower_ = 0L;
         onChanged();
         return this;
@@ -1953,6 +1895,7 @@ public final class EvidenceOuterClass {
       public Builder setValidatorPower(long value) {
         
         validatorPower_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1961,7 +1904,7 @@ public final class EvidenceOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearValidatorPower() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         validatorPower_ = 0L;
         onChanged();
         return this;
@@ -1975,7 +1918,7 @@ public final class EvidenceOuterClass {
        * @return Whether the timestamp field is set.
        */
       public boolean hasTimestamp() {
-        return timestampBuilder_ != null || timestamp_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <code>.google.protobuf.Timestamp timestamp = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
@@ -1997,11 +1940,11 @@ public final class EvidenceOuterClass {
             throw new NullPointerException();
           }
           timestamp_ = value;
-          onChanged();
         } else {
           timestampBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2011,11 +1954,11 @@ public final class EvidenceOuterClass {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (timestampBuilder_ == null) {
           timestamp_ = builderForValue.build();
-          onChanged();
         } else {
           timestampBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2023,38 +1966,38 @@ public final class EvidenceOuterClass {
        */
       public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
         if (timestampBuilder_ == null) {
-          if (timestamp_ != null) {
-            timestamp_ =
-              com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            timestamp_ != null &&
+            timestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getTimestampBuilder().mergeFrom(value);
           } else {
             timestamp_ = value;
           }
-          onChanged();
         } else {
           timestampBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp timestamp = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public Builder clearTimestamp() {
-        if (timestampBuilder_ == null) {
-          timestamp_ = null;
-          onChanged();
-        } else {
-          timestamp_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        timestamp_ = null;
+        if (timestampBuilder_ != null) {
+          timestampBuilder_.dispose();
           timestampBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp timestamp = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getTimestampFieldBuilder().getBuilder();
       }
@@ -2118,7 +2061,18 @@ public final class EvidenceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DuplicateVoteEvidence(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2240,92 +2194,6 @@ public final class EvidenceOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LightClientAttackEvidence(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              tendermint.types.Types.LightBlock.Builder subBuilder = null;
-              if (conflictingBlock_ != null) {
-                subBuilder = conflictingBlock_.toBuilder();
-              }
-              conflictingBlock_ = input.readMessage(tendermint.types.Types.LightBlock.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(conflictingBlock_);
-                conflictingBlock_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-
-              commonHeight_ = input.readInt64();
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                byzantineValidators_ = new java.util.ArrayList<tendermint.types.ValidatorOuterClass.Validator>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              byzantineValidators_.add(
-                  input.readMessage(tendermint.types.ValidatorOuterClass.Validator.parser(), extensionRegistry));
-              break;
-            }
-            case 32: {
-
-              totalVotingPower_ = input.readInt64();
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (timestamp_ != null) {
-                subBuilder = timestamp_.toBuilder();
-              }
-              timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(timestamp_);
-                timestamp_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          byzantineValidators_ = java.util.Collections.unmodifiableList(byzantineValidators_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.types.EvidenceOuterClass.internal_static_tendermint_types_LightClientAttackEvidence_descriptor;
@@ -2362,11 +2230,11 @@ public final class EvidenceOuterClass {
      */
     @java.lang.Override
     public tendermint.types.Types.LightBlockOrBuilder getConflictingBlockOrBuilder() {
-      return getConflictingBlock();
+      return conflictingBlock_ == null ? tendermint.types.Types.LightBlock.getDefaultInstance() : conflictingBlock_;
     }
 
     public static final int COMMON_HEIGHT_FIELD_NUMBER = 2;
-    private long commonHeight_;
+    private long commonHeight_ = 0L;
     /**
      * <code>int64 common_height = 2;</code>
      * @return The commonHeight.
@@ -2377,6 +2245,7 @@ public final class EvidenceOuterClass {
     }
 
     public static final int BYZANTINE_VALIDATORS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<tendermint.types.ValidatorOuterClass.Validator> byzantineValidators_;
     /**
      * <code>repeated .tendermint.types.Validator byzantine_validators = 3;</code>
@@ -2417,7 +2286,7 @@ public final class EvidenceOuterClass {
     }
 
     public static final int TOTAL_VOTING_POWER_FIELD_NUMBER = 4;
-    private long totalVotingPower_;
+    private long totalVotingPower_ = 0L;
     /**
      * <code>int64 total_voting_power = 4;</code>
      * @return The totalVotingPower.
@@ -2450,7 +2319,7 @@ public final class EvidenceOuterClass {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
-      return getTimestamp();
+      return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2482,7 +2351,7 @@ public final class EvidenceOuterClass {
       if (timestamp_ != null) {
         output.writeMessage(5, getTimestamp());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2511,7 +2380,7 @@ public final class EvidenceOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getTimestamp());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2542,7 +2411,7 @@ public final class EvidenceOuterClass {
         if (!getTimestamp()
             .equals(other.getTimestamp())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2571,7 +2440,7 @@ public final class EvidenceOuterClass {
         hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
         hash = (53 * hash) + getTimestamp().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2692,43 +2561,35 @@ public final class EvidenceOuterClass {
 
       // Construct using tendermint.types.EvidenceOuterClass.LightClientAttackEvidence.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getByzantineValidatorsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (conflictingBlockBuilder_ == null) {
-          conflictingBlock_ = null;
-        } else {
-          conflictingBlock_ = null;
+        bitField0_ = 0;
+        conflictingBlock_ = null;
+        if (conflictingBlockBuilder_ != null) {
+          conflictingBlockBuilder_.dispose();
           conflictingBlockBuilder_ = null;
         }
         commonHeight_ = 0L;
-
         if (byzantineValidatorsBuilder_ == null) {
           byzantineValidators_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          byzantineValidators_ = null;
           byzantineValidatorsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         totalVotingPower_ = 0L;
-
-        if (timestampBuilder_ == null) {
-          timestamp_ = null;
-        } else {
-          timestamp_ = null;
+        timestamp_ = null;
+        if (timestampBuilder_ != null) {
+          timestampBuilder_.dispose();
           timestampBuilder_ = null;
         }
         return this;
@@ -2757,30 +2618,42 @@ public final class EvidenceOuterClass {
       @java.lang.Override
       public tendermint.types.EvidenceOuterClass.LightClientAttackEvidence buildPartial() {
         tendermint.types.EvidenceOuterClass.LightClientAttackEvidence result = new tendermint.types.EvidenceOuterClass.LightClientAttackEvidence(this);
-        int from_bitField0_ = bitField0_;
-        if (conflictingBlockBuilder_ == null) {
-          result.conflictingBlock_ = conflictingBlock_;
-        } else {
-          result.conflictingBlock_ = conflictingBlockBuilder_.build();
-        }
-        result.commonHeight_ = commonHeight_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(tendermint.types.EvidenceOuterClass.LightClientAttackEvidence result) {
         if (byzantineValidatorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             byzantineValidators_ = java.util.Collections.unmodifiableList(byzantineValidators_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.byzantineValidators_ = byzantineValidators_;
         } else {
           result.byzantineValidators_ = byzantineValidatorsBuilder_.build();
         }
-        result.totalVotingPower_ = totalVotingPower_;
-        if (timestampBuilder_ == null) {
-          result.timestamp_ = timestamp_;
-        } else {
-          result.timestamp_ = timestampBuilder_.build();
+      }
+
+      private void buildPartial0(tendermint.types.EvidenceOuterClass.LightClientAttackEvidence result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.conflictingBlock_ = conflictingBlockBuilder_ == null
+              ? conflictingBlock_
+              : conflictingBlockBuilder_.build();
         }
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.commonHeight_ = commonHeight_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.totalVotingPower_ = totalVotingPower_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.timestamp_ = timestampBuilder_ == null
+              ? timestamp_
+              : timestampBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2837,7 +2710,7 @@ public final class EvidenceOuterClass {
           if (!other.byzantineValidators_.isEmpty()) {
             if (byzantineValidators_.isEmpty()) {
               byzantineValidators_ = other.byzantineValidators_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureByzantineValidatorsIsMutable();
               byzantineValidators_.addAll(other.byzantineValidators_);
@@ -2850,7 +2723,7 @@ public final class EvidenceOuterClass {
               byzantineValidatorsBuilder_.dispose();
               byzantineValidatorsBuilder_ = null;
               byzantineValidators_ = other.byzantineValidators_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
               byzantineValidatorsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getByzantineValidatorsFieldBuilder() : null;
@@ -2865,7 +2738,7 @@ public final class EvidenceOuterClass {
         if (other.hasTimestamp()) {
           mergeTimestamp(other.getTimestamp());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2880,17 +2753,67 @@ public final class EvidenceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        tendermint.types.EvidenceOuterClass.LightClientAttackEvidence parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getConflictingBlockFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                commonHeight_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                tendermint.types.ValidatorOuterClass.Validator m =
+                    input.readMessage(
+                        tendermint.types.ValidatorOuterClass.Validator.parser(),
+                        extensionRegistry);
+                if (byzantineValidatorsBuilder_ == null) {
+                  ensureByzantineValidatorsIsMutable();
+                  byzantineValidators_.add(m);
+                } else {
+                  byzantineValidatorsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              case 32: {
+                totalVotingPower_ = input.readInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                input.readMessage(
+                    getTimestampFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (tendermint.types.EvidenceOuterClass.LightClientAttackEvidence) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2903,7 +2826,7 @@ public final class EvidenceOuterClass {
        * @return Whether the conflictingBlock field is set.
        */
       public boolean hasConflictingBlock() {
-        return conflictingBlockBuilder_ != null || conflictingBlock_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.tendermint.types.LightBlock conflicting_block = 1;</code>
@@ -2925,11 +2848,11 @@ public final class EvidenceOuterClass {
             throw new NullPointerException();
           }
           conflictingBlock_ = value;
-          onChanged();
         } else {
           conflictingBlockBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2939,11 +2862,11 @@ public final class EvidenceOuterClass {
           tendermint.types.Types.LightBlock.Builder builderForValue) {
         if (conflictingBlockBuilder_ == null) {
           conflictingBlock_ = builderForValue.build();
-          onChanged();
         } else {
           conflictingBlockBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2951,38 +2874,38 @@ public final class EvidenceOuterClass {
        */
       public Builder mergeConflictingBlock(tendermint.types.Types.LightBlock value) {
         if (conflictingBlockBuilder_ == null) {
-          if (conflictingBlock_ != null) {
-            conflictingBlock_ =
-              tendermint.types.Types.LightBlock.newBuilder(conflictingBlock_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            conflictingBlock_ != null &&
+            conflictingBlock_ != tendermint.types.Types.LightBlock.getDefaultInstance()) {
+            getConflictingBlockBuilder().mergeFrom(value);
           } else {
             conflictingBlock_ = value;
           }
-          onChanged();
         } else {
           conflictingBlockBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.tendermint.types.LightBlock conflicting_block = 1;</code>
        */
       public Builder clearConflictingBlock() {
-        if (conflictingBlockBuilder_ == null) {
-          conflictingBlock_ = null;
-          onChanged();
-        } else {
-          conflictingBlock_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        conflictingBlock_ = null;
+        if (conflictingBlockBuilder_ != null) {
+          conflictingBlockBuilder_.dispose();
           conflictingBlockBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.tendermint.types.LightBlock conflicting_block = 1;</code>
        */
       public tendermint.types.Types.LightBlock.Builder getConflictingBlockBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getConflictingBlockFieldBuilder().getBuilder();
       }
@@ -3031,6 +2954,7 @@ public final class EvidenceOuterClass {
       public Builder setCommonHeight(long value) {
         
         commonHeight_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3039,7 +2963,7 @@ public final class EvidenceOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCommonHeight() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         commonHeight_ = 0L;
         onChanged();
         return this;
@@ -3048,9 +2972,9 @@ public final class EvidenceOuterClass {
       private java.util.List<tendermint.types.ValidatorOuterClass.Validator> byzantineValidators_ =
         java.util.Collections.emptyList();
       private void ensureByzantineValidatorsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           byzantineValidators_ = new java.util.ArrayList<tendermint.types.ValidatorOuterClass.Validator>(byzantineValidators_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -3200,7 +3124,7 @@ public final class EvidenceOuterClass {
       public Builder clearByzantineValidators() {
         if (byzantineValidatorsBuilder_ == null) {
           byzantineValidators_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           byzantineValidatorsBuilder_.clear();
@@ -3277,7 +3201,7 @@ public final class EvidenceOuterClass {
           byzantineValidatorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               tendermint.types.ValidatorOuterClass.Validator, tendermint.types.ValidatorOuterClass.Validator.Builder, tendermint.types.ValidatorOuterClass.ValidatorOrBuilder>(
                   byzantineValidators_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           byzantineValidators_ = null;
@@ -3302,6 +3226,7 @@ public final class EvidenceOuterClass {
       public Builder setTotalVotingPower(long value) {
         
         totalVotingPower_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3310,7 +3235,7 @@ public final class EvidenceOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearTotalVotingPower() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         totalVotingPower_ = 0L;
         onChanged();
         return this;
@@ -3324,7 +3249,7 @@ public final class EvidenceOuterClass {
        * @return Whether the timestamp field is set.
        */
       public boolean hasTimestamp() {
-        return timestampBuilder_ != null || timestamp_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <code>.google.protobuf.Timestamp timestamp = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
@@ -3346,11 +3271,11 @@ public final class EvidenceOuterClass {
             throw new NullPointerException();
           }
           timestamp_ = value;
-          onChanged();
         } else {
           timestampBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -3360,11 +3285,11 @@ public final class EvidenceOuterClass {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (timestampBuilder_ == null) {
           timestamp_ = builderForValue.build();
-          onChanged();
         } else {
           timestampBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -3372,38 +3297,38 @@ public final class EvidenceOuterClass {
        */
       public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
         if (timestampBuilder_ == null) {
-          if (timestamp_ != null) {
-            timestamp_ =
-              com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            timestamp_ != null &&
+            timestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getTimestampBuilder().mergeFrom(value);
           } else {
             timestamp_ = value;
           }
-          onChanged();
         } else {
           timestampBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp timestamp = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public Builder clearTimestamp() {
-        if (timestampBuilder_ == null) {
-          timestamp_ = null;
-          onChanged();
-        } else {
-          timestamp_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        timestamp_ = null;
+        if (timestampBuilder_ != null) {
+          timestampBuilder_.dispose();
           timestampBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp timestamp = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getTimestampFieldBuilder().getBuilder();
       }
@@ -3467,7 +3392,18 @@ public final class EvidenceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LightClientAttackEvidence(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3543,56 +3479,6 @@ public final class EvidenceOuterClass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private EvidenceList(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                evidence_ = new java.util.ArrayList<tendermint.types.EvidenceOuterClass.Evidence>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              evidence_.add(
-                  input.readMessage(tendermint.types.EvidenceOuterClass.Evidence.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          evidence_ = java.util.Collections.unmodifiableList(evidence_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return tendermint.types.EvidenceOuterClass.internal_static_tendermint_types_EvidenceList_descriptor;
@@ -3607,6 +3493,7 @@ public final class EvidenceOuterClass {
     }
 
     public static final int EVIDENCE_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<tendermint.types.EvidenceOuterClass.Evidence> evidence_;
     /**
      * <code>repeated .tendermint.types.Evidence evidence = 1 [(.gogoproto.nullable) = false];</code>
@@ -3663,7 +3550,7 @@ public final class EvidenceOuterClass {
       for (int i = 0; i < evidence_.size(); i++) {
         output.writeMessage(1, evidence_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3676,7 +3563,7 @@ public final class EvidenceOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, evidence_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3693,7 +3580,7 @@ public final class EvidenceOuterClass {
 
       if (!getEvidenceList()
           .equals(other.getEvidenceList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3708,7 +3595,7 @@ public final class EvidenceOuterClass {
         hash = (37 * hash) + EVIDENCE_FIELD_NUMBER;
         hash = (53 * hash) + getEvidenceList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3825,29 +3712,25 @@ public final class EvidenceOuterClass {
 
       // Construct using tendermint.types.EvidenceOuterClass.EvidenceList.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getEvidenceFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (evidenceBuilder_ == null) {
           evidence_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          evidence_ = null;
           evidenceBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -3874,7 +3757,13 @@ public final class EvidenceOuterClass {
       @java.lang.Override
       public tendermint.types.EvidenceOuterClass.EvidenceList buildPartial() {
         tendermint.types.EvidenceOuterClass.EvidenceList result = new tendermint.types.EvidenceOuterClass.EvidenceList(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(tendermint.types.EvidenceOuterClass.EvidenceList result) {
         if (evidenceBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             evidence_ = java.util.Collections.unmodifiableList(evidence_);
@@ -3884,8 +3773,10 @@ public final class EvidenceOuterClass {
         } else {
           result.evidence_ = evidenceBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(tendermint.types.EvidenceOuterClass.EvidenceList result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -3958,7 +3849,7 @@ public final class EvidenceOuterClass {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3973,17 +3864,43 @@ public final class EvidenceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        tendermint.types.EvidenceOuterClass.EvidenceList parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                tendermint.types.EvidenceOuterClass.Evidence m =
+                    input.readMessage(
+                        tendermint.types.EvidenceOuterClass.Evidence.parser(),
+                        extensionRegistry);
+                if (evidenceBuilder_ == null) {
+                  ensureEvidenceIsMutable();
+                  evidence_.add(m);
+                } else {
+                  evidenceBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (tendermint.types.EvidenceOuterClass.EvidenceList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4260,7 +4177,18 @@ public final class EvidenceOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EvidenceList(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

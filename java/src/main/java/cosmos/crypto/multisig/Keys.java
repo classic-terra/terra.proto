@@ -82,61 +82,6 @@ public final class Keys {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LegacyAminoPubKey(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              threshold_ = input.readUInt32();
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                publicKeys_ = new java.util.ArrayList<com.google.protobuf.Any>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              publicKeys_.add(
-                  input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          publicKeys_ = java.util.Collections.unmodifiableList(publicKeys_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.crypto.multisig.Keys.internal_static_cosmos_crypto_multisig_LegacyAminoPubKey_descriptor;
@@ -151,7 +96,7 @@ public final class Keys {
     }
 
     public static final int THRESHOLD_FIELD_NUMBER = 1;
-    private int threshold_;
+    private int threshold_ = 0;
     /**
      * <code>uint32 threshold = 1 [(.gogoproto.moretags) = "yaml:&#92;"threshold&#92;""];</code>
      * @return The threshold.
@@ -162,6 +107,7 @@ public final class Keys {
     }
 
     public static final int PUBLIC_KEYS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protobuf.Any> publicKeys_;
     /**
      * <code>repeated .google.protobuf.Any public_keys = 2 [(.gogoproto.customname) = "PubKeys", (.gogoproto.moretags) = "yaml:&#92;"pubkeys&#92;""];</code>
@@ -221,7 +167,7 @@ public final class Keys {
       for (int i = 0; i < publicKeys_.size(); i++) {
         output.writeMessage(2, publicKeys_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -238,7 +184,7 @@ public final class Keys {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, publicKeys_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -257,7 +203,7 @@ public final class Keys {
           != other.getThreshold()) return false;
       if (!getPublicKeysList()
           .equals(other.getPublicKeysList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -274,7 +220,7 @@ public final class Keys {
         hash = (37 * hash) + PUBLIC_KEYS_FIELD_NUMBER;
         hash = (53 * hash) + getPublicKeysList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -397,31 +343,26 @@ public final class Keys {
 
       // Construct using cosmos.crypto.multisig.Keys.LegacyAminoPubKey.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getPublicKeysFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         threshold_ = 0;
-
         if (publicKeysBuilder_ == null) {
           publicKeys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          publicKeys_ = null;
           publicKeysBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -448,19 +389,29 @@ public final class Keys {
       @java.lang.Override
       public cosmos.crypto.multisig.Keys.LegacyAminoPubKey buildPartial() {
         cosmos.crypto.multisig.Keys.LegacyAminoPubKey result = new cosmos.crypto.multisig.Keys.LegacyAminoPubKey(this);
-        int from_bitField0_ = bitField0_;
-        result.threshold_ = threshold_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.crypto.multisig.Keys.LegacyAminoPubKey result) {
         if (publicKeysBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             publicKeys_ = java.util.Collections.unmodifiableList(publicKeys_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.publicKeys_ = publicKeys_;
         } else {
           result.publicKeys_ = publicKeysBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.crypto.multisig.Keys.LegacyAminoPubKey result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.threshold_ = threshold_;
+        }
       }
 
       @java.lang.Override
@@ -514,7 +465,7 @@ public final class Keys {
           if (!other.publicKeys_.isEmpty()) {
             if (publicKeys_.isEmpty()) {
               publicKeys_ = other.publicKeys_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensurePublicKeysIsMutable();
               publicKeys_.addAll(other.publicKeys_);
@@ -527,7 +478,7 @@ public final class Keys {
               publicKeysBuilder_.dispose();
               publicKeysBuilder_ = null;
               publicKeys_ = other.publicKeys_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               publicKeysBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getPublicKeysFieldBuilder() : null;
@@ -536,7 +487,7 @@ public final class Keys {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -551,17 +502,48 @@ public final class Keys {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.crypto.multisig.Keys.LegacyAminoPubKey parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                threshold_ = input.readUInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                com.google.protobuf.Any m =
+                    input.readMessage(
+                        com.google.protobuf.Any.parser(),
+                        extensionRegistry);
+                if (publicKeysBuilder_ == null) {
+                  ensurePublicKeysIsMutable();
+                  publicKeys_.add(m);
+                } else {
+                  publicKeysBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.crypto.multisig.Keys.LegacyAminoPubKey) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -583,6 +565,7 @@ public final class Keys {
       public Builder setThreshold(int value) {
         
         threshold_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -591,7 +574,7 @@ public final class Keys {
        * @return This builder for chaining.
        */
       public Builder clearThreshold() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         threshold_ = 0;
         onChanged();
         return this;
@@ -600,9 +583,9 @@ public final class Keys {
       private java.util.List<com.google.protobuf.Any> publicKeys_ =
         java.util.Collections.emptyList();
       private void ensurePublicKeysIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           publicKeys_ = new java.util.ArrayList<com.google.protobuf.Any>(publicKeys_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -752,7 +735,7 @@ public final class Keys {
       public Builder clearPublicKeys() {
         if (publicKeysBuilder_ == null) {
           publicKeys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           publicKeysBuilder_.clear();
@@ -829,7 +812,7 @@ public final class Keys {
           publicKeysBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
                   publicKeys_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           publicKeys_ = null;
@@ -869,7 +852,18 @@ public final class Keys {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LegacyAminoPubKey(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

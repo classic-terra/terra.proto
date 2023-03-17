@@ -132,69 +132,6 @@ public final class Feegrant {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BasicAllowance(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                spendLimit_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.Coin>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              spendLimit_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (expiration_ != null) {
-                subBuilder = expiration_.toBuilder();
-              }
-              expiration_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(expiration_);
-                expiration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          spendLimit_ = java.util.Collections.unmodifiableList(spendLimit_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.feegrant.v1beta1.Feegrant.internal_static_cosmos_feegrant_v1beta1_BasicAllowance_descriptor;
@@ -209,6 +146,7 @@ public final class Feegrant {
     }
 
     public static final int SPEND_LIMIT_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.Coin> spendLimit_;
     /**
      * <pre>
@@ -313,7 +251,7 @@ public final class Feegrant {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getExpirationOrBuilder() {
-      return getExpiration();
+      return expiration_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expiration_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -336,7 +274,7 @@ public final class Feegrant {
       if (expiration_ != null) {
         output.writeMessage(2, getExpiration());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -353,7 +291,7 @@ public final class Feegrant {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getExpiration());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -375,7 +313,7 @@ public final class Feegrant {
         if (!getExpiration()
             .equals(other.getExpiration())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -394,7 +332,7 @@ public final class Feegrant {
         hash = (37 * hash) + EXPIRATION_FIELD_NUMBER;
         hash = (53 * hash) + getExpiration().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -516,33 +454,28 @@ public final class Feegrant {
 
       // Construct using cosmos.feegrant.v1beta1.Feegrant.BasicAllowance.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getSpendLimitFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (spendLimitBuilder_ == null) {
           spendLimit_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          spendLimit_ = null;
           spendLimitBuilder_.clear();
         }
-        if (expirationBuilder_ == null) {
-          expiration_ = null;
-        } else {
-          expiration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        expiration_ = null;
+        if (expirationBuilder_ != null) {
+          expirationBuilder_.dispose();
           expirationBuilder_ = null;
         }
         return this;
@@ -571,7 +504,13 @@ public final class Feegrant {
       @java.lang.Override
       public cosmos.feegrant.v1beta1.Feegrant.BasicAllowance buildPartial() {
         cosmos.feegrant.v1beta1.Feegrant.BasicAllowance result = new cosmos.feegrant.v1beta1.Feegrant.BasicAllowance(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.feegrant.v1beta1.Feegrant.BasicAllowance result) {
         if (spendLimitBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             spendLimit_ = java.util.Collections.unmodifiableList(spendLimit_);
@@ -581,13 +520,15 @@ public final class Feegrant {
         } else {
           result.spendLimit_ = spendLimitBuilder_.build();
         }
-        if (expirationBuilder_ == null) {
-          result.expiration_ = expiration_;
-        } else {
-          result.expiration_ = expirationBuilder_.build();
+      }
+
+      private void buildPartial0(cosmos.feegrant.v1beta1.Feegrant.BasicAllowance result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.expiration_ = expirationBuilder_ == null
+              ? expiration_
+              : expirationBuilder_.build();
         }
-        onBuilt();
-        return result;
       }
 
       @java.lang.Override
@@ -663,7 +604,7 @@ public final class Feegrant {
         if (other.hasExpiration()) {
           mergeExpiration(other.getExpiration());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -678,17 +619,50 @@ public final class Feegrant {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.feegrant.v1beta1.Feegrant.BasicAllowance parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cosmos.base.v1beta1.CoinOuterClass.Coin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.Coin.parser(),
+                        extensionRegistry);
+                if (spendLimitBuilder_ == null) {
+                  ensureSpendLimitIsMutable();
+                  spendLimit_.add(m);
+                } else {
+                  spendLimitBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getExpirationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.feegrant.v1beta1.Feegrant.BasicAllowance) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1053,7 +1027,7 @@ public final class Feegrant {
        * @return Whether the expiration field is set.
        */
       public boolean hasExpiration() {
-        return expirationBuilder_ != null || expiration_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1083,11 +1057,11 @@ public final class Feegrant {
             throw new NullPointerException();
           }
           expiration_ = value;
-          onChanged();
         } else {
           expirationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1101,11 +1075,11 @@ public final class Feegrant {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (expirationBuilder_ == null) {
           expiration_ = builderForValue.build();
-          onChanged();
         } else {
           expirationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1117,17 +1091,18 @@ public final class Feegrant {
        */
       public Builder mergeExpiration(com.google.protobuf.Timestamp value) {
         if (expirationBuilder_ == null) {
-          if (expiration_ != null) {
-            expiration_ =
-              com.google.protobuf.Timestamp.newBuilder(expiration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            expiration_ != null &&
+            expiration_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getExpirationBuilder().mergeFrom(value);
           } else {
             expiration_ = value;
           }
-          onChanged();
         } else {
           expirationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1138,14 +1113,13 @@ public final class Feegrant {
        * <code>.google.protobuf.Timestamp expiration = 2 [(.gogoproto.stdtime) = true];</code>
        */
       public Builder clearExpiration() {
-        if (expirationBuilder_ == null) {
-          expiration_ = null;
-          onChanged();
-        } else {
-          expiration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        expiration_ = null;
+        if (expirationBuilder_ != null) {
+          expirationBuilder_.dispose();
           expirationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1156,7 +1130,7 @@ public final class Feegrant {
        * <code>.google.protobuf.Timestamp expiration = 2 [(.gogoproto.stdtime) = true];</code>
        */
       public com.google.protobuf.Timestamp.Builder getExpirationBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getExpirationFieldBuilder().getBuilder();
       }
@@ -1228,7 +1202,18 @@ public final class Feegrant {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BasicAllowance(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1469,107 +1454,6 @@ public final class Feegrant {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PeriodicAllowance(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              cosmos.feegrant.v1beta1.Feegrant.BasicAllowance.Builder subBuilder = null;
-              if (basic_ != null) {
-                subBuilder = basic_.toBuilder();
-              }
-              basic_ = input.readMessage(cosmos.feegrant.v1beta1.Feegrant.BasicAllowance.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(basic_);
-                basic_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (period_ != null) {
-                subBuilder = period_.toBuilder();
-              }
-              period_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(period_);
-                period_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                periodSpendLimit_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.Coin>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              periodSpendLimit_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry));
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                periodCanSpend_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.Coin>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              periodCanSpend_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry));
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (periodReset_ != null) {
-                subBuilder = periodReset_.toBuilder();
-              }
-              periodReset_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(periodReset_);
-                periodReset_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          periodSpendLimit_ = java.util.Collections.unmodifiableList(periodSpendLimit_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          periodCanSpend_ = java.util.Collections.unmodifiableList(periodCanSpend_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.feegrant.v1beta1.Feegrant.internal_static_cosmos_feegrant_v1beta1_PeriodicAllowance_descriptor;
@@ -1618,7 +1502,7 @@ public final class Feegrant {
      */
     @java.lang.Override
     public cosmos.feegrant.v1beta1.Feegrant.BasicAllowanceOrBuilder getBasicOrBuilder() {
-      return getBasic();
+      return basic_ == null ? cosmos.feegrant.v1beta1.Feegrant.BasicAllowance.getDefaultInstance() : basic_;
     }
 
     public static final int PERIOD_FIELD_NUMBER = 2;
@@ -1659,10 +1543,11 @@ public final class Feegrant {
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getPeriodOrBuilder() {
-      return getPeriod();
+      return period_ == null ? com.google.protobuf.Duration.getDefaultInstance() : period_;
     }
 
     public static final int PERIOD_SPEND_LIMIT_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.Coin> periodSpendLimit_;
     /**
      * <pre>
@@ -1728,6 +1613,7 @@ public final class Feegrant {
     }
 
     public static final int PERIOD_CAN_SPEND_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.Coin> periodCanSpend_;
     /**
      * <pre>
@@ -1828,7 +1714,7 @@ public final class Feegrant {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getPeriodResetOrBuilder() {
-      return getPeriodReset();
+      return periodReset_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : periodReset_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1860,7 +1746,7 @@ public final class Feegrant {
       if (periodReset_ != null) {
         output.writeMessage(5, getPeriodReset());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1889,7 +1775,7 @@ public final class Feegrant {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getPeriodReset());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1923,7 +1809,7 @@ public final class Feegrant {
         if (!getPeriodReset()
             .equals(other.getPeriodReset())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1954,7 +1840,7 @@ public final class Feegrant {
         hash = (37 * hash) + PERIOD_RESET_FIELD_NUMBER;
         hash = (53 * hash) + getPeriodReset().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2076,52 +1962,45 @@ public final class Feegrant {
 
       // Construct using cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getPeriodSpendLimitFieldBuilder();
-          getPeriodCanSpendFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (basicBuilder_ == null) {
-          basic_ = null;
-        } else {
-          basic_ = null;
+        bitField0_ = 0;
+        basic_ = null;
+        if (basicBuilder_ != null) {
+          basicBuilder_.dispose();
           basicBuilder_ = null;
         }
-        if (periodBuilder_ == null) {
-          period_ = null;
-        } else {
-          period_ = null;
+        period_ = null;
+        if (periodBuilder_ != null) {
+          periodBuilder_.dispose();
           periodBuilder_ = null;
         }
         if (periodSpendLimitBuilder_ == null) {
           periodSpendLimit_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          periodSpendLimit_ = null;
           periodSpendLimitBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (periodCanSpendBuilder_ == null) {
           periodCanSpend_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          periodCanSpend_ = null;
           periodCanSpendBuilder_.clear();
         }
-        if (periodResetBuilder_ == null) {
-          periodReset_ = null;
-        } else {
-          periodReset_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        periodReset_ = null;
+        if (periodResetBuilder_ != null) {
+          periodResetBuilder_.dispose();
           periodResetBuilder_ = null;
         }
         return this;
@@ -2150,42 +2029,50 @@ public final class Feegrant {
       @java.lang.Override
       public cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance buildPartial() {
         cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance result = new cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance(this);
-        int from_bitField0_ = bitField0_;
-        if (basicBuilder_ == null) {
-          result.basic_ = basic_;
-        } else {
-          result.basic_ = basicBuilder_.build();
-        }
-        if (periodBuilder_ == null) {
-          result.period_ = period_;
-        } else {
-          result.period_ = periodBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance result) {
         if (periodSpendLimitBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             periodSpendLimit_ = java.util.Collections.unmodifiableList(periodSpendLimit_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.periodSpendLimit_ = periodSpendLimit_;
         } else {
           result.periodSpendLimit_ = periodSpendLimitBuilder_.build();
         }
         if (periodCanSpendBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             periodCanSpend_ = java.util.Collections.unmodifiableList(periodCanSpend_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.periodCanSpend_ = periodCanSpend_;
         } else {
           result.periodCanSpend_ = periodCanSpendBuilder_.build();
         }
-        if (periodResetBuilder_ == null) {
-          result.periodReset_ = periodReset_;
-        } else {
-          result.periodReset_ = periodResetBuilder_.build();
+      }
+
+      private void buildPartial0(cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.basic_ = basicBuilder_ == null
+              ? basic_
+              : basicBuilder_.build();
         }
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.period_ = periodBuilder_ == null
+              ? period_
+              : periodBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.periodReset_ = periodResetBuilder_ == null
+              ? periodReset_
+              : periodResetBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2242,7 +2129,7 @@ public final class Feegrant {
           if (!other.periodSpendLimit_.isEmpty()) {
             if (periodSpendLimit_.isEmpty()) {
               periodSpendLimit_ = other.periodSpendLimit_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensurePeriodSpendLimitIsMutable();
               periodSpendLimit_.addAll(other.periodSpendLimit_);
@@ -2255,7 +2142,7 @@ public final class Feegrant {
               periodSpendLimitBuilder_.dispose();
               periodSpendLimitBuilder_ = null;
               periodSpendLimit_ = other.periodSpendLimit_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
               periodSpendLimitBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getPeriodSpendLimitFieldBuilder() : null;
@@ -2268,7 +2155,7 @@ public final class Feegrant {
           if (!other.periodCanSpend_.isEmpty()) {
             if (periodCanSpend_.isEmpty()) {
               periodCanSpend_ = other.periodCanSpend_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensurePeriodCanSpendIsMutable();
               periodCanSpend_.addAll(other.periodCanSpend_);
@@ -2281,7 +2168,7 @@ public final class Feegrant {
               periodCanSpendBuilder_.dispose();
               periodCanSpendBuilder_ = null;
               periodCanSpend_ = other.periodCanSpend_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000008);
               periodCanSpendBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getPeriodCanSpendFieldBuilder() : null;
@@ -2293,7 +2180,7 @@ public final class Feegrant {
         if (other.hasPeriodReset()) {
           mergePeriodReset(other.getPeriodReset());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2308,17 +2195,77 @@ public final class Feegrant {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getBasicFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getPeriodFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                cosmos.base.v1beta1.CoinOuterClass.Coin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.Coin.parser(),
+                        extensionRegistry);
+                if (periodSpendLimitBuilder_ == null) {
+                  ensurePeriodSpendLimitIsMutable();
+                  periodSpendLimit_.add(m);
+                } else {
+                  periodSpendLimitBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              case 34: {
+                cosmos.base.v1beta1.CoinOuterClass.Coin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.Coin.parser(),
+                        extensionRegistry);
+                if (periodCanSpendBuilder_ == null) {
+                  ensurePeriodCanSpendIsMutable();
+                  periodCanSpend_.add(m);
+                } else {
+                  periodCanSpendBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getPeriodResetFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.feegrant.v1beta1.Feegrant.PeriodicAllowance) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2335,7 +2282,7 @@ public final class Feegrant {
        * @return Whether the basic field is set.
        */
       public boolean hasBasic() {
-        return basicBuilder_ != null || basic_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2365,11 +2312,11 @@ public final class Feegrant {
             throw new NullPointerException();
           }
           basic_ = value;
-          onChanged();
         } else {
           basicBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2383,11 +2330,11 @@ public final class Feegrant {
           cosmos.feegrant.v1beta1.Feegrant.BasicAllowance.Builder builderForValue) {
         if (basicBuilder_ == null) {
           basic_ = builderForValue.build();
-          onChanged();
         } else {
           basicBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2399,17 +2346,18 @@ public final class Feegrant {
        */
       public Builder mergeBasic(cosmos.feegrant.v1beta1.Feegrant.BasicAllowance value) {
         if (basicBuilder_ == null) {
-          if (basic_ != null) {
-            basic_ =
-              cosmos.feegrant.v1beta1.Feegrant.BasicAllowance.newBuilder(basic_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            basic_ != null &&
+            basic_ != cosmos.feegrant.v1beta1.Feegrant.BasicAllowance.getDefaultInstance()) {
+            getBasicBuilder().mergeFrom(value);
           } else {
             basic_ = value;
           }
-          onChanged();
         } else {
           basicBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2420,14 +2368,13 @@ public final class Feegrant {
        * <code>.cosmos.feegrant.v1beta1.BasicAllowance basic = 1 [(.gogoproto.nullable) = false];</code>
        */
       public Builder clearBasic() {
-        if (basicBuilder_ == null) {
-          basic_ = null;
-          onChanged();
-        } else {
-          basic_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        basic_ = null;
+        if (basicBuilder_ != null) {
+          basicBuilder_.dispose();
           basicBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2438,7 +2385,7 @@ public final class Feegrant {
        * <code>.cosmos.feegrant.v1beta1.BasicAllowance basic = 1 [(.gogoproto.nullable) = false];</code>
        */
       public cosmos.feegrant.v1beta1.Feegrant.BasicAllowance.Builder getBasicBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getBasicFieldBuilder().getBuilder();
       }
@@ -2491,7 +2438,7 @@ public final class Feegrant {
        * @return Whether the period field is set.
        */
       public boolean hasPeriod() {
-        return periodBuilder_ != null || period_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -2523,11 +2470,11 @@ public final class Feegrant {
             throw new NullPointerException();
           }
           period_ = value;
-          onChanged();
         } else {
           periodBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2542,11 +2489,11 @@ public final class Feegrant {
           com.google.protobuf.Duration.Builder builderForValue) {
         if (periodBuilder_ == null) {
           period_ = builderForValue.build();
-          onChanged();
         } else {
           periodBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2559,17 +2506,18 @@ public final class Feegrant {
        */
       public Builder mergePeriod(com.google.protobuf.Duration value) {
         if (periodBuilder_ == null) {
-          if (period_ != null) {
-            period_ =
-              com.google.protobuf.Duration.newBuilder(period_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            period_ != null &&
+            period_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getPeriodBuilder().mergeFrom(value);
           } else {
             period_ = value;
           }
-          onChanged();
         } else {
           periodBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2581,14 +2529,13 @@ public final class Feegrant {
        * <code>.google.protobuf.Duration period = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
        */
       public Builder clearPeriod() {
-        if (periodBuilder_ == null) {
-          period_ = null;
-          onChanged();
-        } else {
-          period_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        period_ = null;
+        if (periodBuilder_ != null) {
+          periodBuilder_.dispose();
           periodBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2600,7 +2547,7 @@ public final class Feegrant {
        * <code>.google.protobuf.Duration period = 2 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
        */
       public com.google.protobuf.Duration.Builder getPeriodBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getPeriodFieldBuilder().getBuilder();
       }
@@ -2645,9 +2592,9 @@ public final class Feegrant {
       private java.util.List<cosmos.base.v1beta1.CoinOuterClass.Coin> periodSpendLimit_ =
         java.util.Collections.emptyList();
       private void ensurePeriodSpendLimitIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           periodSpendLimit_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.Coin>(periodSpendLimit_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -2852,7 +2799,7 @@ public final class Feegrant {
       public Builder clearPeriodSpendLimit() {
         if (periodSpendLimitBuilder_ == null) {
           periodSpendLimit_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           periodSpendLimitBuilder_.clear();
@@ -2964,7 +2911,7 @@ public final class Feegrant {
           periodSpendLimitBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               cosmos.base.v1beta1.CoinOuterClass.Coin, cosmos.base.v1beta1.CoinOuterClass.Coin.Builder, cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder>(
                   periodSpendLimit_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           periodSpendLimit_ = null;
@@ -2975,9 +2922,9 @@ public final class Feegrant {
       private java.util.List<cosmos.base.v1beta1.CoinOuterClass.Coin> periodCanSpend_ =
         java.util.Collections.emptyList();
       private void ensurePeriodCanSpendIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           periodCanSpend_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.Coin>(periodCanSpend_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -3171,7 +3118,7 @@ public final class Feegrant {
       public Builder clearPeriodCanSpend() {
         if (periodCanSpendBuilder_ == null) {
           periodCanSpend_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           periodCanSpendBuilder_.clear();
@@ -3276,7 +3223,7 @@ public final class Feegrant {
           periodCanSpendBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               cosmos.base.v1beta1.CoinOuterClass.Coin, cosmos.base.v1beta1.CoinOuterClass.Coin.Builder, cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder>(
                   periodCanSpend_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           periodCanSpend_ = null;
@@ -3298,7 +3245,7 @@ public final class Feegrant {
        * @return Whether the periodReset field is set.
        */
       public boolean hasPeriodReset() {
-        return periodResetBuilder_ != null || periodReset_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -3332,11 +3279,11 @@ public final class Feegrant {
             throw new NullPointerException();
           }
           periodReset_ = value;
-          onChanged();
         } else {
           periodResetBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -3352,11 +3299,11 @@ public final class Feegrant {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (periodResetBuilder_ == null) {
           periodReset_ = builderForValue.build();
-          onChanged();
         } else {
           periodResetBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -3370,17 +3317,18 @@ public final class Feegrant {
        */
       public Builder mergePeriodReset(com.google.protobuf.Timestamp value) {
         if (periodResetBuilder_ == null) {
-          if (periodReset_ != null) {
-            periodReset_ =
-              com.google.protobuf.Timestamp.newBuilder(periodReset_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            periodReset_ != null &&
+            periodReset_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getPeriodResetBuilder().mergeFrom(value);
           } else {
             periodReset_ = value;
           }
-          onChanged();
         } else {
           periodResetBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -3393,14 +3341,13 @@ public final class Feegrant {
        * <code>.google.protobuf.Timestamp period_reset = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public Builder clearPeriodReset() {
-        if (periodResetBuilder_ == null) {
-          periodReset_ = null;
-          onChanged();
-        } else {
-          periodReset_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        periodReset_ = null;
+        if (periodResetBuilder_ != null) {
+          periodResetBuilder_.dispose();
           periodResetBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3413,7 +3360,7 @@ public final class Feegrant {
        * <code>.google.protobuf.Timestamp period_reset = 5 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
        */
       public com.google.protobuf.Timestamp.Builder getPeriodResetBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getPeriodResetFieldBuilder().getBuilder();
       }
@@ -3489,7 +3436,18 @@ public final class Feegrant {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PeriodicAllowance(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3613,69 +3571,6 @@ public final class Feegrant {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AllowedMsgAllowance(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Any.Builder subBuilder = null;
-              if (allowance_ != null) {
-                subBuilder = allowance_.toBuilder();
-              }
-              allowance_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(allowance_);
-                allowance_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                allowedMessages_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              allowedMessages_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          allowedMessages_ = allowedMessages_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.feegrant.v1beta1.Feegrant.internal_static_cosmos_feegrant_v1beta1_AllowedMsgAllowance_descriptor;
@@ -3724,10 +3619,11 @@ public final class Feegrant {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getAllowanceOrBuilder() {
-      return getAllowance();
+      return allowance_ == null ? com.google.protobuf.Any.getDefaultInstance() : allowance_;
     }
 
     public static final int ALLOWED_MESSAGES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList allowedMessages_;
     /**
      * <pre>
@@ -3798,7 +3694,7 @@ public final class Feegrant {
       for (int i = 0; i < allowedMessages_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, allowedMessages_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3819,7 +3715,7 @@ public final class Feegrant {
         size += dataSize;
         size += 1 * getAllowedMessagesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3841,7 +3737,7 @@ public final class Feegrant {
       }
       if (!getAllowedMessagesList()
           .equals(other.getAllowedMessagesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3860,7 +3756,7 @@ public final class Feegrant {
         hash = (37 * hash) + ALLOWED_MESSAGES_FIELD_NUMBER;
         hash = (53 * hash) + getAllowedMessagesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3981,30 +3877,25 @@ public final class Feegrant {
 
       // Construct using cosmos.feegrant.v1beta1.Feegrant.AllowedMsgAllowance.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (allowanceBuilder_ == null) {
-          allowance_ = null;
-        } else {
-          allowance_ = null;
+        bitField0_ = 0;
+        allowance_ = null;
+        if (allowanceBuilder_ != null) {
+          allowanceBuilder_.dispose();
           allowanceBuilder_ = null;
         }
         allowedMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -4031,19 +3922,27 @@ public final class Feegrant {
       @java.lang.Override
       public cosmos.feegrant.v1beta1.Feegrant.AllowedMsgAllowance buildPartial() {
         cosmos.feegrant.v1beta1.Feegrant.AllowedMsgAllowance result = new cosmos.feegrant.v1beta1.Feegrant.AllowedMsgAllowance(this);
-        int from_bitField0_ = bitField0_;
-        if (allowanceBuilder_ == null) {
-          result.allowance_ = allowance_;
-        } else {
-          result.allowance_ = allowanceBuilder_.build();
-        }
-        if (((bitField0_ & 0x00000001) != 0)) {
-          allowedMessages_ = allowedMessages_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.allowedMessages_ = allowedMessages_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.feegrant.v1beta1.Feegrant.AllowedMsgAllowance result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          allowedMessages_ = allowedMessages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.allowedMessages_ = allowedMessages_;
+      }
+
+      private void buildPartial0(cosmos.feegrant.v1beta1.Feegrant.AllowedMsgAllowance result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.allowance_ = allowanceBuilder_ == null
+              ? allowance_
+              : allowanceBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4096,14 +3995,14 @@ public final class Feegrant {
         if (!other.allowedMessages_.isEmpty()) {
           if (allowedMessages_.isEmpty()) {
             allowedMessages_ = other.allowedMessages_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureAllowedMessagesIsMutable();
             allowedMessages_.addAll(other.allowedMessages_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4118,17 +4017,43 @@ public final class Feegrant {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.feegrant.v1beta1.Feegrant.AllowedMsgAllowance parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getAllowanceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAllowedMessagesIsMutable();
+                allowedMessages_.add(s);
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.feegrant.v1beta1.Feegrant.AllowedMsgAllowance) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4145,7 +4070,7 @@ public final class Feegrant {
        * @return Whether the allowance field is set.
        */
       public boolean hasAllowance() {
-        return allowanceBuilder_ != null || allowance_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -4175,11 +4100,11 @@ public final class Feegrant {
             throw new NullPointerException();
           }
           allowance_ = value;
-          onChanged();
         } else {
           allowanceBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4193,11 +4118,11 @@ public final class Feegrant {
           com.google.protobuf.Any.Builder builderForValue) {
         if (allowanceBuilder_ == null) {
           allowance_ = builderForValue.build();
-          onChanged();
         } else {
           allowanceBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4209,17 +4134,18 @@ public final class Feegrant {
        */
       public Builder mergeAllowance(com.google.protobuf.Any value) {
         if (allowanceBuilder_ == null) {
-          if (allowance_ != null) {
-            allowance_ =
-              com.google.protobuf.Any.newBuilder(allowance_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            allowance_ != null &&
+            allowance_ != com.google.protobuf.Any.getDefaultInstance()) {
+            getAllowanceBuilder().mergeFrom(value);
           } else {
             allowance_ = value;
           }
-          onChanged();
         } else {
           allowanceBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4230,14 +4156,13 @@ public final class Feegrant {
        * <code>.google.protobuf.Any allowance = 1 [(.cosmos_proto.accepts_interface) = "FeeAllowanceI"];</code>
        */
       public Builder clearAllowance() {
-        if (allowanceBuilder_ == null) {
-          allowance_ = null;
-          onChanged();
-        } else {
-          allowance_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        allowance_ = null;
+        if (allowanceBuilder_ != null) {
+          allowanceBuilder_.dispose();
           allowanceBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4248,7 +4173,7 @@ public final class Feegrant {
        * <code>.google.protobuf.Any allowance = 1 [(.cosmos_proto.accepts_interface) = "FeeAllowanceI"];</code>
        */
       public com.google.protobuf.Any.Builder getAllowanceBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getAllowanceFieldBuilder().getBuilder();
       }
@@ -4290,9 +4215,9 @@ public final class Feegrant {
 
       private com.google.protobuf.LazyStringList allowedMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureAllowedMessagesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           allowedMessages_ = new com.google.protobuf.LazyStringArrayList(allowedMessages_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
@@ -4355,10 +4280,8 @@ public final class Feegrant {
        */
       public Builder setAllowedMessages(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedMessagesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAllowedMessagesIsMutable();
         allowedMessages_.set(index, value);
         onChanged();
         return this;
@@ -4374,10 +4297,8 @@ public final class Feegrant {
        */
       public Builder addAllowedMessages(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedMessagesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAllowedMessagesIsMutable();
         allowedMessages_.add(value);
         onChanged();
         return this;
@@ -4409,7 +4330,7 @@ public final class Feegrant {
        */
       public Builder clearAllowedMessages() {
         allowedMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4424,10 +4345,8 @@ public final class Feegrant {
        */
       public Builder addAllowedMessagesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAllowedMessagesIsMutable();
         allowedMessages_.add(value);
         onChanged();
@@ -4466,7 +4385,18 @@ public final class Feegrant {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AllowedMsgAllowance(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4590,68 +4520,6 @@ public final class Feegrant {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Grant(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              granter_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              grantee_ = s;
-              break;
-            }
-            case 26: {
-              com.google.protobuf.Any.Builder subBuilder = null;
-              if (allowance_ != null) {
-                subBuilder = allowance_.toBuilder();
-              }
-              allowance_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(allowance_);
-                allowance_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.feegrant.v1beta1.Feegrant.internal_static_cosmos_feegrant_v1beta1_Grant_descriptor;
@@ -4666,7 +4534,8 @@ public final class Feegrant {
     }
 
     public static final int GRANTER_FIELD_NUMBER = 1;
-    private volatile java.lang.Object granter_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object granter_ = "";
     /**
      * <pre>
      * granter is the address of the user granting an allowance of their funds.
@@ -4712,7 +4581,8 @@ public final class Feegrant {
     }
 
     public static final int GRANTEE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object grantee_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object grantee_ = "";
     /**
      * <pre>
      * grantee is the address of the user being granted an allowance of another user's funds.
@@ -4792,7 +4662,7 @@ public final class Feegrant {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getAllowanceOrBuilder() {
-      return getAllowance();
+      return allowance_ == null ? com.google.protobuf.Any.getDefaultInstance() : allowance_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4809,16 +4679,16 @@ public final class Feegrant {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getGranterBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(granter_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, granter_);
       }
-      if (!getGranteeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(grantee_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, grantee_);
       }
       if (allowance_ != null) {
         output.writeMessage(3, getAllowance());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4827,17 +4697,17 @@ public final class Feegrant {
       if (size != -1) return size;
 
       size = 0;
-      if (!getGranterBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(granter_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, granter_);
       }
-      if (!getGranteeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(grantee_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, grantee_);
       }
       if (allowance_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getAllowance());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4861,7 +4731,7 @@ public final class Feegrant {
         if (!getAllowance()
             .equals(other.getAllowance())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4880,7 +4750,7 @@ public final class Feegrant {
         hash = (37 * hash) + ALLOWANCE_FIELD_NUMBER;
         hash = (53 * hash) + getAllowance().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5001,30 +4871,23 @@ public final class Feegrant {
 
       // Construct using cosmos.feegrant.v1beta1.Feegrant.Grant.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         granter_ = "";
-
         grantee_ = "";
-
-        if (allowanceBuilder_ == null) {
-          allowance_ = null;
-        } else {
-          allowance_ = null;
+        allowance_ = null;
+        if (allowanceBuilder_ != null) {
+          allowanceBuilder_.dispose();
           allowanceBuilder_ = null;
         }
         return this;
@@ -5053,15 +4916,24 @@ public final class Feegrant {
       @java.lang.Override
       public cosmos.feegrant.v1beta1.Feegrant.Grant buildPartial() {
         cosmos.feegrant.v1beta1.Feegrant.Grant result = new cosmos.feegrant.v1beta1.Feegrant.Grant(this);
-        result.granter_ = granter_;
-        result.grantee_ = grantee_;
-        if (allowanceBuilder_ == null) {
-          result.allowance_ = allowance_;
-        } else {
-          result.allowance_ = allowanceBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.feegrant.v1beta1.Feegrant.Grant result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.granter_ = granter_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.grantee_ = grantee_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.allowance_ = allowanceBuilder_ == null
+              ? allowance_
+              : allowanceBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -5110,16 +4982,18 @@ public final class Feegrant {
         if (other == cosmos.feegrant.v1beta1.Feegrant.Grant.getDefaultInstance()) return this;
         if (!other.getGranter().isEmpty()) {
           granter_ = other.granter_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getGrantee().isEmpty()) {
           grantee_ = other.grantee_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasAllowance()) {
           mergeAllowance(other.getAllowance());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5134,19 +5008,50 @@ public final class Feegrant {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.feegrant.v1beta1.Feegrant.Grant parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                granter_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                grantee_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getAllowanceFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.feegrant.v1beta1.Feegrant.Grant) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object granter_ = "";
       /**
@@ -5201,11 +5106,9 @@ public final class Feegrant {
        */
       public Builder setGranter(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         granter_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5218,8 +5121,8 @@ public final class Feegrant {
        * @return This builder for chaining.
        */
       public Builder clearGranter() {
-        
         granter_ = getDefaultInstance().getGranter();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -5234,12 +5137,10 @@ public final class Feegrant {
        */
       public Builder setGranterBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         granter_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5297,11 +5198,9 @@ public final class Feegrant {
        */
       public Builder setGrantee(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         grantee_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5314,8 +5213,8 @@ public final class Feegrant {
        * @return This builder for chaining.
        */
       public Builder clearGrantee() {
-        
         grantee_ = getDefaultInstance().getGrantee();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5330,12 +5229,10 @@ public final class Feegrant {
        */
       public Builder setGranteeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         grantee_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5352,7 +5249,7 @@ public final class Feegrant {
        * @return Whether the allowance field is set.
        */
       public boolean hasAllowance() {
-        return allowanceBuilder_ != null || allowance_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -5382,11 +5279,11 @@ public final class Feegrant {
             throw new NullPointerException();
           }
           allowance_ = value;
-          onChanged();
         } else {
           allowanceBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -5400,11 +5297,11 @@ public final class Feegrant {
           com.google.protobuf.Any.Builder builderForValue) {
         if (allowanceBuilder_ == null) {
           allowance_ = builderForValue.build();
-          onChanged();
         } else {
           allowanceBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -5416,17 +5313,18 @@ public final class Feegrant {
        */
       public Builder mergeAllowance(com.google.protobuf.Any value) {
         if (allowanceBuilder_ == null) {
-          if (allowance_ != null) {
-            allowance_ =
-              com.google.protobuf.Any.newBuilder(allowance_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            allowance_ != null &&
+            allowance_ != com.google.protobuf.Any.getDefaultInstance()) {
+            getAllowanceBuilder().mergeFrom(value);
           } else {
             allowance_ = value;
           }
-          onChanged();
         } else {
           allowanceBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -5437,14 +5335,13 @@ public final class Feegrant {
        * <code>.google.protobuf.Any allowance = 3 [(.cosmos_proto.accepts_interface) = "FeeAllowanceI"];</code>
        */
       public Builder clearAllowance() {
-        if (allowanceBuilder_ == null) {
-          allowance_ = null;
-          onChanged();
-        } else {
-          allowance_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        allowance_ = null;
+        if (allowanceBuilder_ != null) {
+          allowanceBuilder_.dispose();
           allowanceBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -5455,7 +5352,7 @@ public final class Feegrant {
        * <code>.google.protobuf.Any allowance = 3 [(.cosmos_proto.accepts_interface) = "FeeAllowanceI"];</code>
        */
       public com.google.protobuf.Any.Builder getAllowanceBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getAllowanceFieldBuilder().getBuilder();
       }
@@ -5527,7 +5424,18 @@ public final class Feegrant {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Grant(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

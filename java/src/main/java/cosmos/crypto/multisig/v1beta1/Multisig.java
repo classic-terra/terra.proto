@@ -69,55 +69,6 @@ public final class Multisig {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MultiSignature(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                signatures_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              signatures_.add(input.readBytes());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          signatures_ = java.util.Collections.unmodifiableList(signatures_); // C
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.crypto.multisig.v1beta1.Multisig.internal_static_cosmos_crypto_multisig_v1beta1_MultiSignature_descriptor;
@@ -132,6 +83,7 @@ public final class Multisig {
     }
 
     public static final int SIGNATURES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protobuf.ByteString> signatures_;
     /**
      * <code>repeated bytes signatures = 1;</code>
@@ -175,7 +127,7 @@ public final class Multisig {
       for (int i = 0; i < signatures_.size(); i++) {
         output.writeBytes(1, signatures_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -193,7 +145,7 @@ public final class Multisig {
         size += dataSize;
         size += 1 * getSignaturesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -210,7 +162,7 @@ public final class Multisig {
 
       if (!getSignaturesList()
           .equals(other.getSignaturesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -225,7 +177,7 @@ public final class Multisig {
         hash = (37 * hash) + SIGNATURES_FIELD_NUMBER;
         hash = (53 * hash) + getSignaturesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -348,24 +300,19 @@ public final class Multisig {
 
       // Construct using cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         signatures_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -392,14 +339,22 @@ public final class Multisig {
       @java.lang.Override
       public cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature buildPartial() {
         cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature result = new cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           signatures_ = java.util.Collections.unmodifiableList(signatures_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.signatures_ = signatures_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -456,7 +411,7 @@ public final class Multisig {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -471,17 +426,36 @@ public final class Multisig {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.ByteString v = input.readBytes();
+                ensureSignaturesIsMutable();
+                signatures_.add(v);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.crypto.multisig.v1beta1.Multisig.MultiSignature) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -491,7 +465,7 @@ public final class Multisig {
         if (!((bitField0_ & 0x00000001) != 0)) {
           signatures_ = new java.util.ArrayList<com.google.protobuf.ByteString>(signatures_);
           bitField0_ |= 0x00000001;
-         }
+        }
       }
       /**
        * <code>repeated bytes signatures = 1;</code>
@@ -525,10 +499,8 @@ public final class Multisig {
        */
       public Builder setSignatures(
           int index, com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSignaturesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureSignaturesIsMutable();
         signatures_.set(index, value);
         onChanged();
         return this;
@@ -539,10 +511,8 @@ public final class Multisig {
        * @return This builder for chaining.
        */
       public Builder addSignatures(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSignaturesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureSignaturesIsMutable();
         signatures_.add(value);
         onChanged();
         return this;
@@ -603,7 +573,18 @@ public final class Multisig {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MultiSignature(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -674,53 +655,6 @@ public final class Multisig {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CompactBitArray(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              extraBitsStored_ = input.readUInt32();
-              break;
-            }
-            case 18: {
-
-              elems_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.crypto.multisig.v1beta1.Multisig.internal_static_cosmos_crypto_multisig_v1beta1_CompactBitArray_descriptor;
@@ -735,7 +669,7 @@ public final class Multisig {
     }
 
     public static final int EXTRA_BITS_STORED_FIELD_NUMBER = 1;
-    private int extraBitsStored_;
+    private int extraBitsStored_ = 0;
     /**
      * <code>uint32 extra_bits_stored = 1;</code>
      * @return The extraBitsStored.
@@ -746,7 +680,7 @@ public final class Multisig {
     }
 
     public static final int ELEMS_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString elems_;
+    private com.google.protobuf.ByteString elems_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>bytes elems = 2;</code>
      * @return The elems.
@@ -776,7 +710,7 @@ public final class Multisig {
       if (!elems_.isEmpty()) {
         output.writeBytes(2, elems_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -793,7 +727,7 @@ public final class Multisig {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, elems_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -812,7 +746,7 @@ public final class Multisig {
           != other.getExtraBitsStored()) return false;
       if (!getElems()
           .equals(other.getElems())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -827,7 +761,7 @@ public final class Multisig {
       hash = (53 * hash) + getExtraBitsStored();
       hash = (37 * hash) + ELEMS_FIELD_NUMBER;
       hash = (53 * hash) + getElems().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -951,26 +885,20 @@ public final class Multisig {
 
       // Construct using cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         extraBitsStored_ = 0;
-
         elems_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
@@ -997,10 +925,19 @@ public final class Multisig {
       @java.lang.Override
       public cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray buildPartial() {
         cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray result = new cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray(this);
-        result.extraBitsStored_ = extraBitsStored_;
-        result.elems_ = elems_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.extraBitsStored_ = extraBitsStored_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.elems_ = elems_;
+        }
       }
 
       @java.lang.Override
@@ -1053,7 +990,7 @@ public final class Multisig {
         if (other.getElems() != com.google.protobuf.ByteString.EMPTY) {
           setElems(other.getElems());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1068,19 +1005,43 @@ public final class Multisig {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                extraBitsStored_ = input.readUInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                elems_ = input.readBytes();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int extraBitsStored_ ;
       /**
@@ -1099,6 +1060,7 @@ public final class Multisig {
       public Builder setExtraBitsStored(int value) {
         
         extraBitsStored_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1107,7 +1069,7 @@ public final class Multisig {
        * @return This builder for chaining.
        */
       public Builder clearExtraBitsStored() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         extraBitsStored_ = 0;
         onChanged();
         return this;
@@ -1128,11 +1090,9 @@ public final class Multisig {
        * @return This builder for chaining.
        */
       public Builder setElems(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         elems_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1141,7 +1101,7 @@ public final class Multisig {
        * @return This builder for chaining.
        */
       public Builder clearElems() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         elems_ = getDefaultInstance().getElems();
         onChanged();
         return this;
@@ -1179,7 +1139,18 @@ public final class Multisig {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CompactBitArray(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

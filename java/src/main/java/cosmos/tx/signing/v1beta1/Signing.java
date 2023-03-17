@@ -266,56 +266,6 @@ public final class Signing {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SignatureDescriptors(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                signatures_ = new java.util.ArrayList<cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              signatures_.add(
-                  input.readMessage(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          signatures_ = java.util.Collections.unmodifiableList(signatures_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.tx.signing.v1beta1.Signing.internal_static_cosmos_tx_signing_v1beta1_SignatureDescriptors_descriptor;
@@ -330,6 +280,7 @@ public final class Signing {
     }
 
     public static final int SIGNATURES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor> signatures_;
     /**
      * <pre>
@@ -406,7 +357,7 @@ public final class Signing {
       for (int i = 0; i < signatures_.size(); i++) {
         output.writeMessage(1, signatures_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -419,7 +370,7 @@ public final class Signing {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, signatures_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -436,7 +387,7 @@ public final class Signing {
 
       if (!getSignaturesList()
           .equals(other.getSignaturesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -451,7 +402,7 @@ public final class Signing {
         hash = (37 * hash) + SIGNATURES_FIELD_NUMBER;
         hash = (53 * hash) + getSignaturesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -572,29 +523,25 @@ public final class Signing {
 
       // Construct using cosmos.tx.signing.v1beta1.Signing.SignatureDescriptors.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getSignaturesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (signaturesBuilder_ == null) {
           signatures_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          signatures_ = null;
           signaturesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -621,7 +568,13 @@ public final class Signing {
       @java.lang.Override
       public cosmos.tx.signing.v1beta1.Signing.SignatureDescriptors buildPartial() {
         cosmos.tx.signing.v1beta1.Signing.SignatureDescriptors result = new cosmos.tx.signing.v1beta1.Signing.SignatureDescriptors(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptors result) {
         if (signaturesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             signatures_ = java.util.Collections.unmodifiableList(signatures_);
@@ -631,8 +584,10 @@ public final class Signing {
         } else {
           result.signatures_ = signaturesBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptors result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -705,7 +660,7 @@ public final class Signing {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -720,17 +675,43 @@ public final class Signing {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.tx.signing.v1beta1.Signing.SignatureDescriptors parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor m =
+                    input.readMessage(
+                        cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.parser(),
+                        extensionRegistry);
+                if (signaturesBuilder_ == null) {
+                  ensureSignaturesIsMutable();
+                  signatures_.add(m);
+                } else {
+                  signaturesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.tx.signing.v1beta1.Signing.SignatureDescriptors) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1079,7 +1060,18 @@ public final class Signing {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SignatureDescriptors(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1191,74 +1183,6 @@ public final class Signing {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SignatureDescriptor(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Any.Builder subBuilder = null;
-              if (publicKey_ != null) {
-                subBuilder = publicKey_.toBuilder();
-              }
-              publicKey_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(publicKey_);
-                publicKey_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Builder subBuilder = null;
-              if (data_ != null) {
-                subBuilder = data_.toBuilder();
-              }
-              data_ = input.readMessage(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(data_);
-                data_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 24: {
-
-              sequence_ = input.readUInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return cosmos.tx.signing.v1beta1.Signing.internal_static_cosmos_tx_signing_v1beta1_SignatureDescriptor_descriptor;
@@ -1363,71 +1287,6 @@ public final class Signing {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Data(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single.Builder subBuilder = null;
-                if (sumCase_ == 1) {
-                  subBuilder = ((cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single) sum_).toBuilder();
-                }
-                sum_ =
-                    input.readMessage(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single) sum_);
-                  sum_ = subBuilder.buildPartial();
-                }
-                sumCase_ = 1;
-                break;
-              }
-              case 18: {
-                cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi.Builder subBuilder = null;
-                if (sumCase_ == 2) {
-                  subBuilder = ((cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi) sum_).toBuilder();
-                }
-                sum_ =
-                    input.readMessage(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi) sum_);
-                  sum_ = subBuilder.buildPartial();
-                }
-                sumCase_ = 2;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return cosmos.tx.signing.v1beta1.Signing.internal_static_cosmos_tx_signing_v1beta1_SignatureDescriptor_Data_descriptor;
@@ -1507,54 +1366,6 @@ public final class Signing {
         getUnknownFields() {
           return this.unknownFields;
         }
-        private Single(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 8: {
-                  int rawValue = input.readEnum();
-
-                  mode_ = rawValue;
-                  break;
-                }
-                case 18: {
-
-                  signature_ = input.readBytes();
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return cosmos.tx.signing.v1beta1.Signing.internal_static_cosmos_tx_signing_v1beta1_SignatureDescriptor_Data_Single_descriptor;
@@ -1569,7 +1380,7 @@ public final class Signing {
         }
 
         public static final int MODE_FIELD_NUMBER = 1;
-        private int mode_;
+        private int mode_ = 0;
         /**
          * <pre>
          * mode is the signing mode of the single signer
@@ -1590,13 +1401,12 @@ public final class Signing {
          * @return The mode.
          */
         @java.lang.Override public cosmos.tx.signing.v1beta1.Signing.SignMode getMode() {
-          @SuppressWarnings("deprecation")
-          cosmos.tx.signing.v1beta1.Signing.SignMode result = cosmos.tx.signing.v1beta1.Signing.SignMode.valueOf(mode_);
+          cosmos.tx.signing.v1beta1.Signing.SignMode result = cosmos.tx.signing.v1beta1.Signing.SignMode.forNumber(mode_);
           return result == null ? cosmos.tx.signing.v1beta1.Signing.SignMode.UNRECOGNIZED : result;
         }
 
         public static final int SIGNATURE_FIELD_NUMBER = 2;
-        private com.google.protobuf.ByteString signature_;
+        private com.google.protobuf.ByteString signature_ = com.google.protobuf.ByteString.EMPTY;
         /**
          * <pre>
          * signature is the raw signature bytes
@@ -1630,7 +1440,7 @@ public final class Signing {
           if (!signature_.isEmpty()) {
             output.writeBytes(2, signature_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -1647,7 +1457,7 @@ public final class Signing {
             size += com.google.protobuf.CodedOutputStream
               .computeBytesSize(2, signature_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -1665,7 +1475,7 @@ public final class Signing {
           if (mode_ != other.mode_) return false;
           if (!getSignature()
               .equals(other.getSignature())) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -1680,7 +1490,7 @@ public final class Signing {
           hash = (53 * hash) + mode_;
           hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
           hash = (53 * hash) + getSignature().hashCode();
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -1801,26 +1611,20 @@ public final class Signing {
 
           // Construct using cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             mode_ = 0;
-
             signature_ = com.google.protobuf.ByteString.EMPTY;
-
             return this;
           }
 
@@ -1847,10 +1651,19 @@ public final class Signing {
           @java.lang.Override
           public cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single buildPartial() {
             cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single result = new cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single(this);
-            result.mode_ = mode_;
-            result.signature_ = signature_;
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.mode_ = mode_;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+              result.signature_ = signature_;
+            }
           }
 
           @java.lang.Override
@@ -1903,7 +1716,7 @@ public final class Signing {
             if (other.getSignature() != com.google.protobuf.ByteString.EMPTY) {
               setSignature(other.getSignature());
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -1918,19 +1731,43 @@ public final class Signing {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 8: {
+                    mode_ = input.readEnum();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 8
+                  case 18: {
+                    signature_ = input.readBytes();
+                    bitField0_ |= 0x00000002;
+                    break;
+                  } // case 18
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
+          private int bitField0_;
 
           private int mode_ = 0;
           /**
@@ -1954,8 +1791,8 @@ public final class Signing {
            * @return This builder for chaining.
            */
           public Builder setModeValue(int value) {
-            
             mode_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -1969,8 +1806,7 @@ public final class Signing {
            */
           @java.lang.Override
           public cosmos.tx.signing.v1beta1.Signing.SignMode getMode() {
-            @SuppressWarnings("deprecation")
-            cosmos.tx.signing.v1beta1.Signing.SignMode result = cosmos.tx.signing.v1beta1.Signing.SignMode.valueOf(mode_);
+            cosmos.tx.signing.v1beta1.Signing.SignMode result = cosmos.tx.signing.v1beta1.Signing.SignMode.forNumber(mode_);
             return result == null ? cosmos.tx.signing.v1beta1.Signing.SignMode.UNRECOGNIZED : result;
           }
           /**
@@ -1986,7 +1822,7 @@ public final class Signing {
             if (value == null) {
               throw new NullPointerException();
             }
-            
+            bitField0_ |= 0x00000001;
             mode_ = value.getNumber();
             onChanged();
             return this;
@@ -2000,7 +1836,7 @@ public final class Signing {
            * @return This builder for chaining.
            */
           public Builder clearMode() {
-            
+            bitField0_ = (bitField0_ & ~0x00000001);
             mode_ = 0;
             onChanged();
             return this;
@@ -2029,11 +1865,9 @@ public final class Signing {
            * @return This builder for chaining.
            */
           public Builder setSignature(com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             signature_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -2046,7 +1880,7 @@ public final class Signing {
            * @return This builder for chaining.
            */
           public Builder clearSignature() {
-            
+            bitField0_ = (bitField0_ & ~0x00000002);
             signature_ = getDefaultInstance().getSignature();
             onChanged();
             return this;
@@ -2084,7 +1918,18 @@ public final class Signing {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new Single(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -2211,69 +2056,6 @@ public final class Signing {
         getUnknownFields() {
           return this.unknownFields;
         }
-        private Multi(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          int mutable_bitField0_ = 0;
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray.Builder subBuilder = null;
-                  if (bitarray_ != null) {
-                    subBuilder = bitarray_.toBuilder();
-                  }
-                  bitarray_ = input.readMessage(cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray.parser(), extensionRegistry);
-                  if (subBuilder != null) {
-                    subBuilder.mergeFrom(bitarray_);
-                    bitarray_ = subBuilder.buildPartial();
-                  }
-
-                  break;
-                }
-                case 18: {
-                  if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                    signatures_ = new java.util.ArrayList<cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data>();
-                    mutable_bitField0_ |= 0x00000001;
-                  }
-                  signatures_.add(
-                      input.readMessage(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.parser(), extensionRegistry));
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            if (((mutable_bitField0_ & 0x00000001) != 0)) {
-              signatures_ = java.util.Collections.unmodifiableList(signatures_);
-            }
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return cosmos.tx.signing.v1beta1.Signing.internal_static_cosmos_tx_signing_v1beta1_SignatureDescriptor_Data_Multi_descriptor;
@@ -2322,10 +2104,11 @@ public final class Signing {
          */
         @java.lang.Override
         public cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArrayOrBuilder getBitarrayOrBuilder() {
-          return getBitarray();
+          return bitarray_ == null ? cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray.getDefaultInstance() : bitarray_;
         }
 
         public static final int SIGNATURES_FIELD_NUMBER = 2;
+        @SuppressWarnings("serial")
         private java.util.List<cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data> signatures_;
         /**
          * <pre>
@@ -2405,7 +2188,7 @@ public final class Signing {
           for (int i = 0; i < signatures_.size(); i++) {
             output.writeMessage(2, signatures_.get(i));
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -2422,7 +2205,7 @@ public final class Signing {
             size += com.google.protobuf.CodedOutputStream
               .computeMessageSize(2, signatures_.get(i));
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -2444,7 +2227,7 @@ public final class Signing {
           }
           if (!getSignaturesList()
               .equals(other.getSignaturesList())) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -2463,7 +2246,7 @@ public final class Signing {
             hash = (37 * hash) + SIGNATURES_FIELD_NUMBER;
             hash = (53 * hash) + getSignaturesList().hashCode();
           }
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -2584,35 +2367,30 @@ public final class Signing {
 
           // Construct using cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-              getSignaturesFieldBuilder();
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
-            if (bitarrayBuilder_ == null) {
-              bitarray_ = null;
-            } else {
-              bitarray_ = null;
+            bitField0_ = 0;
+            bitarray_ = null;
+            if (bitarrayBuilder_ != null) {
+              bitarrayBuilder_.dispose();
               bitarrayBuilder_ = null;
             }
             if (signaturesBuilder_ == null) {
               signatures_ = java.util.Collections.emptyList();
-              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
+              signatures_ = null;
               signaturesBuilder_.clear();
             }
+            bitField0_ = (bitField0_ & ~0x00000002);
             return this;
           }
 
@@ -2639,23 +2417,31 @@ public final class Signing {
           @java.lang.Override
           public cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi buildPartial() {
             cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi result = new cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi(this);
-            int from_bitField0_ = bitField0_;
-            if (bitarrayBuilder_ == null) {
-              result.bitarray_ = bitarray_;
-            } else {
-              result.bitarray_ = bitarrayBuilder_.build();
-            }
+            buildPartialRepeatedFields(result);
+            if (bitField0_ != 0) { buildPartial0(result); }
+            onBuilt();
+            return result;
+          }
+
+          private void buildPartialRepeatedFields(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi result) {
             if (signaturesBuilder_ == null) {
-              if (((bitField0_ & 0x00000001) != 0)) {
+              if (((bitField0_ & 0x00000002) != 0)) {
                 signatures_ = java.util.Collections.unmodifiableList(signatures_);
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000002);
               }
               result.signatures_ = signatures_;
             } else {
               result.signatures_ = signaturesBuilder_.build();
             }
-            onBuilt();
-            return result;
+          }
+
+          private void buildPartial0(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.bitarray_ = bitarrayBuilder_ == null
+                  ? bitarray_
+                  : bitarrayBuilder_.build();
+            }
           }
 
           @java.lang.Override
@@ -2709,7 +2495,7 @@ public final class Signing {
               if (!other.signatures_.isEmpty()) {
                 if (signatures_.isEmpty()) {
                   signatures_ = other.signatures_;
-                  bitField0_ = (bitField0_ & ~0x00000001);
+                  bitField0_ = (bitField0_ & ~0x00000002);
                 } else {
                   ensureSignaturesIsMutable();
                   signatures_.addAll(other.signatures_);
@@ -2722,7 +2508,7 @@ public final class Signing {
                   signaturesBuilder_.dispose();
                   signaturesBuilder_ = null;
                   signatures_ = other.signatures_;
-                  bitField0_ = (bitField0_ & ~0x00000001);
+                  bitField0_ = (bitField0_ & ~0x00000002);
                   signaturesBuilder_ = 
                     com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                        getSignaturesFieldBuilder() : null;
@@ -2731,7 +2517,7 @@ public final class Signing {
                 }
               }
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -2746,17 +2532,50 @@ public final class Signing {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    input.readMessage(
+                        getBitarrayFieldBuilder().getBuilder(),
+                        extensionRegistry);
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  case 18: {
+                    cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data m =
+                        input.readMessage(
+                            cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.parser(),
+                            extensionRegistry);
+                    if (signaturesBuilder_ == null) {
+                      ensureSignaturesIsMutable();
+                      signatures_.add(m);
+                    } else {
+                      signaturesBuilder_.addMessage(m);
+                    }
+                    break;
+                  } // case 18
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
           private int bitField0_;
@@ -2773,7 +2592,7 @@ public final class Signing {
            * @return Whether the bitarray field is set.
            */
           public boolean hasBitarray() {
-            return bitarrayBuilder_ != null || bitarray_ != null;
+            return ((bitField0_ & 0x00000001) != 0);
           }
           /**
            * <pre>
@@ -2803,11 +2622,11 @@ public final class Signing {
                 throw new NullPointerException();
               }
               bitarray_ = value;
-              onChanged();
             } else {
               bitarrayBuilder_.setMessage(value);
             }
-
+            bitField0_ |= 0x00000001;
+            onChanged();
             return this;
           }
           /**
@@ -2821,11 +2640,11 @@ public final class Signing {
               cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray.Builder builderForValue) {
             if (bitarrayBuilder_ == null) {
               bitarray_ = builderForValue.build();
-              onChanged();
             } else {
               bitarrayBuilder_.setMessage(builderForValue.build());
             }
-
+            bitField0_ |= 0x00000001;
+            onChanged();
             return this;
           }
           /**
@@ -2837,17 +2656,18 @@ public final class Signing {
            */
           public Builder mergeBitarray(cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray value) {
             if (bitarrayBuilder_ == null) {
-              if (bitarray_ != null) {
-                bitarray_ =
-                  cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray.newBuilder(bitarray_).mergeFrom(value).buildPartial();
+              if (((bitField0_ & 0x00000001) != 0) &&
+                bitarray_ != null &&
+                bitarray_ != cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray.getDefaultInstance()) {
+                getBitarrayBuilder().mergeFrom(value);
               } else {
                 bitarray_ = value;
               }
-              onChanged();
             } else {
               bitarrayBuilder_.mergeFrom(value);
             }
-
+            bitField0_ |= 0x00000001;
+            onChanged();
             return this;
           }
           /**
@@ -2858,14 +2678,13 @@ public final class Signing {
            * <code>.cosmos.crypto.multisig.v1beta1.CompactBitArray bitarray = 1;</code>
            */
           public Builder clearBitarray() {
-            if (bitarrayBuilder_ == null) {
-              bitarray_ = null;
-              onChanged();
-            } else {
-              bitarray_ = null;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            bitarray_ = null;
+            if (bitarrayBuilder_ != null) {
+              bitarrayBuilder_.dispose();
               bitarrayBuilder_ = null;
             }
-
+            onChanged();
             return this;
           }
           /**
@@ -2876,7 +2695,7 @@ public final class Signing {
            * <code>.cosmos.crypto.multisig.v1beta1.CompactBitArray bitarray = 1;</code>
            */
           public cosmos.crypto.multisig.v1beta1.Multisig.CompactBitArray.Builder getBitarrayBuilder() {
-            
+            bitField0_ |= 0x00000001;
             onChanged();
             return getBitarrayFieldBuilder().getBuilder();
           }
@@ -2919,9 +2738,9 @@ public final class Signing {
           private java.util.List<cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data> signatures_ =
             java.util.Collections.emptyList();
           private void ensureSignaturesIsMutable() {
-            if (!((bitField0_ & 0x00000001) != 0)) {
+            if (!((bitField0_ & 0x00000002) != 0)) {
               signatures_ = new java.util.ArrayList<cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data>(signatures_);
-              bitField0_ |= 0x00000001;
+              bitField0_ |= 0x00000002;
              }
           }
 
@@ -3115,7 +2934,7 @@ public final class Signing {
           public Builder clearSignatures() {
             if (signaturesBuilder_ == null) {
               signatures_ = java.util.Collections.emptyList();
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               onChanged();
             } else {
               signaturesBuilder_.clear();
@@ -3220,7 +3039,7 @@ public final class Signing {
               signaturesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
                   cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data, cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Builder, cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.DataOrBuilder>(
                       signatures_,
-                      ((bitField0_ & 0x00000001) != 0),
+                      ((bitField0_ & 0x00000002) != 0),
                       getParentForChildren(),
                       isClean());
               signatures_ = null;
@@ -3260,7 +3079,18 @@ public final class Signing {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new Multi(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -3427,7 +3257,7 @@ public final class Signing {
         if (sumCase_ == 2) {
           output.writeMessage(2, (cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi) sum_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -3444,7 +3274,7 @@ public final class Signing {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, (cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Multi) sum_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -3472,7 +3302,7 @@ public final class Signing {
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -3495,7 +3325,7 @@ public final class Signing {
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -3616,22 +3446,24 @@ public final class Signing {
 
         // Construct using cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
+          if (singleBuilder_ != null) {
+            singleBuilder_.clear();
+          }
+          if (multiBuilder_ != null) {
+            multiBuilder_.clear();
+          }
           sumCase_ = 0;
           sum_ = null;
           return this;
@@ -3660,23 +3492,27 @@ public final class Signing {
         @java.lang.Override
         public cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data buildPartial() {
           cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data result = new cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data(this);
-          if (sumCase_ == 1) {
-            if (singleBuilder_ == null) {
-              result.sum_ = sum_;
-            } else {
-              result.sum_ = singleBuilder_.build();
-            }
-          }
-          if (sumCase_ == 2) {
-            if (multiBuilder_ == null) {
-              result.sum_ = sum_;
-            } else {
-              result.sum_ = multiBuilder_.build();
-            }
-          }
-          result.sumCase_ = sumCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data result) {
+          int from_bitField0_ = bitField0_;
+        }
+
+        private void buildPartialOneofs(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data result) {
+          result.sumCase_ = sumCase_;
+          result.sum_ = this.sum_;
+          if (sumCase_ == 1 &&
+              singleBuilder_ != null) {
+            result.sum_ = singleBuilder_.build();
+          }
+          if (sumCase_ == 2 &&
+              multiBuilder_ != null) {
+            result.sum_ = multiBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -3736,7 +3572,7 @@ public final class Signing {
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -3751,17 +3587,44 @@ public final class Signing {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  input.readMessage(
+                      getSingleFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  sumCase_ = 1;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getMultiFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  sumCase_ = 2;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int sumCase_ = 0;
@@ -3779,6 +3642,7 @@ public final class Signing {
           return this;
         }
 
+        private int bitField0_;
 
         private com.google.protobuf.SingleFieldBuilderV3<
             cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single, cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Single.Builder, cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.SingleOrBuilder> singleBuilder_;
@@ -3874,8 +3738,9 @@ public final class Signing {
           } else {
             if (sumCase_ == 1) {
               singleBuilder_.mergeFrom(value);
+            } else {
+              singleBuilder_.setMessage(value);
             }
-            singleBuilder_.setMessage(value);
           }
           sumCase_ = 1;
           return this;
@@ -3953,7 +3818,7 @@ public final class Signing {
             sum_ = null;
           }
           sumCase_ = 1;
-          onChanged();;
+          onChanged();
           return singleBuilder_;
         }
 
@@ -4051,8 +3916,9 @@ public final class Signing {
           } else {
             if (sumCase_ == 2) {
               multiBuilder_.mergeFrom(value);
+            } else {
+              multiBuilder_.setMessage(value);
             }
-            multiBuilder_.setMessage(value);
           }
           sumCase_ = 2;
           return this;
@@ -4130,7 +3996,7 @@ public final class Signing {
             sum_ = null;
           }
           sumCase_ = 2;
-          onChanged();;
+          onChanged();
           return multiBuilder_;
         }
         @java.lang.Override
@@ -4166,7 +4032,18 @@ public final class Signing {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Data(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -4221,7 +4098,7 @@ public final class Signing {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getPublicKeyOrBuilder() {
-      return getPublicKey();
+      return publicKey_ == null ? com.google.protobuf.Any.getDefaultInstance() : publicKey_;
     }
 
     public static final int DATA_FIELD_NUMBER = 2;
@@ -4247,11 +4124,11 @@ public final class Signing {
      */
     @java.lang.Override
     public cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.DataOrBuilder getDataOrBuilder() {
-      return getData();
+      return data_ == null ? cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.getDefaultInstance() : data_;
     }
 
     public static final int SEQUENCE_FIELD_NUMBER = 3;
-    private long sequence_;
+    private long sequence_ = 0L;
     /**
      * <pre>
      * sequence is the sequence of the account, which describes the
@@ -4290,7 +4167,7 @@ public final class Signing {
       if (sequence_ != 0L) {
         output.writeUInt64(3, sequence_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4311,7 +4188,7 @@ public final class Signing {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, sequence_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4338,7 +4215,7 @@ public final class Signing {
       }
       if (getSequence()
           != other.getSequence()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4360,7 +4237,7 @@ public final class Signing {
       hash = (37 * hash) + SEQUENCE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSequence());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4484,36 +4361,29 @@ public final class Signing {
 
       // Construct using cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (publicKeyBuilder_ == null) {
-          publicKey_ = null;
-        } else {
-          publicKey_ = null;
+        bitField0_ = 0;
+        publicKey_ = null;
+        if (publicKeyBuilder_ != null) {
+          publicKeyBuilder_.dispose();
           publicKeyBuilder_ = null;
         }
-        if (dataBuilder_ == null) {
-          data_ = null;
-        } else {
-          data_ = null;
+        data_ = null;
+        if (dataBuilder_ != null) {
+          dataBuilder_.dispose();
           dataBuilder_ = null;
         }
         sequence_ = 0L;
-
         return this;
       }
 
@@ -4540,19 +4410,26 @@ public final class Signing {
       @java.lang.Override
       public cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor buildPartial() {
         cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor result = new cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor(this);
-        if (publicKeyBuilder_ == null) {
-          result.publicKey_ = publicKey_;
-        } else {
-          result.publicKey_ = publicKeyBuilder_.build();
-        }
-        if (dataBuilder_ == null) {
-          result.data_ = data_;
-        } else {
-          result.data_ = dataBuilder_.build();
-        }
-        result.sequence_ = sequence_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.publicKey_ = publicKeyBuilder_ == null
+              ? publicKey_
+              : publicKeyBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.data_ = dataBuilder_ == null
+              ? data_
+              : dataBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.sequence_ = sequence_;
+        }
       }
 
       @java.lang.Override
@@ -4608,7 +4485,7 @@ public final class Signing {
         if (other.getSequence() != 0L) {
           setSequence(other.getSequence());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4623,19 +4500,52 @@ public final class Signing {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getPublicKeyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getDataFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                sequence_ = input.readUInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Any publicKey_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4649,7 +4559,7 @@ public final class Signing {
        * @return Whether the publicKey field is set.
        */
       public boolean hasPublicKey() {
-        return publicKeyBuilder_ != null || publicKey_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -4679,11 +4589,11 @@ public final class Signing {
             throw new NullPointerException();
           }
           publicKey_ = value;
-          onChanged();
         } else {
           publicKeyBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4697,11 +4607,11 @@ public final class Signing {
           com.google.protobuf.Any.Builder builderForValue) {
         if (publicKeyBuilder_ == null) {
           publicKey_ = builderForValue.build();
-          onChanged();
         } else {
           publicKeyBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4713,17 +4623,18 @@ public final class Signing {
        */
       public Builder mergePublicKey(com.google.protobuf.Any value) {
         if (publicKeyBuilder_ == null) {
-          if (publicKey_ != null) {
-            publicKey_ =
-              com.google.protobuf.Any.newBuilder(publicKey_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            publicKey_ != null &&
+            publicKey_ != com.google.protobuf.Any.getDefaultInstance()) {
+            getPublicKeyBuilder().mergeFrom(value);
           } else {
             publicKey_ = value;
           }
-          onChanged();
         } else {
           publicKeyBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -4734,14 +4645,13 @@ public final class Signing {
        * <code>.google.protobuf.Any public_key = 1;</code>
        */
       public Builder clearPublicKey() {
-        if (publicKeyBuilder_ == null) {
-          publicKey_ = null;
-          onChanged();
-        } else {
-          publicKey_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        publicKey_ = null;
+        if (publicKeyBuilder_ != null) {
+          publicKeyBuilder_.dispose();
           publicKeyBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4752,7 +4662,7 @@ public final class Signing {
        * <code>.google.protobuf.Any public_key = 1;</code>
        */
       public com.google.protobuf.Any.Builder getPublicKeyBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getPublicKeyFieldBuilder().getBuilder();
       }
@@ -4800,7 +4710,7 @@ public final class Signing {
        * @return Whether the data field is set.
        */
       public boolean hasData() {
-        return dataBuilder_ != null || data_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.cosmos.tx.signing.v1beta1.SignatureDescriptor.Data data = 2;</code>
@@ -4822,11 +4732,11 @@ public final class Signing {
             throw new NullPointerException();
           }
           data_ = value;
-          onChanged();
         } else {
           dataBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -4836,11 +4746,11 @@ public final class Signing {
           cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Builder builderForValue) {
         if (dataBuilder_ == null) {
           data_ = builderForValue.build();
-          onChanged();
         } else {
           dataBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -4848,38 +4758,38 @@ public final class Signing {
        */
       public Builder mergeData(cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data value) {
         if (dataBuilder_ == null) {
-          if (data_ != null) {
-            data_ =
-              cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.newBuilder(data_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            data_ != null &&
+            data_ != cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.getDefaultInstance()) {
+            getDataBuilder().mergeFrom(value);
           } else {
             data_ = value;
           }
-          onChanged();
         } else {
           dataBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.tx.signing.v1beta1.SignatureDescriptor.Data data = 2;</code>
        */
       public Builder clearData() {
-        if (dataBuilder_ == null) {
-          data_ = null;
-          onChanged();
-        } else {
-          data_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        data_ = null;
+        if (dataBuilder_ != null) {
+          dataBuilder_.dispose();
           dataBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.tx.signing.v1beta1.SignatureDescriptor.Data data = 2;</code>
        */
       public cosmos.tx.signing.v1beta1.Signing.SignatureDescriptor.Data.Builder getDataBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getDataFieldBuilder().getBuilder();
       }
@@ -4940,6 +4850,7 @@ public final class Signing {
       public Builder setSequence(long value) {
         
         sequence_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4954,7 +4865,7 @@ public final class Signing {
        * @return This builder for chaining.
        */
       public Builder clearSequence() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         sequence_ = 0L;
         onChanged();
         return this;
@@ -4992,7 +4903,18 @@ public final class Signing {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SignatureDescriptor(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

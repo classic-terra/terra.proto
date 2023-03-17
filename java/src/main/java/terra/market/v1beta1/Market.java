@@ -69,58 +69,6 @@ public final class Market {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Params(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-
-              basePool_ = input.readBytes();
-              break;
-            }
-            case 16: {
-
-              poolRecoveryPeriod_ = input.readUInt64();
-              break;
-            }
-            case 26: {
-
-              minStabilitySpread_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.market.v1beta1.Market.internal_static_terra_market_v1beta1_Params_descriptor;
@@ -135,7 +83,7 @@ public final class Market {
     }
 
     public static final int BASE_POOL_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString basePool_;
+    private com.google.protobuf.ByteString basePool_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>bytes base_pool = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"base_pool&#92;""];</code>
      * @return The basePool.
@@ -146,7 +94,7 @@ public final class Market {
     }
 
     public static final int POOL_RECOVERY_PERIOD_FIELD_NUMBER = 2;
-    private long poolRecoveryPeriod_;
+    private long poolRecoveryPeriod_ = 0L;
     /**
      * <code>uint64 pool_recovery_period = 2 [(.gogoproto.moretags) = "yaml:&#92;"pool_recovery_period&#92;""];</code>
      * @return The poolRecoveryPeriod.
@@ -157,7 +105,7 @@ public final class Market {
     }
 
     public static final int MIN_STABILITY_SPREAD_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString minStabilitySpread_;
+    private com.google.protobuf.ByteString minStabilitySpread_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>bytes min_stability_spread = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"min_stability_spread&#92;""];</code>
      * @return The minStabilitySpread.
@@ -190,7 +138,7 @@ public final class Market {
       if (!minStabilitySpread_.isEmpty()) {
         output.writeBytes(3, minStabilitySpread_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -211,7 +159,7 @@ public final class Market {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, minStabilitySpread_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -232,7 +180,7 @@ public final class Market {
           != other.getPoolRecoveryPeriod()) return false;
       if (!getMinStabilitySpread()
           .equals(other.getMinStabilitySpread())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -250,7 +198,7 @@ public final class Market {
           getPoolRecoveryPeriod());
       hash = (37 * hash) + MIN_STABILITY_SPREAD_FIELD_NUMBER;
       hash = (53 * hash) + getMinStabilitySpread().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -371,28 +319,21 @@ public final class Market {
 
       // Construct using terra.market.v1beta1.Market.Params.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         basePool_ = com.google.protobuf.ByteString.EMPTY;
-
         poolRecoveryPeriod_ = 0L;
-
         minStabilitySpread_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
@@ -419,11 +360,22 @@ public final class Market {
       @java.lang.Override
       public terra.market.v1beta1.Market.Params buildPartial() {
         terra.market.v1beta1.Market.Params result = new terra.market.v1beta1.Market.Params(this);
-        result.basePool_ = basePool_;
-        result.poolRecoveryPeriod_ = poolRecoveryPeriod_;
-        result.minStabilitySpread_ = minStabilitySpread_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.market.v1beta1.Market.Params result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.basePool_ = basePool_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.poolRecoveryPeriod_ = poolRecoveryPeriod_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.minStabilitySpread_ = minStabilitySpread_;
+        }
       }
 
       @java.lang.Override
@@ -479,7 +431,7 @@ public final class Market {
         if (other.getMinStabilitySpread() != com.google.protobuf.ByteString.EMPTY) {
           setMinStabilitySpread(other.getMinStabilitySpread());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -494,19 +446,48 @@ public final class Market {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.market.v1beta1.Market.Params parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                basePool_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                poolRecoveryPeriod_ = input.readUInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                minStabilitySpread_ = input.readBytes();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.market.v1beta1.Market.Params) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.ByteString basePool_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -523,11 +504,9 @@ public final class Market {
        * @return This builder for chaining.
        */
       public Builder setBasePool(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         basePool_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -536,7 +515,7 @@ public final class Market {
        * @return This builder for chaining.
        */
       public Builder clearBasePool() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         basePool_ = getDefaultInstance().getBasePool();
         onChanged();
         return this;
@@ -559,6 +538,7 @@ public final class Market {
       public Builder setPoolRecoveryPeriod(long value) {
         
         poolRecoveryPeriod_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -567,7 +547,7 @@ public final class Market {
        * @return This builder for chaining.
        */
       public Builder clearPoolRecoveryPeriod() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         poolRecoveryPeriod_ = 0L;
         onChanged();
         return this;
@@ -588,11 +568,9 @@ public final class Market {
        * @return This builder for chaining.
        */
       public Builder setMinStabilitySpread(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         minStabilitySpread_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -601,7 +579,7 @@ public final class Market {
        * @return This builder for chaining.
        */
       public Builder clearMinStabilitySpread() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         minStabilitySpread_ = getDefaultInstance().getMinStabilitySpread();
         onChanged();
         return this;
@@ -639,7 +617,18 @@ public final class Market {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Params(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -682,8 +671,8 @@ public final class Market {
       "\022k\n\024min_stability_spread\030\003 \001(\014BM\362\336\037\033yaml" +
       ":\"min_stability_spread\"\332\336\037&github.com/co" +
       "smos/cosmos-sdk/types.Dec\310\336\037\000:\010\350\240\037\001\230\240\037\000B" +
-      ",Z*github.com/terra-money/core/x/market/" +
-      "typesb\006proto3"
+      ".Z,github.com/classic-terra/core/x/marke" +
+      "t/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

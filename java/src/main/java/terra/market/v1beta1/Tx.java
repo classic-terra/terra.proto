@@ -90,68 +90,6 @@ public final class Tx {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MsgSwap(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              trader_ = s;
-              break;
-            }
-            case 18: {
-              cosmos.base.v1beta1.CoinOuterClass.Coin.Builder subBuilder = null;
-              if (offerCoin_ != null) {
-                subBuilder = offerCoin_.toBuilder();
-              }
-              offerCoin_ = input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(offerCoin_);
-                offerCoin_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              askDenom_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.market.v1beta1.Tx.internal_static_terra_market_v1beta1_MsgSwap_descriptor;
@@ -166,7 +104,8 @@ public final class Tx {
     }
 
     public static final int TRADER_FIELD_NUMBER = 1;
-    private volatile java.lang.Object trader_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object trader_ = "";
     /**
      * <code>string trader = 1 [(.gogoproto.moretags) = "yaml:&#92;"trader&#92;""];</code>
      * @return The trader.
@@ -226,11 +165,12 @@ public final class Tx {
      */
     @java.lang.Override
     public cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder getOfferCoinOrBuilder() {
-      return getOfferCoin();
+      return offerCoin_ == null ? cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance() : offerCoin_;
     }
 
     public static final int ASK_DENOM_FIELD_NUMBER = 3;
-    private volatile java.lang.Object askDenom_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object askDenom_ = "";
     /**
      * <code>string ask_denom = 3 [(.gogoproto.moretags) = "yaml:&#92;"ask_denom&#92;""];</code>
      * @return The askDenom.
@@ -281,16 +221,16 @@ public final class Tx {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTraderBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(trader_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, trader_);
       }
       if (offerCoin_ != null) {
         output.writeMessage(2, getOfferCoin());
       }
-      if (!getAskDenomBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(askDenom_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, askDenom_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -299,17 +239,17 @@ public final class Tx {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTraderBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(trader_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, trader_);
       }
       if (offerCoin_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getOfferCoin());
       }
-      if (!getAskDenomBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(askDenom_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, askDenom_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -333,7 +273,7 @@ public final class Tx {
       }
       if (!getAskDenom()
           .equals(other.getAskDenom())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -352,7 +292,7 @@ public final class Tx {
       }
       hash = (37 * hash) + ASK_DENOM_FIELD_NUMBER;
       hash = (53 * hash) + getAskDenom().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -473,32 +413,25 @@ public final class Tx {
 
       // Construct using terra.market.v1beta1.Tx.MsgSwap.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         trader_ = "";
-
-        if (offerCoinBuilder_ == null) {
-          offerCoin_ = null;
-        } else {
-          offerCoin_ = null;
+        offerCoin_ = null;
+        if (offerCoinBuilder_ != null) {
+          offerCoinBuilder_.dispose();
           offerCoinBuilder_ = null;
         }
         askDenom_ = "";
-
         return this;
       }
 
@@ -525,15 +458,24 @@ public final class Tx {
       @java.lang.Override
       public terra.market.v1beta1.Tx.MsgSwap buildPartial() {
         terra.market.v1beta1.Tx.MsgSwap result = new terra.market.v1beta1.Tx.MsgSwap(this);
-        result.trader_ = trader_;
-        if (offerCoinBuilder_ == null) {
-          result.offerCoin_ = offerCoin_;
-        } else {
-          result.offerCoin_ = offerCoinBuilder_.build();
-        }
-        result.askDenom_ = askDenom_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.market.v1beta1.Tx.MsgSwap result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.trader_ = trader_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.offerCoin_ = offerCoinBuilder_ == null
+              ? offerCoin_
+              : offerCoinBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.askDenom_ = askDenom_;
+        }
       }
 
       @java.lang.Override
@@ -582,6 +524,7 @@ public final class Tx {
         if (other == terra.market.v1beta1.Tx.MsgSwap.getDefaultInstance()) return this;
         if (!other.getTrader().isEmpty()) {
           trader_ = other.trader_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasOfferCoin()) {
@@ -589,9 +532,10 @@ public final class Tx {
         }
         if (!other.getAskDenom().isEmpty()) {
           askDenom_ = other.askDenom_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -606,19 +550,50 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.market.v1beta1.Tx.MsgSwap parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                trader_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getOfferCoinFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                askDenom_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.market.v1beta1.Tx.MsgSwap) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object trader_ = "";
       /**
@@ -661,11 +636,9 @@ public final class Tx {
        */
       public Builder setTrader(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         trader_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -674,8 +647,8 @@ public final class Tx {
        * @return This builder for chaining.
        */
       public Builder clearTrader() {
-        
         trader_ = getDefaultInstance().getTrader();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -686,12 +659,10 @@ public final class Tx {
        */
       public Builder setTraderBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         trader_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -704,7 +675,7 @@ public final class Tx {
        * @return Whether the offerCoin field is set.
        */
       public boolean hasOfferCoin() {
-        return offerCoinBuilder_ != null || offerCoin_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin offer_coin = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
@@ -726,11 +697,11 @@ public final class Tx {
             throw new NullPointerException();
           }
           offerCoin_ = value;
-          onChanged();
         } else {
           offerCoinBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -740,11 +711,11 @@ public final class Tx {
           cosmos.base.v1beta1.CoinOuterClass.Coin.Builder builderForValue) {
         if (offerCoinBuilder_ == null) {
           offerCoin_ = builderForValue.build();
-          onChanged();
         } else {
           offerCoinBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -752,38 +723,38 @@ public final class Tx {
        */
       public Builder mergeOfferCoin(cosmos.base.v1beta1.CoinOuterClass.Coin value) {
         if (offerCoinBuilder_ == null) {
-          if (offerCoin_ != null) {
-            offerCoin_ =
-              cosmos.base.v1beta1.CoinOuterClass.Coin.newBuilder(offerCoin_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            offerCoin_ != null &&
+            offerCoin_ != cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance()) {
+            getOfferCoinBuilder().mergeFrom(value);
           } else {
             offerCoin_ = value;
           }
-          onChanged();
         } else {
           offerCoinBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin offer_coin = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
        */
       public Builder clearOfferCoin() {
-        if (offerCoinBuilder_ == null) {
-          offerCoin_ = null;
-          onChanged();
-        } else {
-          offerCoin_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        offerCoin_ = null;
+        if (offerCoinBuilder_ != null) {
+          offerCoinBuilder_.dispose();
           offerCoinBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin offer_coin = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
        */
       public cosmos.base.v1beta1.CoinOuterClass.Coin.Builder getOfferCoinBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getOfferCoinFieldBuilder().getBuilder();
       }
@@ -856,11 +827,9 @@ public final class Tx {
        */
       public Builder setAskDenom(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         askDenom_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -869,8 +838,8 @@ public final class Tx {
        * @return This builder for chaining.
        */
       public Builder clearAskDenom() {
-        
         askDenom_ = getDefaultInstance().getAskDenom();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -881,12 +850,10 @@ public final class Tx {
        */
       public Builder setAskDenomBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         askDenom_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -923,7 +890,18 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MsgSwap(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1008,69 +986,6 @@ public final class Tx {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MsgSwapResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              cosmos.base.v1beta1.CoinOuterClass.Coin.Builder subBuilder = null;
-              if (swapCoin_ != null) {
-                subBuilder = swapCoin_.toBuilder();
-              }
-              swapCoin_ = input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(swapCoin_);
-                swapCoin_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              cosmos.base.v1beta1.CoinOuterClass.Coin.Builder subBuilder = null;
-              if (swapFee_ != null) {
-                subBuilder = swapFee_.toBuilder();
-              }
-              swapFee_ = input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(swapFee_);
-                swapFee_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.market.v1beta1.Tx.internal_static_terra_market_v1beta1_MsgSwapResponse_descriptor;
@@ -1107,7 +1022,7 @@ public final class Tx {
      */
     @java.lang.Override
     public cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder getSwapCoinOrBuilder() {
-      return getSwapCoin();
+      return swapCoin_ == null ? cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance() : swapCoin_;
     }
 
     public static final int SWAP_FEE_FIELD_NUMBER = 2;
@@ -1133,7 +1048,7 @@ public final class Tx {
      */
     @java.lang.Override
     public cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder getSwapFeeOrBuilder() {
-      return getSwapFee();
+      return swapFee_ == null ? cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance() : swapFee_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1156,7 +1071,7 @@ public final class Tx {
       if (swapFee_ != null) {
         output.writeMessage(2, getSwapFee());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1173,7 +1088,7 @@ public final class Tx {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getSwapFee());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1198,7 +1113,7 @@ public final class Tx {
         if (!getSwapFee()
             .equals(other.getSwapFee())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1217,7 +1132,7 @@ public final class Tx {
         hash = (37 * hash) + SWAP_FEE_FIELD_NUMBER;
         hash = (53 * hash) + getSwapFee().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1338,32 +1253,26 @@ public final class Tx {
 
       // Construct using terra.market.v1beta1.Tx.MsgSwapResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (swapCoinBuilder_ == null) {
-          swapCoin_ = null;
-        } else {
-          swapCoin_ = null;
+        bitField0_ = 0;
+        swapCoin_ = null;
+        if (swapCoinBuilder_ != null) {
+          swapCoinBuilder_.dispose();
           swapCoinBuilder_ = null;
         }
-        if (swapFeeBuilder_ == null) {
-          swapFee_ = null;
-        } else {
-          swapFee_ = null;
+        swapFee_ = null;
+        if (swapFeeBuilder_ != null) {
+          swapFeeBuilder_.dispose();
           swapFeeBuilder_ = null;
         }
         return this;
@@ -1392,18 +1301,23 @@ public final class Tx {
       @java.lang.Override
       public terra.market.v1beta1.Tx.MsgSwapResponse buildPartial() {
         terra.market.v1beta1.Tx.MsgSwapResponse result = new terra.market.v1beta1.Tx.MsgSwapResponse(this);
-        if (swapCoinBuilder_ == null) {
-          result.swapCoin_ = swapCoin_;
-        } else {
-          result.swapCoin_ = swapCoinBuilder_.build();
-        }
-        if (swapFeeBuilder_ == null) {
-          result.swapFee_ = swapFee_;
-        } else {
-          result.swapFee_ = swapFeeBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.market.v1beta1.Tx.MsgSwapResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.swapCoin_ = swapCoinBuilder_ == null
+              ? swapCoin_
+              : swapCoinBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.swapFee_ = swapFeeBuilder_ == null
+              ? swapFee_
+              : swapFeeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1456,7 +1370,7 @@ public final class Tx {
         if (other.hasSwapFee()) {
           mergeSwapFee(other.getSwapFee());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1471,19 +1385,47 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.market.v1beta1.Tx.MsgSwapResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getSwapCoinFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getSwapFeeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.market.v1beta1.Tx.MsgSwapResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private cosmos.base.v1beta1.CoinOuterClass.Coin swapCoin_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1493,7 +1435,7 @@ public final class Tx {
        * @return Whether the swapCoin field is set.
        */
       public boolean hasSwapCoin() {
-        return swapCoinBuilder_ != null || swapCoin_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_coin = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_coin&#92;""];</code>
@@ -1515,11 +1457,11 @@ public final class Tx {
             throw new NullPointerException();
           }
           swapCoin_ = value;
-          onChanged();
         } else {
           swapCoinBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1529,11 +1471,11 @@ public final class Tx {
           cosmos.base.v1beta1.CoinOuterClass.Coin.Builder builderForValue) {
         if (swapCoinBuilder_ == null) {
           swapCoin_ = builderForValue.build();
-          onChanged();
         } else {
           swapCoinBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1541,38 +1483,38 @@ public final class Tx {
        */
       public Builder mergeSwapCoin(cosmos.base.v1beta1.CoinOuterClass.Coin value) {
         if (swapCoinBuilder_ == null) {
-          if (swapCoin_ != null) {
-            swapCoin_ =
-              cosmos.base.v1beta1.CoinOuterClass.Coin.newBuilder(swapCoin_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            swapCoin_ != null &&
+            swapCoin_ != cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance()) {
+            getSwapCoinBuilder().mergeFrom(value);
           } else {
             swapCoin_ = value;
           }
-          onChanged();
         } else {
           swapCoinBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_coin = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_coin&#92;""];</code>
        */
       public Builder clearSwapCoin() {
-        if (swapCoinBuilder_ == null) {
-          swapCoin_ = null;
-          onChanged();
-        } else {
-          swapCoin_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        swapCoin_ = null;
+        if (swapCoinBuilder_ != null) {
+          swapCoinBuilder_.dispose();
           swapCoinBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_coin = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_coin&#92;""];</code>
        */
       public cosmos.base.v1beta1.CoinOuterClass.Coin.Builder getSwapCoinBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getSwapCoinFieldBuilder().getBuilder();
       }
@@ -1612,7 +1554,7 @@ public final class Tx {
        * @return Whether the swapFee field is set.
        */
       public boolean hasSwapFee() {
-        return swapFeeBuilder_ != null || swapFee_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_fee = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_fee&#92;""];</code>
@@ -1634,11 +1576,11 @@ public final class Tx {
             throw new NullPointerException();
           }
           swapFee_ = value;
-          onChanged();
         } else {
           swapFeeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1648,11 +1590,11 @@ public final class Tx {
           cosmos.base.v1beta1.CoinOuterClass.Coin.Builder builderForValue) {
         if (swapFeeBuilder_ == null) {
           swapFee_ = builderForValue.build();
-          onChanged();
         } else {
           swapFeeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1660,38 +1602,38 @@ public final class Tx {
        */
       public Builder mergeSwapFee(cosmos.base.v1beta1.CoinOuterClass.Coin value) {
         if (swapFeeBuilder_ == null) {
-          if (swapFee_ != null) {
-            swapFee_ =
-              cosmos.base.v1beta1.CoinOuterClass.Coin.newBuilder(swapFee_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            swapFee_ != null &&
+            swapFee_ != cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance()) {
+            getSwapFeeBuilder().mergeFrom(value);
           } else {
             swapFee_ = value;
           }
-          onChanged();
         } else {
           swapFeeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_fee = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_fee&#92;""];</code>
        */
       public Builder clearSwapFee() {
-        if (swapFeeBuilder_ == null) {
-          swapFee_ = null;
-          onChanged();
-        } else {
-          swapFee_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        swapFee_ = null;
+        if (swapFeeBuilder_ != null) {
+          swapFeeBuilder_.dispose();
           swapFeeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_fee = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_fee&#92;""];</code>
        */
       public cosmos.base.v1beta1.CoinOuterClass.Coin.Builder getSwapFeeBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getSwapFeeFieldBuilder().getBuilder();
       }
@@ -1755,7 +1697,18 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MsgSwapResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1864,74 +1817,6 @@ public final class Tx {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MsgSwapSend(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              fromAddress_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              toAddress_ = s;
-              break;
-            }
-            case 26: {
-              cosmos.base.v1beta1.CoinOuterClass.Coin.Builder subBuilder = null;
-              if (offerCoin_ != null) {
-                subBuilder = offerCoin_.toBuilder();
-              }
-              offerCoin_ = input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(offerCoin_);
-                offerCoin_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              askDenom_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.market.v1beta1.Tx.internal_static_terra_market_v1beta1_MsgSwapSend_descriptor;
@@ -1946,7 +1831,8 @@ public final class Tx {
     }
 
     public static final int FROM_ADDRESS_FIELD_NUMBER = 1;
-    private volatile java.lang.Object fromAddress_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fromAddress_ = "";
     /**
      * <code>string from_address = 1 [(.gogoproto.moretags) = "yaml:&#92;"from_address&#92;""];</code>
      * @return The fromAddress.
@@ -1984,7 +1870,8 @@ public final class Tx {
     }
 
     public static final int TO_ADDRESS_FIELD_NUMBER = 2;
-    private volatile java.lang.Object toAddress_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object toAddress_ = "";
     /**
      * <code>string to_address = 2 [(.gogoproto.moretags) = "yaml:&#92;"to_address&#92;""];</code>
      * @return The toAddress.
@@ -2044,11 +1931,12 @@ public final class Tx {
      */
     @java.lang.Override
     public cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder getOfferCoinOrBuilder() {
-      return getOfferCoin();
+      return offerCoin_ == null ? cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance() : offerCoin_;
     }
 
     public static final int ASK_DENOM_FIELD_NUMBER = 4;
-    private volatile java.lang.Object askDenom_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object askDenom_ = "";
     /**
      * <code>string ask_denom = 4 [(.gogoproto.moretags) = "yaml:&#92;"ask_denom&#92;""];</code>
      * @return The askDenom.
@@ -2099,19 +1987,19 @@ public final class Tx {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getFromAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromAddress_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fromAddress_);
       }
-      if (!getToAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(toAddress_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, toAddress_);
       }
       if (offerCoin_ != null) {
         output.writeMessage(3, getOfferCoin());
       }
-      if (!getAskDenomBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(askDenom_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, askDenom_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2120,20 +2008,20 @@ public final class Tx {
       if (size != -1) return size;
 
       size = 0;
-      if (!getFromAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fromAddress_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fromAddress_);
       }
-      if (!getToAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(toAddress_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, toAddress_);
       }
       if (offerCoin_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getOfferCoin());
       }
-      if (!getAskDenomBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(askDenom_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, askDenom_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2159,7 +2047,7 @@ public final class Tx {
       }
       if (!getAskDenom()
           .equals(other.getAskDenom())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2180,7 +2068,7 @@ public final class Tx {
       }
       hash = (37 * hash) + ASK_DENOM_FIELD_NUMBER;
       hash = (53 * hash) + getAskDenom().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2301,34 +2189,26 @@ public final class Tx {
 
       // Construct using terra.market.v1beta1.Tx.MsgSwapSend.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         fromAddress_ = "";
-
         toAddress_ = "";
-
-        if (offerCoinBuilder_ == null) {
-          offerCoin_ = null;
-        } else {
-          offerCoin_ = null;
+        offerCoin_ = null;
+        if (offerCoinBuilder_ != null) {
+          offerCoinBuilder_.dispose();
           offerCoinBuilder_ = null;
         }
         askDenom_ = "";
-
         return this;
       }
 
@@ -2355,16 +2235,27 @@ public final class Tx {
       @java.lang.Override
       public terra.market.v1beta1.Tx.MsgSwapSend buildPartial() {
         terra.market.v1beta1.Tx.MsgSwapSend result = new terra.market.v1beta1.Tx.MsgSwapSend(this);
-        result.fromAddress_ = fromAddress_;
-        result.toAddress_ = toAddress_;
-        if (offerCoinBuilder_ == null) {
-          result.offerCoin_ = offerCoin_;
-        } else {
-          result.offerCoin_ = offerCoinBuilder_.build();
-        }
-        result.askDenom_ = askDenom_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.market.v1beta1.Tx.MsgSwapSend result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.fromAddress_ = fromAddress_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.toAddress_ = toAddress_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.offerCoin_ = offerCoinBuilder_ == null
+              ? offerCoin_
+              : offerCoinBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.askDenom_ = askDenom_;
+        }
       }
 
       @java.lang.Override
@@ -2413,10 +2304,12 @@ public final class Tx {
         if (other == terra.market.v1beta1.Tx.MsgSwapSend.getDefaultInstance()) return this;
         if (!other.getFromAddress().isEmpty()) {
           fromAddress_ = other.fromAddress_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getToAddress().isEmpty()) {
           toAddress_ = other.toAddress_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasOfferCoin()) {
@@ -2424,9 +2317,10 @@ public final class Tx {
         }
         if (!other.getAskDenom().isEmpty()) {
           askDenom_ = other.askDenom_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2441,19 +2335,55 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.market.v1beta1.Tx.MsgSwapSend parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                fromAddress_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                toAddress_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getOfferCoinFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                askDenom_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.market.v1beta1.Tx.MsgSwapSend) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object fromAddress_ = "";
       /**
@@ -2496,11 +2426,9 @@ public final class Tx {
        */
       public Builder setFromAddress(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         fromAddress_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2509,8 +2437,8 @@ public final class Tx {
        * @return This builder for chaining.
        */
       public Builder clearFromAddress() {
-        
         fromAddress_ = getDefaultInstance().getFromAddress();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2521,12 +2449,10 @@ public final class Tx {
        */
       public Builder setFromAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         fromAddress_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2572,11 +2498,9 @@ public final class Tx {
        */
       public Builder setToAddress(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         toAddress_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2585,8 +2509,8 @@ public final class Tx {
        * @return This builder for chaining.
        */
       public Builder clearToAddress() {
-        
         toAddress_ = getDefaultInstance().getToAddress();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2597,12 +2521,10 @@ public final class Tx {
        */
       public Builder setToAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         toAddress_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2615,7 +2537,7 @@ public final class Tx {
        * @return Whether the offerCoin field is set.
        */
       public boolean hasOfferCoin() {
-        return offerCoinBuilder_ != null || offerCoin_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin offer_coin = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
@@ -2637,11 +2559,11 @@ public final class Tx {
             throw new NullPointerException();
           }
           offerCoin_ = value;
-          onChanged();
         } else {
           offerCoinBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2651,11 +2573,11 @@ public final class Tx {
           cosmos.base.v1beta1.CoinOuterClass.Coin.Builder builderForValue) {
         if (offerCoinBuilder_ == null) {
           offerCoin_ = builderForValue.build();
-          onChanged();
         } else {
           offerCoinBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2663,38 +2585,38 @@ public final class Tx {
        */
       public Builder mergeOfferCoin(cosmos.base.v1beta1.CoinOuterClass.Coin value) {
         if (offerCoinBuilder_ == null) {
-          if (offerCoin_ != null) {
-            offerCoin_ =
-              cosmos.base.v1beta1.CoinOuterClass.Coin.newBuilder(offerCoin_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            offerCoin_ != null &&
+            offerCoin_ != cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance()) {
+            getOfferCoinBuilder().mergeFrom(value);
           } else {
             offerCoin_ = value;
           }
-          onChanged();
         } else {
           offerCoinBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin offer_coin = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
        */
       public Builder clearOfferCoin() {
-        if (offerCoinBuilder_ == null) {
-          offerCoin_ = null;
-          onChanged();
-        } else {
-          offerCoin_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        offerCoin_ = null;
+        if (offerCoinBuilder_ != null) {
+          offerCoinBuilder_.dispose();
           offerCoinBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin offer_coin = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"offer_coin&#92;""];</code>
        */
       public cosmos.base.v1beta1.CoinOuterClass.Coin.Builder getOfferCoinBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getOfferCoinFieldBuilder().getBuilder();
       }
@@ -2767,11 +2689,9 @@ public final class Tx {
        */
       public Builder setAskDenom(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         askDenom_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2780,8 +2700,8 @@ public final class Tx {
        * @return This builder for chaining.
        */
       public Builder clearAskDenom() {
-        
         askDenom_ = getDefaultInstance().getAskDenom();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -2792,12 +2712,10 @@ public final class Tx {
        */
       public Builder setAskDenomBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         askDenom_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2834,7 +2752,18 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MsgSwapSend(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2919,69 +2848,6 @@ public final class Tx {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MsgSwapSendResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              cosmos.base.v1beta1.CoinOuterClass.Coin.Builder subBuilder = null;
-              if (swapCoin_ != null) {
-                subBuilder = swapCoin_.toBuilder();
-              }
-              swapCoin_ = input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(swapCoin_);
-                swapCoin_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              cosmos.base.v1beta1.CoinOuterClass.Coin.Builder subBuilder = null;
-              if (swapFee_ != null) {
-                subBuilder = swapFee_.toBuilder();
-              }
-              swapFee_ = input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(swapFee_);
-                swapFee_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.market.v1beta1.Tx.internal_static_terra_market_v1beta1_MsgSwapSendResponse_descriptor;
@@ -3018,7 +2884,7 @@ public final class Tx {
      */
     @java.lang.Override
     public cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder getSwapCoinOrBuilder() {
-      return getSwapCoin();
+      return swapCoin_ == null ? cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance() : swapCoin_;
     }
 
     public static final int SWAP_FEE_FIELD_NUMBER = 2;
@@ -3044,7 +2910,7 @@ public final class Tx {
      */
     @java.lang.Override
     public cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder getSwapFeeOrBuilder() {
-      return getSwapFee();
+      return swapFee_ == null ? cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance() : swapFee_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3067,7 +2933,7 @@ public final class Tx {
       if (swapFee_ != null) {
         output.writeMessage(2, getSwapFee());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3084,7 +2950,7 @@ public final class Tx {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getSwapFee());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3109,7 +2975,7 @@ public final class Tx {
         if (!getSwapFee()
             .equals(other.getSwapFee())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3128,7 +2994,7 @@ public final class Tx {
         hash = (37 * hash) + SWAP_FEE_FIELD_NUMBER;
         hash = (53 * hash) + getSwapFee().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3249,32 +3115,26 @@ public final class Tx {
 
       // Construct using terra.market.v1beta1.Tx.MsgSwapSendResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (swapCoinBuilder_ == null) {
-          swapCoin_ = null;
-        } else {
-          swapCoin_ = null;
+        bitField0_ = 0;
+        swapCoin_ = null;
+        if (swapCoinBuilder_ != null) {
+          swapCoinBuilder_.dispose();
           swapCoinBuilder_ = null;
         }
-        if (swapFeeBuilder_ == null) {
-          swapFee_ = null;
-        } else {
-          swapFee_ = null;
+        swapFee_ = null;
+        if (swapFeeBuilder_ != null) {
+          swapFeeBuilder_.dispose();
           swapFeeBuilder_ = null;
         }
         return this;
@@ -3303,18 +3163,23 @@ public final class Tx {
       @java.lang.Override
       public terra.market.v1beta1.Tx.MsgSwapSendResponse buildPartial() {
         terra.market.v1beta1.Tx.MsgSwapSendResponse result = new terra.market.v1beta1.Tx.MsgSwapSendResponse(this);
-        if (swapCoinBuilder_ == null) {
-          result.swapCoin_ = swapCoin_;
-        } else {
-          result.swapCoin_ = swapCoinBuilder_.build();
-        }
-        if (swapFeeBuilder_ == null) {
-          result.swapFee_ = swapFee_;
-        } else {
-          result.swapFee_ = swapFeeBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.market.v1beta1.Tx.MsgSwapSendResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.swapCoin_ = swapCoinBuilder_ == null
+              ? swapCoin_
+              : swapCoinBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.swapFee_ = swapFeeBuilder_ == null
+              ? swapFee_
+              : swapFeeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3367,7 +3232,7 @@ public final class Tx {
         if (other.hasSwapFee()) {
           mergeSwapFee(other.getSwapFee());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3382,19 +3247,47 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.market.v1beta1.Tx.MsgSwapSendResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getSwapCoinFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getSwapFeeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.market.v1beta1.Tx.MsgSwapSendResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private cosmos.base.v1beta1.CoinOuterClass.Coin swapCoin_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3404,7 +3297,7 @@ public final class Tx {
        * @return Whether the swapCoin field is set.
        */
       public boolean hasSwapCoin() {
-        return swapCoinBuilder_ != null || swapCoin_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_coin = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_coin&#92;""];</code>
@@ -3426,11 +3319,11 @@ public final class Tx {
             throw new NullPointerException();
           }
           swapCoin_ = value;
-          onChanged();
         } else {
           swapCoinBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3440,11 +3333,11 @@ public final class Tx {
           cosmos.base.v1beta1.CoinOuterClass.Coin.Builder builderForValue) {
         if (swapCoinBuilder_ == null) {
           swapCoin_ = builderForValue.build();
-          onChanged();
         } else {
           swapCoinBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3452,38 +3345,38 @@ public final class Tx {
        */
       public Builder mergeSwapCoin(cosmos.base.v1beta1.CoinOuterClass.Coin value) {
         if (swapCoinBuilder_ == null) {
-          if (swapCoin_ != null) {
-            swapCoin_ =
-              cosmos.base.v1beta1.CoinOuterClass.Coin.newBuilder(swapCoin_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            swapCoin_ != null &&
+            swapCoin_ != cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance()) {
+            getSwapCoinBuilder().mergeFrom(value);
           } else {
             swapCoin_ = value;
           }
-          onChanged();
         } else {
           swapCoinBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_coin = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_coin&#92;""];</code>
        */
       public Builder clearSwapCoin() {
-        if (swapCoinBuilder_ == null) {
-          swapCoin_ = null;
-          onChanged();
-        } else {
-          swapCoin_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        swapCoin_ = null;
+        if (swapCoinBuilder_ != null) {
+          swapCoinBuilder_.dispose();
           swapCoinBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_coin = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_coin&#92;""];</code>
        */
       public cosmos.base.v1beta1.CoinOuterClass.Coin.Builder getSwapCoinBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getSwapCoinFieldBuilder().getBuilder();
       }
@@ -3523,7 +3416,7 @@ public final class Tx {
        * @return Whether the swapFee field is set.
        */
       public boolean hasSwapFee() {
-        return swapFeeBuilder_ != null || swapFee_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_fee = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_fee&#92;""];</code>
@@ -3545,11 +3438,11 @@ public final class Tx {
             throw new NullPointerException();
           }
           swapFee_ = value;
-          onChanged();
         } else {
           swapFeeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3559,11 +3452,11 @@ public final class Tx {
           cosmos.base.v1beta1.CoinOuterClass.Coin.Builder builderForValue) {
         if (swapFeeBuilder_ == null) {
           swapFee_ = builderForValue.build();
-          onChanged();
         } else {
           swapFeeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3571,38 +3464,38 @@ public final class Tx {
        */
       public Builder mergeSwapFee(cosmos.base.v1beta1.CoinOuterClass.Coin value) {
         if (swapFeeBuilder_ == null) {
-          if (swapFee_ != null) {
-            swapFee_ =
-              cosmos.base.v1beta1.CoinOuterClass.Coin.newBuilder(swapFee_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            swapFee_ != null &&
+            swapFee_ != cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance()) {
+            getSwapFeeBuilder().mergeFrom(value);
           } else {
             swapFee_ = value;
           }
-          onChanged();
         } else {
           swapFeeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_fee = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_fee&#92;""];</code>
        */
       public Builder clearSwapFee() {
-        if (swapFeeBuilder_ == null) {
-          swapFee_ = null;
-          onChanged();
-        } else {
-          swapFee_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        swapFee_ = null;
+        if (swapFeeBuilder_ != null) {
+          swapFeeBuilder_.dispose();
           swapFeeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin swap_fee = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"swap_fee&#92;""];</code>
        */
       public cosmos.base.v1beta1.CoinOuterClass.Coin.Builder getSwapFeeBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getSwapFeeFieldBuilder().getBuilder();
       }
@@ -3666,7 +3559,18 @@ public final class Tx {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MsgSwapSendResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3740,8 +3644,8 @@ public final class Tx {
       "gSwap\032%.terra.market.v1beta1.MsgSwapResp" +
       "onse\022X\n\010SwapSend\022!.terra.market.v1beta1." +
       "MsgSwapSend\032).terra.market.v1beta1.MsgSw" +
-      "apSendResponseB,Z*github.com/terra-money" +
-      "/core/x/market/typesb\006proto3"
+      "apSendResponseB.Z,github.com/classic-ter" +
+      "ra/core/x/market/typesb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

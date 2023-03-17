@@ -89,6 +89,18 @@ public final class Treasury {
      * @return The windowProbation.
      */
     long getWindowProbation();
+
+    /**
+     * <code>string burn_tax_split = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"burn_tax_split&#92;""];</code>
+     * @return The burnTaxSplit.
+     */
+    java.lang.String getBurnTaxSplit();
+    /**
+     * <code>string burn_tax_split = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"burn_tax_split&#92;""];</code>
+     * @return The bytes for burnTaxSplit.
+     */
+    com.google.protobuf.ByteString
+        getBurnTaxSplitBytes();
   }
   /**
    * <pre>
@@ -109,6 +121,7 @@ public final class Treasury {
     private Params() {
       seigniorageBurdenTarget_ = "";
       miningIncrement_ = "";
+      burnTaxSplit_ = "";
     }
 
     @java.lang.Override
@@ -122,96 +135,6 @@ public final class Treasury {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Params(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              terra.treasury.v1beta1.Treasury.PolicyConstraints.Builder subBuilder = null;
-              if (taxPolicy_ != null) {
-                subBuilder = taxPolicy_.toBuilder();
-              }
-              taxPolicy_ = input.readMessage(terra.treasury.v1beta1.Treasury.PolicyConstraints.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(taxPolicy_);
-                taxPolicy_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              terra.treasury.v1beta1.Treasury.PolicyConstraints.Builder subBuilder = null;
-              if (rewardPolicy_ != null) {
-                subBuilder = rewardPolicy_.toBuilder();
-              }
-              rewardPolicy_ = input.readMessage(terra.treasury.v1beta1.Treasury.PolicyConstraints.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(rewardPolicy_);
-                rewardPolicy_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              seigniorageBurdenTarget_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              miningIncrement_ = s;
-              break;
-            }
-            case 40: {
-
-              windowShort_ = input.readUInt64();
-              break;
-            }
-            case 48: {
-
-              windowLong_ = input.readUInt64();
-              break;
-            }
-            case 56: {
-
-              windowProbation_ = input.readUInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -249,7 +172,7 @@ public final class Treasury {
      */
     @java.lang.Override
     public terra.treasury.v1beta1.Treasury.PolicyConstraintsOrBuilder getTaxPolicyOrBuilder() {
-      return getTaxPolicy();
+      return taxPolicy_ == null ? terra.treasury.v1beta1.Treasury.PolicyConstraints.getDefaultInstance() : taxPolicy_;
     }
 
     public static final int REWARD_POLICY_FIELD_NUMBER = 2;
@@ -275,11 +198,12 @@ public final class Treasury {
      */
     @java.lang.Override
     public terra.treasury.v1beta1.Treasury.PolicyConstraintsOrBuilder getRewardPolicyOrBuilder() {
-      return getRewardPolicy();
+      return rewardPolicy_ == null ? terra.treasury.v1beta1.Treasury.PolicyConstraints.getDefaultInstance() : rewardPolicy_;
     }
 
     public static final int SEIGNIORAGE_BURDEN_TARGET_FIELD_NUMBER = 3;
-    private volatile java.lang.Object seigniorageBurdenTarget_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object seigniorageBurdenTarget_ = "";
     /**
      * <code>string seigniorage_burden_target = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"seigniorage_burden_target&#92;""];</code>
      * @return The seigniorageBurdenTarget.
@@ -317,7 +241,8 @@ public final class Treasury {
     }
 
     public static final int MINING_INCREMENT_FIELD_NUMBER = 4;
-    private volatile java.lang.Object miningIncrement_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object miningIncrement_ = "";
     /**
      * <code>string mining_increment = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"mining_increment&#92;""];</code>
      * @return The miningIncrement.
@@ -355,7 +280,7 @@ public final class Treasury {
     }
 
     public static final int WINDOW_SHORT_FIELD_NUMBER = 5;
-    private long windowShort_;
+    private long windowShort_ = 0L;
     /**
      * <code>uint64 window_short = 5 [(.gogoproto.moretags) = "yaml:&#92;"window_short&#92;""];</code>
      * @return The windowShort.
@@ -366,7 +291,7 @@ public final class Treasury {
     }
 
     public static final int WINDOW_LONG_FIELD_NUMBER = 6;
-    private long windowLong_;
+    private long windowLong_ = 0L;
     /**
      * <code>uint64 window_long = 6 [(.gogoproto.moretags) = "yaml:&#92;"window_long&#92;""];</code>
      * @return The windowLong.
@@ -377,7 +302,7 @@ public final class Treasury {
     }
 
     public static final int WINDOW_PROBATION_FIELD_NUMBER = 7;
-    private long windowProbation_;
+    private long windowProbation_ = 0L;
     /**
      * <code>uint64 window_probation = 7 [(.gogoproto.moretags) = "yaml:&#92;"window_probation&#92;""];</code>
      * @return The windowProbation.
@@ -385,6 +310,45 @@ public final class Treasury {
     @java.lang.Override
     public long getWindowProbation() {
       return windowProbation_;
+    }
+
+    public static final int BURN_TAX_SPLIT_FIELD_NUMBER = 8;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object burnTaxSplit_ = "";
+    /**
+     * <code>string burn_tax_split = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"burn_tax_split&#92;""];</code>
+     * @return The burnTaxSplit.
+     */
+    @java.lang.Override
+    public java.lang.String getBurnTaxSplit() {
+      java.lang.Object ref = burnTaxSplit_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        burnTaxSplit_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string burn_tax_split = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"burn_tax_split&#92;""];</code>
+     * @return The bytes for burnTaxSplit.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getBurnTaxSplitBytes() {
+      java.lang.Object ref = burnTaxSplit_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        burnTaxSplit_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -407,10 +371,10 @@ public final class Treasury {
       if (rewardPolicy_ != null) {
         output.writeMessage(2, getRewardPolicy());
       }
-      if (!getSeigniorageBurdenTargetBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(seigniorageBurdenTarget_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, seigniorageBurdenTarget_);
       }
-      if (!getMiningIncrementBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(miningIncrement_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, miningIncrement_);
       }
       if (windowShort_ != 0L) {
@@ -422,7 +386,10 @@ public final class Treasury {
       if (windowProbation_ != 0L) {
         output.writeUInt64(7, windowProbation_);
       }
-      unknownFields.writeTo(output);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(burnTaxSplit_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, burnTaxSplit_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -439,10 +406,10 @@ public final class Treasury {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getRewardPolicy());
       }
-      if (!getSeigniorageBurdenTargetBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(seigniorageBurdenTarget_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, seigniorageBurdenTarget_);
       }
-      if (!getMiningIncrementBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(miningIncrement_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, miningIncrement_);
       }
       if (windowShort_ != 0L) {
@@ -457,7 +424,10 @@ public final class Treasury {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(7, windowProbation_);
       }
-      size += unknownFields.getSerializedSize();
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(burnTaxSplit_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, burnTaxSplit_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -492,7 +462,9 @@ public final class Treasury {
           != other.getWindowLong()) return false;
       if (getWindowProbation()
           != other.getWindowProbation()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getBurnTaxSplit()
+          .equals(other.getBurnTaxSplit())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -524,7 +496,9 @@ public final class Treasury {
       hash = (37 * hash) + WINDOW_PROBATION_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getWindowProbation());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (37 * hash) + BURN_TAX_SPLIT_FIELD_NUMBER;
+      hash = (53 * hash) + getBurnTaxSplit().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -645,44 +619,34 @@ public final class Treasury {
 
       // Construct using terra.treasury.v1beta1.Treasury.Params.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (taxPolicyBuilder_ == null) {
-          taxPolicy_ = null;
-        } else {
-          taxPolicy_ = null;
+        bitField0_ = 0;
+        taxPolicy_ = null;
+        if (taxPolicyBuilder_ != null) {
+          taxPolicyBuilder_.dispose();
           taxPolicyBuilder_ = null;
         }
-        if (rewardPolicyBuilder_ == null) {
-          rewardPolicy_ = null;
-        } else {
-          rewardPolicy_ = null;
+        rewardPolicy_ = null;
+        if (rewardPolicyBuilder_ != null) {
+          rewardPolicyBuilder_.dispose();
           rewardPolicyBuilder_ = null;
         }
         seigniorageBurdenTarget_ = "";
-
         miningIncrement_ = "";
-
         windowShort_ = 0L;
-
         windowLong_ = 0L;
-
         windowProbation_ = 0L;
-
+        burnTaxSplit_ = "";
         return this;
       }
 
@@ -709,23 +673,41 @@ public final class Treasury {
       @java.lang.Override
       public terra.treasury.v1beta1.Treasury.Params buildPartial() {
         terra.treasury.v1beta1.Treasury.Params result = new terra.treasury.v1beta1.Treasury.Params(this);
-        if (taxPolicyBuilder_ == null) {
-          result.taxPolicy_ = taxPolicy_;
-        } else {
-          result.taxPolicy_ = taxPolicyBuilder_.build();
-        }
-        if (rewardPolicyBuilder_ == null) {
-          result.rewardPolicy_ = rewardPolicy_;
-        } else {
-          result.rewardPolicy_ = rewardPolicyBuilder_.build();
-        }
-        result.seigniorageBurdenTarget_ = seigniorageBurdenTarget_;
-        result.miningIncrement_ = miningIncrement_;
-        result.windowShort_ = windowShort_;
-        result.windowLong_ = windowLong_;
-        result.windowProbation_ = windowProbation_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.treasury.v1beta1.Treasury.Params result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.taxPolicy_ = taxPolicyBuilder_ == null
+              ? taxPolicy_
+              : taxPolicyBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.rewardPolicy_ = rewardPolicyBuilder_ == null
+              ? rewardPolicy_
+              : rewardPolicyBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.seigniorageBurdenTarget_ = seigniorageBurdenTarget_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.miningIncrement_ = miningIncrement_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.windowShort_ = windowShort_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.windowLong_ = windowLong_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.windowProbation_ = windowProbation_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.burnTaxSplit_ = burnTaxSplit_;
+        }
       }
 
       @java.lang.Override
@@ -780,10 +762,12 @@ public final class Treasury {
         }
         if (!other.getSeigniorageBurdenTarget().isEmpty()) {
           seigniorageBurdenTarget_ = other.seigniorageBurdenTarget_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getMiningIncrement().isEmpty()) {
           miningIncrement_ = other.miningIncrement_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.getWindowShort() != 0L) {
@@ -795,7 +779,12 @@ public final class Treasury {
         if (other.getWindowProbation() != 0L) {
           setWindowProbation(other.getWindowProbation());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        if (!other.getBurnTaxSplit().isEmpty()) {
+          burnTaxSplit_ = other.burnTaxSplit_;
+          bitField0_ |= 0x00000080;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -810,19 +799,77 @@ public final class Treasury {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.treasury.v1beta1.Treasury.Params parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getTaxPolicyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getRewardPolicyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                seigniorageBurdenTarget_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                miningIncrement_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                windowShort_ = input.readUInt64();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                windowLong_ = input.readUInt64();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              case 56: {
+                windowProbation_ = input.readUInt64();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 66: {
+                burnTaxSplit_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.treasury.v1beta1.Treasury.Params) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private terra.treasury.v1beta1.Treasury.PolicyConstraints taxPolicy_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -832,7 +879,7 @@ public final class Treasury {
        * @return Whether the taxPolicy field is set.
        */
       public boolean hasTaxPolicy() {
-        return taxPolicyBuilder_ != null || taxPolicy_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.terra.treasury.v1beta1.PolicyConstraints tax_policy = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"tax_policy&#92;""];</code>
@@ -854,11 +901,11 @@ public final class Treasury {
             throw new NullPointerException();
           }
           taxPolicy_ = value;
-          onChanged();
         } else {
           taxPolicyBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -868,11 +915,11 @@ public final class Treasury {
           terra.treasury.v1beta1.Treasury.PolicyConstraints.Builder builderForValue) {
         if (taxPolicyBuilder_ == null) {
           taxPolicy_ = builderForValue.build();
-          onChanged();
         } else {
           taxPolicyBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -880,38 +927,38 @@ public final class Treasury {
        */
       public Builder mergeTaxPolicy(terra.treasury.v1beta1.Treasury.PolicyConstraints value) {
         if (taxPolicyBuilder_ == null) {
-          if (taxPolicy_ != null) {
-            taxPolicy_ =
-              terra.treasury.v1beta1.Treasury.PolicyConstraints.newBuilder(taxPolicy_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            taxPolicy_ != null &&
+            taxPolicy_ != terra.treasury.v1beta1.Treasury.PolicyConstraints.getDefaultInstance()) {
+            getTaxPolicyBuilder().mergeFrom(value);
           } else {
             taxPolicy_ = value;
           }
-          onChanged();
         } else {
           taxPolicyBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.terra.treasury.v1beta1.PolicyConstraints tax_policy = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"tax_policy&#92;""];</code>
        */
       public Builder clearTaxPolicy() {
-        if (taxPolicyBuilder_ == null) {
-          taxPolicy_ = null;
-          onChanged();
-        } else {
-          taxPolicy_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        taxPolicy_ = null;
+        if (taxPolicyBuilder_ != null) {
+          taxPolicyBuilder_.dispose();
           taxPolicyBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.terra.treasury.v1beta1.PolicyConstraints tax_policy = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"tax_policy&#92;""];</code>
        */
       public terra.treasury.v1beta1.Treasury.PolicyConstraints.Builder getTaxPolicyBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getTaxPolicyFieldBuilder().getBuilder();
       }
@@ -951,7 +998,7 @@ public final class Treasury {
        * @return Whether the rewardPolicy field is set.
        */
       public boolean hasRewardPolicy() {
-        return rewardPolicyBuilder_ != null || rewardPolicy_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.terra.treasury.v1beta1.PolicyConstraints reward_policy = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"reward_policy&#92;""];</code>
@@ -973,11 +1020,11 @@ public final class Treasury {
             throw new NullPointerException();
           }
           rewardPolicy_ = value;
-          onChanged();
         } else {
           rewardPolicyBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -987,11 +1034,11 @@ public final class Treasury {
           terra.treasury.v1beta1.Treasury.PolicyConstraints.Builder builderForValue) {
         if (rewardPolicyBuilder_ == null) {
           rewardPolicy_ = builderForValue.build();
-          onChanged();
         } else {
           rewardPolicyBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -999,38 +1046,38 @@ public final class Treasury {
        */
       public Builder mergeRewardPolicy(terra.treasury.v1beta1.Treasury.PolicyConstraints value) {
         if (rewardPolicyBuilder_ == null) {
-          if (rewardPolicy_ != null) {
-            rewardPolicy_ =
-              terra.treasury.v1beta1.Treasury.PolicyConstraints.newBuilder(rewardPolicy_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            rewardPolicy_ != null &&
+            rewardPolicy_ != terra.treasury.v1beta1.Treasury.PolicyConstraints.getDefaultInstance()) {
+            getRewardPolicyBuilder().mergeFrom(value);
           } else {
             rewardPolicy_ = value;
           }
-          onChanged();
         } else {
           rewardPolicyBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.terra.treasury.v1beta1.PolicyConstraints reward_policy = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"reward_policy&#92;""];</code>
        */
       public Builder clearRewardPolicy() {
-        if (rewardPolicyBuilder_ == null) {
-          rewardPolicy_ = null;
-          onChanged();
-        } else {
-          rewardPolicy_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        rewardPolicy_ = null;
+        if (rewardPolicyBuilder_ != null) {
+          rewardPolicyBuilder_.dispose();
           rewardPolicyBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.terra.treasury.v1beta1.PolicyConstraints reward_policy = 2 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"reward_policy&#92;""];</code>
        */
       public terra.treasury.v1beta1.Treasury.PolicyConstraints.Builder getRewardPolicyBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getRewardPolicyFieldBuilder().getBuilder();
       }
@@ -1103,11 +1150,9 @@ public final class Treasury {
        */
       public Builder setSeigniorageBurdenTarget(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         seigniorageBurdenTarget_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1116,8 +1161,8 @@ public final class Treasury {
        * @return This builder for chaining.
        */
       public Builder clearSeigniorageBurdenTarget() {
-        
         seigniorageBurdenTarget_ = getDefaultInstance().getSeigniorageBurdenTarget();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1128,12 +1173,10 @@ public final class Treasury {
        */
       public Builder setSeigniorageBurdenTargetBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         seigniorageBurdenTarget_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1179,11 +1222,9 @@ public final class Treasury {
        */
       public Builder setMiningIncrement(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         miningIncrement_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1192,8 +1233,8 @@ public final class Treasury {
        * @return This builder for chaining.
        */
       public Builder clearMiningIncrement() {
-        
         miningIncrement_ = getDefaultInstance().getMiningIncrement();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1204,12 +1245,10 @@ public final class Treasury {
        */
       public Builder setMiningIncrementBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         miningIncrement_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1231,6 +1270,7 @@ public final class Treasury {
       public Builder setWindowShort(long value) {
         
         windowShort_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1239,7 +1279,7 @@ public final class Treasury {
        * @return This builder for chaining.
        */
       public Builder clearWindowShort() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         windowShort_ = 0L;
         onChanged();
         return this;
@@ -1262,6 +1302,7 @@ public final class Treasury {
       public Builder setWindowLong(long value) {
         
         windowLong_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1270,7 +1311,7 @@ public final class Treasury {
        * @return This builder for chaining.
        */
       public Builder clearWindowLong() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         windowLong_ = 0L;
         onChanged();
         return this;
@@ -1293,6 +1334,7 @@ public final class Treasury {
       public Builder setWindowProbation(long value) {
         
         windowProbation_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1301,8 +1343,80 @@ public final class Treasury {
        * @return This builder for chaining.
        */
       public Builder clearWindowProbation() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         windowProbation_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object burnTaxSplit_ = "";
+      /**
+       * <code>string burn_tax_split = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"burn_tax_split&#92;""];</code>
+       * @return The burnTaxSplit.
+       */
+      public java.lang.String getBurnTaxSplit() {
+        java.lang.Object ref = burnTaxSplit_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          burnTaxSplit_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string burn_tax_split = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"burn_tax_split&#92;""];</code>
+       * @return The bytes for burnTaxSplit.
+       */
+      public com.google.protobuf.ByteString
+          getBurnTaxSplitBytes() {
+        java.lang.Object ref = burnTaxSplit_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          burnTaxSplit_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string burn_tax_split = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"burn_tax_split&#92;""];</code>
+       * @param value The burnTaxSplit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBurnTaxSplit(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        burnTaxSplit_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string burn_tax_split = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"burn_tax_split&#92;""];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBurnTaxSplit() {
+        burnTaxSplit_ = getDefaultInstance().getBurnTaxSplit();
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string burn_tax_split = 8 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"burn_tax_split&#92;""];</code>
+       * @param value The bytes for burnTaxSplit to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBurnTaxSplitBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        burnTaxSplit_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -1339,7 +1453,18 @@ public final class Treasury {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Params(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1448,74 +1573,6 @@ public final class Treasury {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PolicyConstraints(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              rateMin_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              rateMax_ = s;
-              break;
-            }
-            case 26: {
-              cosmos.base.v1beta1.CoinOuterClass.Coin.Builder subBuilder = null;
-              if (cap_ != null) {
-                subBuilder = cap_.toBuilder();
-              }
-              cap_ = input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(cap_);
-                cap_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              changeRateMax_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.treasury.v1beta1.Treasury.internal_static_terra_treasury_v1beta1_PolicyConstraints_descriptor;
@@ -1530,7 +1587,8 @@ public final class Treasury {
     }
 
     public static final int RATE_MIN_FIELD_NUMBER = 1;
-    private volatile java.lang.Object rateMin_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object rateMin_ = "";
     /**
      * <code>string rate_min = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"rate_min&#92;""];</code>
      * @return The rateMin.
@@ -1568,7 +1626,8 @@ public final class Treasury {
     }
 
     public static final int RATE_MAX_FIELD_NUMBER = 2;
-    private volatile java.lang.Object rateMax_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object rateMax_ = "";
     /**
      * <code>string rate_max = 2 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"rate_max&#92;""];</code>
      * @return The rateMax.
@@ -1628,11 +1687,12 @@ public final class Treasury {
      */
     @java.lang.Override
     public cosmos.base.v1beta1.CoinOuterClass.CoinOrBuilder getCapOrBuilder() {
-      return getCap();
+      return cap_ == null ? cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance() : cap_;
     }
 
     public static final int CHANGE_RATE_MAX_FIELD_NUMBER = 4;
-    private volatile java.lang.Object changeRateMax_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object changeRateMax_ = "";
     /**
      * <code>string change_rate_max = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec", (.gogoproto.moretags) = "yaml:&#92;"change_rate_max&#92;""];</code>
      * @return The changeRateMax.
@@ -1683,19 +1743,19 @@ public final class Treasury {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getRateMinBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rateMin_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, rateMin_);
       }
-      if (!getRateMaxBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rateMax_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, rateMax_);
       }
       if (cap_ != null) {
         output.writeMessage(3, getCap());
       }
-      if (!getChangeRateMaxBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(changeRateMax_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, changeRateMax_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1704,20 +1764,20 @@ public final class Treasury {
       if (size != -1) return size;
 
       size = 0;
-      if (!getRateMinBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rateMin_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, rateMin_);
       }
-      if (!getRateMaxBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rateMax_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, rateMax_);
       }
       if (cap_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getCap());
       }
-      if (!getChangeRateMaxBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(changeRateMax_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, changeRateMax_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1743,7 +1803,7 @@ public final class Treasury {
       }
       if (!getChangeRateMax()
           .equals(other.getChangeRateMax())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1764,7 +1824,7 @@ public final class Treasury {
       }
       hash = (37 * hash) + CHANGE_RATE_MAX_FIELD_NUMBER;
       hash = (53 * hash) + getChangeRateMax().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1885,34 +1945,26 @@ public final class Treasury {
 
       // Construct using terra.treasury.v1beta1.Treasury.PolicyConstraints.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         rateMin_ = "";
-
         rateMax_ = "";
-
-        if (capBuilder_ == null) {
-          cap_ = null;
-        } else {
-          cap_ = null;
+        cap_ = null;
+        if (capBuilder_ != null) {
+          capBuilder_.dispose();
           capBuilder_ = null;
         }
         changeRateMax_ = "";
-
         return this;
       }
 
@@ -1939,16 +1991,27 @@ public final class Treasury {
       @java.lang.Override
       public terra.treasury.v1beta1.Treasury.PolicyConstraints buildPartial() {
         terra.treasury.v1beta1.Treasury.PolicyConstraints result = new terra.treasury.v1beta1.Treasury.PolicyConstraints(this);
-        result.rateMin_ = rateMin_;
-        result.rateMax_ = rateMax_;
-        if (capBuilder_ == null) {
-          result.cap_ = cap_;
-        } else {
-          result.cap_ = capBuilder_.build();
-        }
-        result.changeRateMax_ = changeRateMax_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(terra.treasury.v1beta1.Treasury.PolicyConstraints result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.rateMin_ = rateMin_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.rateMax_ = rateMax_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.cap_ = capBuilder_ == null
+              ? cap_
+              : capBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.changeRateMax_ = changeRateMax_;
+        }
       }
 
       @java.lang.Override
@@ -1997,10 +2060,12 @@ public final class Treasury {
         if (other == terra.treasury.v1beta1.Treasury.PolicyConstraints.getDefaultInstance()) return this;
         if (!other.getRateMin().isEmpty()) {
           rateMin_ = other.rateMin_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getRateMax().isEmpty()) {
           rateMax_ = other.rateMax_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasCap()) {
@@ -2008,9 +2073,10 @@ public final class Treasury {
         }
         if (!other.getChangeRateMax().isEmpty()) {
           changeRateMax_ = other.changeRateMax_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2025,19 +2091,55 @@ public final class Treasury {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.treasury.v1beta1.Treasury.PolicyConstraints parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                rateMin_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                rateMax_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getCapFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                changeRateMax_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.treasury.v1beta1.Treasury.PolicyConstraints) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object rateMin_ = "";
       /**
@@ -2080,11 +2182,9 @@ public final class Treasury {
        */
       public Builder setRateMin(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         rateMin_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2093,8 +2193,8 @@ public final class Treasury {
        * @return This builder for chaining.
        */
       public Builder clearRateMin() {
-        
         rateMin_ = getDefaultInstance().getRateMin();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2105,12 +2205,10 @@ public final class Treasury {
        */
       public Builder setRateMinBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         rateMin_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2156,11 +2254,9 @@ public final class Treasury {
        */
       public Builder setRateMax(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         rateMax_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2169,8 +2265,8 @@ public final class Treasury {
        * @return This builder for chaining.
        */
       public Builder clearRateMax() {
-        
         rateMax_ = getDefaultInstance().getRateMax();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2181,12 +2277,10 @@ public final class Treasury {
        */
       public Builder setRateMaxBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         rateMax_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2199,7 +2293,7 @@ public final class Treasury {
        * @return Whether the cap field is set.
        */
       public boolean hasCap() {
-        return capBuilder_ != null || cap_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin cap = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cap&#92;""];</code>
@@ -2221,11 +2315,11 @@ public final class Treasury {
             throw new NullPointerException();
           }
           cap_ = value;
-          onChanged();
         } else {
           capBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2235,11 +2329,11 @@ public final class Treasury {
           cosmos.base.v1beta1.CoinOuterClass.Coin.Builder builderForValue) {
         if (capBuilder_ == null) {
           cap_ = builderForValue.build();
-          onChanged();
         } else {
           capBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2247,38 +2341,38 @@ public final class Treasury {
        */
       public Builder mergeCap(cosmos.base.v1beta1.CoinOuterClass.Coin value) {
         if (capBuilder_ == null) {
-          if (cap_ != null) {
-            cap_ =
-              cosmos.base.v1beta1.CoinOuterClass.Coin.newBuilder(cap_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            cap_ != null &&
+            cap_ != cosmos.base.v1beta1.CoinOuterClass.Coin.getDefaultInstance()) {
+            getCapBuilder().mergeFrom(value);
           } else {
             cap_ = value;
           }
-          onChanged();
         } else {
           capBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin cap = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cap&#92;""];</code>
        */
       public Builder clearCap() {
-        if (capBuilder_ == null) {
-          cap_ = null;
-          onChanged();
-        } else {
-          cap_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        cap_ = null;
+        if (capBuilder_ != null) {
+          capBuilder_.dispose();
           capBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.cosmos.base.v1beta1.Coin cap = 3 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"cap&#92;""];</code>
        */
       public cosmos.base.v1beta1.CoinOuterClass.Coin.Builder getCapBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getCapFieldBuilder().getBuilder();
       }
@@ -2351,11 +2445,9 @@ public final class Treasury {
        */
       public Builder setChangeRateMax(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         changeRateMax_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2364,8 +2456,8 @@ public final class Treasury {
        * @return This builder for chaining.
        */
       public Builder clearChangeRateMax() {
-        
         changeRateMax_ = getDefaultInstance().getChangeRateMax();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -2376,12 +2468,10 @@ public final class Treasury {
        */
       public Builder setChangeRateMaxBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         changeRateMax_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2418,7 +2508,18 @@ public final class Treasury {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PolicyConstraints(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2499,56 +2600,6 @@ public final class Treasury {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private EpochTaxProceeds(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                taxProceeds_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.Coin>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              taxProceeds_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          taxProceeds_ = java.util.Collections.unmodifiableList(taxProceeds_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.treasury.v1beta1.Treasury.internal_static_terra_treasury_v1beta1_EpochTaxProceeds_descriptor;
@@ -2563,6 +2614,7 @@ public final class Treasury {
     }
 
     public static final int TAX_PROCEEDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.Coin> taxProceeds_;
     /**
      * <code>repeated .cosmos.base.v1beta1.Coin tax_proceeds = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"tax_proceeds&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
@@ -2619,7 +2671,7 @@ public final class Treasury {
       for (int i = 0; i < taxProceeds_.size(); i++) {
         output.writeMessage(1, taxProceeds_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2632,7 +2684,7 @@ public final class Treasury {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, taxProceeds_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2649,7 +2701,7 @@ public final class Treasury {
 
       if (!getTaxProceedsList()
           .equals(other.getTaxProceedsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2664,7 +2716,7 @@ public final class Treasury {
         hash = (37 * hash) + TAX_PROCEEDS_FIELD_NUMBER;
         hash = (53 * hash) + getTaxProceedsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2786,29 +2838,25 @@ public final class Treasury {
 
       // Construct using terra.treasury.v1beta1.Treasury.EpochTaxProceeds.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getTaxProceedsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (taxProceedsBuilder_ == null) {
           taxProceeds_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          taxProceeds_ = null;
           taxProceedsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2835,7 +2883,13 @@ public final class Treasury {
       @java.lang.Override
       public terra.treasury.v1beta1.Treasury.EpochTaxProceeds buildPartial() {
         terra.treasury.v1beta1.Treasury.EpochTaxProceeds result = new terra.treasury.v1beta1.Treasury.EpochTaxProceeds(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(terra.treasury.v1beta1.Treasury.EpochTaxProceeds result) {
         if (taxProceedsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             taxProceeds_ = java.util.Collections.unmodifiableList(taxProceeds_);
@@ -2845,8 +2899,10 @@ public final class Treasury {
         } else {
           result.taxProceeds_ = taxProceedsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(terra.treasury.v1beta1.Treasury.EpochTaxProceeds result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -2919,7 +2975,7 @@ public final class Treasury {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2934,17 +2990,43 @@ public final class Treasury {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.treasury.v1beta1.Treasury.EpochTaxProceeds parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cosmos.base.v1beta1.CoinOuterClass.Coin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.Coin.parser(),
+                        extensionRegistry);
+                if (taxProceedsBuilder_ == null) {
+                  ensureTaxProceedsIsMutable();
+                  taxProceeds_.add(m);
+                } else {
+                  taxProceedsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.treasury.v1beta1.Treasury.EpochTaxProceeds) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3221,7 +3303,18 @@ public final class Treasury {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EpochTaxProceeds(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3302,56 +3395,6 @@ public final class Treasury {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private EpochInitialIssuance(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                issuance_ = new java.util.ArrayList<cosmos.base.v1beta1.CoinOuterClass.Coin>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              issuance_.add(
-                  input.readMessage(cosmos.base.v1beta1.CoinOuterClass.Coin.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          issuance_ = java.util.Collections.unmodifiableList(issuance_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return terra.treasury.v1beta1.Treasury.internal_static_terra_treasury_v1beta1_EpochInitialIssuance_descriptor;
@@ -3366,6 +3409,7 @@ public final class Treasury {
     }
 
     public static final int ISSUANCE_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<cosmos.base.v1beta1.CoinOuterClass.Coin> issuance_;
     /**
      * <code>repeated .cosmos.base.v1beta1.Coin issuance = 1 [(.gogoproto.nullable) = false, (.gogoproto.moretags) = "yaml:&#92;"issuance&#92;"", (.gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];</code>
@@ -3422,7 +3466,7 @@ public final class Treasury {
       for (int i = 0; i < issuance_.size(); i++) {
         output.writeMessage(1, issuance_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3435,7 +3479,7 @@ public final class Treasury {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, issuance_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3452,7 +3496,7 @@ public final class Treasury {
 
       if (!getIssuanceList()
           .equals(other.getIssuanceList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3467,7 +3511,7 @@ public final class Treasury {
         hash = (37 * hash) + ISSUANCE_FIELD_NUMBER;
         hash = (53 * hash) + getIssuanceList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3589,29 +3633,25 @@ public final class Treasury {
 
       // Construct using terra.treasury.v1beta1.Treasury.EpochInitialIssuance.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getIssuanceFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (issuanceBuilder_ == null) {
           issuance_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          issuance_ = null;
           issuanceBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -3638,7 +3678,13 @@ public final class Treasury {
       @java.lang.Override
       public terra.treasury.v1beta1.Treasury.EpochInitialIssuance buildPartial() {
         terra.treasury.v1beta1.Treasury.EpochInitialIssuance result = new terra.treasury.v1beta1.Treasury.EpochInitialIssuance(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(terra.treasury.v1beta1.Treasury.EpochInitialIssuance result) {
         if (issuanceBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             issuance_ = java.util.Collections.unmodifiableList(issuance_);
@@ -3648,8 +3694,10 @@ public final class Treasury {
         } else {
           result.issuance_ = issuanceBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(terra.treasury.v1beta1.Treasury.EpochInitialIssuance result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -3722,7 +3770,7 @@ public final class Treasury {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3737,17 +3785,43 @@ public final class Treasury {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        terra.treasury.v1beta1.Treasury.EpochInitialIssuance parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cosmos.base.v1beta1.CoinOuterClass.Coin m =
+                    input.readMessage(
+                        cosmos.base.v1beta1.CoinOuterClass.Coin.parser(),
+                        extensionRegistry);
+                if (issuanceBuilder_ == null) {
+                  ensureIssuanceIsMutable();
+                  issuance_.add(m);
+                } else {
+                  issuanceBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (terra.treasury.v1beta1.Treasury.EpochInitialIssuance) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4024,7 +4098,18 @@ public final class Treasury {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EpochInitialIssuance(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4075,7 +4160,7 @@ public final class Treasury {
     java.lang.String[] descriptorData = {
       "\n%terra/treasury/v1beta1/treasury.proto\022" +
       "\026terra.treasury.v1beta1\032\024gogoproto/gogo." +
-      "proto\032\036cosmos/base/v1beta1/coin.proto\"\273\004" +
+      "proto\032\036cosmos/base/v1beta1/coin.proto\"\234\005" +
       "\n\006Params\022X\n\ntax_policy\030\001 \001(\0132).terra.tre" +
       "asury.v1beta1.PolicyConstraintsB\031\362\336\037\021yam" +
       "l:\"tax_policy\"\310\336\037\000\022^\n\rreward_policy\030\002 \001(" +
@@ -4090,24 +4175,27 @@ public final class Treasury {
       "\037\023yaml:\"window_short\"\022+\n\013window_long\030\006 \001" +
       "(\004B\026\362\336\037\022yaml:\"window_long\"\0225\n\020window_pro" +
       "bation\030\007 \001(\004B\033\362\336\037\027yaml:\"window_probation" +
-      "\":\010\350\240\037\001\230\240\037\000\"\346\002\n\021PolicyConstraints\022S\n\010rat" +
-      "e_min\030\001 \001(\tBA\362\336\037\017yaml:\"rate_min\"\332\336\037&gith" +
-      "ub.com/cosmos/cosmos-sdk/types.Dec\310\336\037\000\022S" +
-      "\n\010rate_max\030\002 \001(\tBA\362\336\037\017yaml:\"rate_max\"\332\336\037" +
-      "&github.com/cosmos/cosmos-sdk/types.Dec\310" +
-      "\336\037\000\022:\n\003cap\030\003 \001(\0132\031.cosmos.base.v1beta1.C" +
-      "oinB\022\362\336\037\nyaml:\"cap\"\310\336\037\000\022a\n\017change_rate_m" +
-      "ax\030\004 \001(\tBH\362\336\037\026yaml:\"change_rate_max\"\332\336\037&" +
-      "github.com/cosmos/cosmos-sdk/types.Dec\310\336" +
-      "\037\000:\010\350\240\037\001\230\240\037\000\"\214\001\n\020EpochTaxProceeds\022x\n\014tax" +
-      "_proceeds\030\001 \003(\0132\031.cosmos.base.v1beta1.Co" +
-      "inBG\362\336\037\023yaml:\"tax_proceeds\"\252\337\037(github.co" +
-      "m/cosmos/cosmos-sdk/types.Coins\310\336\037\000\"\210\001\n\024" +
-      "EpochInitialIssuance\022p\n\010issuance\030\001 \003(\0132\031" +
-      ".cosmos.base.v1beta1.CoinBC\362\336\037\017yaml:\"iss" +
-      "uance\"\252\337\037(github.com/cosmos/cosmos-sdk/t" +
-      "ypes.Coins\310\336\037\000B.Z,github.com/terra-money" +
-      "/core/x/treasury/typesb\006proto3"
+      "\"\022_\n\016burn_tax_split\030\010 \001(\tBG\362\336\037\025yaml:\"bur" +
+      "n_tax_split\"\332\336\037&github.com/cosmos/cosmos" +
+      "-sdk/types.Dec\310\336\037\000:\010\350\240\037\001\230\240\037\000\"\346\002\n\021PolicyC" +
+      "onstraints\022S\n\010rate_min\030\001 \001(\tBA\362\336\037\017yaml:\"" +
+      "rate_min\"\332\336\037&github.com/cosmos/cosmos-sd" +
+      "k/types.Dec\310\336\037\000\022S\n\010rate_max\030\002 \001(\tBA\362\336\037\017y" +
+      "aml:\"rate_max\"\332\336\037&github.com/cosmos/cosm" +
+      "os-sdk/types.Dec\310\336\037\000\022:\n\003cap\030\003 \001(\0132\031.cosm" +
+      "os.base.v1beta1.CoinB\022\362\336\037\nyaml:\"cap\"\310\336\037\000" +
+      "\022a\n\017change_rate_max\030\004 \001(\tBH\362\336\037\026yaml:\"cha" +
+      "nge_rate_max\"\332\336\037&github.com/cosmos/cosmo" +
+      "s-sdk/types.Dec\310\336\037\000:\010\350\240\037\001\230\240\037\000\"\214\001\n\020EpochT" +
+      "axProceeds\022x\n\014tax_proceeds\030\001 \003(\0132\031.cosmo" +
+      "s.base.v1beta1.CoinBG\362\336\037\023yaml:\"tax_proce" +
+      "eds\"\252\337\037(github.com/cosmos/cosmos-sdk/typ" +
+      "es.Coins\310\336\037\000\"\210\001\n\024EpochInitialIssuance\022p\n" +
+      "\010issuance\030\001 \003(\0132\031.cosmos.base.v1beta1.Co" +
+      "inBC\362\336\037\017yaml:\"issuance\"\252\337\037(github.com/co" +
+      "smos/cosmos-sdk/types.Coins\310\336\037\000B0Z.githu" +
+      "b.com/classic-terra/core/x/treasury/type" +
+      "sb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4120,7 +4208,7 @@ public final class Treasury {
     internal_static_terra_treasury_v1beta1_Params_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_terra_treasury_v1beta1_Params_descriptor,
-        new java.lang.String[] { "TaxPolicy", "RewardPolicy", "SeigniorageBurdenTarget", "MiningIncrement", "WindowShort", "WindowLong", "WindowProbation", });
+        new java.lang.String[] { "TaxPolicy", "RewardPolicy", "SeigniorageBurdenTarget", "MiningIncrement", "WindowShort", "WindowLong", "WindowProbation", "BurnTaxSplit", });
     internal_static_terra_treasury_v1beta1_PolicyConstraints_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_terra_treasury_v1beta1_PolicyConstraints_fieldAccessorTable = new
