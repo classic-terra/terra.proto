@@ -4,7 +4,7 @@ proto-gen:
 	@echo "Generating Protobuf files"
 	./scripts/proto-gen.sh
 
-build: 
+build:
 	poetry build
 
 publish:

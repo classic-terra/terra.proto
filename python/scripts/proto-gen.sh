@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC2046
 set -o errexit -o nounset -o pipefail
 command -v shellcheck >/dev/null && shellcheck "$0"
 
