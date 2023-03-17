@@ -7,6 +7,10 @@ initialize() {
         exit
     fi
 
+    if [ ! -d "proto" ]; then
+        mkdir proto
+    fi
+
     if [ ! -d "_build" ]; then
         mkdir _build
     fi
@@ -29,7 +33,7 @@ get_classic_proto() {
         cd ..
     fi
 
-    cp -R core/proto/terra ../proto
+    cp -R core/proto/terra/ ../proto/terra
 }
 
 # in _build directory
@@ -53,8 +57,27 @@ get_cosmos_proto() {
     cd cosmos-sdk
     git checkout $COSMOS_SDK_REVISION
     cd ..
-    cp -R cosmos-sdk/proto/ ../proto
-    cp -R cosmos-sdk/third_party/proto/ ../proto
+    cp -nR cosmos-sdk/proto/ ../proto
+    cp -nR cosmos-sdk/third_party/proto/ ../proto
+    rm -R ../proto/confio
+}
+
+# in _build directory
+get_ibc_proto() {
+    # fetch ibc-go version that classic-terra/core is using
+    cd core
+    IBC_VERSION=$(go list -m -f '{{ .Version }}' github.com/cosmos/ibc-go)
+    cd ..
+
+    if [ ! -d ibc-go ]; then
+        git clone https://github.com/cosmos/ibc-go.git
+    fi
+    cd ibc-go
+    git checkout $IBC_VERSION
+    cd ..
+    cp -nR ibc-go/proto/ibc ../proto
+    cp -nR ibc-go/third_party/proto/ ../proto
+    rm ../proto/buf.yaml
 }
 
 # in terra.proto directory
@@ -70,6 +93,7 @@ generate_proto() {
 }
 
 initialize
-get_classic_proto
 get_cosmos_proto
+get_ibc_proto
+get_classic_proto
 generate_proto
