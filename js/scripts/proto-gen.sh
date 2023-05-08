@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC2046
 set -o errexit -o nounset -o pipefail
 command -v shellcheck >/dev/null && shellcheck "$0"
 
@@ -17,4 +18,4 @@ protoc \
   --ts_proto_out="${OUT_DIR}" \
   --ts_proto_opt="esModuleInterop=true,forceLong=long,useOptionals=true,outputClientImpl=grpc-web" \
   --proto_path="$PROTO_DIR" \
-  $(find ${PROTO_DIR} -path -prune -o -name '*.proto' -print0 | xargs -0)
+  $(find $PROTO_DIR -path -prune -o -name '*.proto' -print0 | xargs -0)

@@ -13,7 +13,7 @@ export const protobufPackage = "ibc.applications.transfer.v1";
  * method
  */
 export interface QueryDenomTraceRequest {
-  /** hash (in hex format) of the denomination trace information. */
+  /** hash (in hex format) or denom (full denom with ibc prefix) of the denomination trace information. */
   hash: string;
 }
 

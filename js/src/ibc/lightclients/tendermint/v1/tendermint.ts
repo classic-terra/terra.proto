@@ -7,7 +7,7 @@ import { MerkleRoot } from "../../../../ibc/core/commitment/v1/commitment";
 import { SignedHeader } from "../../../../tendermint/types/types";
 import { ValidatorSet } from "../../../../tendermint/types/validator";
 import { Timestamp } from "../../../../google/protobuf/timestamp";
-import { ProofSpec } from "../../../../confio/proofs";
+import { ProofSpec } from "../../../../proofs";
 
 export const protobufPackage = "ibc.lightclients.tendermint.v1";
 
