@@ -1,5 +1,7 @@
 #!/bin/sh
 
+ROOT=$(dirname $(dirname $(realpath $0)))
+
 initialize() {
     # check if python poetry is installed
     if ! command -v poetry &> /dev/null; then
@@ -7,14 +9,15 @@ initialize() {
         exit
     fi
 
-    if [ ! -d "proto" ]; then
-        mkdir proto
+    if [ ! -d "$ROOT/proto" ]; then
+        mkdir $ROOT/proto
     fi
 
-    if [ ! -d "_build" ]; then
-        mkdir _build
+    if [ ! -d "$ROOT/_build" ]; then
+        mkdir $ROOT/_build
     fi
-    cd _build
+
+    cd $ROOT/_build
 }
 
 # in _build directory
@@ -30,14 +33,17 @@ get_classic_proto() {
         git clone https://github.com/classic-terra/core.git
         cd core
         git checkout $REVISION
+        echo "git checkout core $REVISION"
         cd ..
     fi
 
-    cp -R core/proto/terra/ ../proto/terra
+    cd core/proto
+    find . -name "*.proto" -print0 | cpio -pdm $ROOT/proto
+    cd ../..
 }
 
 # in _build directory
-get_cosmos_proto() {
+get_cosmos_sdk_proto() {
     # fetch cosmos sdk version that classic-terra/core is using
     cd core
     COSMOS_SDK_MOD=$(go list -m -json github.com/cosmos/cosmos-sdk)
@@ -45,7 +51,7 @@ get_cosmos_proto() {
     # check if there is field Replace
     if [ $(echo $COSMOS_SDK_MOD | jq 'has("Replace")') ]; then
         COSMOS_SDK_PATH=$(echo $COSMOS_SDK_MOD | jq -r '.Replace.Path')
-        COSMOS_SDK_REVISION=$(echo $COSMOS_SDK_MOD | jq -r '.Replace.Version' | cut -d '-' -f 3)
+        COSMOS_SDK_REVISION=$(echo $COSMOS_SDK_MOD | jq -r '.Replace.Version')
     else
         COSMOS_SDK_PATH=$(echo $COSMOS_SDK_MOD | jq -r '.Path')
         COSMOS_SDK_REVISION=$(echo $COSMOS_SDK_MOD | jq -r '.Version')
@@ -53,13 +59,19 @@ get_cosmos_proto() {
 
     if [ ! -d cosmos-sdk ]; then
         git clone https://$COSMOS_SDK_PATH.git
+        cd cosmos-sdk
+        git checkout $COSMOS_SDK_REVISION
+        echo "git checkout cosmos sdk $COSMOS_SDK_REVISION"
+        cd ..
     fi
-    cd cosmos-sdk
-    git checkout $COSMOS_SDK_REVISION
-    cd ..
-    cp -nR cosmos-sdk/proto/ ../proto
-    cp -nR cosmos-sdk/third_party/proto/ ../proto
-    rm -R ../proto/confio
+    
+    cd cosmos-sdk/proto
+    find . -name "*.proto" -print0 | cpio -pdm $ROOT/proto
+    cd ../..
+
+    cd cosmos-sdk/third_party/proto
+    find . -name "*.proto" -print0 | cpio -pdm $ROOT/proto
+    cd ../../..
 }
 
 # in _build directory
@@ -71,20 +83,23 @@ get_ibc_proto() {
 
     if [ ! -d ibc-go ]; then
         git clone https://github.com/cosmos/ibc-go.git
+        cd ibc-go
+        git checkout $IBC_VERSION
+        echo "git checkout ibc $IBC_VERSION"
+        cd ..
     fi
-    cd ibc-go
-    git checkout $IBC_VERSION
-    cd ..
     cp -nR ibc-go/proto/ibc ../proto
-    cp -nR ibc-go/third_party/proto/ ../proto
-    rm ../proto/buf.yaml
+
+    cd ibc-go/proto
+    find . -name "*.proto" -print0 | cpio -pdm $ROOT/proto
+    cd ../..
 }
 
 # in terra.proto directory
 generate_proto() {
     cd ..
 
-    language=(js python java)
+    language=(js python)
     for i in ${language[@]}; do
         cd $i
         make all
@@ -92,8 +107,16 @@ generate_proto() {
     done
 }
 
+# proto filter
+filter() {
+    # deal with proofs.proto conflict between ibc-go and cosmos-sdk
+    mv $ROOT/proto/confio/proofs.proto $ROOT/proto/
+    rm -rf $ROOT/proto/confio
+}
+
 initialize
-get_cosmos_proto
+get_cosmos_sdk_proto
 get_ibc_proto
 get_classic_proto
+filter
 generate_proto

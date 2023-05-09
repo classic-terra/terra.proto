@@ -15,6 +15,7 @@ export interface Params {
   windowLong: Long;
   windowProbation: Long;
   burnTaxSplit: string;
+  minInitialDepositRatio: string;
 }
 
 /** PolicyConstraints - defines policy constraints can be applied in tax & reward policies */
@@ -48,6 +49,7 @@ const baseParams: object = {
   windowLong: Long.UZERO,
   windowProbation: Long.UZERO,
   burnTaxSplit: "",
+  minInitialDepositRatio: "",
 };
 
 export const Params = {
@@ -75,6 +77,9 @@ export const Params = {
     }
     if (message.burnTaxSplit !== "") {
       writer.uint32(66).string(message.burnTaxSplit);
+    }
+    if (message.minInitialDepositRatio !== "") {
+      writer.uint32(74).string(message.minInitialDepositRatio);
     }
     return writer;
   },
@@ -109,6 +114,9 @@ export const Params = {
           break;
         case 8:
           message.burnTaxSplit = reader.string();
+          break;
+        case 9:
+          message.minInitialDepositRatio = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -160,6 +168,11 @@ export const Params = {
     } else {
       message.burnTaxSplit = "";
     }
+    if (object.minInitialDepositRatio !== undefined && object.minInitialDepositRatio !== null) {
+      message.minInitialDepositRatio = String(object.minInitialDepositRatio);
+    } else {
+      message.minInitialDepositRatio = "";
+    }
     return message;
   },
 
@@ -177,6 +190,8 @@ export const Params = {
     message.windowProbation !== undefined &&
       (obj.windowProbation = (message.windowProbation || Long.UZERO).toString());
     message.burnTaxSplit !== undefined && (obj.burnTaxSplit = message.burnTaxSplit);
+    message.minInitialDepositRatio !== undefined &&
+      (obj.minInitialDepositRatio = message.minInitialDepositRatio);
     return obj;
   },
 
@@ -221,6 +236,11 @@ export const Params = {
       message.burnTaxSplit = object.burnTaxSplit;
     } else {
       message.burnTaxSplit = "";
+    }
+    if (object.minInitialDepositRatio !== undefined && object.minInitialDepositRatio !== null) {
+      message.minInitialDepositRatio = object.minInitialDepositRatio;
+    } else {
+      message.minInitialDepositRatio = "";
     }
     return message;
   },

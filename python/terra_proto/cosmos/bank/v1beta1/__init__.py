@@ -214,6 +214,34 @@ class QueryAllBalancesResponse(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
+class QuerySpendableBalancesRequest(betterproto.Message):
+    """
+    QuerySpendableBalancesRequest defines the gRPC request structure for
+    querying an account's spendable balances.
+    """
+
+    address: str = betterproto.string_field(1)
+    """address is the address to query spendable balances for."""
+
+    pagination: "__base_query_v1_beta1__.PageRequest" = betterproto.message_field(2)
+    """pagination defines an optional pagination for the request."""
+
+
+@dataclass(eq=False, repr=False)
+class QuerySpendableBalancesResponse(betterproto.Message):
+    """
+    QuerySpendableBalancesResponse defines the gRPC response structure for
+    querying an account's spendable balances.
+    """
+
+    balances: List["__base_v1_beta1__.Coin"] = betterproto.message_field(1)
+    """balances is the spendable balances of all the coins."""
+
+    pagination: "__base_query_v1_beta1__.PageResponse" = betterproto.message_field(2)
+    """pagination defines the pagination in the response."""
+
+
+@dataclass(eq=False, repr=False)
 class QueryTotalSupplyRequest(betterproto.Message):
     """
     QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC
@@ -451,6 +479,23 @@ class QueryStub(betterproto.ServiceStub):
             metadata=metadata,
         )
 
+    async def spendable_balances(
+        self,
+        query_spendable_balances_request: "QuerySpendableBalancesRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None
+    ) -> "QuerySpendableBalancesResponse":
+        return await self._unary_unary(
+            "/cosmos.bank.v1beta1.Query/SpendableBalances",
+            query_spendable_balances_request,
+            QuerySpendableBalancesResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        )
+
     async def total_supply(
         self,
         query_total_supply_request: "QueryTotalSupplyRequest",
@@ -588,6 +633,11 @@ class QueryBase(ServiceBase):
     ) -> "QueryAllBalancesResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
+    async def spendable_balances(
+        self, query_spendable_balances_request: "QuerySpendableBalancesRequest"
+    ) -> "QuerySpendableBalancesResponse":
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
     async def total_supply(
         self, query_total_supply_request: "QueryTotalSupplyRequest"
     ) -> "QueryTotalSupplyResponse":
@@ -626,6 +676,14 @@ class QueryBase(ServiceBase):
     ) -> None:
         request = await stream.recv_message()
         response = await self.all_balances(request)
+        await stream.send_message(response)
+
+    async def __rpc_spendable_balances(
+        self,
+        stream: "grpclib.server.Stream[QuerySpendableBalancesRequest, QuerySpendableBalancesResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        response = await self.spendable_balances(request)
         await stream.send_message(response)
 
     async def __rpc_total_supply(
@@ -680,6 +738,12 @@ class QueryBase(ServiceBase):
                 grpclib.const.Cardinality.UNARY_UNARY,
                 QueryAllBalancesRequest,
                 QueryAllBalancesResponse,
+            ),
+            "/cosmos.bank.v1beta1.Query/SpendableBalances": grpclib.const.Handler(
+                self.__rpc_spendable_balances,
+                grpclib.const.Cardinality.UNARY_UNARY,
+                QuerySpendableBalancesRequest,
+                QuerySpendableBalancesResponse,
             ),
             "/cosmos.bank.v1beta1.Query/TotalSupply": grpclib.const.Handler(
                 self.__rpc_total_supply,
