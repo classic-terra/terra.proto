@@ -55,6 +55,7 @@ class Params(betterproto.Message):
     window_long: int = betterproto.uint64_field(6)
     window_probation: int = betterproto.uint64_field(7)
     burn_tax_split: str = betterproto.string_field(8)
+    min_initial_deposit_ratio: str = betterproto.string_field(9)
 
 
 @dataclass(eq=False, repr=False)

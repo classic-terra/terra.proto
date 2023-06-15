@@ -48,15 +48,18 @@ export interface ExchangeRateTuple {
   exchangeRate: string;
 }
 
-const baseParams: object = {
-  votePeriod: Long.UZERO,
-  voteThreshold: "",
-  rewardBand: "",
-  rewardDistributionWindow: Long.UZERO,
-  slashFraction: "",
-  slashWindow: Long.UZERO,
-  minValidPerWindow: "",
-};
+function createBaseParams(): Params {
+  return {
+    votePeriod: Long.UZERO,
+    voteThreshold: "",
+    rewardBand: "",
+    rewardDistributionWindow: Long.UZERO,
+    whitelist: [],
+    slashFraction: "",
+    slashWindow: Long.UZERO,
+    minValidPerWindow: "",
+  };
+}
 
 export const Params = {
   encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -88,89 +91,90 @@ export const Params = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Params {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseParams } as Params;
-    message.whitelist = [];
+    const message = createBaseParams();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.votePeriod = reader.uint64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.voteThreshold = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.rewardBand = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 32) {
+            break;
+          }
+
           message.rewardDistributionWindow = reader.uint64() as Long;
-          break;
+          continue;
         case 5:
+          if (tag !== 42) {
+            break;
+          }
+
           message.whitelist.push(Denom.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 6:
+          if (tag !== 50) {
+            break;
+          }
+
           message.slashFraction = reader.string();
-          break;
+          continue;
         case 7:
+          if (tag !== 56) {
+            break;
+          }
+
           message.slashWindow = reader.uint64() as Long;
-          break;
+          continue;
         case 8:
+          if (tag !== 66) {
+            break;
+          }
+
           message.minValidPerWindow = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Params {
-    const message = { ...baseParams } as Params;
-    message.whitelist = [];
-    if (object.votePeriod !== undefined && object.votePeriod !== null) {
-      message.votePeriod = Long.fromString(object.votePeriod);
-    } else {
-      message.votePeriod = Long.UZERO;
-    }
-    if (object.voteThreshold !== undefined && object.voteThreshold !== null) {
-      message.voteThreshold = String(object.voteThreshold);
-    } else {
-      message.voteThreshold = "";
-    }
-    if (object.rewardBand !== undefined && object.rewardBand !== null) {
-      message.rewardBand = String(object.rewardBand);
-    } else {
-      message.rewardBand = "";
-    }
-    if (object.rewardDistributionWindow !== undefined && object.rewardDistributionWindow !== null) {
-      message.rewardDistributionWindow = Long.fromString(object.rewardDistributionWindow);
-    } else {
-      message.rewardDistributionWindow = Long.UZERO;
-    }
-    if (object.whitelist !== undefined && object.whitelist !== null) {
-      for (const e of object.whitelist) {
-        message.whitelist.push(Denom.fromJSON(e));
-      }
-    }
-    if (object.slashFraction !== undefined && object.slashFraction !== null) {
-      message.slashFraction = String(object.slashFraction);
-    } else {
-      message.slashFraction = "";
-    }
-    if (object.slashWindow !== undefined && object.slashWindow !== null) {
-      message.slashWindow = Long.fromString(object.slashWindow);
-    } else {
-      message.slashWindow = Long.UZERO;
-    }
-    if (object.minValidPerWindow !== undefined && object.minValidPerWindow !== null) {
-      message.minValidPerWindow = String(object.minValidPerWindow);
-    } else {
-      message.minValidPerWindow = "";
-    }
-    return message;
+    return {
+      votePeriod: isSet(object.votePeriod) ? Long.fromValue(object.votePeriod) : Long.UZERO,
+      voteThreshold: isSet(object.voteThreshold) ? String(object.voteThreshold) : "",
+      rewardBand: isSet(object.rewardBand) ? String(object.rewardBand) : "",
+      rewardDistributionWindow: isSet(object.rewardDistributionWindow)
+        ? Long.fromValue(object.rewardDistributionWindow)
+        : Long.UZERO,
+      whitelist: Array.isArray(object?.whitelist) ? object.whitelist.map((e: any) => Denom.fromJSON(e)) : [],
+      slashFraction: isSet(object.slashFraction) ? String(object.slashFraction) : "",
+      slashWindow: isSet(object.slashWindow) ? Long.fromValue(object.slashWindow) : Long.UZERO,
+      minValidPerWindow: isSet(object.minValidPerWindow) ? String(object.minValidPerWindow) : "",
+    };
   },
 
   toJSON(message: Params): unknown {
@@ -181,7 +185,7 @@ export const Params = {
     message.rewardDistributionWindow !== undefined &&
       (obj.rewardDistributionWindow = (message.rewardDistributionWindow || Long.UZERO).toString());
     if (message.whitelist) {
-      obj.whitelist = message.whitelist.map((e) => (e ? Denom.toJSON(e) : undefined));
+      obj.whitelist = message.whitelist.map((e) => e ? Denom.toJSON(e) : undefined);
     } else {
       obj.whitelist = [];
     }
@@ -191,54 +195,34 @@ export const Params = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Params>): Params {
-    const message = { ...baseParams } as Params;
-    message.whitelist = [];
-    if (object.votePeriod !== undefined && object.votePeriod !== null) {
-      message.votePeriod = object.votePeriod as Long;
-    } else {
-      message.votePeriod = Long.UZERO;
-    }
-    if (object.voteThreshold !== undefined && object.voteThreshold !== null) {
-      message.voteThreshold = object.voteThreshold;
-    } else {
-      message.voteThreshold = "";
-    }
-    if (object.rewardBand !== undefined && object.rewardBand !== null) {
-      message.rewardBand = object.rewardBand;
-    } else {
-      message.rewardBand = "";
-    }
-    if (object.rewardDistributionWindow !== undefined && object.rewardDistributionWindow !== null) {
-      message.rewardDistributionWindow = object.rewardDistributionWindow as Long;
-    } else {
-      message.rewardDistributionWindow = Long.UZERO;
-    }
-    if (object.whitelist !== undefined && object.whitelist !== null) {
-      for (const e of object.whitelist) {
-        message.whitelist.push(Denom.fromPartial(e));
-      }
-    }
-    if (object.slashFraction !== undefined && object.slashFraction !== null) {
-      message.slashFraction = object.slashFraction;
-    } else {
-      message.slashFraction = "";
-    }
-    if (object.slashWindow !== undefined && object.slashWindow !== null) {
-      message.slashWindow = object.slashWindow as Long;
-    } else {
-      message.slashWindow = Long.UZERO;
-    }
-    if (object.minValidPerWindow !== undefined && object.minValidPerWindow !== null) {
-      message.minValidPerWindow = object.minValidPerWindow;
-    } else {
-      message.minValidPerWindow = "";
-    }
+  create<I extends Exact<DeepPartial<Params>, I>>(base?: I): Params {
+    return Params.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Params>, I>>(object: I): Params {
+    const message = createBaseParams();
+    message.votePeriod = (object.votePeriod !== undefined && object.votePeriod !== null)
+      ? Long.fromValue(object.votePeriod)
+      : Long.UZERO;
+    message.voteThreshold = object.voteThreshold ?? "";
+    message.rewardBand = object.rewardBand ?? "";
+    message.rewardDistributionWindow =
+      (object.rewardDistributionWindow !== undefined && object.rewardDistributionWindow !== null)
+        ? Long.fromValue(object.rewardDistributionWindow)
+        : Long.UZERO;
+    message.whitelist = object.whitelist?.map((e) => Denom.fromPartial(e)) || [];
+    message.slashFraction = object.slashFraction ?? "";
+    message.slashWindow = (object.slashWindow !== undefined && object.slashWindow !== null)
+      ? Long.fromValue(object.slashWindow)
+      : Long.UZERO;
+    message.minValidPerWindow = object.minValidPerWindow ?? "";
     return message;
   },
 };
 
-const baseDenom: object = { name: "", tobinTax: "" };
+function createBaseDenom(): Denom {
+  return { name: "", tobinTax: "" };
+}
 
 export const Denom = {
   encode(message: Denom, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -252,39 +236,40 @@ export const Denom = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Denom {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseDenom } as Denom;
+    const message = createBaseDenom();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.name = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.tobinTax = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Denom {
-    const message = { ...baseDenom } as Denom;
-    if (object.name !== undefined && object.name !== null) {
-      message.name = String(object.name);
-    } else {
-      message.name = "";
-    }
-    if (object.tobinTax !== undefined && object.tobinTax !== null) {
-      message.tobinTax = String(object.tobinTax);
-    } else {
-      message.tobinTax = "";
-    }
-    return message;
+    return {
+      name: isSet(object.name) ? String(object.name) : "",
+      tobinTax: isSet(object.tobinTax) ? String(object.tobinTax) : "",
+    };
   },
 
   toJSON(message: Denom): unknown {
@@ -294,23 +279,21 @@ export const Denom = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Denom>): Denom {
-    const message = { ...baseDenom } as Denom;
-    if (object.name !== undefined && object.name !== null) {
-      message.name = object.name;
-    } else {
-      message.name = "";
-    }
-    if (object.tobinTax !== undefined && object.tobinTax !== null) {
-      message.tobinTax = object.tobinTax;
-    } else {
-      message.tobinTax = "";
-    }
+  create<I extends Exact<DeepPartial<Denom>, I>>(base?: I): Denom {
+    return Denom.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Denom>, I>>(object: I): Denom {
+    const message = createBaseDenom();
+    message.name = object.name ?? "";
+    message.tobinTax = object.tobinTax ?? "";
     return message;
   },
 };
 
-const baseAggregateExchangeRatePrevote: object = { hash: "", voter: "", submitBlock: Long.UZERO };
+function createBaseAggregateExchangeRatePrevote(): AggregateExchangeRatePrevote {
+  return { hash: "", voter: "", submitBlock: Long.UZERO };
+}
 
 export const AggregateExchangeRatePrevote = {
   encode(message: AggregateExchangeRatePrevote, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -327,47 +310,48 @@ export const AggregateExchangeRatePrevote = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): AggregateExchangeRatePrevote {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseAggregateExchangeRatePrevote } as AggregateExchangeRatePrevote;
+    const message = createBaseAggregateExchangeRatePrevote();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.hash = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.voter = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.submitBlock = reader.uint64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): AggregateExchangeRatePrevote {
-    const message = { ...baseAggregateExchangeRatePrevote } as AggregateExchangeRatePrevote;
-    if (object.hash !== undefined && object.hash !== null) {
-      message.hash = String(object.hash);
-    } else {
-      message.hash = "";
-    }
-    if (object.voter !== undefined && object.voter !== null) {
-      message.voter = String(object.voter);
-    } else {
-      message.voter = "";
-    }
-    if (object.submitBlock !== undefined && object.submitBlock !== null) {
-      message.submitBlock = Long.fromString(object.submitBlock);
-    } else {
-      message.submitBlock = Long.UZERO;
-    }
-    return message;
+    return {
+      hash: isSet(object.hash) ? String(object.hash) : "",
+      voter: isSet(object.voter) ? String(object.voter) : "",
+      submitBlock: isSet(object.submitBlock) ? Long.fromValue(object.submitBlock) : Long.UZERO,
+    };
   },
 
   toJSON(message: AggregateExchangeRatePrevote): unknown {
@@ -378,28 +362,24 @@ export const AggregateExchangeRatePrevote = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<AggregateExchangeRatePrevote>): AggregateExchangeRatePrevote {
-    const message = { ...baseAggregateExchangeRatePrevote } as AggregateExchangeRatePrevote;
-    if (object.hash !== undefined && object.hash !== null) {
-      message.hash = object.hash;
-    } else {
-      message.hash = "";
-    }
-    if (object.voter !== undefined && object.voter !== null) {
-      message.voter = object.voter;
-    } else {
-      message.voter = "";
-    }
-    if (object.submitBlock !== undefined && object.submitBlock !== null) {
-      message.submitBlock = object.submitBlock as Long;
-    } else {
-      message.submitBlock = Long.UZERO;
-    }
+  create<I extends Exact<DeepPartial<AggregateExchangeRatePrevote>, I>>(base?: I): AggregateExchangeRatePrevote {
+    return AggregateExchangeRatePrevote.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<AggregateExchangeRatePrevote>, I>>(object: I): AggregateExchangeRatePrevote {
+    const message = createBaseAggregateExchangeRatePrevote();
+    message.hash = object.hash ?? "";
+    message.voter = object.voter ?? "";
+    message.submitBlock = (object.submitBlock !== undefined && object.submitBlock !== null)
+      ? Long.fromValue(object.submitBlock)
+      : Long.UZERO;
     return message;
   },
 };
 
-const baseAggregateExchangeRateVote: object = { voter: "" };
+function createBaseAggregateExchangeRateVote(): AggregateExchangeRateVote {
+  return { exchangeRateTuples: [], voter: "" };
+}
 
 export const AggregateExchangeRateVote = {
   encode(message: AggregateExchangeRateVote, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -413,49 +393,48 @@ export const AggregateExchangeRateVote = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): AggregateExchangeRateVote {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseAggregateExchangeRateVote } as AggregateExchangeRateVote;
-    message.exchangeRateTuples = [];
+    const message = createBaseAggregateExchangeRateVote();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.exchangeRateTuples.push(ExchangeRateTuple.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.voter = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): AggregateExchangeRateVote {
-    const message = { ...baseAggregateExchangeRateVote } as AggregateExchangeRateVote;
-    message.exchangeRateTuples = [];
-    if (object.exchangeRateTuples !== undefined && object.exchangeRateTuples !== null) {
-      for (const e of object.exchangeRateTuples) {
-        message.exchangeRateTuples.push(ExchangeRateTuple.fromJSON(e));
-      }
-    }
-    if (object.voter !== undefined && object.voter !== null) {
-      message.voter = String(object.voter);
-    } else {
-      message.voter = "";
-    }
-    return message;
+    return {
+      exchangeRateTuples: Array.isArray(object?.exchangeRateTuples)
+        ? object.exchangeRateTuples.map((e: any) => ExchangeRateTuple.fromJSON(e))
+        : [],
+      voter: isSet(object.voter) ? String(object.voter) : "",
+    };
   },
 
   toJSON(message: AggregateExchangeRateVote): unknown {
     const obj: any = {};
     if (message.exchangeRateTuples) {
-      obj.exchangeRateTuples = message.exchangeRateTuples.map((e) =>
-        e ? ExchangeRateTuple.toJSON(e) : undefined,
-      );
+      obj.exchangeRateTuples = message.exchangeRateTuples.map((e) => e ? ExchangeRateTuple.toJSON(e) : undefined);
     } else {
       obj.exchangeRateTuples = [];
     }
@@ -463,24 +442,21 @@ export const AggregateExchangeRateVote = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<AggregateExchangeRateVote>): AggregateExchangeRateVote {
-    const message = { ...baseAggregateExchangeRateVote } as AggregateExchangeRateVote;
-    message.exchangeRateTuples = [];
-    if (object.exchangeRateTuples !== undefined && object.exchangeRateTuples !== null) {
-      for (const e of object.exchangeRateTuples) {
-        message.exchangeRateTuples.push(ExchangeRateTuple.fromPartial(e));
-      }
-    }
-    if (object.voter !== undefined && object.voter !== null) {
-      message.voter = object.voter;
-    } else {
-      message.voter = "";
-    }
+  create<I extends Exact<DeepPartial<AggregateExchangeRateVote>, I>>(base?: I): AggregateExchangeRateVote {
+    return AggregateExchangeRateVote.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<AggregateExchangeRateVote>, I>>(object: I): AggregateExchangeRateVote {
+    const message = createBaseAggregateExchangeRateVote();
+    message.exchangeRateTuples = object.exchangeRateTuples?.map((e) => ExchangeRateTuple.fromPartial(e)) || [];
+    message.voter = object.voter ?? "";
     return message;
   },
 };
 
-const baseExchangeRateTuple: object = { denom: "", exchangeRate: "" };
+function createBaseExchangeRateTuple(): ExchangeRateTuple {
+  return { denom: "", exchangeRate: "" };
+}
 
 export const ExchangeRateTuple = {
   encode(message: ExchangeRateTuple, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -494,39 +470,40 @@ export const ExchangeRateTuple = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ExchangeRateTuple {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseExchangeRateTuple } as ExchangeRateTuple;
+    const message = createBaseExchangeRateTuple();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.denom = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.exchangeRate = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ExchangeRateTuple {
-    const message = { ...baseExchangeRateTuple } as ExchangeRateTuple;
-    if (object.denom !== undefined && object.denom !== null) {
-      message.denom = String(object.denom);
-    } else {
-      message.denom = "";
-    }
-    if (object.exchangeRate !== undefined && object.exchangeRate !== null) {
-      message.exchangeRate = String(object.exchangeRate);
-    } else {
-      message.exchangeRate = "";
-    }
-    return message;
+    return {
+      denom: isSet(object.denom) ? String(object.denom) : "",
+      exchangeRate: isSet(object.exchangeRate) ? String(object.exchangeRate) : "",
+    };
   },
 
   toJSON(message: ExchangeRateTuple): unknown {
@@ -536,34 +513,35 @@ export const ExchangeRateTuple = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ExchangeRateTuple>): ExchangeRateTuple {
-    const message = { ...baseExchangeRateTuple } as ExchangeRateTuple;
-    if (object.denom !== undefined && object.denom !== null) {
-      message.denom = object.denom;
-    } else {
-      message.denom = "";
-    }
-    if (object.exchangeRate !== undefined && object.exchangeRate !== null) {
-      message.exchangeRate = object.exchangeRate;
-    } else {
-      message.exchangeRate = "";
-    }
+  create<I extends Exact<DeepPartial<ExchangeRateTuple>, I>>(base?: I): ExchangeRateTuple {
+    return ExchangeRateTuple.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ExchangeRateTuple>, I>>(object: I): ExchangeRateTuple {
+    const message = createBaseExchangeRateTuple();
+    message.denom = object.denom ?? "";
+    message.exchangeRate = object.exchangeRate ?? "";
     return message;
   },
 };
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
-export type DeepPartial<T> = T extends Builtin
-  ? T
-  : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
+export type DeepPartial<T> = T extends Builtin ? T
+  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
+  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
+
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
 }

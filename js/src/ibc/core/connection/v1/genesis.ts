@@ -1,7 +1,7 @@
 /* eslint-disable */
 import Long from "long";
 import _m0 from "protobufjs/minimal";
-import { Params, IdentifiedConnection, ConnectionPaths } from "../../../../ibc/core/connection/v1/connection";
+import { ConnectionPaths, IdentifiedConnection, Params } from "./connection";
 
 export const protobufPackage = "ibc.core.connection.v1";
 
@@ -14,7 +14,9 @@ export interface GenesisState {
   params?: Params;
 }
 
-const baseGenesisState: object = { nextConnectionSequence: Long.UZERO };
+function createBaseGenesisState(): GenesisState {
+  return { connections: [], clientConnectionPaths: [], nextConnectionSequence: Long.UZERO, params: undefined };
+}
 
 export const GenesisState = {
   encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -34,72 +36,73 @@ export const GenesisState = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGenesisState } as GenesisState;
-    message.connections = [];
-    message.clientConnectionPaths = [];
+    const message = createBaseGenesisState();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.connections.push(IdentifiedConnection.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.clientConnectionPaths.push(ConnectionPaths.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.nextConnectionSequence = reader.uint64() as Long;
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.params = Params.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GenesisState {
-    const message = { ...baseGenesisState } as GenesisState;
-    message.connections = [];
-    message.clientConnectionPaths = [];
-    if (object.connections !== undefined && object.connections !== null) {
-      for (const e of object.connections) {
-        message.connections.push(IdentifiedConnection.fromJSON(e));
-      }
-    }
-    if (object.clientConnectionPaths !== undefined && object.clientConnectionPaths !== null) {
-      for (const e of object.clientConnectionPaths) {
-        message.clientConnectionPaths.push(ConnectionPaths.fromJSON(e));
-      }
-    }
-    if (object.nextConnectionSequence !== undefined && object.nextConnectionSequence !== null) {
-      message.nextConnectionSequence = Long.fromString(object.nextConnectionSequence);
-    } else {
-      message.nextConnectionSequence = Long.UZERO;
-    }
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromJSON(object.params);
-    } else {
-      message.params = undefined;
-    }
-    return message;
+    return {
+      connections: Array.isArray(object?.connections)
+        ? object.connections.map((e: any) => IdentifiedConnection.fromJSON(e))
+        : [],
+      clientConnectionPaths: Array.isArray(object?.clientConnectionPaths)
+        ? object.clientConnectionPaths.map((e: any) => ConnectionPaths.fromJSON(e))
+        : [],
+      nextConnectionSequence: isSet(object.nextConnectionSequence)
+        ? Long.fromValue(object.nextConnectionSequence)
+        : Long.UZERO,
+      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
+    };
   },
 
   toJSON(message: GenesisState): unknown {
     const obj: any = {};
     if (message.connections) {
-      obj.connections = message.connections.map((e) => (e ? IdentifiedConnection.toJSON(e) : undefined));
+      obj.connections = message.connections.map((e) => e ? IdentifiedConnection.toJSON(e) : undefined);
     } else {
       obj.connections = [];
     }
     if (message.clientConnectionPaths) {
-      obj.clientConnectionPaths = message.clientConnectionPaths.map((e) =>
-        e ? ConnectionPaths.toJSON(e) : undefined,
-      );
+      obj.clientConnectionPaths = message.clientConnectionPaths.map((e) => e ? ConnectionPaths.toJSON(e) : undefined);
     } else {
       obj.clientConnectionPaths = [];
     }
@@ -109,46 +112,42 @@ export const GenesisState = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
-    const message = { ...baseGenesisState } as GenesisState;
-    message.connections = [];
-    message.clientConnectionPaths = [];
-    if (object.connections !== undefined && object.connections !== null) {
-      for (const e of object.connections) {
-        message.connections.push(IdentifiedConnection.fromPartial(e));
-      }
-    }
-    if (object.clientConnectionPaths !== undefined && object.clientConnectionPaths !== null) {
-      for (const e of object.clientConnectionPaths) {
-        message.clientConnectionPaths.push(ConnectionPaths.fromPartial(e));
-      }
-    }
-    if (object.nextConnectionSequence !== undefined && object.nextConnectionSequence !== null) {
-      message.nextConnectionSequence = object.nextConnectionSequence as Long;
-    } else {
-      message.nextConnectionSequence = Long.UZERO;
-    }
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromPartial(object.params);
-    } else {
-      message.params = undefined;
-    }
+  create<I extends Exact<DeepPartial<GenesisState>, I>>(base?: I): GenesisState {
+    return GenesisState.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
+    const message = createBaseGenesisState();
+    message.connections = object.connections?.map((e) => IdentifiedConnection.fromPartial(e)) || [];
+    message.clientConnectionPaths = object.clientConnectionPaths?.map((e) => ConnectionPaths.fromPartial(e)) || [];
+    message.nextConnectionSequence =
+      (object.nextConnectionSequence !== undefined && object.nextConnectionSequence !== null)
+        ? Long.fromValue(object.nextConnectionSequence)
+        : Long.UZERO;
+    message.params = (object.params !== undefined && object.params !== null)
+      ? Params.fromPartial(object.params)
+      : undefined;
     return message;
   },
 };
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
-export type DeepPartial<T> = T extends Builtin
-  ? T
-  : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
+export type DeepPartial<T> = T extends Builtin ? T
+  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
+  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
+
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
 }

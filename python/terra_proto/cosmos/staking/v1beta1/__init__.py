@@ -395,6 +395,12 @@ class Params(betterproto.Message):
     bond_denom: str = betterproto.string_field(5)
     """bond_denom defines the bondable coin denomination."""
 
+    min_commission_rate: str = betterproto.string_field(6)
+    """
+    min_commission_rate is the chain-wide minimum commission rate that a
+    validator can charge their delegators
+    """
+
 
 @dataclass(eq=False, repr=False)
 class DelegationResponse(betterproto.Message):

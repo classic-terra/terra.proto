@@ -1,10 +1,10 @@
 /* eslint-disable */
-import Long from "long";
 import { grpc } from "@improbable-eng/grpc-web";
+import { BrowserHeaders } from "browser-headers";
+import Long from "long";
 import _m0 from "protobufjs/minimal";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
-import { Params } from "../../../terra/market/v1beta1/market";
-import { BrowserHeaders } from "browser-headers";
+import { Params } from "./market";
 
 export const protobufPackage = "terra.market.v1beta1";
 
@@ -23,7 +23,8 @@ export interface QuerySwapResponse {
 }
 
 /** QueryTerraPoolDeltaRequest is the request type for the Query/TerraPoolDelta RPC method. */
-export interface QueryTerraPoolDeltaRequest {}
+export interface QueryTerraPoolDeltaRequest {
+}
 
 /** QueryTerraPoolDeltaResponse is the response type for the Query/TerraPoolDelta RPC method. */
 export interface QueryTerraPoolDeltaResponse {
@@ -32,7 +33,8 @@ export interface QueryTerraPoolDeltaResponse {
 }
 
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
-export interface QueryParamsRequest {}
+export interface QueryParamsRequest {
+}
 
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
@@ -40,7 +42,9 @@ export interface QueryParamsResponse {
   params?: Params;
 }
 
-const baseQuerySwapRequest: object = { offerCoin: "", askDenom: "" };
+function createBaseQuerySwapRequest(): QuerySwapRequest {
+  return { offerCoin: "", askDenom: "" };
+}
 
 export const QuerySwapRequest = {
   encode(message: QuerySwapRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -54,39 +58,40 @@ export const QuerySwapRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QuerySwapRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQuerySwapRequest } as QuerySwapRequest;
+    const message = createBaseQuerySwapRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.offerCoin = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.askDenom = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QuerySwapRequest {
-    const message = { ...baseQuerySwapRequest } as QuerySwapRequest;
-    if (object.offerCoin !== undefined && object.offerCoin !== null) {
-      message.offerCoin = String(object.offerCoin);
-    } else {
-      message.offerCoin = "";
-    }
-    if (object.askDenom !== undefined && object.askDenom !== null) {
-      message.askDenom = String(object.askDenom);
-    } else {
-      message.askDenom = "";
-    }
-    return message;
+    return {
+      offerCoin: isSet(object.offerCoin) ? String(object.offerCoin) : "",
+      askDenom: isSet(object.askDenom) ? String(object.askDenom) : "",
+    };
   },
 
   toJSON(message: QuerySwapRequest): unknown {
@@ -96,23 +101,21 @@ export const QuerySwapRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QuerySwapRequest>): QuerySwapRequest {
-    const message = { ...baseQuerySwapRequest } as QuerySwapRequest;
-    if (object.offerCoin !== undefined && object.offerCoin !== null) {
-      message.offerCoin = object.offerCoin;
-    } else {
-      message.offerCoin = "";
-    }
-    if (object.askDenom !== undefined && object.askDenom !== null) {
-      message.askDenom = object.askDenom;
-    } else {
-      message.askDenom = "";
-    }
+  create<I extends Exact<DeepPartial<QuerySwapRequest>, I>>(base?: I): QuerySwapRequest {
+    return QuerySwapRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QuerySwapRequest>, I>>(object: I): QuerySwapRequest {
+    const message = createBaseQuerySwapRequest();
+    message.offerCoin = object.offerCoin ?? "";
+    message.askDenom = object.askDenom ?? "";
     return message;
   },
 };
 
-const baseQuerySwapResponse: object = {};
+function createBaseQuerySwapResponse(): QuerySwapResponse {
+  return { returnCoin: undefined };
+}
 
 export const QuerySwapResponse = {
   encode(message: QuerySwapResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -123,31 +126,30 @@ export const QuerySwapResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QuerySwapResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQuerySwapResponse } as QuerySwapResponse;
+    const message = createBaseQuerySwapResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.returnCoin = Coin.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QuerySwapResponse {
-    const message = { ...baseQuerySwapResponse } as QuerySwapResponse;
-    if (object.returnCoin !== undefined && object.returnCoin !== null) {
-      message.returnCoin = Coin.fromJSON(object.returnCoin);
-    } else {
-      message.returnCoin = undefined;
-    }
-    return message;
+    return { returnCoin: isSet(object.returnCoin) ? Coin.fromJSON(object.returnCoin) : undefined };
   },
 
   toJSON(message: QuerySwapResponse): unknown {
@@ -157,18 +159,22 @@ export const QuerySwapResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QuerySwapResponse>): QuerySwapResponse {
-    const message = { ...baseQuerySwapResponse } as QuerySwapResponse;
-    if (object.returnCoin !== undefined && object.returnCoin !== null) {
-      message.returnCoin = Coin.fromPartial(object.returnCoin);
-    } else {
-      message.returnCoin = undefined;
-    }
+  create<I extends Exact<DeepPartial<QuerySwapResponse>, I>>(base?: I): QuerySwapResponse {
+    return QuerySwapResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QuerySwapResponse>, I>>(object: I): QuerySwapResponse {
+    const message = createBaseQuerySwapResponse();
+    message.returnCoin = (object.returnCoin !== undefined && object.returnCoin !== null)
+      ? Coin.fromPartial(object.returnCoin)
+      : undefined;
     return message;
   },
 };
 
-const baseQueryTerraPoolDeltaRequest: object = {};
+function createBaseQueryTerraPoolDeltaRequest(): QueryTerraPoolDeltaRequest {
+  return {};
+}
 
 export const QueryTerraPoolDeltaRequest = {
   encode(_: QueryTerraPoolDeltaRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -176,23 +182,23 @@ export const QueryTerraPoolDeltaRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTerraPoolDeltaRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTerraPoolDeltaRequest } as QueryTerraPoolDeltaRequest;
+    const message = createBaseQueryTerraPoolDeltaRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): QueryTerraPoolDeltaRequest {
-    const message = { ...baseQueryTerraPoolDeltaRequest } as QueryTerraPoolDeltaRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: QueryTerraPoolDeltaRequest): unknown {
@@ -200,13 +206,19 @@ export const QueryTerraPoolDeltaRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<QueryTerraPoolDeltaRequest>): QueryTerraPoolDeltaRequest {
-    const message = { ...baseQueryTerraPoolDeltaRequest } as QueryTerraPoolDeltaRequest;
+  create<I extends Exact<DeepPartial<QueryTerraPoolDeltaRequest>, I>>(base?: I): QueryTerraPoolDeltaRequest {
+    return QueryTerraPoolDeltaRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTerraPoolDeltaRequest>, I>>(_: I): QueryTerraPoolDeltaRequest {
+    const message = createBaseQueryTerraPoolDeltaRequest();
     return message;
   },
 };
 
-const baseQueryTerraPoolDeltaResponse: object = {};
+function createBaseQueryTerraPoolDeltaResponse(): QueryTerraPoolDeltaResponse {
+  return { terraPoolDelta: new Uint8Array(0) };
+}
 
 export const QueryTerraPoolDeltaResponse = {
   encode(message: QueryTerraPoolDeltaResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -217,54 +229,57 @@ export const QueryTerraPoolDeltaResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTerraPoolDeltaResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTerraPoolDeltaResponse } as QueryTerraPoolDeltaResponse;
-    message.terraPoolDelta = new Uint8Array();
+    const message = createBaseQueryTerraPoolDeltaResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.terraPoolDelta = reader.bytes();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryTerraPoolDeltaResponse {
-    const message = { ...baseQueryTerraPoolDeltaResponse } as QueryTerraPoolDeltaResponse;
-    message.terraPoolDelta = new Uint8Array();
-    if (object.terraPoolDelta !== undefined && object.terraPoolDelta !== null) {
-      message.terraPoolDelta = bytesFromBase64(object.terraPoolDelta);
-    }
-    return message;
+    return {
+      terraPoolDelta: isSet(object.terraPoolDelta) ? bytesFromBase64(object.terraPoolDelta) : new Uint8Array(0),
+    };
   },
 
   toJSON(message: QueryTerraPoolDeltaResponse): unknown {
     const obj: any = {};
     message.terraPoolDelta !== undefined &&
       (obj.terraPoolDelta = base64FromBytes(
-        message.terraPoolDelta !== undefined ? message.terraPoolDelta : new Uint8Array(),
+        message.terraPoolDelta !== undefined ? message.terraPoolDelta : new Uint8Array(0),
       ));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryTerraPoolDeltaResponse>): QueryTerraPoolDeltaResponse {
-    const message = { ...baseQueryTerraPoolDeltaResponse } as QueryTerraPoolDeltaResponse;
-    if (object.terraPoolDelta !== undefined && object.terraPoolDelta !== null) {
-      message.terraPoolDelta = object.terraPoolDelta;
-    } else {
-      message.terraPoolDelta = new Uint8Array();
-    }
+  create<I extends Exact<DeepPartial<QueryTerraPoolDeltaResponse>, I>>(base?: I): QueryTerraPoolDeltaResponse {
+    return QueryTerraPoolDeltaResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTerraPoolDeltaResponse>, I>>(object: I): QueryTerraPoolDeltaResponse {
+    const message = createBaseQueryTerraPoolDeltaResponse();
+    message.terraPoolDelta = object.terraPoolDelta ?? new Uint8Array(0);
     return message;
   },
 };
 
-const baseQueryParamsRequest: object = {};
+function createBaseQueryParamsRequest(): QueryParamsRequest {
+  return {};
+}
 
 export const QueryParamsRequest = {
   encode(_: QueryParamsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -272,23 +287,23 @@ export const QueryParamsRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryParamsRequest } as QueryParamsRequest;
+    const message = createBaseQueryParamsRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): QueryParamsRequest {
-    const message = { ...baseQueryParamsRequest } as QueryParamsRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: QueryParamsRequest): unknown {
@@ -296,13 +311,19 @@ export const QueryParamsRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
-    const message = { ...baseQueryParamsRequest } as QueryParamsRequest;
+  create<I extends Exact<DeepPartial<QueryParamsRequest>, I>>(base?: I): QueryParamsRequest {
+    return QueryParamsRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryParamsRequest>, I>>(_: I): QueryParamsRequest {
+    const message = createBaseQueryParamsRequest();
     return message;
   },
 };
 
-const baseQueryParamsResponse: object = {};
+function createBaseQueryParamsResponse(): QueryParamsResponse {
+  return { params: undefined };
+}
 
 export const QueryParamsResponse = {
   encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -313,31 +334,30 @@ export const QueryParamsResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryParamsResponse } as QueryParamsResponse;
+    const message = createBaseQueryParamsResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.params = Params.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryParamsResponse {
-    const message = { ...baseQueryParamsResponse } as QueryParamsResponse;
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromJSON(object.params);
-    } else {
-      message.params = undefined;
-    }
-    return message;
+    return { params: isSet(object.params) ? Params.fromJSON(object.params) : undefined };
   },
 
   toJSON(message: QueryParamsResponse): unknown {
@@ -346,13 +366,15 @@ export const QueryParamsResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
-    const message = { ...baseQueryParamsResponse } as QueryParamsResponse;
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromPartial(object.params);
-    } else {
-      message.params = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(base?: I): QueryParamsResponse {
+    return QueryParamsResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(object: I): QueryParamsResponse {
+    const message = createBaseQueryParamsResponse();
+    message.params = (object.params !== undefined && object.params !== null)
+      ? Params.fromPartial(object.params)
+      : undefined;
     return message;
   },
 };
@@ -396,9 +418,7 @@ export class QueryClientImpl implements Query {
   }
 }
 
-export const QueryDesc = {
-  serviceName: "terra.market.v1beta1.Query",
-};
+export const QueryDesc = { serviceName: "terra.market.v1beta1.Query" };
 
 export const QuerySwapDesc: UnaryMethodDefinitionish = {
   methodName: "Swap",
@@ -412,10 +432,11 @@ export const QuerySwapDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QuerySwapResponse.decode(data);
       return {
-        ...QuerySwapResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -434,10 +455,11 @@ export const QueryTerraPoolDeltaDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryTerraPoolDeltaResponse.decode(data);
       return {
-        ...QueryTerraPoolDeltaResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -456,10 +478,11 @@ export const QueryParamsDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryParamsResponse.decode(data);
       return {
-        ...QueryParamsResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -488,6 +511,7 @@ export class GrpcWebImpl {
 
     debug?: boolean;
     metadata?: grpc.Metadata;
+    upStreamRetryCodes?: number[];
   };
 
   constructor(
@@ -497,6 +521,7 @@ export class GrpcWebImpl {
 
       debug?: boolean;
       metadata?: grpc.Metadata;
+      upStreamRetryCodes?: number[];
     },
   ) {
     this.host = host;
@@ -509,10 +534,9 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata =
-      metadata && this.options.metadata
-        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-        : metadata || this.options.metadata;
+    const maybeCombinedMetadata = metadata && this.options.metadata
+      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+      : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -522,11 +546,9 @@ export class GrpcWebImpl {
         debug: this.options.debug,
         onEnd: function (response) {
           if (response.status === grpc.Code.OK) {
-            resolve(response.message);
+            resolve(response.message!.toObject());
           } else {
-            const err = new Error(response.statusMessage) as any;
-            err.code = response.status;
-            err.metadata = response.trailers;
+            const err = new GrpcWebError(response.statusMessage, response.status, response.trailers);
             reject(err);
           }
         },
@@ -537,47 +559,71 @@ export class GrpcWebImpl {
 
 declare var self: any | undefined;
 declare var window: any | undefined;
-var globalThis: any = (() => {
-  if (typeof globalThis !== "undefined") return globalThis;
-  if (typeof self !== "undefined") return self;
-  if (typeof window !== "undefined") return window;
-  if (typeof global !== "undefined") return global;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
   throw "Unable to locate global object";
 })();
 
-const atob: (b64: string) => string =
-  globalThis.atob || ((b64) => globalThis.Buffer.from(b64, "base64").toString("binary"));
 function bytesFromBase64(b64: string): Uint8Array {
-  const bin = atob(b64);
-  const arr = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; ++i) {
-    arr[i] = bin.charCodeAt(i);
+  if (tsProtoGlobalThis.Buffer) {
+    return Uint8Array.from(tsProtoGlobalThis.Buffer.from(b64, "base64"));
+  } else {
+    const bin = tsProtoGlobalThis.atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; ++i) {
+      arr[i] = bin.charCodeAt(i);
+    }
+    return arr;
   }
-  return arr;
 }
 
-const btoa: (bin: string) => string =
-  globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, "binary").toString("base64"));
 function base64FromBytes(arr: Uint8Array): string {
-  const bin: string[] = [];
-  for (const byte of arr) {
-    bin.push(String.fromCharCode(byte));
+  if (tsProtoGlobalThis.Buffer) {
+    return tsProtoGlobalThis.Buffer.from(arr).toString("base64");
+  } else {
+    const bin: string[] = [];
+    arr.forEach((byte) => {
+      bin.push(String.fromCharCode(byte));
+    });
+    return tsProtoGlobalThis.btoa(bin.join(""));
   }
-  return btoa(bin.join(""));
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
-export type DeepPartial<T> = T extends Builtin
-  ? T
-  : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
+export type DeepPartial<T> = T extends Builtin ? T
+  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
+  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
+
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}
+
+export class GrpcWebError extends tsProtoGlobalThis.Error {
+  constructor(message: string, public code: grpc.Code, public metadata: grpc.Metadata) {
+    super(message);
+  }
 }

@@ -1,8 +1,10 @@
 #!/bin/sh
+# halt on error
+# set -e
 
 initialize() {
     # check if python poetry is installed
-    if ! command -v poetry &> /dev/null; then
+    if ! command -v  &> /dev/null; then
         echo "poetry could not be found. Please look installation help at python folder README.md"
         exit
     fi
@@ -27,10 +29,7 @@ get_classic_proto() {
 
     # check if core repo does not exist
     if [ ! -d "core" ]; then
-        git clone https://github.com/classic-terra/core.git
-        cd core
-        git checkout $REVISION
-        cd ..
+        git clone -b $REVISION https://github.com/classic-terra/core.git
     fi
 
     cp -R core/proto/terra/ ../proto/terra
@@ -45,18 +44,15 @@ get_cosmos_proto() {
     # check if there is field Replace
     if [ $(echo $COSMOS_SDK_MOD | jq 'has("Replace")') ]; then
         COSMOS_SDK_PATH=$(echo $COSMOS_SDK_MOD | jq -r '.Replace.Path')
-        COSMOS_SDK_REVISION=$(echo $COSMOS_SDK_MOD | jq -r '.Replace.Version' | cut -d '-' -f 3)
+        COSMOS_SDK_VERSION=$(echo $COSMOS_SDK_MOD | jq -r '.Replace.Version')
     else
         COSMOS_SDK_PATH=$(echo $COSMOS_SDK_MOD | jq -r '.Path')
-        COSMOS_SDK_REVISION=$(echo $COSMOS_SDK_MOD | jq -r '.Version')
+        COSMOS_SDK_VERSION=$(echo $COSMOS_SDK_MOD | jq -r '.Version')
     fi
 
     if [ ! -d cosmos-sdk ]; then
-        git clone https://$COSMOS_SDK_PATH.git
+        git clone -b $COSMOS_SDK_VERSION https://$COSMOS_SDK_PATH.git
     fi
-    cd cosmos-sdk
-    git checkout $COSMOS_SDK_REVISION
-    cd ..
     cp -nR cosmos-sdk/proto/ ../proto
     cp -nR cosmos-sdk/third_party/proto/ ../proto
     rm -R ../proto/confio
@@ -66,18 +62,35 @@ get_cosmos_proto() {
 get_ibc_proto() {
     # fetch ibc-go version that classic-terra/core is using
     cd core
-    IBC_VERSION=$(go list -m -f '{{ .Version }}' github.com/cosmos/ibc-go)
+    IBC_VERSION=$(go list -m -f '{{ .Version }}' github.com/cosmos/ibc-go/v4)
     cd ..
 
     if [ ! -d ibc-go ]; then
-        git clone https://github.com/cosmos/ibc-go.git
+        git clone -b $IBC_VERSION https://github.com/cosmos/ibc-go.git
     fi
-    cd ibc-go
-    git checkout $IBC_VERSION
-    cd ..
     cp -nR ibc-go/proto/ibc ../proto
     cp -nR ibc-go/third_party/proto/ ../proto
     rm ../proto/buf.yaml
+}
+
+# in _build directory
+get_wasm_proto() {
+    # fetch ibc-go version that classic-terra/core is using
+    cd core
+    WASMD_MOD=$(go list -m -json github.com/CosmWasm/wasmd)
+    cd ..
+    if [ $(echo $WASMD_MOD | jq 'has("Replace")') ]; then
+        WASMD_PATH=$(echo $WASMD_MOD | jq -r '.Replace.Path')
+        WASMD_VERSION=$(echo $WASMD_MOD | jq -r '.Replace.Version')
+    else
+        WASMD_PATH=$(echo $WASMD_MOD | jq -r '.Path')
+        WASMD_VERSION=$(echo $WASMD_MOD | jq -r '.Version')
+    fi
+
+    if [ ! -d wasmd ]; then
+        git clone -b $WASMD_VERSION https://$WASMD_PATH.git
+    fi
+    cp -nR wasmd/proto/cosmwasm ../proto
 }
 
 # in terra.proto directory
@@ -96,4 +109,5 @@ initialize
 get_cosmos_proto
 get_ibc_proto
 get_classic_proto
+get_wasm_proto
 generate_proto

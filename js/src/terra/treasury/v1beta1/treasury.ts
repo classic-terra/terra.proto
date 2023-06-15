@@ -15,6 +15,7 @@ export interface Params {
   windowLong: Long;
   windowProbation: Long;
   burnTaxSplit: string;
+  minInitialDepositRatio: string;
 }
 
 /** PolicyConstraints - defines policy constraints can be applied in tax & reward policies */
@@ -41,14 +42,19 @@ export interface EpochInitialIssuance {
   issuance: Coin[];
 }
 
-const baseParams: object = {
-  seigniorageBurdenTarget: "",
-  miningIncrement: "",
-  windowShort: Long.UZERO,
-  windowLong: Long.UZERO,
-  windowProbation: Long.UZERO,
-  burnTaxSplit: "",
-};
+function createBaseParams(): Params {
+  return {
+    taxPolicy: undefined,
+    rewardPolicy: undefined,
+    seigniorageBurdenTarget: "",
+    miningIncrement: "",
+    windowShort: Long.UZERO,
+    windowLong: Long.UZERO,
+    windowProbation: Long.UZERO,
+    burnTaxSplit: "",
+    minInitialDepositRatio: "",
+  };
+}
 
 export const Params = {
   encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -76,91 +82,103 @@ export const Params = {
     if (message.burnTaxSplit !== "") {
       writer.uint32(66).string(message.burnTaxSplit);
     }
+    if (message.minInitialDepositRatio !== "") {
+      writer.uint32(74).string(message.minInitialDepositRatio);
+    }
     return writer;
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Params {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseParams } as Params;
+    const message = createBaseParams();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.taxPolicy = PolicyConstraints.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.rewardPolicy = PolicyConstraints.decode(reader, reader.uint32());
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.seigniorageBurdenTarget = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.miningIncrement = reader.string();
-          break;
+          continue;
         case 5:
+          if (tag !== 40) {
+            break;
+          }
+
           message.windowShort = reader.uint64() as Long;
-          break;
+          continue;
         case 6:
+          if (tag !== 48) {
+            break;
+          }
+
           message.windowLong = reader.uint64() as Long;
-          break;
+          continue;
         case 7:
+          if (tag !== 56) {
+            break;
+          }
+
           message.windowProbation = reader.uint64() as Long;
-          break;
+          continue;
         case 8:
+          if (tag !== 66) {
+            break;
+          }
+
           message.burnTaxSplit = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
+        case 9:
+          if (tag !== 74) {
+            break;
+          }
+
+          message.minInitialDepositRatio = reader.string();
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Params {
-    const message = { ...baseParams } as Params;
-    if (object.taxPolicy !== undefined && object.taxPolicy !== null) {
-      message.taxPolicy = PolicyConstraints.fromJSON(object.taxPolicy);
-    } else {
-      message.taxPolicy = undefined;
-    }
-    if (object.rewardPolicy !== undefined && object.rewardPolicy !== null) {
-      message.rewardPolicy = PolicyConstraints.fromJSON(object.rewardPolicy);
-    } else {
-      message.rewardPolicy = undefined;
-    }
-    if (object.seigniorageBurdenTarget !== undefined && object.seigniorageBurdenTarget !== null) {
-      message.seigniorageBurdenTarget = String(object.seigniorageBurdenTarget);
-    } else {
-      message.seigniorageBurdenTarget = "";
-    }
-    if (object.miningIncrement !== undefined && object.miningIncrement !== null) {
-      message.miningIncrement = String(object.miningIncrement);
-    } else {
-      message.miningIncrement = "";
-    }
-    if (object.windowShort !== undefined && object.windowShort !== null) {
-      message.windowShort = Long.fromString(object.windowShort);
-    } else {
-      message.windowShort = Long.UZERO;
-    }
-    if (object.windowLong !== undefined && object.windowLong !== null) {
-      message.windowLong = Long.fromString(object.windowLong);
-    } else {
-      message.windowLong = Long.UZERO;
-    }
-    if (object.windowProbation !== undefined && object.windowProbation !== null) {
-      message.windowProbation = Long.fromString(object.windowProbation);
-    } else {
-      message.windowProbation = Long.UZERO;
-    }
-    if (object.burnTaxSplit !== undefined && object.burnTaxSplit !== null) {
-      message.burnTaxSplit = String(object.burnTaxSplit);
-    } else {
-      message.burnTaxSplit = "";
-    }
-    return message;
+    return {
+      taxPolicy: isSet(object.taxPolicy) ? PolicyConstraints.fromJSON(object.taxPolicy) : undefined,
+      rewardPolicy: isSet(object.rewardPolicy) ? PolicyConstraints.fromJSON(object.rewardPolicy) : undefined,
+      seigniorageBurdenTarget: isSet(object.seigniorageBurdenTarget) ? String(object.seigniorageBurdenTarget) : "",
+      miningIncrement: isSet(object.miningIncrement) ? String(object.miningIncrement) : "",
+      windowShort: isSet(object.windowShort) ? Long.fromValue(object.windowShort) : Long.UZERO,
+      windowLong: isSet(object.windowLong) ? Long.fromValue(object.windowLong) : Long.UZERO,
+      windowProbation: isSet(object.windowProbation) ? Long.fromValue(object.windowProbation) : Long.UZERO,
+      burnTaxSplit: isSet(object.burnTaxSplit) ? String(object.burnTaxSplit) : "",
+      minInitialDepositRatio: isSet(object.minInitialDepositRatio) ? String(object.minInitialDepositRatio) : "",
+    };
   },
 
   toJSON(message: Params): unknown {
@@ -169,64 +187,48 @@ export const Params = {
       (obj.taxPolicy = message.taxPolicy ? PolicyConstraints.toJSON(message.taxPolicy) : undefined);
     message.rewardPolicy !== undefined &&
       (obj.rewardPolicy = message.rewardPolicy ? PolicyConstraints.toJSON(message.rewardPolicy) : undefined);
-    message.seigniorageBurdenTarget !== undefined &&
-      (obj.seigniorageBurdenTarget = message.seigniorageBurdenTarget);
+    message.seigniorageBurdenTarget !== undefined && (obj.seigniorageBurdenTarget = message.seigniorageBurdenTarget);
     message.miningIncrement !== undefined && (obj.miningIncrement = message.miningIncrement);
     message.windowShort !== undefined && (obj.windowShort = (message.windowShort || Long.UZERO).toString());
     message.windowLong !== undefined && (obj.windowLong = (message.windowLong || Long.UZERO).toString());
-    message.windowProbation !== undefined &&
-      (obj.windowProbation = (message.windowProbation || Long.UZERO).toString());
+    message.windowProbation !== undefined && (obj.windowProbation = (message.windowProbation || Long.UZERO).toString());
     message.burnTaxSplit !== undefined && (obj.burnTaxSplit = message.burnTaxSplit);
+    message.minInitialDepositRatio !== undefined && (obj.minInitialDepositRatio = message.minInitialDepositRatio);
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Params>): Params {
-    const message = { ...baseParams } as Params;
-    if (object.taxPolicy !== undefined && object.taxPolicy !== null) {
-      message.taxPolicy = PolicyConstraints.fromPartial(object.taxPolicy);
-    } else {
-      message.taxPolicy = undefined;
-    }
-    if (object.rewardPolicy !== undefined && object.rewardPolicy !== null) {
-      message.rewardPolicy = PolicyConstraints.fromPartial(object.rewardPolicy);
-    } else {
-      message.rewardPolicy = undefined;
-    }
-    if (object.seigniorageBurdenTarget !== undefined && object.seigniorageBurdenTarget !== null) {
-      message.seigniorageBurdenTarget = object.seigniorageBurdenTarget;
-    } else {
-      message.seigniorageBurdenTarget = "";
-    }
-    if (object.miningIncrement !== undefined && object.miningIncrement !== null) {
-      message.miningIncrement = object.miningIncrement;
-    } else {
-      message.miningIncrement = "";
-    }
-    if (object.windowShort !== undefined && object.windowShort !== null) {
-      message.windowShort = object.windowShort as Long;
-    } else {
-      message.windowShort = Long.UZERO;
-    }
-    if (object.windowLong !== undefined && object.windowLong !== null) {
-      message.windowLong = object.windowLong as Long;
-    } else {
-      message.windowLong = Long.UZERO;
-    }
-    if (object.windowProbation !== undefined && object.windowProbation !== null) {
-      message.windowProbation = object.windowProbation as Long;
-    } else {
-      message.windowProbation = Long.UZERO;
-    }
-    if (object.burnTaxSplit !== undefined && object.burnTaxSplit !== null) {
-      message.burnTaxSplit = object.burnTaxSplit;
-    } else {
-      message.burnTaxSplit = "";
-    }
+  create<I extends Exact<DeepPartial<Params>, I>>(base?: I): Params {
+    return Params.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Params>, I>>(object: I): Params {
+    const message = createBaseParams();
+    message.taxPolicy = (object.taxPolicy !== undefined && object.taxPolicy !== null)
+      ? PolicyConstraints.fromPartial(object.taxPolicy)
+      : undefined;
+    message.rewardPolicy = (object.rewardPolicy !== undefined && object.rewardPolicy !== null)
+      ? PolicyConstraints.fromPartial(object.rewardPolicy)
+      : undefined;
+    message.seigniorageBurdenTarget = object.seigniorageBurdenTarget ?? "";
+    message.miningIncrement = object.miningIncrement ?? "";
+    message.windowShort = (object.windowShort !== undefined && object.windowShort !== null)
+      ? Long.fromValue(object.windowShort)
+      : Long.UZERO;
+    message.windowLong = (object.windowLong !== undefined && object.windowLong !== null)
+      ? Long.fromValue(object.windowLong)
+      : Long.UZERO;
+    message.windowProbation = (object.windowProbation !== undefined && object.windowProbation !== null)
+      ? Long.fromValue(object.windowProbation)
+      : Long.UZERO;
+    message.burnTaxSplit = object.burnTaxSplit ?? "";
+    message.minInitialDepositRatio = object.minInitialDepositRatio ?? "";
     return message;
   },
 };
 
-const basePolicyConstraints: object = { rateMin: "", rateMax: "", changeRateMax: "" };
+function createBasePolicyConstraints(): PolicyConstraints {
+  return { rateMin: "", rateMax: "", cap: undefined, changeRateMax: "" };
+}
 
 export const PolicyConstraints = {
   encode(message: PolicyConstraints, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -246,55 +248,56 @@ export const PolicyConstraints = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): PolicyConstraints {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...basePolicyConstraints } as PolicyConstraints;
+    const message = createBasePolicyConstraints();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.rateMin = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.rateMax = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.cap = Coin.decode(reader, reader.uint32());
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.changeRateMax = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): PolicyConstraints {
-    const message = { ...basePolicyConstraints } as PolicyConstraints;
-    if (object.rateMin !== undefined && object.rateMin !== null) {
-      message.rateMin = String(object.rateMin);
-    } else {
-      message.rateMin = "";
-    }
-    if (object.rateMax !== undefined && object.rateMax !== null) {
-      message.rateMax = String(object.rateMax);
-    } else {
-      message.rateMax = "";
-    }
-    if (object.cap !== undefined && object.cap !== null) {
-      message.cap = Coin.fromJSON(object.cap);
-    } else {
-      message.cap = undefined;
-    }
-    if (object.changeRateMax !== undefined && object.changeRateMax !== null) {
-      message.changeRateMax = String(object.changeRateMax);
-    } else {
-      message.changeRateMax = "";
-    }
-    return message;
+    return {
+      rateMin: isSet(object.rateMin) ? String(object.rateMin) : "",
+      rateMax: isSet(object.rateMax) ? String(object.rateMax) : "",
+      cap: isSet(object.cap) ? Coin.fromJSON(object.cap) : undefined,
+      changeRateMax: isSet(object.changeRateMax) ? String(object.changeRateMax) : "",
+    };
   },
 
   toJSON(message: PolicyConstraints): unknown {
@@ -306,33 +309,23 @@ export const PolicyConstraints = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<PolicyConstraints>): PolicyConstraints {
-    const message = { ...basePolicyConstraints } as PolicyConstraints;
-    if (object.rateMin !== undefined && object.rateMin !== null) {
-      message.rateMin = object.rateMin;
-    } else {
-      message.rateMin = "";
-    }
-    if (object.rateMax !== undefined && object.rateMax !== null) {
-      message.rateMax = object.rateMax;
-    } else {
-      message.rateMax = "";
-    }
-    if (object.cap !== undefined && object.cap !== null) {
-      message.cap = Coin.fromPartial(object.cap);
-    } else {
-      message.cap = undefined;
-    }
-    if (object.changeRateMax !== undefined && object.changeRateMax !== null) {
-      message.changeRateMax = object.changeRateMax;
-    } else {
-      message.changeRateMax = "";
-    }
+  create<I extends Exact<DeepPartial<PolicyConstraints>, I>>(base?: I): PolicyConstraints {
+    return PolicyConstraints.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<PolicyConstraints>, I>>(object: I): PolicyConstraints {
+    const message = createBasePolicyConstraints();
+    message.rateMin = object.rateMin ?? "";
+    message.rateMax = object.rateMax ?? "";
+    message.cap = (object.cap !== undefined && object.cap !== null) ? Coin.fromPartial(object.cap) : undefined;
+    message.changeRateMax = object.changeRateMax ?? "";
     return message;
   },
 };
 
-const baseEpochTaxProceeds: object = {};
+function createBaseEpochTaxProceeds(): EpochTaxProceeds {
+  return { taxProceeds: [] };
+}
 
 export const EpochTaxProceeds = {
   encode(message: EpochTaxProceeds, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -343,58 +336,58 @@ export const EpochTaxProceeds = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): EpochTaxProceeds {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseEpochTaxProceeds } as EpochTaxProceeds;
-    message.taxProceeds = [];
+    const message = createBaseEpochTaxProceeds();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.taxProceeds.push(Coin.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): EpochTaxProceeds {
-    const message = { ...baseEpochTaxProceeds } as EpochTaxProceeds;
-    message.taxProceeds = [];
-    if (object.taxProceeds !== undefined && object.taxProceeds !== null) {
-      for (const e of object.taxProceeds) {
-        message.taxProceeds.push(Coin.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      taxProceeds: Array.isArray(object?.taxProceeds) ? object.taxProceeds.map((e: any) => Coin.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: EpochTaxProceeds): unknown {
     const obj: any = {};
     if (message.taxProceeds) {
-      obj.taxProceeds = message.taxProceeds.map((e) => (e ? Coin.toJSON(e) : undefined));
+      obj.taxProceeds = message.taxProceeds.map((e) => e ? Coin.toJSON(e) : undefined);
     } else {
       obj.taxProceeds = [];
     }
     return obj;
   },
 
-  fromPartial(object: DeepPartial<EpochTaxProceeds>): EpochTaxProceeds {
-    const message = { ...baseEpochTaxProceeds } as EpochTaxProceeds;
-    message.taxProceeds = [];
-    if (object.taxProceeds !== undefined && object.taxProceeds !== null) {
-      for (const e of object.taxProceeds) {
-        message.taxProceeds.push(Coin.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<EpochTaxProceeds>, I>>(base?: I): EpochTaxProceeds {
+    return EpochTaxProceeds.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EpochTaxProceeds>, I>>(object: I): EpochTaxProceeds {
+    const message = createBaseEpochTaxProceeds();
+    message.taxProceeds = object.taxProceeds?.map((e) => Coin.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseEpochInitialIssuance: object = {};
+function createBaseEpochInitialIssuance(): EpochInitialIssuance {
+  return { issuance: [] };
+}
 
 export const EpochInitialIssuance = {
   encode(message: EpochInitialIssuance, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -405,69 +398,70 @@ export const EpochInitialIssuance = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): EpochInitialIssuance {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseEpochInitialIssuance } as EpochInitialIssuance;
-    message.issuance = [];
+    const message = createBaseEpochInitialIssuance();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.issuance.push(Coin.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): EpochInitialIssuance {
-    const message = { ...baseEpochInitialIssuance } as EpochInitialIssuance;
-    message.issuance = [];
-    if (object.issuance !== undefined && object.issuance !== null) {
-      for (const e of object.issuance) {
-        message.issuance.push(Coin.fromJSON(e));
-      }
-    }
-    return message;
+    return { issuance: Array.isArray(object?.issuance) ? object.issuance.map((e: any) => Coin.fromJSON(e)) : [] };
   },
 
   toJSON(message: EpochInitialIssuance): unknown {
     const obj: any = {};
     if (message.issuance) {
-      obj.issuance = message.issuance.map((e) => (e ? Coin.toJSON(e) : undefined));
+      obj.issuance = message.issuance.map((e) => e ? Coin.toJSON(e) : undefined);
     } else {
       obj.issuance = [];
     }
     return obj;
   },
 
-  fromPartial(object: DeepPartial<EpochInitialIssuance>): EpochInitialIssuance {
-    const message = { ...baseEpochInitialIssuance } as EpochInitialIssuance;
-    message.issuance = [];
-    if (object.issuance !== undefined && object.issuance !== null) {
-      for (const e of object.issuance) {
-        message.issuance.push(Coin.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<EpochInitialIssuance>, I>>(base?: I): EpochInitialIssuance {
+    return EpochInitialIssuance.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EpochInitialIssuance>, I>>(object: I): EpochInitialIssuance {
+    const message = createBaseEpochInitialIssuance();
+    message.issuance = object.issuance?.map((e) => Coin.fromPartial(e)) || [];
     return message;
   },
 };
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
-export type DeepPartial<T> = T extends Builtin
-  ? T
-  : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
+export type DeepPartial<T> = T extends Builtin ? T
+  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
+  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
+
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
 }

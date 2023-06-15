@@ -446,6 +446,38 @@ class QueryConsensusStatesResponse(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
+class QueryConsensusStateHeightsRequest(betterproto.Message):
+    """
+    QueryConsensusStateHeightsRequest is the request type for
+    Query/ConsensusStateHeights RPC method.
+    """
+
+    client_id: str = betterproto.string_field(1)
+    """client identifier"""
+
+    pagination: "____cosmos_base_query_v1_beta1__.PageRequest" = (
+        betterproto.message_field(2)
+    )
+    """pagination request"""
+
+
+@dataclass(eq=False, repr=False)
+class QueryConsensusStateHeightsResponse(betterproto.Message):
+    """
+    QueryConsensusStateHeightsResponse is the response type for the
+    Query/ConsensusStateHeights RPC method
+    """
+
+    consensus_state_heights: List["Height"] = betterproto.message_field(1)
+    """consensus state heights"""
+
+    pagination: "____cosmos_base_query_v1_beta1__.PageResponse" = (
+        betterproto.message_field(2)
+    )
+    """pagination response"""
+
+
+@dataclass(eq=False, repr=False)
 class QueryClientStatusRequest(betterproto.Message):
     """
     QueryClientStatusRequest is the request type for the Query/ClientStatus RPC
@@ -672,6 +704,23 @@ class QueryStub(betterproto.ServiceStub):
             metadata=metadata,
         )
 
+    async def consensus_state_heights(
+        self,
+        query_consensus_state_heights_request: "QueryConsensusStateHeightsRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None
+    ) -> "QueryConsensusStateHeightsResponse":
+        return await self._unary_unary(
+            "/ibc.core.client.v1.Query/ConsensusStateHeights",
+            query_consensus_state_heights_request,
+            QueryConsensusStateHeightsResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        )
+
     async def client_status(
         self,
         query_client_status_request: "QueryClientStatusRequest",
@@ -842,6 +891,11 @@ class QueryBase(ServiceBase):
     ) -> "QueryConsensusStatesResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
+    async def consensus_state_heights(
+        self, query_consensus_state_heights_request: "QueryConsensusStateHeightsRequest"
+    ) -> "QueryConsensusStateHeightsResponse":
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
     async def client_status(
         self, query_client_status_request: "QueryClientStatusRequest"
     ) -> "QueryClientStatusResponse":
@@ -893,6 +947,14 @@ class QueryBase(ServiceBase):
     ) -> None:
         request = await stream.recv_message()
         response = await self.consensus_states(request)
+        await stream.send_message(response)
+
+    async def __rpc_consensus_state_heights(
+        self,
+        stream: "grpclib.server.Stream[QueryConsensusStateHeightsRequest, QueryConsensusStateHeightsResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        response = await self.consensus_state_heights(request)
         await stream.send_message(response)
 
     async def __rpc_client_status(
@@ -952,6 +1014,12 @@ class QueryBase(ServiceBase):
                 grpclib.const.Cardinality.UNARY_UNARY,
                 QueryConsensusStatesRequest,
                 QueryConsensusStatesResponse,
+            ),
+            "/ibc.core.client.v1.Query/ConsensusStateHeights": grpclib.const.Handler(
+                self.__rpc_consensus_state_heights,
+                grpclib.const.Cardinality.UNARY_UNARY,
+                QueryConsensusStateHeightsRequest,
+                QueryConsensusStateHeightsResponse,
             ),
             "/ibc.core.client.v1.Query/ClientStatus": grpclib.const.Handler(
                 self.__rpc_client_status,

@@ -1,8 +1,8 @@
 /* eslint-disable */
 import Long from "long";
 import _m0 from "protobufjs/minimal";
-import { PacketId } from "../../../../ibc/core/channel/v1/channel";
 import { Coin } from "../../../../cosmos/base/v1beta1/coin";
+import { PacketId } from "../../../core/channel/v1/channel";
 
 export const protobufPackage = "ibc.applications.fee.v1";
 
@@ -40,7 +40,9 @@ export interface IdentifiedPacketFees {
   packetFees: PacketFee[];
 }
 
-const baseFee: object = {};
+function createBaseFee(): Fee {
+  return { recvFee: [], ackFee: [], timeoutFee: [] };
+}
 
 export const Fee = {
   encode(message: Fee, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -57,100 +59,86 @@ export const Fee = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Fee {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseFee } as Fee;
-    message.recvFee = [];
-    message.ackFee = [];
-    message.timeoutFee = [];
+    const message = createBaseFee();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.recvFee.push(Coin.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.ackFee.push(Coin.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.timeoutFee.push(Coin.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Fee {
-    const message = { ...baseFee } as Fee;
-    message.recvFee = [];
-    message.ackFee = [];
-    message.timeoutFee = [];
-    if (object.recvFee !== undefined && object.recvFee !== null) {
-      for (const e of object.recvFee) {
-        message.recvFee.push(Coin.fromJSON(e));
-      }
-    }
-    if (object.ackFee !== undefined && object.ackFee !== null) {
-      for (const e of object.ackFee) {
-        message.ackFee.push(Coin.fromJSON(e));
-      }
-    }
-    if (object.timeoutFee !== undefined && object.timeoutFee !== null) {
-      for (const e of object.timeoutFee) {
-        message.timeoutFee.push(Coin.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      recvFee: Array.isArray(object?.recvFee) ? object.recvFee.map((e: any) => Coin.fromJSON(e)) : [],
+      ackFee: Array.isArray(object?.ackFee) ? object.ackFee.map((e: any) => Coin.fromJSON(e)) : [],
+      timeoutFee: Array.isArray(object?.timeoutFee) ? object.timeoutFee.map((e: any) => Coin.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: Fee): unknown {
     const obj: any = {};
     if (message.recvFee) {
-      obj.recvFee = message.recvFee.map((e) => (e ? Coin.toJSON(e) : undefined));
+      obj.recvFee = message.recvFee.map((e) => e ? Coin.toJSON(e) : undefined);
     } else {
       obj.recvFee = [];
     }
     if (message.ackFee) {
-      obj.ackFee = message.ackFee.map((e) => (e ? Coin.toJSON(e) : undefined));
+      obj.ackFee = message.ackFee.map((e) => e ? Coin.toJSON(e) : undefined);
     } else {
       obj.ackFee = [];
     }
     if (message.timeoutFee) {
-      obj.timeoutFee = message.timeoutFee.map((e) => (e ? Coin.toJSON(e) : undefined));
+      obj.timeoutFee = message.timeoutFee.map((e) => e ? Coin.toJSON(e) : undefined);
     } else {
       obj.timeoutFee = [];
     }
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Fee>): Fee {
-    const message = { ...baseFee } as Fee;
-    message.recvFee = [];
-    message.ackFee = [];
-    message.timeoutFee = [];
-    if (object.recvFee !== undefined && object.recvFee !== null) {
-      for (const e of object.recvFee) {
-        message.recvFee.push(Coin.fromPartial(e));
-      }
-    }
-    if (object.ackFee !== undefined && object.ackFee !== null) {
-      for (const e of object.ackFee) {
-        message.ackFee.push(Coin.fromPartial(e));
-      }
-    }
-    if (object.timeoutFee !== undefined && object.timeoutFee !== null) {
-      for (const e of object.timeoutFee) {
-        message.timeoutFee.push(Coin.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<Fee>, I>>(base?: I): Fee {
+    return Fee.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Fee>, I>>(object: I): Fee {
+    const message = createBaseFee();
+    message.recvFee = object.recvFee?.map((e) => Coin.fromPartial(e)) || [];
+    message.ackFee = object.ackFee?.map((e) => Coin.fromPartial(e)) || [];
+    message.timeoutFee = object.timeoutFee?.map((e) => Coin.fromPartial(e)) || [];
     return message;
   },
 };
 
-const basePacketFee: object = { refundAddress: "", relayers: "" };
+function createBasePacketFee(): PacketFee {
+  return { fee: undefined, refundAddress: "", relayers: [] };
+}
 
 export const PacketFee = {
   encode(message: PacketFee, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -167,49 +155,48 @@ export const PacketFee = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): PacketFee {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...basePacketFee } as PacketFee;
-    message.relayers = [];
+    const message = createBasePacketFee();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.fee = Fee.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.refundAddress = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.relayers.push(reader.string());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): PacketFee {
-    const message = { ...basePacketFee } as PacketFee;
-    message.relayers = [];
-    if (object.fee !== undefined && object.fee !== null) {
-      message.fee = Fee.fromJSON(object.fee);
-    } else {
-      message.fee = undefined;
-    }
-    if (object.refundAddress !== undefined && object.refundAddress !== null) {
-      message.refundAddress = String(object.refundAddress);
-    } else {
-      message.refundAddress = "";
-    }
-    if (object.relayers !== undefined && object.relayers !== null) {
-      for (const e of object.relayers) {
-        message.relayers.push(String(e));
-      }
-    }
-    return message;
+    return {
+      fee: isSet(object.fee) ? Fee.fromJSON(object.fee) : undefined,
+      refundAddress: isSet(object.refundAddress) ? String(object.refundAddress) : "",
+      relayers: Array.isArray(object?.relayers) ? object.relayers.map((e: any) => String(e)) : [],
+    };
   },
 
   toJSON(message: PacketFee): unknown {
@@ -224,29 +211,22 @@ export const PacketFee = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<PacketFee>): PacketFee {
-    const message = { ...basePacketFee } as PacketFee;
-    message.relayers = [];
-    if (object.fee !== undefined && object.fee !== null) {
-      message.fee = Fee.fromPartial(object.fee);
-    } else {
-      message.fee = undefined;
-    }
-    if (object.refundAddress !== undefined && object.refundAddress !== null) {
-      message.refundAddress = object.refundAddress;
-    } else {
-      message.refundAddress = "";
-    }
-    if (object.relayers !== undefined && object.relayers !== null) {
-      for (const e of object.relayers) {
-        message.relayers.push(e);
-      }
-    }
+  create<I extends Exact<DeepPartial<PacketFee>, I>>(base?: I): PacketFee {
+    return PacketFee.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<PacketFee>, I>>(object: I): PacketFee {
+    const message = createBasePacketFee();
+    message.fee = (object.fee !== undefined && object.fee !== null) ? Fee.fromPartial(object.fee) : undefined;
+    message.refundAddress = object.refundAddress ?? "";
+    message.relayers = object.relayers?.map((e) => e) || [];
     return message;
   },
 };
 
-const basePacketFees: object = {};
+function createBasePacketFees(): PacketFees {
+  return { packetFees: [] };
+}
 
 export const PacketFees = {
   encode(message: PacketFees, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -257,58 +237,58 @@ export const PacketFees = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): PacketFees {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...basePacketFees } as PacketFees;
-    message.packetFees = [];
+    const message = createBasePacketFees();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.packetFees.push(PacketFee.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): PacketFees {
-    const message = { ...basePacketFees } as PacketFees;
-    message.packetFees = [];
-    if (object.packetFees !== undefined && object.packetFees !== null) {
-      for (const e of object.packetFees) {
-        message.packetFees.push(PacketFee.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      packetFees: Array.isArray(object?.packetFees) ? object.packetFees.map((e: any) => PacketFee.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: PacketFees): unknown {
     const obj: any = {};
     if (message.packetFees) {
-      obj.packetFees = message.packetFees.map((e) => (e ? PacketFee.toJSON(e) : undefined));
+      obj.packetFees = message.packetFees.map((e) => e ? PacketFee.toJSON(e) : undefined);
     } else {
       obj.packetFees = [];
     }
     return obj;
   },
 
-  fromPartial(object: DeepPartial<PacketFees>): PacketFees {
-    const message = { ...basePacketFees } as PacketFees;
-    message.packetFees = [];
-    if (object.packetFees !== undefined && object.packetFees !== null) {
-      for (const e of object.packetFees) {
-        message.packetFees.push(PacketFee.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<PacketFees>, I>>(base?: I): PacketFees {
+    return PacketFees.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<PacketFees>, I>>(object: I): PacketFees {
+    const message = createBasePacketFees();
+    message.packetFees = object.packetFees?.map((e) => PacketFee.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseIdentifiedPacketFees: object = {};
+function createBaseIdentifiedPacketFees(): IdentifiedPacketFees {
+  return { packetId: undefined, packetFees: [] };
+}
 
 export const IdentifiedPacketFees = {
   encode(message: IdentifiedPacketFees, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -322,84 +302,84 @@ export const IdentifiedPacketFees = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): IdentifiedPacketFees {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseIdentifiedPacketFees } as IdentifiedPacketFees;
-    message.packetFees = [];
+    const message = createBaseIdentifiedPacketFees();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.packetId = PacketId.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.packetFees.push(PacketFee.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): IdentifiedPacketFees {
-    const message = { ...baseIdentifiedPacketFees } as IdentifiedPacketFees;
-    message.packetFees = [];
-    if (object.packetId !== undefined && object.packetId !== null) {
-      message.packetId = PacketId.fromJSON(object.packetId);
-    } else {
-      message.packetId = undefined;
-    }
-    if (object.packetFees !== undefined && object.packetFees !== null) {
-      for (const e of object.packetFees) {
-        message.packetFees.push(PacketFee.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      packetId: isSet(object.packetId) ? PacketId.fromJSON(object.packetId) : undefined,
+      packetFees: Array.isArray(object?.packetFees) ? object.packetFees.map((e: any) => PacketFee.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: IdentifiedPacketFees): unknown {
     const obj: any = {};
-    message.packetId !== undefined &&
-      (obj.packetId = message.packetId ? PacketId.toJSON(message.packetId) : undefined);
+    message.packetId !== undefined && (obj.packetId = message.packetId ? PacketId.toJSON(message.packetId) : undefined);
     if (message.packetFees) {
-      obj.packetFees = message.packetFees.map((e) => (e ? PacketFee.toJSON(e) : undefined));
+      obj.packetFees = message.packetFees.map((e) => e ? PacketFee.toJSON(e) : undefined);
     } else {
       obj.packetFees = [];
     }
     return obj;
   },
 
-  fromPartial(object: DeepPartial<IdentifiedPacketFees>): IdentifiedPacketFees {
-    const message = { ...baseIdentifiedPacketFees } as IdentifiedPacketFees;
-    message.packetFees = [];
-    if (object.packetId !== undefined && object.packetId !== null) {
-      message.packetId = PacketId.fromPartial(object.packetId);
-    } else {
-      message.packetId = undefined;
-    }
-    if (object.packetFees !== undefined && object.packetFees !== null) {
-      for (const e of object.packetFees) {
-        message.packetFees.push(PacketFee.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<IdentifiedPacketFees>, I>>(base?: I): IdentifiedPacketFees {
+    return IdentifiedPacketFees.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<IdentifiedPacketFees>, I>>(object: I): IdentifiedPacketFees {
+    const message = createBaseIdentifiedPacketFees();
+    message.packetId = (object.packetId !== undefined && object.packetId !== null)
+      ? PacketId.fromPartial(object.packetId)
+      : undefined;
+    message.packetFees = object.packetFees?.map((e) => PacketFee.fromPartial(e)) || [];
     return message;
   },
 };
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
-export type DeepPartial<T> = T extends Builtin
-  ? T
-  : T extends Array<infer U>
-  ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U>
-  ? ReadonlyArray<DeepPartial<U>>
-  : T extends {}
-  ? { [K in keyof T]?: DeepPartial<T[K]> }
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
+export type DeepPartial<T> = T extends Builtin ? T
+  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
+  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
+
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
 }
