@@ -155,12 +155,18 @@ export const GenesisState = {
   fromJSON(object: any): GenesisState {
     return {
       params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
-      lastTotalPower: isSet(object.lastTotalPower) ? bytesFromBase64(object.lastTotalPower) : new Uint8Array(0),
+      lastTotalPower: isSet(object.lastTotalPower)
+        ? bytesFromBase64(object.lastTotalPower)
+        : new Uint8Array(0),
       lastValidatorPowers: Array.isArray(object?.lastValidatorPowers)
         ? object.lastValidatorPowers.map((e: any) => LastValidatorPower.fromJSON(e))
         : [],
-      validators: Array.isArray(object?.validators) ? object.validators.map((e: any) => Validator.fromJSON(e)) : [],
-      delegations: Array.isArray(object?.delegations) ? object.delegations.map((e: any) => Delegation.fromJSON(e)) : [],
+      validators: Array.isArray(object?.validators)
+        ? object.validators.map((e: any) => Validator.fromJSON(e))
+        : [],
+      delegations: Array.isArray(object?.delegations)
+        ? object.delegations.map((e: any) => Delegation.fromJSON(e))
+        : [],
       unbondingDelegations: Array.isArray(object?.unbondingDelegations)
         ? object.unbondingDelegations.map((e: any) => UnbondingDelegation.fromJSON(e))
         : [],
@@ -179,27 +185,31 @@ export const GenesisState = {
         message.lastTotalPower !== undefined ? message.lastTotalPower : new Uint8Array(0),
       ));
     if (message.lastValidatorPowers) {
-      obj.lastValidatorPowers = message.lastValidatorPowers.map((e) => e ? LastValidatorPower.toJSON(e) : undefined);
+      obj.lastValidatorPowers = message.lastValidatorPowers.map((e) =>
+        e ? LastValidatorPower.toJSON(e) : undefined,
+      );
     } else {
       obj.lastValidatorPowers = [];
     }
     if (message.validators) {
-      obj.validators = message.validators.map((e) => e ? Validator.toJSON(e) : undefined);
+      obj.validators = message.validators.map((e) => (e ? Validator.toJSON(e) : undefined));
     } else {
       obj.validators = [];
     }
     if (message.delegations) {
-      obj.delegations = message.delegations.map((e) => e ? Delegation.toJSON(e) : undefined);
+      obj.delegations = message.delegations.map((e) => (e ? Delegation.toJSON(e) : undefined));
     } else {
       obj.delegations = [];
     }
     if (message.unbondingDelegations) {
-      obj.unbondingDelegations = message.unbondingDelegations.map((e) => e ? UnbondingDelegation.toJSON(e) : undefined);
+      obj.unbondingDelegations = message.unbondingDelegations.map((e) =>
+        e ? UnbondingDelegation.toJSON(e) : undefined,
+      );
     } else {
       obj.unbondingDelegations = [];
     }
     if (message.redelegations) {
-      obj.redelegations = message.redelegations.map((e) => e ? Redelegation.toJSON(e) : undefined);
+      obj.redelegations = message.redelegations.map((e) => (e ? Redelegation.toJSON(e) : undefined));
     } else {
       obj.redelegations = [];
     }
@@ -213,14 +223,15 @@ export const GenesisState = {
 
   fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
     const message = createBaseGenesisState();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     message.lastTotalPower = object.lastTotalPower ?? new Uint8Array(0);
-    message.lastValidatorPowers = object.lastValidatorPowers?.map((e) => LastValidatorPower.fromPartial(e)) || [];
+    message.lastValidatorPowers =
+      object.lastValidatorPowers?.map((e) => LastValidatorPower.fromPartial(e)) || [];
     message.validators = object.validators?.map((e) => Validator.fromPartial(e)) || [];
     message.delegations = object.delegations?.map((e) => Delegation.fromPartial(e)) || [];
-    message.unbondingDelegations = object.unbondingDelegations?.map((e) => UnbondingDelegation.fromPartial(e)) || [];
+    message.unbondingDelegations =
+      object.unbondingDelegations?.map((e) => UnbondingDelegation.fromPartial(e)) || [];
     message.redelegations = object.redelegations?.map((e) => Redelegation.fromPartial(e)) || [];
     message.exported = object.exported ?? false;
     return message;
@@ -293,7 +304,8 @@ export const LastValidatorPower = {
   fromPartial<I extends Exact<DeepPartial<LastValidatorPower>, I>>(object: I): LastValidatorPower {
     const message = createBaseLastValidatorPower();
     message.address = object.address ?? "";
-    message.power = (object.power !== undefined && object.power !== null) ? Long.fromValue(object.power) : Long.ZERO;
+    message.power =
+      object.power !== undefined && object.power !== null ? Long.fromValue(object.power) : Long.ZERO;
     return message;
   },
 };
@@ -344,14 +356,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

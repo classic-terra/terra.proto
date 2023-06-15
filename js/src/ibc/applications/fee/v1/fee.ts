@@ -99,24 +99,26 @@ export const Fee = {
     return {
       recvFee: Array.isArray(object?.recvFee) ? object.recvFee.map((e: any) => Coin.fromJSON(e)) : [],
       ackFee: Array.isArray(object?.ackFee) ? object.ackFee.map((e: any) => Coin.fromJSON(e)) : [],
-      timeoutFee: Array.isArray(object?.timeoutFee) ? object.timeoutFee.map((e: any) => Coin.fromJSON(e)) : [],
+      timeoutFee: Array.isArray(object?.timeoutFee)
+        ? object.timeoutFee.map((e: any) => Coin.fromJSON(e))
+        : [],
     };
   },
 
   toJSON(message: Fee): unknown {
     const obj: any = {};
     if (message.recvFee) {
-      obj.recvFee = message.recvFee.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.recvFee = message.recvFee.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.recvFee = [];
     }
     if (message.ackFee) {
-      obj.ackFee = message.ackFee.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.ackFee = message.ackFee.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.ackFee = [];
     }
     if (message.timeoutFee) {
-      obj.timeoutFee = message.timeoutFee.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.timeoutFee = message.timeoutFee.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.timeoutFee = [];
     }
@@ -217,7 +219,7 @@ export const PacketFee = {
 
   fromPartial<I extends Exact<DeepPartial<PacketFee>, I>>(object: I): PacketFee {
     const message = createBasePacketFee();
-    message.fee = (object.fee !== undefined && object.fee !== null) ? Fee.fromPartial(object.fee) : undefined;
+    message.fee = object.fee !== undefined && object.fee !== null ? Fee.fromPartial(object.fee) : undefined;
     message.refundAddress = object.refundAddress ?? "";
     message.relayers = object.relayers?.map((e) => e) || [];
     return message;
@@ -261,14 +263,16 @@ export const PacketFees = {
 
   fromJSON(object: any): PacketFees {
     return {
-      packetFees: Array.isArray(object?.packetFees) ? object.packetFees.map((e: any) => PacketFee.fromJSON(e)) : [],
+      packetFees: Array.isArray(object?.packetFees)
+        ? object.packetFees.map((e: any) => PacketFee.fromJSON(e))
+        : [],
     };
   },
 
   toJSON(message: PacketFees): unknown {
     const obj: any = {};
     if (message.packetFees) {
-      obj.packetFees = message.packetFees.map((e) => e ? PacketFee.toJSON(e) : undefined);
+      obj.packetFees = message.packetFees.map((e) => (e ? PacketFee.toJSON(e) : undefined));
     } else {
       obj.packetFees = [];
     }
@@ -334,15 +338,18 @@ export const IdentifiedPacketFees = {
   fromJSON(object: any): IdentifiedPacketFees {
     return {
       packetId: isSet(object.packetId) ? PacketId.fromJSON(object.packetId) : undefined,
-      packetFees: Array.isArray(object?.packetFees) ? object.packetFees.map((e: any) => PacketFee.fromJSON(e)) : [],
+      packetFees: Array.isArray(object?.packetFees)
+        ? object.packetFees.map((e: any) => PacketFee.fromJSON(e))
+        : [],
     };
   },
 
   toJSON(message: IdentifiedPacketFees): unknown {
     const obj: any = {};
-    message.packetId !== undefined && (obj.packetId = message.packetId ? PacketId.toJSON(message.packetId) : undefined);
+    message.packetId !== undefined &&
+      (obj.packetId = message.packetId ? PacketId.toJSON(message.packetId) : undefined);
     if (message.packetFees) {
-      obj.packetFees = message.packetFees.map((e) => e ? PacketFee.toJSON(e) : undefined);
+      obj.packetFees = message.packetFees.map((e) => (e ? PacketFee.toJSON(e) : undefined));
     } else {
       obj.packetFees = [];
     }
@@ -355,9 +362,10 @@ export const IdentifiedPacketFees = {
 
   fromPartial<I extends Exact<DeepPartial<IdentifiedPacketFees>, I>>(object: I): IdentifiedPacketFees {
     const message = createBaseIdentifiedPacketFees();
-    message.packetId = (object.packetId !== undefined && object.packetId !== null)
-      ? PacketId.fromPartial(object.packetId)
-      : undefined;
+    message.packetId =
+      object.packetId !== undefined && object.packetId !== null
+        ? PacketId.fromPartial(object.packetId)
+        : undefined;
     message.packetFees = object.packetFees?.map((e) => PacketFee.fromPartial(e)) || [];
     return message;
   },
@@ -365,14 +373,21 @@ export const IdentifiedPacketFees = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

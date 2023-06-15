@@ -79,7 +79,9 @@ export const CommitInfo = {
   fromJSON(object: any): CommitInfo {
     return {
       version: isSet(object.version) ? Long.fromValue(object.version) : Long.ZERO,
-      storeInfos: Array.isArray(object?.storeInfos) ? object.storeInfos.map((e: any) => StoreInfo.fromJSON(e)) : [],
+      storeInfos: Array.isArray(object?.storeInfos)
+        ? object.storeInfos.map((e: any) => StoreInfo.fromJSON(e))
+        : [],
     };
   },
 
@@ -87,7 +89,7 @@ export const CommitInfo = {
     const obj: any = {};
     message.version !== undefined && (obj.version = (message.version || Long.ZERO).toString());
     if (message.storeInfos) {
-      obj.storeInfos = message.storeInfos.map((e) => e ? StoreInfo.toJSON(e) : undefined);
+      obj.storeInfos = message.storeInfos.map((e) => (e ? StoreInfo.toJSON(e) : undefined));
     } else {
       obj.storeInfos = [];
     }
@@ -100,9 +102,8 @@ export const CommitInfo = {
 
   fromPartial<I extends Exact<DeepPartial<CommitInfo>, I>>(object: I): CommitInfo {
     const message = createBaseCommitInfo();
-    message.version = (object.version !== undefined && object.version !== null)
-      ? Long.fromValue(object.version)
-      : Long.ZERO;
+    message.version =
+      object.version !== undefined && object.version !== null ? Long.fromValue(object.version) : Long.ZERO;
     message.storeInfos = object.storeInfos?.map((e) => StoreInfo.fromPartial(e)) || [];
     return message;
   },
@@ -163,7 +164,8 @@ export const StoreInfo = {
   toJSON(message: StoreInfo): unknown {
     const obj: any = {};
     message.name !== undefined && (obj.name = message.name);
-    message.commitId !== undefined && (obj.commitId = message.commitId ? CommitID.toJSON(message.commitId) : undefined);
+    message.commitId !== undefined &&
+      (obj.commitId = message.commitId ? CommitID.toJSON(message.commitId) : undefined);
     return obj;
   },
 
@@ -174,9 +176,10 @@ export const StoreInfo = {
   fromPartial<I extends Exact<DeepPartial<StoreInfo>, I>>(object: I): StoreInfo {
     const message = createBaseStoreInfo();
     message.name = object.name ?? "";
-    message.commitId = (object.commitId !== undefined && object.commitId !== null)
-      ? CommitID.fromPartial(object.commitId)
-      : undefined;
+    message.commitId =
+      object.commitId !== undefined && object.commitId !== null
+        ? CommitID.fromPartial(object.commitId)
+        : undefined;
     return message;
   },
 };
@@ -247,9 +250,8 @@ export const CommitID = {
 
   fromPartial<I extends Exact<DeepPartial<CommitID>, I>>(object: I): CommitID {
     const message = createBaseCommitID();
-    message.version = (object.version !== undefined && object.version !== null)
-      ? Long.fromValue(object.version)
-      : Long.ZERO;
+    message.version =
+      object.version !== undefined && object.version !== null ? Long.fromValue(object.version) : Long.ZERO;
     message.hash = object.hash ?? new Uint8Array(0);
     return message;
   },
@@ -301,14 +303,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

@@ -90,10 +90,12 @@ export const GenesisOwners = {
 
   fromPartial<I extends Exact<DeepPartial<GenesisOwners>, I>>(object: I): GenesisOwners {
     const message = createBaseGenesisOwners();
-    message.index = (object.index !== undefined && object.index !== null) ? Long.fromValue(object.index) : Long.UZERO;
-    message.indexOwners = (object.indexOwners !== undefined && object.indexOwners !== null)
-      ? CapabilityOwners.fromPartial(object.indexOwners)
-      : undefined;
+    message.index =
+      object.index !== undefined && object.index !== null ? Long.fromValue(object.index) : Long.UZERO;
+    message.indexOwners =
+      object.indexOwners !== undefined && object.indexOwners !== null
+        ? CapabilityOwners.fromPartial(object.indexOwners)
+        : undefined;
     return message;
   },
 };
@@ -154,7 +156,7 @@ export const GenesisState = {
     const obj: any = {};
     message.index !== undefined && (obj.index = (message.index || Long.UZERO).toString());
     if (message.owners) {
-      obj.owners = message.owners.map((e) => e ? GenesisOwners.toJSON(e) : undefined);
+      obj.owners = message.owners.map((e) => (e ? GenesisOwners.toJSON(e) : undefined));
     } else {
       obj.owners = [];
     }
@@ -167,7 +169,8 @@ export const GenesisState = {
 
   fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
     const message = createBaseGenesisState();
-    message.index = (object.index !== undefined && object.index !== null) ? Long.fromValue(object.index) : Long.UZERO;
+    message.index =
+      object.index !== undefined && object.index !== null ? Long.fromValue(object.index) : Long.UZERO;
     message.owners = object.owners?.map((e) => GenesisOwners.fromPartial(e)) || [];
     return message;
   },
@@ -175,14 +178,21 @@ export const GenesisState = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

@@ -23,8 +23,7 @@ export interface MsgGrantAllowance {
 }
 
 /** MsgGrantAllowanceResponse defines the Msg/GrantAllowanceResponse response type. */
-export interface MsgGrantAllowanceResponse {
-}
+export interface MsgGrantAllowanceResponse {}
 
 /** MsgRevokeAllowance removes any existing Allowance from Granter to Grantee. */
 export interface MsgRevokeAllowance {
@@ -35,8 +34,7 @@ export interface MsgRevokeAllowance {
 }
 
 /** MsgRevokeAllowanceResponse defines the Msg/RevokeAllowanceResponse response type. */
-export interface MsgRevokeAllowanceResponse {
-}
+export interface MsgRevokeAllowanceResponse {}
 
 function createBaseMsgGrantAllowance(): MsgGrantAllowance {
   return { granter: "", grantee: "", allowance: undefined };
@@ -105,7 +103,8 @@ export const MsgGrantAllowance = {
     const obj: any = {};
     message.granter !== undefined && (obj.granter = message.granter);
     message.grantee !== undefined && (obj.grantee = message.grantee);
-    message.allowance !== undefined && (obj.allowance = message.allowance ? Any.toJSON(message.allowance) : undefined);
+    message.allowance !== undefined &&
+      (obj.allowance = message.allowance ? Any.toJSON(message.allowance) : undefined);
     return obj;
   },
 
@@ -117,9 +116,10 @@ export const MsgGrantAllowance = {
     const message = createBaseMsgGrantAllowance();
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
-    message.allowance = (object.allowance !== undefined && object.allowance !== null)
-      ? Any.fromPartial(object.allowance)
-      : undefined;
+    message.allowance =
+      object.allowance !== undefined && object.allowance !== null
+        ? Any.fromPartial(object.allowance)
+        : undefined;
     return message;
   },
 };
@@ -289,7 +289,10 @@ export interface Msg {
    * GrantAllowance grants fee allowance to the grantee on the granter's
    * account with the provided expiration time.
    */
-  GrantAllowance(request: DeepPartial<MsgGrantAllowance>, metadata?: grpc.Metadata): Promise<MsgGrantAllowanceResponse>;
+  GrantAllowance(
+    request: DeepPartial<MsgGrantAllowance>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgGrantAllowanceResponse>;
   /**
    * RevokeAllowance revokes any fee allowance of granter's account that
    * has been granted to the grantee.
@@ -417,9 +420,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -461,14 +465,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

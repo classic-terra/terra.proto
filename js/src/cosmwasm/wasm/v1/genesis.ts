@@ -21,9 +21,7 @@ export interface GenesisState {
  */
 export interface GenesisState_GenMsgs {
   storeCode?: MsgStoreCode | undefined;
-  instantiateContract?:
-    | MsgInstantiateContract
-    | undefined;
+  instantiateContract?: MsgInstantiateContract | undefined;
   /**
    * MsgInstantiateContract2 intentionally not supported
    * see https://github.com/CosmWasm/wasmd/issues/987
@@ -133,9 +131,15 @@ export const GenesisState = {
     return {
       params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
       codes: Array.isArray(object?.codes) ? object.codes.map((e: any) => Code.fromJSON(e)) : [],
-      contracts: Array.isArray(object?.contracts) ? object.contracts.map((e: any) => Contract.fromJSON(e)) : [],
-      sequences: Array.isArray(object?.sequences) ? object.sequences.map((e: any) => Sequence.fromJSON(e)) : [],
-      genMsgs: Array.isArray(object?.genMsgs) ? object.genMsgs.map((e: any) => GenesisState_GenMsgs.fromJSON(e)) : [],
+      contracts: Array.isArray(object?.contracts)
+        ? object.contracts.map((e: any) => Contract.fromJSON(e))
+        : [],
+      sequences: Array.isArray(object?.sequences)
+        ? object.sequences.map((e: any) => Sequence.fromJSON(e))
+        : [],
+      genMsgs: Array.isArray(object?.genMsgs)
+        ? object.genMsgs.map((e: any) => GenesisState_GenMsgs.fromJSON(e))
+        : [],
     };
   },
 
@@ -143,22 +147,22 @@ export const GenesisState = {
     const obj: any = {};
     message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
     if (message.codes) {
-      obj.codes = message.codes.map((e) => e ? Code.toJSON(e) : undefined);
+      obj.codes = message.codes.map((e) => (e ? Code.toJSON(e) : undefined));
     } else {
       obj.codes = [];
     }
     if (message.contracts) {
-      obj.contracts = message.contracts.map((e) => e ? Contract.toJSON(e) : undefined);
+      obj.contracts = message.contracts.map((e) => (e ? Contract.toJSON(e) : undefined));
     } else {
       obj.contracts = [];
     }
     if (message.sequences) {
-      obj.sequences = message.sequences.map((e) => e ? Sequence.toJSON(e) : undefined);
+      obj.sequences = message.sequences.map((e) => (e ? Sequence.toJSON(e) : undefined));
     } else {
       obj.sequences = [];
     }
     if (message.genMsgs) {
-      obj.genMsgs = message.genMsgs.map((e) => e ? GenesisState_GenMsgs.toJSON(e) : undefined);
+      obj.genMsgs = message.genMsgs.map((e) => (e ? GenesisState_GenMsgs.toJSON(e) : undefined));
     } else {
       obj.genMsgs = [];
     }
@@ -171,9 +175,8 @@ export const GenesisState = {
 
   fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
     const message = createBaseGenesisState();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     message.codes = object.codes?.map((e) => Code.fromPartial(e)) || [];
     message.contracts = object.contracts?.map((e) => Contract.fromPartial(e)) || [];
     message.sequences = object.sequences?.map((e) => Sequence.fromPartial(e)) || [];
@@ -243,7 +246,9 @@ export const GenesisState_GenMsgs = {
       instantiateContract: isSet(object.instantiateContract)
         ? MsgInstantiateContract.fromJSON(object.instantiateContract)
         : undefined,
-      executeContract: isSet(object.executeContract) ? MsgExecuteContract.fromJSON(object.executeContract) : undefined,
+      executeContract: isSet(object.executeContract)
+        ? MsgExecuteContract.fromJSON(object.executeContract)
+        : undefined,
     };
   },
 
@@ -251,11 +256,14 @@ export const GenesisState_GenMsgs = {
     const obj: any = {};
     message.storeCode !== undefined &&
       (obj.storeCode = message.storeCode ? MsgStoreCode.toJSON(message.storeCode) : undefined);
-    message.instantiateContract !== undefined && (obj.instantiateContract = message.instantiateContract
-      ? MsgInstantiateContract.toJSON(message.instantiateContract)
-      : undefined);
+    message.instantiateContract !== undefined &&
+      (obj.instantiateContract = message.instantiateContract
+        ? MsgInstantiateContract.toJSON(message.instantiateContract)
+        : undefined);
     message.executeContract !== undefined &&
-      (obj.executeContract = message.executeContract ? MsgExecuteContract.toJSON(message.executeContract) : undefined);
+      (obj.executeContract = message.executeContract
+        ? MsgExecuteContract.toJSON(message.executeContract)
+        : undefined);
     return obj;
   },
 
@@ -265,15 +273,18 @@ export const GenesisState_GenMsgs = {
 
   fromPartial<I extends Exact<DeepPartial<GenesisState_GenMsgs>, I>>(object: I): GenesisState_GenMsgs {
     const message = createBaseGenesisState_GenMsgs();
-    message.storeCode = (object.storeCode !== undefined && object.storeCode !== null)
-      ? MsgStoreCode.fromPartial(object.storeCode)
-      : undefined;
-    message.instantiateContract = (object.instantiateContract !== undefined && object.instantiateContract !== null)
-      ? MsgInstantiateContract.fromPartial(object.instantiateContract)
-      : undefined;
-    message.executeContract = (object.executeContract !== undefined && object.executeContract !== null)
-      ? MsgExecuteContract.fromPartial(object.executeContract)
-      : undefined;
+    message.storeCode =
+      object.storeCode !== undefined && object.storeCode !== null
+        ? MsgStoreCode.fromPartial(object.storeCode)
+        : undefined;
+    message.instantiateContract =
+      object.instantiateContract !== undefined && object.instantiateContract !== null
+        ? MsgInstantiateContract.fromPartial(object.instantiateContract)
+        : undefined;
+    message.executeContract =
+      object.executeContract !== undefined && object.executeContract !== null
+        ? MsgExecuteContract.fromPartial(object.executeContract)
+        : undefined;
     return message;
   },
 };
@@ -355,9 +366,12 @@ export const Code = {
   toJSON(message: Code): unknown {
     const obj: any = {};
     message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
-    message.codeInfo !== undefined && (obj.codeInfo = message.codeInfo ? CodeInfo.toJSON(message.codeInfo) : undefined);
+    message.codeInfo !== undefined &&
+      (obj.codeInfo = message.codeInfo ? CodeInfo.toJSON(message.codeInfo) : undefined);
     message.codeBytes !== undefined &&
-      (obj.codeBytes = base64FromBytes(message.codeBytes !== undefined ? message.codeBytes : new Uint8Array(0)));
+      (obj.codeBytes = base64FromBytes(
+        message.codeBytes !== undefined ? message.codeBytes : new Uint8Array(0),
+      ));
     message.pinned !== undefined && (obj.pinned = message.pinned);
     return obj;
   },
@@ -368,12 +382,12 @@ export const Code = {
 
   fromPartial<I extends Exact<DeepPartial<Code>, I>>(object: I): Code {
     const message = createBaseCode();
-    message.codeId = (object.codeId !== undefined && object.codeId !== null)
-      ? Long.fromValue(object.codeId)
-      : Long.UZERO;
-    message.codeInfo = (object.codeInfo !== undefined && object.codeInfo !== null)
-      ? CodeInfo.fromPartial(object.codeInfo)
-      : undefined;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
+    message.codeInfo =
+      object.codeInfo !== undefined && object.codeInfo !== null
+        ? CodeInfo.fromPartial(object.codeInfo)
+        : undefined;
     message.codeBytes = object.codeBytes ?? new Uint8Array(0);
     message.pinned = object.pinned ?? false;
     return message;
@@ -464,13 +478,13 @@ export const Contract = {
     message.contractInfo !== undefined &&
       (obj.contractInfo = message.contractInfo ? ContractInfo.toJSON(message.contractInfo) : undefined);
     if (message.contractState) {
-      obj.contractState = message.contractState.map((e) => e ? Model.toJSON(e) : undefined);
+      obj.contractState = message.contractState.map((e) => (e ? Model.toJSON(e) : undefined));
     } else {
       obj.contractState = [];
     }
     if (message.contractCodeHistory) {
       obj.contractCodeHistory = message.contractCodeHistory.map((e) =>
-        e ? ContractCodeHistoryEntry.toJSON(e) : undefined
+        e ? ContractCodeHistoryEntry.toJSON(e) : undefined,
       );
     } else {
       obj.contractCodeHistory = [];
@@ -485,11 +499,13 @@ export const Contract = {
   fromPartial<I extends Exact<DeepPartial<Contract>, I>>(object: I): Contract {
     const message = createBaseContract();
     message.contractAddress = object.contractAddress ?? "";
-    message.contractInfo = (object.contractInfo !== undefined && object.contractInfo !== null)
-      ? ContractInfo.fromPartial(object.contractInfo)
-      : undefined;
+    message.contractInfo =
+      object.contractInfo !== undefined && object.contractInfo !== null
+        ? ContractInfo.fromPartial(object.contractInfo)
+        : undefined;
     message.contractState = object.contractState?.map((e) => Model.fromPartial(e)) || [];
-    message.contractCodeHistory = object.contractCodeHistory?.map((e) => ContractCodeHistoryEntry.fromPartial(e)) || [];
+    message.contractCodeHistory =
+      object.contractCodeHistory?.map((e) => ContractCodeHistoryEntry.fromPartial(e)) || [];
     return message;
   },
 };
@@ -561,7 +577,8 @@ export const Sequence = {
   fromPartial<I extends Exact<DeepPartial<Sequence>, I>>(object: I): Sequence {
     const message = createBaseSequence();
     message.idKey = object.idKey ?? new Uint8Array(0);
-    message.value = (object.value !== undefined && object.value !== null) ? Long.fromValue(object.value) : Long.UZERO;
+    message.value =
+      object.value !== undefined && object.value !== null ? Long.fromValue(object.value) : Long.UZERO;
     return message;
   },
 };
@@ -612,14 +629,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

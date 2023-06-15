@@ -76,7 +76,9 @@ export const QueryEvidenceRequest = {
   },
 
   fromJSON(object: any): QueryEvidenceRequest {
-    return { evidenceHash: isSet(object.evidenceHash) ? bytesFromBase64(object.evidenceHash) : new Uint8Array(0) };
+    return {
+      evidenceHash: isSet(object.evidenceHash) ? bytesFromBase64(object.evidenceHash) : new Uint8Array(0),
+    };
   },
 
   toJSON(message: QueryEvidenceRequest): unknown {
@@ -140,7 +142,8 @@ export const QueryEvidenceResponse = {
 
   toJSON(message: QueryEvidenceResponse): unknown {
     const obj: any = {};
-    message.evidence !== undefined && (obj.evidence = message.evidence ? Any.toJSON(message.evidence) : undefined);
+    message.evidence !== undefined &&
+      (obj.evidence = message.evidence ? Any.toJSON(message.evidence) : undefined);
     return obj;
   },
 
@@ -150,9 +153,10 @@ export const QueryEvidenceResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QueryEvidenceResponse>, I>>(object: I): QueryEvidenceResponse {
     const message = createBaseQueryEvidenceResponse();
-    message.evidence = (object.evidence !== undefined && object.evidence !== null)
-      ? Any.fromPartial(object.evidence)
-      : undefined;
+    message.evidence =
+      object.evidence !== undefined && object.evidence !== null
+        ? Any.fromPartial(object.evidence)
+        : undefined;
     return message;
   },
 };
@@ -209,9 +213,10 @@ export const QueryAllEvidenceRequest = {
 
   fromPartial<I extends Exact<DeepPartial<QueryAllEvidenceRequest>, I>>(object: I): QueryAllEvidenceRequest {
     const message = createBaseQueryAllEvidenceRequest();
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -271,7 +276,7 @@ export const QueryAllEvidenceResponse = {
   toJSON(message: QueryAllEvidenceResponse): unknown {
     const obj: any = {};
     if (message.evidence) {
-      obj.evidence = message.evidence.map((e) => e ? Any.toJSON(e) : undefined);
+      obj.evidence = message.evidence.map((e) => (e ? Any.toJSON(e) : undefined));
     } else {
       obj.evidence = [];
     }
@@ -284,12 +289,15 @@ export const QueryAllEvidenceResponse = {
     return QueryAllEvidenceResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryAllEvidenceResponse>, I>>(object: I): QueryAllEvidenceResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryAllEvidenceResponse>, I>>(
+    object: I,
+  ): QueryAllEvidenceResponse {
     const message = createBaseQueryAllEvidenceResponse();
     message.evidence = object.evidence?.map((e) => Any.fromPartial(e)) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -297,7 +305,10 @@ export const QueryAllEvidenceResponse = {
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Evidence queries evidence based on evidence hash. */
-  Evidence(request: DeepPartial<QueryEvidenceRequest>, metadata?: grpc.Metadata): Promise<QueryEvidenceResponse>;
+  Evidence(
+    request: DeepPartial<QueryEvidenceRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryEvidenceResponse>;
   /** AllEvidence queries all evidence. */
   AllEvidence(
     request: DeepPartial<QueryAllEvidenceRequest>,
@@ -314,7 +325,10 @@ export class QueryClientImpl implements Query {
     this.AllEvidence = this.AllEvidence.bind(this);
   }
 
-  Evidence(request: DeepPartial<QueryEvidenceRequest>, metadata?: grpc.Metadata): Promise<QueryEvidenceResponse> {
+  Evidence(
+    request: DeepPartial<QueryEvidenceRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryEvidenceResponse> {
     return this.rpc.unary(QueryEvidenceDesc, QueryEvidenceRequest.fromPartial(request), metadata);
   }
 
@@ -419,9 +433,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -488,14 +503,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

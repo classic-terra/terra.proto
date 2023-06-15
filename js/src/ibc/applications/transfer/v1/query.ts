@@ -47,8 +47,7 @@ export interface QueryDenomTracesResponse {
 }
 
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
-export interface QueryParamsRequest {
-}
+export interface QueryParamsRequest {}
 
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
@@ -196,9 +195,10 @@ export const QueryDenomTraceResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QueryDenomTraceResponse>, I>>(object: I): QueryDenomTraceResponse {
     const message = createBaseQueryDenomTraceResponse();
-    message.denomTrace = (object.denomTrace !== undefined && object.denomTrace !== null)
-      ? DenomTrace.fromPartial(object.denomTrace)
-      : undefined;
+    message.denomTrace =
+      object.denomTrace !== undefined && object.denomTrace !== null
+        ? DenomTrace.fromPartial(object.denomTrace)
+        : undefined;
     return message;
   },
 };
@@ -255,9 +255,10 @@ export const QueryDenomTracesRequest = {
 
   fromPartial<I extends Exact<DeepPartial<QueryDenomTracesRequest>, I>>(object: I): QueryDenomTracesRequest {
     const message = createBaseQueryDenomTracesRequest();
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -309,7 +310,9 @@ export const QueryDenomTracesResponse = {
 
   fromJSON(object: any): QueryDenomTracesResponse {
     return {
-      denomTraces: Array.isArray(object?.denomTraces) ? object.denomTraces.map((e: any) => DenomTrace.fromJSON(e)) : [],
+      denomTraces: Array.isArray(object?.denomTraces)
+        ? object.denomTraces.map((e: any) => DenomTrace.fromJSON(e))
+        : [],
       pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
     };
   },
@@ -317,7 +320,7 @@ export const QueryDenomTracesResponse = {
   toJSON(message: QueryDenomTracesResponse): unknown {
     const obj: any = {};
     if (message.denomTraces) {
-      obj.denomTraces = message.denomTraces.map((e) => e ? DenomTrace.toJSON(e) : undefined);
+      obj.denomTraces = message.denomTraces.map((e) => (e ? DenomTrace.toJSON(e) : undefined));
     } else {
       obj.denomTraces = [];
     }
@@ -330,12 +333,15 @@ export const QueryDenomTracesResponse = {
     return QueryDenomTracesResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryDenomTracesResponse>, I>>(object: I): QueryDenomTracesResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryDenomTracesResponse>, I>>(
+    object: I,
+  ): QueryDenomTracesResponse {
     const message = createBaseQueryDenomTracesResponse();
     message.denomTraces = object.denomTraces?.map((e) => DenomTrace.fromPartial(e)) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -435,9 +441,8 @@ export const QueryParamsResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(object: I): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
 };
@@ -617,7 +622,9 @@ export const QueryEscrowAddressRequest = {
     return QueryEscrowAddressRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryEscrowAddressRequest>, I>>(object: I): QueryEscrowAddressRequest {
+  fromPartial<I extends Exact<DeepPartial<QueryEscrowAddressRequest>, I>>(
+    object: I,
+  ): QueryEscrowAddressRequest {
     const message = createBaseQueryEscrowAddressRequest();
     message.portId = object.portId ?? "";
     message.channelId = object.channelId ?? "";
@@ -674,7 +681,9 @@ export const QueryEscrowAddressResponse = {
     return QueryEscrowAddressResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryEscrowAddressResponse>, I>>(object: I): QueryEscrowAddressResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryEscrowAddressResponse>, I>>(
+    object: I,
+  ): QueryEscrowAddressResponse {
     const message = createBaseQueryEscrowAddressResponse();
     message.escrowAddress = object.escrowAddress ?? "";
     return message;
@@ -684,7 +693,10 @@ export const QueryEscrowAddressResponse = {
 /** Query provides defines the gRPC querier service. */
 export interface Query {
   /** DenomTrace queries a denomination trace information. */
-  DenomTrace(request: DeepPartial<QueryDenomTraceRequest>, metadata?: grpc.Metadata): Promise<QueryDenomTraceResponse>;
+  DenomTrace(
+    request: DeepPartial<QueryDenomTraceRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryDenomTraceResponse>;
   /** DenomTraces queries all denomination traces. */
   DenomTraces(
     request: DeepPartial<QueryDenomTracesRequest>,
@@ -693,7 +705,10 @@ export interface Query {
   /** Params queries all parameters of the ibc-transfer module. */
   Params(request: DeepPartial<QueryParamsRequest>, metadata?: grpc.Metadata): Promise<QueryParamsResponse>;
   /** DenomHash queries a denomination hash information. */
-  DenomHash(request: DeepPartial<QueryDenomHashRequest>, metadata?: grpc.Metadata): Promise<QueryDenomHashResponse>;
+  DenomHash(
+    request: DeepPartial<QueryDenomHashRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryDenomHashResponse>;
   /** EscrowAddress returns the escrow address for a particular port and channel id. */
   EscrowAddress(
     request: DeepPartial<QueryEscrowAddressRequest>,
@@ -713,7 +728,10 @@ export class QueryClientImpl implements Query {
     this.EscrowAddress = this.EscrowAddress.bind(this);
   }
 
-  DenomTrace(request: DeepPartial<QueryDenomTraceRequest>, metadata?: grpc.Metadata): Promise<QueryDenomTraceResponse> {
+  DenomTrace(
+    request: DeepPartial<QueryDenomTraceRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryDenomTraceResponse> {
     return this.rpc.unary(QueryDenomTraceDesc, QueryDenomTraceRequest.fromPartial(request), metadata);
   }
 
@@ -728,7 +746,10 @@ export class QueryClientImpl implements Query {
     return this.rpc.unary(QueryParamsDesc, QueryParamsRequest.fromPartial(request), metadata);
   }
 
-  DenomHash(request: DeepPartial<QueryDenomHashRequest>, metadata?: grpc.Metadata): Promise<QueryDenomHashResponse> {
+  DenomHash(
+    request: DeepPartial<QueryDenomHashRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryDenomHashResponse> {
     return this.rpc.unary(QueryDenomHashDesc, QueryDenomHashRequest.fromPartial(request), metadata);
   }
 
@@ -902,9 +923,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -946,14 +968,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

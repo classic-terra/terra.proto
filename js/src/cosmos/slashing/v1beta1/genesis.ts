@@ -119,12 +119,12 @@ export const GenesisState = {
     const obj: any = {};
     message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
     if (message.signingInfos) {
-      obj.signingInfos = message.signingInfos.map((e) => e ? SigningInfo.toJSON(e) : undefined);
+      obj.signingInfos = message.signingInfos.map((e) => (e ? SigningInfo.toJSON(e) : undefined));
     } else {
       obj.signingInfos = [];
     }
     if (message.missedBlocks) {
-      obj.missedBlocks = message.missedBlocks.map((e) => e ? ValidatorMissedBlocks.toJSON(e) : undefined);
+      obj.missedBlocks = message.missedBlocks.map((e) => (e ? ValidatorMissedBlocks.toJSON(e) : undefined));
     } else {
       obj.missedBlocks = [];
     }
@@ -137,9 +137,8 @@ export const GenesisState = {
 
   fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
     const message = createBaseGenesisState();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     message.signingInfos = object.signingInfos?.map((e) => SigningInfo.fromPartial(e)) || [];
     message.missedBlocks = object.missedBlocks?.map((e) => ValidatorMissedBlocks.fromPartial(e)) || [];
     return message;
@@ -203,9 +202,10 @@ export const SigningInfo = {
   toJSON(message: SigningInfo): unknown {
     const obj: any = {};
     message.address !== undefined && (obj.address = message.address);
-    message.validatorSigningInfo !== undefined && (obj.validatorSigningInfo = message.validatorSigningInfo
-      ? ValidatorSigningInfo.toJSON(message.validatorSigningInfo)
-      : undefined);
+    message.validatorSigningInfo !== undefined &&
+      (obj.validatorSigningInfo = message.validatorSigningInfo
+        ? ValidatorSigningInfo.toJSON(message.validatorSigningInfo)
+        : undefined);
     return obj;
   },
 
@@ -216,9 +216,10 @@ export const SigningInfo = {
   fromPartial<I extends Exact<DeepPartial<SigningInfo>, I>>(object: I): SigningInfo {
     const message = createBaseSigningInfo();
     message.address = object.address ?? "";
-    message.validatorSigningInfo = (object.validatorSigningInfo !== undefined && object.validatorSigningInfo !== null)
-      ? ValidatorSigningInfo.fromPartial(object.validatorSigningInfo)
-      : undefined;
+    message.validatorSigningInfo =
+      object.validatorSigningInfo !== undefined && object.validatorSigningInfo !== null
+        ? ValidatorSigningInfo.fromPartial(object.validatorSigningInfo)
+        : undefined;
     return message;
   },
 };
@@ -281,7 +282,7 @@ export const ValidatorMissedBlocks = {
     const obj: any = {};
     message.address !== undefined && (obj.address = message.address);
     if (message.missedBlocks) {
-      obj.missedBlocks = message.missedBlocks.map((e) => e ? MissedBlock.toJSON(e) : undefined);
+      obj.missedBlocks = message.missedBlocks.map((e) => (e ? MissedBlock.toJSON(e) : undefined));
     } else {
       obj.missedBlocks = [];
     }
@@ -365,7 +366,8 @@ export const MissedBlock = {
 
   fromPartial<I extends Exact<DeepPartial<MissedBlock>, I>>(object: I): MissedBlock {
     const message = createBaseMissedBlock();
-    message.index = (object.index !== undefined && object.index !== null) ? Long.fromValue(object.index) : Long.ZERO;
+    message.index =
+      object.index !== undefined && object.index !== null ? Long.fromValue(object.index) : Long.ZERO;
     message.missed = object.missed ?? false;
     return message;
   },
@@ -373,14 +375,21 @@ export const MissedBlock = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

@@ -390,7 +390,9 @@ export const Params = {
 
   fromJSON(object: any): Params {
     return {
-      codeUploadAccess: isSet(object.codeUploadAccess) ? AccessConfig.fromJSON(object.codeUploadAccess) : undefined,
+      codeUploadAccess: isSet(object.codeUploadAccess)
+        ? AccessConfig.fromJSON(object.codeUploadAccess)
+        : undefined,
       instantiateDefaultPermission: isSet(object.instantiateDefaultPermission)
         ? accessTypeFromJSON(object.instantiateDefaultPermission)
         : 0,
@@ -400,7 +402,9 @@ export const Params = {
   toJSON(message: Params): unknown {
     const obj: any = {};
     message.codeUploadAccess !== undefined &&
-      (obj.codeUploadAccess = message.codeUploadAccess ? AccessConfig.toJSON(message.codeUploadAccess) : undefined);
+      (obj.codeUploadAccess = message.codeUploadAccess
+        ? AccessConfig.toJSON(message.codeUploadAccess)
+        : undefined);
     message.instantiateDefaultPermission !== undefined &&
       (obj.instantiateDefaultPermission = accessTypeToJSON(message.instantiateDefaultPermission));
     return obj;
@@ -412,9 +416,10 @@ export const Params = {
 
   fromPartial<I extends Exact<DeepPartial<Params>, I>>(object: I): Params {
     const message = createBaseParams();
-    message.codeUploadAccess = (object.codeUploadAccess !== undefined && object.codeUploadAccess !== null)
-      ? AccessConfig.fromPartial(object.codeUploadAccess)
-      : undefined;
+    message.codeUploadAccess =
+      object.codeUploadAccess !== undefined && object.codeUploadAccess !== null
+        ? AccessConfig.fromPartial(object.codeUploadAccess)
+        : undefined;
     message.instantiateDefaultPermission = object.instantiateDefaultPermission ?? 0;
     return message;
   },
@@ -479,7 +484,9 @@ export const CodeInfo = {
     return {
       codeHash: isSet(object.codeHash) ? bytesFromBase64(object.codeHash) : new Uint8Array(0),
       creator: isSet(object.creator) ? String(object.creator) : "",
-      instantiateConfig: isSet(object.instantiateConfig) ? AccessConfig.fromJSON(object.instantiateConfig) : undefined,
+      instantiateConfig: isSet(object.instantiateConfig)
+        ? AccessConfig.fromJSON(object.instantiateConfig)
+        : undefined,
     };
   },
 
@@ -489,7 +496,9 @@ export const CodeInfo = {
       (obj.codeHash = base64FromBytes(message.codeHash !== undefined ? message.codeHash : new Uint8Array(0)));
     message.creator !== undefined && (obj.creator = message.creator);
     message.instantiateConfig !== undefined &&
-      (obj.instantiateConfig = message.instantiateConfig ? AccessConfig.toJSON(message.instantiateConfig) : undefined);
+      (obj.instantiateConfig = message.instantiateConfig
+        ? AccessConfig.toJSON(message.instantiateConfig)
+        : undefined);
     return obj;
   },
 
@@ -501,9 +510,10 @@ export const CodeInfo = {
     const message = createBaseCodeInfo();
     message.codeHash = object.codeHash ?? new Uint8Array(0);
     message.creator = object.creator ?? "";
-    message.instantiateConfig = (object.instantiateConfig !== undefined && object.instantiateConfig !== null)
-      ? AccessConfig.fromPartial(object.instantiateConfig)
-      : undefined;
+    message.instantiateConfig =
+      object.instantiateConfig !== undefined && object.instantiateConfig !== null
+        ? AccessConfig.fromPartial(object.instantiateConfig)
+        : undefined;
     return message;
   },
 };
@@ -632,7 +642,8 @@ export const ContractInfo = {
     message.created !== undefined &&
       (obj.created = message.created ? AbsoluteTxPosition.toJSON(message.created) : undefined);
     message.ibcPortId !== undefined && (obj.ibcPortId = message.ibcPortId);
-    message.extension !== undefined && (obj.extension = message.extension ? Any.toJSON(message.extension) : undefined);
+    message.extension !== undefined &&
+      (obj.extension = message.extension ? Any.toJSON(message.extension) : undefined);
     return obj;
   },
 
@@ -642,19 +653,20 @@ export const ContractInfo = {
 
   fromPartial<I extends Exact<DeepPartial<ContractInfo>, I>>(object: I): ContractInfo {
     const message = createBaseContractInfo();
-    message.codeId = (object.codeId !== undefined && object.codeId !== null)
-      ? Long.fromValue(object.codeId)
-      : Long.UZERO;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.creator = object.creator ?? "";
     message.admin = object.admin ?? "";
     message.label = object.label ?? "";
-    message.created = (object.created !== undefined && object.created !== null)
-      ? AbsoluteTxPosition.fromPartial(object.created)
-      : undefined;
+    message.created =
+      object.created !== undefined && object.created !== null
+        ? AbsoluteTxPosition.fromPartial(object.created)
+        : undefined;
     message.ibcPortId = object.ibcPortId ?? "";
-    message.extension = (object.extension !== undefined && object.extension !== null)
-      ? Any.fromPartial(object.extension)
-      : undefined;
+    message.extension =
+      object.extension !== undefined && object.extension !== null
+        ? Any.fromPartial(object.extension)
+        : undefined;
     return message;
   },
 };
@@ -735,7 +747,8 @@ export const ContractCodeHistoryEntry = {
 
   toJSON(message: ContractCodeHistoryEntry): unknown {
     const obj: any = {};
-    message.operation !== undefined && (obj.operation = contractCodeHistoryOperationTypeToJSON(message.operation));
+    message.operation !== undefined &&
+      (obj.operation = contractCodeHistoryOperationTypeToJSON(message.operation));
     message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
     message.updated !== undefined &&
       (obj.updated = message.updated ? AbsoluteTxPosition.toJSON(message.updated) : undefined);
@@ -748,15 +761,17 @@ export const ContractCodeHistoryEntry = {
     return ContractCodeHistoryEntry.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<ContractCodeHistoryEntry>, I>>(object: I): ContractCodeHistoryEntry {
+  fromPartial<I extends Exact<DeepPartial<ContractCodeHistoryEntry>, I>>(
+    object: I,
+  ): ContractCodeHistoryEntry {
     const message = createBaseContractCodeHistoryEntry();
     message.operation = object.operation ?? 0;
-    message.codeId = (object.codeId !== undefined && object.codeId !== null)
-      ? Long.fromValue(object.codeId)
-      : Long.UZERO;
-    message.updated = (object.updated !== undefined && object.updated !== null)
-      ? AbsoluteTxPosition.fromPartial(object.updated)
-      : undefined;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
+    message.updated =
+      object.updated !== undefined && object.updated !== null
+        ? AbsoluteTxPosition.fromPartial(object.updated)
+        : undefined;
     message.msg = object.msg ?? new Uint8Array(0);
     return message;
   },
@@ -827,12 +842,12 @@ export const AbsoluteTxPosition = {
 
   fromPartial<I extends Exact<DeepPartial<AbsoluteTxPosition>, I>>(object: I): AbsoluteTxPosition {
     const message = createBaseAbsoluteTxPosition();
-    message.blockHeight = (object.blockHeight !== undefined && object.blockHeight !== null)
-      ? Long.fromValue(object.blockHeight)
-      : Long.UZERO;
-    message.txIndex = (object.txIndex !== undefined && object.txIndex !== null)
-      ? Long.fromValue(object.txIndex)
-      : Long.UZERO;
+    message.blockHeight =
+      object.blockHeight !== undefined && object.blockHeight !== null
+        ? Long.fromValue(object.blockHeight)
+        : Long.UZERO;
+    message.txIndex =
+      object.txIndex !== undefined && object.txIndex !== null ? Long.fromValue(object.txIndex) : Long.UZERO;
     return message;
   },
 };
@@ -956,14 +971,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

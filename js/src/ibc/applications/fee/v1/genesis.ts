@@ -122,7 +122,9 @@ export const GenesisState = {
             break;
           }
 
-          message.registeredCounterpartyPayees.push(RegisteredCounterpartyPayee.decode(reader, reader.uint32()));
+          message.registeredCounterpartyPayees.push(
+            RegisteredCounterpartyPayee.decode(reader, reader.uint32()),
+          );
           continue;
         case 5:
           if (tag !== 42) {
@@ -163,29 +165,35 @@ export const GenesisState = {
   toJSON(message: GenesisState): unknown {
     const obj: any = {};
     if (message.identifiedFees) {
-      obj.identifiedFees = message.identifiedFees.map((e) => e ? IdentifiedPacketFees.toJSON(e) : undefined);
+      obj.identifiedFees = message.identifiedFees.map((e) =>
+        e ? IdentifiedPacketFees.toJSON(e) : undefined,
+      );
     } else {
       obj.identifiedFees = [];
     }
     if (message.feeEnabledChannels) {
-      obj.feeEnabledChannels = message.feeEnabledChannels.map((e) => e ? FeeEnabledChannel.toJSON(e) : undefined);
+      obj.feeEnabledChannels = message.feeEnabledChannels.map((e) =>
+        e ? FeeEnabledChannel.toJSON(e) : undefined,
+      );
     } else {
       obj.feeEnabledChannels = [];
     }
     if (message.registeredPayees) {
-      obj.registeredPayees = message.registeredPayees.map((e) => e ? RegisteredPayee.toJSON(e) : undefined);
+      obj.registeredPayees = message.registeredPayees.map((e) => (e ? RegisteredPayee.toJSON(e) : undefined));
     } else {
       obj.registeredPayees = [];
     }
     if (message.registeredCounterpartyPayees) {
       obj.registeredCounterpartyPayees = message.registeredCounterpartyPayees.map((e) =>
-        e ? RegisteredCounterpartyPayee.toJSON(e) : undefined
+        e ? RegisteredCounterpartyPayee.toJSON(e) : undefined,
       );
     } else {
       obj.registeredCounterpartyPayees = [];
     }
     if (message.forwardRelayers) {
-      obj.forwardRelayers = message.forwardRelayers.map((e) => e ? ForwardRelayerAddress.toJSON(e) : undefined);
+      obj.forwardRelayers = message.forwardRelayers.map((e) =>
+        e ? ForwardRelayerAddress.toJSON(e) : undefined,
+      );
     } else {
       obj.forwardRelayers = [];
     }
@@ -199,7 +207,8 @@ export const GenesisState = {
   fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
     const message = createBaseGenesisState();
     message.identifiedFees = object.identifiedFees?.map((e) => IdentifiedPacketFees.fromPartial(e)) || [];
-    message.feeEnabledChannels = object.feeEnabledChannels?.map((e) => FeeEnabledChannel.fromPartial(e)) || [];
+    message.feeEnabledChannels =
+      object.feeEnabledChannels?.map((e) => FeeEnabledChannel.fromPartial(e)) || [];
     message.registeredPayees = object.registeredPayees?.map((e) => RegisteredPayee.fromPartial(e)) || [];
     message.registeredCounterpartyPayees =
       object.registeredCounterpartyPayees?.map((e) => RegisteredCounterpartyPayee.fromPartial(e)) || [];
@@ -434,11 +443,15 @@ export const RegisteredCounterpartyPayee = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<RegisteredCounterpartyPayee>, I>>(base?: I): RegisteredCounterpartyPayee {
+  create<I extends Exact<DeepPartial<RegisteredCounterpartyPayee>, I>>(
+    base?: I,
+  ): RegisteredCounterpartyPayee {
     return RegisteredCounterpartyPayee.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<RegisteredCounterpartyPayee>, I>>(object: I): RegisteredCounterpartyPayee {
+  fromPartial<I extends Exact<DeepPartial<RegisteredCounterpartyPayee>, I>>(
+    object: I,
+  ): RegisteredCounterpartyPayee {
     const message = createBaseRegisteredCounterpartyPayee();
     message.channelId = object.channelId ?? "";
     message.relayer = object.relayer ?? "";
@@ -502,7 +515,8 @@ export const ForwardRelayerAddress = {
   toJSON(message: ForwardRelayerAddress): unknown {
     const obj: any = {};
     message.address !== undefined && (obj.address = message.address);
-    message.packetId !== undefined && (obj.packetId = message.packetId ? PacketId.toJSON(message.packetId) : undefined);
+    message.packetId !== undefined &&
+      (obj.packetId = message.packetId ? PacketId.toJSON(message.packetId) : undefined);
     return obj;
   },
 
@@ -513,23 +527,31 @@ export const ForwardRelayerAddress = {
   fromPartial<I extends Exact<DeepPartial<ForwardRelayerAddress>, I>>(object: I): ForwardRelayerAddress {
     const message = createBaseForwardRelayerAddress();
     message.address = object.address ?? "";
-    message.packetId = (object.packetId !== undefined && object.packetId !== null)
-      ? PacketId.fromPartial(object.packetId)
-      : undefined;
+    message.packetId =
+      object.packetId !== undefined && object.packetId !== null
+        ? PacketId.fromPartial(object.packetId)
+        : undefined;
     return message;
   },
 };
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

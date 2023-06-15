@@ -9,8 +9,7 @@ import { Params, ValidatorSigningInfo } from "./slashing";
 export const protobufPackage = "cosmos.slashing.v1beta1";
 
 /** QueryParamsRequest is the request type for the Query/Params RPC method */
-export interface QueryParamsRequest {
-}
+export interface QueryParamsRequest {}
 
 /** QueryParamsResponse is the response type for the Query/Params RPC method */
 export interface QueryParamsResponse {
@@ -148,9 +147,8 @@ export const QueryParamsResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(object: I): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
 };
@@ -248,14 +246,18 @@ export const QuerySigningInfoResponse = {
 
   fromJSON(object: any): QuerySigningInfoResponse {
     return {
-      valSigningInfo: isSet(object.valSigningInfo) ? ValidatorSigningInfo.fromJSON(object.valSigningInfo) : undefined,
+      valSigningInfo: isSet(object.valSigningInfo)
+        ? ValidatorSigningInfo.fromJSON(object.valSigningInfo)
+        : undefined,
     };
   },
 
   toJSON(message: QuerySigningInfoResponse): unknown {
     const obj: any = {};
     message.valSigningInfo !== undefined &&
-      (obj.valSigningInfo = message.valSigningInfo ? ValidatorSigningInfo.toJSON(message.valSigningInfo) : undefined);
+      (obj.valSigningInfo = message.valSigningInfo
+        ? ValidatorSigningInfo.toJSON(message.valSigningInfo)
+        : undefined);
     return obj;
   },
 
@@ -263,11 +265,14 @@ export const QuerySigningInfoResponse = {
     return QuerySigningInfoResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QuerySigningInfoResponse>, I>>(object: I): QuerySigningInfoResponse {
+  fromPartial<I extends Exact<DeepPartial<QuerySigningInfoResponse>, I>>(
+    object: I,
+  ): QuerySigningInfoResponse {
     const message = createBaseQuerySigningInfoResponse();
-    message.valSigningInfo = (object.valSigningInfo !== undefined && object.valSigningInfo !== null)
-      ? ValidatorSigningInfo.fromPartial(object.valSigningInfo)
-      : undefined;
+    message.valSigningInfo =
+      object.valSigningInfo !== undefined && object.valSigningInfo !== null
+        ? ValidatorSigningInfo.fromPartial(object.valSigningInfo)
+        : undefined;
     return message;
   },
 };
@@ -322,11 +327,14 @@ export const QuerySigningInfosRequest = {
     return QuerySigningInfosRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QuerySigningInfosRequest>, I>>(object: I): QuerySigningInfosRequest {
+  fromPartial<I extends Exact<DeepPartial<QuerySigningInfosRequest>, I>>(
+    object: I,
+  ): QuerySigningInfosRequest {
     const message = createBaseQuerySigningInfosRequest();
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -386,7 +394,7 @@ export const QuerySigningInfosResponse = {
   toJSON(message: QuerySigningInfosResponse): unknown {
     const obj: any = {};
     if (message.info) {
-      obj.info = message.info.map((e) => e ? ValidatorSigningInfo.toJSON(e) : undefined);
+      obj.info = message.info.map((e) => (e ? ValidatorSigningInfo.toJSON(e) : undefined));
     } else {
       obj.info = [];
     }
@@ -399,12 +407,15 @@ export const QuerySigningInfosResponse = {
     return QuerySigningInfosResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QuerySigningInfosResponse>, I>>(object: I): QuerySigningInfosResponse {
+  fromPartial<I extends Exact<DeepPartial<QuerySigningInfosResponse>, I>>(
+    object: I,
+  ): QuerySigningInfosResponse {
     const message = createBaseQuerySigningInfosResponse();
     message.info = object.info?.map((e) => ValidatorSigningInfo.fromPartial(e)) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -570,9 +581,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -614,14 +626,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

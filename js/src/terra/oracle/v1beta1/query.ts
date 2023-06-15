@@ -24,8 +24,7 @@ export interface QueryExchangeRateResponse {
 }
 
 /** QueryExchangeRatesRequest is the request type for the Query/ExchangeRates RPC method. */
-export interface QueryExchangeRatesRequest {
-}
+export interface QueryExchangeRatesRequest {}
 
 /**
  * QueryExchangeRatesResponse is response type for the
@@ -52,8 +51,7 @@ export interface QueryTobinTaxResponse {
 }
 
 /** QueryTobinTaxesRequest is the request type for the Query/TobinTaxes RPC method. */
-export interface QueryTobinTaxesRequest {
-}
+export interface QueryTobinTaxesRequest {}
 
 /**
  * QueryTobinTaxesResponse is response type for the
@@ -65,8 +63,7 @@ export interface QueryTobinTaxesResponse {
 }
 
 /** QueryActivesRequest is the request type for the Query/Actives RPC method. */
-export interface QueryActivesRequest {
-}
+export interface QueryActivesRequest {}
 
 /**
  * QueryActivesResponse is response type for the
@@ -78,8 +75,7 @@ export interface QueryActivesResponse {
 }
 
 /** QueryVoteTargetsRequest is the request type for the Query/VoteTargets RPC method. */
-export interface QueryVoteTargetsRequest {
-}
+export interface QueryVoteTargetsRequest {}
 
 /**
  * QueryVoteTargetsResponse is response type for the
@@ -139,8 +135,7 @@ export interface QueryAggregatePrevoteResponse {
 }
 
 /** QueryAggregatePrevotesRequest is the request type for the Query/AggregatePrevotes RPC method. */
-export interface QueryAggregatePrevotesRequest {
-}
+export interface QueryAggregatePrevotesRequest {}
 
 /**
  * QueryAggregatePrevotesResponse is response type for the
@@ -167,8 +162,7 @@ export interface QueryAggregateVoteResponse {
 }
 
 /** QueryAggregateVotesRequest is the request type for the Query/AggregateVotes RPC method. */
-export interface QueryAggregateVotesRequest {
-}
+export interface QueryAggregateVotesRequest {}
 
 /**
  * QueryAggregateVotesResponse is response type for the
@@ -180,8 +174,7 @@ export interface QueryAggregateVotesResponse {
 }
 
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
-export interface QueryParamsRequest {
-}
+export interface QueryParamsRequest {}
 
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
@@ -238,7 +231,9 @@ export const QueryExchangeRateRequest = {
     return QueryExchangeRateRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryExchangeRateRequest>, I>>(object: I): QueryExchangeRateRequest {
+  fromPartial<I extends Exact<DeepPartial<QueryExchangeRateRequest>, I>>(
+    object: I,
+  ): QueryExchangeRateRequest {
     const message = createBaseQueryExchangeRateRequest();
     message.denom = object.denom ?? "";
     return message;
@@ -294,7 +289,9 @@ export const QueryExchangeRateResponse = {
     return QueryExchangeRateResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryExchangeRateResponse>, I>>(object: I): QueryExchangeRateResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryExchangeRateResponse>, I>>(
+    object: I,
+  ): QueryExchangeRateResponse {
     const message = createBaseQueryExchangeRateResponse();
     message.exchangeRate = object.exchangeRate ?? "";
     return message;
@@ -391,7 +388,7 @@ export const QueryExchangeRatesResponse = {
   toJSON(message: QueryExchangeRatesResponse): unknown {
     const obj: any = {};
     if (message.exchangeRates) {
-      obj.exchangeRates = message.exchangeRates.map((e) => e ? DecCoin.toJSON(e) : undefined);
+      obj.exchangeRates = message.exchangeRates.map((e) => (e ? DecCoin.toJSON(e) : undefined));
     } else {
       obj.exchangeRates = [];
     }
@@ -402,7 +399,9 @@ export const QueryExchangeRatesResponse = {
     return QueryExchangeRatesResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryExchangeRatesResponse>, I>>(object: I): QueryExchangeRatesResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryExchangeRatesResponse>, I>>(
+    object: I,
+  ): QueryExchangeRatesResponse {
     const message = createBaseQueryExchangeRatesResponse();
     message.exchangeRates = object.exchangeRates?.map((e) => DecCoin.fromPartial(e)) || [];
     return message;
@@ -602,14 +601,16 @@ export const QueryTobinTaxesResponse = {
 
   fromJSON(object: any): QueryTobinTaxesResponse {
     return {
-      tobinTaxes: Array.isArray(object?.tobinTaxes) ? object.tobinTaxes.map((e: any) => Denom.fromJSON(e)) : [],
+      tobinTaxes: Array.isArray(object?.tobinTaxes)
+        ? object.tobinTaxes.map((e: any) => Denom.fromJSON(e))
+        : [],
     };
   },
 
   toJSON(message: QueryTobinTaxesResponse): unknown {
     const obj: any = {};
     if (message.tobinTaxes) {
-      obj.tobinTaxes = message.tobinTaxes.map((e) => e ? Denom.toJSON(e) : undefined);
+      obj.tobinTaxes = message.tobinTaxes.map((e) => (e ? Denom.toJSON(e) : undefined));
     } else {
       obj.tobinTaxes = [];
     }
@@ -811,7 +812,9 @@ export const QueryVoteTargetsResponse = {
   },
 
   fromJSON(object: any): QueryVoteTargetsResponse {
-    return { voteTargets: Array.isArray(object?.voteTargets) ? object.voteTargets.map((e: any) => String(e)) : [] };
+    return {
+      voteTargets: Array.isArray(object?.voteTargets) ? object.voteTargets.map((e: any) => String(e)) : [],
+    };
   },
 
   toJSON(message: QueryVoteTargetsResponse): unknown {
@@ -828,7 +831,9 @@ export const QueryVoteTargetsResponse = {
     return QueryVoteTargetsResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryVoteTargetsResponse>, I>>(object: I): QueryVoteTargetsResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryVoteTargetsResponse>, I>>(
+    object: I,
+  ): QueryVoteTargetsResponse {
     const message = createBaseQueryVoteTargetsResponse();
     message.voteTargets = object.voteTargets?.map((e) => e) || [];
     return message;
@@ -880,11 +885,15 @@ export const QueryFeederDelegationRequest = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryFeederDelegationRequest>, I>>(base?: I): QueryFeederDelegationRequest {
+  create<I extends Exact<DeepPartial<QueryFeederDelegationRequest>, I>>(
+    base?: I,
+  ): QueryFeederDelegationRequest {
     return QueryFeederDelegationRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryFeederDelegationRequest>, I>>(object: I): QueryFeederDelegationRequest {
+  fromPartial<I extends Exact<DeepPartial<QueryFeederDelegationRequest>, I>>(
+    object: I,
+  ): QueryFeederDelegationRequest {
     const message = createBaseQueryFeederDelegationRequest();
     message.validatorAddr = object.validatorAddr ?? "";
     return message;
@@ -936,7 +945,9 @@ export const QueryFeederDelegationResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryFeederDelegationResponse>, I>>(base?: I): QueryFeederDelegationResponse {
+  create<I extends Exact<DeepPartial<QueryFeederDelegationResponse>, I>>(
+    base?: I,
+  ): QueryFeederDelegationResponse {
     return QueryFeederDelegationResponse.fromPartial(base ?? {});
   },
 
@@ -1054,11 +1065,14 @@ export const QueryMissCounterResponse = {
     return QueryMissCounterResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryMissCounterResponse>, I>>(object: I): QueryMissCounterResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryMissCounterResponse>, I>>(
+    object: I,
+  ): QueryMissCounterResponse {
     const message = createBaseQueryMissCounterResponse();
-    message.missCounter = (object.missCounter !== undefined && object.missCounter !== null)
-      ? Long.fromValue(object.missCounter)
-      : Long.UZERO;
+    message.missCounter =
+      object.missCounter !== undefined && object.missCounter !== null
+        ? Long.fromValue(object.missCounter)
+        : Long.UZERO;
     return message;
   },
 };
@@ -1108,11 +1122,15 @@ export const QueryAggregatePrevoteRequest = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryAggregatePrevoteRequest>, I>>(base?: I): QueryAggregatePrevoteRequest {
+  create<I extends Exact<DeepPartial<QueryAggregatePrevoteRequest>, I>>(
+    base?: I,
+  ): QueryAggregatePrevoteRequest {
     return QueryAggregatePrevoteRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryAggregatePrevoteRequest>, I>>(object: I): QueryAggregatePrevoteRequest {
+  fromPartial<I extends Exact<DeepPartial<QueryAggregatePrevoteRequest>, I>>(
+    object: I,
+  ): QueryAggregatePrevoteRequest {
     const message = createBaseQueryAggregatePrevoteRequest();
     message.validatorAddr = object.validatorAddr ?? "";
     return message;
@@ -1164,13 +1182,16 @@ export const QueryAggregatePrevoteResponse = {
 
   toJSON(message: QueryAggregatePrevoteResponse): unknown {
     const obj: any = {};
-    message.aggregatePrevote !== undefined && (obj.aggregatePrevote = message.aggregatePrevote
-      ? AggregateExchangeRatePrevote.toJSON(message.aggregatePrevote)
-      : undefined);
+    message.aggregatePrevote !== undefined &&
+      (obj.aggregatePrevote = message.aggregatePrevote
+        ? AggregateExchangeRatePrevote.toJSON(message.aggregatePrevote)
+        : undefined);
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryAggregatePrevoteResponse>, I>>(base?: I): QueryAggregatePrevoteResponse {
+  create<I extends Exact<DeepPartial<QueryAggregatePrevoteResponse>, I>>(
+    base?: I,
+  ): QueryAggregatePrevoteResponse {
     return QueryAggregatePrevoteResponse.fromPartial(base ?? {});
   },
 
@@ -1178,9 +1199,10 @@ export const QueryAggregatePrevoteResponse = {
     object: I,
   ): QueryAggregatePrevoteResponse {
     const message = createBaseQueryAggregatePrevoteResponse();
-    message.aggregatePrevote = (object.aggregatePrevote !== undefined && object.aggregatePrevote !== null)
-      ? AggregateExchangeRatePrevote.fromPartial(object.aggregatePrevote)
-      : undefined;
+    message.aggregatePrevote =
+      object.aggregatePrevote !== undefined && object.aggregatePrevote !== null
+        ? AggregateExchangeRatePrevote.fromPartial(object.aggregatePrevote)
+        : undefined;
     return message;
   },
 };
@@ -1219,11 +1241,15 @@ export const QueryAggregatePrevotesRequest = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryAggregatePrevotesRequest>, I>>(base?: I): QueryAggregatePrevotesRequest {
+  create<I extends Exact<DeepPartial<QueryAggregatePrevotesRequest>, I>>(
+    base?: I,
+  ): QueryAggregatePrevotesRequest {
     return QueryAggregatePrevotesRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryAggregatePrevotesRequest>, I>>(_: I): QueryAggregatePrevotesRequest {
+  fromPartial<I extends Exact<DeepPartial<QueryAggregatePrevotesRequest>, I>>(
+    _: I,
+  ): QueryAggregatePrevotesRequest {
     const message = createBaseQueryAggregatePrevotesRequest();
     return message;
   },
@@ -1276,7 +1302,7 @@ export const QueryAggregatePrevotesResponse = {
     const obj: any = {};
     if (message.aggregatePrevotes) {
       obj.aggregatePrevotes = message.aggregatePrevotes.map((e) =>
-        e ? AggregateExchangeRatePrevote.toJSON(e) : undefined
+        e ? AggregateExchangeRatePrevote.toJSON(e) : undefined,
       );
     } else {
       obj.aggregatePrevotes = [];
@@ -1284,7 +1310,9 @@ export const QueryAggregatePrevotesResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryAggregatePrevotesResponse>, I>>(base?: I): QueryAggregatePrevotesResponse {
+  create<I extends Exact<DeepPartial<QueryAggregatePrevotesResponse>, I>>(
+    base?: I,
+  ): QueryAggregatePrevotesResponse {
     return QueryAggregatePrevotesResponse.fromPartial(base ?? {});
   },
 
@@ -1292,7 +1320,8 @@ export const QueryAggregatePrevotesResponse = {
     object: I,
   ): QueryAggregatePrevotesResponse {
     const message = createBaseQueryAggregatePrevotesResponse();
-    message.aggregatePrevotes = object.aggregatePrevotes?.map((e) => AggregateExchangeRatePrevote.fromPartial(e)) || [];
+    message.aggregatePrevotes =
+      object.aggregatePrevotes?.map((e) => AggregateExchangeRatePrevote.fromPartial(e)) || [];
     return message;
   },
 };
@@ -1346,7 +1375,9 @@ export const QueryAggregateVoteRequest = {
     return QueryAggregateVoteRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryAggregateVoteRequest>, I>>(object: I): QueryAggregateVoteRequest {
+  fromPartial<I extends Exact<DeepPartial<QueryAggregateVoteRequest>, I>>(
+    object: I,
+  ): QueryAggregateVoteRequest {
     const message = createBaseQueryAggregateVoteRequest();
     message.validatorAddr = object.validatorAddr ?? "";
     return message;
@@ -1390,14 +1421,18 @@ export const QueryAggregateVoteResponse = {
 
   fromJSON(object: any): QueryAggregateVoteResponse {
     return {
-      aggregateVote: isSet(object.aggregateVote) ? AggregateExchangeRateVote.fromJSON(object.aggregateVote) : undefined,
+      aggregateVote: isSet(object.aggregateVote)
+        ? AggregateExchangeRateVote.fromJSON(object.aggregateVote)
+        : undefined,
     };
   },
 
   toJSON(message: QueryAggregateVoteResponse): unknown {
     const obj: any = {};
     message.aggregateVote !== undefined &&
-      (obj.aggregateVote = message.aggregateVote ? AggregateExchangeRateVote.toJSON(message.aggregateVote) : undefined);
+      (obj.aggregateVote = message.aggregateVote
+        ? AggregateExchangeRateVote.toJSON(message.aggregateVote)
+        : undefined);
     return obj;
   },
 
@@ -1405,11 +1440,14 @@ export const QueryAggregateVoteResponse = {
     return QueryAggregateVoteResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryAggregateVoteResponse>, I>>(object: I): QueryAggregateVoteResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryAggregateVoteResponse>, I>>(
+    object: I,
+  ): QueryAggregateVoteResponse {
     const message = createBaseQueryAggregateVoteResponse();
-    message.aggregateVote = (object.aggregateVote !== undefined && object.aggregateVote !== null)
-      ? AggregateExchangeRateVote.fromPartial(object.aggregateVote)
-      : undefined;
+    message.aggregateVote =
+      object.aggregateVote !== undefined && object.aggregateVote !== null
+        ? AggregateExchangeRateVote.fromPartial(object.aggregateVote)
+        : undefined;
     return message;
   },
 };
@@ -1504,20 +1542,27 @@ export const QueryAggregateVotesResponse = {
   toJSON(message: QueryAggregateVotesResponse): unknown {
     const obj: any = {};
     if (message.aggregateVotes) {
-      obj.aggregateVotes = message.aggregateVotes.map((e) => e ? AggregateExchangeRateVote.toJSON(e) : undefined);
+      obj.aggregateVotes = message.aggregateVotes.map((e) =>
+        e ? AggregateExchangeRateVote.toJSON(e) : undefined,
+      );
     } else {
       obj.aggregateVotes = [];
     }
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryAggregateVotesResponse>, I>>(base?: I): QueryAggregateVotesResponse {
+  create<I extends Exact<DeepPartial<QueryAggregateVotesResponse>, I>>(
+    base?: I,
+  ): QueryAggregateVotesResponse {
     return QueryAggregateVotesResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryAggregateVotesResponse>, I>>(object: I): QueryAggregateVotesResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryAggregateVotesResponse>, I>>(
+    object: I,
+  ): QueryAggregateVotesResponse {
     const message = createBaseQueryAggregateVotesResponse();
-    message.aggregateVotes = object.aggregateVotes?.map((e) => AggregateExchangeRateVote.fromPartial(e)) || [];
+    message.aggregateVotes =
+      object.aggregateVotes?.map((e) => AggregateExchangeRateVote.fromPartial(e)) || [];
     return message;
   },
 };
@@ -1617,9 +1662,8 @@ export const QueryParamsResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(object: I): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
 };
@@ -1637,9 +1681,15 @@ export interface Query {
     metadata?: grpc.Metadata,
   ): Promise<QueryExchangeRatesResponse>;
   /** TobinTax returns tobin tax of a denom */
-  TobinTax(request: DeepPartial<QueryTobinTaxRequest>, metadata?: grpc.Metadata): Promise<QueryTobinTaxResponse>;
+  TobinTax(
+    request: DeepPartial<QueryTobinTaxRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryTobinTaxResponse>;
   /** TobinTaxes returns tobin taxes of all denoms */
-  TobinTaxes(request: DeepPartial<QueryTobinTaxesRequest>, metadata?: grpc.Metadata): Promise<QueryTobinTaxesResponse>;
+  TobinTaxes(
+    request: DeepPartial<QueryTobinTaxesRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryTobinTaxesResponse>;
   /** Actives returns all active denoms */
   Actives(request: DeepPartial<QueryActivesRequest>, metadata?: grpc.Metadata): Promise<QueryActivesResponse>;
   /** VoteTargets returns all vote target denoms */
@@ -1715,15 +1765,24 @@ export class QueryClientImpl implements Query {
     return this.rpc.unary(QueryExchangeRatesDesc, QueryExchangeRatesRequest.fromPartial(request), metadata);
   }
 
-  TobinTax(request: DeepPartial<QueryTobinTaxRequest>, metadata?: grpc.Metadata): Promise<QueryTobinTaxResponse> {
+  TobinTax(
+    request: DeepPartial<QueryTobinTaxRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryTobinTaxResponse> {
     return this.rpc.unary(QueryTobinTaxDesc, QueryTobinTaxRequest.fromPartial(request), metadata);
   }
 
-  TobinTaxes(request: DeepPartial<QueryTobinTaxesRequest>, metadata?: grpc.Metadata): Promise<QueryTobinTaxesResponse> {
+  TobinTaxes(
+    request: DeepPartial<QueryTobinTaxesRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryTobinTaxesResponse> {
     return this.rpc.unary(QueryTobinTaxesDesc, QueryTobinTaxesRequest.fromPartial(request), metadata);
   }
 
-  Actives(request: DeepPartial<QueryActivesRequest>, metadata?: grpc.Metadata): Promise<QueryActivesResponse> {
+  Actives(
+    request: DeepPartial<QueryActivesRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryActivesResponse> {
     return this.rpc.unary(QueryActivesDesc, QueryActivesRequest.fromPartial(request), metadata);
   }
 
@@ -1738,7 +1797,11 @@ export class QueryClientImpl implements Query {
     request: DeepPartial<QueryFeederDelegationRequest>,
     metadata?: grpc.Metadata,
   ): Promise<QueryFeederDelegationResponse> {
-    return this.rpc.unary(QueryFeederDelegationDesc, QueryFeederDelegationRequest.fromPartial(request), metadata);
+    return this.rpc.unary(
+      QueryFeederDelegationDesc,
+      QueryFeederDelegationRequest.fromPartial(request),
+      metadata,
+    );
   }
 
   MissCounter(
@@ -1752,14 +1815,22 @@ export class QueryClientImpl implements Query {
     request: DeepPartial<QueryAggregatePrevoteRequest>,
     metadata?: grpc.Metadata,
   ): Promise<QueryAggregatePrevoteResponse> {
-    return this.rpc.unary(QueryAggregatePrevoteDesc, QueryAggregatePrevoteRequest.fromPartial(request), metadata);
+    return this.rpc.unary(
+      QueryAggregatePrevoteDesc,
+      QueryAggregatePrevoteRequest.fromPartial(request),
+      metadata,
+    );
   }
 
   AggregatePrevotes(
     request: DeepPartial<QueryAggregatePrevotesRequest>,
     metadata?: grpc.Metadata,
   ): Promise<QueryAggregatePrevotesResponse> {
-    return this.rpc.unary(QueryAggregatePrevotesDesc, QueryAggregatePrevotesRequest.fromPartial(request), metadata);
+    return this.rpc.unary(
+      QueryAggregatePrevotesDesc,
+      QueryAggregatePrevotesRequest.fromPartial(request),
+      metadata,
+    );
   }
 
   AggregateVote(
@@ -2127,9 +2198,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -2171,14 +2243,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

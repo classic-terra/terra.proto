@@ -193,9 +193,10 @@ export const ProtocolVersion = {
 
   fromPartial<I extends Exact<DeepPartial<ProtocolVersion>, I>>(object: I): ProtocolVersion {
     const message = createBaseProtocolVersion();
-    message.p2p = (object.p2p !== undefined && object.p2p !== null) ? Long.fromValue(object.p2p) : Long.UZERO;
-    message.block = (object.block !== undefined && object.block !== null) ? Long.fromValue(object.block) : Long.UZERO;
-    message.app = (object.app !== undefined && object.app !== null) ? Long.fromValue(object.app) : Long.UZERO;
+    message.p2p = object.p2p !== undefined && object.p2p !== null ? Long.fromValue(object.p2p) : Long.UZERO;
+    message.block =
+      object.block !== undefined && object.block !== null ? Long.fromValue(object.block) : Long.UZERO;
+    message.app = object.app !== undefined && object.app !== null ? Long.fromValue(object.app) : Long.UZERO;
     return message;
   },
 };
@@ -316,7 +317,9 @@ export const DefaultNodeInfo = {
 
   fromJSON(object: any): DefaultNodeInfo {
     return {
-      protocolVersion: isSet(object.protocolVersion) ? ProtocolVersion.fromJSON(object.protocolVersion) : undefined,
+      protocolVersion: isSet(object.protocolVersion)
+        ? ProtocolVersion.fromJSON(object.protocolVersion)
+        : undefined,
       defaultNodeId: isSet(object.defaultNodeId) ? String(object.defaultNodeId) : "",
       listenAddr: isSet(object.listenAddr) ? String(object.listenAddr) : "",
       network: isSet(object.network) ? String(object.network) : "",
@@ -330,7 +333,9 @@ export const DefaultNodeInfo = {
   toJSON(message: DefaultNodeInfo): unknown {
     const obj: any = {};
     message.protocolVersion !== undefined &&
-      (obj.protocolVersion = message.protocolVersion ? ProtocolVersion.toJSON(message.protocolVersion) : undefined);
+      (obj.protocolVersion = message.protocolVersion
+        ? ProtocolVersion.toJSON(message.protocolVersion)
+        : undefined);
     message.defaultNodeId !== undefined && (obj.defaultNodeId = message.defaultNodeId);
     message.listenAddr !== undefined && (obj.listenAddr = message.listenAddr);
     message.network !== undefined && (obj.network = message.network);
@@ -338,7 +343,8 @@ export const DefaultNodeInfo = {
     message.channels !== undefined &&
       (obj.channels = base64FromBytes(message.channels !== undefined ? message.channels : new Uint8Array(0)));
     message.moniker !== undefined && (obj.moniker = message.moniker);
-    message.other !== undefined && (obj.other = message.other ? DefaultNodeInfoOther.toJSON(message.other) : undefined);
+    message.other !== undefined &&
+      (obj.other = message.other ? DefaultNodeInfoOther.toJSON(message.other) : undefined);
     return obj;
   },
 
@@ -348,18 +354,20 @@ export const DefaultNodeInfo = {
 
   fromPartial<I extends Exact<DeepPartial<DefaultNodeInfo>, I>>(object: I): DefaultNodeInfo {
     const message = createBaseDefaultNodeInfo();
-    message.protocolVersion = (object.protocolVersion !== undefined && object.protocolVersion !== null)
-      ? ProtocolVersion.fromPartial(object.protocolVersion)
-      : undefined;
+    message.protocolVersion =
+      object.protocolVersion !== undefined && object.protocolVersion !== null
+        ? ProtocolVersion.fromPartial(object.protocolVersion)
+        : undefined;
     message.defaultNodeId = object.defaultNodeId ?? "";
     message.listenAddr = object.listenAddr ?? "";
     message.network = object.network ?? "";
     message.version = object.version ?? "";
     message.channels = object.channels ?? new Uint8Array(0);
     message.moniker = object.moniker ?? "";
-    message.other = (object.other !== undefined && object.other !== null)
-      ? DefaultNodeInfoOther.fromPartial(object.other)
-      : undefined;
+    message.other =
+      object.other !== undefined && object.other !== null
+        ? DefaultNodeInfoOther.fromPartial(object.other)
+        : undefined;
     return message;
   },
 };
@@ -481,14 +489,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

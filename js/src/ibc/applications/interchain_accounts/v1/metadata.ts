@@ -27,7 +27,14 @@ export interface Metadata {
 }
 
 function createBaseMetadata(): Metadata {
-  return { version: "", controllerConnectionId: "", hostConnectionId: "", address: "", encoding: "", txType: "" };
+  return {
+    version: "",
+    controllerConnectionId: "",
+    hostConnectionId: "",
+    address: "",
+    encoding: "",
+    txType: "",
+  };
 }
 
 export const Metadata = {
@@ -114,7 +121,9 @@ export const Metadata = {
   fromJSON(object: any): Metadata {
     return {
       version: isSet(object.version) ? String(object.version) : "",
-      controllerConnectionId: isSet(object.controllerConnectionId) ? String(object.controllerConnectionId) : "",
+      controllerConnectionId: isSet(object.controllerConnectionId)
+        ? String(object.controllerConnectionId)
+        : "",
       hostConnectionId: isSet(object.hostConnectionId) ? String(object.hostConnectionId) : "",
       address: isSet(object.address) ? String(object.address) : "",
       encoding: isSet(object.encoding) ? String(object.encoding) : "",
@@ -125,7 +134,8 @@ export const Metadata = {
   toJSON(message: Metadata): unknown {
     const obj: any = {};
     message.version !== undefined && (obj.version = message.version);
-    message.controllerConnectionId !== undefined && (obj.controllerConnectionId = message.controllerConnectionId);
+    message.controllerConnectionId !== undefined &&
+      (obj.controllerConnectionId = message.controllerConnectionId);
     message.hostConnectionId !== undefined && (obj.hostConnectionId = message.hostConnectionId);
     message.address !== undefined && (obj.address = message.address);
     message.encoding !== undefined && (obj.encoding = message.encoding);
@@ -151,14 +161,21 @@ export const Metadata = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

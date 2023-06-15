@@ -7,8 +7,7 @@ import _m0 from "protobufjs/minimal";
 export const protobufPackage = "cosmos.base.reflection.v1beta1";
 
 /** ListAllInterfacesRequest is the request type of the ListAllInterfaces RPC. */
-export interface ListAllInterfacesRequest {
-}
+export interface ListAllInterfacesRequest {}
 
 /** ListAllInterfacesResponse is the response type of the ListAllInterfaces RPC. */
 export interface ListAllInterfacesResponse {
@@ -114,7 +113,9 @@ export const ListAllInterfacesResponse = {
 
   fromJSON(object: any): ListAllInterfacesResponse {
     return {
-      interfaceNames: Array.isArray(object?.interfaceNames) ? object.interfaceNames.map((e: any) => String(e)) : [],
+      interfaceNames: Array.isArray(object?.interfaceNames)
+        ? object.interfaceNames.map((e: any) => String(e))
+        : [],
     };
   },
 
@@ -132,7 +133,9 @@ export const ListAllInterfacesResponse = {
     return ListAllInterfacesResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<ListAllInterfacesResponse>, I>>(object: I): ListAllInterfacesResponse {
+  fromPartial<I extends Exact<DeepPartial<ListAllInterfacesResponse>, I>>(
+    object: I,
+  ): ListAllInterfacesResponse {
     const message = createBaseListAllInterfacesResponse();
     message.interfaceNames = object.interfaceNames?.map((e) => e) || [];
     return message;
@@ -188,7 +191,9 @@ export const ListImplementationsRequest = {
     return ListImplementationsRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<ListImplementationsRequest>, I>>(object: I): ListImplementationsRequest {
+  fromPartial<I extends Exact<DeepPartial<ListImplementationsRequest>, I>>(
+    object: I,
+  ): ListImplementationsRequest {
     const message = createBaseListImplementationsRequest();
     message.interfaceName = object.interfaceName ?? "";
     return message;
@@ -248,11 +253,15 @@ export const ListImplementationsResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<ListImplementationsResponse>, I>>(base?: I): ListImplementationsResponse {
+  create<I extends Exact<DeepPartial<ListImplementationsResponse>, I>>(
+    base?: I,
+  ): ListImplementationsResponse {
     return ListImplementationsResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<ListImplementationsResponse>, I>>(object: I): ListImplementationsResponse {
+  fromPartial<I extends Exact<DeepPartial<ListImplementationsResponse>, I>>(
+    object: I,
+  ): ListImplementationsResponse {
     const message = createBaseListImplementationsResponse();
     message.implementationMessageNames = object.implementationMessageNames?.map((e) => e) || [];
     return message;
@@ -404,9 +413,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -448,14 +458,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

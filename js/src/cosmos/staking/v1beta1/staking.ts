@@ -353,7 +353,7 @@ export const HistoricalInfo = {
     const obj: any = {};
     message.header !== undefined && (obj.header = message.header ? Header.toJSON(message.header) : undefined);
     if (message.valset) {
-      obj.valset = message.valset.map((e) => e ? Validator.toJSON(e) : undefined);
+      obj.valset = message.valset.map((e) => (e ? Validator.toJSON(e) : undefined));
     } else {
       obj.valset = [];
     }
@@ -366,9 +366,8 @@ export const HistoricalInfo = {
 
   fromPartial<I extends Exact<DeepPartial<HistoricalInfo>, I>>(object: I): HistoricalInfo {
     const message = createBaseHistoricalInfo();
-    message.header = (object.header !== undefined && object.header !== null)
-      ? Header.fromPartial(object.header)
-      : undefined;
+    message.header =
+      object.header !== undefined && object.header !== null ? Header.fromPartial(object.header) : undefined;
     message.valset = object.valset?.map((e) => Validator.fromPartial(e)) || [];
     return message;
   },
@@ -505,7 +504,9 @@ export const Commission = {
 
   fromJSON(object: any): Commission {
     return {
-      commissionRates: isSet(object.commissionRates) ? CommissionRates.fromJSON(object.commissionRates) : undefined,
+      commissionRates: isSet(object.commissionRates)
+        ? CommissionRates.fromJSON(object.commissionRates)
+        : undefined,
       updateTime: isSet(object.updateTime) ? fromJsonTimestamp(object.updateTime) : undefined,
     };
   },
@@ -513,7 +514,9 @@ export const Commission = {
   toJSON(message: Commission): unknown {
     const obj: any = {};
     message.commissionRates !== undefined &&
-      (obj.commissionRates = message.commissionRates ? CommissionRates.toJSON(message.commissionRates) : undefined);
+      (obj.commissionRates = message.commissionRates
+        ? CommissionRates.toJSON(message.commissionRates)
+        : undefined);
     message.updateTime !== undefined && (obj.updateTime = message.updateTime.toISOString());
     return obj;
   },
@@ -524,9 +527,10 @@ export const Commission = {
 
   fromPartial<I extends Exact<DeepPartial<Commission>, I>>(object: I): Commission {
     const message = createBaseCommission();
-    message.commissionRates = (object.commissionRates !== undefined && object.commissionRates !== null)
-      ? CommissionRates.fromPartial(object.commissionRates)
-      : undefined;
+    message.commissionRates =
+      object.commissionRates !== undefined && object.commissionRates !== null
+        ? CommissionRates.fromPartial(object.commissionRates)
+        : undefined;
     message.updateTime = object.updateTime ?? undefined;
     return message;
   },
@@ -816,7 +820,8 @@ export const Validator = {
     message.delegatorShares !== undefined && (obj.delegatorShares = message.delegatorShares);
     message.description !== undefined &&
       (obj.description = message.description ? Description.toJSON(message.description) : undefined);
-    message.unbondingHeight !== undefined && (obj.unbondingHeight = (message.unbondingHeight || Long.ZERO).toString());
+    message.unbondingHeight !== undefined &&
+      (obj.unbondingHeight = (message.unbondingHeight || Long.ZERO).toString());
     message.unbondingTime !== undefined && (obj.unbondingTime = message.unbondingTime.toISOString());
     message.commission !== undefined &&
       (obj.commission = message.commission ? Commission.toJSON(message.commission) : undefined);
@@ -831,23 +836,27 @@ export const Validator = {
   fromPartial<I extends Exact<DeepPartial<Validator>, I>>(object: I): Validator {
     const message = createBaseValidator();
     message.operatorAddress = object.operatorAddress ?? "";
-    message.consensusPubkey = (object.consensusPubkey !== undefined && object.consensusPubkey !== null)
-      ? Any.fromPartial(object.consensusPubkey)
-      : undefined;
+    message.consensusPubkey =
+      object.consensusPubkey !== undefined && object.consensusPubkey !== null
+        ? Any.fromPartial(object.consensusPubkey)
+        : undefined;
     message.jailed = object.jailed ?? false;
     message.status = object.status ?? 0;
     message.tokens = object.tokens ?? "";
     message.delegatorShares = object.delegatorShares ?? "";
-    message.description = (object.description !== undefined && object.description !== null)
-      ? Description.fromPartial(object.description)
-      : undefined;
-    message.unbondingHeight = (object.unbondingHeight !== undefined && object.unbondingHeight !== null)
-      ? Long.fromValue(object.unbondingHeight)
-      : Long.ZERO;
+    message.description =
+      object.description !== undefined && object.description !== null
+        ? Description.fromPartial(object.description)
+        : undefined;
+    message.unbondingHeight =
+      object.unbondingHeight !== undefined && object.unbondingHeight !== null
+        ? Long.fromValue(object.unbondingHeight)
+        : Long.ZERO;
     message.unbondingTime = object.unbondingTime ?? undefined;
-    message.commission = (object.commission !== undefined && object.commission !== null)
-      ? Commission.fromPartial(object.commission)
-      : undefined;
+    message.commission =
+      object.commission !== undefined && object.commission !== null
+        ? Commission.fromPartial(object.commission)
+        : undefined;
     message.minSelfDelegation = object.minSelfDelegation ?? "";
     return message;
   },
@@ -1026,7 +1035,7 @@ export const DVPairs = {
   toJSON(message: DVPairs): unknown {
     const obj: any = {};
     if (message.pairs) {
-      obj.pairs = message.pairs.map((e) => e ? DVPair.toJSON(e) : undefined);
+      obj.pairs = message.pairs.map((e) => (e ? DVPair.toJSON(e) : undefined));
     } else {
       obj.pairs = [];
     }
@@ -1164,13 +1173,17 @@ export const DVVTriplets = {
   },
 
   fromJSON(object: any): DVVTriplets {
-    return { triplets: Array.isArray(object?.triplets) ? object.triplets.map((e: any) => DVVTriplet.fromJSON(e)) : [] };
+    return {
+      triplets: Array.isArray(object?.triplets)
+        ? object.triplets.map((e: any) => DVVTriplet.fromJSON(e))
+        : [],
+    };
   },
 
   toJSON(message: DVVTriplets): unknown {
     const obj: any = {};
     if (message.triplets) {
-      obj.triplets = message.triplets.map((e) => e ? DVVTriplet.toJSON(e) : undefined);
+      obj.triplets = message.triplets.map((e) => (e ? DVVTriplet.toJSON(e) : undefined));
     } else {
       obj.triplets = [];
     }
@@ -1342,7 +1355,7 @@ export const UnbondingDelegation = {
     message.delegatorAddress !== undefined && (obj.delegatorAddress = message.delegatorAddress);
     message.validatorAddress !== undefined && (obj.validatorAddress = message.validatorAddress);
     if (message.entries) {
-      obj.entries = message.entries.map((e) => e ? UnbondingDelegationEntry.toJSON(e) : undefined);
+      obj.entries = message.entries.map((e) => (e ? UnbondingDelegationEntry.toJSON(e) : undefined));
     } else {
       obj.entries = [];
     }
@@ -1438,7 +1451,8 @@ export const UnbondingDelegationEntry = {
 
   toJSON(message: UnbondingDelegationEntry): unknown {
     const obj: any = {};
-    message.creationHeight !== undefined && (obj.creationHeight = (message.creationHeight || Long.ZERO).toString());
+    message.creationHeight !== undefined &&
+      (obj.creationHeight = (message.creationHeight || Long.ZERO).toString());
     message.completionTime !== undefined && (obj.completionTime = message.completionTime.toISOString());
     message.initialBalance !== undefined && (obj.initialBalance = message.initialBalance);
     message.balance !== undefined && (obj.balance = message.balance);
@@ -1449,11 +1463,14 @@ export const UnbondingDelegationEntry = {
     return UnbondingDelegationEntry.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<UnbondingDelegationEntry>, I>>(object: I): UnbondingDelegationEntry {
+  fromPartial<I extends Exact<DeepPartial<UnbondingDelegationEntry>, I>>(
+    object: I,
+  ): UnbondingDelegationEntry {
     const message = createBaseUnbondingDelegationEntry();
-    message.creationHeight = (object.creationHeight !== undefined && object.creationHeight !== null)
-      ? Long.fromValue(object.creationHeight)
-      : Long.ZERO;
+    message.creationHeight =
+      object.creationHeight !== undefined && object.creationHeight !== null
+        ? Long.fromValue(object.creationHeight)
+        : Long.ZERO;
     message.completionTime = object.completionTime ?? undefined;
     message.initialBalance = object.initialBalance ?? "";
     message.balance = object.balance ?? "";
@@ -1537,7 +1554,8 @@ export const RedelegationEntry = {
 
   toJSON(message: RedelegationEntry): unknown {
     const obj: any = {};
-    message.creationHeight !== undefined && (obj.creationHeight = (message.creationHeight || Long.ZERO).toString());
+    message.creationHeight !== undefined &&
+      (obj.creationHeight = (message.creationHeight || Long.ZERO).toString());
     message.completionTime !== undefined && (obj.completionTime = message.completionTime.toISOString());
     message.initialBalance !== undefined && (obj.initialBalance = message.initialBalance);
     message.sharesDst !== undefined && (obj.sharesDst = message.sharesDst);
@@ -1550,9 +1568,10 @@ export const RedelegationEntry = {
 
   fromPartial<I extends Exact<DeepPartial<RedelegationEntry>, I>>(object: I): RedelegationEntry {
     const message = createBaseRedelegationEntry();
-    message.creationHeight = (object.creationHeight !== undefined && object.creationHeight !== null)
-      ? Long.fromValue(object.creationHeight)
-      : Long.ZERO;
+    message.creationHeight =
+      object.creationHeight !== undefined && object.creationHeight !== null
+        ? Long.fromValue(object.creationHeight)
+        : Long.ZERO;
     message.completionTime = object.completionTime ?? undefined;
     message.initialBalance = object.initialBalance ?? "";
     message.sharesDst = object.sharesDst ?? "";
@@ -1630,7 +1649,9 @@ export const Redelegation = {
       delegatorAddress: isSet(object.delegatorAddress) ? String(object.delegatorAddress) : "",
       validatorSrcAddress: isSet(object.validatorSrcAddress) ? String(object.validatorSrcAddress) : "",
       validatorDstAddress: isSet(object.validatorDstAddress) ? String(object.validatorDstAddress) : "",
-      entries: Array.isArray(object?.entries) ? object.entries.map((e: any) => RedelegationEntry.fromJSON(e)) : [],
+      entries: Array.isArray(object?.entries)
+        ? object.entries.map((e: any) => RedelegationEntry.fromJSON(e))
+        : [],
     };
   },
 
@@ -1640,7 +1661,7 @@ export const Redelegation = {
     message.validatorSrcAddress !== undefined && (obj.validatorSrcAddress = message.validatorSrcAddress);
     message.validatorDstAddress !== undefined && (obj.validatorDstAddress = message.validatorDstAddress);
     if (message.entries) {
-      obj.entries = message.entries.map((e) => e ? RedelegationEntry.toJSON(e) : undefined);
+      obj.entries = message.entries.map((e) => (e ? RedelegationEntry.toJSON(e) : undefined));
     } else {
       obj.entries = [];
     }
@@ -1770,7 +1791,8 @@ export const Params = {
       (obj.unbondingTime = message.unbondingTime ? Duration.toJSON(message.unbondingTime) : undefined);
     message.maxValidators !== undefined && (obj.maxValidators = Math.round(message.maxValidators));
     message.maxEntries !== undefined && (obj.maxEntries = Math.round(message.maxEntries));
-    message.historicalEntries !== undefined && (obj.historicalEntries = Math.round(message.historicalEntries));
+    message.historicalEntries !== undefined &&
+      (obj.historicalEntries = Math.round(message.historicalEntries));
     message.bondDenom !== undefined && (obj.bondDenom = message.bondDenom);
     message.minCommissionRate !== undefined && (obj.minCommissionRate = message.minCommissionRate);
     return obj;
@@ -1782,9 +1804,10 @@ export const Params = {
 
   fromPartial<I extends Exact<DeepPartial<Params>, I>>(object: I): Params {
     const message = createBaseParams();
-    message.unbondingTime = (object.unbondingTime !== undefined && object.unbondingTime !== null)
-      ? Duration.fromPartial(object.unbondingTime)
-      : undefined;
+    message.unbondingTime =
+      object.unbondingTime !== undefined && object.unbondingTime !== null
+        ? Duration.fromPartial(object.unbondingTime)
+        : undefined;
     message.maxValidators = object.maxValidators ?? 0;
     message.maxEntries = object.maxEntries ?? 0;
     message.historicalEntries = object.historicalEntries ?? 0;
@@ -1850,7 +1873,8 @@ export const DelegationResponse = {
     const obj: any = {};
     message.delegation !== undefined &&
       (obj.delegation = message.delegation ? Delegation.toJSON(message.delegation) : undefined);
-    message.balance !== undefined && (obj.balance = message.balance ? Coin.toJSON(message.balance) : undefined);
+    message.balance !== undefined &&
+      (obj.balance = message.balance ? Coin.toJSON(message.balance) : undefined);
     return obj;
   },
 
@@ -1860,12 +1884,12 @@ export const DelegationResponse = {
 
   fromPartial<I extends Exact<DeepPartial<DelegationResponse>, I>>(object: I): DelegationResponse {
     const message = createBaseDelegationResponse();
-    message.delegation = (object.delegation !== undefined && object.delegation !== null)
-      ? Delegation.fromPartial(object.delegation)
-      : undefined;
-    message.balance = (object.balance !== undefined && object.balance !== null)
-      ? Coin.fromPartial(object.balance)
-      : undefined;
+    message.delegation =
+      object.delegation !== undefined && object.delegation !== null
+        ? Delegation.fromPartial(object.delegation)
+        : undefined;
+    message.balance =
+      object.balance !== undefined && object.balance !== null ? Coin.fromPartial(object.balance) : undefined;
     return message;
   },
 };
@@ -1926,9 +1950,10 @@ export const RedelegationEntryResponse = {
 
   toJSON(message: RedelegationEntryResponse): unknown {
     const obj: any = {};
-    message.redelegationEntry !== undefined && (obj.redelegationEntry = message.redelegationEntry
-      ? RedelegationEntry.toJSON(message.redelegationEntry)
-      : undefined);
+    message.redelegationEntry !== undefined &&
+      (obj.redelegationEntry = message.redelegationEntry
+        ? RedelegationEntry.toJSON(message.redelegationEntry)
+        : undefined);
     message.balance !== undefined && (obj.balance = message.balance);
     return obj;
   },
@@ -1937,11 +1962,14 @@ export const RedelegationEntryResponse = {
     return RedelegationEntryResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<RedelegationEntryResponse>, I>>(object: I): RedelegationEntryResponse {
+  fromPartial<I extends Exact<DeepPartial<RedelegationEntryResponse>, I>>(
+    object: I,
+  ): RedelegationEntryResponse {
     const message = createBaseRedelegationEntryResponse();
-    message.redelegationEntry = (object.redelegationEntry !== undefined && object.redelegationEntry !== null)
-      ? RedelegationEntry.fromPartial(object.redelegationEntry)
-      : undefined;
+    message.redelegationEntry =
+      object.redelegationEntry !== undefined && object.redelegationEntry !== null
+        ? RedelegationEntry.fromPartial(object.redelegationEntry)
+        : undefined;
     message.balance = object.balance ?? "";
     return message;
   },
@@ -2006,7 +2034,7 @@ export const RedelegationResponse = {
     message.redelegation !== undefined &&
       (obj.redelegation = message.redelegation ? Redelegation.toJSON(message.redelegation) : undefined);
     if (message.entries) {
-      obj.entries = message.entries.map((e) => e ? RedelegationEntryResponse.toJSON(e) : undefined);
+      obj.entries = message.entries.map((e) => (e ? RedelegationEntryResponse.toJSON(e) : undefined));
     } else {
       obj.entries = [];
     }
@@ -2019,9 +2047,10 @@ export const RedelegationResponse = {
 
   fromPartial<I extends Exact<DeepPartial<RedelegationResponse>, I>>(object: I): RedelegationResponse {
     const message = createBaseRedelegationResponse();
-    message.redelegation = (object.redelegation !== undefined && object.redelegation !== null)
-      ? Redelegation.fromPartial(object.redelegation)
-      : undefined;
+    message.redelegation =
+      object.redelegation !== undefined && object.redelegation !== null
+        ? Redelegation.fromPartial(object.redelegation)
+        : undefined;
     message.entries = object.entries?.map((e) => RedelegationEntryResponse.fromPartial(e)) || [];
     return message;
   },
@@ -2100,14 +2129,21 @@ export const Pool = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 function toTimestamp(date: Date): Timestamp {

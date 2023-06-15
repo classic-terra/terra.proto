@@ -21,8 +21,7 @@ export interface MsgCreateClient {
 }
 
 /** MsgCreateClientResponse defines the Msg/CreateClient response type. */
-export interface MsgCreateClientResponse {
-}
+export interface MsgCreateClientResponse {}
 
 /**
  * MsgUpdateClient defines an sdk.Msg to update a IBC client state using
@@ -38,8 +37,7 @@ export interface MsgUpdateClient {
 }
 
 /** MsgUpdateClientResponse defines the Msg/UpdateClient response type. */
-export interface MsgUpdateClientResponse {
-}
+export interface MsgUpdateClientResponse {}
 
 /**
  * MsgUpgradeClient defines an sdk.Msg to upgrade an IBC client to a new client
@@ -64,8 +62,7 @@ export interface MsgUpgradeClient {
 }
 
 /** MsgUpgradeClientResponse defines the Msg/UpgradeClient response type. */
-export interface MsgUpgradeClientResponse {
-}
+export interface MsgUpgradeClientResponse {}
 
 /**
  * MsgSubmitMisbehaviour defines an sdk.Msg type that submits Evidence for
@@ -84,8 +81,7 @@ export interface MsgSubmitMisbehaviour {
  * MsgSubmitMisbehaviourResponse defines the Msg/SubmitMisbehaviour response
  * type.
  */
-export interface MsgSubmitMisbehaviourResponse {
-}
+export interface MsgSubmitMisbehaviourResponse {}
 
 function createBaseMsgCreateClient(): MsgCreateClient {
   return { clientState: undefined, consensusState: undefined, signer: "" };
@@ -166,12 +162,14 @@ export const MsgCreateClient = {
 
   fromPartial<I extends Exact<DeepPartial<MsgCreateClient>, I>>(object: I): MsgCreateClient {
     const message = createBaseMsgCreateClient();
-    message.clientState = (object.clientState !== undefined && object.clientState !== null)
-      ? Any.fromPartial(object.clientState)
-      : undefined;
-    message.consensusState = (object.consensusState !== undefined && object.consensusState !== null)
-      ? Any.fromPartial(object.consensusState)
-      : undefined;
+    message.clientState =
+      object.clientState !== undefined && object.clientState !== null
+        ? Any.fromPartial(object.clientState)
+        : undefined;
+    message.consensusState =
+      object.consensusState !== undefined && object.consensusState !== null
+        ? Any.fromPartial(object.consensusState)
+        : undefined;
     message.signer = object.signer ?? "";
     return message;
   },
@@ -299,9 +297,8 @@ export const MsgUpdateClient = {
   fromPartial<I extends Exact<DeepPartial<MsgUpdateClient>, I>>(object: I): MsgUpdateClient {
     const message = createBaseMsgUpdateClient();
     message.clientId = object.clientId ?? "";
-    message.header = (object.header !== undefined && object.header !== null)
-      ? Any.fromPartial(object.header)
-      : undefined;
+    message.header =
+      object.header !== undefined && object.header !== null ? Any.fromPartial(object.header) : undefined;
     message.signer = object.signer ?? "";
     return message;
   },
@@ -471,7 +468,9 @@ export const MsgUpgradeClient = {
       ));
     message.proofUpgradeConsensusState !== undefined &&
       (obj.proofUpgradeConsensusState = base64FromBytes(
-        message.proofUpgradeConsensusState !== undefined ? message.proofUpgradeConsensusState : new Uint8Array(0),
+        message.proofUpgradeConsensusState !== undefined
+          ? message.proofUpgradeConsensusState
+          : new Uint8Array(0),
       ));
     message.signer !== undefined && (obj.signer = message.signer);
     return obj;
@@ -484,12 +483,14 @@ export const MsgUpgradeClient = {
   fromPartial<I extends Exact<DeepPartial<MsgUpgradeClient>, I>>(object: I): MsgUpgradeClient {
     const message = createBaseMsgUpgradeClient();
     message.clientId = object.clientId ?? "";
-    message.clientState = (object.clientState !== undefined && object.clientState !== null)
-      ? Any.fromPartial(object.clientState)
-      : undefined;
-    message.consensusState = (object.consensusState !== undefined && object.consensusState !== null)
-      ? Any.fromPartial(object.consensusState)
-      : undefined;
+    message.clientState =
+      object.clientState !== undefined && object.clientState !== null
+        ? Any.fromPartial(object.clientState)
+        : undefined;
+    message.consensusState =
+      object.consensusState !== undefined && object.consensusState !== null
+        ? Any.fromPartial(object.consensusState)
+        : undefined;
     message.proofUpgradeClient = object.proofUpgradeClient ?? new Uint8Array(0);
     message.proofUpgradeConsensusState = object.proofUpgradeConsensusState ?? new Uint8Array(0);
     message.signer = object.signer ?? "";
@@ -620,9 +621,10 @@ export const MsgSubmitMisbehaviour = {
   fromPartial<I extends Exact<DeepPartial<MsgSubmitMisbehaviour>, I>>(object: I): MsgSubmitMisbehaviour {
     const message = createBaseMsgSubmitMisbehaviour();
     message.clientId = object.clientId ?? "";
-    message.misbehaviour = (object.misbehaviour !== undefined && object.misbehaviour !== null)
-      ? Any.fromPartial(object.misbehaviour)
-      : undefined;
+    message.misbehaviour =
+      object.misbehaviour !== undefined && object.misbehaviour !== null
+        ? Any.fromPartial(object.misbehaviour)
+        : undefined;
     message.signer = object.signer ?? "";
     return message;
   },
@@ -662,11 +664,15 @@ export const MsgSubmitMisbehaviourResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<MsgSubmitMisbehaviourResponse>, I>>(base?: I): MsgSubmitMisbehaviourResponse {
+  create<I extends Exact<DeepPartial<MsgSubmitMisbehaviourResponse>, I>>(
+    base?: I,
+  ): MsgSubmitMisbehaviourResponse {
     return MsgSubmitMisbehaviourResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<MsgSubmitMisbehaviourResponse>, I>>(_: I): MsgSubmitMisbehaviourResponse {
+  fromPartial<I extends Exact<DeepPartial<MsgSubmitMisbehaviourResponse>, I>>(
+    _: I,
+  ): MsgSubmitMisbehaviourResponse {
     const message = createBaseMsgSubmitMisbehaviourResponse();
     return message;
   },
@@ -675,11 +681,20 @@ export const MsgSubmitMisbehaviourResponse = {
 /** Msg defines the ibc/client Msg service. */
 export interface Msg {
   /** CreateClient defines a rpc handler method for MsgCreateClient. */
-  CreateClient(request: DeepPartial<MsgCreateClient>, metadata?: grpc.Metadata): Promise<MsgCreateClientResponse>;
+  CreateClient(
+    request: DeepPartial<MsgCreateClient>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgCreateClientResponse>;
   /** UpdateClient defines a rpc handler method for MsgUpdateClient. */
-  UpdateClient(request: DeepPartial<MsgUpdateClient>, metadata?: grpc.Metadata): Promise<MsgUpdateClientResponse>;
+  UpdateClient(
+    request: DeepPartial<MsgUpdateClient>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgUpdateClientResponse>;
   /** UpgradeClient defines a rpc handler method for MsgUpgradeClient. */
-  UpgradeClient(request: DeepPartial<MsgUpgradeClient>, metadata?: grpc.Metadata): Promise<MsgUpgradeClientResponse>;
+  UpgradeClient(
+    request: DeepPartial<MsgUpgradeClient>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgUpgradeClientResponse>;
   /** SubmitMisbehaviour defines a rpc handler method for MsgSubmitMisbehaviour. */
   SubmitMisbehaviour(
     request: DeepPartial<MsgSubmitMisbehaviour>,
@@ -698,15 +713,24 @@ export class MsgClientImpl implements Msg {
     this.SubmitMisbehaviour = this.SubmitMisbehaviour.bind(this);
   }
 
-  CreateClient(request: DeepPartial<MsgCreateClient>, metadata?: grpc.Metadata): Promise<MsgCreateClientResponse> {
+  CreateClient(
+    request: DeepPartial<MsgCreateClient>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgCreateClientResponse> {
     return this.rpc.unary(MsgCreateClientDesc, MsgCreateClient.fromPartial(request), metadata);
   }
 
-  UpdateClient(request: DeepPartial<MsgUpdateClient>, metadata?: grpc.Metadata): Promise<MsgUpdateClientResponse> {
+  UpdateClient(
+    request: DeepPartial<MsgUpdateClient>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgUpdateClientResponse> {
     return this.rpc.unary(MsgUpdateClientDesc, MsgUpdateClient.fromPartial(request), metadata);
   }
 
-  UpgradeClient(request: DeepPartial<MsgUpgradeClient>, metadata?: grpc.Metadata): Promise<MsgUpgradeClientResponse> {
+  UpgradeClient(
+    request: DeepPartial<MsgUpgradeClient>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgUpgradeClientResponse> {
     return this.rpc.unary(MsgUpgradeClientDesc, MsgUpgradeClient.fromPartial(request), metadata);
   }
 
@@ -857,9 +881,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -926,14 +951,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

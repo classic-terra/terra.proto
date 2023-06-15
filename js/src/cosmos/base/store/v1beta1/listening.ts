@@ -250,31 +250,45 @@ export const BlockMetadata = {
       deliverTxs: Array.isArray(object?.deliverTxs)
         ? object.deliverTxs.map((e: any) => BlockMetadata_DeliverTx.fromJSON(e))
         : [],
-      requestEndBlock: isSet(object.requestEndBlock) ? RequestEndBlock.fromJSON(object.requestEndBlock) : undefined,
-      responseEndBlock: isSet(object.responseEndBlock) ? ResponseEndBlock.fromJSON(object.responseEndBlock) : undefined,
-      responseCommit: isSet(object.responseCommit) ? ResponseCommit.fromJSON(object.responseCommit) : undefined,
+      requestEndBlock: isSet(object.requestEndBlock)
+        ? RequestEndBlock.fromJSON(object.requestEndBlock)
+        : undefined,
+      responseEndBlock: isSet(object.responseEndBlock)
+        ? ResponseEndBlock.fromJSON(object.responseEndBlock)
+        : undefined,
+      responseCommit: isSet(object.responseCommit)
+        ? ResponseCommit.fromJSON(object.responseCommit)
+        : undefined,
     };
   },
 
   toJSON(message: BlockMetadata): unknown {
     const obj: any = {};
-    message.requestBeginBlock !== undefined && (obj.requestBeginBlock = message.requestBeginBlock
-      ? RequestBeginBlock.toJSON(message.requestBeginBlock)
-      : undefined);
-    message.responseBeginBlock !== undefined && (obj.responseBeginBlock = message.responseBeginBlock
-      ? ResponseBeginBlock.toJSON(message.responseBeginBlock)
-      : undefined);
+    message.requestBeginBlock !== undefined &&
+      (obj.requestBeginBlock = message.requestBeginBlock
+        ? RequestBeginBlock.toJSON(message.requestBeginBlock)
+        : undefined);
+    message.responseBeginBlock !== undefined &&
+      (obj.responseBeginBlock = message.responseBeginBlock
+        ? ResponseBeginBlock.toJSON(message.responseBeginBlock)
+        : undefined);
     if (message.deliverTxs) {
-      obj.deliverTxs = message.deliverTxs.map((e) => e ? BlockMetadata_DeliverTx.toJSON(e) : undefined);
+      obj.deliverTxs = message.deliverTxs.map((e) => (e ? BlockMetadata_DeliverTx.toJSON(e) : undefined));
     } else {
       obj.deliverTxs = [];
     }
     message.requestEndBlock !== undefined &&
-      (obj.requestEndBlock = message.requestEndBlock ? RequestEndBlock.toJSON(message.requestEndBlock) : undefined);
+      (obj.requestEndBlock = message.requestEndBlock
+        ? RequestEndBlock.toJSON(message.requestEndBlock)
+        : undefined);
     message.responseEndBlock !== undefined &&
-      (obj.responseEndBlock = message.responseEndBlock ? ResponseEndBlock.toJSON(message.responseEndBlock) : undefined);
+      (obj.responseEndBlock = message.responseEndBlock
+        ? ResponseEndBlock.toJSON(message.responseEndBlock)
+        : undefined);
     message.responseCommit !== undefined &&
-      (obj.responseCommit = message.responseCommit ? ResponseCommit.toJSON(message.responseCommit) : undefined);
+      (obj.responseCommit = message.responseCommit
+        ? ResponseCommit.toJSON(message.responseCommit)
+        : undefined);
     return obj;
   },
 
@@ -284,22 +298,27 @@ export const BlockMetadata = {
 
   fromPartial<I extends Exact<DeepPartial<BlockMetadata>, I>>(object: I): BlockMetadata {
     const message = createBaseBlockMetadata();
-    message.requestBeginBlock = (object.requestBeginBlock !== undefined && object.requestBeginBlock !== null)
-      ? RequestBeginBlock.fromPartial(object.requestBeginBlock)
-      : undefined;
-    message.responseBeginBlock = (object.responseBeginBlock !== undefined && object.responseBeginBlock !== null)
-      ? ResponseBeginBlock.fromPartial(object.responseBeginBlock)
-      : undefined;
+    message.requestBeginBlock =
+      object.requestBeginBlock !== undefined && object.requestBeginBlock !== null
+        ? RequestBeginBlock.fromPartial(object.requestBeginBlock)
+        : undefined;
+    message.responseBeginBlock =
+      object.responseBeginBlock !== undefined && object.responseBeginBlock !== null
+        ? ResponseBeginBlock.fromPartial(object.responseBeginBlock)
+        : undefined;
     message.deliverTxs = object.deliverTxs?.map((e) => BlockMetadata_DeliverTx.fromPartial(e)) || [];
-    message.requestEndBlock = (object.requestEndBlock !== undefined && object.requestEndBlock !== null)
-      ? RequestEndBlock.fromPartial(object.requestEndBlock)
-      : undefined;
-    message.responseEndBlock = (object.responseEndBlock !== undefined && object.responseEndBlock !== null)
-      ? ResponseEndBlock.fromPartial(object.responseEndBlock)
-      : undefined;
-    message.responseCommit = (object.responseCommit !== undefined && object.responseCommit !== null)
-      ? ResponseCommit.fromPartial(object.responseCommit)
-      : undefined;
+    message.requestEndBlock =
+      object.requestEndBlock !== undefined && object.requestEndBlock !== null
+        ? RequestEndBlock.fromPartial(object.requestEndBlock)
+        : undefined;
+    message.responseEndBlock =
+      object.responseEndBlock !== undefined && object.responseEndBlock !== null
+        ? ResponseEndBlock.fromPartial(object.responseEndBlock)
+        : undefined;
+    message.responseCommit =
+      object.responseCommit !== undefined && object.responseCommit !== null
+        ? ResponseCommit.fromPartial(object.responseCommit)
+        : undefined;
     return message;
   },
 };
@@ -371,12 +390,14 @@ export const BlockMetadata_DeliverTx = {
 
   fromPartial<I extends Exact<DeepPartial<BlockMetadata_DeliverTx>, I>>(object: I): BlockMetadata_DeliverTx {
     const message = createBaseBlockMetadata_DeliverTx();
-    message.request = (object.request !== undefined && object.request !== null)
-      ? RequestDeliverTx.fromPartial(object.request)
-      : undefined;
-    message.response = (object.response !== undefined && object.response !== null)
-      ? ResponseDeliverTx.fromPartial(object.response)
-      : undefined;
+    message.request =
+      object.request !== undefined && object.request !== null
+        ? RequestDeliverTx.fromPartial(object.request)
+        : undefined;
+    message.response =
+      object.response !== undefined && object.response !== null
+        ? ResponseDeliverTx.fromPartial(object.response)
+        : undefined;
     return message;
   },
 };
@@ -427,14 +448,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

@@ -21,8 +21,7 @@ export interface MsgRegisterPayee {
 }
 
 /** MsgRegisterPayeeResponse defines the response type for the RegisterPayee rpc */
-export interface MsgRegisterPayeeResponse {
-}
+export interface MsgRegisterPayeeResponse {}
 
 /** MsgRegisterCounterpartyPayee defines the request type for the RegisterCounterpartyPayee rpc */
 export interface MsgRegisterCounterpartyPayee {
@@ -37,8 +36,7 @@ export interface MsgRegisterCounterpartyPayee {
 }
 
 /** MsgRegisterCounterpartyPayeeResponse defines the response type for the RegisterCounterpartyPayee rpc */
-export interface MsgRegisterCounterpartyPayeeResponse {
-}
+export interface MsgRegisterCounterpartyPayeeResponse {}
 
 /**
  * MsgPayPacketFee defines the request type for the PayPacketFee rpc
@@ -59,8 +57,7 @@ export interface MsgPayPacketFee {
 }
 
 /** MsgPayPacketFeeResponse defines the response type for the PayPacketFee rpc */
-export interface MsgPayPacketFeeResponse {
-}
+export interface MsgPayPacketFeeResponse {}
 
 /**
  * MsgPayPacketFeeAsync defines the request type for the PayPacketFeeAsync rpc
@@ -74,8 +71,7 @@ export interface MsgPayPacketFeeAsync {
 }
 
 /** MsgPayPacketFeeAsyncResponse defines the response type for the PayPacketFeeAsync rpc */
-export interface MsgPayPacketFeeAsyncResponse {
-}
+export interface MsgPayPacketFeeAsyncResponse {}
 
 function createBaseMsgRegisterPayee(): MsgRegisterPayee {
   return { portId: "", channelId: "", relayer: "", payee: "" };
@@ -301,11 +297,15 @@ export const MsgRegisterCounterpartyPayee = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<MsgRegisterCounterpartyPayee>, I>>(base?: I): MsgRegisterCounterpartyPayee {
+  create<I extends Exact<DeepPartial<MsgRegisterCounterpartyPayee>, I>>(
+    base?: I,
+  ): MsgRegisterCounterpartyPayee {
     return MsgRegisterCounterpartyPayee.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<MsgRegisterCounterpartyPayee>, I>>(object: I): MsgRegisterCounterpartyPayee {
+  fromPartial<I extends Exact<DeepPartial<MsgRegisterCounterpartyPayee>, I>>(
+    object: I,
+  ): MsgRegisterCounterpartyPayee {
     const message = createBaseMsgRegisterCounterpartyPayee();
     message.portId = object.portId ?? "";
     message.channelId = object.channelId ?? "";
@@ -468,7 +468,7 @@ export const MsgPayPacketFee = {
 
   fromPartial<I extends Exact<DeepPartial<MsgPayPacketFee>, I>>(object: I): MsgPayPacketFee {
     const message = createBaseMsgPayPacketFee();
-    message.fee = (object.fee !== undefined && object.fee !== null) ? Fee.fromPartial(object.fee) : undefined;
+    message.fee = object.fee !== undefined && object.fee !== null ? Fee.fromPartial(object.fee) : undefined;
     message.sourcePortId = object.sourcePortId ?? "";
     message.sourceChannelId = object.sourceChannelId ?? "";
     message.signer = object.signer ?? "";
@@ -575,7 +575,8 @@ export const MsgPayPacketFeeAsync = {
 
   toJSON(message: MsgPayPacketFeeAsync): unknown {
     const obj: any = {};
-    message.packetId !== undefined && (obj.packetId = message.packetId ? PacketId.toJSON(message.packetId) : undefined);
+    message.packetId !== undefined &&
+      (obj.packetId = message.packetId ? PacketId.toJSON(message.packetId) : undefined);
     message.packetFee !== undefined &&
       (obj.packetFee = message.packetFee ? PacketFee.toJSON(message.packetFee) : undefined);
     return obj;
@@ -587,12 +588,14 @@ export const MsgPayPacketFeeAsync = {
 
   fromPartial<I extends Exact<DeepPartial<MsgPayPacketFeeAsync>, I>>(object: I): MsgPayPacketFeeAsync {
     const message = createBaseMsgPayPacketFeeAsync();
-    message.packetId = (object.packetId !== undefined && object.packetId !== null)
-      ? PacketId.fromPartial(object.packetId)
-      : undefined;
-    message.packetFee = (object.packetFee !== undefined && object.packetFee !== null)
-      ? PacketFee.fromPartial(object.packetFee)
-      : undefined;
+    message.packetId =
+      object.packetId !== undefined && object.packetId !== null
+        ? PacketId.fromPartial(object.packetId)
+        : undefined;
+    message.packetFee =
+      object.packetFee !== undefined && object.packetFee !== null
+        ? PacketFee.fromPartial(object.packetFee)
+        : undefined;
     return message;
   },
 };
@@ -631,11 +634,15 @@ export const MsgPayPacketFeeAsyncResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<MsgPayPacketFeeAsyncResponse>, I>>(base?: I): MsgPayPacketFeeAsyncResponse {
+  create<I extends Exact<DeepPartial<MsgPayPacketFeeAsyncResponse>, I>>(
+    base?: I,
+  ): MsgPayPacketFeeAsyncResponse {
     return MsgPayPacketFeeAsyncResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<MsgPayPacketFeeAsyncResponse>, I>>(_: I): MsgPayPacketFeeAsyncResponse {
+  fromPartial<I extends Exact<DeepPartial<MsgPayPacketFeeAsyncResponse>, I>>(
+    _: I,
+  ): MsgPayPacketFeeAsyncResponse {
     const message = createBaseMsgPayPacketFeeAsyncResponse();
     return message;
   },
@@ -650,7 +657,10 @@ export interface Msg {
    * the source chain from which packets originate as this is where fee distribution takes place. This function may be
    * called more than once by a relayer, in which case, the latest payee is always used.
    */
-  RegisterPayee(request: DeepPartial<MsgRegisterPayee>, metadata?: grpc.Metadata): Promise<MsgRegisterPayeeResponse>;
+  RegisterPayee(
+    request: DeepPartial<MsgRegisterPayee>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgRegisterPayeeResponse>;
   /**
    * RegisterCounterpartyPayee defines a rpc handler method for MsgRegisterCounterpartyPayee
    * RegisterCounterpartyPayee is called by the relayer on each channelEnd and allows them to specify the counterparty
@@ -669,7 +679,10 @@ export interface Msg {
    * NOTE: This method is intended to be used within a multi msg transaction, where the subsequent msg that follows
    * initiates the lifecycle of the incentivized packet
    */
-  PayPacketFee(request: DeepPartial<MsgPayPacketFee>, metadata?: grpc.Metadata): Promise<MsgPayPacketFeeResponse>;
+  PayPacketFee(
+    request: DeepPartial<MsgPayPacketFee>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgPayPacketFeeResponse>;
   /**
    * PayPacketFeeAsync defines a rpc handler method for MsgPayPacketFeeAsync
    * PayPacketFeeAsync is an open callback that may be called by any module/user that wishes to escrow funds in order to
@@ -692,7 +705,10 @@ export class MsgClientImpl implements Msg {
     this.PayPacketFeeAsync = this.PayPacketFeeAsync.bind(this);
   }
 
-  RegisterPayee(request: DeepPartial<MsgRegisterPayee>, metadata?: grpc.Metadata): Promise<MsgRegisterPayeeResponse> {
+  RegisterPayee(
+    request: DeepPartial<MsgRegisterPayee>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgRegisterPayeeResponse> {
     return this.rpc.unary(MsgRegisterPayeeDesc, MsgRegisterPayee.fromPartial(request), metadata);
   }
 
@@ -707,7 +723,10 @@ export class MsgClientImpl implements Msg {
     );
   }
 
-  PayPacketFee(request: DeepPartial<MsgPayPacketFee>, metadata?: grpc.Metadata): Promise<MsgPayPacketFeeResponse> {
+  PayPacketFee(
+    request: DeepPartial<MsgPayPacketFee>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgPayPacketFeeResponse> {
     return this.rpc.unary(MsgPayPacketFeeDesc, MsgPayPacketFee.fromPartial(request), metadata);
   }
 
@@ -858,9 +877,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -902,14 +922,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

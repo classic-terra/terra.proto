@@ -151,9 +151,10 @@ export const QueryGrantsRequest = {
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
     message.msgTypeUrl = object.msgTypeUrl ?? "";
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -213,7 +214,7 @@ export const QueryGrantsResponse = {
   toJSON(message: QueryGrantsResponse): unknown {
     const obj: any = {};
     if (message.grants) {
-      obj.grants = message.grants.map((e) => e ? Grant.toJSON(e) : undefined);
+      obj.grants = message.grants.map((e) => (e ? Grant.toJSON(e) : undefined));
     } else {
       obj.grants = [];
     }
@@ -229,9 +230,10 @@ export const QueryGrantsResponse = {
   fromPartial<I extends Exact<DeepPartial<QueryGrantsResponse>, I>>(object: I): QueryGrantsResponse {
     const message = createBaseQueryGrantsResponse();
     message.grants = object.grants?.map((e) => Grant.fromPartial(e)) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -300,12 +302,15 @@ export const QueryGranterGrantsRequest = {
     return QueryGranterGrantsRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryGranterGrantsRequest>, I>>(object: I): QueryGranterGrantsRequest {
+  fromPartial<I extends Exact<DeepPartial<QueryGranterGrantsRequest>, I>>(
+    object: I,
+  ): QueryGranterGrantsRequest {
     const message = createBaseQueryGranterGrantsRequest();
     message.granter = object.granter ?? "";
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -357,7 +362,9 @@ export const QueryGranterGrantsResponse = {
 
   fromJSON(object: any): QueryGranterGrantsResponse {
     return {
-      grants: Array.isArray(object?.grants) ? object.grants.map((e: any) => GrantAuthorization.fromJSON(e)) : [],
+      grants: Array.isArray(object?.grants)
+        ? object.grants.map((e: any) => GrantAuthorization.fromJSON(e))
+        : [],
       pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
     };
   },
@@ -365,7 +372,7 @@ export const QueryGranterGrantsResponse = {
   toJSON(message: QueryGranterGrantsResponse): unknown {
     const obj: any = {};
     if (message.grants) {
-      obj.grants = message.grants.map((e) => e ? GrantAuthorization.toJSON(e) : undefined);
+      obj.grants = message.grants.map((e) => (e ? GrantAuthorization.toJSON(e) : undefined));
     } else {
       obj.grants = [];
     }
@@ -378,12 +385,15 @@ export const QueryGranterGrantsResponse = {
     return QueryGranterGrantsResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryGranterGrantsResponse>, I>>(object: I): QueryGranterGrantsResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryGranterGrantsResponse>, I>>(
+    object: I,
+  ): QueryGranterGrantsResponse {
     const message = createBaseQueryGranterGrantsResponse();
     message.grants = object.grants?.map((e) => GrantAuthorization.fromPartial(e)) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -452,12 +462,15 @@ export const QueryGranteeGrantsRequest = {
     return QueryGranteeGrantsRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryGranteeGrantsRequest>, I>>(object: I): QueryGranteeGrantsRequest {
+  fromPartial<I extends Exact<DeepPartial<QueryGranteeGrantsRequest>, I>>(
+    object: I,
+  ): QueryGranteeGrantsRequest {
     const message = createBaseQueryGranteeGrantsRequest();
     message.grantee = object.grantee ?? "";
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -509,7 +522,9 @@ export const QueryGranteeGrantsResponse = {
 
   fromJSON(object: any): QueryGranteeGrantsResponse {
     return {
-      grants: Array.isArray(object?.grants) ? object.grants.map((e: any) => GrantAuthorization.fromJSON(e)) : [],
+      grants: Array.isArray(object?.grants)
+        ? object.grants.map((e: any) => GrantAuthorization.fromJSON(e))
+        : [],
       pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
     };
   },
@@ -517,7 +532,7 @@ export const QueryGranteeGrantsResponse = {
   toJSON(message: QueryGranteeGrantsResponse): unknown {
     const obj: any = {};
     if (message.grants) {
-      obj.grants = message.grants.map((e) => e ? GrantAuthorization.toJSON(e) : undefined);
+      obj.grants = message.grants.map((e) => (e ? GrantAuthorization.toJSON(e) : undefined));
     } else {
       obj.grants = [];
     }
@@ -530,12 +545,15 @@ export const QueryGranteeGrantsResponse = {
     return QueryGranteeGrantsResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryGranteeGrantsResponse>, I>>(object: I): QueryGranteeGrantsResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryGranteeGrantsResponse>, I>>(
+    object: I,
+  ): QueryGranteeGrantsResponse {
     const message = createBaseQueryGranteeGrantsResponse();
     message.grants = object.grants?.map((e) => GrantAuthorization.fromPartial(e)) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -709,9 +727,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -753,14 +772,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

@@ -74,13 +74,9 @@ export interface StakeAuthorization {
    * allow_list specifies list of validator addresses to whom grantee can delegate tokens on behalf of granter's
    * account.
    */
-  allowList?:
-    | StakeAuthorization_Validators
-    | undefined;
+  allowList?: StakeAuthorization_Validators | undefined;
   /** deny_list specifies list of validator addresses to whom grantee can not delegate tokens. */
-  denyList?:
-    | StakeAuthorization_Validators
-    | undefined;
+  denyList?: StakeAuthorization_Validators | undefined;
   /** authorization_type defines one of AuthorizationType. */
   authorizationType: AuthorizationType;
 }
@@ -158,17 +154,24 @@ export const StakeAuthorization = {
   fromJSON(object: any): StakeAuthorization {
     return {
       maxTokens: isSet(object.maxTokens) ? Coin.fromJSON(object.maxTokens) : undefined,
-      allowList: isSet(object.allowList) ? StakeAuthorization_Validators.fromJSON(object.allowList) : undefined,
+      allowList: isSet(object.allowList)
+        ? StakeAuthorization_Validators.fromJSON(object.allowList)
+        : undefined,
       denyList: isSet(object.denyList) ? StakeAuthorization_Validators.fromJSON(object.denyList) : undefined,
-      authorizationType: isSet(object.authorizationType) ? authorizationTypeFromJSON(object.authorizationType) : 0,
+      authorizationType: isSet(object.authorizationType)
+        ? authorizationTypeFromJSON(object.authorizationType)
+        : 0,
     };
   },
 
   toJSON(message: StakeAuthorization): unknown {
     const obj: any = {};
-    message.maxTokens !== undefined && (obj.maxTokens = message.maxTokens ? Coin.toJSON(message.maxTokens) : undefined);
+    message.maxTokens !== undefined &&
+      (obj.maxTokens = message.maxTokens ? Coin.toJSON(message.maxTokens) : undefined);
     message.allowList !== undefined &&
-      (obj.allowList = message.allowList ? StakeAuthorization_Validators.toJSON(message.allowList) : undefined);
+      (obj.allowList = message.allowList
+        ? StakeAuthorization_Validators.toJSON(message.allowList)
+        : undefined);
     message.denyList !== undefined &&
       (obj.denyList = message.denyList ? StakeAuthorization_Validators.toJSON(message.denyList) : undefined);
     message.authorizationType !== undefined &&
@@ -182,15 +185,18 @@ export const StakeAuthorization = {
 
   fromPartial<I extends Exact<DeepPartial<StakeAuthorization>, I>>(object: I): StakeAuthorization {
     const message = createBaseStakeAuthorization();
-    message.maxTokens = (object.maxTokens !== undefined && object.maxTokens !== null)
-      ? Coin.fromPartial(object.maxTokens)
-      : undefined;
-    message.allowList = (object.allowList !== undefined && object.allowList !== null)
-      ? StakeAuthorization_Validators.fromPartial(object.allowList)
-      : undefined;
-    message.denyList = (object.denyList !== undefined && object.denyList !== null)
-      ? StakeAuthorization_Validators.fromPartial(object.denyList)
-      : undefined;
+    message.maxTokens =
+      object.maxTokens !== undefined && object.maxTokens !== null
+        ? Coin.fromPartial(object.maxTokens)
+        : undefined;
+    message.allowList =
+      object.allowList !== undefined && object.allowList !== null
+        ? StakeAuthorization_Validators.fromPartial(object.allowList)
+        : undefined;
+    message.denyList =
+      object.denyList !== undefined && object.denyList !== null
+        ? StakeAuthorization_Validators.fromPartial(object.denyList)
+        : undefined;
     message.authorizationType = object.authorizationType ?? 0;
     return message;
   },
@@ -245,7 +251,9 @@ export const StakeAuthorization_Validators = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<StakeAuthorization_Validators>, I>>(base?: I): StakeAuthorization_Validators {
+  create<I extends Exact<DeepPartial<StakeAuthorization_Validators>, I>>(
+    base?: I,
+  ): StakeAuthorization_Validators {
     return StakeAuthorization_Validators.fromPartial(base ?? {});
   },
 
@@ -260,14 +268,21 @@ export const StakeAuthorization_Validators = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

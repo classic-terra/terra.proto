@@ -177,9 +177,10 @@ export const QueryAllowanceResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QueryAllowanceResponse>, I>>(object: I): QueryAllowanceResponse {
     const message = createBaseQueryAllowanceResponse();
-    message.allowance = (object.allowance !== undefined && object.allowance !== null)
-      ? Grant.fromPartial(object.allowance)
-      : undefined;
+    message.allowance =
+      object.allowance !== undefined && object.allowance !== null
+        ? Grant.fromPartial(object.allowance)
+        : undefined;
     return message;
   },
 };
@@ -251,9 +252,10 @@ export const QueryAllowancesRequest = {
   fromPartial<I extends Exact<DeepPartial<QueryAllowancesRequest>, I>>(object: I): QueryAllowancesRequest {
     const message = createBaseQueryAllowancesRequest();
     message.grantee = object.grantee ?? "";
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -305,7 +307,9 @@ export const QueryAllowancesResponse = {
 
   fromJSON(object: any): QueryAllowancesResponse {
     return {
-      allowances: Array.isArray(object?.allowances) ? object.allowances.map((e: any) => Grant.fromJSON(e)) : [],
+      allowances: Array.isArray(object?.allowances)
+        ? object.allowances.map((e: any) => Grant.fromJSON(e))
+        : [],
       pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
     };
   },
@@ -313,7 +317,7 @@ export const QueryAllowancesResponse = {
   toJSON(message: QueryAllowancesResponse): unknown {
     const obj: any = {};
     if (message.allowances) {
-      obj.allowances = message.allowances.map((e) => e ? Grant.toJSON(e) : undefined);
+      obj.allowances = message.allowances.map((e) => (e ? Grant.toJSON(e) : undefined));
     } else {
       obj.allowances = [];
     }
@@ -329,9 +333,10 @@ export const QueryAllowancesResponse = {
   fromPartial<I extends Exact<DeepPartial<QueryAllowancesResponse>, I>>(object: I): QueryAllowancesResponse {
     const message = createBaseQueryAllowancesResponse();
     message.allowances = object.allowances?.map((e) => Grant.fromPartial(e)) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -396,7 +401,9 @@ export const QueryAllowancesByGranterRequest = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryAllowancesByGranterRequest>, I>>(base?: I): QueryAllowancesByGranterRequest {
+  create<I extends Exact<DeepPartial<QueryAllowancesByGranterRequest>, I>>(
+    base?: I,
+  ): QueryAllowancesByGranterRequest {
     return QueryAllowancesByGranterRequest.fromPartial(base ?? {});
   },
 
@@ -405,9 +412,10 @@ export const QueryAllowancesByGranterRequest = {
   ): QueryAllowancesByGranterRequest {
     const message = createBaseQueryAllowancesByGranterRequest();
     message.granter = object.granter ?? "";
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -459,7 +467,9 @@ export const QueryAllowancesByGranterResponse = {
 
   fromJSON(object: any): QueryAllowancesByGranterResponse {
     return {
-      allowances: Array.isArray(object?.allowances) ? object.allowances.map((e: any) => Grant.fromJSON(e)) : [],
+      allowances: Array.isArray(object?.allowances)
+        ? object.allowances.map((e: any) => Grant.fromJSON(e))
+        : [],
       pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
     };
   },
@@ -467,7 +477,7 @@ export const QueryAllowancesByGranterResponse = {
   toJSON(message: QueryAllowancesByGranterResponse): unknown {
     const obj: any = {};
     if (message.allowances) {
-      obj.allowances = message.allowances.map((e) => e ? Grant.toJSON(e) : undefined);
+      obj.allowances = message.allowances.map((e) => (e ? Grant.toJSON(e) : undefined));
     } else {
       obj.allowances = [];
     }
@@ -487,9 +497,10 @@ export const QueryAllowancesByGranterResponse = {
   ): QueryAllowancesByGranterResponse {
     const message = createBaseQueryAllowancesByGranterResponse();
     message.allowances = object.allowances?.map((e) => Grant.fromPartial(e)) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -497,9 +508,15 @@ export const QueryAllowancesByGranterResponse = {
 /** Query defines the gRPC querier service. */
 export interface Query {
   /** Allowance returns fee granted to the grantee by the granter. */
-  Allowance(request: DeepPartial<QueryAllowanceRequest>, metadata?: grpc.Metadata): Promise<QueryAllowanceResponse>;
+  Allowance(
+    request: DeepPartial<QueryAllowanceRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryAllowanceResponse>;
   /** Allowances returns all the grants for address. */
-  Allowances(request: DeepPartial<QueryAllowancesRequest>, metadata?: grpc.Metadata): Promise<QueryAllowancesResponse>;
+  Allowances(
+    request: DeepPartial<QueryAllowancesRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryAllowancesResponse>;
   /**
    * AllowancesByGranter returns all the grants given by an address
    * Since v0.46
@@ -520,11 +537,17 @@ export class QueryClientImpl implements Query {
     this.AllowancesByGranter = this.AllowancesByGranter.bind(this);
   }
 
-  Allowance(request: DeepPartial<QueryAllowanceRequest>, metadata?: grpc.Metadata): Promise<QueryAllowanceResponse> {
+  Allowance(
+    request: DeepPartial<QueryAllowanceRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryAllowanceResponse> {
     return this.rpc.unary(QueryAllowanceDesc, QueryAllowanceRequest.fromPartial(request), metadata);
   }
 
-  Allowances(request: DeepPartial<QueryAllowancesRequest>, metadata?: grpc.Metadata): Promise<QueryAllowancesResponse> {
+  Allowances(
+    request: DeepPartial<QueryAllowancesRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryAllowancesResponse> {
     return this.rpc.unary(QueryAllowancesDesc, QueryAllowancesRequest.fromPartial(request), metadata);
   }
 
@@ -532,7 +555,11 @@ export class QueryClientImpl implements Query {
     request: DeepPartial<QueryAllowancesByGranterRequest>,
     metadata?: grpc.Metadata,
   ): Promise<QueryAllowancesByGranterResponse> {
-    return this.rpc.unary(QueryAllowancesByGranterDesc, QueryAllowancesByGranterRequest.fromPartial(request), metadata);
+    return this.rpc.unary(
+      QueryAllowancesByGranterDesc,
+      QueryAllowancesByGranterRequest.fromPartial(request),
+      metadata,
+    );
   }
 }
 
@@ -652,9 +679,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -696,14 +724,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

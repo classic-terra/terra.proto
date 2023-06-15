@@ -15,7 +15,12 @@ export interface GenesisState {
 }
 
 function createBaseGenesisState(): GenesisState {
-  return { connections: [], clientConnectionPaths: [], nextConnectionSequence: Long.UZERO, params: undefined };
+  return {
+    connections: [],
+    clientConnectionPaths: [],
+    nextConnectionSequence: Long.UZERO,
+    params: undefined,
+  };
 }
 
 export const GenesisState = {
@@ -97,12 +102,14 @@ export const GenesisState = {
   toJSON(message: GenesisState): unknown {
     const obj: any = {};
     if (message.connections) {
-      obj.connections = message.connections.map((e) => e ? IdentifiedConnection.toJSON(e) : undefined);
+      obj.connections = message.connections.map((e) => (e ? IdentifiedConnection.toJSON(e) : undefined));
     } else {
       obj.connections = [];
     }
     if (message.clientConnectionPaths) {
-      obj.clientConnectionPaths = message.clientConnectionPaths.map((e) => e ? ConnectionPaths.toJSON(e) : undefined);
+      obj.clientConnectionPaths = message.clientConnectionPaths.map((e) =>
+        e ? ConnectionPaths.toJSON(e) : undefined,
+      );
     } else {
       obj.clientConnectionPaths = [];
     }
@@ -119,28 +126,35 @@ export const GenesisState = {
   fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
     const message = createBaseGenesisState();
     message.connections = object.connections?.map((e) => IdentifiedConnection.fromPartial(e)) || [];
-    message.clientConnectionPaths = object.clientConnectionPaths?.map((e) => ConnectionPaths.fromPartial(e)) || [];
+    message.clientConnectionPaths =
+      object.clientConnectionPaths?.map((e) => ConnectionPaths.fromPartial(e)) || [];
     message.nextConnectionSequence =
-      (object.nextConnectionSequence !== undefined && object.nextConnectionSequence !== null)
+      object.nextConnectionSequence !== undefined && object.nextConnectionSequence !== null
         ? Long.fromValue(object.nextConnectionSequence)
         : Long.UZERO;
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
 };
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

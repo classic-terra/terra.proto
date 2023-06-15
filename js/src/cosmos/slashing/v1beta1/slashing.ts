@@ -142,7 +142,9 @@ export const ValidatorSigningInfo = {
       indexOffset: isSet(object.indexOffset) ? Long.fromValue(object.indexOffset) : Long.ZERO,
       jailedUntil: isSet(object.jailedUntil) ? fromJsonTimestamp(object.jailedUntil) : undefined,
       tombstoned: isSet(object.tombstoned) ? Boolean(object.tombstoned) : false,
-      missedBlocksCounter: isSet(object.missedBlocksCounter) ? Long.fromValue(object.missedBlocksCounter) : Long.ZERO,
+      missedBlocksCounter: isSet(object.missedBlocksCounter)
+        ? Long.fromValue(object.missedBlocksCounter)
+        : Long.ZERO,
     };
   },
 
@@ -165,17 +167,20 @@ export const ValidatorSigningInfo = {
   fromPartial<I extends Exact<DeepPartial<ValidatorSigningInfo>, I>>(object: I): ValidatorSigningInfo {
     const message = createBaseValidatorSigningInfo();
     message.address = object.address ?? "";
-    message.startHeight = (object.startHeight !== undefined && object.startHeight !== null)
-      ? Long.fromValue(object.startHeight)
-      : Long.ZERO;
-    message.indexOffset = (object.indexOffset !== undefined && object.indexOffset !== null)
-      ? Long.fromValue(object.indexOffset)
-      : Long.ZERO;
+    message.startHeight =
+      object.startHeight !== undefined && object.startHeight !== null
+        ? Long.fromValue(object.startHeight)
+        : Long.ZERO;
+    message.indexOffset =
+      object.indexOffset !== undefined && object.indexOffset !== null
+        ? Long.fromValue(object.indexOffset)
+        : Long.ZERO;
     message.jailedUntil = object.jailedUntil ?? undefined;
     message.tombstoned = object.tombstoned ?? false;
-    message.missedBlocksCounter = (object.missedBlocksCounter !== undefined && object.missedBlocksCounter !== null)
-      ? Long.fromValue(object.missedBlocksCounter)
-      : Long.ZERO;
+    message.missedBlocksCounter =
+      object.missedBlocksCounter !== undefined && object.missedBlocksCounter !== null
+        ? Long.fromValue(object.missedBlocksCounter)
+        : Long.ZERO;
     return message;
   },
 };
@@ -263,7 +268,9 @@ export const Params = {
 
   fromJSON(object: any): Params {
     return {
-      signedBlocksWindow: isSet(object.signedBlocksWindow) ? Long.fromValue(object.signedBlocksWindow) : Long.ZERO,
+      signedBlocksWindow: isSet(object.signedBlocksWindow)
+        ? Long.fromValue(object.signedBlocksWindow)
+        : Long.ZERO,
       minSignedPerWindow: isSet(object.minSignedPerWindow)
         ? bytesFromBase64(object.minSignedPerWindow)
         : new Uint8Array(0),
@@ -287,9 +294,10 @@ export const Params = {
       (obj.minSignedPerWindow = base64FromBytes(
         message.minSignedPerWindow !== undefined ? message.minSignedPerWindow : new Uint8Array(0),
       ));
-    message.downtimeJailDuration !== undefined && (obj.downtimeJailDuration = message.downtimeJailDuration
-      ? Duration.toJSON(message.downtimeJailDuration)
-      : undefined);
+    message.downtimeJailDuration !== undefined &&
+      (obj.downtimeJailDuration = message.downtimeJailDuration
+        ? Duration.toJSON(message.downtimeJailDuration)
+        : undefined);
     message.slashFractionDoubleSign !== undefined &&
       (obj.slashFractionDoubleSign = base64FromBytes(
         message.slashFractionDoubleSign !== undefined ? message.slashFractionDoubleSign : new Uint8Array(0),
@@ -307,13 +315,15 @@ export const Params = {
 
   fromPartial<I extends Exact<DeepPartial<Params>, I>>(object: I): Params {
     const message = createBaseParams();
-    message.signedBlocksWindow = (object.signedBlocksWindow !== undefined && object.signedBlocksWindow !== null)
-      ? Long.fromValue(object.signedBlocksWindow)
-      : Long.ZERO;
+    message.signedBlocksWindow =
+      object.signedBlocksWindow !== undefined && object.signedBlocksWindow !== null
+        ? Long.fromValue(object.signedBlocksWindow)
+        : Long.ZERO;
     message.minSignedPerWindow = object.minSignedPerWindow ?? new Uint8Array(0);
-    message.downtimeJailDuration = (object.downtimeJailDuration !== undefined && object.downtimeJailDuration !== null)
-      ? Duration.fromPartial(object.downtimeJailDuration)
-      : undefined;
+    message.downtimeJailDuration =
+      object.downtimeJailDuration !== undefined && object.downtimeJailDuration !== null
+        ? Duration.fromPartial(object.downtimeJailDuration)
+        : undefined;
     message.slashFractionDoubleSign = object.slashFractionDoubleSign ?? new Uint8Array(0);
     message.slashFractionDowntime = object.slashFractionDowntime ?? new Uint8Array(0);
     return message;
@@ -366,14 +376,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 function toTimestamp(date: Date): Timestamp {

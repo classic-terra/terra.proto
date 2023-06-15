@@ -122,7 +122,9 @@ export const GenesisState = {
             break;
           }
 
-          message.aggregateExchangeRatePrevotes.push(AggregateExchangeRatePrevote.decode(reader, reader.uint32()));
+          message.aggregateExchangeRatePrevotes.push(
+            AggregateExchangeRatePrevote.decode(reader, reader.uint32()),
+          );
           continue;
         case 6:
           if (tag !== 50) {
@@ -175,36 +177,38 @@ export const GenesisState = {
     const obj: any = {};
     message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
     if (message.feederDelegations) {
-      obj.feederDelegations = message.feederDelegations.map((e) => e ? FeederDelegation.toJSON(e) : undefined);
+      obj.feederDelegations = message.feederDelegations.map((e) =>
+        e ? FeederDelegation.toJSON(e) : undefined,
+      );
     } else {
       obj.feederDelegations = [];
     }
     if (message.exchangeRates) {
-      obj.exchangeRates = message.exchangeRates.map((e) => e ? ExchangeRateTuple.toJSON(e) : undefined);
+      obj.exchangeRates = message.exchangeRates.map((e) => (e ? ExchangeRateTuple.toJSON(e) : undefined));
     } else {
       obj.exchangeRates = [];
     }
     if (message.missCounters) {
-      obj.missCounters = message.missCounters.map((e) => e ? MissCounter.toJSON(e) : undefined);
+      obj.missCounters = message.missCounters.map((e) => (e ? MissCounter.toJSON(e) : undefined));
     } else {
       obj.missCounters = [];
     }
     if (message.aggregateExchangeRatePrevotes) {
       obj.aggregateExchangeRatePrevotes = message.aggregateExchangeRatePrevotes.map((e) =>
-        e ? AggregateExchangeRatePrevote.toJSON(e) : undefined
+        e ? AggregateExchangeRatePrevote.toJSON(e) : undefined,
       );
     } else {
       obj.aggregateExchangeRatePrevotes = [];
     }
     if (message.aggregateExchangeRateVotes) {
       obj.aggregateExchangeRateVotes = message.aggregateExchangeRateVotes.map((e) =>
-        e ? AggregateExchangeRateVote.toJSON(e) : undefined
+        e ? AggregateExchangeRateVote.toJSON(e) : undefined,
       );
     } else {
       obj.aggregateExchangeRateVotes = [];
     }
     if (message.tobinTaxes) {
-      obj.tobinTaxes = message.tobinTaxes.map((e) => e ? TobinTax.toJSON(e) : undefined);
+      obj.tobinTaxes = message.tobinTaxes.map((e) => (e ? TobinTax.toJSON(e) : undefined));
     } else {
       obj.tobinTaxes = [];
     }
@@ -217,9 +221,8 @@ export const GenesisState = {
 
   fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
     const message = createBaseGenesisState();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     message.feederDelegations = object.feederDelegations?.map((e) => FeederDelegation.fromPartial(e)) || [];
     message.exchangeRates = object.exchangeRates?.map((e) => ExchangeRateTuple.fromPartial(e)) || [];
     message.missCounters = object.missCounters?.map((e) => MissCounter.fromPartial(e)) || [];
@@ -369,9 +372,10 @@ export const MissCounter = {
   fromPartial<I extends Exact<DeepPartial<MissCounter>, I>>(object: I): MissCounter {
     const message = createBaseMissCounter();
     message.validatorAddress = object.validatorAddress ?? "";
-    message.missCounter = (object.missCounter !== undefined && object.missCounter !== null)
-      ? Long.fromValue(object.missCounter)
-      : Long.UZERO;
+    message.missCounter =
+      object.missCounter !== undefined && object.missCounter !== null
+        ? Long.fromValue(object.missCounter)
+        : Long.UZERO;
     return message;
   },
 };
@@ -449,14 +453,21 @@ export const TobinTax = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

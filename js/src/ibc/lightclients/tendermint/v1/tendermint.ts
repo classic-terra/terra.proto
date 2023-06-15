@@ -265,9 +265,13 @@ export const ClientState = {
       maxClockDrift: isSet(object.maxClockDrift) ? Duration.fromJSON(object.maxClockDrift) : undefined,
       frozenHeight: isSet(object.frozenHeight) ? Height.fromJSON(object.frozenHeight) : undefined,
       latestHeight: isSet(object.latestHeight) ? Height.fromJSON(object.latestHeight) : undefined,
-      proofSpecs: Array.isArray(object?.proofSpecs) ? object.proofSpecs.map((e: any) => ProofSpec.fromJSON(e)) : [],
+      proofSpecs: Array.isArray(object?.proofSpecs)
+        ? object.proofSpecs.map((e: any) => ProofSpec.fromJSON(e))
+        : [],
       upgradePath: Array.isArray(object?.upgradePath) ? object.upgradePath.map((e: any) => String(e)) : [],
-      allowUpdateAfterExpiry: isSet(object.allowUpdateAfterExpiry) ? Boolean(object.allowUpdateAfterExpiry) : false,
+      allowUpdateAfterExpiry: isSet(object.allowUpdateAfterExpiry)
+        ? Boolean(object.allowUpdateAfterExpiry)
+        : false,
       allowUpdateAfterMisbehaviour: isSet(object.allowUpdateAfterMisbehaviour)
         ? Boolean(object.allowUpdateAfterMisbehaviour)
         : false,
@@ -290,7 +294,7 @@ export const ClientState = {
     message.latestHeight !== undefined &&
       (obj.latestHeight = message.latestHeight ? Height.toJSON(message.latestHeight) : undefined);
     if (message.proofSpecs) {
-      obj.proofSpecs = message.proofSpecs.map((e) => e ? ProofSpec.toJSON(e) : undefined);
+      obj.proofSpecs = message.proofSpecs.map((e) => (e ? ProofSpec.toJSON(e) : undefined));
     } else {
       obj.proofSpecs = [];
     }
@@ -299,7 +303,8 @@ export const ClientState = {
     } else {
       obj.upgradePath = [];
     }
-    message.allowUpdateAfterExpiry !== undefined && (obj.allowUpdateAfterExpiry = message.allowUpdateAfterExpiry);
+    message.allowUpdateAfterExpiry !== undefined &&
+      (obj.allowUpdateAfterExpiry = message.allowUpdateAfterExpiry);
     message.allowUpdateAfterMisbehaviour !== undefined &&
       (obj.allowUpdateAfterMisbehaviour = message.allowUpdateAfterMisbehaviour);
     return obj;
@@ -312,24 +317,30 @@ export const ClientState = {
   fromPartial<I extends Exact<DeepPartial<ClientState>, I>>(object: I): ClientState {
     const message = createBaseClientState();
     message.chainId = object.chainId ?? "";
-    message.trustLevel = (object.trustLevel !== undefined && object.trustLevel !== null)
-      ? Fraction.fromPartial(object.trustLevel)
-      : undefined;
-    message.trustingPeriod = (object.trustingPeriod !== undefined && object.trustingPeriod !== null)
-      ? Duration.fromPartial(object.trustingPeriod)
-      : undefined;
-    message.unbondingPeriod = (object.unbondingPeriod !== undefined && object.unbondingPeriod !== null)
-      ? Duration.fromPartial(object.unbondingPeriod)
-      : undefined;
-    message.maxClockDrift = (object.maxClockDrift !== undefined && object.maxClockDrift !== null)
-      ? Duration.fromPartial(object.maxClockDrift)
-      : undefined;
-    message.frozenHeight = (object.frozenHeight !== undefined && object.frozenHeight !== null)
-      ? Height.fromPartial(object.frozenHeight)
-      : undefined;
-    message.latestHeight = (object.latestHeight !== undefined && object.latestHeight !== null)
-      ? Height.fromPartial(object.latestHeight)
-      : undefined;
+    message.trustLevel =
+      object.trustLevel !== undefined && object.trustLevel !== null
+        ? Fraction.fromPartial(object.trustLevel)
+        : undefined;
+    message.trustingPeriod =
+      object.trustingPeriod !== undefined && object.trustingPeriod !== null
+        ? Duration.fromPartial(object.trustingPeriod)
+        : undefined;
+    message.unbondingPeriod =
+      object.unbondingPeriod !== undefined && object.unbondingPeriod !== null
+        ? Duration.fromPartial(object.unbondingPeriod)
+        : undefined;
+    message.maxClockDrift =
+      object.maxClockDrift !== undefined && object.maxClockDrift !== null
+        ? Duration.fromPartial(object.maxClockDrift)
+        : undefined;
+    message.frozenHeight =
+      object.frozenHeight !== undefined && object.frozenHeight !== null
+        ? Height.fromPartial(object.frozenHeight)
+        : undefined;
+    message.latestHeight =
+      object.latestHeight !== undefined && object.latestHeight !== null
+        ? Height.fromPartial(object.latestHeight)
+        : undefined;
     message.proofSpecs = object.proofSpecs?.map((e) => ProofSpec.fromPartial(e)) || [];
     message.upgradePath = object.upgradePath?.map((e) => e) || [];
     message.allowUpdateAfterExpiry = object.allowUpdateAfterExpiry ?? false;
@@ -421,9 +432,8 @@ export const ConsensusState = {
   fromPartial<I extends Exact<DeepPartial<ConsensusState>, I>>(object: I): ConsensusState {
     const message = createBaseConsensusState();
     message.timestamp = object.timestamp ?? undefined;
-    message.root = (object.root !== undefined && object.root !== null)
-      ? MerkleRoot.fromPartial(object.root)
-      : undefined;
+    message.root =
+      object.root !== undefined && object.root !== null ? MerkleRoot.fromPartial(object.root) : undefined;
     message.nextValidatorsHash = object.nextValidatorsHash ?? new Uint8Array(0);
     return message;
   },
@@ -495,8 +505,10 @@ export const Misbehaviour = {
   toJSON(message: Misbehaviour): unknown {
     const obj: any = {};
     message.clientId !== undefined && (obj.clientId = message.clientId);
-    message.header1 !== undefined && (obj.header1 = message.header1 ? Header.toJSON(message.header1) : undefined);
-    message.header2 !== undefined && (obj.header2 = message.header2 ? Header.toJSON(message.header2) : undefined);
+    message.header1 !== undefined &&
+      (obj.header1 = message.header1 ? Header.toJSON(message.header1) : undefined);
+    message.header2 !== undefined &&
+      (obj.header2 = message.header2 ? Header.toJSON(message.header2) : undefined);
     return obj;
   },
 
@@ -507,18 +519,25 @@ export const Misbehaviour = {
   fromPartial<I extends Exact<DeepPartial<Misbehaviour>, I>>(object: I): Misbehaviour {
     const message = createBaseMisbehaviour();
     message.clientId = object.clientId ?? "";
-    message.header1 = (object.header1 !== undefined && object.header1 !== null)
-      ? Header.fromPartial(object.header1)
-      : undefined;
-    message.header2 = (object.header2 !== undefined && object.header2 !== null)
-      ? Header.fromPartial(object.header2)
-      : undefined;
+    message.header1 =
+      object.header1 !== undefined && object.header1 !== null
+        ? Header.fromPartial(object.header1)
+        : undefined;
+    message.header2 =
+      object.header2 !== undefined && object.header2 !== null
+        ? Header.fromPartial(object.header2)
+        : undefined;
     return message;
   },
 };
 
 function createBaseHeader(): Header {
-  return { signedHeader: undefined, validatorSet: undefined, trustedHeight: undefined, trustedValidators: undefined };
+  return {
+    signedHeader: undefined,
+    validatorSet: undefined,
+    trustedHeight: undefined,
+    trustedValidators: undefined,
+  };
 }
 
 export const Header = {
@@ -587,7 +606,9 @@ export const Header = {
       signedHeader: isSet(object.signedHeader) ? SignedHeader.fromJSON(object.signedHeader) : undefined,
       validatorSet: isSet(object.validatorSet) ? ValidatorSet.fromJSON(object.validatorSet) : undefined,
       trustedHeight: isSet(object.trustedHeight) ? Height.fromJSON(object.trustedHeight) : undefined,
-      trustedValidators: isSet(object.trustedValidators) ? ValidatorSet.fromJSON(object.trustedValidators) : undefined,
+      trustedValidators: isSet(object.trustedValidators)
+        ? ValidatorSet.fromJSON(object.trustedValidators)
+        : undefined,
     };
   },
 
@@ -600,7 +621,9 @@ export const Header = {
     message.trustedHeight !== undefined &&
       (obj.trustedHeight = message.trustedHeight ? Height.toJSON(message.trustedHeight) : undefined);
     message.trustedValidators !== undefined &&
-      (obj.trustedValidators = message.trustedValidators ? ValidatorSet.toJSON(message.trustedValidators) : undefined);
+      (obj.trustedValidators = message.trustedValidators
+        ? ValidatorSet.toJSON(message.trustedValidators)
+        : undefined);
     return obj;
   },
 
@@ -610,18 +633,22 @@ export const Header = {
 
   fromPartial<I extends Exact<DeepPartial<Header>, I>>(object: I): Header {
     const message = createBaseHeader();
-    message.signedHeader = (object.signedHeader !== undefined && object.signedHeader !== null)
-      ? SignedHeader.fromPartial(object.signedHeader)
-      : undefined;
-    message.validatorSet = (object.validatorSet !== undefined && object.validatorSet !== null)
-      ? ValidatorSet.fromPartial(object.validatorSet)
-      : undefined;
-    message.trustedHeight = (object.trustedHeight !== undefined && object.trustedHeight !== null)
-      ? Height.fromPartial(object.trustedHeight)
-      : undefined;
-    message.trustedValidators = (object.trustedValidators !== undefined && object.trustedValidators !== null)
-      ? ValidatorSet.fromPartial(object.trustedValidators)
-      : undefined;
+    message.signedHeader =
+      object.signedHeader !== undefined && object.signedHeader !== null
+        ? SignedHeader.fromPartial(object.signedHeader)
+        : undefined;
+    message.validatorSet =
+      object.validatorSet !== undefined && object.validatorSet !== null
+        ? ValidatorSet.fromPartial(object.validatorSet)
+        : undefined;
+    message.trustedHeight =
+      object.trustedHeight !== undefined && object.trustedHeight !== null
+        ? Height.fromPartial(object.trustedHeight)
+        : undefined;
+    message.trustedValidators =
+      object.trustedValidators !== undefined && object.trustedValidators !== null
+        ? ValidatorSet.fromPartial(object.trustedValidators)
+        : undefined;
     return message;
   },
 };
@@ -691,12 +718,14 @@ export const Fraction = {
 
   fromPartial<I extends Exact<DeepPartial<Fraction>, I>>(object: I): Fraction {
     const message = createBaseFraction();
-    message.numerator = (object.numerator !== undefined && object.numerator !== null)
-      ? Long.fromValue(object.numerator)
-      : Long.UZERO;
-    message.denominator = (object.denominator !== undefined && object.denominator !== null)
-      ? Long.fromValue(object.denominator)
-      : Long.UZERO;
+    message.numerator =
+      object.numerator !== undefined && object.numerator !== null
+        ? Long.fromValue(object.numerator)
+        : Long.UZERO;
+    message.denominator =
+      object.denominator !== undefined && object.denominator !== null
+        ? Long.fromValue(object.denominator)
+        : Long.UZERO;
     return message;
   },
 };
@@ -747,14 +776,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 function toTimestamp(date: Date): Timestamp {

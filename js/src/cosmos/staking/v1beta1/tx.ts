@@ -22,8 +22,7 @@ export interface MsgCreateValidator {
 }
 
 /** MsgCreateValidatorResponse defines the Msg/CreateValidator response type. */
-export interface MsgCreateValidatorResponse {
-}
+export interface MsgCreateValidatorResponse {}
 
 /** MsgEditValidator defines a SDK message for editing an existing validator. */
 export interface MsgEditValidator {
@@ -40,8 +39,7 @@ export interface MsgEditValidator {
 }
 
 /** MsgEditValidatorResponse defines the Msg/EditValidator response type. */
-export interface MsgEditValidatorResponse {
-}
+export interface MsgEditValidatorResponse {}
 
 /**
  * MsgDelegate defines a SDK message for performing a delegation of coins
@@ -54,8 +52,7 @@ export interface MsgDelegate {
 }
 
 /** MsgDelegateResponse defines the Msg/Delegate response type. */
-export interface MsgDelegateResponse {
-}
+export interface MsgDelegateResponse {}
 
 /**
  * MsgBeginRedelegate defines a SDK message for performing a redelegation
@@ -223,19 +220,21 @@ export const MsgCreateValidator = {
 
   fromPartial<I extends Exact<DeepPartial<MsgCreateValidator>, I>>(object: I): MsgCreateValidator {
     const message = createBaseMsgCreateValidator();
-    message.description = (object.description !== undefined && object.description !== null)
-      ? Description.fromPartial(object.description)
-      : undefined;
-    message.commission = (object.commission !== undefined && object.commission !== null)
-      ? CommissionRates.fromPartial(object.commission)
-      : undefined;
+    message.description =
+      object.description !== undefined && object.description !== null
+        ? Description.fromPartial(object.description)
+        : undefined;
+    message.commission =
+      object.commission !== undefined && object.commission !== null
+        ? CommissionRates.fromPartial(object.commission)
+        : undefined;
     message.minSelfDelegation = object.minSelfDelegation ?? "";
     message.delegatorAddress = object.delegatorAddress ?? "";
     message.validatorAddress = object.validatorAddress ?? "";
-    message.pubkey = (object.pubkey !== undefined && object.pubkey !== null)
-      ? Any.fromPartial(object.pubkey)
-      : undefined;
-    message.value = (object.value !== undefined && object.value !== null) ? Coin.fromPartial(object.value) : undefined;
+    message.pubkey =
+      object.pubkey !== undefined && object.pubkey !== null ? Any.fromPartial(object.pubkey) : undefined;
+    message.value =
+      object.value !== undefined && object.value !== null ? Coin.fromPartial(object.value) : undefined;
     return message;
   },
 };
@@ -374,9 +373,10 @@ export const MsgEditValidator = {
 
   fromPartial<I extends Exact<DeepPartial<MsgEditValidator>, I>>(object: I): MsgEditValidator {
     const message = createBaseMsgEditValidator();
-    message.description = (object.description !== undefined && object.description !== null)
-      ? Description.fromPartial(object.description)
-      : undefined;
+    message.description =
+      object.description !== undefined && object.description !== null
+        ? Description.fromPartial(object.description)
+        : undefined;
     message.validatorAddress = object.validatorAddress ?? "";
     message.commissionRate = object.commissionRate ?? "";
     message.minSelfDelegation = object.minSelfDelegation ?? "";
@@ -507,9 +507,8 @@ export const MsgDelegate = {
     const message = createBaseMsgDelegate();
     message.delegatorAddress = object.delegatorAddress ?? "";
     message.validatorAddress = object.validatorAddress ?? "";
-    message.amount = (object.amount !== undefined && object.amount !== null)
-      ? Coin.fromPartial(object.amount)
-      : undefined;
+    message.amount =
+      object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     return message;
   },
 };
@@ -650,9 +649,8 @@ export const MsgBeginRedelegate = {
     message.delegatorAddress = object.delegatorAddress ?? "";
     message.validatorSrcAddress = object.validatorSrcAddress ?? "";
     message.validatorDstAddress = object.validatorDstAddress ?? "";
-    message.amount = (object.amount !== undefined && object.amount !== null)
-      ? Coin.fromPartial(object.amount)
-      : undefined;
+    message.amount =
+      object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     return message;
   },
 };
@@ -693,7 +691,9 @@ export const MsgBeginRedelegateResponse = {
   },
 
   fromJSON(object: any): MsgBeginRedelegateResponse {
-    return { completionTime: isSet(object.completionTime) ? fromJsonTimestamp(object.completionTime) : undefined };
+    return {
+      completionTime: isSet(object.completionTime) ? fromJsonTimestamp(object.completionTime) : undefined,
+    };
   },
 
   toJSON(message: MsgBeginRedelegateResponse): unknown {
@@ -706,7 +706,9 @@ export const MsgBeginRedelegateResponse = {
     return MsgBeginRedelegateResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<MsgBeginRedelegateResponse>, I>>(object: I): MsgBeginRedelegateResponse {
+  fromPartial<I extends Exact<DeepPartial<MsgBeginRedelegateResponse>, I>>(
+    object: I,
+  ): MsgBeginRedelegateResponse {
     const message = createBaseMsgBeginRedelegateResponse();
     message.completionTime = object.completionTime ?? undefined;
     return message;
@@ -792,9 +794,8 @@ export const MsgUndelegate = {
     const message = createBaseMsgUndelegate();
     message.delegatorAddress = object.delegatorAddress ?? "";
     message.validatorAddress = object.validatorAddress ?? "";
-    message.amount = (object.amount !== undefined && object.amount !== null)
-      ? Coin.fromPartial(object.amount)
-      : undefined;
+    message.amount =
+      object.amount !== undefined && object.amount !== null ? Coin.fromPartial(object.amount) : undefined;
     return message;
   },
 };
@@ -835,7 +836,9 @@ export const MsgUndelegateResponse = {
   },
 
   fromJSON(object: any): MsgUndelegateResponse {
-    return { completionTime: isSet(object.completionTime) ? fromJsonTimestamp(object.completionTime) : undefined };
+    return {
+      completionTime: isSet(object.completionTime) ? fromJsonTimestamp(object.completionTime) : undefined,
+    };
   },
 
   toJSON(message: MsgUndelegateResponse): unknown {
@@ -863,7 +866,10 @@ export interface Msg {
     metadata?: grpc.Metadata,
   ): Promise<MsgCreateValidatorResponse>;
   /** EditValidator defines a method for editing an existing validator. */
-  EditValidator(request: DeepPartial<MsgEditValidator>, metadata?: grpc.Metadata): Promise<MsgEditValidatorResponse>;
+  EditValidator(
+    request: DeepPartial<MsgEditValidator>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgEditValidatorResponse>;
   /**
    * Delegate defines a method for performing a delegation of coins
    * from a delegator to a validator.
@@ -903,7 +909,10 @@ export class MsgClientImpl implements Msg {
     return this.rpc.unary(MsgCreateValidatorDesc, MsgCreateValidator.fromPartial(request), metadata);
   }
 
-  EditValidator(request: DeepPartial<MsgEditValidator>, metadata?: grpc.Metadata): Promise<MsgEditValidatorResponse> {
+  EditValidator(
+    request: DeepPartial<MsgEditValidator>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgEditValidatorResponse> {
     return this.rpc.unary(MsgEditValidatorDesc, MsgEditValidator.fromPartial(request), metadata);
   }
 
@@ -1085,9 +1094,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -1129,14 +1139,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 function toTimestamp(date: Date): Timestamp {

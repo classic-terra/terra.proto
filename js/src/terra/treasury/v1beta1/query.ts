@@ -10,8 +10,7 @@ import { Params } from "./treasury";
 export const protobufPackage = "terra.treasury.v1beta1";
 
 /** QueryTaxRateRequest is the request type for the Query/TaxRate RPC method. */
-export interface QueryTaxRateRequest {
-}
+export interface QueryTaxRateRequest {}
 
 /**
  * QueryTaxRateResponse is response type for the
@@ -36,8 +35,7 @@ export interface QueryTaxCapResponse {
 }
 
 /** QueryTaxCapsRequest is the request type for the Query/TaxCaps RPC method. */
-export interface QueryTaxCapsRequest {
-}
+export interface QueryTaxCapsRequest {}
 
 /**
  * QueryTaxCapsResponseItem is response item type for the
@@ -57,8 +55,7 @@ export interface QueryTaxCapsResponse {
 }
 
 /** QueryRewardWeightRequest is the request type for the Query/RewardWeight RPC method. */
-export interface QueryRewardWeightRequest {
-}
+export interface QueryRewardWeightRequest {}
 
 /**
  * QueryRewardWeightResponse is response type for the
@@ -69,8 +66,7 @@ export interface QueryRewardWeightResponse {
 }
 
 /** QueryTaxProceedsRequest is the request type for the Query/TaxProceeds RPC method. */
-export interface QueryTaxProceedsRequest {
-}
+export interface QueryTaxProceedsRequest {}
 
 /**
  * QueryTaxProceedsResponse is response type for the
@@ -81,8 +77,7 @@ export interface QueryTaxProceedsResponse {
 }
 
 /** QuerySeigniorageProceedsRequest is the request type for the Query/SeigniorageProceeds RPC method. */
-export interface QuerySeigniorageProceedsRequest {
-}
+export interface QuerySeigniorageProceedsRequest {}
 
 /**
  * QuerySeigniorageProceedsResponse is response type for the
@@ -93,8 +88,7 @@ export interface QuerySeigniorageProceedsResponse {
 }
 
 /** QueryIndicatorsRequest is the request type for the Query/Indicators RPC method. */
-export interface QueryIndicatorsRequest {
-}
+export interface QueryIndicatorsRequest {}
 
 /**
  * QueryIndicatorsResponse is response type for the
@@ -106,8 +100,7 @@ export interface QueryIndicatorsResponse {
 }
 
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
-export interface QueryParamsRequest {
-}
+export interface QueryParamsRequest {}
 
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
@@ -445,7 +438,9 @@ export const QueryTaxCapsResponseItem = {
     return QueryTaxCapsResponseItem.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryTaxCapsResponseItem>, I>>(object: I): QueryTaxCapsResponseItem {
+  fromPartial<I extends Exact<DeepPartial<QueryTaxCapsResponseItem>, I>>(
+    object: I,
+  ): QueryTaxCapsResponseItem {
     const message = createBaseQueryTaxCapsResponseItem();
     message.denom = object.denom ?? "";
     message.taxCap = object.taxCap ?? "";
@@ -499,7 +494,7 @@ export const QueryTaxCapsResponse = {
   toJSON(message: QueryTaxCapsResponse): unknown {
     const obj: any = {};
     if (message.taxCaps) {
-      obj.taxCaps = message.taxCaps.map((e) => e ? QueryTaxCapsResponseItem.toJSON(e) : undefined);
+      obj.taxCaps = message.taxCaps.map((e) => (e ? QueryTaxCapsResponseItem.toJSON(e) : undefined));
     } else {
       obj.taxCaps = [];
     }
@@ -610,7 +605,9 @@ export const QueryRewardWeightResponse = {
     return QueryRewardWeightResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryRewardWeightResponse>, I>>(object: I): QueryRewardWeightResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryRewardWeightResponse>, I>>(
+    object: I,
+  ): QueryRewardWeightResponse {
     const message = createBaseQueryRewardWeightResponse();
     message.rewardWeight = object.rewardWeight ?? "";
     return message;
@@ -698,14 +695,16 @@ export const QueryTaxProceedsResponse = {
 
   fromJSON(object: any): QueryTaxProceedsResponse {
     return {
-      taxProceeds: Array.isArray(object?.taxProceeds) ? object.taxProceeds.map((e: any) => Coin.fromJSON(e)) : [],
+      taxProceeds: Array.isArray(object?.taxProceeds)
+        ? object.taxProceeds.map((e: any) => Coin.fromJSON(e))
+        : [],
     };
   },
 
   toJSON(message: QueryTaxProceedsResponse): unknown {
     const obj: any = {};
     if (message.taxProceeds) {
-      obj.taxProceeds = message.taxProceeds.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.taxProceeds = message.taxProceeds.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.taxProceeds = [];
     }
@@ -716,7 +715,9 @@ export const QueryTaxProceedsResponse = {
     return QueryTaxProceedsResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryTaxProceedsResponse>, I>>(object: I): QueryTaxProceedsResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryTaxProceedsResponse>, I>>(
+    object: I,
+  ): QueryTaxProceedsResponse {
     const message = createBaseQueryTaxProceedsResponse();
     message.taxProceeds = object.taxProceeds?.map((e) => Coin.fromPartial(e)) || [];
     return message;
@@ -757,11 +758,15 @@ export const QuerySeigniorageProceedsRequest = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QuerySeigniorageProceedsRequest>, I>>(base?: I): QuerySeigniorageProceedsRequest {
+  create<I extends Exact<DeepPartial<QuerySeigniorageProceedsRequest>, I>>(
+    base?: I,
+  ): QuerySeigniorageProceedsRequest {
     return QuerySeigniorageProceedsRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QuerySeigniorageProceedsRequest>, I>>(_: I): QuerySeigniorageProceedsRequest {
+  fromPartial<I extends Exact<DeepPartial<QuerySeigniorageProceedsRequest>, I>>(
+    _: I,
+  ): QuerySeigniorageProceedsRequest {
     const message = createBaseQuerySeigniorageProceedsRequest();
     return message;
   },
@@ -803,7 +808,9 @@ export const QuerySeigniorageProceedsResponse = {
   },
 
   fromJSON(object: any): QuerySeigniorageProceedsResponse {
-    return { seigniorageProceeds: isSet(object.seigniorageProceeds) ? String(object.seigniorageProceeds) : "" };
+    return {
+      seigniorageProceeds: isSet(object.seigniorageProceeds) ? String(object.seigniorageProceeds) : "",
+    };
   },
 
   toJSON(message: QuerySeigniorageProceedsResponse): unknown {
@@ -1037,9 +1044,8 @@ export const QueryParamsResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(object: I): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
 };
@@ -1100,9 +1106,10 @@ export const QueryBurnTaxExemptionListRequest = {
     object: I,
   ): QueryBurnTaxExemptionListRequest {
     const message = createBaseQueryBurnTaxExemptionListRequest();
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -1182,9 +1189,10 @@ export const QueryBurnTaxExemptionListResponse = {
   ): QueryBurnTaxExemptionListResponse {
     const message = createBaseQueryBurnTaxExemptionListResponse();
     message.addresses = object.addresses?.map((e) => e) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -1213,7 +1221,10 @@ export interface Query {
     metadata?: grpc.Metadata,
   ): Promise<QueryTaxProceedsResponse>;
   /** Indicators return the current trl informations */
-  Indicators(request: DeepPartial<QueryIndicatorsRequest>, metadata?: grpc.Metadata): Promise<QueryIndicatorsResponse>;
+  Indicators(
+    request: DeepPartial<QueryIndicatorsRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryIndicatorsResponse>;
   /** BurnTaxExemptionList returns all registered burn tax exemption addresses */
   BurnTaxExemptionList(
     request: DeepPartial<QueryBurnTaxExemptionListRequest>,
@@ -1239,7 +1250,10 @@ export class QueryClientImpl implements Query {
     this.Params = this.Params.bind(this);
   }
 
-  TaxRate(request: DeepPartial<QueryTaxRateRequest>, metadata?: grpc.Metadata): Promise<QueryTaxRateResponse> {
+  TaxRate(
+    request: DeepPartial<QueryTaxRateRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryTaxRateResponse> {
     return this.rpc.unary(QueryTaxRateDesc, QueryTaxRateRequest.fromPartial(request), metadata);
   }
 
@@ -1247,7 +1261,10 @@ export class QueryClientImpl implements Query {
     return this.rpc.unary(QueryTaxCapDesc, QueryTaxCapRequest.fromPartial(request), metadata);
   }
 
-  TaxCaps(request: DeepPartial<QueryTaxCapsRequest>, metadata?: grpc.Metadata): Promise<QueryTaxCapsResponse> {
+  TaxCaps(
+    request: DeepPartial<QueryTaxCapsRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryTaxCapsResponse> {
     return this.rpc.unary(QueryTaxCapsDesc, QueryTaxCapsRequest.fromPartial(request), metadata);
   }
 
@@ -1262,7 +1279,11 @@ export class QueryClientImpl implements Query {
     request: DeepPartial<QuerySeigniorageProceedsRequest>,
     metadata?: grpc.Metadata,
   ): Promise<QuerySeigniorageProceedsResponse> {
-    return this.rpc.unary(QuerySeigniorageProceedsDesc, QuerySeigniorageProceedsRequest.fromPartial(request), metadata);
+    return this.rpc.unary(
+      QuerySeigniorageProceedsDesc,
+      QuerySeigniorageProceedsRequest.fromPartial(request),
+      metadata,
+    );
   }
 
   TaxProceeds(
@@ -1272,7 +1293,10 @@ export class QueryClientImpl implements Query {
     return this.rpc.unary(QueryTaxProceedsDesc, QueryTaxProceedsRequest.fromPartial(request), metadata);
   }
 
-  Indicators(request: DeepPartial<QueryIndicatorsRequest>, metadata?: grpc.Metadata): Promise<QueryIndicatorsResponse> {
+  Indicators(
+    request: DeepPartial<QueryIndicatorsRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryIndicatorsResponse> {
     return this.rpc.unary(QueryIndicatorsDesc, QueryIndicatorsRequest.fromPartial(request), metadata);
   }
 
@@ -1546,9 +1570,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -1590,14 +1615,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

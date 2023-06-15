@@ -170,9 +170,10 @@ export const IdentifiedClientState = {
   fromPartial<I extends Exact<DeepPartial<IdentifiedClientState>, I>>(object: I): IdentifiedClientState {
     const message = createBaseIdentifiedClientState();
     message.clientId = object.clientId ?? "";
-    message.clientState = (object.clientState !== undefined && object.clientState !== null)
-      ? Any.fromPartial(object.clientState)
-      : undefined;
+    message.clientState =
+      object.clientState !== undefined && object.clientState !== null
+        ? Any.fromPartial(object.clientState)
+        : undefined;
     return message;
   },
 };
@@ -241,14 +242,16 @@ export const ConsensusStateWithHeight = {
     return ConsensusStateWithHeight.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<ConsensusStateWithHeight>, I>>(object: I): ConsensusStateWithHeight {
+  fromPartial<I extends Exact<DeepPartial<ConsensusStateWithHeight>, I>>(
+    object: I,
+  ): ConsensusStateWithHeight {
     const message = createBaseConsensusStateWithHeight();
-    message.height = (object.height !== undefined && object.height !== null)
-      ? Height.fromPartial(object.height)
-      : undefined;
-    message.consensusState = (object.consensusState !== undefined && object.consensusState !== null)
-      ? Any.fromPartial(object.consensusState)
-      : undefined;
+    message.height =
+      object.height !== undefined && object.height !== null ? Height.fromPartial(object.height) : undefined;
+    message.consensusState =
+      object.consensusState !== undefined && object.consensusState !== null
+        ? Any.fromPartial(object.consensusState)
+        : undefined;
     return message;
   },
 };
@@ -311,7 +314,9 @@ export const ClientConsensusStates = {
     const obj: any = {};
     message.clientId !== undefined && (obj.clientId = message.clientId);
     if (message.consensusStates) {
-      obj.consensusStates = message.consensusStates.map((e) => e ? ConsensusStateWithHeight.toJSON(e) : undefined);
+      obj.consensusStates = message.consensusStates.map((e) =>
+        e ? ConsensusStateWithHeight.toJSON(e) : undefined,
+      );
     } else {
       obj.consensusStates = [];
     }
@@ -325,7 +330,8 @@ export const ClientConsensusStates = {
   fromPartial<I extends Exact<DeepPartial<ClientConsensusStates>, I>>(object: I): ClientConsensusStates {
     const message = createBaseClientConsensusStates();
     message.clientId = object.clientId ?? "";
-    message.consensusStates = object.consensusStates?.map((e) => ConsensusStateWithHeight.fromPartial(e)) || [];
+    message.consensusStates =
+      object.consensusStates?.map((e) => ConsensusStateWithHeight.fromPartial(e)) || [];
     return message;
   },
 };
@@ -497,7 +503,9 @@ export const UpgradeProposal = {
       title: isSet(object.title) ? String(object.title) : "",
       description: isSet(object.description) ? String(object.description) : "",
       plan: isSet(object.plan) ? Plan.fromJSON(object.plan) : undefined,
-      upgradedClientState: isSet(object.upgradedClientState) ? Any.fromJSON(object.upgradedClientState) : undefined,
+      upgradedClientState: isSet(object.upgradedClientState)
+        ? Any.fromJSON(object.upgradedClientState)
+        : undefined,
     };
   },
 
@@ -507,7 +515,9 @@ export const UpgradeProposal = {
     message.description !== undefined && (obj.description = message.description);
     message.plan !== undefined && (obj.plan = message.plan ? Plan.toJSON(message.plan) : undefined);
     message.upgradedClientState !== undefined &&
-      (obj.upgradedClientState = message.upgradedClientState ? Any.toJSON(message.upgradedClientState) : undefined);
+      (obj.upgradedClientState = message.upgradedClientState
+        ? Any.toJSON(message.upgradedClientState)
+        : undefined);
     return obj;
   },
 
@@ -519,10 +529,12 @@ export const UpgradeProposal = {
     const message = createBaseUpgradeProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
-    message.plan = (object.plan !== undefined && object.plan !== null) ? Plan.fromPartial(object.plan) : undefined;
-    message.upgradedClientState = (object.upgradedClientState !== undefined && object.upgradedClientState !== null)
-      ? Any.fromPartial(object.upgradedClientState)
-      : undefined;
+    message.plan =
+      object.plan !== undefined && object.plan !== null ? Plan.fromPartial(object.plan) : undefined;
+    message.upgradedClientState =
+      object.upgradedClientState !== undefined && object.upgradedClientState !== null
+        ? Any.fromPartial(object.upgradedClientState)
+        : undefined;
     return message;
   },
 };
@@ -581,8 +593,10 @@ export const Height = {
 
   toJSON(message: Height): unknown {
     const obj: any = {};
-    message.revisionNumber !== undefined && (obj.revisionNumber = (message.revisionNumber || Long.UZERO).toString());
-    message.revisionHeight !== undefined && (obj.revisionHeight = (message.revisionHeight || Long.UZERO).toString());
+    message.revisionNumber !== undefined &&
+      (obj.revisionNumber = (message.revisionNumber || Long.UZERO).toString());
+    message.revisionHeight !== undefined &&
+      (obj.revisionHeight = (message.revisionHeight || Long.UZERO).toString());
     return obj;
   },
 
@@ -592,12 +606,14 @@ export const Height = {
 
   fromPartial<I extends Exact<DeepPartial<Height>, I>>(object: I): Height {
     const message = createBaseHeight();
-    message.revisionNumber = (object.revisionNumber !== undefined && object.revisionNumber !== null)
-      ? Long.fromValue(object.revisionNumber)
-      : Long.UZERO;
-    message.revisionHeight = (object.revisionHeight !== undefined && object.revisionHeight !== null)
-      ? Long.fromValue(object.revisionHeight)
-      : Long.UZERO;
+    message.revisionNumber =
+      object.revisionNumber !== undefined && object.revisionNumber !== null
+        ? Long.fromValue(object.revisionNumber)
+        : Long.UZERO;
+    message.revisionHeight =
+      object.revisionHeight !== undefined && object.revisionHeight !== null
+        ? Long.fromValue(object.revisionHeight)
+        : Long.UZERO;
     return message;
   },
 };
@@ -639,7 +655,9 @@ export const Params = {
 
   fromJSON(object: any): Params {
     return {
-      allowedClients: Array.isArray(object?.allowedClients) ? object.allowedClients.map((e: any) => String(e)) : [],
+      allowedClients: Array.isArray(object?.allowedClients)
+        ? object.allowedClients.map((e: any) => String(e))
+        : [],
     };
   },
 
@@ -666,14 +684,21 @@ export const Params = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

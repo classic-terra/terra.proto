@@ -85,11 +85,12 @@ export const LazyGradedVestingAccount = {
 
   toJSON(message: LazyGradedVestingAccount): unknown {
     const obj: any = {};
-    message.baseVestingAccount !== undefined && (obj.baseVestingAccount = message.baseVestingAccount
-      ? BaseVestingAccount.toJSON(message.baseVestingAccount)
-      : undefined);
+    message.baseVestingAccount !== undefined &&
+      (obj.baseVestingAccount = message.baseVestingAccount
+        ? BaseVestingAccount.toJSON(message.baseVestingAccount)
+        : undefined);
     if (message.vestingSchedules) {
-      obj.vestingSchedules = message.vestingSchedules.map((e) => e ? VestingSchedule.toJSON(e) : undefined);
+      obj.vestingSchedules = message.vestingSchedules.map((e) => (e ? VestingSchedule.toJSON(e) : undefined));
     } else {
       obj.vestingSchedules = [];
     }
@@ -100,11 +101,14 @@ export const LazyGradedVestingAccount = {
     return LazyGradedVestingAccount.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<LazyGradedVestingAccount>, I>>(object: I): LazyGradedVestingAccount {
+  fromPartial<I extends Exact<DeepPartial<LazyGradedVestingAccount>, I>>(
+    object: I,
+  ): LazyGradedVestingAccount {
     const message = createBaseLazyGradedVestingAccount();
-    message.baseVestingAccount = (object.baseVestingAccount !== undefined && object.baseVestingAccount !== null)
-      ? BaseVestingAccount.fromPartial(object.baseVestingAccount)
-      : undefined;
+    message.baseVestingAccount =
+      object.baseVestingAccount !== undefined && object.baseVestingAccount !== null
+        ? BaseVestingAccount.fromPartial(object.baseVestingAccount)
+        : undefined;
     message.vestingSchedules = object.vestingSchedules?.map((e) => VestingSchedule.fromPartial(e)) || [];
     return message;
   },
@@ -187,12 +191,12 @@ export const Schedule = {
 
   fromPartial<I extends Exact<DeepPartial<Schedule>, I>>(object: I): Schedule {
     const message = createBaseSchedule();
-    message.startTime = (object.startTime !== undefined && object.startTime !== null)
-      ? Long.fromValue(object.startTime)
-      : Long.ZERO;
-    message.endTime = (object.endTime !== undefined && object.endTime !== null)
-      ? Long.fromValue(object.endTime)
-      : Long.ZERO;
+    message.startTime =
+      object.startTime !== undefined && object.startTime !== null
+        ? Long.fromValue(object.startTime)
+        : Long.ZERO;
+    message.endTime =
+      object.endTime !== undefined && object.endTime !== null ? Long.fromValue(object.endTime) : Long.ZERO;
     message.ratio = object.ratio ?? "";
     return message;
   },
@@ -246,7 +250,9 @@ export const VestingSchedule = {
   fromJSON(object: any): VestingSchedule {
     return {
       denom: isSet(object.denom) ? String(object.denom) : "",
-      schedules: Array.isArray(object?.schedules) ? object.schedules.map((e: any) => Schedule.fromJSON(e)) : [],
+      schedules: Array.isArray(object?.schedules)
+        ? object.schedules.map((e: any) => Schedule.fromJSON(e))
+        : [],
     };
   },
 
@@ -254,7 +260,7 @@ export const VestingSchedule = {
     const obj: any = {};
     message.denom !== undefined && (obj.denom = message.denom);
     if (message.schedules) {
-      obj.schedules = message.schedules.map((e) => e ? Schedule.toJSON(e) : undefined);
+      obj.schedules = message.schedules.map((e) => (e ? Schedule.toJSON(e) : undefined));
     } else {
       obj.schedules = [];
     }
@@ -275,14 +281,21 @@ export const VestingSchedule = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

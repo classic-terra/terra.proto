@@ -16,8 +16,7 @@ export interface MsgSend {
 }
 
 /** MsgSendResponse defines the Msg/Send response type. */
-export interface MsgSendResponse {
-}
+export interface MsgSendResponse {}
 
 /** MsgMultiSend represents an arbitrary multi-in, multi-out send message. */
 export interface MsgMultiSend {
@@ -26,8 +25,7 @@ export interface MsgMultiSend {
 }
 
 /** MsgMultiSendResponse defines the Msg/MultiSend response type. */
-export interface MsgMultiSendResponse {
-}
+export interface MsgMultiSendResponse {}
 
 function createBaseMsgSend(): MsgSend {
   return { fromAddress: "", toAddress: "", amount: [] };
@@ -97,7 +95,7 @@ export const MsgSend = {
     message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress);
     message.toAddress !== undefined && (obj.toAddress = message.toAddress);
     if (message.amount) {
-      obj.amount = message.amount.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.amount = message.amount.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.amount = [];
     }
@@ -216,12 +214,12 @@ export const MsgMultiSend = {
   toJSON(message: MsgMultiSend): unknown {
     const obj: any = {};
     if (message.inputs) {
-      obj.inputs = message.inputs.map((e) => e ? Input.toJSON(e) : undefined);
+      obj.inputs = message.inputs.map((e) => (e ? Input.toJSON(e) : undefined));
     } else {
       obj.inputs = [];
     }
     if (message.outputs) {
-      obj.outputs = message.outputs.map((e) => e ? Output.toJSON(e) : undefined);
+      obj.outputs = message.outputs.map((e) => (e ? Output.toJSON(e) : undefined));
     } else {
       obj.outputs = [];
     }
@@ -403,9 +401,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -447,14 +446,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

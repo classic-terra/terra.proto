@@ -41,8 +41,7 @@ export interface MsgExec {
 }
 
 /** MsgGrantResponse defines the Msg/MsgGrant response type. */
-export interface MsgGrantResponse {
-}
+export interface MsgGrantResponse {}
 
 /**
  * MsgRevoke revokes any authorization with the provided sdk.Msg type on the
@@ -55,8 +54,7 @@ export interface MsgRevoke {
 }
 
 /** MsgRevokeResponse defines the Msg/MsgRevokeResponse response type. */
-export interface MsgRevokeResponse {
-}
+export interface MsgRevokeResponse {}
 
 function createBaseMsgGrant(): MsgGrant {
   return { granter: "", grantee: "", grant: undefined };
@@ -137,7 +135,8 @@ export const MsgGrant = {
     const message = createBaseMsgGrant();
     message.granter = object.granter ?? "";
     message.grantee = object.grantee ?? "";
-    message.grant = (object.grant !== undefined && object.grant !== null) ? Grant.fromPartial(object.grant) : undefined;
+    message.grant =
+      object.grant !== undefined && object.grant !== null ? Grant.fromPartial(object.grant) : undefined;
     return message;
   },
 };
@@ -178,7 +177,9 @@ export const MsgExecResponse = {
   },
 
   fromJSON(object: any): MsgExecResponse {
-    return { results: Array.isArray(object?.results) ? object.results.map((e: any) => bytesFromBase64(e)) : [] };
+    return {
+      results: Array.isArray(object?.results) ? object.results.map((e: any) => bytesFromBase64(e)) : [],
+    };
   },
 
   toJSON(message: MsgExecResponse): unknown {
@@ -258,7 +259,7 @@ export const MsgExec = {
     const obj: any = {};
     message.grantee !== undefined && (obj.grantee = message.grantee);
     if (message.msgs) {
-      obj.msgs = message.msgs.map((e) => e ? Any.toJSON(e) : undefined);
+      obj.msgs = message.msgs.map((e) => (e ? Any.toJSON(e) : undefined));
     } else {
       obj.msgs = [];
     }
@@ -610,9 +611,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -679,14 +681,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

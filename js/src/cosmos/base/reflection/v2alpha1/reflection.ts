@@ -132,8 +132,7 @@ export interface MsgDescriptor {
 }
 
 /** GetAuthnDescriptorRequest is the request used for the GetAuthnDescriptor RPC */
-export interface GetAuthnDescriptorRequest {
-}
+export interface GetAuthnDescriptorRequest {}
 
 /** GetAuthnDescriptorResponse is the response returned by the GetAuthnDescriptor RPC */
 export interface GetAuthnDescriptorResponse {
@@ -142,8 +141,7 @@ export interface GetAuthnDescriptorResponse {
 }
 
 /** GetChainDescriptorRequest is the request used for the GetChainDescriptor RPC */
-export interface GetChainDescriptorRequest {
-}
+export interface GetChainDescriptorRequest {}
 
 /** GetChainDescriptorResponse is the response returned by the GetChainDescriptor RPC */
 export interface GetChainDescriptorResponse {
@@ -152,8 +150,7 @@ export interface GetChainDescriptorResponse {
 }
 
 /** GetCodecDescriptorRequest is the request used for the GetCodecDescriptor RPC */
-export interface GetCodecDescriptorRequest {
-}
+export interface GetCodecDescriptorRequest {}
 
 /** GetCodecDescriptorResponse is the response returned by the GetCodecDescriptor RPC */
 export interface GetCodecDescriptorResponse {
@@ -162,8 +159,7 @@ export interface GetCodecDescriptorResponse {
 }
 
 /** GetConfigurationDescriptorRequest is the request used for the GetConfigurationDescriptor RPC */
-export interface GetConfigurationDescriptorRequest {
-}
+export interface GetConfigurationDescriptorRequest {}
 
 /** GetConfigurationDescriptorResponse is the response returned by the GetConfigurationDescriptor RPC */
 export interface GetConfigurationDescriptorResponse {
@@ -172,8 +168,7 @@ export interface GetConfigurationDescriptorResponse {
 }
 
 /** GetQueryServicesDescriptorRequest is the request used for the GetQueryServicesDescriptor RPC */
-export interface GetQueryServicesDescriptorRequest {
-}
+export interface GetQueryServicesDescriptorRequest {}
 
 /** GetQueryServicesDescriptorResponse is the response returned by the GetQueryServicesDescriptor RPC */
 export interface GetQueryServicesDescriptorResponse {
@@ -182,8 +177,7 @@ export interface GetQueryServicesDescriptorResponse {
 }
 
 /** GetTxDescriptorRequest is the request used for the GetTxDescriptor RPC */
-export interface GetTxDescriptorRequest {
-}
+export interface GetTxDescriptorRequest {}
 
 /** GetTxDescriptorResponse is the response returned by the GetTxDescriptor RPC */
 export interface GetTxDescriptorResponse {
@@ -322,21 +316,32 @@ export const AppDescriptor = {
       authn: isSet(object.authn) ? AuthnDescriptor.fromJSON(object.authn) : undefined,
       chain: isSet(object.chain) ? ChainDescriptor.fromJSON(object.chain) : undefined,
       codec: isSet(object.codec) ? CodecDescriptor.fromJSON(object.codec) : undefined,
-      configuration: isSet(object.configuration) ? ConfigurationDescriptor.fromJSON(object.configuration) : undefined,
-      queryServices: isSet(object.queryServices) ? QueryServicesDescriptor.fromJSON(object.queryServices) : undefined,
+      configuration: isSet(object.configuration)
+        ? ConfigurationDescriptor.fromJSON(object.configuration)
+        : undefined,
+      queryServices: isSet(object.queryServices)
+        ? QueryServicesDescriptor.fromJSON(object.queryServices)
+        : undefined,
       tx: isSet(object.tx) ? TxDescriptor.fromJSON(object.tx) : undefined,
     };
   },
 
   toJSON(message: AppDescriptor): unknown {
     const obj: any = {};
-    message.authn !== undefined && (obj.authn = message.authn ? AuthnDescriptor.toJSON(message.authn) : undefined);
-    message.chain !== undefined && (obj.chain = message.chain ? ChainDescriptor.toJSON(message.chain) : undefined);
-    message.codec !== undefined && (obj.codec = message.codec ? CodecDescriptor.toJSON(message.codec) : undefined);
+    message.authn !== undefined &&
+      (obj.authn = message.authn ? AuthnDescriptor.toJSON(message.authn) : undefined);
+    message.chain !== undefined &&
+      (obj.chain = message.chain ? ChainDescriptor.toJSON(message.chain) : undefined);
+    message.codec !== undefined &&
+      (obj.codec = message.codec ? CodecDescriptor.toJSON(message.codec) : undefined);
     message.configuration !== undefined &&
-      (obj.configuration = message.configuration ? ConfigurationDescriptor.toJSON(message.configuration) : undefined);
+      (obj.configuration = message.configuration
+        ? ConfigurationDescriptor.toJSON(message.configuration)
+        : undefined);
     message.queryServices !== undefined &&
-      (obj.queryServices = message.queryServices ? QueryServicesDescriptor.toJSON(message.queryServices) : undefined);
+      (obj.queryServices = message.queryServices
+        ? QueryServicesDescriptor.toJSON(message.queryServices)
+        : undefined);
     message.tx !== undefined && (obj.tx = message.tx ? TxDescriptor.toJSON(message.tx) : undefined);
     return obj;
   },
@@ -347,22 +352,28 @@ export const AppDescriptor = {
 
   fromPartial<I extends Exact<DeepPartial<AppDescriptor>, I>>(object: I): AppDescriptor {
     const message = createBaseAppDescriptor();
-    message.authn = (object.authn !== undefined && object.authn !== null)
-      ? AuthnDescriptor.fromPartial(object.authn)
-      : undefined;
-    message.chain = (object.chain !== undefined && object.chain !== null)
-      ? ChainDescriptor.fromPartial(object.chain)
-      : undefined;
-    message.codec = (object.codec !== undefined && object.codec !== null)
-      ? CodecDescriptor.fromPartial(object.codec)
-      : undefined;
-    message.configuration = (object.configuration !== undefined && object.configuration !== null)
-      ? ConfigurationDescriptor.fromPartial(object.configuration)
-      : undefined;
-    message.queryServices = (object.queryServices !== undefined && object.queryServices !== null)
-      ? QueryServicesDescriptor.fromPartial(object.queryServices)
-      : undefined;
-    message.tx = (object.tx !== undefined && object.tx !== null) ? TxDescriptor.fromPartial(object.tx) : undefined;
+    message.authn =
+      object.authn !== undefined && object.authn !== null
+        ? AuthnDescriptor.fromPartial(object.authn)
+        : undefined;
+    message.chain =
+      object.chain !== undefined && object.chain !== null
+        ? ChainDescriptor.fromPartial(object.chain)
+        : undefined;
+    message.codec =
+      object.codec !== undefined && object.codec !== null
+        ? CodecDescriptor.fromPartial(object.codec)
+        : undefined;
+    message.configuration =
+      object.configuration !== undefined && object.configuration !== null
+        ? ConfigurationDescriptor.fromPartial(object.configuration)
+        : undefined;
+    message.queryServices =
+      object.queryServices !== undefined && object.queryServices !== null
+        ? QueryServicesDescriptor.fromPartial(object.queryServices)
+        : undefined;
+    message.tx =
+      object.tx !== undefined && object.tx !== null ? TxDescriptor.fromPartial(object.tx) : undefined;
     return message;
   },
 };
@@ -423,7 +434,7 @@ export const TxDescriptor = {
     const obj: any = {};
     message.fullname !== undefined && (obj.fullname = message.fullname);
     if (message.msgs) {
-      obj.msgs = message.msgs.map((e) => e ? MsgDescriptor.toJSON(e) : undefined);
+      obj.msgs = message.msgs.map((e) => (e ? MsgDescriptor.toJSON(e) : undefined));
     } else {
       obj.msgs = [];
     }
@@ -488,7 +499,7 @@ export const AuthnDescriptor = {
   toJSON(message: AuthnDescriptor): unknown {
     const obj: any = {};
     if (message.signModes) {
-      obj.signModes = message.signModes.map((e) => e ? SigningModeDescriptor.toJSON(e) : undefined);
+      obj.signModes = message.signModes.map((e) => (e ? SigningModeDescriptor.toJSON(e) : undefined));
     } else {
       obj.signModes = [];
     }
@@ -695,7 +706,7 @@ export const CodecDescriptor = {
   toJSON(message: CodecDescriptor): unknown {
     const obj: any = {};
     if (message.interfaces) {
-      obj.interfaces = message.interfaces.map((e) => e ? InterfaceDescriptor.toJSON(e) : undefined);
+      obj.interfaces = message.interfaces.map((e) => (e ? InterfaceDescriptor.toJSON(e) : undefined));
     } else {
       obj.interfaces = [];
     }
@@ -750,7 +761,9 @@ export const InterfaceDescriptor = {
             break;
           }
 
-          message.interfaceAcceptingMessages.push(InterfaceAcceptingMessageDescriptor.decode(reader, reader.uint32()));
+          message.interfaceAcceptingMessages.push(
+            InterfaceAcceptingMessageDescriptor.decode(reader, reader.uint32()),
+          );
           continue;
         case 3:
           if (tag !== 26) {
@@ -785,14 +798,14 @@ export const InterfaceDescriptor = {
     message.fullname !== undefined && (obj.fullname = message.fullname);
     if (message.interfaceAcceptingMessages) {
       obj.interfaceAcceptingMessages = message.interfaceAcceptingMessages.map((e) =>
-        e ? InterfaceAcceptingMessageDescriptor.toJSON(e) : undefined
+        e ? InterfaceAcceptingMessageDescriptor.toJSON(e) : undefined,
       );
     } else {
       obj.interfaceAcceptingMessages = [];
     }
     if (message.interfaceImplementers) {
       obj.interfaceImplementers = message.interfaceImplementers.map((e) =>
-        e ? InterfaceImplementerDescriptor.toJSON(e) : undefined
+        e ? InterfaceImplementerDescriptor.toJSON(e) : undefined,
       );
     } else {
       obj.interfaceImplementers = [];
@@ -874,7 +887,9 @@ export const InterfaceImplementerDescriptor = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<InterfaceImplementerDescriptor>, I>>(base?: I): InterfaceImplementerDescriptor {
+  create<I extends Exact<DeepPartial<InterfaceImplementerDescriptor>, I>>(
+    base?: I,
+  ): InterfaceImplementerDescriptor {
     return InterfaceImplementerDescriptor.fromPartial(base ?? {});
   },
 
@@ -1171,7 +1186,8 @@ export const GetAuthnDescriptorResponse = {
 
   toJSON(message: GetAuthnDescriptorResponse): unknown {
     const obj: any = {};
-    message.authn !== undefined && (obj.authn = message.authn ? AuthnDescriptor.toJSON(message.authn) : undefined);
+    message.authn !== undefined &&
+      (obj.authn = message.authn ? AuthnDescriptor.toJSON(message.authn) : undefined);
     return obj;
   },
 
@@ -1179,11 +1195,14 @@ export const GetAuthnDescriptorResponse = {
     return GetAuthnDescriptorResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<GetAuthnDescriptorResponse>, I>>(object: I): GetAuthnDescriptorResponse {
+  fromPartial<I extends Exact<DeepPartial<GetAuthnDescriptorResponse>, I>>(
+    object: I,
+  ): GetAuthnDescriptorResponse {
     const message = createBaseGetAuthnDescriptorResponse();
-    message.authn = (object.authn !== undefined && object.authn !== null)
-      ? AuthnDescriptor.fromPartial(object.authn)
-      : undefined;
+    message.authn =
+      object.authn !== undefined && object.authn !== null
+        ? AuthnDescriptor.fromPartial(object.authn)
+        : undefined;
     return message;
   },
 };
@@ -1273,7 +1292,8 @@ export const GetChainDescriptorResponse = {
 
   toJSON(message: GetChainDescriptorResponse): unknown {
     const obj: any = {};
-    message.chain !== undefined && (obj.chain = message.chain ? ChainDescriptor.toJSON(message.chain) : undefined);
+    message.chain !== undefined &&
+      (obj.chain = message.chain ? ChainDescriptor.toJSON(message.chain) : undefined);
     return obj;
   },
 
@@ -1281,11 +1301,14 @@ export const GetChainDescriptorResponse = {
     return GetChainDescriptorResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<GetChainDescriptorResponse>, I>>(object: I): GetChainDescriptorResponse {
+  fromPartial<I extends Exact<DeepPartial<GetChainDescriptorResponse>, I>>(
+    object: I,
+  ): GetChainDescriptorResponse {
     const message = createBaseGetChainDescriptorResponse();
-    message.chain = (object.chain !== undefined && object.chain !== null)
-      ? ChainDescriptor.fromPartial(object.chain)
-      : undefined;
+    message.chain =
+      object.chain !== undefined && object.chain !== null
+        ? ChainDescriptor.fromPartial(object.chain)
+        : undefined;
     return message;
   },
 };
@@ -1375,7 +1398,8 @@ export const GetCodecDescriptorResponse = {
 
   toJSON(message: GetCodecDescriptorResponse): unknown {
     const obj: any = {};
-    message.codec !== undefined && (obj.codec = message.codec ? CodecDescriptor.toJSON(message.codec) : undefined);
+    message.codec !== undefined &&
+      (obj.codec = message.codec ? CodecDescriptor.toJSON(message.codec) : undefined);
     return obj;
   },
 
@@ -1383,11 +1407,14 @@ export const GetCodecDescriptorResponse = {
     return GetCodecDescriptorResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<GetCodecDescriptorResponse>, I>>(object: I): GetCodecDescriptorResponse {
+  fromPartial<I extends Exact<DeepPartial<GetCodecDescriptorResponse>, I>>(
+    object: I,
+  ): GetCodecDescriptorResponse {
     const message = createBaseGetCodecDescriptorResponse();
-    message.codec = (object.codec !== undefined && object.codec !== null)
-      ? CodecDescriptor.fromPartial(object.codec)
-      : undefined;
+    message.codec =
+      object.codec !== undefined && object.codec !== null
+        ? CodecDescriptor.fromPartial(object.codec)
+        : undefined;
     return message;
   },
 };
@@ -1496,9 +1523,10 @@ export const GetConfigurationDescriptorResponse = {
     object: I,
   ): GetConfigurationDescriptorResponse {
     const message = createBaseGetConfigurationDescriptorResponse();
-    message.config = (object.config !== undefined && object.config !== null)
-      ? ConfigurationDescriptor.fromPartial(object.config)
-      : undefined;
+    message.config =
+      object.config !== undefined && object.config !== null
+        ? ConfigurationDescriptor.fromPartial(object.config)
+        : undefined;
     return message;
   },
 };
@@ -1607,9 +1635,10 @@ export const GetQueryServicesDescriptorResponse = {
     object: I,
   ): GetQueryServicesDescriptorResponse {
     const message = createBaseGetQueryServicesDescriptorResponse();
-    message.queries = (object.queries !== undefined && object.queries !== null)
-      ? QueryServicesDescriptor.fromPartial(object.queries)
-      : undefined;
+    message.queries =
+      object.queries !== undefined && object.queries !== null
+        ? QueryServicesDescriptor.fromPartial(object.queries)
+        : undefined;
     return message;
   },
 };
@@ -1709,7 +1738,8 @@ export const GetTxDescriptorResponse = {
 
   fromPartial<I extends Exact<DeepPartial<GetTxDescriptorResponse>, I>>(object: I): GetTxDescriptorResponse {
     const message = createBaseGetTxDescriptorResponse();
-    message.tx = (object.tx !== undefined && object.tx !== null) ? TxDescriptor.fromPartial(object.tx) : undefined;
+    message.tx =
+      object.tx !== undefined && object.tx !== null ? TxDescriptor.fromPartial(object.tx) : undefined;
     return message;
   },
 };
@@ -1760,7 +1790,9 @@ export const QueryServicesDescriptor = {
   toJSON(message: QueryServicesDescriptor): unknown {
     const obj: any = {};
     if (message.queryServices) {
-      obj.queryServices = message.queryServices.map((e) => e ? QueryServiceDescriptor.toJSON(e) : undefined);
+      obj.queryServices = message.queryServices.map((e) =>
+        e ? QueryServiceDescriptor.toJSON(e) : undefined,
+      );
     } else {
       obj.queryServices = [];
     }
@@ -1837,7 +1869,9 @@ export const QueryServiceDescriptor = {
     return {
       fullname: isSet(object.fullname) ? String(object.fullname) : "",
       isModule: isSet(object.isModule) ? Boolean(object.isModule) : false,
-      methods: Array.isArray(object?.methods) ? object.methods.map((e: any) => QueryMethodDescriptor.fromJSON(e)) : [],
+      methods: Array.isArray(object?.methods)
+        ? object.methods.map((e: any) => QueryMethodDescriptor.fromJSON(e))
+        : [],
     };
   },
 
@@ -1846,7 +1880,7 @@ export const QueryServiceDescriptor = {
     message.fullname !== undefined && (obj.fullname = message.fullname);
     message.isModule !== undefined && (obj.isModule = message.isModule);
     if (message.methods) {
-      obj.methods = message.methods.map((e) => e ? QueryMethodDescriptor.toJSON(e) : undefined);
+      obj.methods = message.methods.map((e) => (e ? QueryMethodDescriptor.toJSON(e) : undefined));
     } else {
       obj.methods = [];
     }
@@ -2047,7 +2081,11 @@ export class ReflectionServiceClientImpl implements ReflectionService {
     request: DeepPartial<GetTxDescriptorRequest>,
     metadata?: grpc.Metadata,
   ): Promise<GetTxDescriptorResponse> {
-    return this.rpc.unary(ReflectionServiceGetTxDescriptorDesc, GetTxDescriptorRequest.fromPartial(request), metadata);
+    return this.rpc.unary(
+      ReflectionServiceGetTxDescriptorDesc,
+      GetTxDescriptorRequest.fromPartial(request),
+      metadata,
+    );
   }
 }
 
@@ -2236,9 +2274,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -2280,14 +2319,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

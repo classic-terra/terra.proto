@@ -171,13 +171,17 @@ export const Params = {
     return {
       taxPolicy: isSet(object.taxPolicy) ? PolicyConstraints.fromJSON(object.taxPolicy) : undefined,
       rewardPolicy: isSet(object.rewardPolicy) ? PolicyConstraints.fromJSON(object.rewardPolicy) : undefined,
-      seigniorageBurdenTarget: isSet(object.seigniorageBurdenTarget) ? String(object.seigniorageBurdenTarget) : "",
+      seigniorageBurdenTarget: isSet(object.seigniorageBurdenTarget)
+        ? String(object.seigniorageBurdenTarget)
+        : "",
       miningIncrement: isSet(object.miningIncrement) ? String(object.miningIncrement) : "",
       windowShort: isSet(object.windowShort) ? Long.fromValue(object.windowShort) : Long.UZERO,
       windowLong: isSet(object.windowLong) ? Long.fromValue(object.windowLong) : Long.UZERO,
       windowProbation: isSet(object.windowProbation) ? Long.fromValue(object.windowProbation) : Long.UZERO,
       burnTaxSplit: isSet(object.burnTaxSplit) ? String(object.burnTaxSplit) : "",
-      minInitialDepositRatio: isSet(object.minInitialDepositRatio) ? String(object.minInitialDepositRatio) : "",
+      minInitialDepositRatio: isSet(object.minInitialDepositRatio)
+        ? String(object.minInitialDepositRatio)
+        : "",
     };
   },
 
@@ -187,13 +191,16 @@ export const Params = {
       (obj.taxPolicy = message.taxPolicy ? PolicyConstraints.toJSON(message.taxPolicy) : undefined);
     message.rewardPolicy !== undefined &&
       (obj.rewardPolicy = message.rewardPolicy ? PolicyConstraints.toJSON(message.rewardPolicy) : undefined);
-    message.seigniorageBurdenTarget !== undefined && (obj.seigniorageBurdenTarget = message.seigniorageBurdenTarget);
+    message.seigniorageBurdenTarget !== undefined &&
+      (obj.seigniorageBurdenTarget = message.seigniorageBurdenTarget);
     message.miningIncrement !== undefined && (obj.miningIncrement = message.miningIncrement);
     message.windowShort !== undefined && (obj.windowShort = (message.windowShort || Long.UZERO).toString());
     message.windowLong !== undefined && (obj.windowLong = (message.windowLong || Long.UZERO).toString());
-    message.windowProbation !== undefined && (obj.windowProbation = (message.windowProbation || Long.UZERO).toString());
+    message.windowProbation !== undefined &&
+      (obj.windowProbation = (message.windowProbation || Long.UZERO).toString());
     message.burnTaxSplit !== undefined && (obj.burnTaxSplit = message.burnTaxSplit);
-    message.minInitialDepositRatio !== undefined && (obj.minInitialDepositRatio = message.minInitialDepositRatio);
+    message.minInitialDepositRatio !== undefined &&
+      (obj.minInitialDepositRatio = message.minInitialDepositRatio);
     return obj;
   },
 
@@ -203,23 +210,28 @@ export const Params = {
 
   fromPartial<I extends Exact<DeepPartial<Params>, I>>(object: I): Params {
     const message = createBaseParams();
-    message.taxPolicy = (object.taxPolicy !== undefined && object.taxPolicy !== null)
-      ? PolicyConstraints.fromPartial(object.taxPolicy)
-      : undefined;
-    message.rewardPolicy = (object.rewardPolicy !== undefined && object.rewardPolicy !== null)
-      ? PolicyConstraints.fromPartial(object.rewardPolicy)
-      : undefined;
+    message.taxPolicy =
+      object.taxPolicy !== undefined && object.taxPolicy !== null
+        ? PolicyConstraints.fromPartial(object.taxPolicy)
+        : undefined;
+    message.rewardPolicy =
+      object.rewardPolicy !== undefined && object.rewardPolicy !== null
+        ? PolicyConstraints.fromPartial(object.rewardPolicy)
+        : undefined;
     message.seigniorageBurdenTarget = object.seigniorageBurdenTarget ?? "";
     message.miningIncrement = object.miningIncrement ?? "";
-    message.windowShort = (object.windowShort !== undefined && object.windowShort !== null)
-      ? Long.fromValue(object.windowShort)
-      : Long.UZERO;
-    message.windowLong = (object.windowLong !== undefined && object.windowLong !== null)
-      ? Long.fromValue(object.windowLong)
-      : Long.UZERO;
-    message.windowProbation = (object.windowProbation !== undefined && object.windowProbation !== null)
-      ? Long.fromValue(object.windowProbation)
-      : Long.UZERO;
+    message.windowShort =
+      object.windowShort !== undefined && object.windowShort !== null
+        ? Long.fromValue(object.windowShort)
+        : Long.UZERO;
+    message.windowLong =
+      object.windowLong !== undefined && object.windowLong !== null
+        ? Long.fromValue(object.windowLong)
+        : Long.UZERO;
+    message.windowProbation =
+      object.windowProbation !== undefined && object.windowProbation !== null
+        ? Long.fromValue(object.windowProbation)
+        : Long.UZERO;
     message.burnTaxSplit = object.burnTaxSplit ?? "";
     message.minInitialDepositRatio = object.minInitialDepositRatio ?? "";
     return message;
@@ -317,7 +329,7 @@ export const PolicyConstraints = {
     const message = createBasePolicyConstraints();
     message.rateMin = object.rateMin ?? "";
     message.rateMax = object.rateMax ?? "";
-    message.cap = (object.cap !== undefined && object.cap !== null) ? Coin.fromPartial(object.cap) : undefined;
+    message.cap = object.cap !== undefined && object.cap !== null ? Coin.fromPartial(object.cap) : undefined;
     message.changeRateMax = object.changeRateMax ?? "";
     return message;
   },
@@ -360,14 +372,16 @@ export const EpochTaxProceeds = {
 
   fromJSON(object: any): EpochTaxProceeds {
     return {
-      taxProceeds: Array.isArray(object?.taxProceeds) ? object.taxProceeds.map((e: any) => Coin.fromJSON(e)) : [],
+      taxProceeds: Array.isArray(object?.taxProceeds)
+        ? object.taxProceeds.map((e: any) => Coin.fromJSON(e))
+        : [],
     };
   },
 
   toJSON(message: EpochTaxProceeds): unknown {
     const obj: any = {};
     if (message.taxProceeds) {
-      obj.taxProceeds = message.taxProceeds.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.taxProceeds = message.taxProceeds.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.taxProceeds = [];
     }
@@ -421,13 +435,15 @@ export const EpochInitialIssuance = {
   },
 
   fromJSON(object: any): EpochInitialIssuance {
-    return { issuance: Array.isArray(object?.issuance) ? object.issuance.map((e: any) => Coin.fromJSON(e)) : [] };
+    return {
+      issuance: Array.isArray(object?.issuance) ? object.issuance.map((e: any) => Coin.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: EpochInitialIssuance): unknown {
     const obj: any = {};
     if (message.issuance) {
-      obj.issuance = message.issuance.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.issuance = message.issuance.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.issuance = [];
     }
@@ -447,14 +463,21 @@ export const EpochInitialIssuance = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

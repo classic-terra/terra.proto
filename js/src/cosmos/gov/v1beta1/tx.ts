@@ -32,8 +32,7 @@ export interface MsgVote {
 }
 
 /** MsgVoteResponse defines the Msg/Vote response type. */
-export interface MsgVoteResponse {
-}
+export interface MsgVoteResponse {}
 
 /**
  * MsgVoteWeighted defines a message to cast a vote.
@@ -51,8 +50,7 @@ export interface MsgVoteWeighted {
  *
  * Since: cosmos-sdk 0.43
  */
-export interface MsgVoteWeightedResponse {
-}
+export interface MsgVoteWeightedResponse {}
 
 /** MsgDeposit defines a message to submit a deposit to an existing proposal. */
 export interface MsgDeposit {
@@ -62,8 +60,7 @@ export interface MsgDeposit {
 }
 
 /** MsgDepositResponse defines the Msg/Deposit response type. */
-export interface MsgDepositResponse {
-}
+export interface MsgDepositResponse {}
 
 function createBaseMsgSubmitProposal(): MsgSubmitProposal {
   return { content: undefined, initialDeposit: [], proposer: "" };
@@ -132,9 +129,10 @@ export const MsgSubmitProposal = {
 
   toJSON(message: MsgSubmitProposal): unknown {
     const obj: any = {};
-    message.content !== undefined && (obj.content = message.content ? Any.toJSON(message.content) : undefined);
+    message.content !== undefined &&
+      (obj.content = message.content ? Any.toJSON(message.content) : undefined);
     if (message.initialDeposit) {
-      obj.initialDeposit = message.initialDeposit.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.initialDeposit = message.initialDeposit.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.initialDeposit = [];
     }
@@ -148,9 +146,8 @@ export const MsgSubmitProposal = {
 
   fromPartial<I extends Exact<DeepPartial<MsgSubmitProposal>, I>>(object: I): MsgSubmitProposal {
     const message = createBaseMsgSubmitProposal();
-    message.content = (object.content !== undefined && object.content !== null)
-      ? Any.fromPartial(object.content)
-      : undefined;
+    message.content =
+      object.content !== undefined && object.content !== null ? Any.fromPartial(object.content) : undefined;
     message.initialDeposit = object.initialDeposit?.map((e) => Coin.fromPartial(e)) || [];
     message.proposer = object.proposer ?? "";
     return message;
@@ -206,11 +203,14 @@ export const MsgSubmitProposalResponse = {
     return MsgSubmitProposalResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<MsgSubmitProposalResponse>, I>>(object: I): MsgSubmitProposalResponse {
+  fromPartial<I extends Exact<DeepPartial<MsgSubmitProposalResponse>, I>>(
+    object: I,
+  ): MsgSubmitProposalResponse {
     const message = createBaseMsgSubmitProposalResponse();
-    message.proposalId = (object.proposalId !== undefined && object.proposalId !== null)
-      ? Long.fromValue(object.proposalId)
-      : Long.UZERO;
+    message.proposalId =
+      object.proposalId !== undefined && object.proposalId !== null
+        ? Long.fromValue(object.proposalId)
+        : Long.UZERO;
     return message;
   },
 };
@@ -292,9 +292,10 @@ export const MsgVote = {
 
   fromPartial<I extends Exact<DeepPartial<MsgVote>, I>>(object: I): MsgVote {
     const message = createBaseMsgVote();
-    message.proposalId = (object.proposalId !== undefined && object.proposalId !== null)
-      ? Long.fromValue(object.proposalId)
-      : Long.UZERO;
+    message.proposalId =
+      object.proposalId !== undefined && object.proposalId !== null
+        ? Long.fromValue(object.proposalId)
+        : Long.UZERO;
     message.voter = object.voter ?? "";
     message.option = object.option ?? 0;
     return message;
@@ -404,7 +405,9 @@ export const MsgVoteWeighted = {
     return {
       proposalId: isSet(object.proposalId) ? Long.fromValue(object.proposalId) : Long.UZERO,
       voter: isSet(object.voter) ? String(object.voter) : "",
-      options: Array.isArray(object?.options) ? object.options.map((e: any) => WeightedVoteOption.fromJSON(e)) : [],
+      options: Array.isArray(object?.options)
+        ? object.options.map((e: any) => WeightedVoteOption.fromJSON(e))
+        : [],
     };
   },
 
@@ -413,7 +416,7 @@ export const MsgVoteWeighted = {
     message.proposalId !== undefined && (obj.proposalId = (message.proposalId || Long.UZERO).toString());
     message.voter !== undefined && (obj.voter = message.voter);
     if (message.options) {
-      obj.options = message.options.map((e) => e ? WeightedVoteOption.toJSON(e) : undefined);
+      obj.options = message.options.map((e) => (e ? WeightedVoteOption.toJSON(e) : undefined));
     } else {
       obj.options = [];
     }
@@ -426,9 +429,10 @@ export const MsgVoteWeighted = {
 
   fromPartial<I extends Exact<DeepPartial<MsgVoteWeighted>, I>>(object: I): MsgVoteWeighted {
     const message = createBaseMsgVoteWeighted();
-    message.proposalId = (object.proposalId !== undefined && object.proposalId !== null)
-      ? Long.fromValue(object.proposalId)
-      : Long.UZERO;
+    message.proposalId =
+      object.proposalId !== undefined && object.proposalId !== null
+        ? Long.fromValue(object.proposalId)
+        : Long.UZERO;
     message.voter = object.voter ?? "";
     message.options = object.options?.map((e) => WeightedVoteOption.fromPartial(e)) || [];
     return message;
@@ -547,7 +551,7 @@ export const MsgDeposit = {
     message.proposalId !== undefined && (obj.proposalId = (message.proposalId || Long.UZERO).toString());
     message.depositor !== undefined && (obj.depositor = message.depositor);
     if (message.amount) {
-      obj.amount = message.amount.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.amount = message.amount.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.amount = [];
     }
@@ -560,9 +564,10 @@ export const MsgDeposit = {
 
   fromPartial<I extends Exact<DeepPartial<MsgDeposit>, I>>(object: I): MsgDeposit {
     const message = createBaseMsgDeposit();
-    message.proposalId = (object.proposalId !== undefined && object.proposalId !== null)
-      ? Long.fromValue(object.proposalId)
-      : Long.UZERO;
+    message.proposalId =
+      object.proposalId !== undefined && object.proposalId !== null
+        ? Long.fromValue(object.proposalId)
+        : Long.UZERO;
     message.depositor = object.depositor ?? "";
     message.amount = object.amount?.map((e) => Coin.fromPartial(e)) || [];
     return message;
@@ -616,7 +621,10 @@ export const MsgDepositResponse = {
 /** Msg defines the bank Msg service. */
 export interface Msg {
   /** SubmitProposal defines a method to create new proposal given a content. */
-  SubmitProposal(request: DeepPartial<MsgSubmitProposal>, metadata?: grpc.Metadata): Promise<MsgSubmitProposalResponse>;
+  SubmitProposal(
+    request: DeepPartial<MsgSubmitProposal>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgSubmitProposalResponse>;
   /** Vote defines a method to add a vote on a specific proposal. */
   Vote(request: DeepPartial<MsgVote>, metadata?: grpc.Metadata): Promise<MsgVoteResponse>;
   /**
@@ -624,7 +632,10 @@ export interface Msg {
    *
    * Since: cosmos-sdk 0.43
    */
-  VoteWeighted(request: DeepPartial<MsgVoteWeighted>, metadata?: grpc.Metadata): Promise<MsgVoteWeightedResponse>;
+  VoteWeighted(
+    request: DeepPartial<MsgVoteWeighted>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgVoteWeightedResponse>;
   /** Deposit defines a method to add deposit on a specific proposal. */
   Deposit(request: DeepPartial<MsgDeposit>, metadata?: grpc.Metadata): Promise<MsgDepositResponse>;
 }
@@ -651,7 +662,10 @@ export class MsgClientImpl implements Msg {
     return this.rpc.unary(MsgVoteDesc, MsgVote.fromPartial(request), metadata);
   }
 
-  VoteWeighted(request: DeepPartial<MsgVoteWeighted>, metadata?: grpc.Metadata): Promise<MsgVoteWeightedResponse> {
+  VoteWeighted(
+    request: DeepPartial<MsgVoteWeighted>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgVoteWeightedResponse> {
     return this.rpc.unary(MsgVoteWeightedDesc, MsgVoteWeighted.fromPartial(request), metadata);
   }
 
@@ -799,9 +813,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -843,14 +858,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

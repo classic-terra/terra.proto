@@ -92,17 +92,22 @@ export const GenesisState = {
       controllerGenesisState: isSet(object.controllerGenesisState)
         ? ControllerGenesisState.fromJSON(object.controllerGenesisState)
         : undefined,
-      hostGenesisState: isSet(object.hostGenesisState) ? HostGenesisState.fromJSON(object.hostGenesisState) : undefined,
+      hostGenesisState: isSet(object.hostGenesisState)
+        ? HostGenesisState.fromJSON(object.hostGenesisState)
+        : undefined,
     };
   },
 
   toJSON(message: GenesisState): unknown {
     const obj: any = {};
-    message.controllerGenesisState !== undefined && (obj.controllerGenesisState = message.controllerGenesisState
-      ? ControllerGenesisState.toJSON(message.controllerGenesisState)
-      : undefined);
+    message.controllerGenesisState !== undefined &&
+      (obj.controllerGenesisState = message.controllerGenesisState
+        ? ControllerGenesisState.toJSON(message.controllerGenesisState)
+        : undefined);
     message.hostGenesisState !== undefined &&
-      (obj.hostGenesisState = message.hostGenesisState ? HostGenesisState.toJSON(message.hostGenesisState) : undefined);
+      (obj.hostGenesisState = message.hostGenesisState
+        ? HostGenesisState.toJSON(message.hostGenesisState)
+        : undefined);
     return obj;
   },
 
@@ -113,12 +118,13 @@ export const GenesisState = {
   fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
     const message = createBaseGenesisState();
     message.controllerGenesisState =
-      (object.controllerGenesisState !== undefined && object.controllerGenesisState !== null)
+      object.controllerGenesisState !== undefined && object.controllerGenesisState !== null
         ? ControllerGenesisState.fromPartial(object.controllerGenesisState)
         : undefined;
-    message.hostGenesisState = (object.hostGenesisState !== undefined && object.hostGenesisState !== null)
-      ? HostGenesisState.fromPartial(object.hostGenesisState)
-      : undefined;
+    message.hostGenesisState =
+      object.hostGenesisState !== undefined && object.hostGenesisState !== null
+        ? HostGenesisState.fromPartial(object.hostGenesisState)
+        : undefined;
     return message;
   },
 };
@@ -204,13 +210,13 @@ export const ControllerGenesisState = {
   toJSON(message: ControllerGenesisState): unknown {
     const obj: any = {};
     if (message.activeChannels) {
-      obj.activeChannels = message.activeChannels.map((e) => e ? ActiveChannel.toJSON(e) : undefined);
+      obj.activeChannels = message.activeChannels.map((e) => (e ? ActiveChannel.toJSON(e) : undefined));
     } else {
       obj.activeChannels = [];
     }
     if (message.interchainAccounts) {
       obj.interchainAccounts = message.interchainAccounts.map((e) =>
-        e ? RegisteredInterchainAccount.toJSON(e) : undefined
+        e ? RegisteredInterchainAccount.toJSON(e) : undefined,
       );
     } else {
       obj.interchainAccounts = [];
@@ -231,12 +237,11 @@ export const ControllerGenesisState = {
   fromPartial<I extends Exact<DeepPartial<ControllerGenesisState>, I>>(object: I): ControllerGenesisState {
     const message = createBaseControllerGenesisState();
     message.activeChannels = object.activeChannels?.map((e) => ActiveChannel.fromPartial(e)) || [];
-    message.interchainAccounts = object.interchainAccounts?.map((e) => RegisteredInterchainAccount.fromPartial(e)) ||
-      [];
+    message.interchainAccounts =
+      object.interchainAccounts?.map((e) => RegisteredInterchainAccount.fromPartial(e)) || [];
     message.ports = object.ports?.map((e) => e) || [];
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
 };
@@ -322,19 +327,20 @@ export const HostGenesisState = {
   toJSON(message: HostGenesisState): unknown {
     const obj: any = {};
     if (message.activeChannels) {
-      obj.activeChannels = message.activeChannels.map((e) => e ? ActiveChannel.toJSON(e) : undefined);
+      obj.activeChannels = message.activeChannels.map((e) => (e ? ActiveChannel.toJSON(e) : undefined));
     } else {
       obj.activeChannels = [];
     }
     if (message.interchainAccounts) {
       obj.interchainAccounts = message.interchainAccounts.map((e) =>
-        e ? RegisteredInterchainAccount.toJSON(e) : undefined
+        e ? RegisteredInterchainAccount.toJSON(e) : undefined,
       );
     } else {
       obj.interchainAccounts = [];
     }
     message.port !== undefined && (obj.port = message.port);
-    message.params !== undefined && (obj.params = message.params ? Params1.toJSON(message.params) : undefined);
+    message.params !== undefined &&
+      (obj.params = message.params ? Params1.toJSON(message.params) : undefined);
     return obj;
   },
 
@@ -345,12 +351,11 @@ export const HostGenesisState = {
   fromPartial<I extends Exact<DeepPartial<HostGenesisState>, I>>(object: I): HostGenesisState {
     const message = createBaseHostGenesisState();
     message.activeChannels = object.activeChannels?.map((e) => ActiveChannel.fromPartial(e)) || [];
-    message.interchainAccounts = object.interchainAccounts?.map((e) => RegisteredInterchainAccount.fromPartial(e)) ||
-      [];
+    message.interchainAccounts =
+      object.interchainAccounts?.map((e) => RegisteredInterchainAccount.fromPartial(e)) || [];
     message.port = object.port ?? "";
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params1.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params1.fromPartial(object.params) : undefined;
     return message;
   },
 };
@@ -510,11 +515,15 @@ export const RegisteredInterchainAccount = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<RegisteredInterchainAccount>, I>>(base?: I): RegisteredInterchainAccount {
+  create<I extends Exact<DeepPartial<RegisteredInterchainAccount>, I>>(
+    base?: I,
+  ): RegisteredInterchainAccount {
     return RegisteredInterchainAccount.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<RegisteredInterchainAccount>, I>>(object: I): RegisteredInterchainAccount {
+  fromPartial<I extends Exact<DeepPartial<RegisteredInterchainAccount>, I>>(
+    object: I,
+  ): RegisteredInterchainAccount {
     const message = createBaseRegisteredInterchainAccount();
     message.connectionId = object.connectionId ?? "";
     message.portId = object.portId ?? "";
@@ -525,14 +534,21 @@ export const RegisteredInterchainAccount = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

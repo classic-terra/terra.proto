@@ -369,9 +369,10 @@ export const StoreCodeProposal = {
       (obj.wasmByteCode = base64FromBytes(
         message.wasmByteCode !== undefined ? message.wasmByteCode : new Uint8Array(0),
       ));
-    message.instantiatePermission !== undefined && (obj.instantiatePermission = message.instantiatePermission
-      ? AccessConfig.toJSON(message.instantiatePermission)
-      : undefined);
+    message.instantiatePermission !== undefined &&
+      (obj.instantiatePermission = message.instantiatePermission
+        ? AccessConfig.toJSON(message.instantiatePermission)
+        : undefined);
     message.unpinCode !== undefined && (obj.unpinCode = message.unpinCode);
     message.source !== undefined && (obj.source = message.source);
     message.builder !== undefined && (obj.builder = message.builder);
@@ -391,7 +392,7 @@ export const StoreCodeProposal = {
     message.runAs = object.runAs ?? "";
     message.wasmByteCode = object.wasmByteCode ?? new Uint8Array(0);
     message.instantiatePermission =
-      (object.instantiatePermission !== undefined && object.instantiatePermission !== null)
+      object.instantiatePermission !== undefined && object.instantiatePermission !== null
         ? AccessConfig.fromPartial(object.instantiatePermission)
         : undefined;
     message.unpinCode = object.unpinCode ?? false;
@@ -540,26 +541,29 @@ export const InstantiateContractProposal = {
     message.msg !== undefined &&
       (obj.msg = base64FromBytes(message.msg !== undefined ? message.msg : new Uint8Array(0)));
     if (message.funds) {
-      obj.funds = message.funds.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.funds = message.funds.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.funds = [];
     }
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<InstantiateContractProposal>, I>>(base?: I): InstantiateContractProposal {
+  create<I extends Exact<DeepPartial<InstantiateContractProposal>, I>>(
+    base?: I,
+  ): InstantiateContractProposal {
     return InstantiateContractProposal.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<InstantiateContractProposal>, I>>(object: I): InstantiateContractProposal {
+  fromPartial<I extends Exact<DeepPartial<InstantiateContractProposal>, I>>(
+    object: I,
+  ): InstantiateContractProposal {
     const message = createBaseInstantiateContractProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
     message.runAs = object.runAs ?? "";
     message.admin = object.admin ?? "";
-    message.codeId = (object.codeId !== undefined && object.codeId !== null)
-      ? Long.fromValue(object.codeId)
-      : Long.UZERO;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.label = object.label ?? "";
     message.msg = object.msg ?? new Uint8Array(0);
     message.funds = object.funds?.map((e) => Coin.fromPartial(e)) || [];
@@ -672,9 +676,8 @@ export const MigrateContractProposal = {
     message.title = object.title ?? "";
     message.description = object.description ?? "";
     message.contract = object.contract ?? "";
-    message.codeId = (object.codeId !== undefined && object.codeId !== null)
-      ? Long.fromValue(object.codeId)
-      : Long.UZERO;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.msg = object.msg ?? new Uint8Array(0);
     return message;
   },
@@ -883,7 +886,7 @@ export const ExecuteContractProposal = {
     message.msg !== undefined &&
       (obj.msg = base64FromBytes(message.msg !== undefined ? message.msg : new Uint8Array(0)));
     if (message.funds) {
-      obj.funds = message.funds.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.funds = message.funds.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.funds = [];
     }
@@ -1344,9 +1347,10 @@ export const AccessConfigUpdate = {
   toJSON(message: AccessConfigUpdate): unknown {
     const obj: any = {};
     message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
-    message.instantiatePermission !== undefined && (obj.instantiatePermission = message.instantiatePermission
-      ? AccessConfig.toJSON(message.instantiatePermission)
-      : undefined);
+    message.instantiatePermission !== undefined &&
+      (obj.instantiatePermission = message.instantiatePermission
+        ? AccessConfig.toJSON(message.instantiatePermission)
+        : undefined);
     return obj;
   },
 
@@ -1356,11 +1360,10 @@ export const AccessConfigUpdate = {
 
   fromPartial<I extends Exact<DeepPartial<AccessConfigUpdate>, I>>(object: I): AccessConfigUpdate {
     const message = createBaseAccessConfigUpdate();
-    message.codeId = (object.codeId !== undefined && object.codeId !== null)
-      ? Long.fromValue(object.codeId)
-      : Long.UZERO;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.instantiatePermission =
-      (object.instantiatePermission !== undefined && object.instantiatePermission !== null)
+      object.instantiatePermission !== undefined && object.instantiatePermission !== null
         ? AccessConfig.fromPartial(object.instantiatePermission)
         : undefined;
     return message;
@@ -1437,14 +1440,18 @@ export const UpdateInstantiateConfigProposal = {
     message.title !== undefined && (obj.title = message.title);
     message.description !== undefined && (obj.description = message.description);
     if (message.accessConfigUpdates) {
-      obj.accessConfigUpdates = message.accessConfigUpdates.map((e) => e ? AccessConfigUpdate.toJSON(e) : undefined);
+      obj.accessConfigUpdates = message.accessConfigUpdates.map((e) =>
+        e ? AccessConfigUpdate.toJSON(e) : undefined,
+      );
     } else {
       obj.accessConfigUpdates = [];
     }
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<UpdateInstantiateConfigProposal>, I>>(base?: I): UpdateInstantiateConfigProposal {
+  create<I extends Exact<DeepPartial<UpdateInstantiateConfigProposal>, I>>(
+    base?: I,
+  ): UpdateInstantiateConfigProposal {
     return UpdateInstantiateConfigProposal.fromPartial(base ?? {});
   },
 
@@ -1454,7 +1461,8 @@ export const UpdateInstantiateConfigProposal = {
     const message = createBaseUpdateInstantiateConfigProposal();
     message.title = object.title ?? "";
     message.description = object.description ?? "";
-    message.accessConfigUpdates = object.accessConfigUpdates?.map((e) => AccessConfigUpdate.fromPartial(e)) || [];
+    message.accessConfigUpdates =
+      object.accessConfigUpdates?.map((e) => AccessConfigUpdate.fromPartial(e)) || [];
     return message;
   },
 };
@@ -1657,16 +1665,17 @@ export const StoreAndInstantiateContractProposal = {
       (obj.wasmByteCode = base64FromBytes(
         message.wasmByteCode !== undefined ? message.wasmByteCode : new Uint8Array(0),
       ));
-    message.instantiatePermission !== undefined && (obj.instantiatePermission = message.instantiatePermission
-      ? AccessConfig.toJSON(message.instantiatePermission)
-      : undefined);
+    message.instantiatePermission !== undefined &&
+      (obj.instantiatePermission = message.instantiatePermission
+        ? AccessConfig.toJSON(message.instantiatePermission)
+        : undefined);
     message.unpinCode !== undefined && (obj.unpinCode = message.unpinCode);
     message.admin !== undefined && (obj.admin = message.admin);
     message.label !== undefined && (obj.label = message.label);
     message.msg !== undefined &&
       (obj.msg = base64FromBytes(message.msg !== undefined ? message.msg : new Uint8Array(0)));
     if (message.funds) {
-      obj.funds = message.funds.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.funds = message.funds.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.funds = [];
     }
@@ -1692,7 +1701,7 @@ export const StoreAndInstantiateContractProposal = {
     message.runAs = object.runAs ?? "";
     message.wasmByteCode = object.wasmByteCode ?? new Uint8Array(0);
     message.instantiatePermission =
-      (object.instantiatePermission !== undefined && object.instantiatePermission !== null)
+      object.instantiatePermission !== undefined && object.instantiatePermission !== null
         ? AccessConfig.fromPartial(object.instantiatePermission)
         : undefined;
     message.unpinCode = object.unpinCode ?? false;
@@ -1753,14 +1762,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

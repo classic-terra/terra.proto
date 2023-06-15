@@ -17,8 +17,7 @@ export interface MsgSetWithdrawAddress {
 }
 
 /** MsgSetWithdrawAddressResponse defines the Msg/SetWithdrawAddress response type. */
-export interface MsgSetWithdrawAddressResponse {
-}
+export interface MsgSetWithdrawAddressResponse {}
 
 /**
  * MsgWithdrawDelegatorReward represents delegation withdrawal to a delegator
@@ -30,8 +29,7 @@ export interface MsgWithdrawDelegatorReward {
 }
 
 /** MsgWithdrawDelegatorRewardResponse defines the Msg/WithdrawDelegatorReward response type. */
-export interface MsgWithdrawDelegatorRewardResponse {
-}
+export interface MsgWithdrawDelegatorRewardResponse {}
 
 /**
  * MsgWithdrawValidatorCommission withdraws the full commission to the validator
@@ -42,8 +40,7 @@ export interface MsgWithdrawValidatorCommission {
 }
 
 /** MsgWithdrawValidatorCommissionResponse defines the Msg/WithdrawValidatorCommission response type. */
-export interface MsgWithdrawValidatorCommissionResponse {
-}
+export interface MsgWithdrawValidatorCommissionResponse {}
 
 /**
  * MsgFundCommunityPool allows an account to directly
@@ -55,8 +52,7 @@ export interface MsgFundCommunityPool {
 }
 
 /** MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type. */
-export interface MsgFundCommunityPoolResponse {
-}
+export interface MsgFundCommunityPoolResponse {}
 
 function createBaseMsgSetWithdrawAddress(): MsgSetWithdrawAddress {
   return { delegatorAddress: "", withdrawAddress: "" };
@@ -163,11 +159,15 @@ export const MsgSetWithdrawAddressResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<MsgSetWithdrawAddressResponse>, I>>(base?: I): MsgSetWithdrawAddressResponse {
+  create<I extends Exact<DeepPartial<MsgSetWithdrawAddressResponse>, I>>(
+    base?: I,
+  ): MsgSetWithdrawAddressResponse {
     return MsgSetWithdrawAddressResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<MsgSetWithdrawAddressResponse>, I>>(_: I): MsgSetWithdrawAddressResponse {
+  fromPartial<I extends Exact<DeepPartial<MsgSetWithdrawAddressResponse>, I>>(
+    _: I,
+  ): MsgSetWithdrawAddressResponse {
     const message = createBaseMsgSetWithdrawAddressResponse();
     return message;
   },
@@ -236,7 +236,9 @@ export const MsgWithdrawDelegatorReward = {
     return MsgWithdrawDelegatorReward.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<MsgWithdrawDelegatorReward>, I>>(object: I): MsgWithdrawDelegatorReward {
+  fromPartial<I extends Exact<DeepPartial<MsgWithdrawDelegatorReward>, I>>(
+    object: I,
+  ): MsgWithdrawDelegatorReward {
     const message = createBaseMsgWithdrawDelegatorReward();
     message.delegatorAddress = object.delegatorAddress ?? "";
     message.validatorAddress = object.validatorAddress ?? "";
@@ -337,7 +339,9 @@ export const MsgWithdrawValidatorCommission = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<MsgWithdrawValidatorCommission>, I>>(base?: I): MsgWithdrawValidatorCommission {
+  create<I extends Exact<DeepPartial<MsgWithdrawValidatorCommission>, I>>(
+    base?: I,
+  ): MsgWithdrawValidatorCommission {
     return MsgWithdrawValidatorCommission.fromPartial(base ?? {});
   },
 
@@ -453,7 +457,7 @@ export const MsgFundCommunityPool = {
   toJSON(message: MsgFundCommunityPool): unknown {
     const obj: any = {};
     if (message.amount) {
-      obj.amount = message.amount.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.amount = message.amount.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.amount = [];
     }
@@ -507,11 +511,15 @@ export const MsgFundCommunityPoolResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<MsgFundCommunityPoolResponse>, I>>(base?: I): MsgFundCommunityPoolResponse {
+  create<I extends Exact<DeepPartial<MsgFundCommunityPoolResponse>, I>>(
+    base?: I,
+  ): MsgFundCommunityPoolResponse {
     return MsgFundCommunityPoolResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<MsgFundCommunityPoolResponse>, I>>(_: I): MsgFundCommunityPoolResponse {
+  fromPartial<I extends Exact<DeepPartial<MsgFundCommunityPoolResponse>, I>>(
+    _: I,
+  ): MsgFundCommunityPoolResponse {
     const message = createBaseMsgFundCommunityPoolResponse();
     return message;
   },
@@ -575,7 +583,11 @@ export class MsgClientImpl implements Msg {
     request: DeepPartial<MsgWithdrawDelegatorReward>,
     metadata?: grpc.Metadata,
   ): Promise<MsgWithdrawDelegatorRewardResponse> {
-    return this.rpc.unary(MsgWithdrawDelegatorRewardDesc, MsgWithdrawDelegatorReward.fromPartial(request), metadata);
+    return this.rpc.unary(
+      MsgWithdrawDelegatorRewardDesc,
+      MsgWithdrawDelegatorReward.fromPartial(request),
+      metadata,
+    );
   }
 
   WithdrawValidatorCommission(
@@ -736,9 +748,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -780,14 +793,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

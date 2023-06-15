@@ -100,7 +100,8 @@ export const MsgSwap = {
   toJSON(message: MsgSwap): unknown {
     const obj: any = {};
     message.trader !== undefined && (obj.trader = message.trader);
-    message.offerCoin !== undefined && (obj.offerCoin = message.offerCoin ? Coin.toJSON(message.offerCoin) : undefined);
+    message.offerCoin !== undefined &&
+      (obj.offerCoin = message.offerCoin ? Coin.toJSON(message.offerCoin) : undefined);
     message.askDenom !== undefined && (obj.askDenom = message.askDenom);
     return obj;
   },
@@ -112,9 +113,10 @@ export const MsgSwap = {
   fromPartial<I extends Exact<DeepPartial<MsgSwap>, I>>(object: I): MsgSwap {
     const message = createBaseMsgSwap();
     message.trader = object.trader ?? "";
-    message.offerCoin = (object.offerCoin !== undefined && object.offerCoin !== null)
-      ? Coin.fromPartial(object.offerCoin)
-      : undefined;
+    message.offerCoin =
+      object.offerCoin !== undefined && object.offerCoin !== null
+        ? Coin.fromPartial(object.offerCoin)
+        : undefined;
     message.askDenom = object.askDenom ?? "";
     return message;
   },
@@ -174,8 +176,10 @@ export const MsgSwapResponse = {
 
   toJSON(message: MsgSwapResponse): unknown {
     const obj: any = {};
-    message.swapCoin !== undefined && (obj.swapCoin = message.swapCoin ? Coin.toJSON(message.swapCoin) : undefined);
-    message.swapFee !== undefined && (obj.swapFee = message.swapFee ? Coin.toJSON(message.swapFee) : undefined);
+    message.swapCoin !== undefined &&
+      (obj.swapCoin = message.swapCoin ? Coin.toJSON(message.swapCoin) : undefined);
+    message.swapFee !== undefined &&
+      (obj.swapFee = message.swapFee ? Coin.toJSON(message.swapFee) : undefined);
     return obj;
   },
 
@@ -185,12 +189,12 @@ export const MsgSwapResponse = {
 
   fromPartial<I extends Exact<DeepPartial<MsgSwapResponse>, I>>(object: I): MsgSwapResponse {
     const message = createBaseMsgSwapResponse();
-    message.swapCoin = (object.swapCoin !== undefined && object.swapCoin !== null)
-      ? Coin.fromPartial(object.swapCoin)
-      : undefined;
-    message.swapFee = (object.swapFee !== undefined && object.swapFee !== null)
-      ? Coin.fromPartial(object.swapFee)
-      : undefined;
+    message.swapCoin =
+      object.swapCoin !== undefined && object.swapCoin !== null
+        ? Coin.fromPartial(object.swapCoin)
+        : undefined;
+    message.swapFee =
+      object.swapFee !== undefined && object.swapFee !== null ? Coin.fromPartial(object.swapFee) : undefined;
     return message;
   },
 };
@@ -273,7 +277,8 @@ export const MsgSwapSend = {
     const obj: any = {};
     message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress);
     message.toAddress !== undefined && (obj.toAddress = message.toAddress);
-    message.offerCoin !== undefined && (obj.offerCoin = message.offerCoin ? Coin.toJSON(message.offerCoin) : undefined);
+    message.offerCoin !== undefined &&
+      (obj.offerCoin = message.offerCoin ? Coin.toJSON(message.offerCoin) : undefined);
     message.askDenom !== undefined && (obj.askDenom = message.askDenom);
     return obj;
   },
@@ -286,9 +291,10 @@ export const MsgSwapSend = {
     const message = createBaseMsgSwapSend();
     message.fromAddress = object.fromAddress ?? "";
     message.toAddress = object.toAddress ?? "";
-    message.offerCoin = (object.offerCoin !== undefined && object.offerCoin !== null)
-      ? Coin.fromPartial(object.offerCoin)
-      : undefined;
+    message.offerCoin =
+      object.offerCoin !== undefined && object.offerCoin !== null
+        ? Coin.fromPartial(object.offerCoin)
+        : undefined;
     message.askDenom = object.askDenom ?? "";
     return message;
   },
@@ -348,8 +354,10 @@ export const MsgSwapSendResponse = {
 
   toJSON(message: MsgSwapSendResponse): unknown {
     const obj: any = {};
-    message.swapCoin !== undefined && (obj.swapCoin = message.swapCoin ? Coin.toJSON(message.swapCoin) : undefined);
-    message.swapFee !== undefined && (obj.swapFee = message.swapFee ? Coin.toJSON(message.swapFee) : undefined);
+    message.swapCoin !== undefined &&
+      (obj.swapCoin = message.swapCoin ? Coin.toJSON(message.swapCoin) : undefined);
+    message.swapFee !== undefined &&
+      (obj.swapFee = message.swapFee ? Coin.toJSON(message.swapFee) : undefined);
     return obj;
   },
 
@@ -359,12 +367,12 @@ export const MsgSwapSendResponse = {
 
   fromPartial<I extends Exact<DeepPartial<MsgSwapSendResponse>, I>>(object: I): MsgSwapSendResponse {
     const message = createBaseMsgSwapSendResponse();
-    message.swapCoin = (object.swapCoin !== undefined && object.swapCoin !== null)
-      ? Coin.fromPartial(object.swapCoin)
-      : undefined;
-    message.swapFee = (object.swapFee !== undefined && object.swapFee !== null)
-      ? Coin.fromPartial(object.swapFee)
-      : undefined;
+    message.swapCoin =
+      object.swapCoin !== undefined && object.swapCoin !== null
+        ? Coin.fromPartial(object.swapCoin)
+        : undefined;
+    message.swapFee =
+      object.swapFee !== undefined && object.swapFee !== null ? Coin.fromPartial(object.swapFee) : undefined;
     return message;
   },
 };
@@ -494,9 +502,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -538,14 +547,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

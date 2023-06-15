@@ -128,10 +128,14 @@ export const GenesisState = {
 
   fromJSON(object: any): GenesisState {
     return {
-      startingProposalId: isSet(object.startingProposalId) ? Long.fromValue(object.startingProposalId) : Long.UZERO,
+      startingProposalId: isSet(object.startingProposalId)
+        ? Long.fromValue(object.startingProposalId)
+        : Long.UZERO,
       deposits: Array.isArray(object?.deposits) ? object.deposits.map((e: any) => Deposit.fromJSON(e)) : [],
       votes: Array.isArray(object?.votes) ? object.votes.map((e: any) => Vote.fromJSON(e)) : [],
-      proposals: Array.isArray(object?.proposals) ? object.proposals.map((e: any) => Proposal.fromJSON(e)) : [],
+      proposals: Array.isArray(object?.proposals)
+        ? object.proposals.map((e: any) => Proposal.fromJSON(e))
+        : [],
       depositParams: isSet(object.depositParams) ? DepositParams.fromJSON(object.depositParams) : undefined,
       votingParams: isSet(object.votingParams) ? VotingParams.fromJSON(object.votingParams) : undefined,
       tallyParams: isSet(object.tallyParams) ? TallyParams.fromJSON(object.tallyParams) : undefined,
@@ -143,17 +147,17 @@ export const GenesisState = {
     message.startingProposalId !== undefined &&
       (obj.startingProposalId = (message.startingProposalId || Long.UZERO).toString());
     if (message.deposits) {
-      obj.deposits = message.deposits.map((e) => e ? Deposit.toJSON(e) : undefined);
+      obj.deposits = message.deposits.map((e) => (e ? Deposit.toJSON(e) : undefined));
     } else {
       obj.deposits = [];
     }
     if (message.votes) {
-      obj.votes = message.votes.map((e) => e ? Vote.toJSON(e) : undefined);
+      obj.votes = message.votes.map((e) => (e ? Vote.toJSON(e) : undefined));
     } else {
       obj.votes = [];
     }
     if (message.proposals) {
-      obj.proposals = message.proposals.map((e) => e ? Proposal.toJSON(e) : undefined);
+      obj.proposals = message.proposals.map((e) => (e ? Proposal.toJSON(e) : undefined));
     } else {
       obj.proposals = [];
     }
@@ -172,35 +176,46 @@ export const GenesisState = {
 
   fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
     const message = createBaseGenesisState();
-    message.startingProposalId = (object.startingProposalId !== undefined && object.startingProposalId !== null)
-      ? Long.fromValue(object.startingProposalId)
-      : Long.UZERO;
+    message.startingProposalId =
+      object.startingProposalId !== undefined && object.startingProposalId !== null
+        ? Long.fromValue(object.startingProposalId)
+        : Long.UZERO;
     message.deposits = object.deposits?.map((e) => Deposit.fromPartial(e)) || [];
     message.votes = object.votes?.map((e) => Vote.fromPartial(e)) || [];
     message.proposals = object.proposals?.map((e) => Proposal.fromPartial(e)) || [];
-    message.depositParams = (object.depositParams !== undefined && object.depositParams !== null)
-      ? DepositParams.fromPartial(object.depositParams)
-      : undefined;
-    message.votingParams = (object.votingParams !== undefined && object.votingParams !== null)
-      ? VotingParams.fromPartial(object.votingParams)
-      : undefined;
-    message.tallyParams = (object.tallyParams !== undefined && object.tallyParams !== null)
-      ? TallyParams.fromPartial(object.tallyParams)
-      : undefined;
+    message.depositParams =
+      object.depositParams !== undefined && object.depositParams !== null
+        ? DepositParams.fromPartial(object.depositParams)
+        : undefined;
+    message.votingParams =
+      object.votingParams !== undefined && object.votingParams !== null
+        ? VotingParams.fromPartial(object.votingParams)
+        : undefined;
+    message.tallyParams =
+      object.tallyParams !== undefined && object.tallyParams !== null
+        ? TallyParams.fromPartial(object.tallyParams)
+        : undefined;
     return message;
   },
 };
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

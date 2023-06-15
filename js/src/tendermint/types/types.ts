@@ -377,7 +377,8 @@ export const Part = {
     const message = createBasePart();
     message.index = object.index ?? 0;
     message.bytes = object.bytes ?? new Uint8Array(0);
-    message.proof = (object.proof !== undefined && object.proof !== null) ? Proof.fromPartial(object.proof) : undefined;
+    message.proof =
+      object.proof !== undefined && object.proof !== null ? Proof.fromPartial(object.proof) : undefined;
     return message;
   },
 };
@@ -450,9 +451,10 @@ export const BlockID = {
   fromPartial<I extends Exact<DeepPartial<BlockID>, I>>(object: I): BlockID {
     const message = createBaseBlockID();
     message.hash = object.hash ?? new Uint8Array(0);
-    message.partSetHeader = (object.partSetHeader !== undefined && object.partSetHeader !== null)
-      ? PartSetHeader.fromPartial(object.partSetHeader)
-      : undefined;
+    message.partSetHeader =
+      object.partSetHeader !== undefined && object.partSetHeader !== null
+        ? PartSetHeader.fromPartial(object.partSetHeader)
+        : undefined;
     return message;
   },
 };
@@ -644,23 +646,32 @@ export const Header = {
       height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
       time: isSet(object.time) ? fromJsonTimestamp(object.time) : undefined,
       lastBlockId: isSet(object.lastBlockId) ? BlockID.fromJSON(object.lastBlockId) : undefined,
-      lastCommitHash: isSet(object.lastCommitHash) ? bytesFromBase64(object.lastCommitHash) : new Uint8Array(0),
+      lastCommitHash: isSet(object.lastCommitHash)
+        ? bytesFromBase64(object.lastCommitHash)
+        : new Uint8Array(0),
       dataHash: isSet(object.dataHash) ? bytesFromBase64(object.dataHash) : new Uint8Array(0),
-      validatorsHash: isSet(object.validatorsHash) ? bytesFromBase64(object.validatorsHash) : new Uint8Array(0),
+      validatorsHash: isSet(object.validatorsHash)
+        ? bytesFromBase64(object.validatorsHash)
+        : new Uint8Array(0),
       nextValidatorsHash: isSet(object.nextValidatorsHash)
         ? bytesFromBase64(object.nextValidatorsHash)
         : new Uint8Array(0),
       consensusHash: isSet(object.consensusHash) ? bytesFromBase64(object.consensusHash) : new Uint8Array(0),
       appHash: isSet(object.appHash) ? bytesFromBase64(object.appHash) : new Uint8Array(0),
-      lastResultsHash: isSet(object.lastResultsHash) ? bytesFromBase64(object.lastResultsHash) : new Uint8Array(0),
+      lastResultsHash: isSet(object.lastResultsHash)
+        ? bytesFromBase64(object.lastResultsHash)
+        : new Uint8Array(0),
       evidenceHash: isSet(object.evidenceHash) ? bytesFromBase64(object.evidenceHash) : new Uint8Array(0),
-      proposerAddress: isSet(object.proposerAddress) ? bytesFromBase64(object.proposerAddress) : new Uint8Array(0),
+      proposerAddress: isSet(object.proposerAddress)
+        ? bytesFromBase64(object.proposerAddress)
+        : new Uint8Array(0),
     };
   },
 
   toJSON(message: Header): unknown {
     const obj: any = {};
-    message.version !== undefined && (obj.version = message.version ? Consensus.toJSON(message.version) : undefined);
+    message.version !== undefined &&
+      (obj.version = message.version ? Consensus.toJSON(message.version) : undefined);
     message.chainId !== undefined && (obj.chainId = message.chainId);
     message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.time !== undefined && (obj.time = message.time.toISOString());
@@ -707,17 +718,18 @@ export const Header = {
 
   fromPartial<I extends Exact<DeepPartial<Header>, I>>(object: I): Header {
     const message = createBaseHeader();
-    message.version = (object.version !== undefined && object.version !== null)
-      ? Consensus.fromPartial(object.version)
-      : undefined;
+    message.version =
+      object.version !== undefined && object.version !== null
+        ? Consensus.fromPartial(object.version)
+        : undefined;
     message.chainId = object.chainId ?? "";
-    message.height = (object.height !== undefined && object.height !== null)
-      ? Long.fromValue(object.height)
-      : Long.ZERO;
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.time = object.time ?? undefined;
-    message.lastBlockId = (object.lastBlockId !== undefined && object.lastBlockId !== null)
-      ? BlockID.fromPartial(object.lastBlockId)
-      : undefined;
+    message.lastBlockId =
+      object.lastBlockId !== undefined && object.lastBlockId !== null
+        ? BlockID.fromPartial(object.lastBlockId)
+        : undefined;
     message.lastCommitHash = object.lastCommitHash ?? new Uint8Array(0);
     message.dataHash = object.dataHash ?? new Uint8Array(0);
     message.validatorsHash = object.validatorsHash ?? new Uint8Array(0);
@@ -912,7 +924,9 @@ export const Vote = {
       round: isSet(object.round) ? Number(object.round) : 0,
       blockId: isSet(object.blockId) ? BlockID.fromJSON(object.blockId) : undefined,
       timestamp: isSet(object.timestamp) ? fromJsonTimestamp(object.timestamp) : undefined,
-      validatorAddress: isSet(object.validatorAddress) ? bytesFromBase64(object.validatorAddress) : new Uint8Array(0),
+      validatorAddress: isSet(object.validatorAddress)
+        ? bytesFromBase64(object.validatorAddress)
+        : new Uint8Array(0),
       validatorIndex: isSet(object.validatorIndex) ? Number(object.validatorIndex) : 0,
       signature: isSet(object.signature) ? bytesFromBase64(object.signature) : new Uint8Array(0),
     };
@@ -923,7 +937,8 @@ export const Vote = {
     message.type !== undefined && (obj.type = signedMsgTypeToJSON(message.type));
     message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.round !== undefined && (obj.round = Math.round(message.round));
-    message.blockId !== undefined && (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
+    message.blockId !== undefined &&
+      (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
     message.timestamp !== undefined && (obj.timestamp = message.timestamp.toISOString());
     message.validatorAddress !== undefined &&
       (obj.validatorAddress = base64FromBytes(
@@ -931,7 +946,9 @@ export const Vote = {
       ));
     message.validatorIndex !== undefined && (obj.validatorIndex = Math.round(message.validatorIndex));
     message.signature !== undefined &&
-      (obj.signature = base64FromBytes(message.signature !== undefined ? message.signature : new Uint8Array(0)));
+      (obj.signature = base64FromBytes(
+        message.signature !== undefined ? message.signature : new Uint8Array(0),
+      ));
     return obj;
   },
 
@@ -942,13 +959,13 @@ export const Vote = {
   fromPartial<I extends Exact<DeepPartial<Vote>, I>>(object: I): Vote {
     const message = createBaseVote();
     message.type = object.type ?? 0;
-    message.height = (object.height !== undefined && object.height !== null)
-      ? Long.fromValue(object.height)
-      : Long.ZERO;
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.round = object.round ?? 0;
-    message.blockId = (object.blockId !== undefined && object.blockId !== null)
-      ? BlockID.fromPartial(object.blockId)
-      : undefined;
+    message.blockId =
+      object.blockId !== undefined && object.blockId !== null
+        ? BlockID.fromPartial(object.blockId)
+        : undefined;
     message.timestamp = object.timestamp ?? undefined;
     message.validatorAddress = object.validatorAddress ?? new Uint8Array(0);
     message.validatorIndex = object.validatorIndex ?? 0;
@@ -1027,7 +1044,9 @@ export const Commit = {
       height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
       round: isSet(object.round) ? Number(object.round) : 0,
       blockId: isSet(object.blockId) ? BlockID.fromJSON(object.blockId) : undefined,
-      signatures: Array.isArray(object?.signatures) ? object.signatures.map((e: any) => CommitSig.fromJSON(e)) : [],
+      signatures: Array.isArray(object?.signatures)
+        ? object.signatures.map((e: any) => CommitSig.fromJSON(e))
+        : [],
     };
   },
 
@@ -1035,9 +1054,10 @@ export const Commit = {
     const obj: any = {};
     message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.round !== undefined && (obj.round = Math.round(message.round));
-    message.blockId !== undefined && (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
+    message.blockId !== undefined &&
+      (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
     if (message.signatures) {
-      obj.signatures = message.signatures.map((e) => e ? CommitSig.toJSON(e) : undefined);
+      obj.signatures = message.signatures.map((e) => (e ? CommitSig.toJSON(e) : undefined));
     } else {
       obj.signatures = [];
     }
@@ -1050,20 +1070,25 @@ export const Commit = {
 
   fromPartial<I extends Exact<DeepPartial<Commit>, I>>(object: I): Commit {
     const message = createBaseCommit();
-    message.height = (object.height !== undefined && object.height !== null)
-      ? Long.fromValue(object.height)
-      : Long.ZERO;
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.round = object.round ?? 0;
-    message.blockId = (object.blockId !== undefined && object.blockId !== null)
-      ? BlockID.fromPartial(object.blockId)
-      : undefined;
+    message.blockId =
+      object.blockId !== undefined && object.blockId !== null
+        ? BlockID.fromPartial(object.blockId)
+        : undefined;
     message.signatures = object.signatures?.map((e) => CommitSig.fromPartial(e)) || [];
     return message;
   },
 };
 
 function createBaseCommitSig(): CommitSig {
-  return { blockIdFlag: 0, validatorAddress: new Uint8Array(0), timestamp: undefined, signature: new Uint8Array(0) };
+  return {
+    blockIdFlag: 0,
+    validatorAddress: new Uint8Array(0),
+    timestamp: undefined,
+    signature: new Uint8Array(0),
+  };
 }
 
 export const CommitSig = {
@@ -1130,7 +1155,9 @@ export const CommitSig = {
   fromJSON(object: any): CommitSig {
     return {
       blockIdFlag: isSet(object.blockIdFlag) ? blockIDFlagFromJSON(object.blockIdFlag) : 0,
-      validatorAddress: isSet(object.validatorAddress) ? bytesFromBase64(object.validatorAddress) : new Uint8Array(0),
+      validatorAddress: isSet(object.validatorAddress)
+        ? bytesFromBase64(object.validatorAddress)
+        : new Uint8Array(0),
       timestamp: isSet(object.timestamp) ? fromJsonTimestamp(object.timestamp) : undefined,
       signature: isSet(object.signature) ? bytesFromBase64(object.signature) : new Uint8Array(0),
     };
@@ -1145,7 +1172,9 @@ export const CommitSig = {
       ));
     message.timestamp !== undefined && (obj.timestamp = message.timestamp.toISOString());
     message.signature !== undefined &&
-      (obj.signature = base64FromBytes(message.signature !== undefined ? message.signature : new Uint8Array(0)));
+      (obj.signature = base64FromBytes(
+        message.signature !== undefined ? message.signature : new Uint8Array(0),
+      ));
     return obj;
   },
 
@@ -1284,10 +1313,13 @@ export const Proposal = {
     message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.round !== undefined && (obj.round = Math.round(message.round));
     message.polRound !== undefined && (obj.polRound = Math.round(message.polRound));
-    message.blockId !== undefined && (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
+    message.blockId !== undefined &&
+      (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
     message.timestamp !== undefined && (obj.timestamp = message.timestamp.toISOString());
     message.signature !== undefined &&
-      (obj.signature = base64FromBytes(message.signature !== undefined ? message.signature : new Uint8Array(0)));
+      (obj.signature = base64FromBytes(
+        message.signature !== undefined ? message.signature : new Uint8Array(0),
+      ));
     return obj;
   },
 
@@ -1298,14 +1330,14 @@ export const Proposal = {
   fromPartial<I extends Exact<DeepPartial<Proposal>, I>>(object: I): Proposal {
     const message = createBaseProposal();
     message.type = object.type ?? 0;
-    message.height = (object.height !== undefined && object.height !== null)
-      ? Long.fromValue(object.height)
-      : Long.ZERO;
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     message.round = object.round ?? 0;
     message.polRound = object.polRound ?? 0;
-    message.blockId = (object.blockId !== undefined && object.blockId !== null)
-      ? BlockID.fromPartial(object.blockId)
-      : undefined;
+    message.blockId =
+      object.blockId !== undefined && object.blockId !== null
+        ? BlockID.fromPartial(object.blockId)
+        : undefined;
     message.timestamp = object.timestamp ?? undefined;
     message.signature = object.signature ?? new Uint8Array(0);
     return message;
@@ -1377,12 +1409,10 @@ export const SignedHeader = {
 
   fromPartial<I extends Exact<DeepPartial<SignedHeader>, I>>(object: I): SignedHeader {
     const message = createBaseSignedHeader();
-    message.header = (object.header !== undefined && object.header !== null)
-      ? Header.fromPartial(object.header)
-      : undefined;
-    message.commit = (object.commit !== undefined && object.commit !== null)
-      ? Commit.fromPartial(object.commit)
-      : undefined;
+    message.header =
+      object.header !== undefined && object.header !== null ? Header.fromPartial(object.header) : undefined;
+    message.commit =
+      object.commit !== undefined && object.commit !== null ? Commit.fromPartial(object.commit) : undefined;
     return message;
   },
 };
@@ -1454,12 +1484,14 @@ export const LightBlock = {
 
   fromPartial<I extends Exact<DeepPartial<LightBlock>, I>>(object: I): LightBlock {
     const message = createBaseLightBlock();
-    message.signedHeader = (object.signedHeader !== undefined && object.signedHeader !== null)
-      ? SignedHeader.fromPartial(object.signedHeader)
-      : undefined;
-    message.validatorSet = (object.validatorSet !== undefined && object.validatorSet !== null)
-      ? ValidatorSet.fromPartial(object.validatorSet)
-      : undefined;
+    message.signedHeader =
+      object.signedHeader !== undefined && object.signedHeader !== null
+        ? SignedHeader.fromPartial(object.signedHeader)
+        : undefined;
+    message.validatorSet =
+      object.validatorSet !== undefined && object.validatorSet !== null
+        ? ValidatorSet.fromPartial(object.validatorSet)
+        : undefined;
     return message;
   },
 };
@@ -1540,7 +1572,8 @@ export const BlockMeta = {
 
   toJSON(message: BlockMeta): unknown {
     const obj: any = {};
-    message.blockId !== undefined && (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
+    message.blockId !== undefined &&
+      (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
     message.blockSize !== undefined && (obj.blockSize = (message.blockSize || Long.ZERO).toString());
     message.header !== undefined && (obj.header = message.header ? Header.toJSON(message.header) : undefined);
     message.numTxs !== undefined && (obj.numTxs = (message.numTxs || Long.ZERO).toString());
@@ -1553,18 +1586,18 @@ export const BlockMeta = {
 
   fromPartial<I extends Exact<DeepPartial<BlockMeta>, I>>(object: I): BlockMeta {
     const message = createBaseBlockMeta();
-    message.blockId = (object.blockId !== undefined && object.blockId !== null)
-      ? BlockID.fromPartial(object.blockId)
-      : undefined;
-    message.blockSize = (object.blockSize !== undefined && object.blockSize !== null)
-      ? Long.fromValue(object.blockSize)
-      : Long.ZERO;
-    message.header = (object.header !== undefined && object.header !== null)
-      ? Header.fromPartial(object.header)
-      : undefined;
-    message.numTxs = (object.numTxs !== undefined && object.numTxs !== null)
-      ? Long.fromValue(object.numTxs)
-      : Long.ZERO;
+    message.blockId =
+      object.blockId !== undefined && object.blockId !== null
+        ? BlockID.fromPartial(object.blockId)
+        : undefined;
+    message.blockSize =
+      object.blockSize !== undefined && object.blockSize !== null
+        ? Long.fromValue(object.blockSize)
+        : Long.ZERO;
+    message.header =
+      object.header !== undefined && object.header !== null ? Header.fromPartial(object.header) : undefined;
+    message.numTxs =
+      object.numTxs !== undefined && object.numTxs !== null ? Long.fromValue(object.numTxs) : Long.ZERO;
     return message;
   },
 };
@@ -1650,7 +1683,8 @@ export const TxProof = {
     const message = createBaseTxProof();
     message.rootHash = object.rootHash ?? new Uint8Array(0);
     message.data = object.data ?? new Uint8Array(0);
-    message.proof = (object.proof !== undefined && object.proof !== null) ? Proof.fromPartial(object.proof) : undefined;
+    message.proof =
+      object.proof !== undefined && object.proof !== null ? Proof.fromPartial(object.proof) : undefined;
     return message;
   },
 };
@@ -1701,14 +1735,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 function toTimestamp(date: Date): Timestamp {

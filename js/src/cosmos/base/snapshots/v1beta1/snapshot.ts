@@ -145,7 +145,8 @@ export const Snapshot = {
     message.chunks !== undefined && (obj.chunks = Math.round(message.chunks));
     message.hash !== undefined &&
       (obj.hash = base64FromBytes(message.hash !== undefined ? message.hash : new Uint8Array(0)));
-    message.metadata !== undefined && (obj.metadata = message.metadata ? Metadata.toJSON(message.metadata) : undefined);
+    message.metadata !== undefined &&
+      (obj.metadata = message.metadata ? Metadata.toJSON(message.metadata) : undefined);
     return obj;
   },
 
@@ -155,15 +156,15 @@ export const Snapshot = {
 
   fromPartial<I extends Exact<DeepPartial<Snapshot>, I>>(object: I): Snapshot {
     const message = createBaseSnapshot();
-    message.height = (object.height !== undefined && object.height !== null)
-      ? Long.fromValue(object.height)
-      : Long.UZERO;
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.UZERO;
     message.format = object.format ?? 0;
     message.chunks = object.chunks ?? 0;
     message.hash = object.hash ?? new Uint8Array(0);
-    message.metadata = (object.metadata !== undefined && object.metadata !== null)
-      ? Metadata.fromPartial(object.metadata)
-      : undefined;
+    message.metadata =
+      object.metadata !== undefined && object.metadata !== null
+        ? Metadata.fromPartial(object.metadata)
+        : undefined;
     return message;
   },
 };
@@ -205,14 +206,18 @@ export const Metadata = {
 
   fromJSON(object: any): Metadata {
     return {
-      chunkHashes: Array.isArray(object?.chunkHashes) ? object.chunkHashes.map((e: any) => bytesFromBase64(e)) : [],
+      chunkHashes: Array.isArray(object?.chunkHashes)
+        ? object.chunkHashes.map((e: any) => bytesFromBase64(e))
+        : [],
     };
   },
 
   toJSON(message: Metadata): unknown {
     const obj: any = {};
     if (message.chunkHashes) {
-      obj.chunkHashes = message.chunkHashes.map((e) => base64FromBytes(e !== undefined ? e : new Uint8Array(0)));
+      obj.chunkHashes = message.chunkHashes.map((e) =>
+        base64FromBytes(e !== undefined ? e : new Uint8Array(0)),
+      );
     } else {
       obj.chunkHashes = [];
     }
@@ -308,13 +313,16 @@ export const SnapshotItem = {
 
   toJSON(message: SnapshotItem): unknown {
     const obj: any = {};
-    message.store !== undefined && (obj.store = message.store ? SnapshotStoreItem.toJSON(message.store) : undefined);
-    message.iavl !== undefined && (obj.iavl = message.iavl ? SnapshotIAVLItem.toJSON(message.iavl) : undefined);
+    message.store !== undefined &&
+      (obj.store = message.store ? SnapshotStoreItem.toJSON(message.store) : undefined);
+    message.iavl !== undefined &&
+      (obj.iavl = message.iavl ? SnapshotIAVLItem.toJSON(message.iavl) : undefined);
     message.extension !== undefined &&
       (obj.extension = message.extension ? SnapshotExtensionMeta.toJSON(message.extension) : undefined);
-    message.extensionPayload !== undefined && (obj.extensionPayload = message.extensionPayload
-      ? SnapshotExtensionPayload.toJSON(message.extensionPayload)
-      : undefined);
+    message.extensionPayload !== undefined &&
+      (obj.extensionPayload = message.extensionPayload
+        ? SnapshotExtensionPayload.toJSON(message.extensionPayload)
+        : undefined);
     return obj;
   },
 
@@ -324,18 +332,22 @@ export const SnapshotItem = {
 
   fromPartial<I extends Exact<DeepPartial<SnapshotItem>, I>>(object: I): SnapshotItem {
     const message = createBaseSnapshotItem();
-    message.store = (object.store !== undefined && object.store !== null)
-      ? SnapshotStoreItem.fromPartial(object.store)
-      : undefined;
-    message.iavl = (object.iavl !== undefined && object.iavl !== null)
-      ? SnapshotIAVLItem.fromPartial(object.iavl)
-      : undefined;
-    message.extension = (object.extension !== undefined && object.extension !== null)
-      ? SnapshotExtensionMeta.fromPartial(object.extension)
-      : undefined;
-    message.extensionPayload = (object.extensionPayload !== undefined && object.extensionPayload !== null)
-      ? SnapshotExtensionPayload.fromPartial(object.extensionPayload)
-      : undefined;
+    message.store =
+      object.store !== undefined && object.store !== null
+        ? SnapshotStoreItem.fromPartial(object.store)
+        : undefined;
+    message.iavl =
+      object.iavl !== undefined && object.iavl !== null
+        ? SnapshotIAVLItem.fromPartial(object.iavl)
+        : undefined;
+    message.extension =
+      object.extension !== undefined && object.extension !== null
+        ? SnapshotExtensionMeta.fromPartial(object.extension)
+        : undefined;
+    message.extensionPayload =
+      object.extensionPayload !== undefined && object.extensionPayload !== null
+        ? SnapshotExtensionPayload.fromPartial(object.extensionPayload)
+        : undefined;
     return message;
   },
 };
@@ -489,9 +501,8 @@ export const SnapshotIAVLItem = {
     const message = createBaseSnapshotIAVLItem();
     message.key = object.key ?? new Uint8Array(0);
     message.value = object.value ?? new Uint8Array(0);
-    message.version = (object.version !== undefined && object.version !== null)
-      ? Long.fromValue(object.version)
-      : Long.ZERO;
+    message.version =
+      object.version !== undefined && object.version !== null ? Long.fromValue(object.version) : Long.ZERO;
     message.height = object.height ?? 0;
     return message;
   },
@@ -618,7 +629,9 @@ export const SnapshotExtensionPayload = {
     return SnapshotExtensionPayload.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<SnapshotExtensionPayload>, I>>(object: I): SnapshotExtensionPayload {
+  fromPartial<I extends Exact<DeepPartial<SnapshotExtensionPayload>, I>>(
+    object: I,
+  ): SnapshotExtensionPayload {
     const message = createBaseSnapshotExtensionPayload();
     message.payload = object.payload ?? new Uint8Array(0);
     return message;
@@ -671,14 +684,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

@@ -315,9 +315,10 @@ export const GetTxsEventRequest = {
   fromPartial<I extends Exact<DeepPartial<GetTxsEventRequest>, I>>(object: I): GetTxsEventRequest {
     const message = createBaseGetTxsEventRequest();
     message.events = object.events?.map((e) => e) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     message.orderBy = object.orderBy ?? 0;
     return message;
   },
@@ -381,7 +382,9 @@ export const GetTxsEventResponse = {
   fromJSON(object: any): GetTxsEventResponse {
     return {
       txs: Array.isArray(object?.txs) ? object.txs.map((e: any) => Tx.fromJSON(e)) : [],
-      txResponses: Array.isArray(object?.txResponses) ? object.txResponses.map((e: any) => TxResponse.fromJSON(e)) : [],
+      txResponses: Array.isArray(object?.txResponses)
+        ? object.txResponses.map((e: any) => TxResponse.fromJSON(e))
+        : [],
       pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
     };
   },
@@ -389,12 +392,12 @@ export const GetTxsEventResponse = {
   toJSON(message: GetTxsEventResponse): unknown {
     const obj: any = {};
     if (message.txs) {
-      obj.txs = message.txs.map((e) => e ? Tx.toJSON(e) : undefined);
+      obj.txs = message.txs.map((e) => (e ? Tx.toJSON(e) : undefined));
     } else {
       obj.txs = [];
     }
     if (message.txResponses) {
-      obj.txResponses = message.txResponses.map((e) => e ? TxResponse.toJSON(e) : undefined);
+      obj.txResponses = message.txResponses.map((e) => (e ? TxResponse.toJSON(e) : undefined));
     } else {
       obj.txResponses = [];
     }
@@ -411,9 +414,10 @@ export const GetTxsEventResponse = {
     const message = createBaseGetTxsEventResponse();
     message.txs = object.txs?.map((e) => Tx.fromPartial(e)) || [];
     message.txResponses = object.txResponses?.map((e) => TxResponse.fromPartial(e)) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -542,9 +546,10 @@ export const BroadcastTxResponse = {
 
   fromPartial<I extends Exact<DeepPartial<BroadcastTxResponse>, I>>(object: I): BroadcastTxResponse {
     const message = createBaseBroadcastTxResponse();
-    message.txResponse = (object.txResponse !== undefined && object.txResponse !== null)
-      ? TxResponse.fromPartial(object.txResponse)
-      : undefined;
+    message.txResponse =
+      object.txResponse !== undefined && object.txResponse !== null
+        ? TxResponse.fromPartial(object.txResponse)
+        : undefined;
     return message;
   },
 };
@@ -615,7 +620,7 @@ export const SimulateRequest = {
 
   fromPartial<I extends Exact<DeepPartial<SimulateRequest>, I>>(object: I): SimulateRequest {
     const message = createBaseSimulateRequest();
-    message.tx = (object.tx !== undefined && object.tx !== null) ? Tx.fromPartial(object.tx) : undefined;
+    message.tx = object.tx !== undefined && object.tx !== null ? Tx.fromPartial(object.tx) : undefined;
     message.txBytes = object.txBytes ?? new Uint8Array(0);
     return message;
   },
@@ -675,7 +680,8 @@ export const SimulateResponse = {
 
   toJSON(message: SimulateResponse): unknown {
     const obj: any = {};
-    message.gasInfo !== undefined && (obj.gasInfo = message.gasInfo ? GasInfo.toJSON(message.gasInfo) : undefined);
+    message.gasInfo !== undefined &&
+      (obj.gasInfo = message.gasInfo ? GasInfo.toJSON(message.gasInfo) : undefined);
     message.result !== undefined && (obj.result = message.result ? Result.toJSON(message.result) : undefined);
     return obj;
   },
@@ -686,12 +692,12 @@ export const SimulateResponse = {
 
   fromPartial<I extends Exact<DeepPartial<SimulateResponse>, I>>(object: I): SimulateResponse {
     const message = createBaseSimulateResponse();
-    message.gasInfo = (object.gasInfo !== undefined && object.gasInfo !== null)
-      ? GasInfo.fromPartial(object.gasInfo)
-      : undefined;
-    message.result = (object.result !== undefined && object.result !== null)
-      ? Result.fromPartial(object.result)
-      : undefined;
+    message.gasInfo =
+      object.gasInfo !== undefined && object.gasInfo !== null
+        ? GasInfo.fromPartial(object.gasInfo)
+        : undefined;
+    message.result =
+      object.result !== undefined && object.result !== null ? Result.fromPartial(object.result) : undefined;
     return message;
   },
 };
@@ -818,10 +824,11 @@ export const GetTxResponse = {
 
   fromPartial<I extends Exact<DeepPartial<GetTxResponse>, I>>(object: I): GetTxResponse {
     const message = createBaseGetTxResponse();
-    message.tx = (object.tx !== undefined && object.tx !== null) ? Tx.fromPartial(object.tx) : undefined;
-    message.txResponse = (object.txResponse !== undefined && object.txResponse !== null)
-      ? TxResponse.fromPartial(object.txResponse)
-      : undefined;
+    message.tx = object.tx !== undefined && object.tx !== null ? Tx.fromPartial(object.tx) : undefined;
+    message.txResponse =
+      object.txResponse !== undefined && object.txResponse !== null
+        ? TxResponse.fromPartial(object.txResponse)
+        : undefined;
     return message;
   },
 };
@@ -892,12 +899,12 @@ export const GetBlockWithTxsRequest = {
 
   fromPartial<I extends Exact<DeepPartial<GetBlockWithTxsRequest>, I>>(object: I): GetBlockWithTxsRequest {
     const message = createBaseGetBlockWithTxsRequest();
-    message.height = (object.height !== undefined && object.height !== null)
-      ? Long.fromValue(object.height)
-      : Long.ZERO;
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -979,11 +986,12 @@ export const GetBlockWithTxsResponse = {
   toJSON(message: GetBlockWithTxsResponse): unknown {
     const obj: any = {};
     if (message.txs) {
-      obj.txs = message.txs.map((e) => e ? Tx.toJSON(e) : undefined);
+      obj.txs = message.txs.map((e) => (e ? Tx.toJSON(e) : undefined));
     } else {
       obj.txs = [];
     }
-    message.blockId !== undefined && (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
+    message.blockId !== undefined &&
+      (obj.blockId = message.blockId ? BlockID.toJSON(message.blockId) : undefined);
     message.block !== undefined && (obj.block = message.block ? Block.toJSON(message.block) : undefined);
     message.pagination !== undefined &&
       (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
@@ -997,13 +1005,16 @@ export const GetBlockWithTxsResponse = {
   fromPartial<I extends Exact<DeepPartial<GetBlockWithTxsResponse>, I>>(object: I): GetBlockWithTxsResponse {
     const message = createBaseGetBlockWithTxsResponse();
     message.txs = object.txs?.map((e) => Tx.fromPartial(e)) || [];
-    message.blockId = (object.blockId !== undefined && object.blockId !== null)
-      ? BlockID.fromPartial(object.blockId)
-      : undefined;
-    message.block = (object.block !== undefined && object.block !== null) ? Block.fromPartial(object.block) : undefined;
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.blockId =
+      object.blockId !== undefined && object.blockId !== null
+        ? BlockID.fromPartial(object.blockId)
+        : undefined;
+    message.block =
+      object.block !== undefined && object.block !== null ? Block.fromPartial(object.block) : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -1015,9 +1026,15 @@ export interface Service {
   /** GetTx fetches a tx by hash. */
   GetTx(request: DeepPartial<GetTxRequest>, metadata?: grpc.Metadata): Promise<GetTxResponse>;
   /** BroadcastTx broadcast transaction. */
-  BroadcastTx(request: DeepPartial<BroadcastTxRequest>, metadata?: grpc.Metadata): Promise<BroadcastTxResponse>;
+  BroadcastTx(
+    request: DeepPartial<BroadcastTxRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<BroadcastTxResponse>;
   /** GetTxsEvent fetches txs by event. */
-  GetTxsEvent(request: DeepPartial<GetTxsEventRequest>, metadata?: grpc.Metadata): Promise<GetTxsEventResponse>;
+  GetTxsEvent(
+    request: DeepPartial<GetTxsEventRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<GetTxsEventResponse>;
   /**
    * GetBlockWithTxs fetches a block with decoded txs.
    *
@@ -1049,11 +1066,17 @@ export class ServiceClientImpl implements Service {
     return this.rpc.unary(ServiceGetTxDesc, GetTxRequest.fromPartial(request), metadata);
   }
 
-  BroadcastTx(request: DeepPartial<BroadcastTxRequest>, metadata?: grpc.Metadata): Promise<BroadcastTxResponse> {
+  BroadcastTx(
+    request: DeepPartial<BroadcastTxRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<BroadcastTxResponse> {
     return this.rpc.unary(ServiceBroadcastTxDesc, BroadcastTxRequest.fromPartial(request), metadata);
   }
 
-  GetTxsEvent(request: DeepPartial<GetTxsEventRequest>, metadata?: grpc.Metadata): Promise<GetTxsEventResponse> {
+  GetTxsEvent(
+    request: DeepPartial<GetTxsEventRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<GetTxsEventResponse> {
     return this.rpc.unary(ServiceGetTxsEventDesc, GetTxsEventRequest.fromPartial(request), metadata);
   }
 
@@ -1227,9 +1250,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -1296,14 +1320,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

@@ -319,7 +319,9 @@ export const Channel = {
       state: isSet(object.state) ? stateFromJSON(object.state) : 0,
       ordering: isSet(object.ordering) ? orderFromJSON(object.ordering) : 0,
       counterparty: isSet(object.counterparty) ? Counterparty.fromJSON(object.counterparty) : undefined,
-      connectionHops: Array.isArray(object?.connectionHops) ? object.connectionHops.map((e: any) => String(e)) : [],
+      connectionHops: Array.isArray(object?.connectionHops)
+        ? object.connectionHops.map((e: any) => String(e))
+        : [],
       version: isSet(object.version) ? String(object.version) : "",
     };
   },
@@ -347,9 +349,10 @@ export const Channel = {
     const message = createBaseChannel();
     message.state = object.state ?? 0;
     message.ordering = object.ordering ?? 0;
-    message.counterparty = (object.counterparty !== undefined && object.counterparty !== null)
-      ? Counterparty.fromPartial(object.counterparty)
-      : undefined;
+    message.counterparty =
+      object.counterparty !== undefined && object.counterparty !== null
+        ? Counterparty.fromPartial(object.counterparty)
+        : undefined;
     message.connectionHops = object.connectionHops?.map((e) => e) || [];
     message.version = object.version ?? "";
     return message;
@@ -357,7 +360,15 @@ export const Channel = {
 };
 
 function createBaseIdentifiedChannel(): IdentifiedChannel {
-  return { state: 0, ordering: 0, counterparty: undefined, connectionHops: [], version: "", portId: "", channelId: "" };
+  return {
+    state: 0,
+    ordering: 0,
+    counterparty: undefined,
+    connectionHops: [],
+    version: "",
+    portId: "",
+    channelId: "",
+  };
 }
 
 export const IdentifiedChannel = {
@@ -456,7 +467,9 @@ export const IdentifiedChannel = {
       state: isSet(object.state) ? stateFromJSON(object.state) : 0,
       ordering: isSet(object.ordering) ? orderFromJSON(object.ordering) : 0,
       counterparty: isSet(object.counterparty) ? Counterparty.fromJSON(object.counterparty) : undefined,
-      connectionHops: Array.isArray(object?.connectionHops) ? object.connectionHops.map((e: any) => String(e)) : [],
+      connectionHops: Array.isArray(object?.connectionHops)
+        ? object.connectionHops.map((e: any) => String(e))
+        : [],
       version: isSet(object.version) ? String(object.version) : "",
       portId: isSet(object.portId) ? String(object.portId) : "",
       channelId: isSet(object.channelId) ? String(object.channelId) : "",
@@ -488,9 +501,10 @@ export const IdentifiedChannel = {
     const message = createBaseIdentifiedChannel();
     message.state = object.state ?? 0;
     message.ordering = object.ordering ?? 0;
-    message.counterparty = (object.counterparty !== undefined && object.counterparty !== null)
-      ? Counterparty.fromPartial(object.counterparty)
-      : undefined;
+    message.counterparty =
+      object.counterparty !== undefined && object.counterparty !== null
+        ? Counterparty.fromPartial(object.counterparty)
+        : undefined;
     message.connectionHops = object.connectionHops?.map((e) => e) || [];
     message.version = object.version ?? "";
     message.portId = object.portId ?? "";
@@ -719,20 +733,23 @@ export const Packet = {
 
   fromPartial<I extends Exact<DeepPartial<Packet>, I>>(object: I): Packet {
     const message = createBasePacket();
-    message.sequence = (object.sequence !== undefined && object.sequence !== null)
-      ? Long.fromValue(object.sequence)
-      : Long.UZERO;
+    message.sequence =
+      object.sequence !== undefined && object.sequence !== null
+        ? Long.fromValue(object.sequence)
+        : Long.UZERO;
     message.sourcePort = object.sourcePort ?? "";
     message.sourceChannel = object.sourceChannel ?? "";
     message.destinationPort = object.destinationPort ?? "";
     message.destinationChannel = object.destinationChannel ?? "";
     message.data = object.data ?? new Uint8Array(0);
-    message.timeoutHeight = (object.timeoutHeight !== undefined && object.timeoutHeight !== null)
-      ? Height.fromPartial(object.timeoutHeight)
-      : undefined;
-    message.timeoutTimestamp = (object.timeoutTimestamp !== undefined && object.timeoutTimestamp !== null)
-      ? Long.fromValue(object.timeoutTimestamp)
-      : Long.UZERO;
+    message.timeoutHeight =
+      object.timeoutHeight !== undefined && object.timeoutHeight !== null
+        ? Height.fromPartial(object.timeoutHeight)
+        : undefined;
+    message.timeoutTimestamp =
+      object.timeoutTimestamp !== undefined && object.timeoutTimestamp !== null
+        ? Long.fromValue(object.timeoutTimestamp)
+        : Long.UZERO;
     return message;
   },
 };
@@ -829,9 +846,10 @@ export const PacketState = {
     const message = createBasePacketState();
     message.portId = object.portId ?? "";
     message.channelId = object.channelId ?? "";
-    message.sequence = (object.sequence !== undefined && object.sequence !== null)
-      ? Long.fromValue(object.sequence)
-      : Long.UZERO;
+    message.sequence =
+      object.sequence !== undefined && object.sequence !== null
+        ? Long.fromValue(object.sequence)
+        : Long.UZERO;
     message.data = object.data ?? new Uint8Array(0);
     return message;
   },
@@ -916,9 +934,10 @@ export const PacketId = {
     const message = createBasePacketId();
     message.portId = object.portId ?? "";
     message.channelId = object.channelId ?? "";
-    message.sequence = (object.sequence !== undefined && object.sequence !== null)
-      ? Long.fromValue(object.sequence)
-      : Long.UZERO;
+    message.sequence =
+      object.sequence !== undefined && object.sequence !== null
+        ? Long.fromValue(object.sequence)
+        : Long.UZERO;
     return message;
   },
 };
@@ -1041,14 +1060,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

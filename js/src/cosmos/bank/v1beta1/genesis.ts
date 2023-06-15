@@ -112,17 +112,17 @@ export const GenesisState = {
     const obj: any = {};
     message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
     if (message.balances) {
-      obj.balances = message.balances.map((e) => e ? Balance.toJSON(e) : undefined);
+      obj.balances = message.balances.map((e) => (e ? Balance.toJSON(e) : undefined));
     } else {
       obj.balances = [];
     }
     if (message.supply) {
-      obj.supply = message.supply.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.supply = message.supply.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.supply = [];
     }
     if (message.denomMetadata) {
-      obj.denomMetadata = message.denomMetadata.map((e) => e ? Metadata.toJSON(e) : undefined);
+      obj.denomMetadata = message.denomMetadata.map((e) => (e ? Metadata.toJSON(e) : undefined));
     } else {
       obj.denomMetadata = [];
     }
@@ -135,9 +135,8 @@ export const GenesisState = {
 
   fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
     const message = createBaseGenesisState();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     message.balances = object.balances?.map((e) => Balance.fromPartial(e)) || [];
     message.supply = object.supply?.map((e) => Coin.fromPartial(e)) || [];
     message.denomMetadata = object.denomMetadata?.map((e) => Metadata.fromPartial(e)) || [];
@@ -201,7 +200,7 @@ export const Balance = {
     const obj: any = {};
     message.address !== undefined && (obj.address = message.address);
     if (message.coins) {
-      obj.coins = message.coins.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.coins = message.coins.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.coins = [];
     }
@@ -222,14 +221,21 @@ export const Balance = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

@@ -8,8 +8,7 @@ import { Params } from "./mint";
 export const protobufPackage = "cosmos.mint.v1beta1";
 
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
-export interface QueryParamsRequest {
-}
+export interface QueryParamsRequest {}
 
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
@@ -18,8 +17,7 @@ export interface QueryParamsResponse {
 }
 
 /** QueryInflationRequest is the request type for the Query/Inflation RPC method. */
-export interface QueryInflationRequest {
-}
+export interface QueryInflationRequest {}
 
 /**
  * QueryInflationResponse is the response type for the Query/Inflation RPC
@@ -34,8 +32,7 @@ export interface QueryInflationResponse {
  * QueryAnnualProvisionsRequest is the request type for the
  * Query/AnnualProvisions RPC method.
  */
-export interface QueryAnnualProvisionsRequest {
-}
+export interface QueryAnnualProvisionsRequest {}
 
 /**
  * QueryAnnualProvisionsResponse is the response type for the
@@ -141,9 +138,8 @@ export const QueryParamsResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(object: I): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
 };
@@ -234,7 +230,9 @@ export const QueryInflationResponse = {
   toJSON(message: QueryInflationResponse): unknown {
     const obj: any = {};
     message.inflation !== undefined &&
-      (obj.inflation = base64FromBytes(message.inflation !== undefined ? message.inflation : new Uint8Array(0)));
+      (obj.inflation = base64FromBytes(
+        message.inflation !== undefined ? message.inflation : new Uint8Array(0),
+      ));
     return obj;
   },
 
@@ -283,11 +281,15 @@ export const QueryAnnualProvisionsRequest = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryAnnualProvisionsRequest>, I>>(base?: I): QueryAnnualProvisionsRequest {
+  create<I extends Exact<DeepPartial<QueryAnnualProvisionsRequest>, I>>(
+    base?: I,
+  ): QueryAnnualProvisionsRequest {
     return QueryAnnualProvisionsRequest.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryAnnualProvisionsRequest>, I>>(_: I): QueryAnnualProvisionsRequest {
+  fromPartial<I extends Exact<DeepPartial<QueryAnnualProvisionsRequest>, I>>(
+    _: I,
+  ): QueryAnnualProvisionsRequest {
     const message = createBaseQueryAnnualProvisionsRequest();
     return message;
   },
@@ -330,7 +332,9 @@ export const QueryAnnualProvisionsResponse = {
 
   fromJSON(object: any): QueryAnnualProvisionsResponse {
     return {
-      annualProvisions: isSet(object.annualProvisions) ? bytesFromBase64(object.annualProvisions) : new Uint8Array(0),
+      annualProvisions: isSet(object.annualProvisions)
+        ? bytesFromBase64(object.annualProvisions)
+        : new Uint8Array(0),
     };
   },
 
@@ -343,7 +347,9 @@ export const QueryAnnualProvisionsResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryAnnualProvisionsResponse>, I>>(base?: I): QueryAnnualProvisionsResponse {
+  create<I extends Exact<DeepPartial<QueryAnnualProvisionsResponse>, I>>(
+    base?: I,
+  ): QueryAnnualProvisionsResponse {
     return QueryAnnualProvisionsResponse.fromPartial(base ?? {});
   },
 
@@ -361,7 +367,10 @@ export interface Query {
   /** Params returns the total set of minting parameters. */
   Params(request: DeepPartial<QueryParamsRequest>, metadata?: grpc.Metadata): Promise<QueryParamsResponse>;
   /** Inflation returns the current minting inflation value. */
-  Inflation(request: DeepPartial<QueryInflationRequest>, metadata?: grpc.Metadata): Promise<QueryInflationResponse>;
+  Inflation(
+    request: DeepPartial<QueryInflationRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryInflationResponse>;
   /** AnnualProvisions current minting annual provisions value. */
   AnnualProvisions(
     request: DeepPartial<QueryAnnualProvisionsRequest>,
@@ -383,7 +392,10 @@ export class QueryClientImpl implements Query {
     return this.rpc.unary(QueryParamsDesc, QueryParamsRequest.fromPartial(request), metadata);
   }
 
-  Inflation(request: DeepPartial<QueryInflationRequest>, metadata?: grpc.Metadata): Promise<QueryInflationResponse> {
+  Inflation(
+    request: DeepPartial<QueryInflationRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryInflationResponse> {
     return this.rpc.unary(QueryInflationDesc, QueryInflationRequest.fromPartial(request), metadata);
   }
 
@@ -391,7 +403,11 @@ export class QueryClientImpl implements Query {
     request: DeepPartial<QueryAnnualProvisionsRequest>,
     metadata?: grpc.Metadata,
   ): Promise<QueryAnnualProvisionsResponse> {
-    return this.rpc.unary(QueryAnnualProvisionsDesc, QueryAnnualProvisionsRequest.fromPartial(request), metadata);
+    return this.rpc.unary(
+      QueryAnnualProvisionsDesc,
+      QueryAnnualProvisionsRequest.fromPartial(request),
+      metadata,
+    );
   }
 }
 
@@ -511,9 +527,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -580,14 +597,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

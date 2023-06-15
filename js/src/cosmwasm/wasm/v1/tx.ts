@@ -140,8 +140,7 @@ export interface MsgUpdateAdmin {
 }
 
 /** MsgUpdateAdminResponse returns empty data */
-export interface MsgUpdateAdminResponse {
-}
+export interface MsgUpdateAdminResponse {}
 
 /** MsgClearAdmin removes any admin stored for a smart contract */
 export interface MsgClearAdmin {
@@ -152,8 +151,7 @@ export interface MsgClearAdmin {
 }
 
 /** MsgClearAdminResponse returns empty data */
-export interface MsgClearAdminResponse {
-}
+export interface MsgClearAdminResponse {}
 
 function createBaseMsgStoreCode(): MsgStoreCode {
   return { sender: "", wasmByteCode: new Uint8Array(0), instantiatePermission: undefined };
@@ -227,9 +225,10 @@ export const MsgStoreCode = {
       (obj.wasmByteCode = base64FromBytes(
         message.wasmByteCode !== undefined ? message.wasmByteCode : new Uint8Array(0),
       ));
-    message.instantiatePermission !== undefined && (obj.instantiatePermission = message.instantiatePermission
-      ? AccessConfig.toJSON(message.instantiatePermission)
-      : undefined);
+    message.instantiatePermission !== undefined &&
+      (obj.instantiatePermission = message.instantiatePermission
+        ? AccessConfig.toJSON(message.instantiatePermission)
+        : undefined);
     return obj;
   },
 
@@ -242,7 +241,7 @@ export const MsgStoreCode = {
     message.sender = object.sender ?? "";
     message.wasmByteCode = object.wasmByteCode ?? new Uint8Array(0);
     message.instantiatePermission =
-      (object.instantiatePermission !== undefined && object.instantiatePermission !== null)
+      object.instantiatePermission !== undefined && object.instantiatePermission !== null
         ? AccessConfig.fromPartial(object.instantiatePermission)
         : undefined;
     return message;
@@ -315,9 +314,8 @@ export const MsgStoreCodeResponse = {
 
   fromPartial<I extends Exact<DeepPartial<MsgStoreCodeResponse>, I>>(object: I): MsgStoreCodeResponse {
     const message = createBaseMsgStoreCodeResponse();
-    message.codeId = (object.codeId !== undefined && object.codeId !== null)
-      ? Long.fromValue(object.codeId)
-      : Long.UZERO;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.checksum = object.checksum ?? new Uint8Array(0);
     return message;
   },
@@ -428,7 +426,7 @@ export const MsgInstantiateContract = {
     message.msg !== undefined &&
       (obj.msg = base64FromBytes(message.msg !== undefined ? message.msg : new Uint8Array(0)));
     if (message.funds) {
-      obj.funds = message.funds.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.funds = message.funds.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.funds = [];
     }
@@ -443,9 +441,8 @@ export const MsgInstantiateContract = {
     const message = createBaseMsgInstantiateContract();
     message.sender = object.sender ?? "";
     message.admin = object.admin ?? "";
-    message.codeId = (object.codeId !== undefined && object.codeId !== null)
-      ? Long.fromValue(object.codeId)
-      : Long.UZERO;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.label = object.label ?? "";
     message.msg = object.msg ?? new Uint8Array(0);
     message.funds = object.funds?.map((e) => Coin.fromPartial(e)) || [];
@@ -589,7 +586,7 @@ export const MsgInstantiateContract2 = {
     message.msg !== undefined &&
       (obj.msg = base64FromBytes(message.msg !== undefined ? message.msg : new Uint8Array(0)));
     if (message.funds) {
-      obj.funds = message.funds.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.funds = message.funds.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.funds = [];
     }
@@ -607,9 +604,8 @@ export const MsgInstantiateContract2 = {
     const message = createBaseMsgInstantiateContract2();
     message.sender = object.sender ?? "";
     message.admin = object.admin ?? "";
-    message.codeId = (object.codeId !== undefined && object.codeId !== null)
-      ? Long.fromValue(object.codeId)
-      : Long.UZERO;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.label = object.label ?? "";
     message.msg = object.msg ?? new Uint8Array(0);
     message.funds = object.funds?.map((e) => Coin.fromPartial(e)) || [];
@@ -679,7 +675,9 @@ export const MsgInstantiateContractResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<MsgInstantiateContractResponse>, I>>(base?: I): MsgInstantiateContractResponse {
+  create<I extends Exact<DeepPartial<MsgInstantiateContractResponse>, I>>(
+    base?: I,
+  ): MsgInstantiateContractResponse {
     return MsgInstantiateContractResponse.fromPartial(base ?? {});
   },
 
@@ -753,7 +751,9 @@ export const MsgInstantiateContract2Response = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<MsgInstantiateContract2Response>, I>>(base?: I): MsgInstantiateContract2Response {
+  create<I extends Exact<DeepPartial<MsgInstantiateContract2Response>, I>>(
+    base?: I,
+  ): MsgInstantiateContract2Response {
     return MsgInstantiateContract2Response.fromPartial(base ?? {});
   },
 
@@ -848,7 +848,7 @@ export const MsgExecuteContract = {
     message.msg !== undefined &&
       (obj.msg = base64FromBytes(message.msg !== undefined ? message.msg : new Uint8Array(0)));
     if (message.funds) {
-      obj.funds = message.funds.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.funds = message.funds.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.funds = [];
     }
@@ -919,7 +919,9 @@ export const MsgExecuteContractResponse = {
     return MsgExecuteContractResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<MsgExecuteContractResponse>, I>>(object: I): MsgExecuteContractResponse {
+  fromPartial<I extends Exact<DeepPartial<MsgExecuteContractResponse>, I>>(
+    object: I,
+  ): MsgExecuteContractResponse {
     const message = createBaseMsgExecuteContractResponse();
     message.data = object.data ?? new Uint8Array(0);
     return message;
@@ -1018,9 +1020,8 @@ export const MsgMigrateContract = {
     const message = createBaseMsgMigrateContract();
     message.sender = object.sender ?? "";
     message.contract = object.contract ?? "";
-    message.codeId = (object.codeId !== undefined && object.codeId !== null)
-      ? Long.fromValue(object.codeId)
-      : Long.UZERO;
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
     message.msg = object.msg ?? new Uint8Array(0);
     return message;
   },
@@ -1076,7 +1077,9 @@ export const MsgMigrateContractResponse = {
     return MsgMigrateContractResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<MsgMigrateContractResponse>, I>>(object: I): MsgMigrateContractResponse {
+  fromPartial<I extends Exact<DeepPartial<MsgMigrateContractResponse>, I>>(
+    object: I,
+  ): MsgMigrateContractResponse {
     const message = createBaseMsgMigrateContractResponse();
     message.data = object.data ?? new Uint8Array(0);
     return message;
@@ -1357,7 +1360,10 @@ export interface Msg {
     metadata?: grpc.Metadata,
   ): Promise<MsgMigrateContractResponse>;
   /** UpdateAdmin sets a new   admin for a smart contract */
-  UpdateAdmin(request: DeepPartial<MsgUpdateAdmin>, metadata?: grpc.Metadata): Promise<MsgUpdateAdminResponse>;
+  UpdateAdmin(
+    request: DeepPartial<MsgUpdateAdmin>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgUpdateAdminResponse>;
   /** ClearAdmin removes any admin stored for a smart contract */
   ClearAdmin(request: DeepPartial<MsgClearAdmin>, metadata?: grpc.Metadata): Promise<MsgClearAdminResponse>;
 }
@@ -1391,7 +1397,11 @@ export class MsgClientImpl implements Msg {
     request: DeepPartial<MsgInstantiateContract2>,
     metadata?: grpc.Metadata,
   ): Promise<MsgInstantiateContract2Response> {
-    return this.rpc.unary(MsgInstantiateContract2Desc, MsgInstantiateContract2.fromPartial(request), metadata);
+    return this.rpc.unary(
+      MsgInstantiateContract2Desc,
+      MsgInstantiateContract2.fromPartial(request),
+      metadata,
+    );
   }
 
   ExecuteContract(
@@ -1408,7 +1418,10 @@ export class MsgClientImpl implements Msg {
     return this.rpc.unary(MsgMigrateContractDesc, MsgMigrateContract.fromPartial(request), metadata);
   }
 
-  UpdateAdmin(request: DeepPartial<MsgUpdateAdmin>, metadata?: grpc.Metadata): Promise<MsgUpdateAdminResponse> {
+  UpdateAdmin(
+    request: DeepPartial<MsgUpdateAdmin>,
+    metadata?: grpc.Metadata,
+  ): Promise<MsgUpdateAdminResponse> {
     return this.rpc.unary(MsgUpdateAdminDesc, MsgUpdateAdmin.fromPartial(request), metadata);
   }
 
@@ -1625,9 +1638,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -1694,14 +1708,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

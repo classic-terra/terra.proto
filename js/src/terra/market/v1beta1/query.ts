@@ -23,8 +23,7 @@ export interface QuerySwapResponse {
 }
 
 /** QueryTerraPoolDeltaRequest is the request type for the Query/TerraPoolDelta RPC method. */
-export interface QueryTerraPoolDeltaRequest {
-}
+export interface QueryTerraPoolDeltaRequest {}
 
 /** QueryTerraPoolDeltaResponse is the response type for the Query/TerraPoolDelta RPC method. */
 export interface QueryTerraPoolDeltaResponse {
@@ -33,8 +32,7 @@ export interface QueryTerraPoolDeltaResponse {
 }
 
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
-export interface QueryParamsRequest {
-}
+export interface QueryParamsRequest {}
 
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
@@ -165,9 +163,10 @@ export const QuerySwapResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QuerySwapResponse>, I>>(object: I): QuerySwapResponse {
     const message = createBaseQuerySwapResponse();
-    message.returnCoin = (object.returnCoin !== undefined && object.returnCoin !== null)
-      ? Coin.fromPartial(object.returnCoin)
-      : undefined;
+    message.returnCoin =
+      object.returnCoin !== undefined && object.returnCoin !== null
+        ? Coin.fromPartial(object.returnCoin)
+        : undefined;
     return message;
   },
 };
@@ -253,7 +252,9 @@ export const QueryTerraPoolDeltaResponse = {
 
   fromJSON(object: any): QueryTerraPoolDeltaResponse {
     return {
-      terraPoolDelta: isSet(object.terraPoolDelta) ? bytesFromBase64(object.terraPoolDelta) : new Uint8Array(0),
+      terraPoolDelta: isSet(object.terraPoolDelta)
+        ? bytesFromBase64(object.terraPoolDelta)
+        : new Uint8Array(0),
     };
   },
 
@@ -266,11 +267,15 @@ export const QueryTerraPoolDeltaResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryTerraPoolDeltaResponse>, I>>(base?: I): QueryTerraPoolDeltaResponse {
+  create<I extends Exact<DeepPartial<QueryTerraPoolDeltaResponse>, I>>(
+    base?: I,
+  ): QueryTerraPoolDeltaResponse {
     return QueryTerraPoolDeltaResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<QueryTerraPoolDeltaResponse>, I>>(object: I): QueryTerraPoolDeltaResponse {
+  fromPartial<I extends Exact<DeepPartial<QueryTerraPoolDeltaResponse>, I>>(
+    object: I,
+  ): QueryTerraPoolDeltaResponse {
     const message = createBaseQueryTerraPoolDeltaResponse();
     message.terraPoolDelta = object.terraPoolDelta ?? new Uint8Array(0);
     return message;
@@ -372,9 +377,8 @@ export const QueryParamsResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(object: I): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
 };
@@ -534,9 +538,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -603,14 +608,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

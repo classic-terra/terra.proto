@@ -79,8 +79,7 @@ export interface CombinedLimit {
  * message.
  * Since: wasmd 0.30
  */
-export interface AllowAllMessagesFilter {
-}
+export interface AllowAllMessagesFilter {}
 
 /**
  * AcceptedMessageKeysFilter accept only the specific contract message keys in
@@ -138,20 +137,24 @@ export const ContractExecutionAuthorization = {
   },
 
   fromJSON(object: any): ContractExecutionAuthorization {
-    return { grants: Array.isArray(object?.grants) ? object.grants.map((e: any) => ContractGrant.fromJSON(e)) : [] };
+    return {
+      grants: Array.isArray(object?.grants) ? object.grants.map((e: any) => ContractGrant.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: ContractExecutionAuthorization): unknown {
     const obj: any = {};
     if (message.grants) {
-      obj.grants = message.grants.map((e) => e ? ContractGrant.toJSON(e) : undefined);
+      obj.grants = message.grants.map((e) => (e ? ContractGrant.toJSON(e) : undefined));
     } else {
       obj.grants = [];
     }
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<ContractExecutionAuthorization>, I>>(base?: I): ContractExecutionAuthorization {
+  create<I extends Exact<DeepPartial<ContractExecutionAuthorization>, I>>(
+    base?: I,
+  ): ContractExecutionAuthorization {
     return ContractExecutionAuthorization.fromPartial(base ?? {});
   },
 
@@ -200,20 +203,24 @@ export const ContractMigrationAuthorization = {
   },
 
   fromJSON(object: any): ContractMigrationAuthorization {
-    return { grants: Array.isArray(object?.grants) ? object.grants.map((e: any) => ContractGrant.fromJSON(e)) : [] };
+    return {
+      grants: Array.isArray(object?.grants) ? object.grants.map((e: any) => ContractGrant.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: ContractMigrationAuthorization): unknown {
     const obj: any = {};
     if (message.grants) {
-      obj.grants = message.grants.map((e) => e ? ContractGrant.toJSON(e) : undefined);
+      obj.grants = message.grants.map((e) => (e ? ContractGrant.toJSON(e) : undefined));
     } else {
       obj.grants = [];
     }
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<ContractMigrationAuthorization>, I>>(base?: I): ContractMigrationAuthorization {
+  create<I extends Exact<DeepPartial<ContractMigrationAuthorization>, I>>(
+    base?: I,
+  ): ContractMigrationAuthorization {
     return ContractMigrationAuthorization.fromPartial(base ?? {});
   },
 
@@ -304,10 +311,10 @@ export const ContractGrant = {
   fromPartial<I extends Exact<DeepPartial<ContractGrant>, I>>(object: I): ContractGrant {
     const message = createBaseContractGrant();
     message.contract = object.contract ?? "";
-    message.limit = (object.limit !== undefined && object.limit !== null) ? Any.fromPartial(object.limit) : undefined;
-    message.filter = (object.filter !== undefined && object.filter !== null)
-      ? Any.fromPartial(object.filter)
-      : undefined;
+    message.limit =
+      object.limit !== undefined && object.limit !== null ? Any.fromPartial(object.limit) : undefined;
+    message.filter =
+      object.filter !== undefined && object.filter !== null ? Any.fromPartial(object.filter) : undefined;
     return message;
   },
 };
@@ -363,9 +370,10 @@ export const MaxCallsLimit = {
 
   fromPartial<I extends Exact<DeepPartial<MaxCallsLimit>, I>>(object: I): MaxCallsLimit {
     const message = createBaseMaxCallsLimit();
-    message.remaining = (object.remaining !== undefined && object.remaining !== null)
-      ? Long.fromValue(object.remaining)
-      : Long.UZERO;
+    message.remaining =
+      object.remaining !== undefined && object.remaining !== null
+        ? Long.fromValue(object.remaining)
+        : Long.UZERO;
     return message;
   },
 };
@@ -406,13 +414,15 @@ export const MaxFundsLimit = {
   },
 
   fromJSON(object: any): MaxFundsLimit {
-    return { amounts: Array.isArray(object?.amounts) ? object.amounts.map((e: any) => Coin.fromJSON(e)) : [] };
+    return {
+      amounts: Array.isArray(object?.amounts) ? object.amounts.map((e: any) => Coin.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: MaxFundsLimit): unknown {
     const obj: any = {};
     if (message.amounts) {
-      obj.amounts = message.amounts.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.amounts = message.amounts.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.amounts = [];
     }
@@ -484,9 +494,10 @@ export const CombinedLimit = {
 
   toJSON(message: CombinedLimit): unknown {
     const obj: any = {};
-    message.callsRemaining !== undefined && (obj.callsRemaining = (message.callsRemaining || Long.UZERO).toString());
+    message.callsRemaining !== undefined &&
+      (obj.callsRemaining = (message.callsRemaining || Long.UZERO).toString());
     if (message.amounts) {
-      obj.amounts = message.amounts.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.amounts = message.amounts.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.amounts = [];
     }
@@ -499,9 +510,10 @@ export const CombinedLimit = {
 
   fromPartial<I extends Exact<DeepPartial<CombinedLimit>, I>>(object: I): CombinedLimit {
     const message = createBaseCombinedLimit();
-    message.callsRemaining = (object.callsRemaining !== undefined && object.callsRemaining !== null)
-      ? Long.fromValue(object.callsRemaining)
-      : Long.UZERO;
+    message.callsRemaining =
+      object.callsRemaining !== undefined && object.callsRemaining !== null
+        ? Long.fromValue(object.callsRemaining)
+        : Long.UZERO;
     message.amounts = object.amounts?.map((e) => Coin.fromPartial(e)) || [];
     return message;
   },
@@ -604,7 +616,9 @@ export const AcceptedMessageKeysFilter = {
     return AcceptedMessageKeysFilter.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<AcceptedMessageKeysFilter>, I>>(object: I): AcceptedMessageKeysFilter {
+  fromPartial<I extends Exact<DeepPartial<AcceptedMessageKeysFilter>, I>>(
+    object: I,
+  ): AcceptedMessageKeysFilter {
     const message = createBaseAcceptedMessageKeysFilter();
     message.keys = object.keys?.map((e) => e) || [];
     return message;
@@ -647,7 +661,9 @@ export const AcceptedMessagesFilter = {
   },
 
   fromJSON(object: any): AcceptedMessagesFilter {
-    return { messages: Array.isArray(object?.messages) ? object.messages.map((e: any) => bytesFromBase64(e)) : [] };
+    return {
+      messages: Array.isArray(object?.messages) ? object.messages.map((e: any) => bytesFromBase64(e)) : [],
+    };
   },
 
   toJSON(message: AcceptedMessagesFilter): unknown {
@@ -717,14 +733,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

@@ -185,7 +185,7 @@ export const Params = {
     message.rewardDistributionWindow !== undefined &&
       (obj.rewardDistributionWindow = (message.rewardDistributionWindow || Long.UZERO).toString());
     if (message.whitelist) {
-      obj.whitelist = message.whitelist.map((e) => e ? Denom.toJSON(e) : undefined);
+      obj.whitelist = message.whitelist.map((e) => (e ? Denom.toJSON(e) : undefined));
     } else {
       obj.whitelist = [];
     }
@@ -201,20 +201,22 @@ export const Params = {
 
   fromPartial<I extends Exact<DeepPartial<Params>, I>>(object: I): Params {
     const message = createBaseParams();
-    message.votePeriod = (object.votePeriod !== undefined && object.votePeriod !== null)
-      ? Long.fromValue(object.votePeriod)
-      : Long.UZERO;
+    message.votePeriod =
+      object.votePeriod !== undefined && object.votePeriod !== null
+        ? Long.fromValue(object.votePeriod)
+        : Long.UZERO;
     message.voteThreshold = object.voteThreshold ?? "";
     message.rewardBand = object.rewardBand ?? "";
     message.rewardDistributionWindow =
-      (object.rewardDistributionWindow !== undefined && object.rewardDistributionWindow !== null)
+      object.rewardDistributionWindow !== undefined && object.rewardDistributionWindow !== null
         ? Long.fromValue(object.rewardDistributionWindow)
         : Long.UZERO;
     message.whitelist = object.whitelist?.map((e) => Denom.fromPartial(e)) || [];
     message.slashFraction = object.slashFraction ?? "";
-    message.slashWindow = (object.slashWindow !== undefined && object.slashWindow !== null)
-      ? Long.fromValue(object.slashWindow)
-      : Long.UZERO;
+    message.slashWindow =
+      object.slashWindow !== undefined && object.slashWindow !== null
+        ? Long.fromValue(object.slashWindow)
+        : Long.UZERO;
     message.minValidPerWindow = object.minValidPerWindow ?? "";
     return message;
   },
@@ -362,17 +364,22 @@ export const AggregateExchangeRatePrevote = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<AggregateExchangeRatePrevote>, I>>(base?: I): AggregateExchangeRatePrevote {
+  create<I extends Exact<DeepPartial<AggregateExchangeRatePrevote>, I>>(
+    base?: I,
+  ): AggregateExchangeRatePrevote {
     return AggregateExchangeRatePrevote.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<AggregateExchangeRatePrevote>, I>>(object: I): AggregateExchangeRatePrevote {
+  fromPartial<I extends Exact<DeepPartial<AggregateExchangeRatePrevote>, I>>(
+    object: I,
+  ): AggregateExchangeRatePrevote {
     const message = createBaseAggregateExchangeRatePrevote();
     message.hash = object.hash ?? "";
     message.voter = object.voter ?? "";
-    message.submitBlock = (object.submitBlock !== undefined && object.submitBlock !== null)
-      ? Long.fromValue(object.submitBlock)
-      : Long.UZERO;
+    message.submitBlock =
+      object.submitBlock !== undefined && object.submitBlock !== null
+        ? Long.fromValue(object.submitBlock)
+        : Long.UZERO;
     return message;
   },
 };
@@ -434,7 +441,9 @@ export const AggregateExchangeRateVote = {
   toJSON(message: AggregateExchangeRateVote): unknown {
     const obj: any = {};
     if (message.exchangeRateTuples) {
-      obj.exchangeRateTuples = message.exchangeRateTuples.map((e) => e ? ExchangeRateTuple.toJSON(e) : undefined);
+      obj.exchangeRateTuples = message.exchangeRateTuples.map((e) =>
+        e ? ExchangeRateTuple.toJSON(e) : undefined,
+      );
     } else {
       obj.exchangeRateTuples = [];
     }
@@ -446,9 +455,12 @@ export const AggregateExchangeRateVote = {
     return AggregateExchangeRateVote.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<AggregateExchangeRateVote>, I>>(object: I): AggregateExchangeRateVote {
+  fromPartial<I extends Exact<DeepPartial<AggregateExchangeRateVote>, I>>(
+    object: I,
+  ): AggregateExchangeRateVote {
     const message = createBaseAggregateExchangeRateVote();
-    message.exchangeRateTuples = object.exchangeRateTuples?.map((e) => ExchangeRateTuple.fromPartial(e)) || [];
+    message.exchangeRateTuples =
+      object.exchangeRateTuples?.map((e) => ExchangeRateTuple.fromPartial(e)) || [];
     message.voter = object.voter ?? "";
     return message;
   },
@@ -527,14 +539,21 @@ export const ExchangeRateTuple = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

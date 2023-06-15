@@ -44,8 +44,7 @@ export interface QueryAccountResponse {
 }
 
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
-export interface QueryParamsRequest {
-}
+export interface QueryParamsRequest {}
 
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponse {
@@ -115,9 +114,10 @@ export const QueryAccountsRequest = {
 
   fromPartial<I extends Exact<DeepPartial<QueryAccountsRequest>, I>>(object: I): QueryAccountsRequest {
     const message = createBaseQueryAccountsRequest();
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageRequest.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -177,7 +177,7 @@ export const QueryAccountsResponse = {
   toJSON(message: QueryAccountsResponse): unknown {
     const obj: any = {};
     if (message.accounts) {
-      obj.accounts = message.accounts.map((e) => e ? Any.toJSON(e) : undefined);
+      obj.accounts = message.accounts.map((e) => (e ? Any.toJSON(e) : undefined));
     } else {
       obj.accounts = [];
     }
@@ -193,9 +193,10 @@ export const QueryAccountsResponse = {
   fromPartial<I extends Exact<DeepPartial<QueryAccountsResponse>, I>>(object: I): QueryAccountsResponse {
     const message = createBaseQueryAccountsResponse();
     message.accounts = object.accounts?.map((e) => Any.fromPartial(e)) || [];
-    message.pagination = (object.pagination !== undefined && object.pagination !== null)
-      ? PageResponse.fromPartial(object.pagination)
-      : undefined;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -297,7 +298,8 @@ export const QueryAccountResponse = {
 
   toJSON(message: QueryAccountResponse): unknown {
     const obj: any = {};
-    message.account !== undefined && (obj.account = message.account ? Any.toJSON(message.account) : undefined);
+    message.account !== undefined &&
+      (obj.account = message.account ? Any.toJSON(message.account) : undefined);
     return obj;
   },
 
@@ -307,9 +309,8 @@ export const QueryAccountResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QueryAccountResponse>, I>>(object: I): QueryAccountResponse {
     const message = createBaseQueryAccountResponse();
-    message.account = (object.account !== undefined && object.account !== null)
-      ? Any.fromPartial(object.account)
-      : undefined;
+    message.account =
+      object.account !== undefined && object.account !== null ? Any.fromPartial(object.account) : undefined;
     return message;
   },
 };
@@ -409,9 +410,8 @@ export const QueryParamsResponse = {
 
   fromPartial<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(object: I): QueryParamsResponse {
     const message = createBaseQueryParamsResponse();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
 };
@@ -461,7 +461,9 @@ export const QueryModuleAccountByNameRequest = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<QueryModuleAccountByNameRequest>, I>>(base?: I): QueryModuleAccountByNameRequest {
+  create<I extends Exact<DeepPartial<QueryModuleAccountByNameRequest>, I>>(
+    base?: I,
+  ): QueryModuleAccountByNameRequest {
     return QueryModuleAccountByNameRequest.fromPartial(base ?? {});
   },
 
@@ -515,7 +517,8 @@ export const QueryModuleAccountByNameResponse = {
 
   toJSON(message: QueryModuleAccountByNameResponse): unknown {
     const obj: any = {};
-    message.account !== undefined && (obj.account = message.account ? Any.toJSON(message.account) : undefined);
+    message.account !== undefined &&
+      (obj.account = message.account ? Any.toJSON(message.account) : undefined);
     return obj;
   },
 
@@ -529,9 +532,8 @@ export const QueryModuleAccountByNameResponse = {
     object: I,
   ): QueryModuleAccountByNameResponse {
     const message = createBaseQueryModuleAccountByNameResponse();
-    message.account = (object.account !== undefined && object.account !== null)
-      ? Any.fromPartial(object.account)
-      : undefined;
+    message.account =
+      object.account !== undefined && object.account !== null ? Any.fromPartial(object.account) : undefined;
     return message;
   },
 };
@@ -543,7 +545,10 @@ export interface Query {
    *
    * Since: cosmos-sdk 0.43
    */
-  Accounts(request: DeepPartial<QueryAccountsRequest>, metadata?: grpc.Metadata): Promise<QueryAccountsResponse>;
+  Accounts(
+    request: DeepPartial<QueryAccountsRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryAccountsResponse>;
   /** Account returns account details based on address. */
   Account(request: DeepPartial<QueryAccountRequest>, metadata?: grpc.Metadata): Promise<QueryAccountResponse>;
   /** Params queries all parameters. */
@@ -566,11 +571,17 @@ export class QueryClientImpl implements Query {
     this.ModuleAccountByName = this.ModuleAccountByName.bind(this);
   }
 
-  Accounts(request: DeepPartial<QueryAccountsRequest>, metadata?: grpc.Metadata): Promise<QueryAccountsResponse> {
+  Accounts(
+    request: DeepPartial<QueryAccountsRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryAccountsResponse> {
     return this.rpc.unary(QueryAccountsDesc, QueryAccountsRequest.fromPartial(request), metadata);
   }
 
-  Account(request: DeepPartial<QueryAccountRequest>, metadata?: grpc.Metadata): Promise<QueryAccountResponse> {
+  Account(
+    request: DeepPartial<QueryAccountRequest>,
+    metadata?: grpc.Metadata,
+  ): Promise<QueryAccountResponse> {
     return this.rpc.unary(QueryAccountDesc, QueryAccountRequest.fromPartial(request), metadata);
   }
 
@@ -582,7 +593,11 @@ export class QueryClientImpl implements Query {
     request: DeepPartial<QueryModuleAccountByNameRequest>,
     metadata?: grpc.Metadata,
   ): Promise<QueryModuleAccountByNameResponse> {
-    return this.rpc.unary(QueryModuleAccountByNameDesc, QueryModuleAccountByNameRequest.fromPartial(request), metadata);
+    return this.rpc.unary(
+      QueryModuleAccountByNameDesc,
+      QueryModuleAccountByNameRequest.fromPartial(request),
+      metadata,
+    );
   }
 }
 
@@ -725,9 +740,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -769,14 +785,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

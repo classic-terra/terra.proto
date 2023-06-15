@@ -140,11 +140,15 @@ export const GenesisState = {
       taxRate: isSet(object.taxRate) ? String(object.taxRate) : "",
       rewardWeight: isSet(object.rewardWeight) ? String(object.rewardWeight) : "",
       taxCaps: Array.isArray(object?.taxCaps) ? object.taxCaps.map((e: any) => TaxCap.fromJSON(e)) : [],
-      taxProceeds: Array.isArray(object?.taxProceeds) ? object.taxProceeds.map((e: any) => Coin.fromJSON(e)) : [],
+      taxProceeds: Array.isArray(object?.taxProceeds)
+        ? object.taxProceeds.map((e: any) => Coin.fromJSON(e))
+        : [],
       epochInitialIssuance: Array.isArray(object?.epochInitialIssuance)
         ? object.epochInitialIssuance.map((e: any) => Coin.fromJSON(e))
         : [],
-      epochStates: Array.isArray(object?.epochStates) ? object.epochStates.map((e: any) => EpochState.fromJSON(e)) : [],
+      epochStates: Array.isArray(object?.epochStates)
+        ? object.epochStates.map((e: any) => EpochState.fromJSON(e))
+        : [],
     };
   },
 
@@ -154,22 +158,22 @@ export const GenesisState = {
     message.taxRate !== undefined && (obj.taxRate = message.taxRate);
     message.rewardWeight !== undefined && (obj.rewardWeight = message.rewardWeight);
     if (message.taxCaps) {
-      obj.taxCaps = message.taxCaps.map((e) => e ? TaxCap.toJSON(e) : undefined);
+      obj.taxCaps = message.taxCaps.map((e) => (e ? TaxCap.toJSON(e) : undefined));
     } else {
       obj.taxCaps = [];
     }
     if (message.taxProceeds) {
-      obj.taxProceeds = message.taxProceeds.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.taxProceeds = message.taxProceeds.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.taxProceeds = [];
     }
     if (message.epochInitialIssuance) {
-      obj.epochInitialIssuance = message.epochInitialIssuance.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.epochInitialIssuance = message.epochInitialIssuance.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.epochInitialIssuance = [];
     }
     if (message.epochStates) {
-      obj.epochStates = message.epochStates.map((e) => e ? EpochState.toJSON(e) : undefined);
+      obj.epochStates = message.epochStates.map((e) => (e ? EpochState.toJSON(e) : undefined));
     } else {
       obj.epochStates = [];
     }
@@ -182,9 +186,8 @@ export const GenesisState = {
 
   fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
     const message = createBaseGenesisState();
-    message.params = (object.params !== undefined && object.params !== null)
-      ? Params.fromPartial(object.params)
-      : undefined;
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     message.taxRate = object.taxRate ?? "";
     message.rewardWeight = object.rewardWeight ?? "";
     message.taxCaps = object.taxCaps?.map((e) => TaxCap.fromPartial(e)) || [];
@@ -355,7 +358,8 @@ export const EpochState = {
 
   fromPartial<I extends Exact<DeepPartial<EpochState>, I>>(object: I): EpochState {
     const message = createBaseEpochState();
-    message.epoch = (object.epoch !== undefined && object.epoch !== null) ? Long.fromValue(object.epoch) : Long.UZERO;
+    message.epoch =
+      object.epoch !== undefined && object.epoch !== null ? Long.fromValue(object.epoch) : Long.UZERO;
     message.taxReward = object.taxReward ?? "";
     message.seigniorageReward = object.seigniorageReward ?? "";
     message.totalStakedLuna = object.totalStakedLuna ?? "";
@@ -365,14 +369,21 @@ export const EpochState = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

@@ -158,9 +158,7 @@ export interface SignerInfo {
 /** ModeInfo describes the signing mode of a single or nested multisig signer. */
 export interface ModeInfo {
   /** single represents a single signer */
-  single?:
-    | ModeInfo_Single
-    | undefined;
+  single?: ModeInfo_Single | undefined;
   /** multi represents a nested multisig signer */
   multi?: ModeInfo_Multi | undefined;
 }
@@ -272,16 +270,21 @@ export const Tx = {
     return {
       body: isSet(object.body) ? TxBody.fromJSON(object.body) : undefined,
       authInfo: isSet(object.authInfo) ? AuthInfo.fromJSON(object.authInfo) : undefined,
-      signatures: Array.isArray(object?.signatures) ? object.signatures.map((e: any) => bytesFromBase64(e)) : [],
+      signatures: Array.isArray(object?.signatures)
+        ? object.signatures.map((e: any) => bytesFromBase64(e))
+        : [],
     };
   },
 
   toJSON(message: Tx): unknown {
     const obj: any = {};
     message.body !== undefined && (obj.body = message.body ? TxBody.toJSON(message.body) : undefined);
-    message.authInfo !== undefined && (obj.authInfo = message.authInfo ? AuthInfo.toJSON(message.authInfo) : undefined);
+    message.authInfo !== undefined &&
+      (obj.authInfo = message.authInfo ? AuthInfo.toJSON(message.authInfo) : undefined);
     if (message.signatures) {
-      obj.signatures = message.signatures.map((e) => base64FromBytes(e !== undefined ? e : new Uint8Array(0)));
+      obj.signatures = message.signatures.map((e) =>
+        base64FromBytes(e !== undefined ? e : new Uint8Array(0)),
+      );
     } else {
       obj.signatures = [];
     }
@@ -294,10 +297,12 @@ export const Tx = {
 
   fromPartial<I extends Exact<DeepPartial<Tx>, I>>(object: I): Tx {
     const message = createBaseTx();
-    message.body = (object.body !== undefined && object.body !== null) ? TxBody.fromPartial(object.body) : undefined;
-    message.authInfo = (object.authInfo !== undefined && object.authInfo !== null)
-      ? AuthInfo.fromPartial(object.authInfo)
-      : undefined;
+    message.body =
+      object.body !== undefined && object.body !== null ? TxBody.fromPartial(object.body) : undefined;
+    message.authInfo =
+      object.authInfo !== undefined && object.authInfo !== null
+        ? AuthInfo.fromPartial(object.authInfo)
+        : undefined;
     message.signatures = object.signatures?.map((e) => e) || [];
     return message;
   },
@@ -362,20 +367,26 @@ export const TxRaw = {
     return {
       bodyBytes: isSet(object.bodyBytes) ? bytesFromBase64(object.bodyBytes) : new Uint8Array(0),
       authInfoBytes: isSet(object.authInfoBytes) ? bytesFromBase64(object.authInfoBytes) : new Uint8Array(0),
-      signatures: Array.isArray(object?.signatures) ? object.signatures.map((e: any) => bytesFromBase64(e)) : [],
+      signatures: Array.isArray(object?.signatures)
+        ? object.signatures.map((e: any) => bytesFromBase64(e))
+        : [],
     };
   },
 
   toJSON(message: TxRaw): unknown {
     const obj: any = {};
     message.bodyBytes !== undefined &&
-      (obj.bodyBytes = base64FromBytes(message.bodyBytes !== undefined ? message.bodyBytes : new Uint8Array(0)));
+      (obj.bodyBytes = base64FromBytes(
+        message.bodyBytes !== undefined ? message.bodyBytes : new Uint8Array(0),
+      ));
     message.authInfoBytes !== undefined &&
       (obj.authInfoBytes = base64FromBytes(
         message.authInfoBytes !== undefined ? message.authInfoBytes : new Uint8Array(0),
       ));
     if (message.signatures) {
-      obj.signatures = message.signatures.map((e) => base64FromBytes(e !== undefined ? e : new Uint8Array(0)));
+      obj.signatures = message.signatures.map((e) =>
+        base64FromBytes(e !== undefined ? e : new Uint8Array(0)),
+      );
     } else {
       obj.signatures = [];
     }
@@ -396,7 +407,12 @@ export const TxRaw = {
 };
 
 function createBaseSignDoc(): SignDoc {
-  return { bodyBytes: new Uint8Array(0), authInfoBytes: new Uint8Array(0), chainId: "", accountNumber: Long.UZERO };
+  return {
+    bodyBytes: new Uint8Array(0),
+    authInfoBytes: new Uint8Array(0),
+    chainId: "",
+    accountNumber: Long.UZERO,
+  };
 }
 
 export const SignDoc = {
@@ -472,13 +488,16 @@ export const SignDoc = {
   toJSON(message: SignDoc): unknown {
     const obj: any = {};
     message.bodyBytes !== undefined &&
-      (obj.bodyBytes = base64FromBytes(message.bodyBytes !== undefined ? message.bodyBytes : new Uint8Array(0)));
+      (obj.bodyBytes = base64FromBytes(
+        message.bodyBytes !== undefined ? message.bodyBytes : new Uint8Array(0),
+      ));
     message.authInfoBytes !== undefined &&
       (obj.authInfoBytes = base64FromBytes(
         message.authInfoBytes !== undefined ? message.authInfoBytes : new Uint8Array(0),
       ));
     message.chainId !== undefined && (obj.chainId = message.chainId);
-    message.accountNumber !== undefined && (obj.accountNumber = (message.accountNumber || Long.UZERO).toString());
+    message.accountNumber !== undefined &&
+      (obj.accountNumber = (message.accountNumber || Long.UZERO).toString());
     return obj;
   },
 
@@ -491,15 +510,22 @@ export const SignDoc = {
     message.bodyBytes = object.bodyBytes ?? new Uint8Array(0);
     message.authInfoBytes = object.authInfoBytes ?? new Uint8Array(0);
     message.chainId = object.chainId ?? "";
-    message.accountNumber = (object.accountNumber !== undefined && object.accountNumber !== null)
-      ? Long.fromValue(object.accountNumber)
-      : Long.UZERO;
+    message.accountNumber =
+      object.accountNumber !== undefined && object.accountNumber !== null
+        ? Long.fromValue(object.accountNumber)
+        : Long.UZERO;
     return message;
   },
 };
 
 function createBaseTxBody(): TxBody {
-  return { messages: [], memo: "", timeoutHeight: Long.UZERO, extensionOptions: [], nonCriticalExtensionOptions: [] };
+  return {
+    messages: [],
+    memo: "",
+    timeoutHeight: Long.UZERO,
+    extensionOptions: [],
+    nonCriticalExtensionOptions: [],
+  };
 }
 
 export const TxBody = {
@@ -590,19 +616,22 @@ export const TxBody = {
   toJSON(message: TxBody): unknown {
     const obj: any = {};
     if (message.messages) {
-      obj.messages = message.messages.map((e) => e ? Any.toJSON(e) : undefined);
+      obj.messages = message.messages.map((e) => (e ? Any.toJSON(e) : undefined));
     } else {
       obj.messages = [];
     }
     message.memo !== undefined && (obj.memo = message.memo);
-    message.timeoutHeight !== undefined && (obj.timeoutHeight = (message.timeoutHeight || Long.UZERO).toString());
+    message.timeoutHeight !== undefined &&
+      (obj.timeoutHeight = (message.timeoutHeight || Long.UZERO).toString());
     if (message.extensionOptions) {
-      obj.extensionOptions = message.extensionOptions.map((e) => e ? Any.toJSON(e) : undefined);
+      obj.extensionOptions = message.extensionOptions.map((e) => (e ? Any.toJSON(e) : undefined));
     } else {
       obj.extensionOptions = [];
     }
     if (message.nonCriticalExtensionOptions) {
-      obj.nonCriticalExtensionOptions = message.nonCriticalExtensionOptions.map((e) => e ? Any.toJSON(e) : undefined);
+      obj.nonCriticalExtensionOptions = message.nonCriticalExtensionOptions.map((e) =>
+        e ? Any.toJSON(e) : undefined,
+      );
     } else {
       obj.nonCriticalExtensionOptions = [];
     }
@@ -617,11 +646,13 @@ export const TxBody = {
     const message = createBaseTxBody();
     message.messages = object.messages?.map((e) => Any.fromPartial(e)) || [];
     message.memo = object.memo ?? "";
-    message.timeoutHeight = (object.timeoutHeight !== undefined && object.timeoutHeight !== null)
-      ? Long.fromValue(object.timeoutHeight)
-      : Long.UZERO;
+    message.timeoutHeight =
+      object.timeoutHeight !== undefined && object.timeoutHeight !== null
+        ? Long.fromValue(object.timeoutHeight)
+        : Long.UZERO;
     message.extensionOptions = object.extensionOptions?.map((e) => Any.fromPartial(e)) || [];
-    message.nonCriticalExtensionOptions = object.nonCriticalExtensionOptions?.map((e) => Any.fromPartial(e)) || [];
+    message.nonCriticalExtensionOptions =
+      object.nonCriticalExtensionOptions?.map((e) => Any.fromPartial(e)) || [];
     return message;
   },
 };
@@ -673,7 +704,9 @@ export const AuthInfo = {
 
   fromJSON(object: any): AuthInfo {
     return {
-      signerInfos: Array.isArray(object?.signerInfos) ? object.signerInfos.map((e: any) => SignerInfo.fromJSON(e)) : [],
+      signerInfos: Array.isArray(object?.signerInfos)
+        ? object.signerInfos.map((e: any) => SignerInfo.fromJSON(e))
+        : [],
       fee: isSet(object.fee) ? Fee.fromJSON(object.fee) : undefined,
     };
   },
@@ -681,7 +714,7 @@ export const AuthInfo = {
   toJSON(message: AuthInfo): unknown {
     const obj: any = {};
     if (message.signerInfos) {
-      obj.signerInfos = message.signerInfos.map((e) => e ? SignerInfo.toJSON(e) : undefined);
+      obj.signerInfos = message.signerInfos.map((e) => (e ? SignerInfo.toJSON(e) : undefined));
     } else {
       obj.signerInfos = [];
     }
@@ -696,7 +729,7 @@ export const AuthInfo = {
   fromPartial<I extends Exact<DeepPartial<AuthInfo>, I>>(object: I): AuthInfo {
     const message = createBaseAuthInfo();
     message.signerInfos = object.signerInfos?.map((e) => SignerInfo.fromPartial(e)) || [];
-    message.fee = (object.fee !== undefined && object.fee !== null) ? Fee.fromPartial(object.fee) : undefined;
+    message.fee = object.fee !== undefined && object.fee !== null ? Fee.fromPartial(object.fee) : undefined;
     return message;
   },
 };
@@ -766,8 +799,10 @@ export const SignerInfo = {
 
   toJSON(message: SignerInfo): unknown {
     const obj: any = {};
-    message.publicKey !== undefined && (obj.publicKey = message.publicKey ? Any.toJSON(message.publicKey) : undefined);
-    message.modeInfo !== undefined && (obj.modeInfo = message.modeInfo ? ModeInfo.toJSON(message.modeInfo) : undefined);
+    message.publicKey !== undefined &&
+      (obj.publicKey = message.publicKey ? Any.toJSON(message.publicKey) : undefined);
+    message.modeInfo !== undefined &&
+      (obj.modeInfo = message.modeInfo ? ModeInfo.toJSON(message.modeInfo) : undefined);
     message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
     return obj;
   },
@@ -778,15 +813,18 @@ export const SignerInfo = {
 
   fromPartial<I extends Exact<DeepPartial<SignerInfo>, I>>(object: I): SignerInfo {
     const message = createBaseSignerInfo();
-    message.publicKey = (object.publicKey !== undefined && object.publicKey !== null)
-      ? Any.fromPartial(object.publicKey)
-      : undefined;
-    message.modeInfo = (object.modeInfo !== undefined && object.modeInfo !== null)
-      ? ModeInfo.fromPartial(object.modeInfo)
-      : undefined;
-    message.sequence = (object.sequence !== undefined && object.sequence !== null)
-      ? Long.fromValue(object.sequence)
-      : Long.UZERO;
+    message.publicKey =
+      object.publicKey !== undefined && object.publicKey !== null
+        ? Any.fromPartial(object.publicKey)
+        : undefined;
+    message.modeInfo =
+      object.modeInfo !== undefined && object.modeInfo !== null
+        ? ModeInfo.fromPartial(object.modeInfo)
+        : undefined;
+    message.sequence =
+      object.sequence !== undefined && object.sequence !== null
+        ? Long.fromValue(object.sequence)
+        : Long.UZERO;
     return message;
   },
 };
@@ -845,8 +883,10 @@ export const ModeInfo = {
 
   toJSON(message: ModeInfo): unknown {
     const obj: any = {};
-    message.single !== undefined && (obj.single = message.single ? ModeInfo_Single.toJSON(message.single) : undefined);
-    message.multi !== undefined && (obj.multi = message.multi ? ModeInfo_Multi.toJSON(message.multi) : undefined);
+    message.single !== undefined &&
+      (obj.single = message.single ? ModeInfo_Single.toJSON(message.single) : undefined);
+    message.multi !== undefined &&
+      (obj.multi = message.multi ? ModeInfo_Multi.toJSON(message.multi) : undefined);
     return obj;
   },
 
@@ -856,12 +896,14 @@ export const ModeInfo = {
 
   fromPartial<I extends Exact<DeepPartial<ModeInfo>, I>>(object: I): ModeInfo {
     const message = createBaseModeInfo();
-    message.single = (object.single !== undefined && object.single !== null)
-      ? ModeInfo_Single.fromPartial(object.single)
-      : undefined;
-    message.multi = (object.multi !== undefined && object.multi !== null)
-      ? ModeInfo_Multi.fromPartial(object.multi)
-      : undefined;
+    message.single =
+      object.single !== undefined && object.single !== null
+        ? ModeInfo_Single.fromPartial(object.single)
+        : undefined;
+    message.multi =
+      object.multi !== undefined && object.multi !== null
+        ? ModeInfo_Multi.fromPartial(object.multi)
+        : undefined;
     return message;
   },
 };
@@ -970,7 +1012,9 @@ export const ModeInfo_Multi = {
   fromJSON(object: any): ModeInfo_Multi {
     return {
       bitarray: isSet(object.bitarray) ? CompactBitArray.fromJSON(object.bitarray) : undefined,
-      modeInfos: Array.isArray(object?.modeInfos) ? object.modeInfos.map((e: any) => ModeInfo.fromJSON(e)) : [],
+      modeInfos: Array.isArray(object?.modeInfos)
+        ? object.modeInfos.map((e: any) => ModeInfo.fromJSON(e))
+        : [],
     };
   },
 
@@ -979,7 +1023,7 @@ export const ModeInfo_Multi = {
     message.bitarray !== undefined &&
       (obj.bitarray = message.bitarray ? CompactBitArray.toJSON(message.bitarray) : undefined);
     if (message.modeInfos) {
-      obj.modeInfos = message.modeInfos.map((e) => e ? ModeInfo.toJSON(e) : undefined);
+      obj.modeInfos = message.modeInfos.map((e) => (e ? ModeInfo.toJSON(e) : undefined));
     } else {
       obj.modeInfos = [];
     }
@@ -992,9 +1036,10 @@ export const ModeInfo_Multi = {
 
   fromPartial<I extends Exact<DeepPartial<ModeInfo_Multi>, I>>(object: I): ModeInfo_Multi {
     const message = createBaseModeInfo_Multi();
-    message.bitarray = (object.bitarray !== undefined && object.bitarray !== null)
-      ? CompactBitArray.fromPartial(object.bitarray)
-      : undefined;
+    message.bitarray =
+      object.bitarray !== undefined && object.bitarray !== null
+        ? CompactBitArray.fromPartial(object.bitarray)
+        : undefined;
     message.modeInfos = object.modeInfos?.map((e) => ModeInfo.fromPartial(e)) || [];
     return message;
   },
@@ -1077,7 +1122,7 @@ export const Fee = {
   toJSON(message: Fee): unknown {
     const obj: any = {};
     if (message.amount) {
-      obj.amount = message.amount.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.amount = message.amount.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.amount = [];
     }
@@ -1094,9 +1139,10 @@ export const Fee = {
   fromPartial<I extends Exact<DeepPartial<Fee>, I>>(object: I): Fee {
     const message = createBaseFee();
     message.amount = object.amount?.map((e) => Coin.fromPartial(e)) || [];
-    message.gasLimit = (object.gasLimit !== undefined && object.gasLimit !== null)
-      ? Long.fromValue(object.gasLimit)
-      : Long.UZERO;
+    message.gasLimit =
+      object.gasLimit !== undefined && object.gasLimit !== null
+        ? Long.fromValue(object.gasLimit)
+        : Long.UZERO;
     message.payer = object.payer ?? "";
     message.granter = object.granter ?? "";
     return message;
@@ -1149,14 +1195,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

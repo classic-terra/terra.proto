@@ -20,8 +20,7 @@ export interface MsgCreateVestingAccount {
 }
 
 /** MsgCreateVestingAccountResponse defines the Msg/CreateVestingAccount response type. */
-export interface MsgCreateVestingAccountResponse {
-}
+export interface MsgCreateVestingAccountResponse {}
 
 function createBaseMsgCreateVestingAccount(): MsgCreateVestingAccount {
   return { fromAddress: "", toAddress: "", amount: [], endTime: Long.ZERO, delayed: false };
@@ -113,7 +112,7 @@ export const MsgCreateVestingAccount = {
     message.fromAddress !== undefined && (obj.fromAddress = message.fromAddress);
     message.toAddress !== undefined && (obj.toAddress = message.toAddress);
     if (message.amount) {
-      obj.amount = message.amount.map((e) => e ? Coin.toJSON(e) : undefined);
+      obj.amount = message.amount.map((e) => (e ? Coin.toJSON(e) : undefined));
     } else {
       obj.amount = [];
     }
@@ -131,9 +130,8 @@ export const MsgCreateVestingAccount = {
     message.fromAddress = object.fromAddress ?? "";
     message.toAddress = object.toAddress ?? "";
     message.amount = object.amount?.map((e) => Coin.fromPartial(e)) || [];
-    message.endTime = (object.endTime !== undefined && object.endTime !== null)
-      ? Long.fromValue(object.endTime)
-      : Long.ZERO;
+    message.endTime =
+      object.endTime !== undefined && object.endTime !== null ? Long.fromValue(object.endTime) : Long.ZERO;
     message.delayed = object.delayed ?? false;
     return message;
   },
@@ -173,11 +171,15 @@ export const MsgCreateVestingAccountResponse = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<MsgCreateVestingAccountResponse>, I>>(base?: I): MsgCreateVestingAccountResponse {
+  create<I extends Exact<DeepPartial<MsgCreateVestingAccountResponse>, I>>(
+    base?: I,
+  ): MsgCreateVestingAccountResponse {
     return MsgCreateVestingAccountResponse.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<MsgCreateVestingAccountResponse>, I>>(_: I): MsgCreateVestingAccountResponse {
+  fromPartial<I extends Exact<DeepPartial<MsgCreateVestingAccountResponse>, I>>(
+    _: I,
+  ): MsgCreateVestingAccountResponse {
     const message = createBaseMsgCreateVestingAccountResponse();
     return message;
   },
@@ -207,7 +209,11 @@ export class MsgClientImpl implements Msg {
     request: DeepPartial<MsgCreateVestingAccount>,
     metadata?: grpc.Metadata,
   ): Promise<MsgCreateVestingAccountResponse> {
-    return this.rpc.unary(MsgCreateVestingAccountDesc, MsgCreateVestingAccount.fromPartial(request), metadata);
+    return this.rpc.unary(
+      MsgCreateVestingAccountDesc,
+      MsgCreateVestingAccount.fromPartial(request),
+      metadata,
+    );
   }
 }
 
@@ -281,9 +287,10 @@ export class GrpcWebImpl {
     metadata: grpc.Metadata | undefined,
   ): Promise<any> {
     const request = { ..._request, ...methodDesc.requestType };
-    const maybeCombinedMetadata = metadata && this.options.metadata
-      ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-      : metadata || this.options.metadata;
+    const maybeCombinedMetadata =
+      metadata && this.options.metadata
+        ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+        : metadata || this.options.metadata;
     return new Promise((resolve, reject) => {
       grpc.unary(methodDesc, {
         request,
@@ -325,14 +332,21 @@ var tsProtoGlobalThis: any = (() => {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

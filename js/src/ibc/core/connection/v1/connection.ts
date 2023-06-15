@@ -249,7 +249,7 @@ export const ConnectionEnd = {
     const obj: any = {};
     message.clientId !== undefined && (obj.clientId = message.clientId);
     if (message.versions) {
-      obj.versions = message.versions.map((e) => e ? Version.toJSON(e) : undefined);
+      obj.versions = message.versions.map((e) => (e ? Version.toJSON(e) : undefined));
     } else {
       obj.versions = [];
     }
@@ -269,12 +269,14 @@ export const ConnectionEnd = {
     message.clientId = object.clientId ?? "";
     message.versions = object.versions?.map((e) => Version.fromPartial(e)) || [];
     message.state = object.state ?? 0;
-    message.counterparty = (object.counterparty !== undefined && object.counterparty !== null)
-      ? Counterparty.fromPartial(object.counterparty)
-      : undefined;
-    message.delayPeriod = (object.delayPeriod !== undefined && object.delayPeriod !== null)
-      ? Long.fromValue(object.delayPeriod)
-      : Long.UZERO;
+    message.counterparty =
+      object.counterparty !== undefined && object.counterparty !== null
+        ? Counterparty.fromPartial(object.counterparty)
+        : undefined;
+    message.delayPeriod =
+      object.delayPeriod !== undefined && object.delayPeriod !== null
+        ? Long.fromValue(object.delayPeriod)
+        : Long.UZERO;
     return message;
   },
 };
@@ -380,7 +382,7 @@ export const IdentifiedConnection = {
     message.id !== undefined && (obj.id = message.id);
     message.clientId !== undefined && (obj.clientId = message.clientId);
     if (message.versions) {
-      obj.versions = message.versions.map((e) => e ? Version.toJSON(e) : undefined);
+      obj.versions = message.versions.map((e) => (e ? Version.toJSON(e) : undefined));
     } else {
       obj.versions = [];
     }
@@ -401,12 +403,14 @@ export const IdentifiedConnection = {
     message.clientId = object.clientId ?? "";
     message.versions = object.versions?.map((e) => Version.fromPartial(e)) || [];
     message.state = object.state ?? 0;
-    message.counterparty = (object.counterparty !== undefined && object.counterparty !== null)
-      ? Counterparty.fromPartial(object.counterparty)
-      : undefined;
-    message.delayPeriod = (object.delayPeriod !== undefined && object.delayPeriod !== null)
-      ? Long.fromValue(object.delayPeriod)
-      : Long.UZERO;
+    message.counterparty =
+      object.counterparty !== undefined && object.counterparty !== null
+        ? Counterparty.fromPartial(object.counterparty)
+        : undefined;
+    message.delayPeriod =
+      object.delayPeriod !== undefined && object.delayPeriod !== null
+        ? Long.fromValue(object.delayPeriod)
+        : Long.UZERO;
     return message;
   },
 };
@@ -478,7 +482,8 @@ export const Counterparty = {
     const obj: any = {};
     message.clientId !== undefined && (obj.clientId = message.clientId);
     message.connectionId !== undefined && (obj.connectionId = message.connectionId);
-    message.prefix !== undefined && (obj.prefix = message.prefix ? MerklePrefix.toJSON(message.prefix) : undefined);
+    message.prefix !== undefined &&
+      (obj.prefix = message.prefix ? MerklePrefix.toJSON(message.prefix) : undefined);
     return obj;
   },
 
@@ -490,9 +495,10 @@ export const Counterparty = {
     const message = createBaseCounterparty();
     message.clientId = object.clientId ?? "";
     message.connectionId = object.connectionId ?? "";
-    message.prefix = (object.prefix !== undefined && object.prefix !== null)
-      ? MerklePrefix.fromPartial(object.prefix)
-      : undefined;
+    message.prefix =
+      object.prefix !== undefined && object.prefix !== null
+        ? MerklePrefix.fromPartial(object.prefix)
+        : undefined;
     return message;
   },
 };
@@ -764,7 +770,7 @@ export const Params = {
   fromPartial<I extends Exact<DeepPartial<Params>, I>>(object: I): Params {
     const message = createBaseParams();
     message.maxExpectedTimePerBlock =
-      (object.maxExpectedTimePerBlock !== undefined && object.maxExpectedTimePerBlock !== null)
+      object.maxExpectedTimePerBlock !== undefined && object.maxExpectedTimePerBlock !== null
         ? Long.fromValue(object.maxExpectedTimePerBlock)
         : Long.UZERO;
     return message;
@@ -773,14 +779,21 @@ export const Params = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

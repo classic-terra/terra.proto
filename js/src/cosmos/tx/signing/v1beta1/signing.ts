@@ -114,9 +114,7 @@ export interface SignatureDescriptor {
 /** Data represents signature data */
 export interface SignatureDescriptor_Data {
   /** single represents a single signer */
-  single?:
-    | SignatureDescriptor_Data_Single
-    | undefined;
+  single?: SignatureDescriptor_Data_Single | undefined;
   /** multi represents a multisig signer */
   multi?: SignatureDescriptor_Data_Multi | undefined;
 }
@@ -183,7 +181,7 @@ export const SignatureDescriptors = {
   toJSON(message: SignatureDescriptors): unknown {
     const obj: any = {};
     if (message.signatures) {
-      obj.signatures = message.signatures.map((e) => e ? SignatureDescriptor.toJSON(e) : undefined);
+      obj.signatures = message.signatures.map((e) => (e ? SignatureDescriptor.toJSON(e) : undefined));
     } else {
       obj.signatures = [];
     }
@@ -266,8 +264,10 @@ export const SignatureDescriptor = {
 
   toJSON(message: SignatureDescriptor): unknown {
     const obj: any = {};
-    message.publicKey !== undefined && (obj.publicKey = message.publicKey ? Any.toJSON(message.publicKey) : undefined);
-    message.data !== undefined && (obj.data = message.data ? SignatureDescriptor_Data.toJSON(message.data) : undefined);
+    message.publicKey !== undefined &&
+      (obj.publicKey = message.publicKey ? Any.toJSON(message.publicKey) : undefined);
+    message.data !== undefined &&
+      (obj.data = message.data ? SignatureDescriptor_Data.toJSON(message.data) : undefined);
     message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
     return obj;
   },
@@ -278,15 +278,18 @@ export const SignatureDescriptor = {
 
   fromPartial<I extends Exact<DeepPartial<SignatureDescriptor>, I>>(object: I): SignatureDescriptor {
     const message = createBaseSignatureDescriptor();
-    message.publicKey = (object.publicKey !== undefined && object.publicKey !== null)
-      ? Any.fromPartial(object.publicKey)
-      : undefined;
-    message.data = (object.data !== undefined && object.data !== null)
-      ? SignatureDescriptor_Data.fromPartial(object.data)
-      : undefined;
-    message.sequence = (object.sequence !== undefined && object.sequence !== null)
-      ? Long.fromValue(object.sequence)
-      : Long.UZERO;
+    message.publicKey =
+      object.publicKey !== undefined && object.publicKey !== null
+        ? Any.fromPartial(object.publicKey)
+        : undefined;
+    message.data =
+      object.data !== undefined && object.data !== null
+        ? SignatureDescriptor_Data.fromPartial(object.data)
+        : undefined;
+    message.sequence =
+      object.sequence !== undefined && object.sequence !== null
+        ? Long.fromValue(object.sequence)
+        : Long.UZERO;
     return message;
   },
 };
@@ -356,14 +359,18 @@ export const SignatureDescriptor_Data = {
     return SignatureDescriptor_Data.fromPartial(base ?? {});
   },
 
-  fromPartial<I extends Exact<DeepPartial<SignatureDescriptor_Data>, I>>(object: I): SignatureDescriptor_Data {
+  fromPartial<I extends Exact<DeepPartial<SignatureDescriptor_Data>, I>>(
+    object: I,
+  ): SignatureDescriptor_Data {
     const message = createBaseSignatureDescriptor_Data();
-    message.single = (object.single !== undefined && object.single !== null)
-      ? SignatureDescriptor_Data_Single.fromPartial(object.single)
-      : undefined;
-    message.multi = (object.multi !== undefined && object.multi !== null)
-      ? SignatureDescriptor_Data_Multi.fromPartial(object.multi)
-      : undefined;
+    message.single =
+      object.single !== undefined && object.single !== null
+        ? SignatureDescriptor_Data_Single.fromPartial(object.single)
+        : undefined;
+    message.multi =
+      object.multi !== undefined && object.multi !== null
+        ? SignatureDescriptor_Data_Multi.fromPartial(object.multi)
+        : undefined;
     return message;
   },
 };
@@ -424,11 +431,15 @@ export const SignatureDescriptor_Data_Single = {
     const obj: any = {};
     message.mode !== undefined && (obj.mode = signModeToJSON(message.mode));
     message.signature !== undefined &&
-      (obj.signature = base64FromBytes(message.signature !== undefined ? message.signature : new Uint8Array(0)));
+      (obj.signature = base64FromBytes(
+        message.signature !== undefined ? message.signature : new Uint8Array(0),
+      ));
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<SignatureDescriptor_Data_Single>, I>>(base?: I): SignatureDescriptor_Data_Single {
+  create<I extends Exact<DeepPartial<SignatureDescriptor_Data_Single>, I>>(
+    base?: I,
+  ): SignatureDescriptor_Data_Single {
     return SignatureDescriptor_Data_Single.fromPartial(base ?? {});
   },
 
@@ -501,14 +512,16 @@ export const SignatureDescriptor_Data_Multi = {
     message.bitarray !== undefined &&
       (obj.bitarray = message.bitarray ? CompactBitArray.toJSON(message.bitarray) : undefined);
     if (message.signatures) {
-      obj.signatures = message.signatures.map((e) => e ? SignatureDescriptor_Data.toJSON(e) : undefined);
+      obj.signatures = message.signatures.map((e) => (e ? SignatureDescriptor_Data.toJSON(e) : undefined));
     } else {
       obj.signatures = [];
     }
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<SignatureDescriptor_Data_Multi>, I>>(base?: I): SignatureDescriptor_Data_Multi {
+  create<I extends Exact<DeepPartial<SignatureDescriptor_Data_Multi>, I>>(
+    base?: I,
+  ): SignatureDescriptor_Data_Multi {
     return SignatureDescriptor_Data_Multi.fromPartial(base ?? {});
   },
 
@@ -516,9 +529,10 @@ export const SignatureDescriptor_Data_Multi = {
     object: I,
   ): SignatureDescriptor_Data_Multi {
     const message = createBaseSignatureDescriptor_Data_Multi();
-    message.bitarray = (object.bitarray !== undefined && object.bitarray !== null)
-      ? CompactBitArray.fromPartial(object.bitarray)
-      : undefined;
+    message.bitarray =
+      object.bitarray !== undefined && object.bitarray !== null
+        ? CompactBitArray.fromPartial(object.bitarray)
+        : undefined;
     message.signatures = object.signatures?.map((e) => SignatureDescriptor_Data.fromPartial(e)) || [];
     return message;
   },
@@ -570,14 +584,21 @@ function base64FromBytes(arr: Uint8Array): string {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {

@@ -111,7 +111,8 @@ export const BaseAccount = {
     const obj: any = {};
     message.address !== undefined && (obj.address = message.address);
     message.pubKey !== undefined && (obj.pubKey = message.pubKey ? Any.toJSON(message.pubKey) : undefined);
-    message.accountNumber !== undefined && (obj.accountNumber = (message.accountNumber || Long.UZERO).toString());
+    message.accountNumber !== undefined &&
+      (obj.accountNumber = (message.accountNumber || Long.UZERO).toString());
     message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
     return obj;
   },
@@ -123,15 +124,16 @@ export const BaseAccount = {
   fromPartial<I extends Exact<DeepPartial<BaseAccount>, I>>(object: I): BaseAccount {
     const message = createBaseBaseAccount();
     message.address = object.address ?? "";
-    message.pubKey = (object.pubKey !== undefined && object.pubKey !== null)
-      ? Any.fromPartial(object.pubKey)
-      : undefined;
-    message.accountNumber = (object.accountNumber !== undefined && object.accountNumber !== null)
-      ? Long.fromValue(object.accountNumber)
-      : Long.UZERO;
-    message.sequence = (object.sequence !== undefined && object.sequence !== null)
-      ? Long.fromValue(object.sequence)
-      : Long.UZERO;
+    message.pubKey =
+      object.pubKey !== undefined && object.pubKey !== null ? Any.fromPartial(object.pubKey) : undefined;
+    message.accountNumber =
+      object.accountNumber !== undefined && object.accountNumber !== null
+        ? Long.fromValue(object.accountNumber)
+        : Long.UZERO;
+    message.sequence =
+      object.sequence !== undefined && object.sequence !== null
+        ? Long.fromValue(object.sequence)
+        : Long.UZERO;
     return message;
   },
 };
@@ -218,9 +220,10 @@ export const ModuleAccount = {
 
   fromPartial<I extends Exact<DeepPartial<ModuleAccount>, I>>(object: I): ModuleAccount {
     const message = createBaseModuleAccount();
-    message.baseAccount = (object.baseAccount !== undefined && object.baseAccount !== null)
-      ? BaseAccount.fromPartial(object.baseAccount)
-      : undefined;
+    message.baseAccount =
+      object.baseAccount !== undefined && object.baseAccount !== null
+        ? BaseAccount.fromPartial(object.baseAccount)
+        : undefined;
     message.name = object.name ?? "";
     message.permissions = object.permissions?.map((e) => e) || [];
     return message;
@@ -310,9 +313,13 @@ export const Params = {
 
   fromJSON(object: any): Params {
     return {
-      maxMemoCharacters: isSet(object.maxMemoCharacters) ? Long.fromValue(object.maxMemoCharacters) : Long.UZERO,
+      maxMemoCharacters: isSet(object.maxMemoCharacters)
+        ? Long.fromValue(object.maxMemoCharacters)
+        : Long.UZERO,
       txSigLimit: isSet(object.txSigLimit) ? Long.fromValue(object.txSigLimit) : Long.UZERO,
-      txSizeCostPerByte: isSet(object.txSizeCostPerByte) ? Long.fromValue(object.txSizeCostPerByte) : Long.UZERO,
+      txSizeCostPerByte: isSet(object.txSizeCostPerByte)
+        ? Long.fromValue(object.txSizeCostPerByte)
+        : Long.UZERO,
       sigVerifyCostEd25519: isSet(object.sigVerifyCostEd25519)
         ? Long.fromValue(object.sigVerifyCostEd25519)
         : Long.UZERO,
@@ -342,20 +349,24 @@ export const Params = {
 
   fromPartial<I extends Exact<DeepPartial<Params>, I>>(object: I): Params {
     const message = createBaseParams();
-    message.maxMemoCharacters = (object.maxMemoCharacters !== undefined && object.maxMemoCharacters !== null)
-      ? Long.fromValue(object.maxMemoCharacters)
-      : Long.UZERO;
-    message.txSigLimit = (object.txSigLimit !== undefined && object.txSigLimit !== null)
-      ? Long.fromValue(object.txSigLimit)
-      : Long.UZERO;
-    message.txSizeCostPerByte = (object.txSizeCostPerByte !== undefined && object.txSizeCostPerByte !== null)
-      ? Long.fromValue(object.txSizeCostPerByte)
-      : Long.UZERO;
-    message.sigVerifyCostEd25519 = (object.sigVerifyCostEd25519 !== undefined && object.sigVerifyCostEd25519 !== null)
-      ? Long.fromValue(object.sigVerifyCostEd25519)
-      : Long.UZERO;
+    message.maxMemoCharacters =
+      object.maxMemoCharacters !== undefined && object.maxMemoCharacters !== null
+        ? Long.fromValue(object.maxMemoCharacters)
+        : Long.UZERO;
+    message.txSigLimit =
+      object.txSigLimit !== undefined && object.txSigLimit !== null
+        ? Long.fromValue(object.txSigLimit)
+        : Long.UZERO;
+    message.txSizeCostPerByte =
+      object.txSizeCostPerByte !== undefined && object.txSizeCostPerByte !== null
+        ? Long.fromValue(object.txSizeCostPerByte)
+        : Long.UZERO;
+    message.sigVerifyCostEd25519 =
+      object.sigVerifyCostEd25519 !== undefined && object.sigVerifyCostEd25519 !== null
+        ? Long.fromValue(object.sigVerifyCostEd25519)
+        : Long.UZERO;
     message.sigVerifyCostSecp256k1 =
-      (object.sigVerifyCostSecp256k1 !== undefined && object.sigVerifyCostSecp256k1 !== null)
+      object.sigVerifyCostSecp256k1 !== undefined && object.sigVerifyCostSecp256k1 !== null
         ? Long.fromValue(object.sigVerifyCostSecp256k1)
         : Long.UZERO;
     return message;
@@ -364,14 +375,21 @@ export const Params = {
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
-export type DeepPartial<T> = T extends Builtin ? T
-  : T extends Long ? string | number | Long : T extends Array<infer U> ? Array<DeepPartial<U>>
-  : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
-  : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
+export type DeepPartial<T> = T extends Builtin
+  ? T
+  : T extends Long
+  ? string | number | Long
+  : T extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : T extends {}
+  ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
 type KeysOfUnion<T> = T extends T ? keyof T : never;
-export type Exact<P, I extends P> = P extends Builtin ? P
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
 
 if (_m0.util.Long !== Long) {
