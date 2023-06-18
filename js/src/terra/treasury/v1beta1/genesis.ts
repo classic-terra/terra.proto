@@ -1,8 +1,8 @@
 /* eslint-disable */
 import Long from "long";
 import _m0 from "protobufjs/minimal";
-import { Params } from "../../../terra/treasury/v1beta1/treasury";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
+import { Params } from "./treasury";
 
 export const protobufPackage = "terra.treasury.v1beta1";
 
@@ -31,7 +31,17 @@ export interface EpochState {
   totalStakedLuna: string;
 }
 
-const baseGenesisState: object = { taxRate: "", rewardWeight: "" };
+function createBaseGenesisState(): GenesisState {
+  return {
+    params: undefined,
+    taxRate: "",
+    rewardWeight: "",
+    taxCaps: [],
+    taxProceeds: [],
+    epochInitialIssuance: [],
+    epochStates: [],
+  };
+}
 
 export const GenesisState = {
   encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -60,87 +70,86 @@ export const GenesisState = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGenesisState } as GenesisState;
-    message.taxCaps = [];
-    message.taxProceeds = [];
-    message.epochInitialIssuance = [];
-    message.epochStates = [];
+    const message = createBaseGenesisState();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.params = Params.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.taxRate = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.rewardWeight = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.taxCaps.push(TaxCap.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 5:
+          if (tag !== 42) {
+            break;
+          }
+
           message.taxProceeds.push(Coin.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 6:
+          if (tag !== 50) {
+            break;
+          }
+
           message.epochInitialIssuance.push(Coin.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 7:
+          if (tag !== 58) {
+            break;
+          }
+
           message.epochStates.push(EpochState.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GenesisState {
-    const message = { ...baseGenesisState } as GenesisState;
-    message.taxCaps = [];
-    message.taxProceeds = [];
-    message.epochInitialIssuance = [];
-    message.epochStates = [];
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromJSON(object.params);
-    } else {
-      message.params = undefined;
-    }
-    if (object.taxRate !== undefined && object.taxRate !== null) {
-      message.taxRate = String(object.taxRate);
-    } else {
-      message.taxRate = "";
-    }
-    if (object.rewardWeight !== undefined && object.rewardWeight !== null) {
-      message.rewardWeight = String(object.rewardWeight);
-    } else {
-      message.rewardWeight = "";
-    }
-    if (object.taxCaps !== undefined && object.taxCaps !== null) {
-      for (const e of object.taxCaps) {
-        message.taxCaps.push(TaxCap.fromJSON(e));
-      }
-    }
-    if (object.taxProceeds !== undefined && object.taxProceeds !== null) {
-      for (const e of object.taxProceeds) {
-        message.taxProceeds.push(Coin.fromJSON(e));
-      }
-    }
-    if (object.epochInitialIssuance !== undefined && object.epochInitialIssuance !== null) {
-      for (const e of object.epochInitialIssuance) {
-        message.epochInitialIssuance.push(Coin.fromJSON(e));
-      }
-    }
-    if (object.epochStates !== undefined && object.epochStates !== null) {
-      for (const e of object.epochStates) {
-        message.epochStates.push(EpochState.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
+      taxRate: isSet(object.taxRate) ? String(object.taxRate) : "",
+      rewardWeight: isSet(object.rewardWeight) ? String(object.rewardWeight) : "",
+      taxCaps: Array.isArray(object?.taxCaps) ? object.taxCaps.map((e: any) => TaxCap.fromJSON(e)) : [],
+      taxProceeds: Array.isArray(object?.taxProceeds)
+        ? object.taxProceeds.map((e: any) => Coin.fromJSON(e))
+        : [],
+      epochInitialIssuance: Array.isArray(object?.epochInitialIssuance)
+        ? object.epochInitialIssuance.map((e: any) => Coin.fromJSON(e))
+        : [],
+      epochStates: Array.isArray(object?.epochStates)
+        ? object.epochStates.map((e: any) => EpochState.fromJSON(e))
+        : [],
+    };
   },
 
   toJSON(message: GenesisState): unknown {
@@ -171,52 +180,27 @@ export const GenesisState = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
-    const message = { ...baseGenesisState } as GenesisState;
-    message.taxCaps = [];
-    message.taxProceeds = [];
-    message.epochInitialIssuance = [];
-    message.epochStates = [];
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromPartial(object.params);
-    } else {
-      message.params = undefined;
-    }
-    if (object.taxRate !== undefined && object.taxRate !== null) {
-      message.taxRate = object.taxRate;
-    } else {
-      message.taxRate = "";
-    }
-    if (object.rewardWeight !== undefined && object.rewardWeight !== null) {
-      message.rewardWeight = object.rewardWeight;
-    } else {
-      message.rewardWeight = "";
-    }
-    if (object.taxCaps !== undefined && object.taxCaps !== null) {
-      for (const e of object.taxCaps) {
-        message.taxCaps.push(TaxCap.fromPartial(e));
-      }
-    }
-    if (object.taxProceeds !== undefined && object.taxProceeds !== null) {
-      for (const e of object.taxProceeds) {
-        message.taxProceeds.push(Coin.fromPartial(e));
-      }
-    }
-    if (object.epochInitialIssuance !== undefined && object.epochInitialIssuance !== null) {
-      for (const e of object.epochInitialIssuance) {
-        message.epochInitialIssuance.push(Coin.fromPartial(e));
-      }
-    }
-    if (object.epochStates !== undefined && object.epochStates !== null) {
-      for (const e of object.epochStates) {
-        message.epochStates.push(EpochState.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<GenesisState>, I>>(base?: I): GenesisState {
+    return GenesisState.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
+    const message = createBaseGenesisState();
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
+    message.taxRate = object.taxRate ?? "";
+    message.rewardWeight = object.rewardWeight ?? "";
+    message.taxCaps = object.taxCaps?.map((e) => TaxCap.fromPartial(e)) || [];
+    message.taxProceeds = object.taxProceeds?.map((e) => Coin.fromPartial(e)) || [];
+    message.epochInitialIssuance = object.epochInitialIssuance?.map((e) => Coin.fromPartial(e)) || [];
+    message.epochStates = object.epochStates?.map((e) => EpochState.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseTaxCap: object = { denom: "", taxCap: "" };
+function createBaseTaxCap(): TaxCap {
+  return { denom: "", taxCap: "" };
+}
 
 export const TaxCap = {
   encode(message: TaxCap, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -230,39 +214,40 @@ export const TaxCap = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): TaxCap {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseTaxCap } as TaxCap;
+    const message = createBaseTaxCap();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.denom = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.taxCap = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): TaxCap {
-    const message = { ...baseTaxCap } as TaxCap;
-    if (object.denom !== undefined && object.denom !== null) {
-      message.denom = String(object.denom);
-    } else {
-      message.denom = "";
-    }
-    if (object.taxCap !== undefined && object.taxCap !== null) {
-      message.taxCap = String(object.taxCap);
-    } else {
-      message.taxCap = "";
-    }
-    return message;
+    return {
+      denom: isSet(object.denom) ? String(object.denom) : "",
+      taxCap: isSet(object.taxCap) ? String(object.taxCap) : "",
+    };
   },
 
   toJSON(message: TaxCap): unknown {
@@ -272,28 +257,21 @@ export const TaxCap = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<TaxCap>): TaxCap {
-    const message = { ...baseTaxCap } as TaxCap;
-    if (object.denom !== undefined && object.denom !== null) {
-      message.denom = object.denom;
-    } else {
-      message.denom = "";
-    }
-    if (object.taxCap !== undefined && object.taxCap !== null) {
-      message.taxCap = object.taxCap;
-    } else {
-      message.taxCap = "";
-    }
+  create<I extends Exact<DeepPartial<TaxCap>, I>>(base?: I): TaxCap {
+    return TaxCap.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<TaxCap>, I>>(object: I): TaxCap {
+    const message = createBaseTaxCap();
+    message.denom = object.denom ?? "";
+    message.taxCap = object.taxCap ?? "";
     return message;
   },
 };
 
-const baseEpochState: object = {
-  epoch: Long.UZERO,
-  taxReward: "",
-  seigniorageReward: "",
-  totalStakedLuna: "",
-};
+function createBaseEpochState(): EpochState {
+  return { epoch: Long.UZERO, taxReward: "", seigniorageReward: "", totalStakedLuna: "" };
+}
 
 export const EpochState = {
   encode(message: EpochState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -313,55 +291,56 @@ export const EpochState = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): EpochState {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseEpochState } as EpochState;
+    const message = createBaseEpochState();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.epoch = reader.uint64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.taxReward = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.seigniorageReward = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.totalStakedLuna = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): EpochState {
-    const message = { ...baseEpochState } as EpochState;
-    if (object.epoch !== undefined && object.epoch !== null) {
-      message.epoch = Long.fromString(object.epoch);
-    } else {
-      message.epoch = Long.UZERO;
-    }
-    if (object.taxReward !== undefined && object.taxReward !== null) {
-      message.taxReward = String(object.taxReward);
-    } else {
-      message.taxReward = "";
-    }
-    if (object.seigniorageReward !== undefined && object.seigniorageReward !== null) {
-      message.seigniorageReward = String(object.seigniorageReward);
-    } else {
-      message.seigniorageReward = "";
-    }
-    if (object.totalStakedLuna !== undefined && object.totalStakedLuna !== null) {
-      message.totalStakedLuna = String(object.totalStakedLuna);
-    } else {
-      message.totalStakedLuna = "";
-    }
-    return message;
+    return {
+      epoch: isSet(object.epoch) ? Long.fromValue(object.epoch) : Long.UZERO,
+      taxReward: isSet(object.taxReward) ? String(object.taxReward) : "",
+      seigniorageReward: isSet(object.seigniorageReward) ? String(object.seigniorageReward) : "",
+      totalStakedLuna: isSet(object.totalStakedLuna) ? String(object.totalStakedLuna) : "",
+    };
   },
 
   toJSON(message: EpochState): unknown {
@@ -373,35 +352,27 @@ export const EpochState = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<EpochState>): EpochState {
-    const message = { ...baseEpochState } as EpochState;
-    if (object.epoch !== undefined && object.epoch !== null) {
-      message.epoch = object.epoch as Long;
-    } else {
-      message.epoch = Long.UZERO;
-    }
-    if (object.taxReward !== undefined && object.taxReward !== null) {
-      message.taxReward = object.taxReward;
-    } else {
-      message.taxReward = "";
-    }
-    if (object.seigniorageReward !== undefined && object.seigniorageReward !== null) {
-      message.seigniorageReward = object.seigniorageReward;
-    } else {
-      message.seigniorageReward = "";
-    }
-    if (object.totalStakedLuna !== undefined && object.totalStakedLuna !== null) {
-      message.totalStakedLuna = object.totalStakedLuna;
-    } else {
-      message.totalStakedLuna = "";
-    }
+  create<I extends Exact<DeepPartial<EpochState>, I>>(base?: I): EpochState {
+    return EpochState.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EpochState>, I>>(object: I): EpochState {
+    const message = createBaseEpochState();
+    message.epoch =
+      object.epoch !== undefined && object.epoch !== null ? Long.fromValue(object.epoch) : Long.UZERO;
+    message.taxReward = object.taxReward ?? "";
+    message.seigniorageReward = object.seigniorageReward ?? "";
+    message.totalStakedLuna = object.totalStakedLuna ?? "";
     return message;
   },
 };
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -410,7 +381,16 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
 }

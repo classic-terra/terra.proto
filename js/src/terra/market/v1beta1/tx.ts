@@ -1,9 +1,9 @@
 /* eslint-disable */
-import Long from "long";
 import { grpc } from "@improbable-eng/grpc-web";
+import { BrowserHeaders } from "browser-headers";
+import Long from "long";
 import _m0 from "protobufjs/minimal";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
-import { BrowserHeaders } from "browser-headers";
 
 export const protobufPackage = "terra.market.v1beta1";
 
@@ -34,7 +34,9 @@ export interface MsgSwapSendResponse {
   swapFee?: Coin;
 }
 
-const baseMsgSwap: object = { trader: "", askDenom: "" };
+function createBaseMsgSwap(): MsgSwap {
+  return { trader: "", offerCoin: undefined, askDenom: "" };
+}
 
 export const MsgSwap = {
   encode(message: MsgSwap, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -51,47 +53,48 @@ export const MsgSwap = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgSwap {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgSwap } as MsgSwap;
+    const message = createBaseMsgSwap();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.trader = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.offerCoin = Coin.decode(reader, reader.uint32());
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.askDenom = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): MsgSwap {
-    const message = { ...baseMsgSwap } as MsgSwap;
-    if (object.trader !== undefined && object.trader !== null) {
-      message.trader = String(object.trader);
-    } else {
-      message.trader = "";
-    }
-    if (object.offerCoin !== undefined && object.offerCoin !== null) {
-      message.offerCoin = Coin.fromJSON(object.offerCoin);
-    } else {
-      message.offerCoin = undefined;
-    }
-    if (object.askDenom !== undefined && object.askDenom !== null) {
-      message.askDenom = String(object.askDenom);
-    } else {
-      message.askDenom = "";
-    }
-    return message;
+    return {
+      trader: isSet(object.trader) ? String(object.trader) : "",
+      offerCoin: isSet(object.offerCoin) ? Coin.fromJSON(object.offerCoin) : undefined,
+      askDenom: isSet(object.askDenom) ? String(object.askDenom) : "",
+    };
   },
 
   toJSON(message: MsgSwap): unknown {
@@ -103,28 +106,25 @@ export const MsgSwap = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<MsgSwap>): MsgSwap {
-    const message = { ...baseMsgSwap } as MsgSwap;
-    if (object.trader !== undefined && object.trader !== null) {
-      message.trader = object.trader;
-    } else {
-      message.trader = "";
-    }
-    if (object.offerCoin !== undefined && object.offerCoin !== null) {
-      message.offerCoin = Coin.fromPartial(object.offerCoin);
-    } else {
-      message.offerCoin = undefined;
-    }
-    if (object.askDenom !== undefined && object.askDenom !== null) {
-      message.askDenom = object.askDenom;
-    } else {
-      message.askDenom = "";
-    }
+  create<I extends Exact<DeepPartial<MsgSwap>, I>>(base?: I): MsgSwap {
+    return MsgSwap.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgSwap>, I>>(object: I): MsgSwap {
+    const message = createBaseMsgSwap();
+    message.trader = object.trader ?? "";
+    message.offerCoin =
+      object.offerCoin !== undefined && object.offerCoin !== null
+        ? Coin.fromPartial(object.offerCoin)
+        : undefined;
+    message.askDenom = object.askDenom ?? "";
     return message;
   },
 };
 
-const baseMsgSwapResponse: object = {};
+function createBaseMsgSwapResponse(): MsgSwapResponse {
+  return { swapCoin: undefined, swapFee: undefined };
+}
 
 export const MsgSwapResponse = {
   encode(message: MsgSwapResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -138,39 +138,40 @@ export const MsgSwapResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgSwapResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgSwapResponse } as MsgSwapResponse;
+    const message = createBaseMsgSwapResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.swapCoin = Coin.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.swapFee = Coin.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): MsgSwapResponse {
-    const message = { ...baseMsgSwapResponse } as MsgSwapResponse;
-    if (object.swapCoin !== undefined && object.swapCoin !== null) {
-      message.swapCoin = Coin.fromJSON(object.swapCoin);
-    } else {
-      message.swapCoin = undefined;
-    }
-    if (object.swapFee !== undefined && object.swapFee !== null) {
-      message.swapFee = Coin.fromJSON(object.swapFee);
-    } else {
-      message.swapFee = undefined;
-    }
-    return message;
+    return {
+      swapCoin: isSet(object.swapCoin) ? Coin.fromJSON(object.swapCoin) : undefined,
+      swapFee: isSet(object.swapFee) ? Coin.fromJSON(object.swapFee) : undefined,
+    };
   },
 
   toJSON(message: MsgSwapResponse): unknown {
@@ -182,23 +183,25 @@ export const MsgSwapResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<MsgSwapResponse>): MsgSwapResponse {
-    const message = { ...baseMsgSwapResponse } as MsgSwapResponse;
-    if (object.swapCoin !== undefined && object.swapCoin !== null) {
-      message.swapCoin = Coin.fromPartial(object.swapCoin);
-    } else {
-      message.swapCoin = undefined;
-    }
-    if (object.swapFee !== undefined && object.swapFee !== null) {
-      message.swapFee = Coin.fromPartial(object.swapFee);
-    } else {
-      message.swapFee = undefined;
-    }
+  create<I extends Exact<DeepPartial<MsgSwapResponse>, I>>(base?: I): MsgSwapResponse {
+    return MsgSwapResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgSwapResponse>, I>>(object: I): MsgSwapResponse {
+    const message = createBaseMsgSwapResponse();
+    message.swapCoin =
+      object.swapCoin !== undefined && object.swapCoin !== null
+        ? Coin.fromPartial(object.swapCoin)
+        : undefined;
+    message.swapFee =
+      object.swapFee !== undefined && object.swapFee !== null ? Coin.fromPartial(object.swapFee) : undefined;
     return message;
   },
 };
 
-const baseMsgSwapSend: object = { fromAddress: "", toAddress: "", askDenom: "" };
+function createBaseMsgSwapSend(): MsgSwapSend {
+  return { fromAddress: "", toAddress: "", offerCoin: undefined, askDenom: "" };
+}
 
 export const MsgSwapSend = {
   encode(message: MsgSwapSend, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -218,55 +221,56 @@ export const MsgSwapSend = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgSwapSend {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgSwapSend } as MsgSwapSend;
+    const message = createBaseMsgSwapSend();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.fromAddress = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.toAddress = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.offerCoin = Coin.decode(reader, reader.uint32());
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.askDenom = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): MsgSwapSend {
-    const message = { ...baseMsgSwapSend } as MsgSwapSend;
-    if (object.fromAddress !== undefined && object.fromAddress !== null) {
-      message.fromAddress = String(object.fromAddress);
-    } else {
-      message.fromAddress = "";
-    }
-    if (object.toAddress !== undefined && object.toAddress !== null) {
-      message.toAddress = String(object.toAddress);
-    } else {
-      message.toAddress = "";
-    }
-    if (object.offerCoin !== undefined && object.offerCoin !== null) {
-      message.offerCoin = Coin.fromJSON(object.offerCoin);
-    } else {
-      message.offerCoin = undefined;
-    }
-    if (object.askDenom !== undefined && object.askDenom !== null) {
-      message.askDenom = String(object.askDenom);
-    } else {
-      message.askDenom = "";
-    }
-    return message;
+    return {
+      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : "",
+      toAddress: isSet(object.toAddress) ? String(object.toAddress) : "",
+      offerCoin: isSet(object.offerCoin) ? Coin.fromJSON(object.offerCoin) : undefined,
+      askDenom: isSet(object.askDenom) ? String(object.askDenom) : "",
+    };
   },
 
   toJSON(message: MsgSwapSend): unknown {
@@ -279,33 +283,26 @@ export const MsgSwapSend = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<MsgSwapSend>): MsgSwapSend {
-    const message = { ...baseMsgSwapSend } as MsgSwapSend;
-    if (object.fromAddress !== undefined && object.fromAddress !== null) {
-      message.fromAddress = object.fromAddress;
-    } else {
-      message.fromAddress = "";
-    }
-    if (object.toAddress !== undefined && object.toAddress !== null) {
-      message.toAddress = object.toAddress;
-    } else {
-      message.toAddress = "";
-    }
-    if (object.offerCoin !== undefined && object.offerCoin !== null) {
-      message.offerCoin = Coin.fromPartial(object.offerCoin);
-    } else {
-      message.offerCoin = undefined;
-    }
-    if (object.askDenom !== undefined && object.askDenom !== null) {
-      message.askDenom = object.askDenom;
-    } else {
-      message.askDenom = "";
-    }
+  create<I extends Exact<DeepPartial<MsgSwapSend>, I>>(base?: I): MsgSwapSend {
+    return MsgSwapSend.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgSwapSend>, I>>(object: I): MsgSwapSend {
+    const message = createBaseMsgSwapSend();
+    message.fromAddress = object.fromAddress ?? "";
+    message.toAddress = object.toAddress ?? "";
+    message.offerCoin =
+      object.offerCoin !== undefined && object.offerCoin !== null
+        ? Coin.fromPartial(object.offerCoin)
+        : undefined;
+    message.askDenom = object.askDenom ?? "";
     return message;
   },
 };
 
-const baseMsgSwapSendResponse: object = {};
+function createBaseMsgSwapSendResponse(): MsgSwapSendResponse {
+  return { swapCoin: undefined, swapFee: undefined };
+}
 
 export const MsgSwapSendResponse = {
   encode(message: MsgSwapSendResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -319,39 +316,40 @@ export const MsgSwapSendResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgSwapSendResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgSwapSendResponse } as MsgSwapSendResponse;
+    const message = createBaseMsgSwapSendResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.swapCoin = Coin.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.swapFee = Coin.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): MsgSwapSendResponse {
-    const message = { ...baseMsgSwapSendResponse } as MsgSwapSendResponse;
-    if (object.swapCoin !== undefined && object.swapCoin !== null) {
-      message.swapCoin = Coin.fromJSON(object.swapCoin);
-    } else {
-      message.swapCoin = undefined;
-    }
-    if (object.swapFee !== undefined && object.swapFee !== null) {
-      message.swapFee = Coin.fromJSON(object.swapFee);
-    } else {
-      message.swapFee = undefined;
-    }
-    return message;
+    return {
+      swapCoin: isSet(object.swapCoin) ? Coin.fromJSON(object.swapCoin) : undefined,
+      swapFee: isSet(object.swapFee) ? Coin.fromJSON(object.swapFee) : undefined,
+    };
   },
 
   toJSON(message: MsgSwapSendResponse): unknown {
@@ -363,18 +361,18 @@ export const MsgSwapSendResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<MsgSwapSendResponse>): MsgSwapSendResponse {
-    const message = { ...baseMsgSwapSendResponse } as MsgSwapSendResponse;
-    if (object.swapCoin !== undefined && object.swapCoin !== null) {
-      message.swapCoin = Coin.fromPartial(object.swapCoin);
-    } else {
-      message.swapCoin = undefined;
-    }
-    if (object.swapFee !== undefined && object.swapFee !== null) {
-      message.swapFee = Coin.fromPartial(object.swapFee);
-    } else {
-      message.swapFee = undefined;
-    }
+  create<I extends Exact<DeepPartial<MsgSwapSendResponse>, I>>(base?: I): MsgSwapSendResponse {
+    return MsgSwapSendResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgSwapSendResponse>, I>>(object: I): MsgSwapSendResponse {
+    const message = createBaseMsgSwapSendResponse();
+    message.swapCoin =
+      object.swapCoin !== undefined && object.swapCoin !== null
+        ? Coin.fromPartial(object.swapCoin)
+        : undefined;
+    message.swapFee =
+      object.swapFee !== undefined && object.swapFee !== null ? Coin.fromPartial(object.swapFee) : undefined;
     return message;
   },
 };
@@ -411,9 +409,7 @@ export class MsgClientImpl implements Msg {
   }
 }
 
-export const MsgDesc = {
-  serviceName: "terra.market.v1beta1.Msg",
-};
+export const MsgDesc = { serviceName: "terra.market.v1beta1.Msg" };
 
 export const MsgSwapDesc: UnaryMethodDefinitionish = {
   methodName: "Swap",
@@ -427,10 +423,11 @@ export const MsgSwapDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = MsgSwapResponse.decode(data);
       return {
-        ...MsgSwapResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -449,10 +446,11 @@ export const MsgSwapSendDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = MsgSwapSendResponse.decode(data);
       return {
-        ...MsgSwapSendResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -481,6 +479,7 @@ export class GrpcWebImpl {
 
     debug?: boolean;
     metadata?: grpc.Metadata;
+    upStreamRetryCodes?: number[];
   };
 
   constructor(
@@ -490,6 +489,7 @@ export class GrpcWebImpl {
 
       debug?: boolean;
       metadata?: grpc.Metadata;
+      upStreamRetryCodes?: number[];
     },
   ) {
     this.host = host;
@@ -515,11 +515,9 @@ export class GrpcWebImpl {
         debug: this.options.debug,
         onEnd: function (response) {
           if (response.status === grpc.Code.OK) {
-            resolve(response.message);
+            resolve(response.message!.toObject());
           } else {
-            const err = new Error(response.statusMessage) as any;
-            err.code = response.status;
-            err.metadata = response.trailers;
+            const err = new GrpcWebError(response.statusMessage, response.status, response.trailers);
             reject(err);
           }
         },
@@ -528,9 +526,31 @@ export class GrpcWebImpl {
   }
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+declare var self: any | undefined;
+declare var window: any | undefined;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
+  throw "Unable to locate global object";
+})();
+
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -539,7 +559,22 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}
+
+export class GrpcWebError extends tsProtoGlobalThis.Error {
+  constructor(message: string, public code: grpc.Code, public metadata: grpc.Metadata) {
+    super(message);
+  }
 }

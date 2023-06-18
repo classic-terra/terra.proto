@@ -1,10 +1,10 @@
 /* eslint-disable */
-import Long from "long";
 import { grpc } from "@improbable-eng/grpc-web";
-import _m0 from "protobufjs/minimal";
-import { Tx } from "../../../cosmos/tx/v1beta1/tx";
 import { BrowserHeaders } from "browser-headers";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
+import { Tx } from "../../../cosmos/tx/v1beta1/tx";
 
 export const protobufPackage = "terra.tx.v1beta1";
 
@@ -33,7 +33,9 @@ export interface ComputeTaxResponse {
   taxAmount: Coin[];
 }
 
-const baseComputeTaxRequest: object = {};
+function createBaseComputeTaxRequest(): ComputeTaxRequest {
+  return { tx: undefined, txBytes: new Uint8Array(0) };
+}
 
 export const ComputeTaxRequest = {
   encode(message: ComputeTaxRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -47,66 +49,65 @@ export const ComputeTaxRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ComputeTaxRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseComputeTaxRequest } as ComputeTaxRequest;
-    message.txBytes = new Uint8Array();
+    const message = createBaseComputeTaxRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.tx = Tx.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.txBytes = reader.bytes();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ComputeTaxRequest {
-    const message = { ...baseComputeTaxRequest } as ComputeTaxRequest;
-    message.txBytes = new Uint8Array();
-    if (object.tx !== undefined && object.tx !== null) {
-      message.tx = Tx.fromJSON(object.tx);
-    } else {
-      message.tx = undefined;
-    }
-    if (object.txBytes !== undefined && object.txBytes !== null) {
-      message.txBytes = bytesFromBase64(object.txBytes);
-    }
-    return message;
+    return {
+      tx: isSet(object.tx) ? Tx.fromJSON(object.tx) : undefined,
+      txBytes: isSet(object.txBytes) ? bytesFromBase64(object.txBytes) : new Uint8Array(0),
+    };
   },
 
   toJSON(message: ComputeTaxRequest): unknown {
     const obj: any = {};
     message.tx !== undefined && (obj.tx = message.tx ? Tx.toJSON(message.tx) : undefined);
     message.txBytes !== undefined &&
-      (obj.txBytes = base64FromBytes(message.txBytes !== undefined ? message.txBytes : new Uint8Array()));
+      (obj.txBytes = base64FromBytes(message.txBytes !== undefined ? message.txBytes : new Uint8Array(0)));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ComputeTaxRequest>): ComputeTaxRequest {
-    const message = { ...baseComputeTaxRequest } as ComputeTaxRequest;
-    if (object.tx !== undefined && object.tx !== null) {
-      message.tx = Tx.fromPartial(object.tx);
-    } else {
-      message.tx = undefined;
-    }
-    if (object.txBytes !== undefined && object.txBytes !== null) {
-      message.txBytes = object.txBytes;
-    } else {
-      message.txBytes = new Uint8Array();
-    }
+  create<I extends Exact<DeepPartial<ComputeTaxRequest>, I>>(base?: I): ComputeTaxRequest {
+    return ComputeTaxRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ComputeTaxRequest>, I>>(object: I): ComputeTaxRequest {
+    const message = createBaseComputeTaxRequest();
+    message.tx = object.tx !== undefined && object.tx !== null ? Tx.fromPartial(object.tx) : undefined;
+    message.txBytes = object.txBytes ?? new Uint8Array(0);
     return message;
   },
 };
 
-const baseComputeTaxResponse: object = {};
+function createBaseComputeTaxResponse(): ComputeTaxResponse {
+  return { taxAmount: [] };
+}
 
 export const ComputeTaxResponse = {
   encode(message: ComputeTaxResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -117,33 +118,32 @@ export const ComputeTaxResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ComputeTaxResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseComputeTaxResponse } as ComputeTaxResponse;
-    message.taxAmount = [];
+    const message = createBaseComputeTaxResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.taxAmount.push(Coin.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ComputeTaxResponse {
-    const message = { ...baseComputeTaxResponse } as ComputeTaxResponse;
-    message.taxAmount = [];
-    if (object.taxAmount !== undefined && object.taxAmount !== null) {
-      for (const e of object.taxAmount) {
-        message.taxAmount.push(Coin.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      taxAmount: Array.isArray(object?.taxAmount) ? object.taxAmount.map((e: any) => Coin.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: ComputeTaxResponse): unknown {
@@ -156,14 +156,13 @@ export const ComputeTaxResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ComputeTaxResponse>): ComputeTaxResponse {
-    const message = { ...baseComputeTaxResponse } as ComputeTaxResponse;
-    message.taxAmount = [];
-    if (object.taxAmount !== undefined && object.taxAmount !== null) {
-      for (const e of object.taxAmount) {
-        message.taxAmount.push(Coin.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<ComputeTaxResponse>, I>>(base?: I): ComputeTaxResponse {
+    return ComputeTaxResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ComputeTaxResponse>, I>>(object: I): ComputeTaxResponse {
+    const message = createBaseComputeTaxResponse();
+    message.taxAmount = object.taxAmount?.map((e) => Coin.fromPartial(e)) || [];
     return message;
   },
 };
@@ -187,9 +186,7 @@ export class ServiceClientImpl implements Service {
   }
 }
 
-export const ServiceDesc = {
-  serviceName: "terra.tx.v1beta1.Service",
-};
+export const ServiceDesc = { serviceName: "terra.tx.v1beta1.Service" };
 
 export const ServiceComputeTaxDesc: UnaryMethodDefinitionish = {
   methodName: "ComputeTax",
@@ -203,10 +200,11 @@ export const ServiceComputeTaxDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ComputeTaxResponse.decode(data);
       return {
-        ...ComputeTaxResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -235,6 +233,7 @@ export class GrpcWebImpl {
 
     debug?: boolean;
     metadata?: grpc.Metadata;
+    upStreamRetryCodes?: number[];
   };
 
   constructor(
@@ -244,6 +243,7 @@ export class GrpcWebImpl {
 
       debug?: boolean;
       metadata?: grpc.Metadata;
+      upStreamRetryCodes?: number[];
     },
   ) {
     this.host = host;
@@ -269,11 +269,9 @@ export class GrpcWebImpl {
         debug: this.options.debug,
         onEnd: function (response) {
           if (response.status === grpc.Code.OK) {
-            resolve(response.message);
+            resolve(response.message!.toObject());
           } else {
-            const err = new Error(response.statusMessage) as any;
-            err.code = response.status;
-            err.metadata = response.trailers;
+            const err = new GrpcWebError(response.statusMessage, response.status, response.trailers);
             reject(err);
           }
         },
@@ -284,38 +282,54 @@ export class GrpcWebImpl {
 
 declare var self: any | undefined;
 declare var window: any | undefined;
-var globalThis: any = (() => {
-  if (typeof globalThis !== "undefined") return globalThis;
-  if (typeof self !== "undefined") return self;
-  if (typeof window !== "undefined") return window;
-  if (typeof global !== "undefined") return global;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
   throw "Unable to locate global object";
 })();
 
-const atob: (b64: string) => string =
-  globalThis.atob || ((b64) => globalThis.Buffer.from(b64, "base64").toString("binary"));
 function bytesFromBase64(b64: string): Uint8Array {
-  const bin = atob(b64);
-  const arr = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; ++i) {
-    arr[i] = bin.charCodeAt(i);
+  if (tsProtoGlobalThis.Buffer) {
+    return Uint8Array.from(tsProtoGlobalThis.Buffer.from(b64, "base64"));
+  } else {
+    const bin = tsProtoGlobalThis.atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; ++i) {
+      arr[i] = bin.charCodeAt(i);
+    }
+    return arr;
   }
-  return arr;
 }
 
-const btoa: (bin: string) => string =
-  globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, "binary").toString("base64"));
 function base64FromBytes(arr: Uint8Array): string {
-  const bin: string[] = [];
-  for (const byte of arr) {
-    bin.push(String.fromCharCode(byte));
+  if (tsProtoGlobalThis.Buffer) {
+    return tsProtoGlobalThis.Buffer.from(arr).toString("base64");
+  } else {
+    const bin: string[] = [];
+    arr.forEach((byte) => {
+      bin.push(String.fromCharCode(byte));
+    });
+    return tsProtoGlobalThis.btoa(bin.join(""));
   }
-  return btoa(bin.join(""));
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -324,7 +338,22 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}
+
+export class GrpcWebError extends tsProtoGlobalThis.Error {
+  constructor(message: string, public code: grpc.Code, public metadata: grpc.Metadata) {
+    super(message);
+  }
 }

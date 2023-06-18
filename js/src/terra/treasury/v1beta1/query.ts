@@ -1,11 +1,11 @@
 /* eslint-disable */
-import Long from "long";
 import { grpc } from "@improbable-eng/grpc-web";
-import _m0 from "protobufjs/minimal";
-import { Params } from "../../../terra/treasury/v1beta1/treasury";
-import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination";
 import { BrowserHeaders } from "browser-headers";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
+import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination";
 import { Coin } from "../../../cosmos/base/v1beta1/coin";
+import { Params } from "./treasury";
 
 export const protobufPackage = "terra.treasury.v1beta1";
 
@@ -119,7 +119,9 @@ export interface QueryBurnTaxExemptionListResponse {
   pagination?: PageResponse;
 }
 
-const baseQueryTaxRateRequest: object = {};
+function createBaseQueryTaxRateRequest(): QueryTaxRateRequest {
+  return {};
+}
 
 export const QueryTaxRateRequest = {
   encode(_: QueryTaxRateRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -127,23 +129,23 @@ export const QueryTaxRateRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTaxRateRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTaxRateRequest } as QueryTaxRateRequest;
+    const message = createBaseQueryTaxRateRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): QueryTaxRateRequest {
-    const message = { ...baseQueryTaxRateRequest } as QueryTaxRateRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: QueryTaxRateRequest): unknown {
@@ -151,13 +153,19 @@ export const QueryTaxRateRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<QueryTaxRateRequest>): QueryTaxRateRequest {
-    const message = { ...baseQueryTaxRateRequest } as QueryTaxRateRequest;
+  create<I extends Exact<DeepPartial<QueryTaxRateRequest>, I>>(base?: I): QueryTaxRateRequest {
+    return QueryTaxRateRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTaxRateRequest>, I>>(_: I): QueryTaxRateRequest {
+    const message = createBaseQueryTaxRateRequest();
     return message;
   },
 };
 
-const baseQueryTaxRateResponse: object = { taxRate: "" };
+function createBaseQueryTaxRateResponse(): QueryTaxRateResponse {
+  return { taxRate: "" };
+}
 
 export const QueryTaxRateResponse = {
   encode(message: QueryTaxRateResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -168,31 +176,30 @@ export const QueryTaxRateResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTaxRateResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTaxRateResponse } as QueryTaxRateResponse;
+    const message = createBaseQueryTaxRateResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.taxRate = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryTaxRateResponse {
-    const message = { ...baseQueryTaxRateResponse } as QueryTaxRateResponse;
-    if (object.taxRate !== undefined && object.taxRate !== null) {
-      message.taxRate = String(object.taxRate);
-    } else {
-      message.taxRate = "";
-    }
-    return message;
+    return { taxRate: isSet(object.taxRate) ? String(object.taxRate) : "" };
   },
 
   toJSON(message: QueryTaxRateResponse): unknown {
@@ -201,18 +208,20 @@ export const QueryTaxRateResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryTaxRateResponse>): QueryTaxRateResponse {
-    const message = { ...baseQueryTaxRateResponse } as QueryTaxRateResponse;
-    if (object.taxRate !== undefined && object.taxRate !== null) {
-      message.taxRate = object.taxRate;
-    } else {
-      message.taxRate = "";
-    }
+  create<I extends Exact<DeepPartial<QueryTaxRateResponse>, I>>(base?: I): QueryTaxRateResponse {
+    return QueryTaxRateResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTaxRateResponse>, I>>(object: I): QueryTaxRateResponse {
+    const message = createBaseQueryTaxRateResponse();
+    message.taxRate = object.taxRate ?? "";
     return message;
   },
 };
 
-const baseQueryTaxCapRequest: object = { denom: "" };
+function createBaseQueryTaxCapRequest(): QueryTaxCapRequest {
+  return { denom: "" };
+}
 
 export const QueryTaxCapRequest = {
   encode(message: QueryTaxCapRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -223,31 +232,30 @@ export const QueryTaxCapRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTaxCapRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTaxCapRequest } as QueryTaxCapRequest;
+    const message = createBaseQueryTaxCapRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.denom = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryTaxCapRequest {
-    const message = { ...baseQueryTaxCapRequest } as QueryTaxCapRequest;
-    if (object.denom !== undefined && object.denom !== null) {
-      message.denom = String(object.denom);
-    } else {
-      message.denom = "";
-    }
-    return message;
+    return { denom: isSet(object.denom) ? String(object.denom) : "" };
   },
 
   toJSON(message: QueryTaxCapRequest): unknown {
@@ -256,18 +264,20 @@ export const QueryTaxCapRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryTaxCapRequest>): QueryTaxCapRequest {
-    const message = { ...baseQueryTaxCapRequest } as QueryTaxCapRequest;
-    if (object.denom !== undefined && object.denom !== null) {
-      message.denom = object.denom;
-    } else {
-      message.denom = "";
-    }
+  create<I extends Exact<DeepPartial<QueryTaxCapRequest>, I>>(base?: I): QueryTaxCapRequest {
+    return QueryTaxCapRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTaxCapRequest>, I>>(object: I): QueryTaxCapRequest {
+    const message = createBaseQueryTaxCapRequest();
+    message.denom = object.denom ?? "";
     return message;
   },
 };
 
-const baseQueryTaxCapResponse: object = { taxCap: "" };
+function createBaseQueryTaxCapResponse(): QueryTaxCapResponse {
+  return { taxCap: "" };
+}
 
 export const QueryTaxCapResponse = {
   encode(message: QueryTaxCapResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -278,31 +288,30 @@ export const QueryTaxCapResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTaxCapResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTaxCapResponse } as QueryTaxCapResponse;
+    const message = createBaseQueryTaxCapResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.taxCap = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryTaxCapResponse {
-    const message = { ...baseQueryTaxCapResponse } as QueryTaxCapResponse;
-    if (object.taxCap !== undefined && object.taxCap !== null) {
-      message.taxCap = String(object.taxCap);
-    } else {
-      message.taxCap = "";
-    }
-    return message;
+    return { taxCap: isSet(object.taxCap) ? String(object.taxCap) : "" };
   },
 
   toJSON(message: QueryTaxCapResponse): unknown {
@@ -311,18 +320,20 @@ export const QueryTaxCapResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryTaxCapResponse>): QueryTaxCapResponse {
-    const message = { ...baseQueryTaxCapResponse } as QueryTaxCapResponse;
-    if (object.taxCap !== undefined && object.taxCap !== null) {
-      message.taxCap = object.taxCap;
-    } else {
-      message.taxCap = "";
-    }
+  create<I extends Exact<DeepPartial<QueryTaxCapResponse>, I>>(base?: I): QueryTaxCapResponse {
+    return QueryTaxCapResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTaxCapResponse>, I>>(object: I): QueryTaxCapResponse {
+    const message = createBaseQueryTaxCapResponse();
+    message.taxCap = object.taxCap ?? "";
     return message;
   },
 };
 
-const baseQueryTaxCapsRequest: object = {};
+function createBaseQueryTaxCapsRequest(): QueryTaxCapsRequest {
+  return {};
+}
 
 export const QueryTaxCapsRequest = {
   encode(_: QueryTaxCapsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -330,23 +341,23 @@ export const QueryTaxCapsRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTaxCapsRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTaxCapsRequest } as QueryTaxCapsRequest;
+    const message = createBaseQueryTaxCapsRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): QueryTaxCapsRequest {
-    const message = { ...baseQueryTaxCapsRequest } as QueryTaxCapsRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: QueryTaxCapsRequest): unknown {
@@ -354,13 +365,19 @@ export const QueryTaxCapsRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<QueryTaxCapsRequest>): QueryTaxCapsRequest {
-    const message = { ...baseQueryTaxCapsRequest } as QueryTaxCapsRequest;
+  create<I extends Exact<DeepPartial<QueryTaxCapsRequest>, I>>(base?: I): QueryTaxCapsRequest {
+    return QueryTaxCapsRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTaxCapsRequest>, I>>(_: I): QueryTaxCapsRequest {
+    const message = createBaseQueryTaxCapsRequest();
     return message;
   },
 };
 
-const baseQueryTaxCapsResponseItem: object = { denom: "", taxCap: "" };
+function createBaseQueryTaxCapsResponseItem(): QueryTaxCapsResponseItem {
+  return { denom: "", taxCap: "" };
+}
 
 export const QueryTaxCapsResponseItem = {
   encode(message: QueryTaxCapsResponseItem, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -374,39 +391,40 @@ export const QueryTaxCapsResponseItem = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTaxCapsResponseItem {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTaxCapsResponseItem } as QueryTaxCapsResponseItem;
+    const message = createBaseQueryTaxCapsResponseItem();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.denom = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.taxCap = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryTaxCapsResponseItem {
-    const message = { ...baseQueryTaxCapsResponseItem } as QueryTaxCapsResponseItem;
-    if (object.denom !== undefined && object.denom !== null) {
-      message.denom = String(object.denom);
-    } else {
-      message.denom = "";
-    }
-    if (object.taxCap !== undefined && object.taxCap !== null) {
-      message.taxCap = String(object.taxCap);
-    } else {
-      message.taxCap = "";
-    }
-    return message;
+    return {
+      denom: isSet(object.denom) ? String(object.denom) : "",
+      taxCap: isSet(object.taxCap) ? String(object.taxCap) : "",
+    };
   },
 
   toJSON(message: QueryTaxCapsResponseItem): unknown {
@@ -416,23 +434,23 @@ export const QueryTaxCapsResponseItem = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryTaxCapsResponseItem>): QueryTaxCapsResponseItem {
-    const message = { ...baseQueryTaxCapsResponseItem } as QueryTaxCapsResponseItem;
-    if (object.denom !== undefined && object.denom !== null) {
-      message.denom = object.denom;
-    } else {
-      message.denom = "";
-    }
-    if (object.taxCap !== undefined && object.taxCap !== null) {
-      message.taxCap = object.taxCap;
-    } else {
-      message.taxCap = "";
-    }
+  create<I extends Exact<DeepPartial<QueryTaxCapsResponseItem>, I>>(base?: I): QueryTaxCapsResponseItem {
+    return QueryTaxCapsResponseItem.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTaxCapsResponseItem>, I>>(
+    object: I,
+  ): QueryTaxCapsResponseItem {
+    const message = createBaseQueryTaxCapsResponseItem();
+    message.denom = object.denom ?? "";
+    message.taxCap = object.taxCap ?? "";
     return message;
   },
 };
 
-const baseQueryTaxCapsResponse: object = {};
+function createBaseQueryTaxCapsResponse(): QueryTaxCapsResponse {
+  return { taxCaps: [] };
+}
 
 export const QueryTaxCapsResponse = {
   encode(message: QueryTaxCapsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -443,33 +461,34 @@ export const QueryTaxCapsResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTaxCapsResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTaxCapsResponse } as QueryTaxCapsResponse;
-    message.taxCaps = [];
+    const message = createBaseQueryTaxCapsResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.taxCaps.push(QueryTaxCapsResponseItem.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryTaxCapsResponse {
-    const message = { ...baseQueryTaxCapsResponse } as QueryTaxCapsResponse;
-    message.taxCaps = [];
-    if (object.taxCaps !== undefined && object.taxCaps !== null) {
-      for (const e of object.taxCaps) {
-        message.taxCaps.push(QueryTaxCapsResponseItem.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      taxCaps: Array.isArray(object?.taxCaps)
+        ? object.taxCaps.map((e: any) => QueryTaxCapsResponseItem.fromJSON(e))
+        : [],
+    };
   },
 
   toJSON(message: QueryTaxCapsResponse): unknown {
@@ -482,19 +501,20 @@ export const QueryTaxCapsResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryTaxCapsResponse>): QueryTaxCapsResponse {
-    const message = { ...baseQueryTaxCapsResponse } as QueryTaxCapsResponse;
-    message.taxCaps = [];
-    if (object.taxCaps !== undefined && object.taxCaps !== null) {
-      for (const e of object.taxCaps) {
-        message.taxCaps.push(QueryTaxCapsResponseItem.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<QueryTaxCapsResponse>, I>>(base?: I): QueryTaxCapsResponse {
+    return QueryTaxCapsResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTaxCapsResponse>, I>>(object: I): QueryTaxCapsResponse {
+    const message = createBaseQueryTaxCapsResponse();
+    message.taxCaps = object.taxCaps?.map((e) => QueryTaxCapsResponseItem.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseQueryRewardWeightRequest: object = {};
+function createBaseQueryRewardWeightRequest(): QueryRewardWeightRequest {
+  return {};
+}
 
 export const QueryRewardWeightRequest = {
   encode(_: QueryRewardWeightRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -502,23 +522,23 @@ export const QueryRewardWeightRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryRewardWeightRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryRewardWeightRequest } as QueryRewardWeightRequest;
+    const message = createBaseQueryRewardWeightRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): QueryRewardWeightRequest {
-    const message = { ...baseQueryRewardWeightRequest } as QueryRewardWeightRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: QueryRewardWeightRequest): unknown {
@@ -526,13 +546,19 @@ export const QueryRewardWeightRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<QueryRewardWeightRequest>): QueryRewardWeightRequest {
-    const message = { ...baseQueryRewardWeightRequest } as QueryRewardWeightRequest;
+  create<I extends Exact<DeepPartial<QueryRewardWeightRequest>, I>>(base?: I): QueryRewardWeightRequest {
+    return QueryRewardWeightRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryRewardWeightRequest>, I>>(_: I): QueryRewardWeightRequest {
+    const message = createBaseQueryRewardWeightRequest();
     return message;
   },
 };
 
-const baseQueryRewardWeightResponse: object = { rewardWeight: "" };
+function createBaseQueryRewardWeightResponse(): QueryRewardWeightResponse {
+  return { rewardWeight: "" };
+}
 
 export const QueryRewardWeightResponse = {
   encode(message: QueryRewardWeightResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -543,31 +569,30 @@ export const QueryRewardWeightResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryRewardWeightResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryRewardWeightResponse } as QueryRewardWeightResponse;
+    const message = createBaseQueryRewardWeightResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.rewardWeight = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryRewardWeightResponse {
-    const message = { ...baseQueryRewardWeightResponse } as QueryRewardWeightResponse;
-    if (object.rewardWeight !== undefined && object.rewardWeight !== null) {
-      message.rewardWeight = String(object.rewardWeight);
-    } else {
-      message.rewardWeight = "";
-    }
-    return message;
+    return { rewardWeight: isSet(object.rewardWeight) ? String(object.rewardWeight) : "" };
   },
 
   toJSON(message: QueryRewardWeightResponse): unknown {
@@ -576,18 +601,22 @@ export const QueryRewardWeightResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryRewardWeightResponse>): QueryRewardWeightResponse {
-    const message = { ...baseQueryRewardWeightResponse } as QueryRewardWeightResponse;
-    if (object.rewardWeight !== undefined && object.rewardWeight !== null) {
-      message.rewardWeight = object.rewardWeight;
-    } else {
-      message.rewardWeight = "";
-    }
+  create<I extends Exact<DeepPartial<QueryRewardWeightResponse>, I>>(base?: I): QueryRewardWeightResponse {
+    return QueryRewardWeightResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryRewardWeightResponse>, I>>(
+    object: I,
+  ): QueryRewardWeightResponse {
+    const message = createBaseQueryRewardWeightResponse();
+    message.rewardWeight = object.rewardWeight ?? "";
     return message;
   },
 };
 
-const baseQueryTaxProceedsRequest: object = {};
+function createBaseQueryTaxProceedsRequest(): QueryTaxProceedsRequest {
+  return {};
+}
 
 export const QueryTaxProceedsRequest = {
   encode(_: QueryTaxProceedsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -595,23 +624,23 @@ export const QueryTaxProceedsRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTaxProceedsRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTaxProceedsRequest } as QueryTaxProceedsRequest;
+    const message = createBaseQueryTaxProceedsRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): QueryTaxProceedsRequest {
-    const message = { ...baseQueryTaxProceedsRequest } as QueryTaxProceedsRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: QueryTaxProceedsRequest): unknown {
@@ -619,13 +648,19 @@ export const QueryTaxProceedsRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<QueryTaxProceedsRequest>): QueryTaxProceedsRequest {
-    const message = { ...baseQueryTaxProceedsRequest } as QueryTaxProceedsRequest;
+  create<I extends Exact<DeepPartial<QueryTaxProceedsRequest>, I>>(base?: I): QueryTaxProceedsRequest {
+    return QueryTaxProceedsRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTaxProceedsRequest>, I>>(_: I): QueryTaxProceedsRequest {
+    const message = createBaseQueryTaxProceedsRequest();
     return message;
   },
 };
 
-const baseQueryTaxProceedsResponse: object = {};
+function createBaseQueryTaxProceedsResponse(): QueryTaxProceedsResponse {
+  return { taxProceeds: [] };
+}
 
 export const QueryTaxProceedsResponse = {
   encode(message: QueryTaxProceedsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -636,33 +671,34 @@ export const QueryTaxProceedsResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTaxProceedsResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTaxProceedsResponse } as QueryTaxProceedsResponse;
-    message.taxProceeds = [];
+    const message = createBaseQueryTaxProceedsResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.taxProceeds.push(Coin.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryTaxProceedsResponse {
-    const message = { ...baseQueryTaxProceedsResponse } as QueryTaxProceedsResponse;
-    message.taxProceeds = [];
-    if (object.taxProceeds !== undefined && object.taxProceeds !== null) {
-      for (const e of object.taxProceeds) {
-        message.taxProceeds.push(Coin.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      taxProceeds: Array.isArray(object?.taxProceeds)
+        ? object.taxProceeds.map((e: any) => Coin.fromJSON(e))
+        : [],
+    };
   },
 
   toJSON(message: QueryTaxProceedsResponse): unknown {
@@ -675,19 +711,22 @@ export const QueryTaxProceedsResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryTaxProceedsResponse>): QueryTaxProceedsResponse {
-    const message = { ...baseQueryTaxProceedsResponse } as QueryTaxProceedsResponse;
-    message.taxProceeds = [];
-    if (object.taxProceeds !== undefined && object.taxProceeds !== null) {
-      for (const e of object.taxProceeds) {
-        message.taxProceeds.push(Coin.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<QueryTaxProceedsResponse>, I>>(base?: I): QueryTaxProceedsResponse {
+    return QueryTaxProceedsResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTaxProceedsResponse>, I>>(
+    object: I,
+  ): QueryTaxProceedsResponse {
+    const message = createBaseQueryTaxProceedsResponse();
+    message.taxProceeds = object.taxProceeds?.map((e) => Coin.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseQuerySeigniorageProceedsRequest: object = {};
+function createBaseQuerySeigniorageProceedsRequest(): QuerySeigniorageProceedsRequest {
+  return {};
+}
 
 export const QuerySeigniorageProceedsRequest = {
   encode(_: QuerySeigniorageProceedsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -695,23 +734,23 @@ export const QuerySeigniorageProceedsRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QuerySeigniorageProceedsRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQuerySeigniorageProceedsRequest } as QuerySeigniorageProceedsRequest;
+    const message = createBaseQuerySeigniorageProceedsRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): QuerySeigniorageProceedsRequest {
-    const message = { ...baseQuerySeigniorageProceedsRequest } as QuerySeigniorageProceedsRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: QuerySeigniorageProceedsRequest): unknown {
@@ -719,13 +758,23 @@ export const QuerySeigniorageProceedsRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<QuerySeigniorageProceedsRequest>): QuerySeigniorageProceedsRequest {
-    const message = { ...baseQuerySeigniorageProceedsRequest } as QuerySeigniorageProceedsRequest;
+  create<I extends Exact<DeepPartial<QuerySeigniorageProceedsRequest>, I>>(
+    base?: I,
+  ): QuerySeigniorageProceedsRequest {
+    return QuerySeigniorageProceedsRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QuerySeigniorageProceedsRequest>, I>>(
+    _: I,
+  ): QuerySeigniorageProceedsRequest {
+    const message = createBaseQuerySeigniorageProceedsRequest();
     return message;
   },
 };
 
-const baseQuerySeigniorageProceedsResponse: object = { seigniorageProceeds: "" };
+function createBaseQuerySeigniorageProceedsResponse(): QuerySeigniorageProceedsResponse {
+  return { seigniorageProceeds: "" };
+}
 
 export const QuerySeigniorageProceedsResponse = {
   encode(message: QuerySeigniorageProceedsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -736,31 +785,32 @@ export const QuerySeigniorageProceedsResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QuerySeigniorageProceedsResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQuerySeigniorageProceedsResponse } as QuerySeigniorageProceedsResponse;
+    const message = createBaseQuerySeigniorageProceedsResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.seigniorageProceeds = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QuerySeigniorageProceedsResponse {
-    const message = { ...baseQuerySeigniorageProceedsResponse } as QuerySeigniorageProceedsResponse;
-    if (object.seigniorageProceeds !== undefined && object.seigniorageProceeds !== null) {
-      message.seigniorageProceeds = String(object.seigniorageProceeds);
-    } else {
-      message.seigniorageProceeds = "";
-    }
-    return message;
+    return {
+      seigniorageProceeds: isSet(object.seigniorageProceeds) ? String(object.seigniorageProceeds) : "",
+    };
   },
 
   toJSON(message: QuerySeigniorageProceedsResponse): unknown {
@@ -769,18 +819,24 @@ export const QuerySeigniorageProceedsResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QuerySeigniorageProceedsResponse>): QuerySeigniorageProceedsResponse {
-    const message = { ...baseQuerySeigniorageProceedsResponse } as QuerySeigniorageProceedsResponse;
-    if (object.seigniorageProceeds !== undefined && object.seigniorageProceeds !== null) {
-      message.seigniorageProceeds = object.seigniorageProceeds;
-    } else {
-      message.seigniorageProceeds = "";
-    }
+  create<I extends Exact<DeepPartial<QuerySeigniorageProceedsResponse>, I>>(
+    base?: I,
+  ): QuerySeigniorageProceedsResponse {
+    return QuerySeigniorageProceedsResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QuerySeigniorageProceedsResponse>, I>>(
+    object: I,
+  ): QuerySeigniorageProceedsResponse {
+    const message = createBaseQuerySeigniorageProceedsResponse();
+    message.seigniorageProceeds = object.seigniorageProceeds ?? "";
     return message;
   },
 };
 
-const baseQueryIndicatorsRequest: object = {};
+function createBaseQueryIndicatorsRequest(): QueryIndicatorsRequest {
+  return {};
+}
 
 export const QueryIndicatorsRequest = {
   encode(_: QueryIndicatorsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -788,23 +844,23 @@ export const QueryIndicatorsRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryIndicatorsRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryIndicatorsRequest } as QueryIndicatorsRequest;
+    const message = createBaseQueryIndicatorsRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): QueryIndicatorsRequest {
-    const message = { ...baseQueryIndicatorsRequest } as QueryIndicatorsRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: QueryIndicatorsRequest): unknown {
@@ -812,13 +868,19 @@ export const QueryIndicatorsRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<QueryIndicatorsRequest>): QueryIndicatorsRequest {
-    const message = { ...baseQueryIndicatorsRequest } as QueryIndicatorsRequest;
+  create<I extends Exact<DeepPartial<QueryIndicatorsRequest>, I>>(base?: I): QueryIndicatorsRequest {
+    return QueryIndicatorsRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryIndicatorsRequest>, I>>(_: I): QueryIndicatorsRequest {
+    const message = createBaseQueryIndicatorsRequest();
     return message;
   },
 };
 
-const baseQueryIndicatorsResponse: object = { trlYear: "", trlMonth: "" };
+function createBaseQueryIndicatorsResponse(): QueryIndicatorsResponse {
+  return { trlYear: "", trlMonth: "" };
+}
 
 export const QueryIndicatorsResponse = {
   encode(message: QueryIndicatorsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -832,39 +894,40 @@ export const QueryIndicatorsResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryIndicatorsResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryIndicatorsResponse } as QueryIndicatorsResponse;
+    const message = createBaseQueryIndicatorsResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.trlYear = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.trlMonth = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryIndicatorsResponse {
-    const message = { ...baseQueryIndicatorsResponse } as QueryIndicatorsResponse;
-    if (object.trlYear !== undefined && object.trlYear !== null) {
-      message.trlYear = String(object.trlYear);
-    } else {
-      message.trlYear = "";
-    }
-    if (object.trlMonth !== undefined && object.trlMonth !== null) {
-      message.trlMonth = String(object.trlMonth);
-    } else {
-      message.trlMonth = "";
-    }
-    return message;
+    return {
+      trlYear: isSet(object.trlYear) ? String(object.trlYear) : "",
+      trlMonth: isSet(object.trlMonth) ? String(object.trlMonth) : "",
+    };
   },
 
   toJSON(message: QueryIndicatorsResponse): unknown {
@@ -874,23 +937,21 @@ export const QueryIndicatorsResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryIndicatorsResponse>): QueryIndicatorsResponse {
-    const message = { ...baseQueryIndicatorsResponse } as QueryIndicatorsResponse;
-    if (object.trlYear !== undefined && object.trlYear !== null) {
-      message.trlYear = object.trlYear;
-    } else {
-      message.trlYear = "";
-    }
-    if (object.trlMonth !== undefined && object.trlMonth !== null) {
-      message.trlMonth = object.trlMonth;
-    } else {
-      message.trlMonth = "";
-    }
+  create<I extends Exact<DeepPartial<QueryIndicatorsResponse>, I>>(base?: I): QueryIndicatorsResponse {
+    return QueryIndicatorsResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryIndicatorsResponse>, I>>(object: I): QueryIndicatorsResponse {
+    const message = createBaseQueryIndicatorsResponse();
+    message.trlYear = object.trlYear ?? "";
+    message.trlMonth = object.trlMonth ?? "";
     return message;
   },
 };
 
-const baseQueryParamsRequest: object = {};
+function createBaseQueryParamsRequest(): QueryParamsRequest {
+  return {};
+}
 
 export const QueryParamsRequest = {
   encode(_: QueryParamsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -898,23 +959,23 @@ export const QueryParamsRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryParamsRequest } as QueryParamsRequest;
+    const message = createBaseQueryParamsRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): QueryParamsRequest {
-    const message = { ...baseQueryParamsRequest } as QueryParamsRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: QueryParamsRequest): unknown {
@@ -922,13 +983,19 @@ export const QueryParamsRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
-    const message = { ...baseQueryParamsRequest } as QueryParamsRequest;
+  create<I extends Exact<DeepPartial<QueryParamsRequest>, I>>(base?: I): QueryParamsRequest {
+    return QueryParamsRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryParamsRequest>, I>>(_: I): QueryParamsRequest {
+    const message = createBaseQueryParamsRequest();
     return message;
   },
 };
 
-const baseQueryParamsResponse: object = {};
+function createBaseQueryParamsResponse(): QueryParamsResponse {
+  return { params: undefined };
+}
 
 export const QueryParamsResponse = {
   encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -939,31 +1006,30 @@ export const QueryParamsResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryParamsResponse } as QueryParamsResponse;
+    const message = createBaseQueryParamsResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.params = Params.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryParamsResponse {
-    const message = { ...baseQueryParamsResponse } as QueryParamsResponse;
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromJSON(object.params);
-    } else {
-      message.params = undefined;
-    }
-    return message;
+    return { params: isSet(object.params) ? Params.fromJSON(object.params) : undefined };
   },
 
   toJSON(message: QueryParamsResponse): unknown {
@@ -972,18 +1038,21 @@ export const QueryParamsResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
-    const message = { ...baseQueryParamsResponse } as QueryParamsResponse;
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromPartial(object.params);
-    } else {
-      message.params = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(base?: I): QueryParamsResponse {
+    return QueryParamsResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(object: I): QueryParamsResponse {
+    const message = createBaseQueryParamsResponse();
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
 };
 
-const baseQueryBurnTaxExemptionListRequest: object = {};
+function createBaseQueryBurnTaxExemptionListRequest(): QueryBurnTaxExemptionListRequest {
+  return { pagination: undefined };
+}
 
 export const QueryBurnTaxExemptionListRequest = {
   encode(message: QueryBurnTaxExemptionListRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -994,31 +1063,30 @@ export const QueryBurnTaxExemptionListRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryBurnTaxExemptionListRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryBurnTaxExemptionListRequest } as QueryBurnTaxExemptionListRequest;
+    const message = createBaseQueryBurnTaxExemptionListRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.pagination = PageRequest.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryBurnTaxExemptionListRequest {
-    const message = { ...baseQueryBurnTaxExemptionListRequest } as QueryBurnTaxExemptionListRequest;
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return { pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined };
   },
 
   toJSON(message: QueryBurnTaxExemptionListRequest): unknown {
@@ -1028,18 +1096,27 @@ export const QueryBurnTaxExemptionListRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryBurnTaxExemptionListRequest>): QueryBurnTaxExemptionListRequest {
-    const message = { ...baseQueryBurnTaxExemptionListRequest } as QueryBurnTaxExemptionListRequest;
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryBurnTaxExemptionListRequest>, I>>(
+    base?: I,
+  ): QueryBurnTaxExemptionListRequest {
+    return QueryBurnTaxExemptionListRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryBurnTaxExemptionListRequest>, I>>(
+    object: I,
+  ): QueryBurnTaxExemptionListRequest {
+    const message = createBaseQueryBurnTaxExemptionListRequest();
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
-const baseQueryBurnTaxExemptionListResponse: object = { addresses: "" };
+function createBaseQueryBurnTaxExemptionListResponse(): QueryBurnTaxExemptionListResponse {
+  return { addresses: [], pagination: undefined };
+}
 
 export const QueryBurnTaxExemptionListResponse = {
   encode(message: QueryBurnTaxExemptionListResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1053,41 +1130,40 @@ export const QueryBurnTaxExemptionListResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryBurnTaxExemptionListResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryBurnTaxExemptionListResponse } as QueryBurnTaxExemptionListResponse;
-    message.addresses = [];
+    const message = createBaseQueryBurnTaxExemptionListResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.addresses.push(reader.string());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.pagination = PageResponse.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryBurnTaxExemptionListResponse {
-    const message = { ...baseQueryBurnTaxExemptionListResponse } as QueryBurnTaxExemptionListResponse;
-    message.addresses = [];
-    if (object.addresses !== undefined && object.addresses !== null) {
-      for (const e of object.addresses) {
-        message.addresses.push(String(e));
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return {
+      addresses: Array.isArray(object?.addresses) ? object.addresses.map((e: any) => String(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
   },
 
   toJSON(message: QueryBurnTaxExemptionListResponse): unknown {
@@ -1102,19 +1178,21 @@ export const QueryBurnTaxExemptionListResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryBurnTaxExemptionListResponse>): QueryBurnTaxExemptionListResponse {
-    const message = { ...baseQueryBurnTaxExemptionListResponse } as QueryBurnTaxExemptionListResponse;
-    message.addresses = [];
-    if (object.addresses !== undefined && object.addresses !== null) {
-      for (const e of object.addresses) {
-        message.addresses.push(e);
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryBurnTaxExemptionListResponse>, I>>(
+    base?: I,
+  ): QueryBurnTaxExemptionListResponse {
+    return QueryBurnTaxExemptionListResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryBurnTaxExemptionListResponse>, I>>(
+    object: I,
+  ): QueryBurnTaxExemptionListResponse {
+    const message = createBaseQueryBurnTaxExemptionListResponse();
+    message.addresses = object.addresses?.map((e) => e) || [];
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
@@ -1238,9 +1316,7 @@ export class QueryClientImpl implements Query {
   }
 }
 
-export const QueryDesc = {
-  serviceName: "terra.treasury.v1beta1.Query",
-};
+export const QueryDesc = { serviceName: "terra.treasury.v1beta1.Query" };
 
 export const QueryTaxRateDesc: UnaryMethodDefinitionish = {
   methodName: "TaxRate",
@@ -1254,10 +1330,11 @@ export const QueryTaxRateDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryTaxRateResponse.decode(data);
       return {
-        ...QueryTaxRateResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1276,10 +1353,11 @@ export const QueryTaxCapDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryTaxCapResponse.decode(data);
       return {
-        ...QueryTaxCapResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1298,10 +1376,11 @@ export const QueryTaxCapsDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryTaxCapsResponse.decode(data);
       return {
-        ...QueryTaxCapsResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1320,10 +1399,11 @@ export const QueryRewardWeightDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryRewardWeightResponse.decode(data);
       return {
-        ...QueryRewardWeightResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1342,10 +1422,11 @@ export const QuerySeigniorageProceedsDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QuerySeigniorageProceedsResponse.decode(data);
       return {
-        ...QuerySeigniorageProceedsResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1364,10 +1445,11 @@ export const QueryTaxProceedsDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryTaxProceedsResponse.decode(data);
       return {
-        ...QueryTaxProceedsResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1386,10 +1468,11 @@ export const QueryIndicatorsDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryIndicatorsResponse.decode(data);
       return {
-        ...QueryIndicatorsResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1408,10 +1491,11 @@ export const QueryBurnTaxExemptionListDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryBurnTaxExemptionListResponse.decode(data);
       return {
-        ...QueryBurnTaxExemptionListResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1430,10 +1514,11 @@ export const QueryParamsDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryParamsResponse.decode(data);
       return {
-        ...QueryParamsResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1462,6 +1547,7 @@ export class GrpcWebImpl {
 
     debug?: boolean;
     metadata?: grpc.Metadata;
+    upStreamRetryCodes?: number[];
   };
 
   constructor(
@@ -1471,6 +1557,7 @@ export class GrpcWebImpl {
 
       debug?: boolean;
       metadata?: grpc.Metadata;
+      upStreamRetryCodes?: number[];
     },
   ) {
     this.host = host;
@@ -1496,11 +1583,9 @@ export class GrpcWebImpl {
         debug: this.options.debug,
         onEnd: function (response) {
           if (response.status === grpc.Code.OK) {
-            resolve(response.message);
+            resolve(response.message!.toObject());
           } else {
-            const err = new Error(response.statusMessage) as any;
-            err.code = response.status;
-            err.metadata = response.trailers;
+            const err = new GrpcWebError(response.statusMessage, response.status, response.trailers);
             reject(err);
           }
         },
@@ -1509,9 +1594,31 @@ export class GrpcWebImpl {
   }
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+declare var self: any | undefined;
+declare var window: any | undefined;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
+  throw "Unable to locate global object";
+})();
+
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -1520,7 +1627,22 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}
+
+export class GrpcWebError extends tsProtoGlobalThis.Error {
+  constructor(message: string, public code: grpc.Code, public metadata: grpc.Metadata) {
+    super(message);
+  }
 }

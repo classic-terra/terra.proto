@@ -4,15 +4,8 @@ import _m0 from "protobufjs/minimal";
 
 export const protobufPackage = "terra.wasm.v1beta1";
 
-/** Params defines the parameters for the wasm module. */
-export interface Params {
-  maxContractSize: Long;
-  maxContractGas: Long;
-  maxContractMsgSize: Long;
-}
-
 /** CodeInfo is data for the uploaded contract WASM code */
-export interface CodeInfo {
+export interface LegacyCodeInfo {
   /** CodeID is the sequentially increasing unique identifier */
   codeId: Long;
   /** CodeHash is the unique identifier created by wasmvm */
@@ -22,7 +15,7 @@ export interface CodeInfo {
 }
 
 /** ContractInfo stores a WASM contract instance */
-export interface ContractInfo {
+export interface LegacyContractInfo {
   /** Address is the address of the contract */
   address: string;
   /** Creator is the contract creator address */
@@ -35,106 +28,12 @@ export interface ContractInfo {
   initMsg: Uint8Array;
 }
 
-const baseParams: object = {
-  maxContractSize: Long.UZERO,
-  maxContractGas: Long.UZERO,
-  maxContractMsgSize: Long.UZERO,
-};
+function createBaseLegacyCodeInfo(): LegacyCodeInfo {
+  return { codeId: Long.UZERO, codeHash: new Uint8Array(0), creator: "" };
+}
 
-export const Params = {
-  encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.maxContractSize.isZero()) {
-      writer.uint32(8).uint64(message.maxContractSize);
-    }
-    if (!message.maxContractGas.isZero()) {
-      writer.uint32(16).uint64(message.maxContractGas);
-    }
-    if (!message.maxContractMsgSize.isZero()) {
-      writer.uint32(24).uint64(message.maxContractMsgSize);
-    }
-    return writer;
-  },
-
-  decode(input: _m0.Reader | Uint8Array, length?: number): Params {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
-    let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseParams } as Params;
-    while (reader.pos < end) {
-      const tag = reader.uint32();
-      switch (tag >>> 3) {
-        case 1:
-          message.maxContractSize = reader.uint64() as Long;
-          break;
-        case 2:
-          message.maxContractGas = reader.uint64() as Long;
-          break;
-        case 3:
-          message.maxContractMsgSize = reader.uint64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
-      }
-    }
-    return message;
-  },
-
-  fromJSON(object: any): Params {
-    const message = { ...baseParams } as Params;
-    if (object.maxContractSize !== undefined && object.maxContractSize !== null) {
-      message.maxContractSize = Long.fromString(object.maxContractSize);
-    } else {
-      message.maxContractSize = Long.UZERO;
-    }
-    if (object.maxContractGas !== undefined && object.maxContractGas !== null) {
-      message.maxContractGas = Long.fromString(object.maxContractGas);
-    } else {
-      message.maxContractGas = Long.UZERO;
-    }
-    if (object.maxContractMsgSize !== undefined && object.maxContractMsgSize !== null) {
-      message.maxContractMsgSize = Long.fromString(object.maxContractMsgSize);
-    } else {
-      message.maxContractMsgSize = Long.UZERO;
-    }
-    return message;
-  },
-
-  toJSON(message: Params): unknown {
-    const obj: any = {};
-    message.maxContractSize !== undefined &&
-      (obj.maxContractSize = (message.maxContractSize || Long.UZERO).toString());
-    message.maxContractGas !== undefined &&
-      (obj.maxContractGas = (message.maxContractGas || Long.UZERO).toString());
-    message.maxContractMsgSize !== undefined &&
-      (obj.maxContractMsgSize = (message.maxContractMsgSize || Long.UZERO).toString());
-    return obj;
-  },
-
-  fromPartial(object: DeepPartial<Params>): Params {
-    const message = { ...baseParams } as Params;
-    if (object.maxContractSize !== undefined && object.maxContractSize !== null) {
-      message.maxContractSize = object.maxContractSize as Long;
-    } else {
-      message.maxContractSize = Long.UZERO;
-    }
-    if (object.maxContractGas !== undefined && object.maxContractGas !== null) {
-      message.maxContractGas = object.maxContractGas as Long;
-    } else {
-      message.maxContractGas = Long.UZERO;
-    }
-    if (object.maxContractMsgSize !== undefined && object.maxContractMsgSize !== null) {
-      message.maxContractMsgSize = object.maxContractMsgSize as Long;
-    } else {
-      message.maxContractMsgSize = Long.UZERO;
-    }
-    return message;
-  },
-};
-
-const baseCodeInfo: object = { codeId: Long.UZERO, creator: "" };
-
-export const CodeInfo = {
-  encode(message: CodeInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const LegacyCodeInfo = {
+  encode(message: LegacyCodeInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (!message.codeId.isZero()) {
       writer.uint32(8).uint64(message.codeId);
     }
@@ -147,84 +46,80 @@ export const CodeInfo = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): CodeInfo {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): LegacyCodeInfo {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseCodeInfo } as CodeInfo;
-    message.codeHash = new Uint8Array();
+    const message = createBaseLegacyCodeInfo();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.codeId = reader.uint64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.codeHash = reader.bytes();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.creator = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
-  fromJSON(object: any): CodeInfo {
-    const message = { ...baseCodeInfo } as CodeInfo;
-    message.codeHash = new Uint8Array();
-    if (object.codeId !== undefined && object.codeId !== null) {
-      message.codeId = Long.fromString(object.codeId);
-    } else {
-      message.codeId = Long.UZERO;
-    }
-    if (object.codeHash !== undefined && object.codeHash !== null) {
-      message.codeHash = bytesFromBase64(object.codeHash);
-    }
-    if (object.creator !== undefined && object.creator !== null) {
-      message.creator = String(object.creator);
-    } else {
-      message.creator = "";
-    }
-    return message;
+  fromJSON(object: any): LegacyCodeInfo {
+    return {
+      codeId: isSet(object.codeId) ? Long.fromValue(object.codeId) : Long.UZERO,
+      codeHash: isSet(object.codeHash) ? bytesFromBase64(object.codeHash) : new Uint8Array(0),
+      creator: isSet(object.creator) ? String(object.creator) : "",
+    };
   },
 
-  toJSON(message: CodeInfo): unknown {
+  toJSON(message: LegacyCodeInfo): unknown {
     const obj: any = {};
     message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
     message.codeHash !== undefined &&
-      (obj.codeHash = base64FromBytes(message.codeHash !== undefined ? message.codeHash : new Uint8Array()));
+      (obj.codeHash = base64FromBytes(message.codeHash !== undefined ? message.codeHash : new Uint8Array(0)));
     message.creator !== undefined && (obj.creator = message.creator);
     return obj;
   },
 
-  fromPartial(object: DeepPartial<CodeInfo>): CodeInfo {
-    const message = { ...baseCodeInfo } as CodeInfo;
-    if (object.codeId !== undefined && object.codeId !== null) {
-      message.codeId = object.codeId as Long;
-    } else {
-      message.codeId = Long.UZERO;
-    }
-    if (object.codeHash !== undefined && object.codeHash !== null) {
-      message.codeHash = object.codeHash;
-    } else {
-      message.codeHash = new Uint8Array();
-    }
-    if (object.creator !== undefined && object.creator !== null) {
-      message.creator = object.creator;
-    } else {
-      message.creator = "";
-    }
+  create<I extends Exact<DeepPartial<LegacyCodeInfo>, I>>(base?: I): LegacyCodeInfo {
+    return LegacyCodeInfo.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<LegacyCodeInfo>, I>>(object: I): LegacyCodeInfo {
+    const message = createBaseLegacyCodeInfo();
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
+    message.codeHash = object.codeHash ?? new Uint8Array(0);
+    message.creator = object.creator ?? "";
     return message;
   },
 };
 
-const baseContractInfo: object = { address: "", creator: "", admin: "", codeId: Long.UZERO };
+function createBaseLegacyContractInfo(): LegacyContractInfo {
+  return { address: "", creator: "", admin: "", codeId: Long.UZERO, initMsg: new Uint8Array(0) };
+}
 
-export const ContractInfo = {
-  encode(message: ContractInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+export const LegacyContractInfo = {
+  encode(message: LegacyContractInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.address !== "") {
       writer.uint32(10).string(message.address);
     }
@@ -243,142 +138,144 @@ export const ContractInfo = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): ContractInfo {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): LegacyContractInfo {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseContractInfo } as ContractInfo;
-    message.initMsg = new Uint8Array();
+    const message = createBaseLegacyContractInfo();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.address = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.creator = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.admin = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 32) {
+            break;
+          }
+
           message.codeId = reader.uint64() as Long;
-          break;
+          continue;
         case 5:
+          if (tag !== 42) {
+            break;
+          }
+
           message.initMsg = reader.bytes();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
-  fromJSON(object: any): ContractInfo {
-    const message = { ...baseContractInfo } as ContractInfo;
-    message.initMsg = new Uint8Array();
-    if (object.address !== undefined && object.address !== null) {
-      message.address = String(object.address);
-    } else {
-      message.address = "";
-    }
-    if (object.creator !== undefined && object.creator !== null) {
-      message.creator = String(object.creator);
-    } else {
-      message.creator = "";
-    }
-    if (object.admin !== undefined && object.admin !== null) {
-      message.admin = String(object.admin);
-    } else {
-      message.admin = "";
-    }
-    if (object.codeId !== undefined && object.codeId !== null) {
-      message.codeId = Long.fromString(object.codeId);
-    } else {
-      message.codeId = Long.UZERO;
-    }
-    if (object.initMsg !== undefined && object.initMsg !== null) {
-      message.initMsg = bytesFromBase64(object.initMsg);
-    }
-    return message;
+  fromJSON(object: any): LegacyContractInfo {
+    return {
+      address: isSet(object.address) ? String(object.address) : "",
+      creator: isSet(object.creator) ? String(object.creator) : "",
+      admin: isSet(object.admin) ? String(object.admin) : "",
+      codeId: isSet(object.codeId) ? Long.fromValue(object.codeId) : Long.UZERO,
+      initMsg: isSet(object.initMsg) ? bytesFromBase64(object.initMsg) : new Uint8Array(0),
+    };
   },
 
-  toJSON(message: ContractInfo): unknown {
+  toJSON(message: LegacyContractInfo): unknown {
     const obj: any = {};
     message.address !== undefined && (obj.address = message.address);
     message.creator !== undefined && (obj.creator = message.creator);
     message.admin !== undefined && (obj.admin = message.admin);
     message.codeId !== undefined && (obj.codeId = (message.codeId || Long.UZERO).toString());
     message.initMsg !== undefined &&
-      (obj.initMsg = base64FromBytes(message.initMsg !== undefined ? message.initMsg : new Uint8Array()));
+      (obj.initMsg = base64FromBytes(message.initMsg !== undefined ? message.initMsg : new Uint8Array(0)));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ContractInfo>): ContractInfo {
-    const message = { ...baseContractInfo } as ContractInfo;
-    if (object.address !== undefined && object.address !== null) {
-      message.address = object.address;
-    } else {
-      message.address = "";
-    }
-    if (object.creator !== undefined && object.creator !== null) {
-      message.creator = object.creator;
-    } else {
-      message.creator = "";
-    }
-    if (object.admin !== undefined && object.admin !== null) {
-      message.admin = object.admin;
-    } else {
-      message.admin = "";
-    }
-    if (object.codeId !== undefined && object.codeId !== null) {
-      message.codeId = object.codeId as Long;
-    } else {
-      message.codeId = Long.UZERO;
-    }
-    if (object.initMsg !== undefined && object.initMsg !== null) {
-      message.initMsg = object.initMsg;
-    } else {
-      message.initMsg = new Uint8Array();
-    }
+  create<I extends Exact<DeepPartial<LegacyContractInfo>, I>>(base?: I): LegacyContractInfo {
+    return LegacyContractInfo.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<LegacyContractInfo>, I>>(object: I): LegacyContractInfo {
+    const message = createBaseLegacyContractInfo();
+    message.address = object.address ?? "";
+    message.creator = object.creator ?? "";
+    message.admin = object.admin ?? "";
+    message.codeId =
+      object.codeId !== undefined && object.codeId !== null ? Long.fromValue(object.codeId) : Long.UZERO;
+    message.initMsg = object.initMsg ?? new Uint8Array(0);
     return message;
   },
 };
 
 declare var self: any | undefined;
 declare var window: any | undefined;
-var globalThis: any = (() => {
-  if (typeof globalThis !== "undefined") return globalThis;
-  if (typeof self !== "undefined") return self;
-  if (typeof window !== "undefined") return window;
-  if (typeof global !== "undefined") return global;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
   throw "Unable to locate global object";
 })();
 
-const atob: (b64: string) => string =
-  globalThis.atob || ((b64) => globalThis.Buffer.from(b64, "base64").toString("binary"));
 function bytesFromBase64(b64: string): Uint8Array {
-  const bin = atob(b64);
-  const arr = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; ++i) {
-    arr[i] = bin.charCodeAt(i);
+  if (tsProtoGlobalThis.Buffer) {
+    return Uint8Array.from(tsProtoGlobalThis.Buffer.from(b64, "base64"));
+  } else {
+    const bin = tsProtoGlobalThis.atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; ++i) {
+      arr[i] = bin.charCodeAt(i);
+    }
+    return arr;
   }
-  return arr;
 }
 
-const btoa: (bin: string) => string =
-  globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, "binary").toString("base64"));
 function base64FromBytes(arr: Uint8Array): string {
-  const bin: string[] = [];
-  for (const byte of arr) {
-    bin.push(String.fromCharCode(byte));
+  if (tsProtoGlobalThis.Buffer) {
+    return tsProtoGlobalThis.Buffer.from(arr).toString("base64");
+  } else {
+    const bin: string[] = [];
+    arr.forEach((byte) => {
+      bin.push(String.fromCharCode(byte));
+    });
+    return tsProtoGlobalThis.btoa(bin.join(""));
   }
-  return btoa(bin.join(""));
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -387,7 +284,16 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
 }

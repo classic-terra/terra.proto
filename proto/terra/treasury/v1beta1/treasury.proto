@@ -4,7 +4,7 @@ package terra.treasury.v1beta1;
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/classic-terra/core/x/treasury/types";
+option go_package = "github.com/classic-terra/core/v2/x/treasury/types";
 
 // Params defines the parameters for the oracle module.
 message Params {
@@ -28,6 +28,11 @@ message Params {
   uint64 window_probation = 7 [(gogoproto.moretags) = "yaml:\"window_probation\""];
   string burn_tax_split   = 8 [
     (gogoproto.moretags)   = "yaml:\"burn_tax_split\"",
+    (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec",
+    (gogoproto.nullable)   = false
+  ];
+  string min_initial_deposit_ratio = 9 [
+    (gogoproto.moretags)   = "yaml:\"min_initial_deposit_ratio\"",
     (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec",
     (gogoproto.nullable)   = false
   ];

@@ -1,13 +1,13 @@
 /* eslint-disable */
-import Long from "long";
 import { grpc } from "@improbable-eng/grpc-web";
-import _m0 from "protobufjs/minimal";
-import { Header } from "../../tendermint/types/types";
-import { ProofOps } from "../../tendermint/crypto/proof";
-import { EvidenceParams, ValidatorParams, VersionParams } from "../../tendermint/types/params";
-import { PublicKey } from "../../tendermint/crypto/keys";
 import { BrowserHeaders } from "browser-headers";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
 import { Timestamp } from "../../google/protobuf/timestamp";
+import { PublicKey } from "../crypto/keys";
+import { ProofOps } from "../crypto/proof";
+import { EvidenceParams, ValidatorParams, VersionParams } from "../types/params";
+import { Header } from "../types/types";
 
 export const protobufPackage = "tendermint.abci";
 
@@ -38,8 +38,9 @@ export function checkTxTypeToJSON(object: CheckTxType): string {
       return "NEW";
     case CheckTxType.RECHECK:
       return "RECHECK";
+    case CheckTxType.UNRECOGNIZED:
     default:
-      return "UNKNOWN";
+      return "UNRECOGNIZED";
   }
 }
 
@@ -76,8 +77,9 @@ export function evidenceTypeToJSON(object: EvidenceType): string {
       return "DUPLICATE_VOTE";
     case EvidenceType.LIGHT_CLIENT_ATTACK:
       return "LIGHT_CLIENT_ATTACK";
+    case EvidenceType.UNRECOGNIZED:
     default:
-      return "UNKNOWN";
+      return "UNRECOGNIZED";
   }
 }
 
@@ -353,8 +355,9 @@ export function responseOfferSnapshot_ResultToJSON(object: ResponseOfferSnapshot
       return "REJECT_FORMAT";
     case ResponseOfferSnapshot_Result.REJECT_SENDER:
       return "REJECT_SENDER";
+    case ResponseOfferSnapshot_Result.UNRECOGNIZED:
     default:
-      return "UNKNOWN";
+      return "UNRECOGNIZED";
   }
 }
 
@@ -427,8 +430,9 @@ export function responseApplySnapshotChunk_ResultToJSON(object: ResponseApplySna
       return "RETRY_SNAPSHOT";
     case ResponseApplySnapshotChunk_Result.REJECT_SNAPSHOT:
       return "REJECT_SNAPSHOT";
+    case ResponseApplySnapshotChunk_Result.UNRECOGNIZED:
     default:
-      return "UNKNOWN";
+      return "UNRECOGNIZED";
   }
 }
 
@@ -535,7 +539,25 @@ export interface Snapshot {
   metadata: Uint8Array;
 }
 
-const baseRequest: object = {};
+function createBaseRequest(): Request {
+  return {
+    echo: undefined,
+    flush: undefined,
+    info: undefined,
+    setOption: undefined,
+    initChain: undefined,
+    query: undefined,
+    beginBlock: undefined,
+    checkTx: undefined,
+    deliverTx: undefined,
+    endBlock: undefined,
+    commit: undefined,
+    listSnapshots: undefined,
+    offerSnapshot: undefined,
+    loadSnapshotChunk: undefined,
+    applySnapshotChunk: undefined,
+  };
+}
 
 export const Request = {
   encode(message: Request, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -588,143 +610,152 @@ export const Request = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Request {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequest } as Request;
+    const message = createBaseRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.echo = RequestEcho.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.flush = RequestFlush.decode(reader, reader.uint32());
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.info = RequestInfo.decode(reader, reader.uint32());
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.setOption = RequestSetOption.decode(reader, reader.uint32());
-          break;
+          continue;
         case 5:
+          if (tag !== 42) {
+            break;
+          }
+
           message.initChain = RequestInitChain.decode(reader, reader.uint32());
-          break;
+          continue;
         case 6:
+          if (tag !== 50) {
+            break;
+          }
+
           message.query = RequestQuery.decode(reader, reader.uint32());
-          break;
+          continue;
         case 7:
+          if (tag !== 58) {
+            break;
+          }
+
           message.beginBlock = RequestBeginBlock.decode(reader, reader.uint32());
-          break;
+          continue;
         case 8:
+          if (tag !== 66) {
+            break;
+          }
+
           message.checkTx = RequestCheckTx.decode(reader, reader.uint32());
-          break;
+          continue;
         case 9:
+          if (tag !== 74) {
+            break;
+          }
+
           message.deliverTx = RequestDeliverTx.decode(reader, reader.uint32());
-          break;
+          continue;
         case 10:
+          if (tag !== 82) {
+            break;
+          }
+
           message.endBlock = RequestEndBlock.decode(reader, reader.uint32());
-          break;
+          continue;
         case 11:
+          if (tag !== 90) {
+            break;
+          }
+
           message.commit = RequestCommit.decode(reader, reader.uint32());
-          break;
+          continue;
         case 12:
+          if (tag !== 98) {
+            break;
+          }
+
           message.listSnapshots = RequestListSnapshots.decode(reader, reader.uint32());
-          break;
+          continue;
         case 13:
+          if (tag !== 106) {
+            break;
+          }
+
           message.offerSnapshot = RequestOfferSnapshot.decode(reader, reader.uint32());
-          break;
+          continue;
         case 14:
+          if (tag !== 114) {
+            break;
+          }
+
           message.loadSnapshotChunk = RequestLoadSnapshotChunk.decode(reader, reader.uint32());
-          break;
+          continue;
         case 15:
+          if (tag !== 122) {
+            break;
+          }
+
           message.applySnapshotChunk = RequestApplySnapshotChunk.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Request {
-    const message = { ...baseRequest } as Request;
-    if (object.echo !== undefined && object.echo !== null) {
-      message.echo = RequestEcho.fromJSON(object.echo);
-    } else {
-      message.echo = undefined;
-    }
-    if (object.flush !== undefined && object.flush !== null) {
-      message.flush = RequestFlush.fromJSON(object.flush);
-    } else {
-      message.flush = undefined;
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = RequestInfo.fromJSON(object.info);
-    } else {
-      message.info = undefined;
-    }
-    if (object.setOption !== undefined && object.setOption !== null) {
-      message.setOption = RequestSetOption.fromJSON(object.setOption);
-    } else {
-      message.setOption = undefined;
-    }
-    if (object.initChain !== undefined && object.initChain !== null) {
-      message.initChain = RequestInitChain.fromJSON(object.initChain);
-    } else {
-      message.initChain = undefined;
-    }
-    if (object.query !== undefined && object.query !== null) {
-      message.query = RequestQuery.fromJSON(object.query);
-    } else {
-      message.query = undefined;
-    }
-    if (object.beginBlock !== undefined && object.beginBlock !== null) {
-      message.beginBlock = RequestBeginBlock.fromJSON(object.beginBlock);
-    } else {
-      message.beginBlock = undefined;
-    }
-    if (object.checkTx !== undefined && object.checkTx !== null) {
-      message.checkTx = RequestCheckTx.fromJSON(object.checkTx);
-    } else {
-      message.checkTx = undefined;
-    }
-    if (object.deliverTx !== undefined && object.deliverTx !== null) {
-      message.deliverTx = RequestDeliverTx.fromJSON(object.deliverTx);
-    } else {
-      message.deliverTx = undefined;
-    }
-    if (object.endBlock !== undefined && object.endBlock !== null) {
-      message.endBlock = RequestEndBlock.fromJSON(object.endBlock);
-    } else {
-      message.endBlock = undefined;
-    }
-    if (object.commit !== undefined && object.commit !== null) {
-      message.commit = RequestCommit.fromJSON(object.commit);
-    } else {
-      message.commit = undefined;
-    }
-    if (object.listSnapshots !== undefined && object.listSnapshots !== null) {
-      message.listSnapshots = RequestListSnapshots.fromJSON(object.listSnapshots);
-    } else {
-      message.listSnapshots = undefined;
-    }
-    if (object.offerSnapshot !== undefined && object.offerSnapshot !== null) {
-      message.offerSnapshot = RequestOfferSnapshot.fromJSON(object.offerSnapshot);
-    } else {
-      message.offerSnapshot = undefined;
-    }
-    if (object.loadSnapshotChunk !== undefined && object.loadSnapshotChunk !== null) {
-      message.loadSnapshotChunk = RequestLoadSnapshotChunk.fromJSON(object.loadSnapshotChunk);
-    } else {
-      message.loadSnapshotChunk = undefined;
-    }
-    if (object.applySnapshotChunk !== undefined && object.applySnapshotChunk !== null) {
-      message.applySnapshotChunk = RequestApplySnapshotChunk.fromJSON(object.applySnapshotChunk);
-    } else {
-      message.applySnapshotChunk = undefined;
-    }
-    return message;
+    return {
+      echo: isSet(object.echo) ? RequestEcho.fromJSON(object.echo) : undefined,
+      flush: isSet(object.flush) ? RequestFlush.fromJSON(object.flush) : undefined,
+      info: isSet(object.info) ? RequestInfo.fromJSON(object.info) : undefined,
+      setOption: isSet(object.setOption) ? RequestSetOption.fromJSON(object.setOption) : undefined,
+      initChain: isSet(object.initChain) ? RequestInitChain.fromJSON(object.initChain) : undefined,
+      query: isSet(object.query) ? RequestQuery.fromJSON(object.query) : undefined,
+      beginBlock: isSet(object.beginBlock) ? RequestBeginBlock.fromJSON(object.beginBlock) : undefined,
+      checkTx: isSet(object.checkTx) ? RequestCheckTx.fromJSON(object.checkTx) : undefined,
+      deliverTx: isSet(object.deliverTx) ? RequestDeliverTx.fromJSON(object.deliverTx) : undefined,
+      endBlock: isSet(object.endBlock) ? RequestEndBlock.fromJSON(object.endBlock) : undefined,
+      commit: isSet(object.commit) ? RequestCommit.fromJSON(object.commit) : undefined,
+      listSnapshots: isSet(object.listSnapshots)
+        ? RequestListSnapshots.fromJSON(object.listSnapshots)
+        : undefined,
+      offerSnapshot: isSet(object.offerSnapshot)
+        ? RequestOfferSnapshot.fromJSON(object.offerSnapshot)
+        : undefined,
+      loadSnapshotChunk: isSet(object.loadSnapshotChunk)
+        ? RequestLoadSnapshotChunk.fromJSON(object.loadSnapshotChunk)
+        : undefined,
+      applySnapshotChunk: isSet(object.applySnapshotChunk)
+        ? RequestApplySnapshotChunk.fromJSON(object.applySnapshotChunk)
+        : undefined,
+    };
   },
 
   toJSON(message: Request): unknown {
@@ -768,88 +799,75 @@ export const Request = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Request>): Request {
-    const message = { ...baseRequest } as Request;
-    if (object.echo !== undefined && object.echo !== null) {
-      message.echo = RequestEcho.fromPartial(object.echo);
-    } else {
-      message.echo = undefined;
-    }
-    if (object.flush !== undefined && object.flush !== null) {
-      message.flush = RequestFlush.fromPartial(object.flush);
-    } else {
-      message.flush = undefined;
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = RequestInfo.fromPartial(object.info);
-    } else {
-      message.info = undefined;
-    }
-    if (object.setOption !== undefined && object.setOption !== null) {
-      message.setOption = RequestSetOption.fromPartial(object.setOption);
-    } else {
-      message.setOption = undefined;
-    }
-    if (object.initChain !== undefined && object.initChain !== null) {
-      message.initChain = RequestInitChain.fromPartial(object.initChain);
-    } else {
-      message.initChain = undefined;
-    }
-    if (object.query !== undefined && object.query !== null) {
-      message.query = RequestQuery.fromPartial(object.query);
-    } else {
-      message.query = undefined;
-    }
-    if (object.beginBlock !== undefined && object.beginBlock !== null) {
-      message.beginBlock = RequestBeginBlock.fromPartial(object.beginBlock);
-    } else {
-      message.beginBlock = undefined;
-    }
-    if (object.checkTx !== undefined && object.checkTx !== null) {
-      message.checkTx = RequestCheckTx.fromPartial(object.checkTx);
-    } else {
-      message.checkTx = undefined;
-    }
-    if (object.deliverTx !== undefined && object.deliverTx !== null) {
-      message.deliverTx = RequestDeliverTx.fromPartial(object.deliverTx);
-    } else {
-      message.deliverTx = undefined;
-    }
-    if (object.endBlock !== undefined && object.endBlock !== null) {
-      message.endBlock = RequestEndBlock.fromPartial(object.endBlock);
-    } else {
-      message.endBlock = undefined;
-    }
-    if (object.commit !== undefined && object.commit !== null) {
-      message.commit = RequestCommit.fromPartial(object.commit);
-    } else {
-      message.commit = undefined;
-    }
-    if (object.listSnapshots !== undefined && object.listSnapshots !== null) {
-      message.listSnapshots = RequestListSnapshots.fromPartial(object.listSnapshots);
-    } else {
-      message.listSnapshots = undefined;
-    }
-    if (object.offerSnapshot !== undefined && object.offerSnapshot !== null) {
-      message.offerSnapshot = RequestOfferSnapshot.fromPartial(object.offerSnapshot);
-    } else {
-      message.offerSnapshot = undefined;
-    }
-    if (object.loadSnapshotChunk !== undefined && object.loadSnapshotChunk !== null) {
-      message.loadSnapshotChunk = RequestLoadSnapshotChunk.fromPartial(object.loadSnapshotChunk);
-    } else {
-      message.loadSnapshotChunk = undefined;
-    }
-    if (object.applySnapshotChunk !== undefined && object.applySnapshotChunk !== null) {
-      message.applySnapshotChunk = RequestApplySnapshotChunk.fromPartial(object.applySnapshotChunk);
-    } else {
-      message.applySnapshotChunk = undefined;
-    }
+  create<I extends Exact<DeepPartial<Request>, I>>(base?: I): Request {
+    return Request.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Request>, I>>(object: I): Request {
+    const message = createBaseRequest();
+    message.echo =
+      object.echo !== undefined && object.echo !== null ? RequestEcho.fromPartial(object.echo) : undefined;
+    message.flush =
+      object.flush !== undefined && object.flush !== null
+        ? RequestFlush.fromPartial(object.flush)
+        : undefined;
+    message.info =
+      object.info !== undefined && object.info !== null ? RequestInfo.fromPartial(object.info) : undefined;
+    message.setOption =
+      object.setOption !== undefined && object.setOption !== null
+        ? RequestSetOption.fromPartial(object.setOption)
+        : undefined;
+    message.initChain =
+      object.initChain !== undefined && object.initChain !== null
+        ? RequestInitChain.fromPartial(object.initChain)
+        : undefined;
+    message.query =
+      object.query !== undefined && object.query !== null
+        ? RequestQuery.fromPartial(object.query)
+        : undefined;
+    message.beginBlock =
+      object.beginBlock !== undefined && object.beginBlock !== null
+        ? RequestBeginBlock.fromPartial(object.beginBlock)
+        : undefined;
+    message.checkTx =
+      object.checkTx !== undefined && object.checkTx !== null
+        ? RequestCheckTx.fromPartial(object.checkTx)
+        : undefined;
+    message.deliverTx =
+      object.deliverTx !== undefined && object.deliverTx !== null
+        ? RequestDeliverTx.fromPartial(object.deliverTx)
+        : undefined;
+    message.endBlock =
+      object.endBlock !== undefined && object.endBlock !== null
+        ? RequestEndBlock.fromPartial(object.endBlock)
+        : undefined;
+    message.commit =
+      object.commit !== undefined && object.commit !== null
+        ? RequestCommit.fromPartial(object.commit)
+        : undefined;
+    message.listSnapshots =
+      object.listSnapshots !== undefined && object.listSnapshots !== null
+        ? RequestListSnapshots.fromPartial(object.listSnapshots)
+        : undefined;
+    message.offerSnapshot =
+      object.offerSnapshot !== undefined && object.offerSnapshot !== null
+        ? RequestOfferSnapshot.fromPartial(object.offerSnapshot)
+        : undefined;
+    message.loadSnapshotChunk =
+      object.loadSnapshotChunk !== undefined && object.loadSnapshotChunk !== null
+        ? RequestLoadSnapshotChunk.fromPartial(object.loadSnapshotChunk)
+        : undefined;
+    message.applySnapshotChunk =
+      object.applySnapshotChunk !== undefined && object.applySnapshotChunk !== null
+        ? RequestApplySnapshotChunk.fromPartial(object.applySnapshotChunk)
+        : undefined;
     return message;
   },
 };
 
-const baseRequestEcho: object = { message: "" };
+function createBaseRequestEcho(): RequestEcho {
+  return { message: "" };
+}
 
 export const RequestEcho = {
   encode(message: RequestEcho, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -860,31 +878,30 @@ export const RequestEcho = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestEcho {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestEcho } as RequestEcho;
+    const message = createBaseRequestEcho();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.message = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestEcho {
-    const message = { ...baseRequestEcho } as RequestEcho;
-    if (object.message !== undefined && object.message !== null) {
-      message.message = String(object.message);
-    } else {
-      message.message = "";
-    }
-    return message;
+    return { message: isSet(object.message) ? String(object.message) : "" };
   },
 
   toJSON(message: RequestEcho): unknown {
@@ -893,18 +910,20 @@ export const RequestEcho = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestEcho>): RequestEcho {
-    const message = { ...baseRequestEcho } as RequestEcho;
-    if (object.message !== undefined && object.message !== null) {
-      message.message = object.message;
-    } else {
-      message.message = "";
-    }
+  create<I extends Exact<DeepPartial<RequestEcho>, I>>(base?: I): RequestEcho {
+    return RequestEcho.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestEcho>, I>>(object: I): RequestEcho {
+    const message = createBaseRequestEcho();
+    message.message = object.message ?? "";
     return message;
   },
 };
 
-const baseRequestFlush: object = {};
+function createBaseRequestFlush(): RequestFlush {
+  return {};
+}
 
 export const RequestFlush = {
   encode(_: RequestFlush, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -912,23 +931,23 @@ export const RequestFlush = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestFlush {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestFlush } as RequestFlush;
+    const message = createBaseRequestFlush();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): RequestFlush {
-    const message = { ...baseRequestFlush } as RequestFlush;
-    return message;
+    return {};
   },
 
   toJSON(_: RequestFlush): unknown {
@@ -936,13 +955,19 @@ export const RequestFlush = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<RequestFlush>): RequestFlush {
-    const message = { ...baseRequestFlush } as RequestFlush;
+  create<I extends Exact<DeepPartial<RequestFlush>, I>>(base?: I): RequestFlush {
+    return RequestFlush.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestFlush>, I>>(_: I): RequestFlush {
+    const message = createBaseRequestFlush();
     return message;
   },
 };
 
-const baseRequestInfo: object = { version: "", blockVersion: Long.UZERO, p2pVersion: Long.UZERO };
+function createBaseRequestInfo(): RequestInfo {
+  return { version: "", blockVersion: Long.UZERO, p2pVersion: Long.UZERO };
+}
 
 export const RequestInfo = {
   encode(message: RequestInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -959,47 +984,48 @@ export const RequestInfo = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestInfo {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestInfo } as RequestInfo;
+    const message = createBaseRequestInfo();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.version = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 16) {
+            break;
+          }
+
           message.blockVersion = reader.uint64() as Long;
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.p2pVersion = reader.uint64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestInfo {
-    const message = { ...baseRequestInfo } as RequestInfo;
-    if (object.version !== undefined && object.version !== null) {
-      message.version = String(object.version);
-    } else {
-      message.version = "";
-    }
-    if (object.blockVersion !== undefined && object.blockVersion !== null) {
-      message.blockVersion = Long.fromString(object.blockVersion);
-    } else {
-      message.blockVersion = Long.UZERO;
-    }
-    if (object.p2pVersion !== undefined && object.p2pVersion !== null) {
-      message.p2pVersion = Long.fromString(object.p2pVersion);
-    } else {
-      message.p2pVersion = Long.UZERO;
-    }
-    return message;
+    return {
+      version: isSet(object.version) ? String(object.version) : "",
+      blockVersion: isSet(object.blockVersion) ? Long.fromValue(object.blockVersion) : Long.UZERO,
+      p2pVersion: isSet(object.p2pVersion) ? Long.fromValue(object.p2pVersion) : Long.UZERO,
+    };
   },
 
   toJSON(message: RequestInfo): unknown {
@@ -1011,28 +1037,28 @@ export const RequestInfo = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestInfo>): RequestInfo {
-    const message = { ...baseRequestInfo } as RequestInfo;
-    if (object.version !== undefined && object.version !== null) {
-      message.version = object.version;
-    } else {
-      message.version = "";
-    }
-    if (object.blockVersion !== undefined && object.blockVersion !== null) {
-      message.blockVersion = object.blockVersion as Long;
-    } else {
-      message.blockVersion = Long.UZERO;
-    }
-    if (object.p2pVersion !== undefined && object.p2pVersion !== null) {
-      message.p2pVersion = object.p2pVersion as Long;
-    } else {
-      message.p2pVersion = Long.UZERO;
-    }
+  create<I extends Exact<DeepPartial<RequestInfo>, I>>(base?: I): RequestInfo {
+    return RequestInfo.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestInfo>, I>>(object: I): RequestInfo {
+    const message = createBaseRequestInfo();
+    message.version = object.version ?? "";
+    message.blockVersion =
+      object.blockVersion !== undefined && object.blockVersion !== null
+        ? Long.fromValue(object.blockVersion)
+        : Long.UZERO;
+    message.p2pVersion =
+      object.p2pVersion !== undefined && object.p2pVersion !== null
+        ? Long.fromValue(object.p2pVersion)
+        : Long.UZERO;
     return message;
   },
 };
 
-const baseRequestSetOption: object = { key: "", value: "" };
+function createBaseRequestSetOption(): RequestSetOption {
+  return { key: "", value: "" };
+}
 
 export const RequestSetOption = {
   encode(message: RequestSetOption, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1046,39 +1072,40 @@ export const RequestSetOption = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestSetOption {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestSetOption } as RequestSetOption;
+    const message = createBaseRequestSetOption();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.key = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.value = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestSetOption {
-    const message = { ...baseRequestSetOption } as RequestSetOption;
-    if (object.key !== undefined && object.key !== null) {
-      message.key = String(object.key);
-    } else {
-      message.key = "";
-    }
-    if (object.value !== undefined && object.value !== null) {
-      message.value = String(object.value);
-    } else {
-      message.value = "";
-    }
-    return message;
+    return {
+      key: isSet(object.key) ? String(object.key) : "",
+      value: isSet(object.value) ? String(object.value) : "",
+    };
   },
 
   toJSON(message: RequestSetOption): unknown {
@@ -1088,23 +1115,28 @@ export const RequestSetOption = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestSetOption>): RequestSetOption {
-    const message = { ...baseRequestSetOption } as RequestSetOption;
-    if (object.key !== undefined && object.key !== null) {
-      message.key = object.key;
-    } else {
-      message.key = "";
-    }
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = "";
-    }
+  create<I extends Exact<DeepPartial<RequestSetOption>, I>>(base?: I): RequestSetOption {
+    return RequestSetOption.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestSetOption>, I>>(object: I): RequestSetOption {
+    const message = createBaseRequestSetOption();
+    message.key = object.key ?? "";
+    message.value = object.value ?? "";
     return message;
   },
 };
 
-const baseRequestInitChain: object = { chainId: "", initialHeight: Long.ZERO };
+function createBaseRequestInitChain(): RequestInitChain {
+  return {
+    time: undefined,
+    chainId: "",
+    consensusParams: undefined,
+    validators: [],
+    appStateBytes: new Uint8Array(0),
+    initialHeight: Long.ZERO,
+  };
+}
 
 export const RequestInitChain = {
   encode(message: RequestInitChain, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1130,73 +1162,76 @@ export const RequestInitChain = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestInitChain {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestInitChain } as RequestInitChain;
-    message.validators = [];
-    message.appStateBytes = new Uint8Array();
+    const message = createBaseRequestInitChain();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.time = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.chainId = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.consensusParams = ConsensusParams.decode(reader, reader.uint32());
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.validators.push(ValidatorUpdate.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 5:
+          if (tag !== 42) {
+            break;
+          }
+
           message.appStateBytes = reader.bytes();
-          break;
+          continue;
         case 6:
+          if (tag !== 48) {
+            break;
+          }
+
           message.initialHeight = reader.int64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestInitChain {
-    const message = { ...baseRequestInitChain } as RequestInitChain;
-    message.validators = [];
-    message.appStateBytes = new Uint8Array();
-    if (object.time !== undefined && object.time !== null) {
-      message.time = fromJsonTimestamp(object.time);
-    } else {
-      message.time = undefined;
-    }
-    if (object.chainId !== undefined && object.chainId !== null) {
-      message.chainId = String(object.chainId);
-    } else {
-      message.chainId = "";
-    }
-    if (object.consensusParams !== undefined && object.consensusParams !== null) {
-      message.consensusParams = ConsensusParams.fromJSON(object.consensusParams);
-    } else {
-      message.consensusParams = undefined;
-    }
-    if (object.validators !== undefined && object.validators !== null) {
-      for (const e of object.validators) {
-        message.validators.push(ValidatorUpdate.fromJSON(e));
-      }
-    }
-    if (object.appStateBytes !== undefined && object.appStateBytes !== null) {
-      message.appStateBytes = bytesFromBase64(object.appStateBytes);
-    }
-    if (object.initialHeight !== undefined && object.initialHeight !== null) {
-      message.initialHeight = Long.fromString(object.initialHeight);
-    } else {
-      message.initialHeight = Long.ZERO;
-    }
-    return message;
+    return {
+      time: isSet(object.time) ? fromJsonTimestamp(object.time) : undefined,
+      chainId: isSet(object.chainId) ? String(object.chainId) : "",
+      consensusParams: isSet(object.consensusParams)
+        ? ConsensusParams.fromJSON(object.consensusParams)
+        : undefined,
+      validators: Array.isArray(object?.validators)
+        ? object.validators.map((e: any) => ValidatorUpdate.fromJSON(e))
+        : [],
+      appStateBytes: isSet(object.appStateBytes) ? bytesFromBase64(object.appStateBytes) : new Uint8Array(0),
+      initialHeight: isSet(object.initialHeight) ? Long.fromValue(object.initialHeight) : Long.ZERO,
+    };
   },
 
   toJSON(message: RequestInitChain): unknown {
@@ -1214,51 +1249,38 @@ export const RequestInitChain = {
     }
     message.appStateBytes !== undefined &&
       (obj.appStateBytes = base64FromBytes(
-        message.appStateBytes !== undefined ? message.appStateBytes : new Uint8Array(),
+        message.appStateBytes !== undefined ? message.appStateBytes : new Uint8Array(0),
       ));
     message.initialHeight !== undefined &&
       (obj.initialHeight = (message.initialHeight || Long.ZERO).toString());
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestInitChain>): RequestInitChain {
-    const message = { ...baseRequestInitChain } as RequestInitChain;
-    message.validators = [];
-    if (object.time !== undefined && object.time !== null) {
-      message.time = object.time;
-    } else {
-      message.time = undefined;
-    }
-    if (object.chainId !== undefined && object.chainId !== null) {
-      message.chainId = object.chainId;
-    } else {
-      message.chainId = "";
-    }
-    if (object.consensusParams !== undefined && object.consensusParams !== null) {
-      message.consensusParams = ConsensusParams.fromPartial(object.consensusParams);
-    } else {
-      message.consensusParams = undefined;
-    }
-    if (object.validators !== undefined && object.validators !== null) {
-      for (const e of object.validators) {
-        message.validators.push(ValidatorUpdate.fromPartial(e));
-      }
-    }
-    if (object.appStateBytes !== undefined && object.appStateBytes !== null) {
-      message.appStateBytes = object.appStateBytes;
-    } else {
-      message.appStateBytes = new Uint8Array();
-    }
-    if (object.initialHeight !== undefined && object.initialHeight !== null) {
-      message.initialHeight = object.initialHeight as Long;
-    } else {
-      message.initialHeight = Long.ZERO;
-    }
+  create<I extends Exact<DeepPartial<RequestInitChain>, I>>(base?: I): RequestInitChain {
+    return RequestInitChain.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestInitChain>, I>>(object: I): RequestInitChain {
+    const message = createBaseRequestInitChain();
+    message.time = object.time ?? undefined;
+    message.chainId = object.chainId ?? "";
+    message.consensusParams =
+      object.consensusParams !== undefined && object.consensusParams !== null
+        ? ConsensusParams.fromPartial(object.consensusParams)
+        : undefined;
+    message.validators = object.validators?.map((e) => ValidatorUpdate.fromPartial(e)) || [];
+    message.appStateBytes = object.appStateBytes ?? new Uint8Array(0);
+    message.initialHeight =
+      object.initialHeight !== undefined && object.initialHeight !== null
+        ? Long.fromValue(object.initialHeight)
+        : Long.ZERO;
     return message;
   },
 };
 
-const baseRequestQuery: object = { path: "", height: Long.ZERO, prove: false };
+function createBaseRequestQuery(): RequestQuery {
+  return { data: new Uint8Array(0), path: "", height: Long.ZERO, prove: false };
+}
 
 export const RequestQuery = {
   encode(message: RequestQuery, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1278,94 +1300,86 @@ export const RequestQuery = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestQuery {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestQuery } as RequestQuery;
-    message.data = new Uint8Array();
+    const message = createBaseRequestQuery();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.data = reader.bytes();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.path = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.height = reader.int64() as Long;
-          break;
+          continue;
         case 4:
+          if (tag !== 32) {
+            break;
+          }
+
           message.prove = reader.bool();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestQuery {
-    const message = { ...baseRequestQuery } as RequestQuery;
-    message.data = new Uint8Array();
-    if (object.data !== undefined && object.data !== null) {
-      message.data = bytesFromBase64(object.data);
-    }
-    if (object.path !== undefined && object.path !== null) {
-      message.path = String(object.path);
-    } else {
-      message.path = "";
-    }
-    if (object.height !== undefined && object.height !== null) {
-      message.height = Long.fromString(object.height);
-    } else {
-      message.height = Long.ZERO;
-    }
-    if (object.prove !== undefined && object.prove !== null) {
-      message.prove = Boolean(object.prove);
-    } else {
-      message.prove = false;
-    }
-    return message;
+    return {
+      data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array(0),
+      path: isSet(object.path) ? String(object.path) : "",
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
+      prove: isSet(object.prove) ? Boolean(object.prove) : false,
+    };
   },
 
   toJSON(message: RequestQuery): unknown {
     const obj: any = {};
     message.data !== undefined &&
-      (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
+      (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array(0)));
     message.path !== undefined && (obj.path = message.path);
     message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
     message.prove !== undefined && (obj.prove = message.prove);
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestQuery>): RequestQuery {
-    const message = { ...baseRequestQuery } as RequestQuery;
-    if (object.data !== undefined && object.data !== null) {
-      message.data = object.data;
-    } else {
-      message.data = new Uint8Array();
-    }
-    if (object.path !== undefined && object.path !== null) {
-      message.path = object.path;
-    } else {
-      message.path = "";
-    }
-    if (object.height !== undefined && object.height !== null) {
-      message.height = object.height as Long;
-    } else {
-      message.height = Long.ZERO;
-    }
-    if (object.prove !== undefined && object.prove !== null) {
-      message.prove = object.prove;
-    } else {
-      message.prove = false;
-    }
+  create<I extends Exact<DeepPartial<RequestQuery>, I>>(base?: I): RequestQuery {
+    return RequestQuery.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestQuery>, I>>(object: I): RequestQuery {
+    const message = createBaseRequestQuery();
+    message.data = object.data ?? new Uint8Array(0);
+    message.path = object.path ?? "";
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
+    message.prove = object.prove ?? false;
     return message;
   },
 };
 
-const baseRequestBeginBlock: object = {};
+function createBaseRequestBeginBlock(): RequestBeginBlock {
+  return { hash: new Uint8Array(0), header: undefined, lastCommitInfo: undefined, byzantineValidators: [] };
+}
 
 export const RequestBeginBlock = {
   encode(message: RequestBeginBlock, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1385,63 +1399,66 @@ export const RequestBeginBlock = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestBeginBlock {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestBeginBlock } as RequestBeginBlock;
-    message.byzantineValidators = [];
-    message.hash = new Uint8Array();
+    const message = createBaseRequestBeginBlock();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.hash = reader.bytes();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.header = Header.decode(reader, reader.uint32());
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.lastCommitInfo = LastCommitInfo.decode(reader, reader.uint32());
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.byzantineValidators.push(Evidence.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestBeginBlock {
-    const message = { ...baseRequestBeginBlock } as RequestBeginBlock;
-    message.byzantineValidators = [];
-    message.hash = new Uint8Array();
-    if (object.hash !== undefined && object.hash !== null) {
-      message.hash = bytesFromBase64(object.hash);
-    }
-    if (object.header !== undefined && object.header !== null) {
-      message.header = Header.fromJSON(object.header);
-    } else {
-      message.header = undefined;
-    }
-    if (object.lastCommitInfo !== undefined && object.lastCommitInfo !== null) {
-      message.lastCommitInfo = LastCommitInfo.fromJSON(object.lastCommitInfo);
-    } else {
-      message.lastCommitInfo = undefined;
-    }
-    if (object.byzantineValidators !== undefined && object.byzantineValidators !== null) {
-      for (const e of object.byzantineValidators) {
-        message.byzantineValidators.push(Evidence.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      hash: isSet(object.hash) ? bytesFromBase64(object.hash) : new Uint8Array(0),
+      header: isSet(object.header) ? Header.fromJSON(object.header) : undefined,
+      lastCommitInfo: isSet(object.lastCommitInfo)
+        ? LastCommitInfo.fromJSON(object.lastCommitInfo)
+        : undefined,
+      byzantineValidators: Array.isArray(object?.byzantineValidators)
+        ? object.byzantineValidators.map((e: any) => Evidence.fromJSON(e))
+        : [],
+    };
   },
 
   toJSON(message: RequestBeginBlock): unknown {
     const obj: any = {};
     message.hash !== undefined &&
-      (obj.hash = base64FromBytes(message.hash !== undefined ? message.hash : new Uint8Array()));
+      (obj.hash = base64FromBytes(message.hash !== undefined ? message.hash : new Uint8Array(0)));
     message.header !== undefined && (obj.header = message.header ? Header.toJSON(message.header) : undefined);
     message.lastCommitInfo !== undefined &&
       (obj.lastCommitInfo = message.lastCommitInfo
@@ -1455,34 +1472,27 @@ export const RequestBeginBlock = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestBeginBlock>): RequestBeginBlock {
-    const message = { ...baseRequestBeginBlock } as RequestBeginBlock;
-    message.byzantineValidators = [];
-    if (object.hash !== undefined && object.hash !== null) {
-      message.hash = object.hash;
-    } else {
-      message.hash = new Uint8Array();
-    }
-    if (object.header !== undefined && object.header !== null) {
-      message.header = Header.fromPartial(object.header);
-    } else {
-      message.header = undefined;
-    }
-    if (object.lastCommitInfo !== undefined && object.lastCommitInfo !== null) {
-      message.lastCommitInfo = LastCommitInfo.fromPartial(object.lastCommitInfo);
-    } else {
-      message.lastCommitInfo = undefined;
-    }
-    if (object.byzantineValidators !== undefined && object.byzantineValidators !== null) {
-      for (const e of object.byzantineValidators) {
-        message.byzantineValidators.push(Evidence.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<RequestBeginBlock>, I>>(base?: I): RequestBeginBlock {
+    return RequestBeginBlock.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestBeginBlock>, I>>(object: I): RequestBeginBlock {
+    const message = createBaseRequestBeginBlock();
+    message.hash = object.hash ?? new Uint8Array(0);
+    message.header =
+      object.header !== undefined && object.header !== null ? Header.fromPartial(object.header) : undefined;
+    message.lastCommitInfo =
+      object.lastCommitInfo !== undefined && object.lastCommitInfo !== null
+        ? LastCommitInfo.fromPartial(object.lastCommitInfo)
+        : undefined;
+    message.byzantineValidators = object.byzantineValidators?.map((e) => Evidence.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseRequestCheckTx: object = { type: 0 };
+function createBaseRequestCheckTx(): RequestCheckTx {
+  return { tx: new Uint8Array(0), type: 0 };
+}
 
 export const RequestCheckTx = {
   encode(message: RequestCheckTx, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1496,66 +1506,65 @@ export const RequestCheckTx = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestCheckTx {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestCheckTx } as RequestCheckTx;
-    message.tx = new Uint8Array();
+    const message = createBaseRequestCheckTx();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.tx = reader.bytes();
-          break;
+          continue;
         case 2:
+          if (tag !== 16) {
+            break;
+          }
+
           message.type = reader.int32() as any;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestCheckTx {
-    const message = { ...baseRequestCheckTx } as RequestCheckTx;
-    message.tx = new Uint8Array();
-    if (object.tx !== undefined && object.tx !== null) {
-      message.tx = bytesFromBase64(object.tx);
-    }
-    if (object.type !== undefined && object.type !== null) {
-      message.type = checkTxTypeFromJSON(object.type);
-    } else {
-      message.type = 0;
-    }
-    return message;
+    return {
+      tx: isSet(object.tx) ? bytesFromBase64(object.tx) : new Uint8Array(0),
+      type: isSet(object.type) ? checkTxTypeFromJSON(object.type) : 0,
+    };
   },
 
   toJSON(message: RequestCheckTx): unknown {
     const obj: any = {};
     message.tx !== undefined &&
-      (obj.tx = base64FromBytes(message.tx !== undefined ? message.tx : new Uint8Array()));
+      (obj.tx = base64FromBytes(message.tx !== undefined ? message.tx : new Uint8Array(0)));
     message.type !== undefined && (obj.type = checkTxTypeToJSON(message.type));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestCheckTx>): RequestCheckTx {
-    const message = { ...baseRequestCheckTx } as RequestCheckTx;
-    if (object.tx !== undefined && object.tx !== null) {
-      message.tx = object.tx;
-    } else {
-      message.tx = new Uint8Array();
-    }
-    if (object.type !== undefined && object.type !== null) {
-      message.type = object.type;
-    } else {
-      message.type = 0;
-    }
+  create<I extends Exact<DeepPartial<RequestCheckTx>, I>>(base?: I): RequestCheckTx {
+    return RequestCheckTx.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestCheckTx>, I>>(object: I): RequestCheckTx {
+    const message = createBaseRequestCheckTx();
+    message.tx = object.tx ?? new Uint8Array(0);
+    message.type = object.type ?? 0;
     return message;
   },
 };
 
-const baseRequestDeliverTx: object = {};
+function createBaseRequestDeliverTx(): RequestDeliverTx {
+  return { tx: new Uint8Array(0) };
+}
 
 export const RequestDeliverTx = {
   encode(message: RequestDeliverTx, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1566,52 +1575,53 @@ export const RequestDeliverTx = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestDeliverTx {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestDeliverTx } as RequestDeliverTx;
-    message.tx = new Uint8Array();
+    const message = createBaseRequestDeliverTx();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.tx = reader.bytes();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestDeliverTx {
-    const message = { ...baseRequestDeliverTx } as RequestDeliverTx;
-    message.tx = new Uint8Array();
-    if (object.tx !== undefined && object.tx !== null) {
-      message.tx = bytesFromBase64(object.tx);
-    }
-    return message;
+    return { tx: isSet(object.tx) ? bytesFromBase64(object.tx) : new Uint8Array(0) };
   },
 
   toJSON(message: RequestDeliverTx): unknown {
     const obj: any = {};
     message.tx !== undefined &&
-      (obj.tx = base64FromBytes(message.tx !== undefined ? message.tx : new Uint8Array()));
+      (obj.tx = base64FromBytes(message.tx !== undefined ? message.tx : new Uint8Array(0)));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestDeliverTx>): RequestDeliverTx {
-    const message = { ...baseRequestDeliverTx } as RequestDeliverTx;
-    if (object.tx !== undefined && object.tx !== null) {
-      message.tx = object.tx;
-    } else {
-      message.tx = new Uint8Array();
-    }
+  create<I extends Exact<DeepPartial<RequestDeliverTx>, I>>(base?: I): RequestDeliverTx {
+    return RequestDeliverTx.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestDeliverTx>, I>>(object: I): RequestDeliverTx {
+    const message = createBaseRequestDeliverTx();
+    message.tx = object.tx ?? new Uint8Array(0);
     return message;
   },
 };
 
-const baseRequestEndBlock: object = { height: Long.ZERO };
+function createBaseRequestEndBlock(): RequestEndBlock {
+  return { height: Long.ZERO };
+}
 
 export const RequestEndBlock = {
   encode(message: RequestEndBlock, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1622,31 +1632,30 @@ export const RequestEndBlock = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestEndBlock {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestEndBlock } as RequestEndBlock;
+    const message = createBaseRequestEndBlock();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.height = reader.int64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestEndBlock {
-    const message = { ...baseRequestEndBlock } as RequestEndBlock;
-    if (object.height !== undefined && object.height !== null) {
-      message.height = Long.fromString(object.height);
-    } else {
-      message.height = Long.ZERO;
-    }
-    return message;
+    return { height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO };
   },
 
   toJSON(message: RequestEndBlock): unknown {
@@ -1655,18 +1664,21 @@ export const RequestEndBlock = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestEndBlock>): RequestEndBlock {
-    const message = { ...baseRequestEndBlock } as RequestEndBlock;
-    if (object.height !== undefined && object.height !== null) {
-      message.height = object.height as Long;
-    } else {
-      message.height = Long.ZERO;
-    }
+  create<I extends Exact<DeepPartial<RequestEndBlock>, I>>(base?: I): RequestEndBlock {
+    return RequestEndBlock.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestEndBlock>, I>>(object: I): RequestEndBlock {
+    const message = createBaseRequestEndBlock();
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     return message;
   },
 };
 
-const baseRequestCommit: object = {};
+function createBaseRequestCommit(): RequestCommit {
+  return {};
+}
 
 export const RequestCommit = {
   encode(_: RequestCommit, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1674,23 +1686,23 @@ export const RequestCommit = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestCommit {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestCommit } as RequestCommit;
+    const message = createBaseRequestCommit();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): RequestCommit {
-    const message = { ...baseRequestCommit } as RequestCommit;
-    return message;
+    return {};
   },
 
   toJSON(_: RequestCommit): unknown {
@@ -1698,13 +1710,19 @@ export const RequestCommit = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<RequestCommit>): RequestCommit {
-    const message = { ...baseRequestCommit } as RequestCommit;
+  create<I extends Exact<DeepPartial<RequestCommit>, I>>(base?: I): RequestCommit {
+    return RequestCommit.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestCommit>, I>>(_: I): RequestCommit {
+    const message = createBaseRequestCommit();
     return message;
   },
 };
 
-const baseRequestListSnapshots: object = {};
+function createBaseRequestListSnapshots(): RequestListSnapshots {
+  return {};
+}
 
 export const RequestListSnapshots = {
   encode(_: RequestListSnapshots, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1712,23 +1730,23 @@ export const RequestListSnapshots = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestListSnapshots {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestListSnapshots } as RequestListSnapshots;
+    const message = createBaseRequestListSnapshots();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): RequestListSnapshots {
-    const message = { ...baseRequestListSnapshots } as RequestListSnapshots;
-    return message;
+    return {};
   },
 
   toJSON(_: RequestListSnapshots): unknown {
@@ -1736,13 +1754,19 @@ export const RequestListSnapshots = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<RequestListSnapshots>): RequestListSnapshots {
-    const message = { ...baseRequestListSnapshots } as RequestListSnapshots;
+  create<I extends Exact<DeepPartial<RequestListSnapshots>, I>>(base?: I): RequestListSnapshots {
+    return RequestListSnapshots.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestListSnapshots>, I>>(_: I): RequestListSnapshots {
+    const message = createBaseRequestListSnapshots();
     return message;
   },
 };
 
-const baseRequestOfferSnapshot: object = {};
+function createBaseRequestOfferSnapshot(): RequestOfferSnapshot {
+  return { snapshot: undefined, appHash: new Uint8Array(0) };
+}
 
 export const RequestOfferSnapshot = {
   encode(message: RequestOfferSnapshot, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1756,39 +1780,40 @@ export const RequestOfferSnapshot = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestOfferSnapshot {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestOfferSnapshot } as RequestOfferSnapshot;
-    message.appHash = new Uint8Array();
+    const message = createBaseRequestOfferSnapshot();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.snapshot = Snapshot.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.appHash = reader.bytes();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestOfferSnapshot {
-    const message = { ...baseRequestOfferSnapshot } as RequestOfferSnapshot;
-    message.appHash = new Uint8Array();
-    if (object.snapshot !== undefined && object.snapshot !== null) {
-      message.snapshot = Snapshot.fromJSON(object.snapshot);
-    } else {
-      message.snapshot = undefined;
-    }
-    if (object.appHash !== undefined && object.appHash !== null) {
-      message.appHash = bytesFromBase64(object.appHash);
-    }
-    return message;
+    return {
+      snapshot: isSet(object.snapshot) ? Snapshot.fromJSON(object.snapshot) : undefined,
+      appHash: isSet(object.appHash) ? bytesFromBase64(object.appHash) : new Uint8Array(0),
+    };
   },
 
   toJSON(message: RequestOfferSnapshot): unknown {
@@ -1796,27 +1821,28 @@ export const RequestOfferSnapshot = {
     message.snapshot !== undefined &&
       (obj.snapshot = message.snapshot ? Snapshot.toJSON(message.snapshot) : undefined);
     message.appHash !== undefined &&
-      (obj.appHash = base64FromBytes(message.appHash !== undefined ? message.appHash : new Uint8Array()));
+      (obj.appHash = base64FromBytes(message.appHash !== undefined ? message.appHash : new Uint8Array(0)));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestOfferSnapshot>): RequestOfferSnapshot {
-    const message = { ...baseRequestOfferSnapshot } as RequestOfferSnapshot;
-    if (object.snapshot !== undefined && object.snapshot !== null) {
-      message.snapshot = Snapshot.fromPartial(object.snapshot);
-    } else {
-      message.snapshot = undefined;
-    }
-    if (object.appHash !== undefined && object.appHash !== null) {
-      message.appHash = object.appHash;
-    } else {
-      message.appHash = new Uint8Array();
-    }
+  create<I extends Exact<DeepPartial<RequestOfferSnapshot>, I>>(base?: I): RequestOfferSnapshot {
+    return RequestOfferSnapshot.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestOfferSnapshot>, I>>(object: I): RequestOfferSnapshot {
+    const message = createBaseRequestOfferSnapshot();
+    message.snapshot =
+      object.snapshot !== undefined && object.snapshot !== null
+        ? Snapshot.fromPartial(object.snapshot)
+        : undefined;
+    message.appHash = object.appHash ?? new Uint8Array(0);
     return message;
   },
 };
 
-const baseRequestLoadSnapshotChunk: object = { height: Long.UZERO, format: 0, chunk: 0 };
+function createBaseRequestLoadSnapshotChunk(): RequestLoadSnapshotChunk {
+  return { height: Long.UZERO, format: 0, chunk: 0 };
+}
 
 export const RequestLoadSnapshotChunk = {
   encode(message: RequestLoadSnapshotChunk, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1833,79 +1859,77 @@ export const RequestLoadSnapshotChunk = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestLoadSnapshotChunk {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestLoadSnapshotChunk } as RequestLoadSnapshotChunk;
+    const message = createBaseRequestLoadSnapshotChunk();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.height = reader.uint64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 16) {
+            break;
+          }
+
           message.format = reader.uint32();
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.chunk = reader.uint32();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestLoadSnapshotChunk {
-    const message = { ...baseRequestLoadSnapshotChunk } as RequestLoadSnapshotChunk;
-    if (object.height !== undefined && object.height !== null) {
-      message.height = Long.fromString(object.height);
-    } else {
-      message.height = Long.UZERO;
-    }
-    if (object.format !== undefined && object.format !== null) {
-      message.format = Number(object.format);
-    } else {
-      message.format = 0;
-    }
-    if (object.chunk !== undefined && object.chunk !== null) {
-      message.chunk = Number(object.chunk);
-    } else {
-      message.chunk = 0;
-    }
-    return message;
+    return {
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.UZERO,
+      format: isSet(object.format) ? Number(object.format) : 0,
+      chunk: isSet(object.chunk) ? Number(object.chunk) : 0,
+    };
   },
 
   toJSON(message: RequestLoadSnapshotChunk): unknown {
     const obj: any = {};
     message.height !== undefined && (obj.height = (message.height || Long.UZERO).toString());
-    message.format !== undefined && (obj.format = message.format);
-    message.chunk !== undefined && (obj.chunk = message.chunk);
+    message.format !== undefined && (obj.format = Math.round(message.format));
+    message.chunk !== undefined && (obj.chunk = Math.round(message.chunk));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestLoadSnapshotChunk>): RequestLoadSnapshotChunk {
-    const message = { ...baseRequestLoadSnapshotChunk } as RequestLoadSnapshotChunk;
-    if (object.height !== undefined && object.height !== null) {
-      message.height = object.height as Long;
-    } else {
-      message.height = Long.UZERO;
-    }
-    if (object.format !== undefined && object.format !== null) {
-      message.format = object.format;
-    } else {
-      message.format = 0;
-    }
-    if (object.chunk !== undefined && object.chunk !== null) {
-      message.chunk = object.chunk;
-    } else {
-      message.chunk = 0;
-    }
+  create<I extends Exact<DeepPartial<RequestLoadSnapshotChunk>, I>>(base?: I): RequestLoadSnapshotChunk {
+    return RequestLoadSnapshotChunk.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestLoadSnapshotChunk>, I>>(
+    object: I,
+  ): RequestLoadSnapshotChunk {
+    const message = createBaseRequestLoadSnapshotChunk();
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.UZERO;
+    message.format = object.format ?? 0;
+    message.chunk = object.chunk ?? 0;
     return message;
   },
 };
 
-const baseRequestApplySnapshotChunk: object = { index: 0, sender: "" };
+function createBaseRequestApplySnapshotChunk(): RequestApplySnapshotChunk {
+  return { index: 0, chunk: new Uint8Array(0), sender: "" };
+}
 
 export const RequestApplySnapshotChunk = {
   encode(message: RequestApplySnapshotChunk, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1922,80 +1946,94 @@ export const RequestApplySnapshotChunk = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RequestApplySnapshotChunk {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRequestApplySnapshotChunk } as RequestApplySnapshotChunk;
-    message.chunk = new Uint8Array();
+    const message = createBaseRequestApplySnapshotChunk();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.index = reader.uint32();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.chunk = reader.bytes();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.sender = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RequestApplySnapshotChunk {
-    const message = { ...baseRequestApplySnapshotChunk } as RequestApplySnapshotChunk;
-    message.chunk = new Uint8Array();
-    if (object.index !== undefined && object.index !== null) {
-      message.index = Number(object.index);
-    } else {
-      message.index = 0;
-    }
-    if (object.chunk !== undefined && object.chunk !== null) {
-      message.chunk = bytesFromBase64(object.chunk);
-    }
-    if (object.sender !== undefined && object.sender !== null) {
-      message.sender = String(object.sender);
-    } else {
-      message.sender = "";
-    }
-    return message;
+    return {
+      index: isSet(object.index) ? Number(object.index) : 0,
+      chunk: isSet(object.chunk) ? bytesFromBase64(object.chunk) : new Uint8Array(0),
+      sender: isSet(object.sender) ? String(object.sender) : "",
+    };
   },
 
   toJSON(message: RequestApplySnapshotChunk): unknown {
     const obj: any = {};
-    message.index !== undefined && (obj.index = message.index);
+    message.index !== undefined && (obj.index = Math.round(message.index));
     message.chunk !== undefined &&
-      (obj.chunk = base64FromBytes(message.chunk !== undefined ? message.chunk : new Uint8Array()));
+      (obj.chunk = base64FromBytes(message.chunk !== undefined ? message.chunk : new Uint8Array(0)));
     message.sender !== undefined && (obj.sender = message.sender);
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RequestApplySnapshotChunk>): RequestApplySnapshotChunk {
-    const message = { ...baseRequestApplySnapshotChunk } as RequestApplySnapshotChunk;
-    if (object.index !== undefined && object.index !== null) {
-      message.index = object.index;
-    } else {
-      message.index = 0;
-    }
-    if (object.chunk !== undefined && object.chunk !== null) {
-      message.chunk = object.chunk;
-    } else {
-      message.chunk = new Uint8Array();
-    }
-    if (object.sender !== undefined && object.sender !== null) {
-      message.sender = object.sender;
-    } else {
-      message.sender = "";
-    }
+  create<I extends Exact<DeepPartial<RequestApplySnapshotChunk>, I>>(base?: I): RequestApplySnapshotChunk {
+    return RequestApplySnapshotChunk.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RequestApplySnapshotChunk>, I>>(
+    object: I,
+  ): RequestApplySnapshotChunk {
+    const message = createBaseRequestApplySnapshotChunk();
+    message.index = object.index ?? 0;
+    message.chunk = object.chunk ?? new Uint8Array(0);
+    message.sender = object.sender ?? "";
     return message;
   },
 };
 
-const baseResponse: object = {};
+function createBaseResponse(): Response {
+  return {
+    exception: undefined,
+    echo: undefined,
+    flush: undefined,
+    info: undefined,
+    setOption: undefined,
+    initChain: undefined,
+    query: undefined,
+    beginBlock: undefined,
+    checkTx: undefined,
+    deliverTx: undefined,
+    endBlock: undefined,
+    commit: undefined,
+    listSnapshots: undefined,
+    offerSnapshot: undefined,
+    loadSnapshotChunk: undefined,
+    applySnapshotChunk: undefined,
+  };
+}
 
 export const Response = {
   encode(message: Response, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -2051,151 +2089,160 @@ export const Response = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Response {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponse } as Response;
+    const message = createBaseResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.exception = ResponseException.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.echo = ResponseEcho.decode(reader, reader.uint32());
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.flush = ResponseFlush.decode(reader, reader.uint32());
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.info = ResponseInfo.decode(reader, reader.uint32());
-          break;
+          continue;
         case 5:
+          if (tag !== 42) {
+            break;
+          }
+
           message.setOption = ResponseSetOption.decode(reader, reader.uint32());
-          break;
+          continue;
         case 6:
+          if (tag !== 50) {
+            break;
+          }
+
           message.initChain = ResponseInitChain.decode(reader, reader.uint32());
-          break;
+          continue;
         case 7:
+          if (tag !== 58) {
+            break;
+          }
+
           message.query = ResponseQuery.decode(reader, reader.uint32());
-          break;
+          continue;
         case 8:
+          if (tag !== 66) {
+            break;
+          }
+
           message.beginBlock = ResponseBeginBlock.decode(reader, reader.uint32());
-          break;
+          continue;
         case 9:
+          if (tag !== 74) {
+            break;
+          }
+
           message.checkTx = ResponseCheckTx.decode(reader, reader.uint32());
-          break;
+          continue;
         case 10:
+          if (tag !== 82) {
+            break;
+          }
+
           message.deliverTx = ResponseDeliverTx.decode(reader, reader.uint32());
-          break;
+          continue;
         case 11:
+          if (tag !== 90) {
+            break;
+          }
+
           message.endBlock = ResponseEndBlock.decode(reader, reader.uint32());
-          break;
+          continue;
         case 12:
+          if (tag !== 98) {
+            break;
+          }
+
           message.commit = ResponseCommit.decode(reader, reader.uint32());
-          break;
+          continue;
         case 13:
+          if (tag !== 106) {
+            break;
+          }
+
           message.listSnapshots = ResponseListSnapshots.decode(reader, reader.uint32());
-          break;
+          continue;
         case 14:
+          if (tag !== 114) {
+            break;
+          }
+
           message.offerSnapshot = ResponseOfferSnapshot.decode(reader, reader.uint32());
-          break;
+          continue;
         case 15:
+          if (tag !== 122) {
+            break;
+          }
+
           message.loadSnapshotChunk = ResponseLoadSnapshotChunk.decode(reader, reader.uint32());
-          break;
+          continue;
         case 16:
+          if (tag !== 130) {
+            break;
+          }
+
           message.applySnapshotChunk = ResponseApplySnapshotChunk.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Response {
-    const message = { ...baseResponse } as Response;
-    if (object.exception !== undefined && object.exception !== null) {
-      message.exception = ResponseException.fromJSON(object.exception);
-    } else {
-      message.exception = undefined;
-    }
-    if (object.echo !== undefined && object.echo !== null) {
-      message.echo = ResponseEcho.fromJSON(object.echo);
-    } else {
-      message.echo = undefined;
-    }
-    if (object.flush !== undefined && object.flush !== null) {
-      message.flush = ResponseFlush.fromJSON(object.flush);
-    } else {
-      message.flush = undefined;
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = ResponseInfo.fromJSON(object.info);
-    } else {
-      message.info = undefined;
-    }
-    if (object.setOption !== undefined && object.setOption !== null) {
-      message.setOption = ResponseSetOption.fromJSON(object.setOption);
-    } else {
-      message.setOption = undefined;
-    }
-    if (object.initChain !== undefined && object.initChain !== null) {
-      message.initChain = ResponseInitChain.fromJSON(object.initChain);
-    } else {
-      message.initChain = undefined;
-    }
-    if (object.query !== undefined && object.query !== null) {
-      message.query = ResponseQuery.fromJSON(object.query);
-    } else {
-      message.query = undefined;
-    }
-    if (object.beginBlock !== undefined && object.beginBlock !== null) {
-      message.beginBlock = ResponseBeginBlock.fromJSON(object.beginBlock);
-    } else {
-      message.beginBlock = undefined;
-    }
-    if (object.checkTx !== undefined && object.checkTx !== null) {
-      message.checkTx = ResponseCheckTx.fromJSON(object.checkTx);
-    } else {
-      message.checkTx = undefined;
-    }
-    if (object.deliverTx !== undefined && object.deliverTx !== null) {
-      message.deliverTx = ResponseDeliverTx.fromJSON(object.deliverTx);
-    } else {
-      message.deliverTx = undefined;
-    }
-    if (object.endBlock !== undefined && object.endBlock !== null) {
-      message.endBlock = ResponseEndBlock.fromJSON(object.endBlock);
-    } else {
-      message.endBlock = undefined;
-    }
-    if (object.commit !== undefined && object.commit !== null) {
-      message.commit = ResponseCommit.fromJSON(object.commit);
-    } else {
-      message.commit = undefined;
-    }
-    if (object.listSnapshots !== undefined && object.listSnapshots !== null) {
-      message.listSnapshots = ResponseListSnapshots.fromJSON(object.listSnapshots);
-    } else {
-      message.listSnapshots = undefined;
-    }
-    if (object.offerSnapshot !== undefined && object.offerSnapshot !== null) {
-      message.offerSnapshot = ResponseOfferSnapshot.fromJSON(object.offerSnapshot);
-    } else {
-      message.offerSnapshot = undefined;
-    }
-    if (object.loadSnapshotChunk !== undefined && object.loadSnapshotChunk !== null) {
-      message.loadSnapshotChunk = ResponseLoadSnapshotChunk.fromJSON(object.loadSnapshotChunk);
-    } else {
-      message.loadSnapshotChunk = undefined;
-    }
-    if (object.applySnapshotChunk !== undefined && object.applySnapshotChunk !== null) {
-      message.applySnapshotChunk = ResponseApplySnapshotChunk.fromJSON(object.applySnapshotChunk);
-    } else {
-      message.applySnapshotChunk = undefined;
-    }
-    return message;
+    return {
+      exception: isSet(object.exception) ? ResponseException.fromJSON(object.exception) : undefined,
+      echo: isSet(object.echo) ? ResponseEcho.fromJSON(object.echo) : undefined,
+      flush: isSet(object.flush) ? ResponseFlush.fromJSON(object.flush) : undefined,
+      info: isSet(object.info) ? ResponseInfo.fromJSON(object.info) : undefined,
+      setOption: isSet(object.setOption) ? ResponseSetOption.fromJSON(object.setOption) : undefined,
+      initChain: isSet(object.initChain) ? ResponseInitChain.fromJSON(object.initChain) : undefined,
+      query: isSet(object.query) ? ResponseQuery.fromJSON(object.query) : undefined,
+      beginBlock: isSet(object.beginBlock) ? ResponseBeginBlock.fromJSON(object.beginBlock) : undefined,
+      checkTx: isSet(object.checkTx) ? ResponseCheckTx.fromJSON(object.checkTx) : undefined,
+      deliverTx: isSet(object.deliverTx) ? ResponseDeliverTx.fromJSON(object.deliverTx) : undefined,
+      endBlock: isSet(object.endBlock) ? ResponseEndBlock.fromJSON(object.endBlock) : undefined,
+      commit: isSet(object.commit) ? ResponseCommit.fromJSON(object.commit) : undefined,
+      listSnapshots: isSet(object.listSnapshots)
+        ? ResponseListSnapshots.fromJSON(object.listSnapshots)
+        : undefined,
+      offerSnapshot: isSet(object.offerSnapshot)
+        ? ResponseOfferSnapshot.fromJSON(object.offerSnapshot)
+        : undefined,
+      loadSnapshotChunk: isSet(object.loadSnapshotChunk)
+        ? ResponseLoadSnapshotChunk.fromJSON(object.loadSnapshotChunk)
+        : undefined,
+      applySnapshotChunk: isSet(object.applySnapshotChunk)
+        ? ResponseApplySnapshotChunk.fromJSON(object.applySnapshotChunk)
+        : undefined,
+    };
   },
 
   toJSON(message: Response): unknown {
@@ -2241,93 +2288,79 @@ export const Response = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Response>): Response {
-    const message = { ...baseResponse } as Response;
-    if (object.exception !== undefined && object.exception !== null) {
-      message.exception = ResponseException.fromPartial(object.exception);
-    } else {
-      message.exception = undefined;
-    }
-    if (object.echo !== undefined && object.echo !== null) {
-      message.echo = ResponseEcho.fromPartial(object.echo);
-    } else {
-      message.echo = undefined;
-    }
-    if (object.flush !== undefined && object.flush !== null) {
-      message.flush = ResponseFlush.fromPartial(object.flush);
-    } else {
-      message.flush = undefined;
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = ResponseInfo.fromPartial(object.info);
-    } else {
-      message.info = undefined;
-    }
-    if (object.setOption !== undefined && object.setOption !== null) {
-      message.setOption = ResponseSetOption.fromPartial(object.setOption);
-    } else {
-      message.setOption = undefined;
-    }
-    if (object.initChain !== undefined && object.initChain !== null) {
-      message.initChain = ResponseInitChain.fromPartial(object.initChain);
-    } else {
-      message.initChain = undefined;
-    }
-    if (object.query !== undefined && object.query !== null) {
-      message.query = ResponseQuery.fromPartial(object.query);
-    } else {
-      message.query = undefined;
-    }
-    if (object.beginBlock !== undefined && object.beginBlock !== null) {
-      message.beginBlock = ResponseBeginBlock.fromPartial(object.beginBlock);
-    } else {
-      message.beginBlock = undefined;
-    }
-    if (object.checkTx !== undefined && object.checkTx !== null) {
-      message.checkTx = ResponseCheckTx.fromPartial(object.checkTx);
-    } else {
-      message.checkTx = undefined;
-    }
-    if (object.deliverTx !== undefined && object.deliverTx !== null) {
-      message.deliverTx = ResponseDeliverTx.fromPartial(object.deliverTx);
-    } else {
-      message.deliverTx = undefined;
-    }
-    if (object.endBlock !== undefined && object.endBlock !== null) {
-      message.endBlock = ResponseEndBlock.fromPartial(object.endBlock);
-    } else {
-      message.endBlock = undefined;
-    }
-    if (object.commit !== undefined && object.commit !== null) {
-      message.commit = ResponseCommit.fromPartial(object.commit);
-    } else {
-      message.commit = undefined;
-    }
-    if (object.listSnapshots !== undefined && object.listSnapshots !== null) {
-      message.listSnapshots = ResponseListSnapshots.fromPartial(object.listSnapshots);
-    } else {
-      message.listSnapshots = undefined;
-    }
-    if (object.offerSnapshot !== undefined && object.offerSnapshot !== null) {
-      message.offerSnapshot = ResponseOfferSnapshot.fromPartial(object.offerSnapshot);
-    } else {
-      message.offerSnapshot = undefined;
-    }
-    if (object.loadSnapshotChunk !== undefined && object.loadSnapshotChunk !== null) {
-      message.loadSnapshotChunk = ResponseLoadSnapshotChunk.fromPartial(object.loadSnapshotChunk);
-    } else {
-      message.loadSnapshotChunk = undefined;
-    }
-    if (object.applySnapshotChunk !== undefined && object.applySnapshotChunk !== null) {
-      message.applySnapshotChunk = ResponseApplySnapshotChunk.fromPartial(object.applySnapshotChunk);
-    } else {
-      message.applySnapshotChunk = undefined;
-    }
+  create<I extends Exact<DeepPartial<Response>, I>>(base?: I): Response {
+    return Response.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Response>, I>>(object: I): Response {
+    const message = createBaseResponse();
+    message.exception =
+      object.exception !== undefined && object.exception !== null
+        ? ResponseException.fromPartial(object.exception)
+        : undefined;
+    message.echo =
+      object.echo !== undefined && object.echo !== null ? ResponseEcho.fromPartial(object.echo) : undefined;
+    message.flush =
+      object.flush !== undefined && object.flush !== null
+        ? ResponseFlush.fromPartial(object.flush)
+        : undefined;
+    message.info =
+      object.info !== undefined && object.info !== null ? ResponseInfo.fromPartial(object.info) : undefined;
+    message.setOption =
+      object.setOption !== undefined && object.setOption !== null
+        ? ResponseSetOption.fromPartial(object.setOption)
+        : undefined;
+    message.initChain =
+      object.initChain !== undefined && object.initChain !== null
+        ? ResponseInitChain.fromPartial(object.initChain)
+        : undefined;
+    message.query =
+      object.query !== undefined && object.query !== null
+        ? ResponseQuery.fromPartial(object.query)
+        : undefined;
+    message.beginBlock =
+      object.beginBlock !== undefined && object.beginBlock !== null
+        ? ResponseBeginBlock.fromPartial(object.beginBlock)
+        : undefined;
+    message.checkTx =
+      object.checkTx !== undefined && object.checkTx !== null
+        ? ResponseCheckTx.fromPartial(object.checkTx)
+        : undefined;
+    message.deliverTx =
+      object.deliverTx !== undefined && object.deliverTx !== null
+        ? ResponseDeliverTx.fromPartial(object.deliverTx)
+        : undefined;
+    message.endBlock =
+      object.endBlock !== undefined && object.endBlock !== null
+        ? ResponseEndBlock.fromPartial(object.endBlock)
+        : undefined;
+    message.commit =
+      object.commit !== undefined && object.commit !== null
+        ? ResponseCommit.fromPartial(object.commit)
+        : undefined;
+    message.listSnapshots =
+      object.listSnapshots !== undefined && object.listSnapshots !== null
+        ? ResponseListSnapshots.fromPartial(object.listSnapshots)
+        : undefined;
+    message.offerSnapshot =
+      object.offerSnapshot !== undefined && object.offerSnapshot !== null
+        ? ResponseOfferSnapshot.fromPartial(object.offerSnapshot)
+        : undefined;
+    message.loadSnapshotChunk =
+      object.loadSnapshotChunk !== undefined && object.loadSnapshotChunk !== null
+        ? ResponseLoadSnapshotChunk.fromPartial(object.loadSnapshotChunk)
+        : undefined;
+    message.applySnapshotChunk =
+      object.applySnapshotChunk !== undefined && object.applySnapshotChunk !== null
+        ? ResponseApplySnapshotChunk.fromPartial(object.applySnapshotChunk)
+        : undefined;
     return message;
   },
 };
 
-const baseResponseException: object = { error: "" };
+function createBaseResponseException(): ResponseException {
+  return { error: "" };
+}
 
 export const ResponseException = {
   encode(message: ResponseException, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -2338,31 +2371,30 @@ export const ResponseException = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseException {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseException } as ResponseException;
+    const message = createBaseResponseException();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.error = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseException {
-    const message = { ...baseResponseException } as ResponseException;
-    if (object.error !== undefined && object.error !== null) {
-      message.error = String(object.error);
-    } else {
-      message.error = "";
-    }
-    return message;
+    return { error: isSet(object.error) ? String(object.error) : "" };
   },
 
   toJSON(message: ResponseException): unknown {
@@ -2371,18 +2403,20 @@ export const ResponseException = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseException>): ResponseException {
-    const message = { ...baseResponseException } as ResponseException;
-    if (object.error !== undefined && object.error !== null) {
-      message.error = object.error;
-    } else {
-      message.error = "";
-    }
+  create<I extends Exact<DeepPartial<ResponseException>, I>>(base?: I): ResponseException {
+    return ResponseException.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseException>, I>>(object: I): ResponseException {
+    const message = createBaseResponseException();
+    message.error = object.error ?? "";
     return message;
   },
 };
 
-const baseResponseEcho: object = { message: "" };
+function createBaseResponseEcho(): ResponseEcho {
+  return { message: "" };
+}
 
 export const ResponseEcho = {
   encode(message: ResponseEcho, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -2393,31 +2427,30 @@ export const ResponseEcho = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseEcho {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseEcho } as ResponseEcho;
+    const message = createBaseResponseEcho();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.message = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseEcho {
-    const message = { ...baseResponseEcho } as ResponseEcho;
-    if (object.message !== undefined && object.message !== null) {
-      message.message = String(object.message);
-    } else {
-      message.message = "";
-    }
-    return message;
+    return { message: isSet(object.message) ? String(object.message) : "" };
   },
 
   toJSON(message: ResponseEcho): unknown {
@@ -2426,18 +2459,20 @@ export const ResponseEcho = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseEcho>): ResponseEcho {
-    const message = { ...baseResponseEcho } as ResponseEcho;
-    if (object.message !== undefined && object.message !== null) {
-      message.message = object.message;
-    } else {
-      message.message = "";
-    }
+  create<I extends Exact<DeepPartial<ResponseEcho>, I>>(base?: I): ResponseEcho {
+    return ResponseEcho.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseEcho>, I>>(object: I): ResponseEcho {
+    const message = createBaseResponseEcho();
+    message.message = object.message ?? "";
     return message;
   },
 };
 
-const baseResponseFlush: object = {};
+function createBaseResponseFlush(): ResponseFlush {
+  return {};
+}
 
 export const ResponseFlush = {
   encode(_: ResponseFlush, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -2445,23 +2480,23 @@ export const ResponseFlush = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseFlush {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseFlush } as ResponseFlush;
+    const message = createBaseResponseFlush();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): ResponseFlush {
-    const message = { ...baseResponseFlush } as ResponseFlush;
-    return message;
+    return {};
   },
 
   toJSON(_: ResponseFlush): unknown {
@@ -2469,18 +2504,25 @@ export const ResponseFlush = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<ResponseFlush>): ResponseFlush {
-    const message = { ...baseResponseFlush } as ResponseFlush;
+  create<I extends Exact<DeepPartial<ResponseFlush>, I>>(base?: I): ResponseFlush {
+    return ResponseFlush.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseFlush>, I>>(_: I): ResponseFlush {
+    const message = createBaseResponseFlush();
     return message;
   },
 };
 
-const baseResponseInfo: object = {
-  data: "",
-  version: "",
-  appVersion: Long.UZERO,
-  lastBlockHeight: Long.ZERO,
-};
+function createBaseResponseInfo(): ResponseInfo {
+  return {
+    data: "",
+    version: "",
+    appVersion: Long.UZERO,
+    lastBlockHeight: Long.ZERO,
+    lastBlockAppHash: new Uint8Array(0),
+  };
+}
 
 export const ResponseInfo = {
   encode(message: ResponseInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -2503,63 +2545,66 @@ export const ResponseInfo = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseInfo {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseInfo } as ResponseInfo;
-    message.lastBlockAppHash = new Uint8Array();
+    const message = createBaseResponseInfo();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.data = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.version = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.appVersion = reader.uint64() as Long;
-          break;
+          continue;
         case 4:
+          if (tag !== 32) {
+            break;
+          }
+
           message.lastBlockHeight = reader.int64() as Long;
-          break;
+          continue;
         case 5:
+          if (tag !== 42) {
+            break;
+          }
+
           message.lastBlockAppHash = reader.bytes();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseInfo {
-    const message = { ...baseResponseInfo } as ResponseInfo;
-    message.lastBlockAppHash = new Uint8Array();
-    if (object.data !== undefined && object.data !== null) {
-      message.data = String(object.data);
-    } else {
-      message.data = "";
-    }
-    if (object.version !== undefined && object.version !== null) {
-      message.version = String(object.version);
-    } else {
-      message.version = "";
-    }
-    if (object.appVersion !== undefined && object.appVersion !== null) {
-      message.appVersion = Long.fromString(object.appVersion);
-    } else {
-      message.appVersion = Long.UZERO;
-    }
-    if (object.lastBlockHeight !== undefined && object.lastBlockHeight !== null) {
-      message.lastBlockHeight = Long.fromString(object.lastBlockHeight);
-    } else {
-      message.lastBlockHeight = Long.ZERO;
-    }
-    if (object.lastBlockAppHash !== undefined && object.lastBlockAppHash !== null) {
-      message.lastBlockAppHash = bytesFromBase64(object.lastBlockAppHash);
-    }
-    return message;
+    return {
+      data: isSet(object.data) ? String(object.data) : "",
+      version: isSet(object.version) ? String(object.version) : "",
+      appVersion: isSet(object.appVersion) ? Long.fromValue(object.appVersion) : Long.UZERO,
+      lastBlockHeight: isSet(object.lastBlockHeight) ? Long.fromValue(object.lastBlockHeight) : Long.ZERO,
+      lastBlockAppHash: isSet(object.lastBlockAppHash)
+        ? bytesFromBase64(object.lastBlockAppHash)
+        : new Uint8Array(0),
+    };
   },
 
   toJSON(message: ResponseInfo): unknown {
@@ -2571,43 +2616,35 @@ export const ResponseInfo = {
       (obj.lastBlockHeight = (message.lastBlockHeight || Long.ZERO).toString());
     message.lastBlockAppHash !== undefined &&
       (obj.lastBlockAppHash = base64FromBytes(
-        message.lastBlockAppHash !== undefined ? message.lastBlockAppHash : new Uint8Array(),
+        message.lastBlockAppHash !== undefined ? message.lastBlockAppHash : new Uint8Array(0),
       ));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseInfo>): ResponseInfo {
-    const message = { ...baseResponseInfo } as ResponseInfo;
-    if (object.data !== undefined && object.data !== null) {
-      message.data = object.data;
-    } else {
-      message.data = "";
-    }
-    if (object.version !== undefined && object.version !== null) {
-      message.version = object.version;
-    } else {
-      message.version = "";
-    }
-    if (object.appVersion !== undefined && object.appVersion !== null) {
-      message.appVersion = object.appVersion as Long;
-    } else {
-      message.appVersion = Long.UZERO;
-    }
-    if (object.lastBlockHeight !== undefined && object.lastBlockHeight !== null) {
-      message.lastBlockHeight = object.lastBlockHeight as Long;
-    } else {
-      message.lastBlockHeight = Long.ZERO;
-    }
-    if (object.lastBlockAppHash !== undefined && object.lastBlockAppHash !== null) {
-      message.lastBlockAppHash = object.lastBlockAppHash;
-    } else {
-      message.lastBlockAppHash = new Uint8Array();
-    }
+  create<I extends Exact<DeepPartial<ResponseInfo>, I>>(base?: I): ResponseInfo {
+    return ResponseInfo.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseInfo>, I>>(object: I): ResponseInfo {
+    const message = createBaseResponseInfo();
+    message.data = object.data ?? "";
+    message.version = object.version ?? "";
+    message.appVersion =
+      object.appVersion !== undefined && object.appVersion !== null
+        ? Long.fromValue(object.appVersion)
+        : Long.UZERO;
+    message.lastBlockHeight =
+      object.lastBlockHeight !== undefined && object.lastBlockHeight !== null
+        ? Long.fromValue(object.lastBlockHeight)
+        : Long.ZERO;
+    message.lastBlockAppHash = object.lastBlockAppHash ?? new Uint8Array(0);
     return message;
   },
 };
 
-const baseResponseSetOption: object = { code: 0, log: "", info: "" };
+function createBaseResponseSetOption(): ResponseSetOption {
+  return { code: 0, log: "", info: "" };
+}
 
 export const ResponseSetOption = {
   encode(message: ResponseSetOption, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -2624,79 +2661,74 @@ export const ResponseSetOption = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseSetOption {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseSetOption } as ResponseSetOption;
+    const message = createBaseResponseSetOption();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.code = reader.uint32();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.log = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.info = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseSetOption {
-    const message = { ...baseResponseSetOption } as ResponseSetOption;
-    if (object.code !== undefined && object.code !== null) {
-      message.code = Number(object.code);
-    } else {
-      message.code = 0;
-    }
-    if (object.log !== undefined && object.log !== null) {
-      message.log = String(object.log);
-    } else {
-      message.log = "";
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = String(object.info);
-    } else {
-      message.info = "";
-    }
-    return message;
+    return {
+      code: isSet(object.code) ? Number(object.code) : 0,
+      log: isSet(object.log) ? String(object.log) : "",
+      info: isSet(object.info) ? String(object.info) : "",
+    };
   },
 
   toJSON(message: ResponseSetOption): unknown {
     const obj: any = {};
-    message.code !== undefined && (obj.code = message.code);
+    message.code !== undefined && (obj.code = Math.round(message.code));
     message.log !== undefined && (obj.log = message.log);
     message.info !== undefined && (obj.info = message.info);
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseSetOption>): ResponseSetOption {
-    const message = { ...baseResponseSetOption } as ResponseSetOption;
-    if (object.code !== undefined && object.code !== null) {
-      message.code = object.code;
-    } else {
-      message.code = 0;
-    }
-    if (object.log !== undefined && object.log !== null) {
-      message.log = object.log;
-    } else {
-      message.log = "";
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = object.info;
-    } else {
-      message.info = "";
-    }
+  create<I extends Exact<DeepPartial<ResponseSetOption>, I>>(base?: I): ResponseSetOption {
+    return ResponseSetOption.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseSetOption>, I>>(object: I): ResponseSetOption {
+    const message = createBaseResponseSetOption();
+    message.code = object.code ?? 0;
+    message.log = object.log ?? "";
+    message.info = object.info ?? "";
     return message;
   },
 };
 
-const baseResponseInitChain: object = {};
+function createBaseResponseInitChain(): ResponseInitChain {
+  return { consensusParams: undefined, validators: [], appHash: new Uint8Array(0) };
+}
 
 export const ResponseInitChain = {
   encode(message: ResponseInitChain, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -2713,49 +2745,52 @@ export const ResponseInitChain = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseInitChain {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseInitChain } as ResponseInitChain;
-    message.validators = [];
-    message.appHash = new Uint8Array();
+    const message = createBaseResponseInitChain();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.consensusParams = ConsensusParams.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.validators.push(ValidatorUpdate.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.appHash = reader.bytes();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseInitChain {
-    const message = { ...baseResponseInitChain } as ResponseInitChain;
-    message.validators = [];
-    message.appHash = new Uint8Array();
-    if (object.consensusParams !== undefined && object.consensusParams !== null) {
-      message.consensusParams = ConsensusParams.fromJSON(object.consensusParams);
-    } else {
-      message.consensusParams = undefined;
-    }
-    if (object.validators !== undefined && object.validators !== null) {
-      for (const e of object.validators) {
-        message.validators.push(ValidatorUpdate.fromJSON(e));
-      }
-    }
-    if (object.appHash !== undefined && object.appHash !== null) {
-      message.appHash = bytesFromBase64(object.appHash);
-    }
-    return message;
+    return {
+      consensusParams: isSet(object.consensusParams)
+        ? ConsensusParams.fromJSON(object.consensusParams)
+        : undefined,
+      validators: Array.isArray(object?.validators)
+        ? object.validators.map((e: any) => ValidatorUpdate.fromJSON(e))
+        : [],
+      appHash: isSet(object.appHash) ? bytesFromBase64(object.appHash) : new Uint8Array(0),
+    };
   },
 
   toJSON(message: ResponseInitChain): unknown {
@@ -2770,40 +2805,39 @@ export const ResponseInitChain = {
       obj.validators = [];
     }
     message.appHash !== undefined &&
-      (obj.appHash = base64FromBytes(message.appHash !== undefined ? message.appHash : new Uint8Array()));
+      (obj.appHash = base64FromBytes(message.appHash !== undefined ? message.appHash : new Uint8Array(0)));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseInitChain>): ResponseInitChain {
-    const message = { ...baseResponseInitChain } as ResponseInitChain;
-    message.validators = [];
-    if (object.consensusParams !== undefined && object.consensusParams !== null) {
-      message.consensusParams = ConsensusParams.fromPartial(object.consensusParams);
-    } else {
-      message.consensusParams = undefined;
-    }
-    if (object.validators !== undefined && object.validators !== null) {
-      for (const e of object.validators) {
-        message.validators.push(ValidatorUpdate.fromPartial(e));
-      }
-    }
-    if (object.appHash !== undefined && object.appHash !== null) {
-      message.appHash = object.appHash;
-    } else {
-      message.appHash = new Uint8Array();
-    }
+  create<I extends Exact<DeepPartial<ResponseInitChain>, I>>(base?: I): ResponseInitChain {
+    return ResponseInitChain.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseInitChain>, I>>(object: I): ResponseInitChain {
+    const message = createBaseResponseInitChain();
+    message.consensusParams =
+      object.consensusParams !== undefined && object.consensusParams !== null
+        ? ConsensusParams.fromPartial(object.consensusParams)
+        : undefined;
+    message.validators = object.validators?.map((e) => ValidatorUpdate.fromPartial(e)) || [];
+    message.appHash = object.appHash ?? new Uint8Array(0);
     return message;
   },
 };
 
-const baseResponseQuery: object = {
-  code: 0,
-  log: "",
-  info: "",
-  index: Long.ZERO,
-  height: Long.ZERO,
-  codespace: "",
-};
+function createBaseResponseQuery(): ResponseQuery {
+  return {
+    code: 0,
+    log: "",
+    info: "",
+    index: Long.ZERO,
+    key: new Uint8Array(0),
+    value: new Uint8Array(0),
+    proofOps: undefined,
+    height: Long.ZERO,
+    codespace: "",
+  };
+}
 
 export const ResponseQuery = {
   encode(message: ResponseQuery, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -2838,107 +2872,108 @@ export const ResponseQuery = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseQuery {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseQuery } as ResponseQuery;
-    message.key = new Uint8Array();
-    message.value = new Uint8Array();
+    const message = createBaseResponseQuery();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.code = reader.uint32();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.log = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.info = reader.string();
-          break;
+          continue;
         case 5:
+          if (tag !== 40) {
+            break;
+          }
+
           message.index = reader.int64() as Long;
-          break;
+          continue;
         case 6:
+          if (tag !== 50) {
+            break;
+          }
+
           message.key = reader.bytes();
-          break;
+          continue;
         case 7:
+          if (tag !== 58) {
+            break;
+          }
+
           message.value = reader.bytes();
-          break;
+          continue;
         case 8:
+          if (tag !== 66) {
+            break;
+          }
+
           message.proofOps = ProofOps.decode(reader, reader.uint32());
-          break;
+          continue;
         case 9:
+          if (tag !== 72) {
+            break;
+          }
+
           message.height = reader.int64() as Long;
-          break;
+          continue;
         case 10:
+          if (tag !== 82) {
+            break;
+          }
+
           message.codespace = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseQuery {
-    const message = { ...baseResponseQuery } as ResponseQuery;
-    message.key = new Uint8Array();
-    message.value = new Uint8Array();
-    if (object.code !== undefined && object.code !== null) {
-      message.code = Number(object.code);
-    } else {
-      message.code = 0;
-    }
-    if (object.log !== undefined && object.log !== null) {
-      message.log = String(object.log);
-    } else {
-      message.log = "";
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = String(object.info);
-    } else {
-      message.info = "";
-    }
-    if (object.index !== undefined && object.index !== null) {
-      message.index = Long.fromString(object.index);
-    } else {
-      message.index = Long.ZERO;
-    }
-    if (object.key !== undefined && object.key !== null) {
-      message.key = bytesFromBase64(object.key);
-    }
-    if (object.value !== undefined && object.value !== null) {
-      message.value = bytesFromBase64(object.value);
-    }
-    if (object.proofOps !== undefined && object.proofOps !== null) {
-      message.proofOps = ProofOps.fromJSON(object.proofOps);
-    } else {
-      message.proofOps = undefined;
-    }
-    if (object.height !== undefined && object.height !== null) {
-      message.height = Long.fromString(object.height);
-    } else {
-      message.height = Long.ZERO;
-    }
-    if (object.codespace !== undefined && object.codespace !== null) {
-      message.codespace = String(object.codespace);
-    } else {
-      message.codespace = "";
-    }
-    return message;
+    return {
+      code: isSet(object.code) ? Number(object.code) : 0,
+      log: isSet(object.log) ? String(object.log) : "",
+      info: isSet(object.info) ? String(object.info) : "",
+      index: isSet(object.index) ? Long.fromValue(object.index) : Long.ZERO,
+      key: isSet(object.key) ? bytesFromBase64(object.key) : new Uint8Array(0),
+      value: isSet(object.value) ? bytesFromBase64(object.value) : new Uint8Array(0),
+      proofOps: isSet(object.proofOps) ? ProofOps.fromJSON(object.proofOps) : undefined,
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
+      codespace: isSet(object.codespace) ? String(object.codespace) : "",
+    };
   },
 
   toJSON(message: ResponseQuery): unknown {
     const obj: any = {};
-    message.code !== undefined && (obj.code = message.code);
+    message.code !== undefined && (obj.code = Math.round(message.code));
     message.log !== undefined && (obj.log = message.log);
     message.info !== undefined && (obj.info = message.info);
     message.index !== undefined && (obj.index = (message.index || Long.ZERO).toString());
     message.key !== undefined &&
-      (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()));
+      (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array(0)));
     message.value !== undefined &&
-      (obj.value = base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
+      (obj.value = base64FromBytes(message.value !== undefined ? message.value : new Uint8Array(0)));
     message.proofOps !== undefined &&
       (obj.proofOps = message.proofOps ? ProofOps.toJSON(message.proofOps) : undefined);
     message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
@@ -2946,58 +2981,33 @@ export const ResponseQuery = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseQuery>): ResponseQuery {
-    const message = { ...baseResponseQuery } as ResponseQuery;
-    if (object.code !== undefined && object.code !== null) {
-      message.code = object.code;
-    } else {
-      message.code = 0;
-    }
-    if (object.log !== undefined && object.log !== null) {
-      message.log = object.log;
-    } else {
-      message.log = "";
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = object.info;
-    } else {
-      message.info = "";
-    }
-    if (object.index !== undefined && object.index !== null) {
-      message.index = object.index as Long;
-    } else {
-      message.index = Long.ZERO;
-    }
-    if (object.key !== undefined && object.key !== null) {
-      message.key = object.key;
-    } else {
-      message.key = new Uint8Array();
-    }
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = new Uint8Array();
-    }
-    if (object.proofOps !== undefined && object.proofOps !== null) {
-      message.proofOps = ProofOps.fromPartial(object.proofOps);
-    } else {
-      message.proofOps = undefined;
-    }
-    if (object.height !== undefined && object.height !== null) {
-      message.height = object.height as Long;
-    } else {
-      message.height = Long.ZERO;
-    }
-    if (object.codespace !== undefined && object.codespace !== null) {
-      message.codespace = object.codespace;
-    } else {
-      message.codespace = "";
-    }
+  create<I extends Exact<DeepPartial<ResponseQuery>, I>>(base?: I): ResponseQuery {
+    return ResponseQuery.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseQuery>, I>>(object: I): ResponseQuery {
+    const message = createBaseResponseQuery();
+    message.code = object.code ?? 0;
+    message.log = object.log ?? "";
+    message.info = object.info ?? "";
+    message.index =
+      object.index !== undefined && object.index !== null ? Long.fromValue(object.index) : Long.ZERO;
+    message.key = object.key ?? new Uint8Array(0);
+    message.value = object.value ?? new Uint8Array(0);
+    message.proofOps =
+      object.proofOps !== undefined && object.proofOps !== null
+        ? ProofOps.fromPartial(object.proofOps)
+        : undefined;
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
+    message.codespace = object.codespace ?? "";
     return message;
   },
 };
 
-const baseResponseBeginBlock: object = {};
+function createBaseResponseBeginBlock(): ResponseBeginBlock {
+  return { events: [] };
+}
 
 export const ResponseBeginBlock = {
   encode(message: ResponseBeginBlock, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -3008,33 +3018,30 @@ export const ResponseBeginBlock = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseBeginBlock {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseBeginBlock } as ResponseBeginBlock;
-    message.events = [];
+    const message = createBaseResponseBeginBlock();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.events.push(Event.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseBeginBlock {
-    const message = { ...baseResponseBeginBlock } as ResponseBeginBlock;
-    message.events = [];
-    if (object.events !== undefined && object.events !== null) {
-      for (const e of object.events) {
-        message.events.push(Event.fromJSON(e));
-      }
-    }
-    return message;
+    return { events: Array.isArray(object?.events) ? object.events.map((e: any) => Event.fromJSON(e)) : [] };
   },
 
   toJSON(message: ResponseBeginBlock): unknown {
@@ -3047,26 +3054,29 @@ export const ResponseBeginBlock = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseBeginBlock>): ResponseBeginBlock {
-    const message = { ...baseResponseBeginBlock } as ResponseBeginBlock;
-    message.events = [];
-    if (object.events !== undefined && object.events !== null) {
-      for (const e of object.events) {
-        message.events.push(Event.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<ResponseBeginBlock>, I>>(base?: I): ResponseBeginBlock {
+    return ResponseBeginBlock.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseBeginBlock>, I>>(object: I): ResponseBeginBlock {
+    const message = createBaseResponseBeginBlock();
+    message.events = object.events?.map((e) => Event.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseResponseCheckTx: object = {
-  code: 0,
-  log: "",
-  info: "",
-  gasWanted: Long.ZERO,
-  gasUsed: Long.ZERO,
-  codespace: "",
-};
+function createBaseResponseCheckTx(): ResponseCheckTx {
+  return {
+    code: 0,
+    data: new Uint8Array(0),
+    log: "",
+    info: "",
+    gasWanted: Long.ZERO,
+    gasUsed: Long.ZERO,
+    events: [],
+    codespace: "",
+  };
+}
 
 export const ResponseCheckTx = {
   encode(message: ResponseCheckTx, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -3098,100 +3108,99 @@ export const ResponseCheckTx = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseCheckTx {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseCheckTx } as ResponseCheckTx;
-    message.events = [];
-    message.data = new Uint8Array();
+    const message = createBaseResponseCheckTx();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.code = reader.uint32();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.data = reader.bytes();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.log = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.info = reader.string();
-          break;
+          continue;
         case 5:
+          if (tag !== 40) {
+            break;
+          }
+
           message.gasWanted = reader.int64() as Long;
-          break;
+          continue;
         case 6:
+          if (tag !== 48) {
+            break;
+          }
+
           message.gasUsed = reader.int64() as Long;
-          break;
+          continue;
         case 7:
+          if (tag !== 58) {
+            break;
+          }
+
           message.events.push(Event.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 8:
+          if (tag !== 66) {
+            break;
+          }
+
           message.codespace = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseCheckTx {
-    const message = { ...baseResponseCheckTx } as ResponseCheckTx;
-    message.events = [];
-    message.data = new Uint8Array();
-    if (object.code !== undefined && object.code !== null) {
-      message.code = Number(object.code);
-    } else {
-      message.code = 0;
-    }
-    if (object.data !== undefined && object.data !== null) {
-      message.data = bytesFromBase64(object.data);
-    }
-    if (object.log !== undefined && object.log !== null) {
-      message.log = String(object.log);
-    } else {
-      message.log = "";
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = String(object.info);
-    } else {
-      message.info = "";
-    }
-    if (object.gasWanted !== undefined && object.gasWanted !== null) {
-      message.gasWanted = Long.fromString(object.gasWanted);
-    } else {
-      message.gasWanted = Long.ZERO;
-    }
-    if (object.gasUsed !== undefined && object.gasUsed !== null) {
-      message.gasUsed = Long.fromString(object.gasUsed);
-    } else {
-      message.gasUsed = Long.ZERO;
-    }
-    if (object.events !== undefined && object.events !== null) {
-      for (const e of object.events) {
-        message.events.push(Event.fromJSON(e));
-      }
-    }
-    if (object.codespace !== undefined && object.codespace !== null) {
-      message.codespace = String(object.codespace);
-    } else {
-      message.codespace = "";
-    }
-    return message;
+    return {
+      code: isSet(object.code) ? Number(object.code) : 0,
+      data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array(0),
+      log: isSet(object.log) ? String(object.log) : "",
+      info: isSet(object.info) ? String(object.info) : "",
+      gasWanted: isSet(object.gas_wanted) ? Long.fromValue(object.gas_wanted) : Long.ZERO,
+      gasUsed: isSet(object.gas_used) ? Long.fromValue(object.gas_used) : Long.ZERO,
+      events: Array.isArray(object?.events) ? object.events.map((e: any) => Event.fromJSON(e)) : [],
+      codespace: isSet(object.codespace) ? String(object.codespace) : "",
+    };
   },
 
   toJSON(message: ResponseCheckTx): unknown {
     const obj: any = {};
-    message.code !== undefined && (obj.code = message.code);
+    message.code !== undefined && (obj.code = Math.round(message.code));
     message.data !== undefined &&
-      (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
+      (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array(0)));
     message.log !== undefined && (obj.log = message.log);
     message.info !== undefined && (obj.info = message.info);
-    message.gasWanted !== undefined && (obj.gasWanted = (message.gasWanted || Long.ZERO).toString());
-    message.gasUsed !== undefined && (obj.gasUsed = (message.gasUsed || Long.ZERO).toString());
+    message.gasWanted !== undefined && (obj.gas_wanted = (message.gasWanted || Long.ZERO).toString());
+    message.gasUsed !== undefined && (obj.gas_used = (message.gasUsed || Long.ZERO).toString());
     if (message.events) {
       obj.events = message.events.map((e) => (e ? Event.toJSON(e) : undefined));
     } else {
@@ -3201,61 +3210,40 @@ export const ResponseCheckTx = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseCheckTx>): ResponseCheckTx {
-    const message = { ...baseResponseCheckTx } as ResponseCheckTx;
-    message.events = [];
-    if (object.code !== undefined && object.code !== null) {
-      message.code = object.code;
-    } else {
-      message.code = 0;
-    }
-    if (object.data !== undefined && object.data !== null) {
-      message.data = object.data;
-    } else {
-      message.data = new Uint8Array();
-    }
-    if (object.log !== undefined && object.log !== null) {
-      message.log = object.log;
-    } else {
-      message.log = "";
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = object.info;
-    } else {
-      message.info = "";
-    }
-    if (object.gasWanted !== undefined && object.gasWanted !== null) {
-      message.gasWanted = object.gasWanted as Long;
-    } else {
-      message.gasWanted = Long.ZERO;
-    }
-    if (object.gasUsed !== undefined && object.gasUsed !== null) {
-      message.gasUsed = object.gasUsed as Long;
-    } else {
-      message.gasUsed = Long.ZERO;
-    }
-    if (object.events !== undefined && object.events !== null) {
-      for (const e of object.events) {
-        message.events.push(Event.fromPartial(e));
-      }
-    }
-    if (object.codespace !== undefined && object.codespace !== null) {
-      message.codespace = object.codespace;
-    } else {
-      message.codespace = "";
-    }
+  create<I extends Exact<DeepPartial<ResponseCheckTx>, I>>(base?: I): ResponseCheckTx {
+    return ResponseCheckTx.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseCheckTx>, I>>(object: I): ResponseCheckTx {
+    const message = createBaseResponseCheckTx();
+    message.code = object.code ?? 0;
+    message.data = object.data ?? new Uint8Array(0);
+    message.log = object.log ?? "";
+    message.info = object.info ?? "";
+    message.gasWanted =
+      object.gasWanted !== undefined && object.gasWanted !== null
+        ? Long.fromValue(object.gasWanted)
+        : Long.ZERO;
+    message.gasUsed =
+      object.gasUsed !== undefined && object.gasUsed !== null ? Long.fromValue(object.gasUsed) : Long.ZERO;
+    message.events = object.events?.map((e) => Event.fromPartial(e)) || [];
+    message.codespace = object.codespace ?? "";
     return message;
   },
 };
 
-const baseResponseDeliverTx: object = {
-  code: 0,
-  log: "",
-  info: "",
-  gasWanted: Long.ZERO,
-  gasUsed: Long.ZERO,
-  codespace: "",
-};
+function createBaseResponseDeliverTx(): ResponseDeliverTx {
+  return {
+    code: 0,
+    data: new Uint8Array(0),
+    log: "",
+    info: "",
+    gasWanted: Long.ZERO,
+    gasUsed: Long.ZERO,
+    events: [],
+    codespace: "",
+  };
+}
 
 export const ResponseDeliverTx = {
   encode(message: ResponseDeliverTx, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -3287,100 +3275,99 @@ export const ResponseDeliverTx = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseDeliverTx {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseDeliverTx } as ResponseDeliverTx;
-    message.events = [];
-    message.data = new Uint8Array();
+    const message = createBaseResponseDeliverTx();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.code = reader.uint32();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.data = reader.bytes();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.log = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.info = reader.string();
-          break;
+          continue;
         case 5:
+          if (tag !== 40) {
+            break;
+          }
+
           message.gasWanted = reader.int64() as Long;
-          break;
+          continue;
         case 6:
+          if (tag !== 48) {
+            break;
+          }
+
           message.gasUsed = reader.int64() as Long;
-          break;
+          continue;
         case 7:
+          if (tag !== 58) {
+            break;
+          }
+
           message.events.push(Event.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 8:
+          if (tag !== 66) {
+            break;
+          }
+
           message.codespace = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseDeliverTx {
-    const message = { ...baseResponseDeliverTx } as ResponseDeliverTx;
-    message.events = [];
-    message.data = new Uint8Array();
-    if (object.code !== undefined && object.code !== null) {
-      message.code = Number(object.code);
-    } else {
-      message.code = 0;
-    }
-    if (object.data !== undefined && object.data !== null) {
-      message.data = bytesFromBase64(object.data);
-    }
-    if (object.log !== undefined && object.log !== null) {
-      message.log = String(object.log);
-    } else {
-      message.log = "";
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = String(object.info);
-    } else {
-      message.info = "";
-    }
-    if (object.gasWanted !== undefined && object.gasWanted !== null) {
-      message.gasWanted = Long.fromString(object.gasWanted);
-    } else {
-      message.gasWanted = Long.ZERO;
-    }
-    if (object.gasUsed !== undefined && object.gasUsed !== null) {
-      message.gasUsed = Long.fromString(object.gasUsed);
-    } else {
-      message.gasUsed = Long.ZERO;
-    }
-    if (object.events !== undefined && object.events !== null) {
-      for (const e of object.events) {
-        message.events.push(Event.fromJSON(e));
-      }
-    }
-    if (object.codespace !== undefined && object.codespace !== null) {
-      message.codespace = String(object.codespace);
-    } else {
-      message.codespace = "";
-    }
-    return message;
+    return {
+      code: isSet(object.code) ? Number(object.code) : 0,
+      data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array(0),
+      log: isSet(object.log) ? String(object.log) : "",
+      info: isSet(object.info) ? String(object.info) : "",
+      gasWanted: isSet(object.gas_wanted) ? Long.fromValue(object.gas_wanted) : Long.ZERO,
+      gasUsed: isSet(object.gas_used) ? Long.fromValue(object.gas_used) : Long.ZERO,
+      events: Array.isArray(object?.events) ? object.events.map((e: any) => Event.fromJSON(e)) : [],
+      codespace: isSet(object.codespace) ? String(object.codespace) : "",
+    };
   },
 
   toJSON(message: ResponseDeliverTx): unknown {
     const obj: any = {};
-    message.code !== undefined && (obj.code = message.code);
+    message.code !== undefined && (obj.code = Math.round(message.code));
     message.data !== undefined &&
-      (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
+      (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array(0)));
     message.log !== undefined && (obj.log = message.log);
     message.info !== undefined && (obj.info = message.info);
-    message.gasWanted !== undefined && (obj.gasWanted = (message.gasWanted || Long.ZERO).toString());
-    message.gasUsed !== undefined && (obj.gasUsed = (message.gasUsed || Long.ZERO).toString());
+    message.gasWanted !== undefined && (obj.gas_wanted = (message.gasWanted || Long.ZERO).toString());
+    message.gasUsed !== undefined && (obj.gas_used = (message.gasUsed || Long.ZERO).toString());
     if (message.events) {
       obj.events = message.events.map((e) => (e ? Event.toJSON(e) : undefined));
     } else {
@@ -3390,54 +3377,31 @@ export const ResponseDeliverTx = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseDeliverTx>): ResponseDeliverTx {
-    const message = { ...baseResponseDeliverTx } as ResponseDeliverTx;
-    message.events = [];
-    if (object.code !== undefined && object.code !== null) {
-      message.code = object.code;
-    } else {
-      message.code = 0;
-    }
-    if (object.data !== undefined && object.data !== null) {
-      message.data = object.data;
-    } else {
-      message.data = new Uint8Array();
-    }
-    if (object.log !== undefined && object.log !== null) {
-      message.log = object.log;
-    } else {
-      message.log = "";
-    }
-    if (object.info !== undefined && object.info !== null) {
-      message.info = object.info;
-    } else {
-      message.info = "";
-    }
-    if (object.gasWanted !== undefined && object.gasWanted !== null) {
-      message.gasWanted = object.gasWanted as Long;
-    } else {
-      message.gasWanted = Long.ZERO;
-    }
-    if (object.gasUsed !== undefined && object.gasUsed !== null) {
-      message.gasUsed = object.gasUsed as Long;
-    } else {
-      message.gasUsed = Long.ZERO;
-    }
-    if (object.events !== undefined && object.events !== null) {
-      for (const e of object.events) {
-        message.events.push(Event.fromPartial(e));
-      }
-    }
-    if (object.codespace !== undefined && object.codespace !== null) {
-      message.codespace = object.codespace;
-    } else {
-      message.codespace = "";
-    }
+  create<I extends Exact<DeepPartial<ResponseDeliverTx>, I>>(base?: I): ResponseDeliverTx {
+    return ResponseDeliverTx.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseDeliverTx>, I>>(object: I): ResponseDeliverTx {
+    const message = createBaseResponseDeliverTx();
+    message.code = object.code ?? 0;
+    message.data = object.data ?? new Uint8Array(0);
+    message.log = object.log ?? "";
+    message.info = object.info ?? "";
+    message.gasWanted =
+      object.gasWanted !== undefined && object.gasWanted !== null
+        ? Long.fromValue(object.gasWanted)
+        : Long.ZERO;
+    message.gasUsed =
+      object.gasUsed !== undefined && object.gasUsed !== null ? Long.fromValue(object.gasUsed) : Long.ZERO;
+    message.events = object.events?.map((e) => Event.fromPartial(e)) || [];
+    message.codespace = object.codespace ?? "";
     return message;
   },
 };
 
-const baseResponseEndBlock: object = {};
+function createBaseResponseEndBlock(): ResponseEndBlock {
+  return { validatorUpdates: [], consensusParamUpdates: undefined, events: [] };
+}
 
 export const ResponseEndBlock = {
   encode(message: ResponseEndBlock, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -3454,51 +3418,52 @@ export const ResponseEndBlock = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseEndBlock {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseEndBlock } as ResponseEndBlock;
-    message.validatorUpdates = [];
-    message.events = [];
+    const message = createBaseResponseEndBlock();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.validatorUpdates.push(ValidatorUpdate.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.consensusParamUpdates = ConsensusParams.decode(reader, reader.uint32());
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.events.push(Event.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseEndBlock {
-    const message = { ...baseResponseEndBlock } as ResponseEndBlock;
-    message.validatorUpdates = [];
-    message.events = [];
-    if (object.validatorUpdates !== undefined && object.validatorUpdates !== null) {
-      for (const e of object.validatorUpdates) {
-        message.validatorUpdates.push(ValidatorUpdate.fromJSON(e));
-      }
-    }
-    if (object.consensusParamUpdates !== undefined && object.consensusParamUpdates !== null) {
-      message.consensusParamUpdates = ConsensusParams.fromJSON(object.consensusParamUpdates);
-    } else {
-      message.consensusParamUpdates = undefined;
-    }
-    if (object.events !== undefined && object.events !== null) {
-      for (const e of object.events) {
-        message.events.push(Event.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      validatorUpdates: Array.isArray(object?.validatorUpdates)
+        ? object.validatorUpdates.map((e: any) => ValidatorUpdate.fromJSON(e))
+        : [],
+      consensusParamUpdates: isSet(object.consensusParamUpdates)
+        ? ConsensusParams.fromJSON(object.consensusParamUpdates)
+        : undefined,
+      events: Array.isArray(object?.events) ? object.events.map((e: any) => Event.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: ResponseEndBlock): unknown {
@@ -3520,30 +3485,25 @@ export const ResponseEndBlock = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseEndBlock>): ResponseEndBlock {
-    const message = { ...baseResponseEndBlock } as ResponseEndBlock;
-    message.validatorUpdates = [];
-    message.events = [];
-    if (object.validatorUpdates !== undefined && object.validatorUpdates !== null) {
-      for (const e of object.validatorUpdates) {
-        message.validatorUpdates.push(ValidatorUpdate.fromPartial(e));
-      }
-    }
-    if (object.consensusParamUpdates !== undefined && object.consensusParamUpdates !== null) {
-      message.consensusParamUpdates = ConsensusParams.fromPartial(object.consensusParamUpdates);
-    } else {
-      message.consensusParamUpdates = undefined;
-    }
-    if (object.events !== undefined && object.events !== null) {
-      for (const e of object.events) {
-        message.events.push(Event.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<ResponseEndBlock>, I>>(base?: I): ResponseEndBlock {
+    return ResponseEndBlock.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseEndBlock>, I>>(object: I): ResponseEndBlock {
+    const message = createBaseResponseEndBlock();
+    message.validatorUpdates = object.validatorUpdates?.map((e) => ValidatorUpdate.fromPartial(e)) || [];
+    message.consensusParamUpdates =
+      object.consensusParamUpdates !== undefined && object.consensusParamUpdates !== null
+        ? ConsensusParams.fromPartial(object.consensusParamUpdates)
+        : undefined;
+    message.events = object.events?.map((e) => Event.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseResponseCommit: object = { retainHeight: Long.ZERO };
+function createBaseResponseCommit(): ResponseCommit {
+  return { data: new Uint8Array(0), retainHeight: Long.ZERO };
+}
 
 export const ResponseCommit = {
   encode(message: ResponseCommit, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -3557,66 +3517,68 @@ export const ResponseCommit = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseCommit {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseCommit } as ResponseCommit;
-    message.data = new Uint8Array();
+    const message = createBaseResponseCommit();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.data = reader.bytes();
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.retainHeight = reader.int64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseCommit {
-    const message = { ...baseResponseCommit } as ResponseCommit;
-    message.data = new Uint8Array();
-    if (object.data !== undefined && object.data !== null) {
-      message.data = bytesFromBase64(object.data);
-    }
-    if (object.retainHeight !== undefined && object.retainHeight !== null) {
-      message.retainHeight = Long.fromString(object.retainHeight);
-    } else {
-      message.retainHeight = Long.ZERO;
-    }
-    return message;
+    return {
+      data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array(0),
+      retainHeight: isSet(object.retainHeight) ? Long.fromValue(object.retainHeight) : Long.ZERO,
+    };
   },
 
   toJSON(message: ResponseCommit): unknown {
     const obj: any = {};
     message.data !== undefined &&
-      (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
+      (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array(0)));
     message.retainHeight !== undefined && (obj.retainHeight = (message.retainHeight || Long.ZERO).toString());
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseCommit>): ResponseCommit {
-    const message = { ...baseResponseCommit } as ResponseCommit;
-    if (object.data !== undefined && object.data !== null) {
-      message.data = object.data;
-    } else {
-      message.data = new Uint8Array();
-    }
-    if (object.retainHeight !== undefined && object.retainHeight !== null) {
-      message.retainHeight = object.retainHeight as Long;
-    } else {
-      message.retainHeight = Long.ZERO;
-    }
+  create<I extends Exact<DeepPartial<ResponseCommit>, I>>(base?: I): ResponseCommit {
+    return ResponseCommit.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseCommit>, I>>(object: I): ResponseCommit {
+    const message = createBaseResponseCommit();
+    message.data = object.data ?? new Uint8Array(0);
+    message.retainHeight =
+      object.retainHeight !== undefined && object.retainHeight !== null
+        ? Long.fromValue(object.retainHeight)
+        : Long.ZERO;
     return message;
   },
 };
 
-const baseResponseListSnapshots: object = {};
+function createBaseResponseListSnapshots(): ResponseListSnapshots {
+  return { snapshots: [] };
+}
 
 export const ResponseListSnapshots = {
   encode(message: ResponseListSnapshots, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -3627,33 +3589,34 @@ export const ResponseListSnapshots = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseListSnapshots {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseListSnapshots } as ResponseListSnapshots;
-    message.snapshots = [];
+    const message = createBaseResponseListSnapshots();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.snapshots.push(Snapshot.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseListSnapshots {
-    const message = { ...baseResponseListSnapshots } as ResponseListSnapshots;
-    message.snapshots = [];
-    if (object.snapshots !== undefined && object.snapshots !== null) {
-      for (const e of object.snapshots) {
-        message.snapshots.push(Snapshot.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      snapshots: Array.isArray(object?.snapshots)
+        ? object.snapshots.map((e: any) => Snapshot.fromJSON(e))
+        : [],
+    };
   },
 
   toJSON(message: ResponseListSnapshots): unknown {
@@ -3666,19 +3629,20 @@ export const ResponseListSnapshots = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseListSnapshots>): ResponseListSnapshots {
-    const message = { ...baseResponseListSnapshots } as ResponseListSnapshots;
-    message.snapshots = [];
-    if (object.snapshots !== undefined && object.snapshots !== null) {
-      for (const e of object.snapshots) {
-        message.snapshots.push(Snapshot.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<ResponseListSnapshots>, I>>(base?: I): ResponseListSnapshots {
+    return ResponseListSnapshots.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseListSnapshots>, I>>(object: I): ResponseListSnapshots {
+    const message = createBaseResponseListSnapshots();
+    message.snapshots = object.snapshots?.map((e) => Snapshot.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseResponseOfferSnapshot: object = { result: 0 };
+function createBaseResponseOfferSnapshot(): ResponseOfferSnapshot {
+  return { result: 0 };
+}
 
 export const ResponseOfferSnapshot = {
   encode(message: ResponseOfferSnapshot, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -3689,31 +3653,30 @@ export const ResponseOfferSnapshot = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseOfferSnapshot {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseOfferSnapshot } as ResponseOfferSnapshot;
+    const message = createBaseResponseOfferSnapshot();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.result = reader.int32() as any;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseOfferSnapshot {
-    const message = { ...baseResponseOfferSnapshot } as ResponseOfferSnapshot;
-    if (object.result !== undefined && object.result !== null) {
-      message.result = responseOfferSnapshot_ResultFromJSON(object.result);
-    } else {
-      message.result = 0;
-    }
-    return message;
+    return { result: isSet(object.result) ? responseOfferSnapshot_ResultFromJSON(object.result) : 0 };
   },
 
   toJSON(message: ResponseOfferSnapshot): unknown {
@@ -3722,18 +3685,20 @@ export const ResponseOfferSnapshot = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseOfferSnapshot>): ResponseOfferSnapshot {
-    const message = { ...baseResponseOfferSnapshot } as ResponseOfferSnapshot;
-    if (object.result !== undefined && object.result !== null) {
-      message.result = object.result;
-    } else {
-      message.result = 0;
-    }
+  create<I extends Exact<DeepPartial<ResponseOfferSnapshot>, I>>(base?: I): ResponseOfferSnapshot {
+    return ResponseOfferSnapshot.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseOfferSnapshot>, I>>(object: I): ResponseOfferSnapshot {
+    const message = createBaseResponseOfferSnapshot();
+    message.result = object.result ?? 0;
     return message;
   },
 };
 
-const baseResponseLoadSnapshotChunk: object = {};
+function createBaseResponseLoadSnapshotChunk(): ResponseLoadSnapshotChunk {
+  return { chunk: new Uint8Array(0) };
+}
 
 export const ResponseLoadSnapshotChunk = {
   encode(message: ResponseLoadSnapshotChunk, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -3744,52 +3709,55 @@ export const ResponseLoadSnapshotChunk = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseLoadSnapshotChunk {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseLoadSnapshotChunk } as ResponseLoadSnapshotChunk;
-    message.chunk = new Uint8Array();
+    const message = createBaseResponseLoadSnapshotChunk();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.chunk = reader.bytes();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseLoadSnapshotChunk {
-    const message = { ...baseResponseLoadSnapshotChunk } as ResponseLoadSnapshotChunk;
-    message.chunk = new Uint8Array();
-    if (object.chunk !== undefined && object.chunk !== null) {
-      message.chunk = bytesFromBase64(object.chunk);
-    }
-    return message;
+    return { chunk: isSet(object.chunk) ? bytesFromBase64(object.chunk) : new Uint8Array(0) };
   },
 
   toJSON(message: ResponseLoadSnapshotChunk): unknown {
     const obj: any = {};
     message.chunk !== undefined &&
-      (obj.chunk = base64FromBytes(message.chunk !== undefined ? message.chunk : new Uint8Array()));
+      (obj.chunk = base64FromBytes(message.chunk !== undefined ? message.chunk : new Uint8Array(0)));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseLoadSnapshotChunk>): ResponseLoadSnapshotChunk {
-    const message = { ...baseResponseLoadSnapshotChunk } as ResponseLoadSnapshotChunk;
-    if (object.chunk !== undefined && object.chunk !== null) {
-      message.chunk = object.chunk;
-    } else {
-      message.chunk = new Uint8Array();
-    }
+  create<I extends Exact<DeepPartial<ResponseLoadSnapshotChunk>, I>>(base?: I): ResponseLoadSnapshotChunk {
+    return ResponseLoadSnapshotChunk.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseLoadSnapshotChunk>, I>>(
+    object: I,
+  ): ResponseLoadSnapshotChunk {
+    const message = createBaseResponseLoadSnapshotChunk();
+    message.chunk = object.chunk ?? new Uint8Array(0);
     return message;
   },
 };
 
-const baseResponseApplySnapshotChunk: object = { result: 0, refetchChunks: 0, rejectSenders: "" };
+function createBaseResponseApplySnapshotChunk(): ResponseApplySnapshotChunk {
+  return { result: 0, refetchChunks: [], rejectSenders: [] };
+}
 
 export const ResponseApplySnapshotChunk = {
   encode(message: ResponseApplySnapshotChunk, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -3808,65 +3776,69 @@ export const ResponseApplySnapshotChunk = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ResponseApplySnapshotChunk {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseResponseApplySnapshotChunk } as ResponseApplySnapshotChunk;
-    message.refetchChunks = [];
-    message.rejectSenders = [];
+    const message = createBaseResponseApplySnapshotChunk();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.result = reader.int32() as any;
-          break;
+          continue;
         case 2:
-          if ((tag & 7) === 2) {
+          if (tag === 16) {
+            message.refetchChunks.push(reader.uint32());
+
+            continue;
+          }
+
+          if (tag === 18) {
             const end2 = reader.uint32() + reader.pos;
             while (reader.pos < end2) {
               message.refetchChunks.push(reader.uint32());
             }
-          } else {
-            message.refetchChunks.push(reader.uint32());
+
+            continue;
           }
+
           break;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.rejectSenders.push(reader.string());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ResponseApplySnapshotChunk {
-    const message = { ...baseResponseApplySnapshotChunk } as ResponseApplySnapshotChunk;
-    message.refetchChunks = [];
-    message.rejectSenders = [];
-    if (object.result !== undefined && object.result !== null) {
-      message.result = responseApplySnapshotChunk_ResultFromJSON(object.result);
-    } else {
-      message.result = 0;
-    }
-    if (object.refetchChunks !== undefined && object.refetchChunks !== null) {
-      for (const e of object.refetchChunks) {
-        message.refetchChunks.push(Number(e));
-      }
-    }
-    if (object.rejectSenders !== undefined && object.rejectSenders !== null) {
-      for (const e of object.rejectSenders) {
-        message.rejectSenders.push(String(e));
-      }
-    }
-    return message;
+    return {
+      result: isSet(object.result) ? responseApplySnapshotChunk_ResultFromJSON(object.result) : 0,
+      refetchChunks: Array.isArray(object?.refetchChunks)
+        ? object.refetchChunks.map((e: any) => Number(e))
+        : [],
+      rejectSenders: Array.isArray(object?.rejectSenders)
+        ? object.rejectSenders.map((e: any) => String(e))
+        : [],
+    };
   },
 
   toJSON(message: ResponseApplySnapshotChunk): unknown {
     const obj: any = {};
     message.result !== undefined && (obj.result = responseApplySnapshotChunk_ResultToJSON(message.result));
     if (message.refetchChunks) {
-      obj.refetchChunks = message.refetchChunks.map((e) => e);
+      obj.refetchChunks = message.refetchChunks.map((e) => Math.round(e));
     } else {
       obj.refetchChunks = [];
     }
@@ -3878,30 +3850,24 @@ export const ResponseApplySnapshotChunk = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ResponseApplySnapshotChunk>): ResponseApplySnapshotChunk {
-    const message = { ...baseResponseApplySnapshotChunk } as ResponseApplySnapshotChunk;
-    message.refetchChunks = [];
-    message.rejectSenders = [];
-    if (object.result !== undefined && object.result !== null) {
-      message.result = object.result;
-    } else {
-      message.result = 0;
-    }
-    if (object.refetchChunks !== undefined && object.refetchChunks !== null) {
-      for (const e of object.refetchChunks) {
-        message.refetchChunks.push(e);
-      }
-    }
-    if (object.rejectSenders !== undefined && object.rejectSenders !== null) {
-      for (const e of object.rejectSenders) {
-        message.rejectSenders.push(e);
-      }
-    }
+  create<I extends Exact<DeepPartial<ResponseApplySnapshotChunk>, I>>(base?: I): ResponseApplySnapshotChunk {
+    return ResponseApplySnapshotChunk.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ResponseApplySnapshotChunk>, I>>(
+    object: I,
+  ): ResponseApplySnapshotChunk {
+    const message = createBaseResponseApplySnapshotChunk();
+    message.result = object.result ?? 0;
+    message.refetchChunks = object.refetchChunks?.map((e) => e) || [];
+    message.rejectSenders = object.rejectSenders?.map((e) => e) || [];
     return message;
   },
 };
 
-const baseConsensusParams: object = {};
+function createBaseConsensusParams(): ConsensusParams {
+  return { block: undefined, evidence: undefined, validator: undefined, version: undefined };
+}
 
 export const ConsensusParams = {
   encode(message: ConsensusParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -3921,55 +3887,56 @@ export const ConsensusParams = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ConsensusParams {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseConsensusParams } as ConsensusParams;
+    const message = createBaseConsensusParams();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.block = BlockParams.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.evidence = EvidenceParams.decode(reader, reader.uint32());
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.validator = ValidatorParams.decode(reader, reader.uint32());
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.version = VersionParams.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ConsensusParams {
-    const message = { ...baseConsensusParams } as ConsensusParams;
-    if (object.block !== undefined && object.block !== null) {
-      message.block = BlockParams.fromJSON(object.block);
-    } else {
-      message.block = undefined;
-    }
-    if (object.evidence !== undefined && object.evidence !== null) {
-      message.evidence = EvidenceParams.fromJSON(object.evidence);
-    } else {
-      message.evidence = undefined;
-    }
-    if (object.validator !== undefined && object.validator !== null) {
-      message.validator = ValidatorParams.fromJSON(object.validator);
-    } else {
-      message.validator = undefined;
-    }
-    if (object.version !== undefined && object.version !== null) {
-      message.version = VersionParams.fromJSON(object.version);
-    } else {
-      message.version = undefined;
-    }
-    return message;
+    return {
+      block: isSet(object.block) ? BlockParams.fromJSON(object.block) : undefined,
+      evidence: isSet(object.evidence) ? EvidenceParams.fromJSON(object.evidence) : undefined,
+      validator: isSet(object.validator) ? ValidatorParams.fromJSON(object.validator) : undefined,
+      version: isSet(object.version) ? VersionParams.fromJSON(object.version) : undefined,
+    };
   },
 
   toJSON(message: ConsensusParams): unknown {
@@ -3985,33 +3952,33 @@ export const ConsensusParams = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ConsensusParams>): ConsensusParams {
-    const message = { ...baseConsensusParams } as ConsensusParams;
-    if (object.block !== undefined && object.block !== null) {
-      message.block = BlockParams.fromPartial(object.block);
-    } else {
-      message.block = undefined;
-    }
-    if (object.evidence !== undefined && object.evidence !== null) {
-      message.evidence = EvidenceParams.fromPartial(object.evidence);
-    } else {
-      message.evidence = undefined;
-    }
-    if (object.validator !== undefined && object.validator !== null) {
-      message.validator = ValidatorParams.fromPartial(object.validator);
-    } else {
-      message.validator = undefined;
-    }
-    if (object.version !== undefined && object.version !== null) {
-      message.version = VersionParams.fromPartial(object.version);
-    } else {
-      message.version = undefined;
-    }
+  create<I extends Exact<DeepPartial<ConsensusParams>, I>>(base?: I): ConsensusParams {
+    return ConsensusParams.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ConsensusParams>, I>>(object: I): ConsensusParams {
+    const message = createBaseConsensusParams();
+    message.block =
+      object.block !== undefined && object.block !== null ? BlockParams.fromPartial(object.block) : undefined;
+    message.evidence =
+      object.evidence !== undefined && object.evidence !== null
+        ? EvidenceParams.fromPartial(object.evidence)
+        : undefined;
+    message.validator =
+      object.validator !== undefined && object.validator !== null
+        ? ValidatorParams.fromPartial(object.validator)
+        : undefined;
+    message.version =
+      object.version !== undefined && object.version !== null
+        ? VersionParams.fromPartial(object.version)
+        : undefined;
     return message;
   },
 };
 
-const baseBlockParams: object = { maxBytes: Long.ZERO, maxGas: Long.ZERO };
+function createBaseBlockParams(): BlockParams {
+  return { maxBytes: Long.ZERO, maxGas: Long.ZERO };
+}
 
 export const BlockParams = {
   encode(message: BlockParams, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -4025,39 +3992,40 @@ export const BlockParams = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): BlockParams {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseBlockParams } as BlockParams;
+    const message = createBaseBlockParams();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.maxBytes = reader.int64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 16) {
+            break;
+          }
+
           message.maxGas = reader.int64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): BlockParams {
-    const message = { ...baseBlockParams } as BlockParams;
-    if (object.maxBytes !== undefined && object.maxBytes !== null) {
-      message.maxBytes = Long.fromString(object.maxBytes);
-    } else {
-      message.maxBytes = Long.ZERO;
-    }
-    if (object.maxGas !== undefined && object.maxGas !== null) {
-      message.maxGas = Long.fromString(object.maxGas);
-    } else {
-      message.maxGas = Long.ZERO;
-    }
-    return message;
+    return {
+      maxBytes: isSet(object.maxBytes) ? Long.fromValue(object.maxBytes) : Long.ZERO,
+      maxGas: isSet(object.maxGas) ? Long.fromValue(object.maxGas) : Long.ZERO,
+    };
   },
 
   toJSON(message: BlockParams): unknown {
@@ -4067,23 +4035,23 @@ export const BlockParams = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<BlockParams>): BlockParams {
-    const message = { ...baseBlockParams } as BlockParams;
-    if (object.maxBytes !== undefined && object.maxBytes !== null) {
-      message.maxBytes = object.maxBytes as Long;
-    } else {
-      message.maxBytes = Long.ZERO;
-    }
-    if (object.maxGas !== undefined && object.maxGas !== null) {
-      message.maxGas = object.maxGas as Long;
-    } else {
-      message.maxGas = Long.ZERO;
-    }
+  create<I extends Exact<DeepPartial<BlockParams>, I>>(base?: I): BlockParams {
+    return BlockParams.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<BlockParams>, I>>(object: I): BlockParams {
+    const message = createBaseBlockParams();
+    message.maxBytes =
+      object.maxBytes !== undefined && object.maxBytes !== null ? Long.fromValue(object.maxBytes) : Long.ZERO;
+    message.maxGas =
+      object.maxGas !== undefined && object.maxGas !== null ? Long.fromValue(object.maxGas) : Long.ZERO;
     return message;
   },
 };
 
-const baseLastCommitInfo: object = { round: 0 };
+function createBaseLastCommitInfo(): LastCommitInfo {
+  return { round: 0, votes: [] };
+}
 
 export const LastCommitInfo = {
   encode(message: LastCommitInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -4097,46 +4065,45 @@ export const LastCommitInfo = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): LastCommitInfo {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseLastCommitInfo } as LastCommitInfo;
-    message.votes = [];
+    const message = createBaseLastCommitInfo();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.round = reader.int32();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.votes.push(VoteInfo.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): LastCommitInfo {
-    const message = { ...baseLastCommitInfo } as LastCommitInfo;
-    message.votes = [];
-    if (object.round !== undefined && object.round !== null) {
-      message.round = Number(object.round);
-    } else {
-      message.round = 0;
-    }
-    if (object.votes !== undefined && object.votes !== null) {
-      for (const e of object.votes) {
-        message.votes.push(VoteInfo.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      round: isSet(object.round) ? Number(object.round) : 0,
+      votes: Array.isArray(object?.votes) ? object.votes.map((e: any) => VoteInfo.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: LastCommitInfo): unknown {
     const obj: any = {};
-    message.round !== undefined && (obj.round = message.round);
+    message.round !== undefined && (obj.round = Math.round(message.round));
     if (message.votes) {
       obj.votes = message.votes.map((e) => (e ? VoteInfo.toJSON(e) : undefined));
     } else {
@@ -4145,24 +4112,21 @@ export const LastCommitInfo = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<LastCommitInfo>): LastCommitInfo {
-    const message = { ...baseLastCommitInfo } as LastCommitInfo;
-    message.votes = [];
-    if (object.round !== undefined && object.round !== null) {
-      message.round = object.round;
-    } else {
-      message.round = 0;
-    }
-    if (object.votes !== undefined && object.votes !== null) {
-      for (const e of object.votes) {
-        message.votes.push(VoteInfo.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<LastCommitInfo>, I>>(base?: I): LastCommitInfo {
+    return LastCommitInfo.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<LastCommitInfo>, I>>(object: I): LastCommitInfo {
+    const message = createBaseLastCommitInfo();
+    message.round = object.round ?? 0;
+    message.votes = object.votes?.map((e) => VoteInfo.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseEvent: object = { type: "" };
+function createBaseEvent(): Event {
+  return { type: "", attributes: [] };
+}
 
 export const Event = {
   encode(message: Event, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -4176,41 +4140,42 @@ export const Event = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Event {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseEvent } as Event;
-    message.attributes = [];
+    const message = createBaseEvent();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.type = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.attributes.push(EventAttribute.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Event {
-    const message = { ...baseEvent } as Event;
-    message.attributes = [];
-    if (object.type !== undefined && object.type !== null) {
-      message.type = String(object.type);
-    } else {
-      message.type = "";
-    }
-    if (object.attributes !== undefined && object.attributes !== null) {
-      for (const e of object.attributes) {
-        message.attributes.push(EventAttribute.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      type: isSet(object.type) ? String(object.type) : "",
+      attributes: Array.isArray(object?.attributes)
+        ? object.attributes.map((e: any) => EventAttribute.fromJSON(e))
+        : [],
+    };
   },
 
   toJSON(message: Event): unknown {
@@ -4224,24 +4189,21 @@ export const Event = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Event>): Event {
-    const message = { ...baseEvent } as Event;
-    message.attributes = [];
-    if (object.type !== undefined && object.type !== null) {
-      message.type = object.type;
-    } else {
-      message.type = "";
-    }
-    if (object.attributes !== undefined && object.attributes !== null) {
-      for (const e of object.attributes) {
-        message.attributes.push(EventAttribute.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<Event>, I>>(base?: I): Event {
+    return Event.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Event>, I>>(object: I): Event {
+    const message = createBaseEvent();
+    message.type = object.type ?? "";
+    message.attributes = object.attributes?.map((e) => EventAttribute.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseEventAttribute: object = { index: false };
+function createBaseEventAttribute(): EventAttribute {
+  return { key: new Uint8Array(0), value: new Uint8Array(0), index: false };
+}
 
 export const EventAttribute = {
   encode(message: EventAttribute, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -4258,81 +4220,76 @@ export const EventAttribute = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): EventAttribute {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseEventAttribute } as EventAttribute;
-    message.key = new Uint8Array();
-    message.value = new Uint8Array();
+    const message = createBaseEventAttribute();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.key = reader.bytes();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.value = reader.bytes();
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.index = reader.bool();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): EventAttribute {
-    const message = { ...baseEventAttribute } as EventAttribute;
-    message.key = new Uint8Array();
-    message.value = new Uint8Array();
-    if (object.key !== undefined && object.key !== null) {
-      message.key = bytesFromBase64(object.key);
-    }
-    if (object.value !== undefined && object.value !== null) {
-      message.value = bytesFromBase64(object.value);
-    }
-    if (object.index !== undefined && object.index !== null) {
-      message.index = Boolean(object.index);
-    } else {
-      message.index = false;
-    }
-    return message;
+    return {
+      key: isSet(object.key) ? bytesFromBase64(object.key) : new Uint8Array(0),
+      value: isSet(object.value) ? bytesFromBase64(object.value) : new Uint8Array(0),
+      index: isSet(object.index) ? Boolean(object.index) : false,
+    };
   },
 
   toJSON(message: EventAttribute): unknown {
     const obj: any = {};
     message.key !== undefined &&
-      (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()));
+      (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array(0)));
     message.value !== undefined &&
-      (obj.value = base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
+      (obj.value = base64FromBytes(message.value !== undefined ? message.value : new Uint8Array(0)));
     message.index !== undefined && (obj.index = message.index);
     return obj;
   },
 
-  fromPartial(object: DeepPartial<EventAttribute>): EventAttribute {
-    const message = { ...baseEventAttribute } as EventAttribute;
-    if (object.key !== undefined && object.key !== null) {
-      message.key = object.key;
-    } else {
-      message.key = new Uint8Array();
-    }
-    if (object.value !== undefined && object.value !== null) {
-      message.value = object.value;
-    } else {
-      message.value = new Uint8Array();
-    }
-    if (object.index !== undefined && object.index !== null) {
-      message.index = object.index;
-    } else {
-      message.index = false;
-    }
+  create<I extends Exact<DeepPartial<EventAttribute>, I>>(base?: I): EventAttribute {
+    return EventAttribute.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<EventAttribute>, I>>(object: I): EventAttribute {
+    const message = createBaseEventAttribute();
+    message.key = object.key ?? new Uint8Array(0);
+    message.value = object.value ?? new Uint8Array(0);
+    message.index = object.index ?? false;
     return message;
   },
 };
 
-const baseTxResult: object = { height: Long.ZERO, index: 0 };
+function createBaseTxResult(): TxResult {
+  return { height: Long.ZERO, index: 0, tx: new Uint8Array(0), result: undefined };
+}
 
 export const TxResult = {
   encode(message: TxResult, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -4352,95 +4309,90 @@ export const TxResult = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): TxResult {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseTxResult } as TxResult;
-    message.tx = new Uint8Array();
+    const message = createBaseTxResult();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.height = reader.int64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 16) {
+            break;
+          }
+
           message.index = reader.uint32();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.tx = reader.bytes();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.result = ResponseDeliverTx.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): TxResult {
-    const message = { ...baseTxResult } as TxResult;
-    message.tx = new Uint8Array();
-    if (object.height !== undefined && object.height !== null) {
-      message.height = Long.fromString(object.height);
-    } else {
-      message.height = Long.ZERO;
-    }
-    if (object.index !== undefined && object.index !== null) {
-      message.index = Number(object.index);
-    } else {
-      message.index = 0;
-    }
-    if (object.tx !== undefined && object.tx !== null) {
-      message.tx = bytesFromBase64(object.tx);
-    }
-    if (object.result !== undefined && object.result !== null) {
-      message.result = ResponseDeliverTx.fromJSON(object.result);
-    } else {
-      message.result = undefined;
-    }
-    return message;
+    return {
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
+      index: isSet(object.index) ? Number(object.index) : 0,
+      tx: isSet(object.tx) ? bytesFromBase64(object.tx) : new Uint8Array(0),
+      result: isSet(object.result) ? ResponseDeliverTx.fromJSON(object.result) : undefined,
+    };
   },
 
   toJSON(message: TxResult): unknown {
     const obj: any = {};
     message.height !== undefined && (obj.height = (message.height || Long.ZERO).toString());
-    message.index !== undefined && (obj.index = message.index);
+    message.index !== undefined && (obj.index = Math.round(message.index));
     message.tx !== undefined &&
-      (obj.tx = base64FromBytes(message.tx !== undefined ? message.tx : new Uint8Array()));
+      (obj.tx = base64FromBytes(message.tx !== undefined ? message.tx : new Uint8Array(0)));
     message.result !== undefined &&
       (obj.result = message.result ? ResponseDeliverTx.toJSON(message.result) : undefined);
     return obj;
   },
 
-  fromPartial(object: DeepPartial<TxResult>): TxResult {
-    const message = { ...baseTxResult } as TxResult;
-    if (object.height !== undefined && object.height !== null) {
-      message.height = object.height as Long;
-    } else {
-      message.height = Long.ZERO;
-    }
-    if (object.index !== undefined && object.index !== null) {
-      message.index = object.index;
-    } else {
-      message.index = 0;
-    }
-    if (object.tx !== undefined && object.tx !== null) {
-      message.tx = object.tx;
-    } else {
-      message.tx = new Uint8Array();
-    }
-    if (object.result !== undefined && object.result !== null) {
-      message.result = ResponseDeliverTx.fromPartial(object.result);
-    } else {
-      message.result = undefined;
-    }
+  create<I extends Exact<DeepPartial<TxResult>, I>>(base?: I): TxResult {
+    return TxResult.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<TxResult>, I>>(object: I): TxResult {
+    const message = createBaseTxResult();
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
+    message.index = object.index ?? 0;
+    message.tx = object.tx ?? new Uint8Array(0);
+    message.result =
+      object.result !== undefined && object.result !== null
+        ? ResponseDeliverTx.fromPartial(object.result)
+        : undefined;
     return message;
   },
 };
 
-const baseValidator: object = { power: Long.ZERO };
+function createBaseValidator(): Validator {
+  return { address: new Uint8Array(0), power: Long.ZERO };
+}
 
 export const Validator = {
   encode(message: Validator, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -4454,66 +4406,66 @@ export const Validator = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Validator {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseValidator } as Validator;
-    message.address = new Uint8Array();
+    const message = createBaseValidator();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.address = reader.bytes();
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.power = reader.int64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Validator {
-    const message = { ...baseValidator } as Validator;
-    message.address = new Uint8Array();
-    if (object.address !== undefined && object.address !== null) {
-      message.address = bytesFromBase64(object.address);
-    }
-    if (object.power !== undefined && object.power !== null) {
-      message.power = Long.fromString(object.power);
-    } else {
-      message.power = Long.ZERO;
-    }
-    return message;
+    return {
+      address: isSet(object.address) ? bytesFromBase64(object.address) : new Uint8Array(0),
+      power: isSet(object.power) ? Long.fromValue(object.power) : Long.ZERO,
+    };
   },
 
   toJSON(message: Validator): unknown {
     const obj: any = {};
     message.address !== undefined &&
-      (obj.address = base64FromBytes(message.address !== undefined ? message.address : new Uint8Array()));
+      (obj.address = base64FromBytes(message.address !== undefined ? message.address : new Uint8Array(0)));
     message.power !== undefined && (obj.power = (message.power || Long.ZERO).toString());
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Validator>): Validator {
-    const message = { ...baseValidator } as Validator;
-    if (object.address !== undefined && object.address !== null) {
-      message.address = object.address;
-    } else {
-      message.address = new Uint8Array();
-    }
-    if (object.power !== undefined && object.power !== null) {
-      message.power = object.power as Long;
-    } else {
-      message.power = Long.ZERO;
-    }
+  create<I extends Exact<DeepPartial<Validator>, I>>(base?: I): Validator {
+    return Validator.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Validator>, I>>(object: I): Validator {
+    const message = createBaseValidator();
+    message.address = object.address ?? new Uint8Array(0);
+    message.power =
+      object.power !== undefined && object.power !== null ? Long.fromValue(object.power) : Long.ZERO;
     return message;
   },
 };
 
-const baseValidatorUpdate: object = { power: Long.ZERO };
+function createBaseValidatorUpdate(): ValidatorUpdate {
+  return { pubKey: undefined, power: Long.ZERO };
+}
 
 export const ValidatorUpdate = {
   encode(message: ValidatorUpdate, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -4527,39 +4479,40 @@ export const ValidatorUpdate = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ValidatorUpdate {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseValidatorUpdate } as ValidatorUpdate;
+    const message = createBaseValidatorUpdate();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.pubKey = PublicKey.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 16) {
+            break;
+          }
+
           message.power = reader.int64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ValidatorUpdate {
-    const message = { ...baseValidatorUpdate } as ValidatorUpdate;
-    if (object.pubKey !== undefined && object.pubKey !== null) {
-      message.pubKey = PublicKey.fromJSON(object.pubKey);
-    } else {
-      message.pubKey = undefined;
-    }
-    if (object.power !== undefined && object.power !== null) {
-      message.power = Long.fromString(object.power);
-    } else {
-      message.power = Long.ZERO;
-    }
-    return message;
+    return {
+      pubKey: isSet(object.pubKey) ? PublicKey.fromJSON(object.pubKey) : undefined,
+      power: isSet(object.power) ? Long.fromValue(object.power) : Long.ZERO,
+    };
   },
 
   toJSON(message: ValidatorUpdate): unknown {
@@ -4570,23 +4523,25 @@ export const ValidatorUpdate = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ValidatorUpdate>): ValidatorUpdate {
-    const message = { ...baseValidatorUpdate } as ValidatorUpdate;
-    if (object.pubKey !== undefined && object.pubKey !== null) {
-      message.pubKey = PublicKey.fromPartial(object.pubKey);
-    } else {
-      message.pubKey = undefined;
-    }
-    if (object.power !== undefined && object.power !== null) {
-      message.power = object.power as Long;
-    } else {
-      message.power = Long.ZERO;
-    }
+  create<I extends Exact<DeepPartial<ValidatorUpdate>, I>>(base?: I): ValidatorUpdate {
+    return ValidatorUpdate.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ValidatorUpdate>, I>>(object: I): ValidatorUpdate {
+    const message = createBaseValidatorUpdate();
+    message.pubKey =
+      object.pubKey !== undefined && object.pubKey !== null
+        ? PublicKey.fromPartial(object.pubKey)
+        : undefined;
+    message.power =
+      object.power !== undefined && object.power !== null ? Long.fromValue(object.power) : Long.ZERO;
     return message;
   },
 };
 
-const baseVoteInfo: object = { signedLastBlock: false };
+function createBaseVoteInfo(): VoteInfo {
+  return { validator: undefined, signedLastBlock: false };
+}
 
 export const VoteInfo = {
   encode(message: VoteInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -4600,39 +4555,40 @@ export const VoteInfo = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): VoteInfo {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseVoteInfo } as VoteInfo;
+    const message = createBaseVoteInfo();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.validator = Validator.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 16) {
+            break;
+          }
+
           message.signedLastBlock = reader.bool();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): VoteInfo {
-    const message = { ...baseVoteInfo } as VoteInfo;
-    if (object.validator !== undefined && object.validator !== null) {
-      message.validator = Validator.fromJSON(object.validator);
-    } else {
-      message.validator = undefined;
-    }
-    if (object.signedLastBlock !== undefined && object.signedLastBlock !== null) {
-      message.signedLastBlock = Boolean(object.signedLastBlock);
-    } else {
-      message.signedLastBlock = false;
-    }
-    return message;
+    return {
+      validator: isSet(object.validator) ? Validator.fromJSON(object.validator) : undefined,
+      signedLastBlock: isSet(object.signedLastBlock) ? Boolean(object.signedLastBlock) : false,
+    };
   },
 
   toJSON(message: VoteInfo): unknown {
@@ -4643,23 +4599,24 @@ export const VoteInfo = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<VoteInfo>): VoteInfo {
-    const message = { ...baseVoteInfo } as VoteInfo;
-    if (object.validator !== undefined && object.validator !== null) {
-      message.validator = Validator.fromPartial(object.validator);
-    } else {
-      message.validator = undefined;
-    }
-    if (object.signedLastBlock !== undefined && object.signedLastBlock !== null) {
-      message.signedLastBlock = object.signedLastBlock;
-    } else {
-      message.signedLastBlock = false;
-    }
+  create<I extends Exact<DeepPartial<VoteInfo>, I>>(base?: I): VoteInfo {
+    return VoteInfo.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<VoteInfo>, I>>(object: I): VoteInfo {
+    const message = createBaseVoteInfo();
+    message.validator =
+      object.validator !== undefined && object.validator !== null
+        ? Validator.fromPartial(object.validator)
+        : undefined;
+    message.signedLastBlock = object.signedLastBlock ?? false;
     return message;
   },
 };
 
-const baseEvidence: object = { type: 0, height: Long.ZERO, totalVotingPower: Long.ZERO };
+function createBaseEvidence(): Evidence {
+  return { type: 0, validator: undefined, height: Long.ZERO, time: undefined, totalVotingPower: Long.ZERO };
+}
 
 export const Evidence = {
   encode(message: Evidence, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -4682,63 +4639,64 @@ export const Evidence = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Evidence {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseEvidence } as Evidence;
+    const message = createBaseEvidence();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.type = reader.int32() as any;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.validator = Validator.decode(reader, reader.uint32());
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.height = reader.int64() as Long;
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.time = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 5:
+          if (tag !== 40) {
+            break;
+          }
+
           message.totalVotingPower = reader.int64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Evidence {
-    const message = { ...baseEvidence } as Evidence;
-    if (object.type !== undefined && object.type !== null) {
-      message.type = evidenceTypeFromJSON(object.type);
-    } else {
-      message.type = 0;
-    }
-    if (object.validator !== undefined && object.validator !== null) {
-      message.validator = Validator.fromJSON(object.validator);
-    } else {
-      message.validator = undefined;
-    }
-    if (object.height !== undefined && object.height !== null) {
-      message.height = Long.fromString(object.height);
-    } else {
-      message.height = Long.ZERO;
-    }
-    if (object.time !== undefined && object.time !== null) {
-      message.time = fromJsonTimestamp(object.time);
-    } else {
-      message.time = undefined;
-    }
-    if (object.totalVotingPower !== undefined && object.totalVotingPower !== null) {
-      message.totalVotingPower = Long.fromString(object.totalVotingPower);
-    } else {
-      message.totalVotingPower = Long.ZERO;
-    }
-    return message;
+    return {
+      type: isSet(object.type) ? evidenceTypeFromJSON(object.type) : 0,
+      validator: isSet(object.validator) ? Validator.fromJSON(object.validator) : undefined,
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
+      time: isSet(object.time) ? fromJsonTimestamp(object.time) : undefined,
+      totalVotingPower: isSet(object.totalVotingPower) ? Long.fromValue(object.totalVotingPower) : Long.ZERO,
+    };
   },
 
   toJSON(message: Evidence): unknown {
@@ -4753,38 +4711,31 @@ export const Evidence = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Evidence>): Evidence {
-    const message = { ...baseEvidence } as Evidence;
-    if (object.type !== undefined && object.type !== null) {
-      message.type = object.type;
-    } else {
-      message.type = 0;
-    }
-    if (object.validator !== undefined && object.validator !== null) {
-      message.validator = Validator.fromPartial(object.validator);
-    } else {
-      message.validator = undefined;
-    }
-    if (object.height !== undefined && object.height !== null) {
-      message.height = object.height as Long;
-    } else {
-      message.height = Long.ZERO;
-    }
-    if (object.time !== undefined && object.time !== null) {
-      message.time = object.time;
-    } else {
-      message.time = undefined;
-    }
-    if (object.totalVotingPower !== undefined && object.totalVotingPower !== null) {
-      message.totalVotingPower = object.totalVotingPower as Long;
-    } else {
-      message.totalVotingPower = Long.ZERO;
-    }
+  create<I extends Exact<DeepPartial<Evidence>, I>>(base?: I): Evidence {
+    return Evidence.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Evidence>, I>>(object: I): Evidence {
+    const message = createBaseEvidence();
+    message.type = object.type ?? 0;
+    message.validator =
+      object.validator !== undefined && object.validator !== null
+        ? Validator.fromPartial(object.validator)
+        : undefined;
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
+    message.time = object.time ?? undefined;
+    message.totalVotingPower =
+      object.totalVotingPower !== undefined && object.totalVotingPower !== null
+        ? Long.fromValue(object.totalVotingPower)
+        : Long.ZERO;
     return message;
   },
 };
 
-const baseSnapshot: object = { height: Long.UZERO, format: 0, chunks: 0 };
+function createBaseSnapshot(): Snapshot {
+  return { height: Long.UZERO, format: 0, chunks: 0, hash: new Uint8Array(0), metadata: new Uint8Array(0) };
+}
 
 export const Snapshot = {
   encode(message: Snapshot, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -4807,104 +4758,90 @@ export const Snapshot = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Snapshot {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseSnapshot } as Snapshot;
-    message.hash = new Uint8Array();
-    message.metadata = new Uint8Array();
+    const message = createBaseSnapshot();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.height = reader.uint64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 16) {
+            break;
+          }
+
           message.format = reader.uint32();
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.chunks = reader.uint32();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.hash = reader.bytes();
-          break;
+          continue;
         case 5:
+          if (tag !== 42) {
+            break;
+          }
+
           message.metadata = reader.bytes();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Snapshot {
-    const message = { ...baseSnapshot } as Snapshot;
-    message.hash = new Uint8Array();
-    message.metadata = new Uint8Array();
-    if (object.height !== undefined && object.height !== null) {
-      message.height = Long.fromString(object.height);
-    } else {
-      message.height = Long.UZERO;
-    }
-    if (object.format !== undefined && object.format !== null) {
-      message.format = Number(object.format);
-    } else {
-      message.format = 0;
-    }
-    if (object.chunks !== undefined && object.chunks !== null) {
-      message.chunks = Number(object.chunks);
-    } else {
-      message.chunks = 0;
-    }
-    if (object.hash !== undefined && object.hash !== null) {
-      message.hash = bytesFromBase64(object.hash);
-    }
-    if (object.metadata !== undefined && object.metadata !== null) {
-      message.metadata = bytesFromBase64(object.metadata);
-    }
-    return message;
+    return {
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.UZERO,
+      format: isSet(object.format) ? Number(object.format) : 0,
+      chunks: isSet(object.chunks) ? Number(object.chunks) : 0,
+      hash: isSet(object.hash) ? bytesFromBase64(object.hash) : new Uint8Array(0),
+      metadata: isSet(object.metadata) ? bytesFromBase64(object.metadata) : new Uint8Array(0),
+    };
   },
 
   toJSON(message: Snapshot): unknown {
     const obj: any = {};
     message.height !== undefined && (obj.height = (message.height || Long.UZERO).toString());
-    message.format !== undefined && (obj.format = message.format);
-    message.chunks !== undefined && (obj.chunks = message.chunks);
+    message.format !== undefined && (obj.format = Math.round(message.format));
+    message.chunks !== undefined && (obj.chunks = Math.round(message.chunks));
     message.hash !== undefined &&
-      (obj.hash = base64FromBytes(message.hash !== undefined ? message.hash : new Uint8Array()));
+      (obj.hash = base64FromBytes(message.hash !== undefined ? message.hash : new Uint8Array(0)));
     message.metadata !== undefined &&
-      (obj.metadata = base64FromBytes(message.metadata !== undefined ? message.metadata : new Uint8Array()));
+      (obj.metadata = base64FromBytes(message.metadata !== undefined ? message.metadata : new Uint8Array(0)));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Snapshot>): Snapshot {
-    const message = { ...baseSnapshot } as Snapshot;
-    if (object.height !== undefined && object.height !== null) {
-      message.height = object.height as Long;
-    } else {
-      message.height = Long.UZERO;
-    }
-    if (object.format !== undefined && object.format !== null) {
-      message.format = object.format;
-    } else {
-      message.format = 0;
-    }
-    if (object.chunks !== undefined && object.chunks !== null) {
-      message.chunks = object.chunks;
-    } else {
-      message.chunks = 0;
-    }
-    if (object.hash !== undefined && object.hash !== null) {
-      message.hash = object.hash;
-    } else {
-      message.hash = new Uint8Array();
-    }
-    if (object.metadata !== undefined && object.metadata !== null) {
-      message.metadata = object.metadata;
-    } else {
-      message.metadata = new Uint8Array();
-    }
+  create<I extends Exact<DeepPartial<Snapshot>, I>>(base?: I): Snapshot {
+    return Snapshot.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Snapshot>, I>>(object: I): Snapshot {
+    const message = createBaseSnapshot();
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.UZERO;
+    message.format = object.format ?? 0;
+    message.chunks = object.chunks ?? 0;
+    message.hash = object.hash ?? new Uint8Array(0);
+    message.metadata = object.metadata ?? new Uint8Array(0);
     return message;
   },
 };
@@ -5050,9 +4987,7 @@ export class ABCIApplicationClientImpl implements ABCIApplication {
   }
 }
 
-export const ABCIApplicationDesc = {
-  serviceName: "tendermint.abci.ABCIApplication",
-};
+export const ABCIApplicationDesc = { serviceName: "tendermint.abci.ABCIApplication" };
 
 export const ABCIApplicationEchoDesc: UnaryMethodDefinitionish = {
   methodName: "Echo",
@@ -5066,10 +5001,11 @@ export const ABCIApplicationEchoDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseEcho.decode(data);
       return {
-        ...ResponseEcho.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5088,10 +5024,11 @@ export const ABCIApplicationFlushDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseFlush.decode(data);
       return {
-        ...ResponseFlush.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5110,10 +5047,11 @@ export const ABCIApplicationInfoDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseInfo.decode(data);
       return {
-        ...ResponseInfo.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5132,10 +5070,11 @@ export const ABCIApplicationSetOptionDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseSetOption.decode(data);
       return {
-        ...ResponseSetOption.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5154,10 +5093,11 @@ export const ABCIApplicationDeliverTxDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseDeliverTx.decode(data);
       return {
-        ...ResponseDeliverTx.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5176,10 +5116,11 @@ export const ABCIApplicationCheckTxDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseCheckTx.decode(data);
       return {
-        ...ResponseCheckTx.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5198,10 +5139,11 @@ export const ABCIApplicationQueryDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseQuery.decode(data);
       return {
-        ...ResponseQuery.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5220,10 +5162,11 @@ export const ABCIApplicationCommitDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseCommit.decode(data);
       return {
-        ...ResponseCommit.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5242,10 +5185,11 @@ export const ABCIApplicationInitChainDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseInitChain.decode(data);
       return {
-        ...ResponseInitChain.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5264,10 +5208,11 @@ export const ABCIApplicationBeginBlockDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseBeginBlock.decode(data);
       return {
-        ...ResponseBeginBlock.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5286,10 +5231,11 @@ export const ABCIApplicationEndBlockDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseEndBlock.decode(data);
       return {
-        ...ResponseEndBlock.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5308,10 +5254,11 @@ export const ABCIApplicationListSnapshotsDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseListSnapshots.decode(data);
       return {
-        ...ResponseListSnapshots.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5330,10 +5277,11 @@ export const ABCIApplicationOfferSnapshotDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseOfferSnapshot.decode(data);
       return {
-        ...ResponseOfferSnapshot.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5352,10 +5300,11 @@ export const ABCIApplicationLoadSnapshotChunkDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseLoadSnapshotChunk.decode(data);
       return {
-        ...ResponseLoadSnapshotChunk.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5374,10 +5323,11 @@ export const ABCIApplicationApplySnapshotChunkDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = ResponseApplySnapshotChunk.decode(data);
       return {
-        ...ResponseApplySnapshotChunk.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -5406,6 +5356,7 @@ export class GrpcWebImpl {
 
     debug?: boolean;
     metadata?: grpc.Metadata;
+    upStreamRetryCodes?: number[];
   };
 
   constructor(
@@ -5415,6 +5366,7 @@ export class GrpcWebImpl {
 
       debug?: boolean;
       metadata?: grpc.Metadata;
+      upStreamRetryCodes?: number[];
     },
   ) {
     this.host = host;
@@ -5440,11 +5392,9 @@ export class GrpcWebImpl {
         debug: this.options.debug,
         onEnd: function (response) {
           if (response.status === grpc.Code.OK) {
-            resolve(response.message);
+            resolve(response.message!.toObject());
           } else {
-            const err = new Error(response.statusMessage) as any;
-            err.code = response.status;
-            err.metadata = response.trailers;
+            const err = new GrpcWebError(response.statusMessage, response.status, response.trailers);
             reject(err);
           }
         },
@@ -5455,38 +5405,54 @@ export class GrpcWebImpl {
 
 declare var self: any | undefined;
 declare var window: any | undefined;
-var globalThis: any = (() => {
-  if (typeof globalThis !== "undefined") return globalThis;
-  if (typeof self !== "undefined") return self;
-  if (typeof window !== "undefined") return window;
-  if (typeof global !== "undefined") return global;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
   throw "Unable to locate global object";
 })();
 
-const atob: (b64: string) => string =
-  globalThis.atob || ((b64) => globalThis.Buffer.from(b64, "base64").toString("binary"));
 function bytesFromBase64(b64: string): Uint8Array {
-  const bin = atob(b64);
-  const arr = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; ++i) {
-    arr[i] = bin.charCodeAt(i);
+  if (tsProtoGlobalThis.Buffer) {
+    return Uint8Array.from(tsProtoGlobalThis.Buffer.from(b64, "base64"));
+  } else {
+    const bin = tsProtoGlobalThis.atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; ++i) {
+      arr[i] = bin.charCodeAt(i);
+    }
+    return arr;
   }
-  return arr;
 }
 
-const btoa: (bin: string) => string =
-  globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, "binary").toString("base64"));
 function base64FromBytes(arr: Uint8Array): string {
-  const bin: string[] = [];
-  for (const byte of arr) {
-    bin.push(String.fromCharCode(byte));
+  if (tsProtoGlobalThis.Buffer) {
+    return tsProtoGlobalThis.Buffer.from(arr).toString("base64");
+  } else {
+    const bin: string[] = [];
+    arr.forEach((byte) => {
+      bin.push(String.fromCharCode(byte));
+    });
+    return tsProtoGlobalThis.btoa(bin.join(""));
   }
-  return btoa(bin.join(""));
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -5495,6 +5461,11 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 function toTimestamp(date: Date): Timestamp {
   const seconds = numberToLong(date.getTime() / 1_000);
   const nanos = (date.getTime() % 1_000) * 1_000_000;
@@ -5502,8 +5473,8 @@ function toTimestamp(date: Date): Timestamp {
 }
 
 function fromTimestamp(t: Timestamp): Date {
-  let millis = t.seconds.toNumber() * 1_000;
-  millis += t.nanos / 1_000_000;
+  let millis = (t.seconds.toNumber() || 0) * 1_000;
+  millis += (t.nanos || 0) / 1_000_000;
   return new Date(millis);
 }
 
@@ -5524,4 +5495,14 @@ function numberToLong(number: number) {
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}
+
+export class GrpcWebError extends tsProtoGlobalThis.Error {
+  constructor(message: string, public code: grpc.Code, public metadata: grpc.Metadata) {
+    super(message);
+  }
 }

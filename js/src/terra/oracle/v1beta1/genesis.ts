@@ -1,12 +1,7 @@
 /* eslint-disable */
 import Long from "long";
 import _m0 from "protobufjs/minimal";
-import {
-  Params,
-  ExchangeRateTuple,
-  AggregateExchangeRatePrevote,
-  AggregateExchangeRateVote,
-} from "../../../terra/oracle/v1beta1/oracle";
+import { AggregateExchangeRatePrevote, AggregateExchangeRateVote, ExchangeRateTuple, Params } from "./oracle";
 
 export const protobufPackage = "terra.oracle.v1beta1";
 
@@ -49,7 +44,17 @@ export interface TobinTax {
   tobinTax: string;
 }
 
-const baseGenesisState: object = {};
+function createBaseGenesisState(): GenesisState {
+  return {
+    params: undefined,
+    feederDelegations: [],
+    exchangeRates: [],
+    missCounters: [],
+    aggregateExchangeRatePrevotes: [],
+    aggregateExchangeRateVotes: [],
+    tobinTaxes: [],
+  };
+}
 
 export const GenesisState = {
   encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -78,93 +83,94 @@ export const GenesisState = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGenesisState } as GenesisState;
-    message.feederDelegations = [];
-    message.exchangeRates = [];
-    message.missCounters = [];
-    message.aggregateExchangeRatePrevotes = [];
-    message.aggregateExchangeRateVotes = [];
-    message.tobinTaxes = [];
+    const message = createBaseGenesisState();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.params = Params.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.feederDelegations.push(FeederDelegation.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.exchangeRates.push(ExchangeRateTuple.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.missCounters.push(MissCounter.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 5:
+          if (tag !== 42) {
+            break;
+          }
+
           message.aggregateExchangeRatePrevotes.push(
             AggregateExchangeRatePrevote.decode(reader, reader.uint32()),
           );
-          break;
+          continue;
         case 6:
+          if (tag !== 50) {
+            break;
+          }
+
           message.aggregateExchangeRateVotes.push(AggregateExchangeRateVote.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 7:
+          if (tag !== 58) {
+            break;
+          }
+
           message.tobinTaxes.push(TobinTax.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GenesisState {
-    const message = { ...baseGenesisState } as GenesisState;
-    message.feederDelegations = [];
-    message.exchangeRates = [];
-    message.missCounters = [];
-    message.aggregateExchangeRatePrevotes = [];
-    message.aggregateExchangeRateVotes = [];
-    message.tobinTaxes = [];
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromJSON(object.params);
-    } else {
-      message.params = undefined;
-    }
-    if (object.feederDelegations !== undefined && object.feederDelegations !== null) {
-      for (const e of object.feederDelegations) {
-        message.feederDelegations.push(FeederDelegation.fromJSON(e));
-      }
-    }
-    if (object.exchangeRates !== undefined && object.exchangeRates !== null) {
-      for (const e of object.exchangeRates) {
-        message.exchangeRates.push(ExchangeRateTuple.fromJSON(e));
-      }
-    }
-    if (object.missCounters !== undefined && object.missCounters !== null) {
-      for (const e of object.missCounters) {
-        message.missCounters.push(MissCounter.fromJSON(e));
-      }
-    }
-    if (object.aggregateExchangeRatePrevotes !== undefined && object.aggregateExchangeRatePrevotes !== null) {
-      for (const e of object.aggregateExchangeRatePrevotes) {
-        message.aggregateExchangeRatePrevotes.push(AggregateExchangeRatePrevote.fromJSON(e));
-      }
-    }
-    if (object.aggregateExchangeRateVotes !== undefined && object.aggregateExchangeRateVotes !== null) {
-      for (const e of object.aggregateExchangeRateVotes) {
-        message.aggregateExchangeRateVotes.push(AggregateExchangeRateVote.fromJSON(e));
-      }
-    }
-    if (object.tobinTaxes !== undefined && object.tobinTaxes !== null) {
-      for (const e of object.tobinTaxes) {
-        message.tobinTaxes.push(TobinTax.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
+      feederDelegations: Array.isArray(object?.feederDelegations)
+        ? object.feederDelegations.map((e: any) => FeederDelegation.fromJSON(e))
+        : [],
+      exchangeRates: Array.isArray(object?.exchangeRates)
+        ? object.exchangeRates.map((e: any) => ExchangeRateTuple.fromJSON(e))
+        : [],
+      missCounters: Array.isArray(object?.missCounters)
+        ? object.missCounters.map((e: any) => MissCounter.fromJSON(e))
+        : [],
+      aggregateExchangeRatePrevotes: Array.isArray(object?.aggregateExchangeRatePrevotes)
+        ? object.aggregateExchangeRatePrevotes.map((e: any) => AggregateExchangeRatePrevote.fromJSON(e))
+        : [],
+      aggregateExchangeRateVotes: Array.isArray(object?.aggregateExchangeRateVotes)
+        ? object.aggregateExchangeRateVotes.map((e: any) => AggregateExchangeRateVote.fromJSON(e))
+        : [],
+      tobinTaxes: Array.isArray(object?.tobinTaxes)
+        ? object.tobinTaxes.map((e: any) => TobinTax.fromJSON(e))
+        : [],
+    };
   },
 
   toJSON(message: GenesisState): unknown {
@@ -209,54 +215,29 @@ export const GenesisState = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
-    const message = { ...baseGenesisState } as GenesisState;
-    message.feederDelegations = [];
-    message.exchangeRates = [];
-    message.missCounters = [];
-    message.aggregateExchangeRatePrevotes = [];
-    message.aggregateExchangeRateVotes = [];
-    message.tobinTaxes = [];
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromPartial(object.params);
-    } else {
-      message.params = undefined;
-    }
-    if (object.feederDelegations !== undefined && object.feederDelegations !== null) {
-      for (const e of object.feederDelegations) {
-        message.feederDelegations.push(FeederDelegation.fromPartial(e));
-      }
-    }
-    if (object.exchangeRates !== undefined && object.exchangeRates !== null) {
-      for (const e of object.exchangeRates) {
-        message.exchangeRates.push(ExchangeRateTuple.fromPartial(e));
-      }
-    }
-    if (object.missCounters !== undefined && object.missCounters !== null) {
-      for (const e of object.missCounters) {
-        message.missCounters.push(MissCounter.fromPartial(e));
-      }
-    }
-    if (object.aggregateExchangeRatePrevotes !== undefined && object.aggregateExchangeRatePrevotes !== null) {
-      for (const e of object.aggregateExchangeRatePrevotes) {
-        message.aggregateExchangeRatePrevotes.push(AggregateExchangeRatePrevote.fromPartial(e));
-      }
-    }
-    if (object.aggregateExchangeRateVotes !== undefined && object.aggregateExchangeRateVotes !== null) {
-      for (const e of object.aggregateExchangeRateVotes) {
-        message.aggregateExchangeRateVotes.push(AggregateExchangeRateVote.fromPartial(e));
-      }
-    }
-    if (object.tobinTaxes !== undefined && object.tobinTaxes !== null) {
-      for (const e of object.tobinTaxes) {
-        message.tobinTaxes.push(TobinTax.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<GenesisState>, I>>(base?: I): GenesisState {
+    return GenesisState.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
+    const message = createBaseGenesisState();
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
+    message.feederDelegations = object.feederDelegations?.map((e) => FeederDelegation.fromPartial(e)) || [];
+    message.exchangeRates = object.exchangeRates?.map((e) => ExchangeRateTuple.fromPartial(e)) || [];
+    message.missCounters = object.missCounters?.map((e) => MissCounter.fromPartial(e)) || [];
+    message.aggregateExchangeRatePrevotes =
+      object.aggregateExchangeRatePrevotes?.map((e) => AggregateExchangeRatePrevote.fromPartial(e)) || [];
+    message.aggregateExchangeRateVotes =
+      object.aggregateExchangeRateVotes?.map((e) => AggregateExchangeRateVote.fromPartial(e)) || [];
+    message.tobinTaxes = object.tobinTaxes?.map((e) => TobinTax.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseFeederDelegation: object = { feederAddress: "", validatorAddress: "" };
+function createBaseFeederDelegation(): FeederDelegation {
+  return { feederAddress: "", validatorAddress: "" };
+}
 
 export const FeederDelegation = {
   encode(message: FeederDelegation, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -270,39 +251,40 @@ export const FeederDelegation = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): FeederDelegation {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseFeederDelegation } as FeederDelegation;
+    const message = createBaseFeederDelegation();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.feederAddress = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.validatorAddress = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): FeederDelegation {
-    const message = { ...baseFeederDelegation } as FeederDelegation;
-    if (object.feederAddress !== undefined && object.feederAddress !== null) {
-      message.feederAddress = String(object.feederAddress);
-    } else {
-      message.feederAddress = "";
-    }
-    if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
-      message.validatorAddress = String(object.validatorAddress);
-    } else {
-      message.validatorAddress = "";
-    }
-    return message;
+    return {
+      feederAddress: isSet(object.feederAddress) ? String(object.feederAddress) : "",
+      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : "",
+    };
   },
 
   toJSON(message: FeederDelegation): unknown {
@@ -312,23 +294,21 @@ export const FeederDelegation = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<FeederDelegation>): FeederDelegation {
-    const message = { ...baseFeederDelegation } as FeederDelegation;
-    if (object.feederAddress !== undefined && object.feederAddress !== null) {
-      message.feederAddress = object.feederAddress;
-    } else {
-      message.feederAddress = "";
-    }
-    if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
-      message.validatorAddress = object.validatorAddress;
-    } else {
-      message.validatorAddress = "";
-    }
+  create<I extends Exact<DeepPartial<FeederDelegation>, I>>(base?: I): FeederDelegation {
+    return FeederDelegation.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<FeederDelegation>, I>>(object: I): FeederDelegation {
+    const message = createBaseFeederDelegation();
+    message.feederAddress = object.feederAddress ?? "";
+    message.validatorAddress = object.validatorAddress ?? "";
     return message;
   },
 };
 
-const baseMissCounter: object = { validatorAddress: "", missCounter: Long.UZERO };
+function createBaseMissCounter(): MissCounter {
+  return { validatorAddress: "", missCounter: Long.UZERO };
+}
 
 export const MissCounter = {
   encode(message: MissCounter, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -342,39 +322,40 @@ export const MissCounter = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): MissCounter {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMissCounter } as MissCounter;
+    const message = createBaseMissCounter();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.validatorAddress = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 16) {
+            break;
+          }
+
           message.missCounter = reader.uint64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): MissCounter {
-    const message = { ...baseMissCounter } as MissCounter;
-    if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
-      message.validatorAddress = String(object.validatorAddress);
-    } else {
-      message.validatorAddress = "";
-    }
-    if (object.missCounter !== undefined && object.missCounter !== null) {
-      message.missCounter = Long.fromString(object.missCounter);
-    } else {
-      message.missCounter = Long.UZERO;
-    }
-    return message;
+    return {
+      validatorAddress: isSet(object.validatorAddress) ? String(object.validatorAddress) : "",
+      missCounter: isSet(object.missCounter) ? Long.fromValue(object.missCounter) : Long.UZERO,
+    };
   },
 
   toJSON(message: MissCounter): unknown {
@@ -384,23 +365,24 @@ export const MissCounter = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<MissCounter>): MissCounter {
-    const message = { ...baseMissCounter } as MissCounter;
-    if (object.validatorAddress !== undefined && object.validatorAddress !== null) {
-      message.validatorAddress = object.validatorAddress;
-    } else {
-      message.validatorAddress = "";
-    }
-    if (object.missCounter !== undefined && object.missCounter !== null) {
-      message.missCounter = object.missCounter as Long;
-    } else {
-      message.missCounter = Long.UZERO;
-    }
+  create<I extends Exact<DeepPartial<MissCounter>, I>>(base?: I): MissCounter {
+    return MissCounter.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MissCounter>, I>>(object: I): MissCounter {
+    const message = createBaseMissCounter();
+    message.validatorAddress = object.validatorAddress ?? "";
+    message.missCounter =
+      object.missCounter !== undefined && object.missCounter !== null
+        ? Long.fromValue(object.missCounter)
+        : Long.UZERO;
     return message;
   },
 };
 
-const baseTobinTax: object = { denom: "", tobinTax: "" };
+function createBaseTobinTax(): TobinTax {
+  return { denom: "", tobinTax: "" };
+}
 
 export const TobinTax = {
   encode(message: TobinTax, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -414,39 +396,40 @@ export const TobinTax = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): TobinTax {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseTobinTax } as TobinTax;
+    const message = createBaseTobinTax();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.denom = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.tobinTax = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): TobinTax {
-    const message = { ...baseTobinTax } as TobinTax;
-    if (object.denom !== undefined && object.denom !== null) {
-      message.denom = String(object.denom);
-    } else {
-      message.denom = "";
-    }
-    if (object.tobinTax !== undefined && object.tobinTax !== null) {
-      message.tobinTax = String(object.tobinTax);
-    } else {
-      message.tobinTax = "";
-    }
-    return message;
+    return {
+      denom: isSet(object.denom) ? String(object.denom) : "",
+      tobinTax: isSet(object.tobinTax) ? String(object.tobinTax) : "",
+    };
   },
 
   toJSON(message: TobinTax): unknown {
@@ -456,25 +439,24 @@ export const TobinTax = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<TobinTax>): TobinTax {
-    const message = { ...baseTobinTax } as TobinTax;
-    if (object.denom !== undefined && object.denom !== null) {
-      message.denom = object.denom;
-    } else {
-      message.denom = "";
-    }
-    if (object.tobinTax !== undefined && object.tobinTax !== null) {
-      message.tobinTax = object.tobinTax;
-    } else {
-      message.tobinTax = "";
-    }
+  create<I extends Exact<DeepPartial<TobinTax>, I>>(base?: I): TobinTax {
+    return TobinTax.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<TobinTax>, I>>(object: I): TobinTax {
+    const message = createBaseTobinTax();
+    message.denom = object.denom ?? "";
+    message.tobinTax = object.tobinTax ?? "";
     return message;
   },
 };
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -483,7 +465,16 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
 }

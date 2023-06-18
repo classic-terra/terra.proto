@@ -1,13 +1,13 @@
 /* eslint-disable */
-import Long from "long";
 import { grpc } from "@improbable-eng/grpc-web";
-import _m0 from "protobufjs/minimal";
-import { PageRequest, PageResponse } from "../../../../cosmos/base/query/v1beta1/pagination";
-import { Any } from "../../../../google/protobuf/any";
-import { BlockID } from "../../../../tendermint/types/types";
-import { Block } from "../../../../tendermint/types/block";
-import { DefaultNodeInfo } from "../../../../tendermint/p2p/types";
 import { BrowserHeaders } from "browser-headers";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
+import { Any } from "../../../../google/protobuf/any";
+import { DefaultNodeInfo } from "../../../../tendermint/p2p/types";
+import { Block } from "../../../../tendermint/types/block";
+import { BlockID } from "../../../../tendermint/types/types";
+import { PageRequest, PageResponse } from "../../query/v1beta1/pagination";
 
 export const protobufPackage = "cosmos.base.tendermint.v1beta1";
 
@@ -108,7 +108,9 @@ export interface Module {
   sum: string;
 }
 
-const baseGetValidatorSetByHeightRequest: object = { height: Long.ZERO };
+function createBaseGetValidatorSetByHeightRequest(): GetValidatorSetByHeightRequest {
+  return { height: Long.ZERO, pagination: undefined };
+}
 
 export const GetValidatorSetByHeightRequest = {
   encode(message: GetValidatorSetByHeightRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -122,39 +124,40 @@ export const GetValidatorSetByHeightRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetValidatorSetByHeightRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetValidatorSetByHeightRequest } as GetValidatorSetByHeightRequest;
+    const message = createBaseGetValidatorSetByHeightRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.height = reader.int64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.pagination = PageRequest.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GetValidatorSetByHeightRequest {
-    const message = { ...baseGetValidatorSetByHeightRequest } as GetValidatorSetByHeightRequest;
-    if (object.height !== undefined && object.height !== null) {
-      message.height = Long.fromString(object.height);
-    } else {
-      message.height = Long.ZERO;
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return {
+      height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO,
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined,
+    };
   },
 
   toJSON(message: GetValidatorSetByHeightRequest): unknown {
@@ -165,23 +168,29 @@ export const GetValidatorSetByHeightRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GetValidatorSetByHeightRequest>): GetValidatorSetByHeightRequest {
-    const message = { ...baseGetValidatorSetByHeightRequest } as GetValidatorSetByHeightRequest;
-    if (object.height !== undefined && object.height !== null) {
-      message.height = object.height as Long;
-    } else {
-      message.height = Long.ZERO;
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<GetValidatorSetByHeightRequest>, I>>(
+    base?: I,
+  ): GetValidatorSetByHeightRequest {
+    return GetValidatorSetByHeightRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetValidatorSetByHeightRequest>, I>>(
+    object: I,
+  ): GetValidatorSetByHeightRequest {
+    const message = createBaseGetValidatorSetByHeightRequest();
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
-const baseGetValidatorSetByHeightResponse: object = { blockHeight: Long.ZERO };
+function createBaseGetValidatorSetByHeightResponse(): GetValidatorSetByHeightResponse {
+  return { blockHeight: Long.ZERO, validators: [], pagination: undefined };
+}
 
 export const GetValidatorSetByHeightResponse = {
   encode(message: GetValidatorSetByHeightResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -198,49 +207,50 @@ export const GetValidatorSetByHeightResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetValidatorSetByHeightResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetValidatorSetByHeightResponse } as GetValidatorSetByHeightResponse;
-    message.validators = [];
+    const message = createBaseGetValidatorSetByHeightResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.blockHeight = reader.int64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.validators.push(Validator.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.pagination = PageResponse.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GetValidatorSetByHeightResponse {
-    const message = { ...baseGetValidatorSetByHeightResponse } as GetValidatorSetByHeightResponse;
-    message.validators = [];
-    if (object.blockHeight !== undefined && object.blockHeight !== null) {
-      message.blockHeight = Long.fromString(object.blockHeight);
-    } else {
-      message.blockHeight = Long.ZERO;
-    }
-    if (object.validators !== undefined && object.validators !== null) {
-      for (const e of object.validators) {
-        message.validators.push(Validator.fromJSON(e));
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return {
+      blockHeight: isSet(object.blockHeight) ? Long.fromValue(object.blockHeight) : Long.ZERO,
+      validators: Array.isArray(object?.validators)
+        ? object.validators.map((e: any) => Validator.fromJSON(e))
+        : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
   },
 
   toJSON(message: GetValidatorSetByHeightResponse): unknown {
@@ -256,29 +266,32 @@ export const GetValidatorSetByHeightResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GetValidatorSetByHeightResponse>): GetValidatorSetByHeightResponse {
-    const message = { ...baseGetValidatorSetByHeightResponse } as GetValidatorSetByHeightResponse;
-    message.validators = [];
-    if (object.blockHeight !== undefined && object.blockHeight !== null) {
-      message.blockHeight = object.blockHeight as Long;
-    } else {
-      message.blockHeight = Long.ZERO;
-    }
-    if (object.validators !== undefined && object.validators !== null) {
-      for (const e of object.validators) {
-        message.validators.push(Validator.fromPartial(e));
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<GetValidatorSetByHeightResponse>, I>>(
+    base?: I,
+  ): GetValidatorSetByHeightResponse {
+    return GetValidatorSetByHeightResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetValidatorSetByHeightResponse>, I>>(
+    object: I,
+  ): GetValidatorSetByHeightResponse {
+    const message = createBaseGetValidatorSetByHeightResponse();
+    message.blockHeight =
+      object.blockHeight !== undefined && object.blockHeight !== null
+        ? Long.fromValue(object.blockHeight)
+        : Long.ZERO;
+    message.validators = object.validators?.map((e) => Validator.fromPartial(e)) || [];
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
-const baseGetLatestValidatorSetRequest: object = {};
+function createBaseGetLatestValidatorSetRequest(): GetLatestValidatorSetRequest {
+  return { pagination: undefined };
+}
 
 export const GetLatestValidatorSetRequest = {
   encode(message: GetLatestValidatorSetRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -289,31 +302,30 @@ export const GetLatestValidatorSetRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetLatestValidatorSetRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetLatestValidatorSetRequest } as GetLatestValidatorSetRequest;
+    const message = createBaseGetLatestValidatorSetRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.pagination = PageRequest.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GetLatestValidatorSetRequest {
-    const message = { ...baseGetLatestValidatorSetRequest } as GetLatestValidatorSetRequest;
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return { pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined };
   },
 
   toJSON(message: GetLatestValidatorSetRequest): unknown {
@@ -323,18 +335,27 @@ export const GetLatestValidatorSetRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GetLatestValidatorSetRequest>): GetLatestValidatorSetRequest {
-    const message = { ...baseGetLatestValidatorSetRequest } as GetLatestValidatorSetRequest;
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<GetLatestValidatorSetRequest>, I>>(
+    base?: I,
+  ): GetLatestValidatorSetRequest {
+    return GetLatestValidatorSetRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetLatestValidatorSetRequest>, I>>(
+    object: I,
+  ): GetLatestValidatorSetRequest {
+    const message = createBaseGetLatestValidatorSetRequest();
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
-const baseGetLatestValidatorSetResponse: object = { blockHeight: Long.ZERO };
+function createBaseGetLatestValidatorSetResponse(): GetLatestValidatorSetResponse {
+  return { blockHeight: Long.ZERO, validators: [], pagination: undefined };
+}
 
 export const GetLatestValidatorSetResponse = {
   encode(message: GetLatestValidatorSetResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -351,49 +372,50 @@ export const GetLatestValidatorSetResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetLatestValidatorSetResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetLatestValidatorSetResponse } as GetLatestValidatorSetResponse;
-    message.validators = [];
+    const message = createBaseGetLatestValidatorSetResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.blockHeight = reader.int64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.validators.push(Validator.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.pagination = PageResponse.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GetLatestValidatorSetResponse {
-    const message = { ...baseGetLatestValidatorSetResponse } as GetLatestValidatorSetResponse;
-    message.validators = [];
-    if (object.blockHeight !== undefined && object.blockHeight !== null) {
-      message.blockHeight = Long.fromString(object.blockHeight);
-    } else {
-      message.blockHeight = Long.ZERO;
-    }
-    if (object.validators !== undefined && object.validators !== null) {
-      for (const e of object.validators) {
-        message.validators.push(Validator.fromJSON(e));
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return {
+      blockHeight: isSet(object.blockHeight) ? Long.fromValue(object.blockHeight) : Long.ZERO,
+      validators: Array.isArray(object?.validators)
+        ? object.validators.map((e: any) => Validator.fromJSON(e))
+        : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
   },
 
   toJSON(message: GetLatestValidatorSetResponse): unknown {
@@ -409,29 +431,32 @@ export const GetLatestValidatorSetResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GetLatestValidatorSetResponse>): GetLatestValidatorSetResponse {
-    const message = { ...baseGetLatestValidatorSetResponse } as GetLatestValidatorSetResponse;
-    message.validators = [];
-    if (object.blockHeight !== undefined && object.blockHeight !== null) {
-      message.blockHeight = object.blockHeight as Long;
-    } else {
-      message.blockHeight = Long.ZERO;
-    }
-    if (object.validators !== undefined && object.validators !== null) {
-      for (const e of object.validators) {
-        message.validators.push(Validator.fromPartial(e));
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<GetLatestValidatorSetResponse>, I>>(
+    base?: I,
+  ): GetLatestValidatorSetResponse {
+    return GetLatestValidatorSetResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetLatestValidatorSetResponse>, I>>(
+    object: I,
+  ): GetLatestValidatorSetResponse {
+    const message = createBaseGetLatestValidatorSetResponse();
+    message.blockHeight =
+      object.blockHeight !== undefined && object.blockHeight !== null
+        ? Long.fromValue(object.blockHeight)
+        : Long.ZERO;
+    message.validators = object.validators?.map((e) => Validator.fromPartial(e)) || [];
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
-const baseValidator: object = { address: "", votingPower: Long.ZERO, proposerPriority: Long.ZERO };
+function createBaseValidator(): Validator {
+  return { address: "", pubKey: undefined, votingPower: Long.ZERO, proposerPriority: Long.ZERO };
+}
 
 export const Validator = {
   encode(message: Validator, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -451,55 +476,56 @@ export const Validator = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Validator {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseValidator } as Validator;
+    const message = createBaseValidator();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.address = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.pubKey = Any.decode(reader, reader.uint32());
-          break;
+          continue;
         case 3:
+          if (tag !== 24) {
+            break;
+          }
+
           message.votingPower = reader.int64() as Long;
-          break;
+          continue;
         case 4:
+          if (tag !== 32) {
+            break;
+          }
+
           message.proposerPriority = reader.int64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Validator {
-    const message = { ...baseValidator } as Validator;
-    if (object.address !== undefined && object.address !== null) {
-      message.address = String(object.address);
-    } else {
-      message.address = "";
-    }
-    if (object.pubKey !== undefined && object.pubKey !== null) {
-      message.pubKey = Any.fromJSON(object.pubKey);
-    } else {
-      message.pubKey = undefined;
-    }
-    if (object.votingPower !== undefined && object.votingPower !== null) {
-      message.votingPower = Long.fromString(object.votingPower);
-    } else {
-      message.votingPower = Long.ZERO;
-    }
-    if (object.proposerPriority !== undefined && object.proposerPriority !== null) {
-      message.proposerPriority = Long.fromString(object.proposerPriority);
-    } else {
-      message.proposerPriority = Long.ZERO;
-    }
-    return message;
+    return {
+      address: isSet(object.address) ? String(object.address) : "",
+      pubKey: isSet(object.pubKey) ? Any.fromJSON(object.pubKey) : undefined,
+      votingPower: isSet(object.votingPower) ? Long.fromValue(object.votingPower) : Long.ZERO,
+      proposerPriority: isSet(object.proposerPriority) ? Long.fromValue(object.proposerPriority) : Long.ZERO,
+    };
   },
 
   toJSON(message: Validator): unknown {
@@ -512,33 +538,30 @@ export const Validator = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Validator>): Validator {
-    const message = { ...baseValidator } as Validator;
-    if (object.address !== undefined && object.address !== null) {
-      message.address = object.address;
-    } else {
-      message.address = "";
-    }
-    if (object.pubKey !== undefined && object.pubKey !== null) {
-      message.pubKey = Any.fromPartial(object.pubKey);
-    } else {
-      message.pubKey = undefined;
-    }
-    if (object.votingPower !== undefined && object.votingPower !== null) {
-      message.votingPower = object.votingPower as Long;
-    } else {
-      message.votingPower = Long.ZERO;
-    }
-    if (object.proposerPriority !== undefined && object.proposerPriority !== null) {
-      message.proposerPriority = object.proposerPriority as Long;
-    } else {
-      message.proposerPriority = Long.ZERO;
-    }
+  create<I extends Exact<DeepPartial<Validator>, I>>(base?: I): Validator {
+    return Validator.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Validator>, I>>(object: I): Validator {
+    const message = createBaseValidator();
+    message.address = object.address ?? "";
+    message.pubKey =
+      object.pubKey !== undefined && object.pubKey !== null ? Any.fromPartial(object.pubKey) : undefined;
+    message.votingPower =
+      object.votingPower !== undefined && object.votingPower !== null
+        ? Long.fromValue(object.votingPower)
+        : Long.ZERO;
+    message.proposerPriority =
+      object.proposerPriority !== undefined && object.proposerPriority !== null
+        ? Long.fromValue(object.proposerPriority)
+        : Long.ZERO;
     return message;
   },
 };
 
-const baseGetBlockByHeightRequest: object = { height: Long.ZERO };
+function createBaseGetBlockByHeightRequest(): GetBlockByHeightRequest {
+  return { height: Long.ZERO };
+}
 
 export const GetBlockByHeightRequest = {
   encode(message: GetBlockByHeightRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -549,31 +572,30 @@ export const GetBlockByHeightRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetBlockByHeightRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetBlockByHeightRequest } as GetBlockByHeightRequest;
+    const message = createBaseGetBlockByHeightRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.height = reader.int64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GetBlockByHeightRequest {
-    const message = { ...baseGetBlockByHeightRequest } as GetBlockByHeightRequest;
-    if (object.height !== undefined && object.height !== null) {
-      message.height = Long.fromString(object.height);
-    } else {
-      message.height = Long.ZERO;
-    }
-    return message;
+    return { height: isSet(object.height) ? Long.fromValue(object.height) : Long.ZERO };
   },
 
   toJSON(message: GetBlockByHeightRequest): unknown {
@@ -582,18 +604,21 @@ export const GetBlockByHeightRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GetBlockByHeightRequest>): GetBlockByHeightRequest {
-    const message = { ...baseGetBlockByHeightRequest } as GetBlockByHeightRequest;
-    if (object.height !== undefined && object.height !== null) {
-      message.height = object.height as Long;
-    } else {
-      message.height = Long.ZERO;
-    }
+  create<I extends Exact<DeepPartial<GetBlockByHeightRequest>, I>>(base?: I): GetBlockByHeightRequest {
+    return GetBlockByHeightRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetBlockByHeightRequest>, I>>(object: I): GetBlockByHeightRequest {
+    const message = createBaseGetBlockByHeightRequest();
+    message.height =
+      object.height !== undefined && object.height !== null ? Long.fromValue(object.height) : Long.ZERO;
     return message;
   },
 };
 
-const baseGetBlockByHeightResponse: object = {};
+function createBaseGetBlockByHeightResponse(): GetBlockByHeightResponse {
+  return { blockId: undefined, block: undefined };
+}
 
 export const GetBlockByHeightResponse = {
   encode(message: GetBlockByHeightResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -607,39 +632,40 @@ export const GetBlockByHeightResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetBlockByHeightResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetBlockByHeightResponse } as GetBlockByHeightResponse;
+    const message = createBaseGetBlockByHeightResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.blockId = BlockID.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.block = Block.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GetBlockByHeightResponse {
-    const message = { ...baseGetBlockByHeightResponse } as GetBlockByHeightResponse;
-    if (object.blockId !== undefined && object.blockId !== null) {
-      message.blockId = BlockID.fromJSON(object.blockId);
-    } else {
-      message.blockId = undefined;
-    }
-    if (object.block !== undefined && object.block !== null) {
-      message.block = Block.fromJSON(object.block);
-    } else {
-      message.block = undefined;
-    }
-    return message;
+    return {
+      blockId: isSet(object.blockId) ? BlockID.fromJSON(object.blockId) : undefined,
+      block: isSet(object.block) ? Block.fromJSON(object.block) : undefined,
+    };
   },
 
   toJSON(message: GetBlockByHeightResponse): unknown {
@@ -650,23 +676,27 @@ export const GetBlockByHeightResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GetBlockByHeightResponse>): GetBlockByHeightResponse {
-    const message = { ...baseGetBlockByHeightResponse } as GetBlockByHeightResponse;
-    if (object.blockId !== undefined && object.blockId !== null) {
-      message.blockId = BlockID.fromPartial(object.blockId);
-    } else {
-      message.blockId = undefined;
-    }
-    if (object.block !== undefined && object.block !== null) {
-      message.block = Block.fromPartial(object.block);
-    } else {
-      message.block = undefined;
-    }
+  create<I extends Exact<DeepPartial<GetBlockByHeightResponse>, I>>(base?: I): GetBlockByHeightResponse {
+    return GetBlockByHeightResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetBlockByHeightResponse>, I>>(
+    object: I,
+  ): GetBlockByHeightResponse {
+    const message = createBaseGetBlockByHeightResponse();
+    message.blockId =
+      object.blockId !== undefined && object.blockId !== null
+        ? BlockID.fromPartial(object.blockId)
+        : undefined;
+    message.block =
+      object.block !== undefined && object.block !== null ? Block.fromPartial(object.block) : undefined;
     return message;
   },
 };
 
-const baseGetLatestBlockRequest: object = {};
+function createBaseGetLatestBlockRequest(): GetLatestBlockRequest {
+  return {};
+}
 
 export const GetLatestBlockRequest = {
   encode(_: GetLatestBlockRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -674,23 +704,23 @@ export const GetLatestBlockRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetLatestBlockRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetLatestBlockRequest } as GetLatestBlockRequest;
+    const message = createBaseGetLatestBlockRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): GetLatestBlockRequest {
-    const message = { ...baseGetLatestBlockRequest } as GetLatestBlockRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: GetLatestBlockRequest): unknown {
@@ -698,13 +728,19 @@ export const GetLatestBlockRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<GetLatestBlockRequest>): GetLatestBlockRequest {
-    const message = { ...baseGetLatestBlockRequest } as GetLatestBlockRequest;
+  create<I extends Exact<DeepPartial<GetLatestBlockRequest>, I>>(base?: I): GetLatestBlockRequest {
+    return GetLatestBlockRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetLatestBlockRequest>, I>>(_: I): GetLatestBlockRequest {
+    const message = createBaseGetLatestBlockRequest();
     return message;
   },
 };
 
-const baseGetLatestBlockResponse: object = {};
+function createBaseGetLatestBlockResponse(): GetLatestBlockResponse {
+  return { blockId: undefined, block: undefined };
+}
 
 export const GetLatestBlockResponse = {
   encode(message: GetLatestBlockResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -718,39 +754,40 @@ export const GetLatestBlockResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetLatestBlockResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetLatestBlockResponse } as GetLatestBlockResponse;
+    const message = createBaseGetLatestBlockResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.blockId = BlockID.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.block = Block.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GetLatestBlockResponse {
-    const message = { ...baseGetLatestBlockResponse } as GetLatestBlockResponse;
-    if (object.blockId !== undefined && object.blockId !== null) {
-      message.blockId = BlockID.fromJSON(object.blockId);
-    } else {
-      message.blockId = undefined;
-    }
-    if (object.block !== undefined && object.block !== null) {
-      message.block = Block.fromJSON(object.block);
-    } else {
-      message.block = undefined;
-    }
-    return message;
+    return {
+      blockId: isSet(object.blockId) ? BlockID.fromJSON(object.blockId) : undefined,
+      block: isSet(object.block) ? Block.fromJSON(object.block) : undefined,
+    };
   },
 
   toJSON(message: GetLatestBlockResponse): unknown {
@@ -761,23 +798,25 @@ export const GetLatestBlockResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GetLatestBlockResponse>): GetLatestBlockResponse {
-    const message = { ...baseGetLatestBlockResponse } as GetLatestBlockResponse;
-    if (object.blockId !== undefined && object.blockId !== null) {
-      message.blockId = BlockID.fromPartial(object.blockId);
-    } else {
-      message.blockId = undefined;
-    }
-    if (object.block !== undefined && object.block !== null) {
-      message.block = Block.fromPartial(object.block);
-    } else {
-      message.block = undefined;
-    }
+  create<I extends Exact<DeepPartial<GetLatestBlockResponse>, I>>(base?: I): GetLatestBlockResponse {
+    return GetLatestBlockResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetLatestBlockResponse>, I>>(object: I): GetLatestBlockResponse {
+    const message = createBaseGetLatestBlockResponse();
+    message.blockId =
+      object.blockId !== undefined && object.blockId !== null
+        ? BlockID.fromPartial(object.blockId)
+        : undefined;
+    message.block =
+      object.block !== undefined && object.block !== null ? Block.fromPartial(object.block) : undefined;
     return message;
   },
 };
 
-const baseGetSyncingRequest: object = {};
+function createBaseGetSyncingRequest(): GetSyncingRequest {
+  return {};
+}
 
 export const GetSyncingRequest = {
   encode(_: GetSyncingRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -785,23 +824,23 @@ export const GetSyncingRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetSyncingRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetSyncingRequest } as GetSyncingRequest;
+    const message = createBaseGetSyncingRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): GetSyncingRequest {
-    const message = { ...baseGetSyncingRequest } as GetSyncingRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: GetSyncingRequest): unknown {
@@ -809,13 +848,19 @@ export const GetSyncingRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<GetSyncingRequest>): GetSyncingRequest {
-    const message = { ...baseGetSyncingRequest } as GetSyncingRequest;
+  create<I extends Exact<DeepPartial<GetSyncingRequest>, I>>(base?: I): GetSyncingRequest {
+    return GetSyncingRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetSyncingRequest>, I>>(_: I): GetSyncingRequest {
+    const message = createBaseGetSyncingRequest();
     return message;
   },
 };
 
-const baseGetSyncingResponse: object = { syncing: false };
+function createBaseGetSyncingResponse(): GetSyncingResponse {
+  return { syncing: false };
+}
 
 export const GetSyncingResponse = {
   encode(message: GetSyncingResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -826,31 +871,30 @@ export const GetSyncingResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetSyncingResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetSyncingResponse } as GetSyncingResponse;
+    const message = createBaseGetSyncingResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.syncing = reader.bool();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GetSyncingResponse {
-    const message = { ...baseGetSyncingResponse } as GetSyncingResponse;
-    if (object.syncing !== undefined && object.syncing !== null) {
-      message.syncing = Boolean(object.syncing);
-    } else {
-      message.syncing = false;
-    }
-    return message;
+    return { syncing: isSet(object.syncing) ? Boolean(object.syncing) : false };
   },
 
   toJSON(message: GetSyncingResponse): unknown {
@@ -859,18 +903,20 @@ export const GetSyncingResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GetSyncingResponse>): GetSyncingResponse {
-    const message = { ...baseGetSyncingResponse } as GetSyncingResponse;
-    if (object.syncing !== undefined && object.syncing !== null) {
-      message.syncing = object.syncing;
-    } else {
-      message.syncing = false;
-    }
+  create<I extends Exact<DeepPartial<GetSyncingResponse>, I>>(base?: I): GetSyncingResponse {
+    return GetSyncingResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetSyncingResponse>, I>>(object: I): GetSyncingResponse {
+    const message = createBaseGetSyncingResponse();
+    message.syncing = object.syncing ?? false;
     return message;
   },
 };
 
-const baseGetNodeInfoRequest: object = {};
+function createBaseGetNodeInfoRequest(): GetNodeInfoRequest {
+  return {};
+}
 
 export const GetNodeInfoRequest = {
   encode(_: GetNodeInfoRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -878,23 +924,23 @@ export const GetNodeInfoRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetNodeInfoRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetNodeInfoRequest } as GetNodeInfoRequest;
+    const message = createBaseGetNodeInfoRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): GetNodeInfoRequest {
-    const message = { ...baseGetNodeInfoRequest } as GetNodeInfoRequest;
-    return message;
+    return {};
   },
 
   toJSON(_: GetNodeInfoRequest): unknown {
@@ -902,13 +948,19 @@ export const GetNodeInfoRequest = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<GetNodeInfoRequest>): GetNodeInfoRequest {
-    const message = { ...baseGetNodeInfoRequest } as GetNodeInfoRequest;
+  create<I extends Exact<DeepPartial<GetNodeInfoRequest>, I>>(base?: I): GetNodeInfoRequest {
+    return GetNodeInfoRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetNodeInfoRequest>, I>>(_: I): GetNodeInfoRequest {
+    const message = createBaseGetNodeInfoRequest();
     return message;
   },
 };
 
-const baseGetNodeInfoResponse: object = {};
+function createBaseGetNodeInfoResponse(): GetNodeInfoResponse {
+  return { defaultNodeInfo: undefined, applicationVersion: undefined };
+}
 
 export const GetNodeInfoResponse = {
   encode(message: GetNodeInfoResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -922,39 +974,44 @@ export const GetNodeInfoResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GetNodeInfoResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGetNodeInfoResponse } as GetNodeInfoResponse;
+    const message = createBaseGetNodeInfoResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.defaultNodeInfo = DefaultNodeInfo.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.applicationVersion = VersionInfo.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GetNodeInfoResponse {
-    const message = { ...baseGetNodeInfoResponse } as GetNodeInfoResponse;
-    if (object.defaultNodeInfo !== undefined && object.defaultNodeInfo !== null) {
-      message.defaultNodeInfo = DefaultNodeInfo.fromJSON(object.defaultNodeInfo);
-    } else {
-      message.defaultNodeInfo = undefined;
-    }
-    if (object.applicationVersion !== undefined && object.applicationVersion !== null) {
-      message.applicationVersion = VersionInfo.fromJSON(object.applicationVersion);
-    } else {
-      message.applicationVersion = undefined;
-    }
-    return message;
+    return {
+      defaultNodeInfo: isSet(object.defaultNodeInfo)
+        ? DefaultNodeInfo.fromJSON(object.defaultNodeInfo)
+        : undefined,
+      applicationVersion: isSet(object.applicationVersion)
+        ? VersionInfo.fromJSON(object.applicationVersion)
+        : undefined,
+    };
   },
 
   toJSON(message: GetNodeInfoResponse): unknown {
@@ -970,31 +1027,36 @@ export const GetNodeInfoResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GetNodeInfoResponse>): GetNodeInfoResponse {
-    const message = { ...baseGetNodeInfoResponse } as GetNodeInfoResponse;
-    if (object.defaultNodeInfo !== undefined && object.defaultNodeInfo !== null) {
-      message.defaultNodeInfo = DefaultNodeInfo.fromPartial(object.defaultNodeInfo);
-    } else {
-      message.defaultNodeInfo = undefined;
-    }
-    if (object.applicationVersion !== undefined && object.applicationVersion !== null) {
-      message.applicationVersion = VersionInfo.fromPartial(object.applicationVersion);
-    } else {
-      message.applicationVersion = undefined;
-    }
+  create<I extends Exact<DeepPartial<GetNodeInfoResponse>, I>>(base?: I): GetNodeInfoResponse {
+    return GetNodeInfoResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GetNodeInfoResponse>, I>>(object: I): GetNodeInfoResponse {
+    const message = createBaseGetNodeInfoResponse();
+    message.defaultNodeInfo =
+      object.defaultNodeInfo !== undefined && object.defaultNodeInfo !== null
+        ? DefaultNodeInfo.fromPartial(object.defaultNodeInfo)
+        : undefined;
+    message.applicationVersion =
+      object.applicationVersion !== undefined && object.applicationVersion !== null
+        ? VersionInfo.fromPartial(object.applicationVersion)
+        : undefined;
     return message;
   },
 };
 
-const baseVersionInfo: object = {
-  name: "",
-  appName: "",
-  version: "",
-  gitCommit: "",
-  buildTags: "",
-  goVersion: "",
-  cosmosSdkVersion: "",
-};
+function createBaseVersionInfo(): VersionInfo {
+  return {
+    name: "",
+    appName: "",
+    version: "",
+    gitCommit: "",
+    buildTags: "",
+    goVersion: "",
+    buildDeps: [],
+    cosmosSdkVersion: "",
+  };
+}
 
 export const VersionInfo = {
   encode(message: VersionInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1026,89 +1088,88 @@ export const VersionInfo = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): VersionInfo {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseVersionInfo } as VersionInfo;
-    message.buildDeps = [];
+    const message = createBaseVersionInfo();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.name = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.appName = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.version = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.gitCommit = reader.string();
-          break;
+          continue;
         case 5:
+          if (tag !== 42) {
+            break;
+          }
+
           message.buildTags = reader.string();
-          break;
+          continue;
         case 6:
+          if (tag !== 50) {
+            break;
+          }
+
           message.goVersion = reader.string();
-          break;
+          continue;
         case 7:
+          if (tag !== 58) {
+            break;
+          }
+
           message.buildDeps.push(Module.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 8:
+          if (tag !== 66) {
+            break;
+          }
+
           message.cosmosSdkVersion = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): VersionInfo {
-    const message = { ...baseVersionInfo } as VersionInfo;
-    message.buildDeps = [];
-    if (object.name !== undefined && object.name !== null) {
-      message.name = String(object.name);
-    } else {
-      message.name = "";
-    }
-    if (object.appName !== undefined && object.appName !== null) {
-      message.appName = String(object.appName);
-    } else {
-      message.appName = "";
-    }
-    if (object.version !== undefined && object.version !== null) {
-      message.version = String(object.version);
-    } else {
-      message.version = "";
-    }
-    if (object.gitCommit !== undefined && object.gitCommit !== null) {
-      message.gitCommit = String(object.gitCommit);
-    } else {
-      message.gitCommit = "";
-    }
-    if (object.buildTags !== undefined && object.buildTags !== null) {
-      message.buildTags = String(object.buildTags);
-    } else {
-      message.buildTags = "";
-    }
-    if (object.goVersion !== undefined && object.goVersion !== null) {
-      message.goVersion = String(object.goVersion);
-    } else {
-      message.goVersion = "";
-    }
-    if (object.buildDeps !== undefined && object.buildDeps !== null) {
-      for (const e of object.buildDeps) {
-        message.buildDeps.push(Module.fromJSON(e));
-      }
-    }
-    if (object.cosmosSdkVersion !== undefined && object.cosmosSdkVersion !== null) {
-      message.cosmosSdkVersion = String(object.cosmosSdkVersion);
-    } else {
-      message.cosmosSdkVersion = "";
-    }
-    return message;
+    return {
+      name: isSet(object.name) ? String(object.name) : "",
+      appName: isSet(object.appName) ? String(object.appName) : "",
+      version: isSet(object.version) ? String(object.version) : "",
+      gitCommit: isSet(object.gitCommit) ? String(object.gitCommit) : "",
+      buildTags: isSet(object.buildTags) ? String(object.buildTags) : "",
+      goVersion: isSet(object.goVersion) ? String(object.goVersion) : "",
+      buildDeps: Array.isArray(object?.buildDeps) ? object.buildDeps.map((e: any) => Module.fromJSON(e)) : [],
+      cosmosSdkVersion: isSet(object.cosmosSdkVersion) ? String(object.cosmosSdkVersion) : "",
+    };
   },
 
   toJSON(message: VersionInfo): unknown {
@@ -1128,54 +1189,27 @@ export const VersionInfo = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<VersionInfo>): VersionInfo {
-    const message = { ...baseVersionInfo } as VersionInfo;
-    message.buildDeps = [];
-    if (object.name !== undefined && object.name !== null) {
-      message.name = object.name;
-    } else {
-      message.name = "";
-    }
-    if (object.appName !== undefined && object.appName !== null) {
-      message.appName = object.appName;
-    } else {
-      message.appName = "";
-    }
-    if (object.version !== undefined && object.version !== null) {
-      message.version = object.version;
-    } else {
-      message.version = "";
-    }
-    if (object.gitCommit !== undefined && object.gitCommit !== null) {
-      message.gitCommit = object.gitCommit;
-    } else {
-      message.gitCommit = "";
-    }
-    if (object.buildTags !== undefined && object.buildTags !== null) {
-      message.buildTags = object.buildTags;
-    } else {
-      message.buildTags = "";
-    }
-    if (object.goVersion !== undefined && object.goVersion !== null) {
-      message.goVersion = object.goVersion;
-    } else {
-      message.goVersion = "";
-    }
-    if (object.buildDeps !== undefined && object.buildDeps !== null) {
-      for (const e of object.buildDeps) {
-        message.buildDeps.push(Module.fromPartial(e));
-      }
-    }
-    if (object.cosmosSdkVersion !== undefined && object.cosmosSdkVersion !== null) {
-      message.cosmosSdkVersion = object.cosmosSdkVersion;
-    } else {
-      message.cosmosSdkVersion = "";
-    }
+  create<I extends Exact<DeepPartial<VersionInfo>, I>>(base?: I): VersionInfo {
+    return VersionInfo.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<VersionInfo>, I>>(object: I): VersionInfo {
+    const message = createBaseVersionInfo();
+    message.name = object.name ?? "";
+    message.appName = object.appName ?? "";
+    message.version = object.version ?? "";
+    message.gitCommit = object.gitCommit ?? "";
+    message.buildTags = object.buildTags ?? "";
+    message.goVersion = object.goVersion ?? "";
+    message.buildDeps = object.buildDeps?.map((e) => Module.fromPartial(e)) || [];
+    message.cosmosSdkVersion = object.cosmosSdkVersion ?? "";
     return message;
   },
 };
 
-const baseModule: object = { path: "", version: "", sum: "" };
+function createBaseModule(): Module {
+  return { path: "", version: "", sum: "" };
+}
 
 export const Module = {
   encode(message: Module, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1192,47 +1226,48 @@ export const Module = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Module {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseModule } as Module;
+    const message = createBaseModule();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.path = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.version = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.sum = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Module {
-    const message = { ...baseModule } as Module;
-    if (object.path !== undefined && object.path !== null) {
-      message.path = String(object.path);
-    } else {
-      message.path = "";
-    }
-    if (object.version !== undefined && object.version !== null) {
-      message.version = String(object.version);
-    } else {
-      message.version = "";
-    }
-    if (object.sum !== undefined && object.sum !== null) {
-      message.sum = String(object.sum);
-    } else {
-      message.sum = "";
-    }
-    return message;
+    return {
+      path: isSet(object.path) ? String(object.path) : "",
+      version: isSet(object.version) ? String(object.version) : "",
+      sum: isSet(object.sum) ? String(object.sum) : "",
+    };
   },
 
   toJSON(message: Module): unknown {
@@ -1243,23 +1278,15 @@ export const Module = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Module>): Module {
-    const message = { ...baseModule } as Module;
-    if (object.path !== undefined && object.path !== null) {
-      message.path = object.path;
-    } else {
-      message.path = "";
-    }
-    if (object.version !== undefined && object.version !== null) {
-      message.version = object.version;
-    } else {
-      message.version = "";
-    }
-    if (object.sum !== undefined && object.sum !== null) {
-      message.sum = object.sum;
-    } else {
-      message.sum = "";
-    }
+  create<I extends Exact<DeepPartial<Module>, I>>(base?: I): Module {
+    return Module.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Module>, I>>(object: I): Module {
+    const message = createBaseModule();
+    message.path = object.path ?? "";
+    message.version = object.version ?? "";
+    message.sum = object.sum ?? "";
     return message;
   },
 };
@@ -1360,9 +1387,7 @@ export class ServiceClientImpl implements Service {
   }
 }
 
-export const ServiceDesc = {
-  serviceName: "cosmos.base.tendermint.v1beta1.Service",
-};
+export const ServiceDesc = { serviceName: "cosmos.base.tendermint.v1beta1.Service" };
 
 export const ServiceGetNodeInfoDesc: UnaryMethodDefinitionish = {
   methodName: "GetNodeInfo",
@@ -1376,10 +1401,11 @@ export const ServiceGetNodeInfoDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = GetNodeInfoResponse.decode(data);
       return {
-        ...GetNodeInfoResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1398,10 +1424,11 @@ export const ServiceGetSyncingDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = GetSyncingResponse.decode(data);
       return {
-        ...GetSyncingResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1420,10 +1447,11 @@ export const ServiceGetLatestBlockDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = GetLatestBlockResponse.decode(data);
       return {
-        ...GetLatestBlockResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1442,10 +1470,11 @@ export const ServiceGetBlockByHeightDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = GetBlockByHeightResponse.decode(data);
       return {
-        ...GetBlockByHeightResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1464,10 +1493,11 @@ export const ServiceGetLatestValidatorSetDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = GetLatestValidatorSetResponse.decode(data);
       return {
-        ...GetLatestValidatorSetResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1486,10 +1516,11 @@ export const ServiceGetValidatorSetByHeightDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = GetValidatorSetByHeightResponse.decode(data);
       return {
-        ...GetValidatorSetByHeightResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1518,6 +1549,7 @@ export class GrpcWebImpl {
 
     debug?: boolean;
     metadata?: grpc.Metadata;
+    upStreamRetryCodes?: number[];
   };
 
   constructor(
@@ -1527,6 +1559,7 @@ export class GrpcWebImpl {
 
       debug?: boolean;
       metadata?: grpc.Metadata;
+      upStreamRetryCodes?: number[];
     },
   ) {
     this.host = host;
@@ -1552,11 +1585,9 @@ export class GrpcWebImpl {
         debug: this.options.debug,
         onEnd: function (response) {
           if (response.status === grpc.Code.OK) {
-            resolve(response.message);
+            resolve(response.message!.toObject());
           } else {
-            const err = new Error(response.statusMessage) as any;
-            err.code = response.status;
-            err.metadata = response.trailers;
+            const err = new GrpcWebError(response.statusMessage, response.status, response.trailers);
             reject(err);
           }
         },
@@ -1565,9 +1596,31 @@ export class GrpcWebImpl {
   }
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+declare var self: any | undefined;
+declare var window: any | undefined;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
+  throw "Unable to locate global object";
+})();
+
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -1576,7 +1629,22 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}
+
+export class GrpcWebError extends tsProtoGlobalThis.Error {
+  constructor(message: string, public code: grpc.Code, public metadata: grpc.Metadata) {
+    super(message);
+  }
 }

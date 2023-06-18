@@ -29,7 +29,7 @@ class MsgTransfer(betterproto.Message):
     """
     MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between
     ICS20 enabled chains. See ICS Spec here:
-    https://github.com/cosmos/ics/tree/master/spec/ics-020-fungible-token-
+    https://github.com/cosmos/ibc/tree/master/spec/app/ics-020-fungible-token-
     transfer#data-structures
     """
 
@@ -56,38 +56,20 @@ class MsgTransfer(betterproto.Message):
 
     timeout_timestamp: int = betterproto.uint64_field(7)
     """
-    Timeout timestamp (in nanoseconds) relative to the current block timestamp.
-    The timeout is disabled when set to 0.
+    Timeout timestamp in absolute nanoseconds since unix epoch. The timeout is
+    disabled when set to 0.
     """
+
+    memo: str = betterproto.string_field(8)
+    """optional memo"""
 
 
 @dataclass(eq=False, repr=False)
 class MsgTransferResponse(betterproto.Message):
     """MsgTransferResponse defines the Msg/Transfer response type."""
 
-    pass
-
-
-@dataclass(eq=False, repr=False)
-class FungibleTokenPacketData(betterproto.Message):
-    """
-    FungibleTokenPacketData defines a struct for the packet payload See
-    FungibleTokenPacketData spec:
-    https://github.com/cosmos/ics/tree/master/spec/ics-020-fungible-token-
-    transfer#data-structures
-    """
-
-    denom: str = betterproto.string_field(1)
-    """the token denomination to be transferred"""
-
-    amount: int = betterproto.uint64_field(2)
-    """the token amount to be transferred"""
-
-    sender: str = betterproto.string_field(3)
-    """the sender address"""
-
-    receiver: str = betterproto.string_field(4)
-    """the recipient address on the destination chain"""
+    sequence: int = betterproto.uint64_field(1)
+    """sequence number of the transfer packet sent"""
 
 
 @dataclass(eq=False, repr=False)
@@ -225,6 +207,31 @@ class QueryDenomHashResponse(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
+class QueryEscrowAddressRequest(betterproto.Message):
+    """
+    QueryEscrowAddressRequest is the request type for the EscrowAddress RPC
+    method.
+    """
+
+    port_id: str = betterproto.string_field(1)
+    """unique port identifier"""
+
+    channel_id: str = betterproto.string_field(2)
+    """unique channel identifier"""
+
+
+@dataclass(eq=False, repr=False)
+class QueryEscrowAddressResponse(betterproto.Message):
+    """
+    QueryEscrowAddressResponse is the response type of the EscrowAddress RPC
+    method.
+    """
+
+    escrow_address: str = betterproto.string_field(1)
+    """the escrow account address"""
+
+
+@dataclass(eq=False, repr=False)
 class GenesisState(betterproto.Message):
     """GenesisState defines the ibc-transfer genesis state"""
 
@@ -321,6 +328,23 @@ class QueryStub(betterproto.ServiceStub):
             metadata=metadata,
         )
 
+    async def escrow_address(
+        self,
+        query_escrow_address_request: "QueryEscrowAddressRequest",
+        *,
+        timeout: Optional[float] = None,
+        deadline: Optional["Deadline"] = None,
+        metadata: Optional["MetadataLike"] = None
+    ) -> "QueryEscrowAddressResponse":
+        return await self._unary_unary(
+            "/ibc.applications.transfer.v1.Query/EscrowAddress",
+            query_escrow_address_request,
+            QueryEscrowAddressResponse,
+            timeout=timeout,
+            deadline=deadline,
+            metadata=metadata,
+        )
+
 
 class MsgBase(ServiceBase):
     async def transfer(self, msg_transfer: "MsgTransfer") -> "MsgTransferResponse":
@@ -365,6 +389,11 @@ class QueryBase(ServiceBase):
     ) -> "QueryDenomHashResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
 
+    async def escrow_address(
+        self, query_escrow_address_request: "QueryEscrowAddressRequest"
+    ) -> "QueryEscrowAddressResponse":
+        raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
     async def __rpc_denom_trace(
         self,
         stream: "grpclib.server.Stream[QueryDenomTraceRequest, QueryDenomTraceResponse]",
@@ -396,6 +425,14 @@ class QueryBase(ServiceBase):
         response = await self.denom_hash(request)
         await stream.send_message(response)
 
+    async def __rpc_escrow_address(
+        self,
+        stream: "grpclib.server.Stream[QueryEscrowAddressRequest, QueryEscrowAddressResponse]",
+    ) -> None:
+        request = await stream.recv_message()
+        response = await self.escrow_address(request)
+        await stream.send_message(response)
+
     def __mapping__(self) -> Dict[str, grpclib.const.Handler]:
         return {
             "/ibc.applications.transfer.v1.Query/DenomTrace": grpclib.const.Handler(
@@ -421,5 +458,11 @@ class QueryBase(ServiceBase):
                 grpclib.const.Cardinality.UNARY_UNARY,
                 QueryDenomHashRequest,
                 QueryDenomHashResponse,
+            ),
+            "/ibc.applications.transfer.v1.Query/EscrowAddress": grpclib.const.Handler(
+                self.__rpc_escrow_address,
+                grpclib.const.Cardinality.UNARY_UNARY,
+                QueryEscrowAddressRequest,
+                QueryEscrowAddressResponse,
             ),
         }

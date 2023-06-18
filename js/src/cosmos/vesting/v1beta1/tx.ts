@@ -1,9 +1,9 @@
 /* eslint-disable */
-import Long from "long";
 import { grpc } from "@improbable-eng/grpc-web";
-import _m0 from "protobufjs/minimal";
 import { BrowserHeaders } from "browser-headers";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
+import { Coin } from "../../base/v1beta1/coin";
 
 export const protobufPackage = "cosmos.vesting.v1beta1";
 
@@ -22,12 +22,9 @@ export interface MsgCreateVestingAccount {
 /** MsgCreateVestingAccountResponse defines the Msg/CreateVestingAccount response type. */
 export interface MsgCreateVestingAccountResponse {}
 
-const baseMsgCreateVestingAccount: object = {
-  fromAddress: "",
-  toAddress: "",
-  endTime: Long.ZERO,
-  delayed: false,
-};
+function createBaseMsgCreateVestingAccount(): MsgCreateVestingAccount {
+  return { fromAddress: "", toAddress: "", amount: [], endTime: Long.ZERO, delayed: false };
+}
 
 export const MsgCreateVestingAccount = {
   encode(message: MsgCreateVestingAccount, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -50,65 +47,64 @@ export const MsgCreateVestingAccount = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateVestingAccount {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgCreateVestingAccount } as MsgCreateVestingAccount;
-    message.amount = [];
+    const message = createBaseMsgCreateVestingAccount();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.fromAddress = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.toAddress = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.amount.push(Coin.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 4:
+          if (tag !== 32) {
+            break;
+          }
+
           message.endTime = reader.int64() as Long;
-          break;
+          continue;
         case 5:
+          if (tag !== 40) {
+            break;
+          }
+
           message.delayed = reader.bool();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): MsgCreateVestingAccount {
-    const message = { ...baseMsgCreateVestingAccount } as MsgCreateVestingAccount;
-    message.amount = [];
-    if (object.fromAddress !== undefined && object.fromAddress !== null) {
-      message.fromAddress = String(object.fromAddress);
-    } else {
-      message.fromAddress = "";
-    }
-    if (object.toAddress !== undefined && object.toAddress !== null) {
-      message.toAddress = String(object.toAddress);
-    } else {
-      message.toAddress = "";
-    }
-    if (object.amount !== undefined && object.amount !== null) {
-      for (const e of object.amount) {
-        message.amount.push(Coin.fromJSON(e));
-      }
-    }
-    if (object.endTime !== undefined && object.endTime !== null) {
-      message.endTime = Long.fromString(object.endTime);
-    } else {
-      message.endTime = Long.ZERO;
-    }
-    if (object.delayed !== undefined && object.delayed !== null) {
-      message.delayed = Boolean(object.delayed);
-    } else {
-      message.delayed = false;
-    }
-    return message;
+    return {
+      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : "",
+      toAddress: isSet(object.toAddress) ? String(object.toAddress) : "",
+      amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromJSON(e)) : [],
+      endTime: isSet(object.endTime) ? Long.fromValue(object.endTime) : Long.ZERO,
+      delayed: isSet(object.delayed) ? Boolean(object.delayed) : false,
+    };
   },
 
   toJSON(message: MsgCreateVestingAccount): unknown {
@@ -125,39 +121,25 @@ export const MsgCreateVestingAccount = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<MsgCreateVestingAccount>): MsgCreateVestingAccount {
-    const message = { ...baseMsgCreateVestingAccount } as MsgCreateVestingAccount;
-    message.amount = [];
-    if (object.fromAddress !== undefined && object.fromAddress !== null) {
-      message.fromAddress = object.fromAddress;
-    } else {
-      message.fromAddress = "";
-    }
-    if (object.toAddress !== undefined && object.toAddress !== null) {
-      message.toAddress = object.toAddress;
-    } else {
-      message.toAddress = "";
-    }
-    if (object.amount !== undefined && object.amount !== null) {
-      for (const e of object.amount) {
-        message.amount.push(Coin.fromPartial(e));
-      }
-    }
-    if (object.endTime !== undefined && object.endTime !== null) {
-      message.endTime = object.endTime as Long;
-    } else {
-      message.endTime = Long.ZERO;
-    }
-    if (object.delayed !== undefined && object.delayed !== null) {
-      message.delayed = object.delayed;
-    } else {
-      message.delayed = false;
-    }
+  create<I extends Exact<DeepPartial<MsgCreateVestingAccount>, I>>(base?: I): MsgCreateVestingAccount {
+    return MsgCreateVestingAccount.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgCreateVestingAccount>, I>>(object: I): MsgCreateVestingAccount {
+    const message = createBaseMsgCreateVestingAccount();
+    message.fromAddress = object.fromAddress ?? "";
+    message.toAddress = object.toAddress ?? "";
+    message.amount = object.amount?.map((e) => Coin.fromPartial(e)) || [];
+    message.endTime =
+      object.endTime !== undefined && object.endTime !== null ? Long.fromValue(object.endTime) : Long.ZERO;
+    message.delayed = object.delayed ?? false;
     return message;
   },
 };
 
-const baseMsgCreateVestingAccountResponse: object = {};
+function createBaseMsgCreateVestingAccountResponse(): MsgCreateVestingAccountResponse {
+  return {};
+}
 
 export const MsgCreateVestingAccountResponse = {
   encode(_: MsgCreateVestingAccountResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -165,23 +147,23 @@ export const MsgCreateVestingAccountResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateVestingAccountResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgCreateVestingAccountResponse } as MsgCreateVestingAccountResponse;
+    const message = createBaseMsgCreateVestingAccountResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): MsgCreateVestingAccountResponse {
-    const message = { ...baseMsgCreateVestingAccountResponse } as MsgCreateVestingAccountResponse;
-    return message;
+    return {};
   },
 
   toJSON(_: MsgCreateVestingAccountResponse): unknown {
@@ -189,8 +171,16 @@ export const MsgCreateVestingAccountResponse = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<MsgCreateVestingAccountResponse>): MsgCreateVestingAccountResponse {
-    const message = { ...baseMsgCreateVestingAccountResponse } as MsgCreateVestingAccountResponse;
+  create<I extends Exact<DeepPartial<MsgCreateVestingAccountResponse>, I>>(
+    base?: I,
+  ): MsgCreateVestingAccountResponse {
+    return MsgCreateVestingAccountResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgCreateVestingAccountResponse>, I>>(
+    _: I,
+  ): MsgCreateVestingAccountResponse {
+    const message = createBaseMsgCreateVestingAccountResponse();
     return message;
   },
 };
@@ -227,9 +217,7 @@ export class MsgClientImpl implements Msg {
   }
 }
 
-export const MsgDesc = {
-  serviceName: "cosmos.vesting.v1beta1.Msg",
-};
+export const MsgDesc = { serviceName: "cosmos.vesting.v1beta1.Msg" };
 
 export const MsgCreateVestingAccountDesc: UnaryMethodDefinitionish = {
   methodName: "CreateVestingAccount",
@@ -243,10 +231,11 @@ export const MsgCreateVestingAccountDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = MsgCreateVestingAccountResponse.decode(data);
       return {
-        ...MsgCreateVestingAccountResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -275,6 +264,7 @@ export class GrpcWebImpl {
 
     debug?: boolean;
     metadata?: grpc.Metadata;
+    upStreamRetryCodes?: number[];
   };
 
   constructor(
@@ -284,6 +274,7 @@ export class GrpcWebImpl {
 
       debug?: boolean;
       metadata?: grpc.Metadata;
+      upStreamRetryCodes?: number[];
     },
   ) {
     this.host = host;
@@ -309,11 +300,9 @@ export class GrpcWebImpl {
         debug: this.options.debug,
         onEnd: function (response) {
           if (response.status === grpc.Code.OK) {
-            resolve(response.message);
+            resolve(response.message!.toObject());
           } else {
-            const err = new Error(response.statusMessage) as any;
-            err.code = response.status;
-            err.metadata = response.trailers;
+            const err = new GrpcWebError(response.statusMessage, response.status, response.trailers);
             reject(err);
           }
         },
@@ -322,9 +311,31 @@ export class GrpcWebImpl {
   }
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+declare var self: any | undefined;
+declare var window: any | undefined;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
+  throw "Unable to locate global object";
+})();
+
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -333,7 +344,22 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}
+
+export class GrpcWebError extends tsProtoGlobalThis.Error {
+  constructor(message: string, public code: grpc.Code, public metadata: grpc.Metadata) {
+    super(message);
+  }
 }

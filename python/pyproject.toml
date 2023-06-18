@@ -1,6 +1,9 @@
 [tool.poetry]
-name = "terra-proto"
-authors = ["Terraform Labs, PTE. <engineering@terra.money>"]
+name = "classic-terra-proto"
+authors = [
+    "Terraform Labs, PTE. <engineering@terra.money>",
+    "Inon Man <inon-man@proton.me>",
+]
 classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
@@ -10,14 +13,14 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
 ]
-description = "The Python Protobuf implementation for Terra"
-homepage = "https://github.com/terra-money/terra.proto"
+description = "The Python Protobuf implementation for Terra Classic"
+homepage = "https://github.com/classic-terra/terra.proto"
 keywords = ["blockchain", "terra", "defi", "crypto"]
 license = "MIT"
 packages = [{ include = "terra_proto" }]
 readme = "README.md"
-repository = "https://github.com/terra-money/terra.proto"
-version = "1.1.0"
+repository = "https://github.com/classic-terra/terra.proto"
+version = "2.1.2"
 
 [tool.poetry.dependencies]
 python = "^3.7"

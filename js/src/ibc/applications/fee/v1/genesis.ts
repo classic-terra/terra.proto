@@ -1,8 +1,8 @@
 /* eslint-disable */
 import Long from "long";
 import _m0 from "protobufjs/minimal";
-import { PacketId } from "../../../../ibc/core/channel/v1/channel";
-import { IdentifiedPacketFees } from "../../../../ibc/applications/fee/v1/fee";
+import { PacketId } from "../../../core/channel/v1/channel";
+import { IdentifiedPacketFees } from "./fee";
 
 export const protobufPackage = "ibc.applications.fee.v1";
 
@@ -12,8 +12,10 @@ export interface GenesisState {
   identifiedFees: IdentifiedPacketFees[];
   /** list of fee enabled channels */
   feeEnabledChannels: FeeEnabledChannel[];
-  /** list of registered relayer addresses */
-  registeredRelayers: RegisteredRelayerAddress[];
+  /** list of registered payees */
+  registeredPayees: RegisteredPayee[];
+  /** list of registered counterparty payees */
+  registeredCounterpartyPayees: RegisteredCounterpartyPayee[];
   /** list of forward relayer addresses */
   forwardRelayers: ForwardRelayerAddress[];
 }
@@ -26,14 +28,27 @@ export interface FeeEnabledChannel {
   channelId: string;
 }
 
-/** RegisteredRelayerAddress contains the address and counterparty address for a specific relayer (for distributing fees) */
-export interface RegisteredRelayerAddress {
-  /** the relayer address */
-  address: string;
-  /** the counterparty relayer address */
-  counterpartyAddress: string;
+/** RegisteredPayee contains the relayer address and payee address for a specific channel */
+export interface RegisteredPayee {
   /** unique channel identifier */
   channelId: string;
+  /** the relayer address */
+  relayer: string;
+  /** the payee address */
+  payee: string;
+}
+
+/**
+ * RegisteredCounterpartyPayee contains the relayer address and counterparty payee address for a specific channel (used
+ * for recv fee distribution)
+ */
+export interface RegisteredCounterpartyPayee {
+  /** unique channel identifier */
+  channelId: string;
+  /** the relayer address */
+  relayer: string;
+  /** the counterparty payee address */
+  counterpartyPayee: string;
 }
 
 /** ForwardRelayerAddress contains the forward relayer address and PacketId used for async acknowledgements */
@@ -44,7 +59,15 @@ export interface ForwardRelayerAddress {
   packetId?: PacketId;
 }
 
-const baseGenesisState: object = {};
+function createBaseGenesisState(): GenesisState {
+  return {
+    identifiedFees: [],
+    feeEnabledChannels: [],
+    registeredPayees: [],
+    registeredCounterpartyPayees: [],
+    forwardRelayers: [],
+  };
+}
 
 export const GenesisState = {
   encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -54,73 +77,89 @@ export const GenesisState = {
     for (const v of message.feeEnabledChannels) {
       FeeEnabledChannel.encode(v!, writer.uint32(18).fork()).ldelim();
     }
-    for (const v of message.registeredRelayers) {
-      RegisteredRelayerAddress.encode(v!, writer.uint32(26).fork()).ldelim();
+    for (const v of message.registeredPayees) {
+      RegisteredPayee.encode(v!, writer.uint32(26).fork()).ldelim();
+    }
+    for (const v of message.registeredCounterpartyPayees) {
+      RegisteredCounterpartyPayee.encode(v!, writer.uint32(34).fork()).ldelim();
     }
     for (const v of message.forwardRelayers) {
-      ForwardRelayerAddress.encode(v!, writer.uint32(34).fork()).ldelim();
+      ForwardRelayerAddress.encode(v!, writer.uint32(42).fork()).ldelim();
     }
     return writer;
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGenesisState } as GenesisState;
-    message.identifiedFees = [];
-    message.feeEnabledChannels = [];
-    message.registeredRelayers = [];
-    message.forwardRelayers = [];
+    const message = createBaseGenesisState();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.identifiedFees.push(IdentifiedPacketFees.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.feeEnabledChannels.push(FeeEnabledChannel.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 3:
-          message.registeredRelayers.push(RegisteredRelayerAddress.decode(reader, reader.uint32()));
-          break;
+          if (tag !== 26) {
+            break;
+          }
+
+          message.registeredPayees.push(RegisteredPayee.decode(reader, reader.uint32()));
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
+          message.registeredCounterpartyPayees.push(
+            RegisteredCounterpartyPayee.decode(reader, reader.uint32()),
+          );
+          continue;
+        case 5:
+          if (tag !== 42) {
+            break;
+          }
+
           message.forwardRelayers.push(ForwardRelayerAddress.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GenesisState {
-    const message = { ...baseGenesisState } as GenesisState;
-    message.identifiedFees = [];
-    message.feeEnabledChannels = [];
-    message.registeredRelayers = [];
-    message.forwardRelayers = [];
-    if (object.identifiedFees !== undefined && object.identifiedFees !== null) {
-      for (const e of object.identifiedFees) {
-        message.identifiedFees.push(IdentifiedPacketFees.fromJSON(e));
-      }
-    }
-    if (object.feeEnabledChannels !== undefined && object.feeEnabledChannels !== null) {
-      for (const e of object.feeEnabledChannels) {
-        message.feeEnabledChannels.push(FeeEnabledChannel.fromJSON(e));
-      }
-    }
-    if (object.registeredRelayers !== undefined && object.registeredRelayers !== null) {
-      for (const e of object.registeredRelayers) {
-        message.registeredRelayers.push(RegisteredRelayerAddress.fromJSON(e));
-      }
-    }
-    if (object.forwardRelayers !== undefined && object.forwardRelayers !== null) {
-      for (const e of object.forwardRelayers) {
-        message.forwardRelayers.push(ForwardRelayerAddress.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      identifiedFees: Array.isArray(object?.identifiedFees)
+        ? object.identifiedFees.map((e: any) => IdentifiedPacketFees.fromJSON(e))
+        : [],
+      feeEnabledChannels: Array.isArray(object?.feeEnabledChannels)
+        ? object.feeEnabledChannels.map((e: any) => FeeEnabledChannel.fromJSON(e))
+        : [],
+      registeredPayees: Array.isArray(object?.registeredPayees)
+        ? object.registeredPayees.map((e: any) => RegisteredPayee.fromJSON(e))
+        : [],
+      registeredCounterpartyPayees: Array.isArray(object?.registeredCounterpartyPayees)
+        ? object.registeredCounterpartyPayees.map((e: any) => RegisteredCounterpartyPayee.fromJSON(e))
+        : [],
+      forwardRelayers: Array.isArray(object?.forwardRelayers)
+        ? object.forwardRelayers.map((e: any) => ForwardRelayerAddress.fromJSON(e))
+        : [],
+    };
   },
 
   toJSON(message: GenesisState): unknown {
@@ -139,12 +178,17 @@ export const GenesisState = {
     } else {
       obj.feeEnabledChannels = [];
     }
-    if (message.registeredRelayers) {
-      obj.registeredRelayers = message.registeredRelayers.map((e) =>
-        e ? RegisteredRelayerAddress.toJSON(e) : undefined,
+    if (message.registeredPayees) {
+      obj.registeredPayees = message.registeredPayees.map((e) => (e ? RegisteredPayee.toJSON(e) : undefined));
+    } else {
+      obj.registeredPayees = [];
+    }
+    if (message.registeredCounterpartyPayees) {
+      obj.registeredCounterpartyPayees = message.registeredCounterpartyPayees.map((e) =>
+        e ? RegisteredCounterpartyPayee.toJSON(e) : undefined,
       );
     } else {
-      obj.registeredRelayers = [];
+      obj.registeredCounterpartyPayees = [];
     }
     if (message.forwardRelayers) {
       obj.forwardRelayers = message.forwardRelayers.map((e) =>
@@ -156,37 +200,26 @@ export const GenesisState = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
-    const message = { ...baseGenesisState } as GenesisState;
-    message.identifiedFees = [];
-    message.feeEnabledChannels = [];
-    message.registeredRelayers = [];
-    message.forwardRelayers = [];
-    if (object.identifiedFees !== undefined && object.identifiedFees !== null) {
-      for (const e of object.identifiedFees) {
-        message.identifiedFees.push(IdentifiedPacketFees.fromPartial(e));
-      }
-    }
-    if (object.feeEnabledChannels !== undefined && object.feeEnabledChannels !== null) {
-      for (const e of object.feeEnabledChannels) {
-        message.feeEnabledChannels.push(FeeEnabledChannel.fromPartial(e));
-      }
-    }
-    if (object.registeredRelayers !== undefined && object.registeredRelayers !== null) {
-      for (const e of object.registeredRelayers) {
-        message.registeredRelayers.push(RegisteredRelayerAddress.fromPartial(e));
-      }
-    }
-    if (object.forwardRelayers !== undefined && object.forwardRelayers !== null) {
-      for (const e of object.forwardRelayers) {
-        message.forwardRelayers.push(ForwardRelayerAddress.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<GenesisState>, I>>(base?: I): GenesisState {
+    return GenesisState.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
+    const message = createBaseGenesisState();
+    message.identifiedFees = object.identifiedFees?.map((e) => IdentifiedPacketFees.fromPartial(e)) || [];
+    message.feeEnabledChannels =
+      object.feeEnabledChannels?.map((e) => FeeEnabledChannel.fromPartial(e)) || [];
+    message.registeredPayees = object.registeredPayees?.map((e) => RegisteredPayee.fromPartial(e)) || [];
+    message.registeredCounterpartyPayees =
+      object.registeredCounterpartyPayees?.map((e) => RegisteredCounterpartyPayee.fromPartial(e)) || [];
+    message.forwardRelayers = object.forwardRelayers?.map((e) => ForwardRelayerAddress.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseFeeEnabledChannel: object = { portId: "", channelId: "" };
+function createBaseFeeEnabledChannel(): FeeEnabledChannel {
+  return { portId: "", channelId: "" };
+}
 
 export const FeeEnabledChannel = {
   encode(message: FeeEnabledChannel, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -200,39 +233,40 @@ export const FeeEnabledChannel = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): FeeEnabledChannel {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseFeeEnabledChannel } as FeeEnabledChannel;
+    const message = createBaseFeeEnabledChannel();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.portId = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.channelId = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): FeeEnabledChannel {
-    const message = { ...baseFeeEnabledChannel } as FeeEnabledChannel;
-    if (object.portId !== undefined && object.portId !== null) {
-      message.portId = String(object.portId);
-    } else {
-      message.portId = "";
-    }
-    if (object.channelId !== undefined && object.channelId !== null) {
-      message.channelId = String(object.channelId);
-    } else {
-      message.channelId = "";
-    }
-    return message;
+    return {
+      portId: isSet(object.portId) ? String(object.portId) : "",
+      channelId: isSet(object.channelId) ? String(object.channelId) : "",
+    };
   },
 
   toJSON(message: FeeEnabledChannel): unknown {
@@ -242,112 +276,193 @@ export const FeeEnabledChannel = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<FeeEnabledChannel>): FeeEnabledChannel {
-    const message = { ...baseFeeEnabledChannel } as FeeEnabledChannel;
-    if (object.portId !== undefined && object.portId !== null) {
-      message.portId = object.portId;
-    } else {
-      message.portId = "";
-    }
-    if (object.channelId !== undefined && object.channelId !== null) {
-      message.channelId = object.channelId;
-    } else {
-      message.channelId = "";
-    }
+  create<I extends Exact<DeepPartial<FeeEnabledChannel>, I>>(base?: I): FeeEnabledChannel {
+    return FeeEnabledChannel.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<FeeEnabledChannel>, I>>(object: I): FeeEnabledChannel {
+    const message = createBaseFeeEnabledChannel();
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     return message;
   },
 };
 
-const baseRegisteredRelayerAddress: object = { address: "", counterpartyAddress: "", channelId: "" };
+function createBaseRegisteredPayee(): RegisteredPayee {
+  return { channelId: "", relayer: "", payee: "" };
+}
 
-export const RegisteredRelayerAddress = {
-  encode(message: RegisteredRelayerAddress, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.address !== "") {
-      writer.uint32(10).string(message.address);
-    }
-    if (message.counterpartyAddress !== "") {
-      writer.uint32(18).string(message.counterpartyAddress);
-    }
+export const RegisteredPayee = {
+  encode(message: RegisteredPayee, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.channelId !== "") {
-      writer.uint32(26).string(message.channelId);
+      writer.uint32(10).string(message.channelId);
+    }
+    if (message.relayer !== "") {
+      writer.uint32(18).string(message.relayer);
+    }
+    if (message.payee !== "") {
+      writer.uint32(26).string(message.payee);
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): RegisteredRelayerAddress {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+  decode(input: _m0.Reader | Uint8Array, length?: number): RegisteredPayee {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRegisteredRelayerAddress } as RegisteredRelayerAddress;
+    const message = createBaseRegisteredPayee();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.address = reader.string();
-          break;
-        case 2:
-          message.counterpartyAddress = reader.string();
-          break;
-        case 3:
+          if (tag !== 10) {
+            break;
+          }
+
           message.channelId = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.relayer = reader.string();
+          continue;
+        case 3:
+          if (tag !== 26) {
+            break;
+          }
+
+          message.payee = reader.string();
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
-  fromJSON(object: any): RegisteredRelayerAddress {
-    const message = { ...baseRegisteredRelayerAddress } as RegisteredRelayerAddress;
-    if (object.address !== undefined && object.address !== null) {
-      message.address = String(object.address);
-    } else {
-      message.address = "";
-    }
-    if (object.counterpartyAddress !== undefined && object.counterpartyAddress !== null) {
-      message.counterpartyAddress = String(object.counterpartyAddress);
-    } else {
-      message.counterpartyAddress = "";
-    }
-    if (object.channelId !== undefined && object.channelId !== null) {
-      message.channelId = String(object.channelId);
-    } else {
-      message.channelId = "";
-    }
-    return message;
+  fromJSON(object: any): RegisteredPayee {
+    return {
+      channelId: isSet(object.channelId) ? String(object.channelId) : "",
+      relayer: isSet(object.relayer) ? String(object.relayer) : "",
+      payee: isSet(object.payee) ? String(object.payee) : "",
+    };
   },
 
-  toJSON(message: RegisteredRelayerAddress): unknown {
+  toJSON(message: RegisteredPayee): unknown {
     const obj: any = {};
-    message.address !== undefined && (obj.address = message.address);
-    message.counterpartyAddress !== undefined && (obj.counterpartyAddress = message.counterpartyAddress);
     message.channelId !== undefined && (obj.channelId = message.channelId);
+    message.relayer !== undefined && (obj.relayer = message.relayer);
+    message.payee !== undefined && (obj.payee = message.payee);
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RegisteredRelayerAddress>): RegisteredRelayerAddress {
-    const message = { ...baseRegisteredRelayerAddress } as RegisteredRelayerAddress;
-    if (object.address !== undefined && object.address !== null) {
-      message.address = object.address;
-    } else {
-      message.address = "";
-    }
-    if (object.counterpartyAddress !== undefined && object.counterpartyAddress !== null) {
-      message.counterpartyAddress = object.counterpartyAddress;
-    } else {
-      message.counterpartyAddress = "";
-    }
-    if (object.channelId !== undefined && object.channelId !== null) {
-      message.channelId = object.channelId;
-    } else {
-      message.channelId = "";
-    }
+  create<I extends Exact<DeepPartial<RegisteredPayee>, I>>(base?: I): RegisteredPayee {
+    return RegisteredPayee.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RegisteredPayee>, I>>(object: I): RegisteredPayee {
+    const message = createBaseRegisteredPayee();
+    message.channelId = object.channelId ?? "";
+    message.relayer = object.relayer ?? "";
+    message.payee = object.payee ?? "";
     return message;
   },
 };
 
-const baseForwardRelayerAddress: object = { address: "" };
+function createBaseRegisteredCounterpartyPayee(): RegisteredCounterpartyPayee {
+  return { channelId: "", relayer: "", counterpartyPayee: "" };
+}
+
+export const RegisteredCounterpartyPayee = {
+  encode(message: RegisteredCounterpartyPayee, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.channelId !== "") {
+      writer.uint32(10).string(message.channelId);
+    }
+    if (message.relayer !== "") {
+      writer.uint32(18).string(message.relayer);
+    }
+    if (message.counterpartyPayee !== "") {
+      writer.uint32(26).string(message.counterpartyPayee);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): RegisteredCounterpartyPayee {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseRegisteredCounterpartyPayee();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 10) {
+            break;
+          }
+
+          message.channelId = reader.string();
+          continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.relayer = reader.string();
+          continue;
+        case 3:
+          if (tag !== 26) {
+            break;
+          }
+
+          message.counterpartyPayee = reader.string();
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): RegisteredCounterpartyPayee {
+    return {
+      channelId: isSet(object.channelId) ? String(object.channelId) : "",
+      relayer: isSet(object.relayer) ? String(object.relayer) : "",
+      counterpartyPayee: isSet(object.counterpartyPayee) ? String(object.counterpartyPayee) : "",
+    };
+  },
+
+  toJSON(message: RegisteredCounterpartyPayee): unknown {
+    const obj: any = {};
+    message.channelId !== undefined && (obj.channelId = message.channelId);
+    message.relayer !== undefined && (obj.relayer = message.relayer);
+    message.counterpartyPayee !== undefined && (obj.counterpartyPayee = message.counterpartyPayee);
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<RegisteredCounterpartyPayee>, I>>(
+    base?: I,
+  ): RegisteredCounterpartyPayee {
+    return RegisteredCounterpartyPayee.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RegisteredCounterpartyPayee>, I>>(
+    object: I,
+  ): RegisteredCounterpartyPayee {
+    const message = createBaseRegisteredCounterpartyPayee();
+    message.channelId = object.channelId ?? "";
+    message.relayer = object.relayer ?? "";
+    message.counterpartyPayee = object.counterpartyPayee ?? "";
+    return message;
+  },
+};
+
+function createBaseForwardRelayerAddress(): ForwardRelayerAddress {
+  return { address: "", packetId: undefined };
+}
 
 export const ForwardRelayerAddress = {
   encode(message: ForwardRelayerAddress, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -361,39 +476,40 @@ export const ForwardRelayerAddress = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ForwardRelayerAddress {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseForwardRelayerAddress } as ForwardRelayerAddress;
+    const message = createBaseForwardRelayerAddress();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.address = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.packetId = PacketId.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ForwardRelayerAddress {
-    const message = { ...baseForwardRelayerAddress } as ForwardRelayerAddress;
-    if (object.address !== undefined && object.address !== null) {
-      message.address = String(object.address);
-    } else {
-      message.address = "";
-    }
-    if (object.packetId !== undefined && object.packetId !== null) {
-      message.packetId = PacketId.fromJSON(object.packetId);
-    } else {
-      message.packetId = undefined;
-    }
-    return message;
+    return {
+      address: isSet(object.address) ? String(object.address) : "",
+      packetId: isSet(object.packetId) ? PacketId.fromJSON(object.packetId) : undefined,
+    };
   },
 
   toJSON(message: ForwardRelayerAddress): unknown {
@@ -404,25 +520,27 @@ export const ForwardRelayerAddress = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ForwardRelayerAddress>): ForwardRelayerAddress {
-    const message = { ...baseForwardRelayerAddress } as ForwardRelayerAddress;
-    if (object.address !== undefined && object.address !== null) {
-      message.address = object.address;
-    } else {
-      message.address = "";
-    }
-    if (object.packetId !== undefined && object.packetId !== null) {
-      message.packetId = PacketId.fromPartial(object.packetId);
-    } else {
-      message.packetId = undefined;
-    }
+  create<I extends Exact<DeepPartial<ForwardRelayerAddress>, I>>(base?: I): ForwardRelayerAddress {
+    return ForwardRelayerAddress.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ForwardRelayerAddress>, I>>(object: I): ForwardRelayerAddress {
+    const message = createBaseForwardRelayerAddress();
+    message.address = object.address ?? "";
+    message.packetId =
+      object.packetId !== undefined && object.packetId !== null
+        ? PacketId.fromPartial(object.packetId)
+        : undefined;
     return message;
   },
 };
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -431,7 +549,16 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
 }

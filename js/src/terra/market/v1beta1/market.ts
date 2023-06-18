@@ -11,7 +11,13 @@ export interface Params {
   minStabilitySpread: Uint8Array;
 }
 
-const baseParams: object = { poolRecoveryPeriod: Long.UZERO };
+function createBaseParams(): Params {
+  return {
+    basePool: new Uint8Array(0),
+    poolRecoveryPeriod: Long.UZERO,
+    minStabilitySpread: new Uint8Array(0),
+  };
+}
 
 export const Params = {
   encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -28,117 +34,133 @@ export const Params = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): Params {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseParams } as Params;
-    message.basePool = new Uint8Array();
-    message.minStabilitySpread = new Uint8Array();
+    const message = createBaseParams();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.basePool = reader.bytes();
-          break;
+          continue;
         case 2:
+          if (tag !== 16) {
+            break;
+          }
+
           message.poolRecoveryPeriod = reader.uint64() as Long;
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.minStabilitySpread = reader.bytes();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): Params {
-    const message = { ...baseParams } as Params;
-    message.basePool = new Uint8Array();
-    message.minStabilitySpread = new Uint8Array();
-    if (object.basePool !== undefined && object.basePool !== null) {
-      message.basePool = bytesFromBase64(object.basePool);
-    }
-    if (object.poolRecoveryPeriod !== undefined && object.poolRecoveryPeriod !== null) {
-      message.poolRecoveryPeriod = Long.fromString(object.poolRecoveryPeriod);
-    } else {
-      message.poolRecoveryPeriod = Long.UZERO;
-    }
-    if (object.minStabilitySpread !== undefined && object.minStabilitySpread !== null) {
-      message.minStabilitySpread = bytesFromBase64(object.minStabilitySpread);
-    }
-    return message;
+    return {
+      basePool: isSet(object.basePool) ? bytesFromBase64(object.basePool) : new Uint8Array(0),
+      poolRecoveryPeriod: isSet(object.poolRecoveryPeriod)
+        ? Long.fromValue(object.poolRecoveryPeriod)
+        : Long.UZERO,
+      minStabilitySpread: isSet(object.minStabilitySpread)
+        ? bytesFromBase64(object.minStabilitySpread)
+        : new Uint8Array(0),
+    };
   },
 
   toJSON(message: Params): unknown {
     const obj: any = {};
     message.basePool !== undefined &&
-      (obj.basePool = base64FromBytes(message.basePool !== undefined ? message.basePool : new Uint8Array()));
+      (obj.basePool = base64FromBytes(message.basePool !== undefined ? message.basePool : new Uint8Array(0)));
     message.poolRecoveryPeriod !== undefined &&
       (obj.poolRecoveryPeriod = (message.poolRecoveryPeriod || Long.UZERO).toString());
     message.minStabilitySpread !== undefined &&
       (obj.minStabilitySpread = base64FromBytes(
-        message.minStabilitySpread !== undefined ? message.minStabilitySpread : new Uint8Array(),
+        message.minStabilitySpread !== undefined ? message.minStabilitySpread : new Uint8Array(0),
       ));
     return obj;
   },
 
-  fromPartial(object: DeepPartial<Params>): Params {
-    const message = { ...baseParams } as Params;
-    if (object.basePool !== undefined && object.basePool !== null) {
-      message.basePool = object.basePool;
-    } else {
-      message.basePool = new Uint8Array();
-    }
-    if (object.poolRecoveryPeriod !== undefined && object.poolRecoveryPeriod !== null) {
-      message.poolRecoveryPeriod = object.poolRecoveryPeriod as Long;
-    } else {
-      message.poolRecoveryPeriod = Long.UZERO;
-    }
-    if (object.minStabilitySpread !== undefined && object.minStabilitySpread !== null) {
-      message.minStabilitySpread = object.minStabilitySpread;
-    } else {
-      message.minStabilitySpread = new Uint8Array();
-    }
+  create<I extends Exact<DeepPartial<Params>, I>>(base?: I): Params {
+    return Params.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<Params>, I>>(object: I): Params {
+    const message = createBaseParams();
+    message.basePool = object.basePool ?? new Uint8Array(0);
+    message.poolRecoveryPeriod =
+      object.poolRecoveryPeriod !== undefined && object.poolRecoveryPeriod !== null
+        ? Long.fromValue(object.poolRecoveryPeriod)
+        : Long.UZERO;
+    message.minStabilitySpread = object.minStabilitySpread ?? new Uint8Array(0);
     return message;
   },
 };
 
 declare var self: any | undefined;
 declare var window: any | undefined;
-var globalThis: any = (() => {
-  if (typeof globalThis !== "undefined") return globalThis;
-  if (typeof self !== "undefined") return self;
-  if (typeof window !== "undefined") return window;
-  if (typeof global !== "undefined") return global;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
   throw "Unable to locate global object";
 })();
 
-const atob: (b64: string) => string =
-  globalThis.atob || ((b64) => globalThis.Buffer.from(b64, "base64").toString("binary"));
 function bytesFromBase64(b64: string): Uint8Array {
-  const bin = atob(b64);
-  const arr = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; ++i) {
-    arr[i] = bin.charCodeAt(i);
+  if (tsProtoGlobalThis.Buffer) {
+    return Uint8Array.from(tsProtoGlobalThis.Buffer.from(b64, "base64"));
+  } else {
+    const bin = tsProtoGlobalThis.atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; ++i) {
+      arr[i] = bin.charCodeAt(i);
+    }
+    return arr;
   }
-  return arr;
 }
 
-const btoa: (bin: string) => string =
-  globalThis.btoa || ((bin) => globalThis.Buffer.from(bin, "binary").toString("base64"));
 function base64FromBytes(arr: Uint8Array): string {
-  const bin: string[] = [];
-  for (const byte of arr) {
-    bin.push(String.fromCharCode(byte));
+  if (tsProtoGlobalThis.Buffer) {
+    return tsProtoGlobalThis.Buffer.from(arr).toString("base64");
+  } else {
+    const bin: string[] = [];
+    arr.forEach((byte) => {
+      bin.push(String.fromCharCode(byte));
+    });
+    return tsProtoGlobalThis.btoa(bin.join(""));
   }
-  return btoa(bin.join(""));
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -147,7 +169,16 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
 }

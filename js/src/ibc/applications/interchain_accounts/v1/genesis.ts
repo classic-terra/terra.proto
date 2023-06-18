@@ -1,8 +1,8 @@
 /* eslint-disable */
 import Long from "long";
 import _m0 from "protobufjs/minimal";
-import { Params } from "../../../../ibc/applications/interchain_accounts/controller/v1/controller";
-import { Params as Params1 } from "../../../../ibc/applications/interchain_accounts/host/v1/host";
+import { Params } from "../controller/v1/controller";
+import { Params as Params1 } from "../host/v1/host";
 
 export const protobufPackage = "ibc.applications.interchain_accounts.v1";
 
@@ -42,7 +42,9 @@ export interface RegisteredInterchainAccount {
   accountAddress: string;
 }
 
-const baseGenesisState: object = {};
+function createBaseGenesisState(): GenesisState {
+  return { controllerGenesisState: undefined, hostGenesisState: undefined };
+}
 
 export const GenesisState = {
   encode(message: GenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -56,39 +58,44 @@ export const GenesisState = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): GenesisState {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseGenesisState } as GenesisState;
+    const message = createBaseGenesisState();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.controllerGenesisState = ControllerGenesisState.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.hostGenesisState = HostGenesisState.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): GenesisState {
-    const message = { ...baseGenesisState } as GenesisState;
-    if (object.controllerGenesisState !== undefined && object.controllerGenesisState !== null) {
-      message.controllerGenesisState = ControllerGenesisState.fromJSON(object.controllerGenesisState);
-    } else {
-      message.controllerGenesisState = undefined;
-    }
-    if (object.hostGenesisState !== undefined && object.hostGenesisState !== null) {
-      message.hostGenesisState = HostGenesisState.fromJSON(object.hostGenesisState);
-    } else {
-      message.hostGenesisState = undefined;
-    }
-    return message;
+    return {
+      controllerGenesisState: isSet(object.controllerGenesisState)
+        ? ControllerGenesisState.fromJSON(object.controllerGenesisState)
+        : undefined,
+      hostGenesisState: isSet(object.hostGenesisState)
+        ? HostGenesisState.fromJSON(object.hostGenesisState)
+        : undefined,
+    };
   },
 
   toJSON(message: GenesisState): unknown {
@@ -104,23 +111,27 @@ export const GenesisState = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<GenesisState>): GenesisState {
-    const message = { ...baseGenesisState } as GenesisState;
-    if (object.controllerGenesisState !== undefined && object.controllerGenesisState !== null) {
-      message.controllerGenesisState = ControllerGenesisState.fromPartial(object.controllerGenesisState);
-    } else {
-      message.controllerGenesisState = undefined;
-    }
-    if (object.hostGenesisState !== undefined && object.hostGenesisState !== null) {
-      message.hostGenesisState = HostGenesisState.fromPartial(object.hostGenesisState);
-    } else {
-      message.hostGenesisState = undefined;
-    }
+  create<I extends Exact<DeepPartial<GenesisState>, I>>(base?: I): GenesisState {
+    return GenesisState.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<GenesisState>, I>>(object: I): GenesisState {
+    const message = createBaseGenesisState();
+    message.controllerGenesisState =
+      object.controllerGenesisState !== undefined && object.controllerGenesisState !== null
+        ? ControllerGenesisState.fromPartial(object.controllerGenesisState)
+        : undefined;
+    message.hostGenesisState =
+      object.hostGenesisState !== undefined && object.hostGenesisState !== null
+        ? HostGenesisState.fromPartial(object.hostGenesisState)
+        : undefined;
     return message;
   },
 };
 
-const baseControllerGenesisState: object = { ports: "" };
+function createBaseControllerGenesisState(): ControllerGenesisState {
+  return { activeChannels: [], interchainAccounts: [], ports: [], params: undefined };
+}
 
 export const ControllerGenesisState = {
   encode(message: ControllerGenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -140,61 +151,60 @@ export const ControllerGenesisState = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ControllerGenesisState {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseControllerGenesisState } as ControllerGenesisState;
-    message.activeChannels = [];
-    message.interchainAccounts = [];
-    message.ports = [];
+    const message = createBaseControllerGenesisState();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.activeChannels.push(ActiveChannel.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.interchainAccounts.push(RegisteredInterchainAccount.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.ports.push(reader.string());
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.params = Params.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ControllerGenesisState {
-    const message = { ...baseControllerGenesisState } as ControllerGenesisState;
-    message.activeChannels = [];
-    message.interchainAccounts = [];
-    message.ports = [];
-    if (object.activeChannels !== undefined && object.activeChannels !== null) {
-      for (const e of object.activeChannels) {
-        message.activeChannels.push(ActiveChannel.fromJSON(e));
-      }
-    }
-    if (object.interchainAccounts !== undefined && object.interchainAccounts !== null) {
-      for (const e of object.interchainAccounts) {
-        message.interchainAccounts.push(RegisteredInterchainAccount.fromJSON(e));
-      }
-    }
-    if (object.ports !== undefined && object.ports !== null) {
-      for (const e of object.ports) {
-        message.ports.push(String(e));
-      }
-    }
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromJSON(object.params);
-    } else {
-      message.params = undefined;
-    }
-    return message;
+    return {
+      activeChannels: Array.isArray(object?.activeChannels)
+        ? object.activeChannels.map((e: any) => ActiveChannel.fromJSON(e))
+        : [],
+      interchainAccounts: Array.isArray(object?.interchainAccounts)
+        ? object.interchainAccounts.map((e: any) => RegisteredInterchainAccount.fromJSON(e))
+        : [],
+      ports: Array.isArray(object?.ports) ? object.ports.map((e: any) => String(e)) : [],
+      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined,
+    };
   },
 
   toJSON(message: ControllerGenesisState): unknown {
@@ -220,36 +230,25 @@ export const ControllerGenesisState = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ControllerGenesisState>): ControllerGenesisState {
-    const message = { ...baseControllerGenesisState } as ControllerGenesisState;
-    message.activeChannels = [];
-    message.interchainAccounts = [];
-    message.ports = [];
-    if (object.activeChannels !== undefined && object.activeChannels !== null) {
-      for (const e of object.activeChannels) {
-        message.activeChannels.push(ActiveChannel.fromPartial(e));
-      }
-    }
-    if (object.interchainAccounts !== undefined && object.interchainAccounts !== null) {
-      for (const e of object.interchainAccounts) {
-        message.interchainAccounts.push(RegisteredInterchainAccount.fromPartial(e));
-      }
-    }
-    if (object.ports !== undefined && object.ports !== null) {
-      for (const e of object.ports) {
-        message.ports.push(e);
-      }
-    }
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params.fromPartial(object.params);
-    } else {
-      message.params = undefined;
-    }
+  create<I extends Exact<DeepPartial<ControllerGenesisState>, I>>(base?: I): ControllerGenesisState {
+    return ControllerGenesisState.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ControllerGenesisState>, I>>(object: I): ControllerGenesisState {
+    const message = createBaseControllerGenesisState();
+    message.activeChannels = object.activeChannels?.map((e) => ActiveChannel.fromPartial(e)) || [];
+    message.interchainAccounts =
+      object.interchainAccounts?.map((e) => RegisteredInterchainAccount.fromPartial(e)) || [];
+    message.ports = object.ports?.map((e) => e) || [];
+    message.params =
+      object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   },
 };
 
-const baseHostGenesisState: object = { port: "" };
+function createBaseHostGenesisState(): HostGenesisState {
+  return { activeChannels: [], interchainAccounts: [], port: "", params: undefined };
+}
 
 export const HostGenesisState = {
   encode(message: HostGenesisState, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -269,59 +268,60 @@ export const HostGenesisState = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): HostGenesisState {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseHostGenesisState } as HostGenesisState;
-    message.activeChannels = [];
-    message.interchainAccounts = [];
+    const message = createBaseHostGenesisState();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.activeChannels.push(ActiveChannel.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.interchainAccounts.push(RegisteredInterchainAccount.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.port = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.params = Params1.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): HostGenesisState {
-    const message = { ...baseHostGenesisState } as HostGenesisState;
-    message.activeChannels = [];
-    message.interchainAccounts = [];
-    if (object.activeChannels !== undefined && object.activeChannels !== null) {
-      for (const e of object.activeChannels) {
-        message.activeChannels.push(ActiveChannel.fromJSON(e));
-      }
-    }
-    if (object.interchainAccounts !== undefined && object.interchainAccounts !== null) {
-      for (const e of object.interchainAccounts) {
-        message.interchainAccounts.push(RegisteredInterchainAccount.fromJSON(e));
-      }
-    }
-    if (object.port !== undefined && object.port !== null) {
-      message.port = String(object.port);
-    } else {
-      message.port = "";
-    }
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params1.fromJSON(object.params);
-    } else {
-      message.params = undefined;
-    }
-    return message;
+    return {
+      activeChannels: Array.isArray(object?.activeChannels)
+        ? object.activeChannels.map((e: any) => ActiveChannel.fromJSON(e))
+        : [],
+      interchainAccounts: Array.isArray(object?.interchainAccounts)
+        ? object.interchainAccounts.map((e: any) => RegisteredInterchainAccount.fromJSON(e))
+        : [],
+      port: isSet(object.port) ? String(object.port) : "",
+      params: isSet(object.params) ? Params1.fromJSON(object.params) : undefined,
+    };
   },
 
   toJSON(message: HostGenesisState): unknown {
@@ -344,35 +344,25 @@ export const HostGenesisState = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<HostGenesisState>): HostGenesisState {
-    const message = { ...baseHostGenesisState } as HostGenesisState;
-    message.activeChannels = [];
-    message.interchainAccounts = [];
-    if (object.activeChannels !== undefined && object.activeChannels !== null) {
-      for (const e of object.activeChannels) {
-        message.activeChannels.push(ActiveChannel.fromPartial(e));
-      }
-    }
-    if (object.interchainAccounts !== undefined && object.interchainAccounts !== null) {
-      for (const e of object.interchainAccounts) {
-        message.interchainAccounts.push(RegisteredInterchainAccount.fromPartial(e));
-      }
-    }
-    if (object.port !== undefined && object.port !== null) {
-      message.port = object.port;
-    } else {
-      message.port = "";
-    }
-    if (object.params !== undefined && object.params !== null) {
-      message.params = Params1.fromPartial(object.params);
-    } else {
-      message.params = undefined;
-    }
+  create<I extends Exact<DeepPartial<HostGenesisState>, I>>(base?: I): HostGenesisState {
+    return HostGenesisState.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<HostGenesisState>, I>>(object: I): HostGenesisState {
+    const message = createBaseHostGenesisState();
+    message.activeChannels = object.activeChannels?.map((e) => ActiveChannel.fromPartial(e)) || [];
+    message.interchainAccounts =
+      object.interchainAccounts?.map((e) => RegisteredInterchainAccount.fromPartial(e)) || [];
+    message.port = object.port ?? "";
+    message.params =
+      object.params !== undefined && object.params !== null ? Params1.fromPartial(object.params) : undefined;
     return message;
   },
 };
 
-const baseActiveChannel: object = { connectionId: "", portId: "", channelId: "" };
+function createBaseActiveChannel(): ActiveChannel {
+  return { connectionId: "", portId: "", channelId: "" };
+}
 
 export const ActiveChannel = {
   encode(message: ActiveChannel, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -389,47 +379,48 @@ export const ActiveChannel = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): ActiveChannel {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseActiveChannel } as ActiveChannel;
+    const message = createBaseActiveChannel();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.connectionId = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.portId = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.channelId = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): ActiveChannel {
-    const message = { ...baseActiveChannel } as ActiveChannel;
-    if (object.connectionId !== undefined && object.connectionId !== null) {
-      message.connectionId = String(object.connectionId);
-    } else {
-      message.connectionId = "";
-    }
-    if (object.portId !== undefined && object.portId !== null) {
-      message.portId = String(object.portId);
-    } else {
-      message.portId = "";
-    }
-    if (object.channelId !== undefined && object.channelId !== null) {
-      message.channelId = String(object.channelId);
-    } else {
-      message.channelId = "";
-    }
-    return message;
+    return {
+      connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
+      portId: isSet(object.portId) ? String(object.portId) : "",
+      channelId: isSet(object.channelId) ? String(object.channelId) : "",
+    };
   },
 
   toJSON(message: ActiveChannel): unknown {
@@ -440,28 +431,22 @@ export const ActiveChannel = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<ActiveChannel>): ActiveChannel {
-    const message = { ...baseActiveChannel } as ActiveChannel;
-    if (object.connectionId !== undefined && object.connectionId !== null) {
-      message.connectionId = object.connectionId;
-    } else {
-      message.connectionId = "";
-    }
-    if (object.portId !== undefined && object.portId !== null) {
-      message.portId = object.portId;
-    } else {
-      message.portId = "";
-    }
-    if (object.channelId !== undefined && object.channelId !== null) {
-      message.channelId = object.channelId;
-    } else {
-      message.channelId = "";
-    }
+  create<I extends Exact<DeepPartial<ActiveChannel>, I>>(base?: I): ActiveChannel {
+    return ActiveChannel.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<ActiveChannel>, I>>(object: I): ActiveChannel {
+    const message = createBaseActiveChannel();
+    message.connectionId = object.connectionId ?? "";
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     return message;
   },
 };
 
-const baseRegisteredInterchainAccount: object = { connectionId: "", portId: "", accountAddress: "" };
+function createBaseRegisteredInterchainAccount(): RegisteredInterchainAccount {
+  return { connectionId: "", portId: "", accountAddress: "" };
+}
 
 export const RegisteredInterchainAccount = {
   encode(message: RegisteredInterchainAccount, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -478,47 +463,48 @@ export const RegisteredInterchainAccount = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RegisteredInterchainAccount {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRegisteredInterchainAccount } as RegisteredInterchainAccount;
+    const message = createBaseRegisteredInterchainAccount();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.connectionId = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.portId = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.accountAddress = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RegisteredInterchainAccount {
-    const message = { ...baseRegisteredInterchainAccount } as RegisteredInterchainAccount;
-    if (object.connectionId !== undefined && object.connectionId !== null) {
-      message.connectionId = String(object.connectionId);
-    } else {
-      message.connectionId = "";
-    }
-    if (object.portId !== undefined && object.portId !== null) {
-      message.portId = String(object.portId);
-    } else {
-      message.portId = "";
-    }
-    if (object.accountAddress !== undefined && object.accountAddress !== null) {
-      message.accountAddress = String(object.accountAddress);
-    } else {
-      message.accountAddress = "";
-    }
-    return message;
+    return {
+      connectionId: isSet(object.connectionId) ? String(object.connectionId) : "",
+      portId: isSet(object.portId) ? String(object.portId) : "",
+      accountAddress: isSet(object.accountAddress) ? String(object.accountAddress) : "",
+    };
   },
 
   toJSON(message: RegisteredInterchainAccount): unknown {
@@ -529,30 +515,29 @@ export const RegisteredInterchainAccount = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<RegisteredInterchainAccount>): RegisteredInterchainAccount {
-    const message = { ...baseRegisteredInterchainAccount } as RegisteredInterchainAccount;
-    if (object.connectionId !== undefined && object.connectionId !== null) {
-      message.connectionId = object.connectionId;
-    } else {
-      message.connectionId = "";
-    }
-    if (object.portId !== undefined && object.portId !== null) {
-      message.portId = object.portId;
-    } else {
-      message.portId = "";
-    }
-    if (object.accountAddress !== undefined && object.accountAddress !== null) {
-      message.accountAddress = object.accountAddress;
-    } else {
-      message.accountAddress = "";
-    }
+  create<I extends Exact<DeepPartial<RegisteredInterchainAccount>, I>>(
+    base?: I,
+  ): RegisteredInterchainAccount {
+    return RegisteredInterchainAccount.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RegisteredInterchainAccount>, I>>(
+    object: I,
+  ): RegisteredInterchainAccount {
+    const message = createBaseRegisteredInterchainAccount();
+    message.connectionId = object.connectionId ?? "";
+    message.portId = object.portId ?? "";
+    message.accountAddress = object.accountAddress ?? "";
     return message;
   },
 };
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -561,7 +546,16 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
 }

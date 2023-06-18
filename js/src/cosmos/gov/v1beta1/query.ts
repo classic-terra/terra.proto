@@ -1,21 +1,21 @@
 /* eslint-disable */
-import Long from "long";
 import { grpc } from "@improbable-eng/grpc-web";
+import { BrowserHeaders } from "browser-headers";
+import Long from "long";
 import _m0 from "protobufjs/minimal";
+import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import {
+  Deposit,
+  DepositParams,
   Proposal,
   ProposalStatus,
-  Vote,
-  VotingParams,
-  DepositParams,
-  TallyParams,
-  Deposit,
-  TallyResult,
   proposalStatusFromJSON,
   proposalStatusToJSON,
-} from "../../../cosmos/gov/v1beta1/gov";
-import { PageRequest, PageResponse } from "../../../cosmos/base/query/v1beta1/pagination";
-import { BrowserHeaders } from "browser-headers";
+  TallyParams,
+  TallyResult,
+  Vote,
+  VotingParams,
+} from "./gov";
 
 export const protobufPackage = "cosmos.gov.v1beta1";
 
@@ -142,7 +142,9 @@ export interface QueryTallyResultResponse {
   tally?: TallyResult;
 }
 
-const baseQueryProposalRequest: object = { proposalId: Long.UZERO };
+function createBaseQueryProposalRequest(): QueryProposalRequest {
+  return { proposalId: Long.UZERO };
+}
 
 export const QueryProposalRequest = {
   encode(message: QueryProposalRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -153,31 +155,30 @@ export const QueryProposalRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryProposalRequest } as QueryProposalRequest;
+    const message = createBaseQueryProposalRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.proposalId = reader.uint64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryProposalRequest {
-    const message = { ...baseQueryProposalRequest } as QueryProposalRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = Long.fromString(object.proposalId);
-    } else {
-      message.proposalId = Long.UZERO;
-    }
-    return message;
+    return { proposalId: isSet(object.proposalId) ? Long.fromValue(object.proposalId) : Long.UZERO };
   },
 
   toJSON(message: QueryProposalRequest): unknown {
@@ -186,18 +187,23 @@ export const QueryProposalRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryProposalRequest>): QueryProposalRequest {
-    const message = { ...baseQueryProposalRequest } as QueryProposalRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = object.proposalId as Long;
-    } else {
-      message.proposalId = Long.UZERO;
-    }
+  create<I extends Exact<DeepPartial<QueryProposalRequest>, I>>(base?: I): QueryProposalRequest {
+    return QueryProposalRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryProposalRequest>, I>>(object: I): QueryProposalRequest {
+    const message = createBaseQueryProposalRequest();
+    message.proposalId =
+      object.proposalId !== undefined && object.proposalId !== null
+        ? Long.fromValue(object.proposalId)
+        : Long.UZERO;
     return message;
   },
 };
 
-const baseQueryProposalResponse: object = {};
+function createBaseQueryProposalResponse(): QueryProposalResponse {
+  return { proposal: undefined };
+}
 
 export const QueryProposalResponse = {
   encode(message: QueryProposalResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -208,31 +214,30 @@ export const QueryProposalResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryProposalResponse } as QueryProposalResponse;
+    const message = createBaseQueryProposalResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.proposal = Proposal.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryProposalResponse {
-    const message = { ...baseQueryProposalResponse } as QueryProposalResponse;
-    if (object.proposal !== undefined && object.proposal !== null) {
-      message.proposal = Proposal.fromJSON(object.proposal);
-    } else {
-      message.proposal = undefined;
-    }
-    return message;
+    return { proposal: isSet(object.proposal) ? Proposal.fromJSON(object.proposal) : undefined };
   },
 
   toJSON(message: QueryProposalResponse): unknown {
@@ -242,18 +247,23 @@ export const QueryProposalResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryProposalResponse>): QueryProposalResponse {
-    const message = { ...baseQueryProposalResponse } as QueryProposalResponse;
-    if (object.proposal !== undefined && object.proposal !== null) {
-      message.proposal = Proposal.fromPartial(object.proposal);
-    } else {
-      message.proposal = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryProposalResponse>, I>>(base?: I): QueryProposalResponse {
+    return QueryProposalResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryProposalResponse>, I>>(object: I): QueryProposalResponse {
+    const message = createBaseQueryProposalResponse();
+    message.proposal =
+      object.proposal !== undefined && object.proposal !== null
+        ? Proposal.fromPartial(object.proposal)
+        : undefined;
     return message;
   },
 };
 
-const baseQueryProposalsRequest: object = { proposalStatus: 0, voter: "", depositor: "" };
+function createBaseQueryProposalsRequest(): QueryProposalsRequest {
+  return { proposalStatus: 0, voter: "", depositor: "", pagination: undefined };
+}
 
 export const QueryProposalsRequest = {
   encode(message: QueryProposalsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -273,55 +283,56 @@ export const QueryProposalsRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalsRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryProposalsRequest } as QueryProposalsRequest;
+    const message = createBaseQueryProposalsRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.proposalStatus = reader.int32() as any;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.voter = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.depositor = reader.string();
-          break;
+          continue;
         case 4:
+          if (tag !== 34) {
+            break;
+          }
+
           message.pagination = PageRequest.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryProposalsRequest {
-    const message = { ...baseQueryProposalsRequest } as QueryProposalsRequest;
-    if (object.proposalStatus !== undefined && object.proposalStatus !== null) {
-      message.proposalStatus = proposalStatusFromJSON(object.proposalStatus);
-    } else {
-      message.proposalStatus = 0;
-    }
-    if (object.voter !== undefined && object.voter !== null) {
-      message.voter = String(object.voter);
-    } else {
-      message.voter = "";
-    }
-    if (object.depositor !== undefined && object.depositor !== null) {
-      message.depositor = String(object.depositor);
-    } else {
-      message.depositor = "";
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return {
+      proposalStatus: isSet(object.proposalStatus) ? proposalStatusFromJSON(object.proposalStatus) : 0,
+      voter: isSet(object.voter) ? String(object.voter) : "",
+      depositor: isSet(object.depositor) ? String(object.depositor) : "",
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined,
+    };
   },
 
   toJSON(message: QueryProposalsRequest): unknown {
@@ -335,33 +346,26 @@ export const QueryProposalsRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryProposalsRequest>): QueryProposalsRequest {
-    const message = { ...baseQueryProposalsRequest } as QueryProposalsRequest;
-    if (object.proposalStatus !== undefined && object.proposalStatus !== null) {
-      message.proposalStatus = object.proposalStatus;
-    } else {
-      message.proposalStatus = 0;
-    }
-    if (object.voter !== undefined && object.voter !== null) {
-      message.voter = object.voter;
-    } else {
-      message.voter = "";
-    }
-    if (object.depositor !== undefined && object.depositor !== null) {
-      message.depositor = object.depositor;
-    } else {
-      message.depositor = "";
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryProposalsRequest>, I>>(base?: I): QueryProposalsRequest {
+    return QueryProposalsRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryProposalsRequest>, I>>(object: I): QueryProposalsRequest {
+    const message = createBaseQueryProposalsRequest();
+    message.proposalStatus = object.proposalStatus ?? 0;
+    message.voter = object.voter ?? "";
+    message.depositor = object.depositor ?? "";
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
-const baseQueryProposalsResponse: object = {};
+function createBaseQueryProposalsResponse(): QueryProposalsResponse {
+  return { proposals: [], pagination: undefined };
+}
 
 export const QueryProposalsResponse = {
   encode(message: QueryProposalsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -375,41 +379,42 @@ export const QueryProposalsResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryProposalsResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryProposalsResponse } as QueryProposalsResponse;
-    message.proposals = [];
+    const message = createBaseQueryProposalsResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.proposals.push(Proposal.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.pagination = PageResponse.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryProposalsResponse {
-    const message = { ...baseQueryProposalsResponse } as QueryProposalsResponse;
-    message.proposals = [];
-    if (object.proposals !== undefined && object.proposals !== null) {
-      for (const e of object.proposals) {
-        message.proposals.push(Proposal.fromJSON(e));
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return {
+      proposals: Array.isArray(object?.proposals)
+        ? object.proposals.map((e: any) => Proposal.fromJSON(e))
+        : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
   },
 
   toJSON(message: QueryProposalsResponse): unknown {
@@ -424,24 +429,24 @@ export const QueryProposalsResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryProposalsResponse>): QueryProposalsResponse {
-    const message = { ...baseQueryProposalsResponse } as QueryProposalsResponse;
-    message.proposals = [];
-    if (object.proposals !== undefined && object.proposals !== null) {
-      for (const e of object.proposals) {
-        message.proposals.push(Proposal.fromPartial(e));
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryProposalsResponse>, I>>(base?: I): QueryProposalsResponse {
+    return QueryProposalsResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryProposalsResponse>, I>>(object: I): QueryProposalsResponse {
+    const message = createBaseQueryProposalsResponse();
+    message.proposals = object.proposals?.map((e) => Proposal.fromPartial(e)) || [];
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
-const baseQueryVoteRequest: object = { proposalId: Long.UZERO, voter: "" };
+function createBaseQueryVoteRequest(): QueryVoteRequest {
+  return { proposalId: Long.UZERO, voter: "" };
+}
 
 export const QueryVoteRequest = {
   encode(message: QueryVoteRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -455,39 +460,40 @@ export const QueryVoteRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryVoteRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryVoteRequest } as QueryVoteRequest;
+    const message = createBaseQueryVoteRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.proposalId = reader.uint64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.voter = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryVoteRequest {
-    const message = { ...baseQueryVoteRequest } as QueryVoteRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = Long.fromString(object.proposalId);
-    } else {
-      message.proposalId = Long.UZERO;
-    }
-    if (object.voter !== undefined && object.voter !== null) {
-      message.voter = String(object.voter);
-    } else {
-      message.voter = "";
-    }
-    return message;
+    return {
+      proposalId: isSet(object.proposalId) ? Long.fromValue(object.proposalId) : Long.UZERO,
+      voter: isSet(object.voter) ? String(object.voter) : "",
+    };
   },
 
   toJSON(message: QueryVoteRequest): unknown {
@@ -497,23 +503,24 @@ export const QueryVoteRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryVoteRequest>): QueryVoteRequest {
-    const message = { ...baseQueryVoteRequest } as QueryVoteRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = object.proposalId as Long;
-    } else {
-      message.proposalId = Long.UZERO;
-    }
-    if (object.voter !== undefined && object.voter !== null) {
-      message.voter = object.voter;
-    } else {
-      message.voter = "";
-    }
+  create<I extends Exact<DeepPartial<QueryVoteRequest>, I>>(base?: I): QueryVoteRequest {
+    return QueryVoteRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryVoteRequest>, I>>(object: I): QueryVoteRequest {
+    const message = createBaseQueryVoteRequest();
+    message.proposalId =
+      object.proposalId !== undefined && object.proposalId !== null
+        ? Long.fromValue(object.proposalId)
+        : Long.UZERO;
+    message.voter = object.voter ?? "";
     return message;
   },
 };
 
-const baseQueryVoteResponse: object = {};
+function createBaseQueryVoteResponse(): QueryVoteResponse {
+  return { vote: undefined };
+}
 
 export const QueryVoteResponse = {
   encode(message: QueryVoteResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -524,31 +531,30 @@ export const QueryVoteResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryVoteResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryVoteResponse } as QueryVoteResponse;
+    const message = createBaseQueryVoteResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.vote = Vote.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryVoteResponse {
-    const message = { ...baseQueryVoteResponse } as QueryVoteResponse;
-    if (object.vote !== undefined && object.vote !== null) {
-      message.vote = Vote.fromJSON(object.vote);
-    } else {
-      message.vote = undefined;
-    }
-    return message;
+    return { vote: isSet(object.vote) ? Vote.fromJSON(object.vote) : undefined };
   },
 
   toJSON(message: QueryVoteResponse): unknown {
@@ -557,18 +563,21 @@ export const QueryVoteResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryVoteResponse>): QueryVoteResponse {
-    const message = { ...baseQueryVoteResponse } as QueryVoteResponse;
-    if (object.vote !== undefined && object.vote !== null) {
-      message.vote = Vote.fromPartial(object.vote);
-    } else {
-      message.vote = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryVoteResponse>, I>>(base?: I): QueryVoteResponse {
+    return QueryVoteResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryVoteResponse>, I>>(object: I): QueryVoteResponse {
+    const message = createBaseQueryVoteResponse();
+    message.vote =
+      object.vote !== undefined && object.vote !== null ? Vote.fromPartial(object.vote) : undefined;
     return message;
   },
 };
 
-const baseQueryVotesRequest: object = { proposalId: Long.UZERO };
+function createBaseQueryVotesRequest(): QueryVotesRequest {
+  return { proposalId: Long.UZERO, pagination: undefined };
+}
 
 export const QueryVotesRequest = {
   encode(message: QueryVotesRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -582,39 +591,40 @@ export const QueryVotesRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryVotesRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryVotesRequest } as QueryVotesRequest;
+    const message = createBaseQueryVotesRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.proposalId = reader.uint64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.pagination = PageRequest.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryVotesRequest {
-    const message = { ...baseQueryVotesRequest } as QueryVotesRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = Long.fromString(object.proposalId);
-    } else {
-      message.proposalId = Long.UZERO;
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return {
+      proposalId: isSet(object.proposalId) ? Long.fromValue(object.proposalId) : Long.UZERO,
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined,
+    };
   },
 
   toJSON(message: QueryVotesRequest): unknown {
@@ -625,23 +635,27 @@ export const QueryVotesRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryVotesRequest>): QueryVotesRequest {
-    const message = { ...baseQueryVotesRequest } as QueryVotesRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = object.proposalId as Long;
-    } else {
-      message.proposalId = Long.UZERO;
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryVotesRequest>, I>>(base?: I): QueryVotesRequest {
+    return QueryVotesRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryVotesRequest>, I>>(object: I): QueryVotesRequest {
+    const message = createBaseQueryVotesRequest();
+    message.proposalId =
+      object.proposalId !== undefined && object.proposalId !== null
+        ? Long.fromValue(object.proposalId)
+        : Long.UZERO;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
-const baseQueryVotesResponse: object = {};
+function createBaseQueryVotesResponse(): QueryVotesResponse {
+  return { votes: [], pagination: undefined };
+}
 
 export const QueryVotesResponse = {
   encode(message: QueryVotesResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -655,41 +669,40 @@ export const QueryVotesResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryVotesResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryVotesResponse } as QueryVotesResponse;
-    message.votes = [];
+    const message = createBaseQueryVotesResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.votes.push(Vote.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.pagination = PageResponse.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryVotesResponse {
-    const message = { ...baseQueryVotesResponse } as QueryVotesResponse;
-    message.votes = [];
-    if (object.votes !== undefined && object.votes !== null) {
-      for (const e of object.votes) {
-        message.votes.push(Vote.fromJSON(e));
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return {
+      votes: Array.isArray(object?.votes) ? object.votes.map((e: any) => Vote.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
   },
 
   toJSON(message: QueryVotesResponse): unknown {
@@ -704,24 +717,24 @@ export const QueryVotesResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryVotesResponse>): QueryVotesResponse {
-    const message = { ...baseQueryVotesResponse } as QueryVotesResponse;
-    message.votes = [];
-    if (object.votes !== undefined && object.votes !== null) {
-      for (const e of object.votes) {
-        message.votes.push(Vote.fromPartial(e));
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryVotesResponse>, I>>(base?: I): QueryVotesResponse {
+    return QueryVotesResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryVotesResponse>, I>>(object: I): QueryVotesResponse {
+    const message = createBaseQueryVotesResponse();
+    message.votes = object.votes?.map((e) => Vote.fromPartial(e)) || [];
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
-const baseQueryParamsRequest: object = { paramsType: "" };
+function createBaseQueryParamsRequest(): QueryParamsRequest {
+  return { paramsType: "" };
+}
 
 export const QueryParamsRequest = {
   encode(message: QueryParamsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -732,31 +745,30 @@ export const QueryParamsRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryParamsRequest } as QueryParamsRequest;
+    const message = createBaseQueryParamsRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.paramsType = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryParamsRequest {
-    const message = { ...baseQueryParamsRequest } as QueryParamsRequest;
-    if (object.paramsType !== undefined && object.paramsType !== null) {
-      message.paramsType = String(object.paramsType);
-    } else {
-      message.paramsType = "";
-    }
-    return message;
+    return { paramsType: isSet(object.paramsType) ? String(object.paramsType) : "" };
   },
 
   toJSON(message: QueryParamsRequest): unknown {
@@ -765,18 +777,20 @@ export const QueryParamsRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryParamsRequest>): QueryParamsRequest {
-    const message = { ...baseQueryParamsRequest } as QueryParamsRequest;
-    if (object.paramsType !== undefined && object.paramsType !== null) {
-      message.paramsType = object.paramsType;
-    } else {
-      message.paramsType = "";
-    }
+  create<I extends Exact<DeepPartial<QueryParamsRequest>, I>>(base?: I): QueryParamsRequest {
+    return QueryParamsRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryParamsRequest>, I>>(object: I): QueryParamsRequest {
+    const message = createBaseQueryParamsRequest();
+    message.paramsType = object.paramsType ?? "";
     return message;
   },
 };
 
-const baseQueryParamsResponse: object = {};
+function createBaseQueryParamsResponse(): QueryParamsResponse {
+  return { votingParams: undefined, depositParams: undefined, tallyParams: undefined };
+}
 
 export const QueryParamsResponse = {
   encode(message: QueryParamsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -793,47 +807,48 @@ export const QueryParamsResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryParamsResponse } as QueryParamsResponse;
+    const message = createBaseQueryParamsResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.votingParams = VotingParams.decode(reader, reader.uint32());
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.depositParams = DepositParams.decode(reader, reader.uint32());
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.tallyParams = TallyParams.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryParamsResponse {
-    const message = { ...baseQueryParamsResponse } as QueryParamsResponse;
-    if (object.votingParams !== undefined && object.votingParams !== null) {
-      message.votingParams = VotingParams.fromJSON(object.votingParams);
-    } else {
-      message.votingParams = undefined;
-    }
-    if (object.depositParams !== undefined && object.depositParams !== null) {
-      message.depositParams = DepositParams.fromJSON(object.depositParams);
-    } else {
-      message.depositParams = undefined;
-    }
-    if (object.tallyParams !== undefined && object.tallyParams !== null) {
-      message.tallyParams = TallyParams.fromJSON(object.tallyParams);
-    } else {
-      message.tallyParams = undefined;
-    }
-    return message;
+    return {
+      votingParams: isSet(object.votingParams) ? VotingParams.fromJSON(object.votingParams) : undefined,
+      depositParams: isSet(object.depositParams) ? DepositParams.fromJSON(object.depositParams) : undefined,
+      tallyParams: isSet(object.tallyParams) ? TallyParams.fromJSON(object.tallyParams) : undefined,
+    };
   },
 
   toJSON(message: QueryParamsResponse): unknown {
@@ -847,28 +862,31 @@ export const QueryParamsResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse {
-    const message = { ...baseQueryParamsResponse } as QueryParamsResponse;
-    if (object.votingParams !== undefined && object.votingParams !== null) {
-      message.votingParams = VotingParams.fromPartial(object.votingParams);
-    } else {
-      message.votingParams = undefined;
-    }
-    if (object.depositParams !== undefined && object.depositParams !== null) {
-      message.depositParams = DepositParams.fromPartial(object.depositParams);
-    } else {
-      message.depositParams = undefined;
-    }
-    if (object.tallyParams !== undefined && object.tallyParams !== null) {
-      message.tallyParams = TallyParams.fromPartial(object.tallyParams);
-    } else {
-      message.tallyParams = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(base?: I): QueryParamsResponse {
+    return QueryParamsResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryParamsResponse>, I>>(object: I): QueryParamsResponse {
+    const message = createBaseQueryParamsResponse();
+    message.votingParams =
+      object.votingParams !== undefined && object.votingParams !== null
+        ? VotingParams.fromPartial(object.votingParams)
+        : undefined;
+    message.depositParams =
+      object.depositParams !== undefined && object.depositParams !== null
+        ? DepositParams.fromPartial(object.depositParams)
+        : undefined;
+    message.tallyParams =
+      object.tallyParams !== undefined && object.tallyParams !== null
+        ? TallyParams.fromPartial(object.tallyParams)
+        : undefined;
     return message;
   },
 };
 
-const baseQueryDepositRequest: object = { proposalId: Long.UZERO, depositor: "" };
+function createBaseQueryDepositRequest(): QueryDepositRequest {
+  return { proposalId: Long.UZERO, depositor: "" };
+}
 
 export const QueryDepositRequest = {
   encode(message: QueryDepositRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -882,39 +900,40 @@ export const QueryDepositRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryDepositRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryDepositRequest } as QueryDepositRequest;
+    const message = createBaseQueryDepositRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.proposalId = reader.uint64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.depositor = reader.string();
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryDepositRequest {
-    const message = { ...baseQueryDepositRequest } as QueryDepositRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = Long.fromString(object.proposalId);
-    } else {
-      message.proposalId = Long.UZERO;
-    }
-    if (object.depositor !== undefined && object.depositor !== null) {
-      message.depositor = String(object.depositor);
-    } else {
-      message.depositor = "";
-    }
-    return message;
+    return {
+      proposalId: isSet(object.proposalId) ? Long.fromValue(object.proposalId) : Long.UZERO,
+      depositor: isSet(object.depositor) ? String(object.depositor) : "",
+    };
   },
 
   toJSON(message: QueryDepositRequest): unknown {
@@ -924,23 +943,24 @@ export const QueryDepositRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryDepositRequest>): QueryDepositRequest {
-    const message = { ...baseQueryDepositRequest } as QueryDepositRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = object.proposalId as Long;
-    } else {
-      message.proposalId = Long.UZERO;
-    }
-    if (object.depositor !== undefined && object.depositor !== null) {
-      message.depositor = object.depositor;
-    } else {
-      message.depositor = "";
-    }
+  create<I extends Exact<DeepPartial<QueryDepositRequest>, I>>(base?: I): QueryDepositRequest {
+    return QueryDepositRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryDepositRequest>, I>>(object: I): QueryDepositRequest {
+    const message = createBaseQueryDepositRequest();
+    message.proposalId =
+      object.proposalId !== undefined && object.proposalId !== null
+        ? Long.fromValue(object.proposalId)
+        : Long.UZERO;
+    message.depositor = object.depositor ?? "";
     return message;
   },
 };
 
-const baseQueryDepositResponse: object = {};
+function createBaseQueryDepositResponse(): QueryDepositResponse {
+  return { deposit: undefined };
+}
 
 export const QueryDepositResponse = {
   encode(message: QueryDepositResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -951,31 +971,30 @@ export const QueryDepositResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryDepositResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryDepositResponse } as QueryDepositResponse;
+    const message = createBaseQueryDepositResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.deposit = Deposit.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryDepositResponse {
-    const message = { ...baseQueryDepositResponse } as QueryDepositResponse;
-    if (object.deposit !== undefined && object.deposit !== null) {
-      message.deposit = Deposit.fromJSON(object.deposit);
-    } else {
-      message.deposit = undefined;
-    }
-    return message;
+    return { deposit: isSet(object.deposit) ? Deposit.fromJSON(object.deposit) : undefined };
   },
 
   toJSON(message: QueryDepositResponse): unknown {
@@ -985,18 +1004,23 @@ export const QueryDepositResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryDepositResponse>): QueryDepositResponse {
-    const message = { ...baseQueryDepositResponse } as QueryDepositResponse;
-    if (object.deposit !== undefined && object.deposit !== null) {
-      message.deposit = Deposit.fromPartial(object.deposit);
-    } else {
-      message.deposit = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryDepositResponse>, I>>(base?: I): QueryDepositResponse {
+    return QueryDepositResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryDepositResponse>, I>>(object: I): QueryDepositResponse {
+    const message = createBaseQueryDepositResponse();
+    message.deposit =
+      object.deposit !== undefined && object.deposit !== null
+        ? Deposit.fromPartial(object.deposit)
+        : undefined;
     return message;
   },
 };
 
-const baseQueryDepositsRequest: object = { proposalId: Long.UZERO };
+function createBaseQueryDepositsRequest(): QueryDepositsRequest {
+  return { proposalId: Long.UZERO, pagination: undefined };
+}
 
 export const QueryDepositsRequest = {
   encode(message: QueryDepositsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1010,39 +1034,40 @@ export const QueryDepositsRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryDepositsRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryDepositsRequest } as QueryDepositsRequest;
+    const message = createBaseQueryDepositsRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.proposalId = reader.uint64() as Long;
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.pagination = PageRequest.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryDepositsRequest {
-    const message = { ...baseQueryDepositsRequest } as QueryDepositsRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = Long.fromString(object.proposalId);
-    } else {
-      message.proposalId = Long.UZERO;
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return {
+      proposalId: isSet(object.proposalId) ? Long.fromValue(object.proposalId) : Long.UZERO,
+      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined,
+    };
   },
 
   toJSON(message: QueryDepositsRequest): unknown {
@@ -1053,23 +1078,27 @@ export const QueryDepositsRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryDepositsRequest>): QueryDepositsRequest {
-    const message = { ...baseQueryDepositsRequest } as QueryDepositsRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = object.proposalId as Long;
-    } else {
-      message.proposalId = Long.UZERO;
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageRequest.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryDepositsRequest>, I>>(base?: I): QueryDepositsRequest {
+    return QueryDepositsRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryDepositsRequest>, I>>(object: I): QueryDepositsRequest {
+    const message = createBaseQueryDepositsRequest();
+    message.proposalId =
+      object.proposalId !== undefined && object.proposalId !== null
+        ? Long.fromValue(object.proposalId)
+        : Long.UZERO;
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageRequest.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
-const baseQueryDepositsResponse: object = {};
+function createBaseQueryDepositsResponse(): QueryDepositsResponse {
+  return { deposits: [], pagination: undefined };
+}
 
 export const QueryDepositsResponse = {
   encode(message: QueryDepositsResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1083,41 +1112,40 @@ export const QueryDepositsResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryDepositsResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryDepositsResponse } as QueryDepositsResponse;
-    message.deposits = [];
+    const message = createBaseQueryDepositsResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.deposits.push(Deposit.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.pagination = PageResponse.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryDepositsResponse {
-    const message = { ...baseQueryDepositsResponse } as QueryDepositsResponse;
-    message.deposits = [];
-    if (object.deposits !== undefined && object.deposits !== null) {
-      for (const e of object.deposits) {
-        message.deposits.push(Deposit.fromJSON(e));
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromJSON(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
-    return message;
+    return {
+      deposits: Array.isArray(object?.deposits) ? object.deposits.map((e: any) => Deposit.fromJSON(e)) : [],
+      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
+    };
   },
 
   toJSON(message: QueryDepositsResponse): unknown {
@@ -1132,24 +1160,24 @@ export const QueryDepositsResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryDepositsResponse>): QueryDepositsResponse {
-    const message = { ...baseQueryDepositsResponse } as QueryDepositsResponse;
-    message.deposits = [];
-    if (object.deposits !== undefined && object.deposits !== null) {
-      for (const e of object.deposits) {
-        message.deposits.push(Deposit.fromPartial(e));
-      }
-    }
-    if (object.pagination !== undefined && object.pagination !== null) {
-      message.pagination = PageResponse.fromPartial(object.pagination);
-    } else {
-      message.pagination = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryDepositsResponse>, I>>(base?: I): QueryDepositsResponse {
+    return QueryDepositsResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryDepositsResponse>, I>>(object: I): QueryDepositsResponse {
+    const message = createBaseQueryDepositsResponse();
+    message.deposits = object.deposits?.map((e) => Deposit.fromPartial(e)) || [];
+    message.pagination =
+      object.pagination !== undefined && object.pagination !== null
+        ? PageResponse.fromPartial(object.pagination)
+        : undefined;
     return message;
   },
 };
 
-const baseQueryTallyResultRequest: object = { proposalId: Long.UZERO };
+function createBaseQueryTallyResultRequest(): QueryTallyResultRequest {
+  return { proposalId: Long.UZERO };
+}
 
 export const QueryTallyResultRequest = {
   encode(message: QueryTallyResultRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1160,31 +1188,30 @@ export const QueryTallyResultRequest = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTallyResultRequest {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTallyResultRequest } as QueryTallyResultRequest;
+    const message = createBaseQueryTallyResultRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 8) {
+            break;
+          }
+
           message.proposalId = reader.uint64() as Long;
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryTallyResultRequest {
-    const message = { ...baseQueryTallyResultRequest } as QueryTallyResultRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = Long.fromString(object.proposalId);
-    } else {
-      message.proposalId = Long.UZERO;
-    }
-    return message;
+    return { proposalId: isSet(object.proposalId) ? Long.fromValue(object.proposalId) : Long.UZERO };
   },
 
   toJSON(message: QueryTallyResultRequest): unknown {
@@ -1193,18 +1220,23 @@ export const QueryTallyResultRequest = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryTallyResultRequest>): QueryTallyResultRequest {
-    const message = { ...baseQueryTallyResultRequest } as QueryTallyResultRequest;
-    if (object.proposalId !== undefined && object.proposalId !== null) {
-      message.proposalId = object.proposalId as Long;
-    } else {
-      message.proposalId = Long.UZERO;
-    }
+  create<I extends Exact<DeepPartial<QueryTallyResultRequest>, I>>(base?: I): QueryTallyResultRequest {
+    return QueryTallyResultRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTallyResultRequest>, I>>(object: I): QueryTallyResultRequest {
+    const message = createBaseQueryTallyResultRequest();
+    message.proposalId =
+      object.proposalId !== undefined && object.proposalId !== null
+        ? Long.fromValue(object.proposalId)
+        : Long.UZERO;
     return message;
   },
 };
 
-const baseQueryTallyResultResponse: object = {};
+function createBaseQueryTallyResultResponse(): QueryTallyResultResponse {
+  return { tally: undefined };
+}
 
 export const QueryTallyResultResponse = {
   encode(message: QueryTallyResultResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -1215,31 +1247,30 @@ export const QueryTallyResultResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): QueryTallyResultResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseQueryTallyResultResponse } as QueryTallyResultResponse;
+    const message = createBaseQueryTallyResultResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.tally = TallyResult.decode(reader, reader.uint32());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): QueryTallyResultResponse {
-    const message = { ...baseQueryTallyResultResponse } as QueryTallyResultResponse;
-    if (object.tally !== undefined && object.tally !== null) {
-      message.tally = TallyResult.fromJSON(object.tally);
-    } else {
-      message.tally = undefined;
-    }
-    return message;
+    return { tally: isSet(object.tally) ? TallyResult.fromJSON(object.tally) : undefined };
   },
 
   toJSON(message: QueryTallyResultResponse): unknown {
@@ -1249,13 +1280,16 @@ export const QueryTallyResultResponse = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<QueryTallyResultResponse>): QueryTallyResultResponse {
-    const message = { ...baseQueryTallyResultResponse } as QueryTallyResultResponse;
-    if (object.tally !== undefined && object.tally !== null) {
-      message.tally = TallyResult.fromPartial(object.tally);
-    } else {
-      message.tally = undefined;
-    }
+  create<I extends Exact<DeepPartial<QueryTallyResultResponse>, I>>(base?: I): QueryTallyResultResponse {
+    return QueryTallyResultResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<QueryTallyResultResponse>, I>>(
+    object: I,
+  ): QueryTallyResultResponse {
+    const message = createBaseQueryTallyResultResponse();
+    message.tally =
+      object.tally !== undefined && object.tally !== null ? TallyResult.fromPartial(object.tally) : undefined;
     return message;
   },
 };
@@ -1355,9 +1389,7 @@ export class QueryClientImpl implements Query {
   }
 }
 
-export const QueryDesc = {
-  serviceName: "cosmos.gov.v1beta1.Query",
-};
+export const QueryDesc = { serviceName: "cosmos.gov.v1beta1.Query" };
 
 export const QueryProposalDesc: UnaryMethodDefinitionish = {
   methodName: "Proposal",
@@ -1371,10 +1403,11 @@ export const QueryProposalDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryProposalResponse.decode(data);
       return {
-        ...QueryProposalResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1393,10 +1426,11 @@ export const QueryProposalsDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryProposalsResponse.decode(data);
       return {
-        ...QueryProposalsResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1415,10 +1449,11 @@ export const QueryVoteDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryVoteResponse.decode(data);
       return {
-        ...QueryVoteResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1437,10 +1472,11 @@ export const QueryVotesDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryVotesResponse.decode(data);
       return {
-        ...QueryVotesResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1459,10 +1495,11 @@ export const QueryParamsDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryParamsResponse.decode(data);
       return {
-        ...QueryParamsResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1481,10 +1518,11 @@ export const QueryDepositDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryDepositResponse.decode(data);
       return {
-        ...QueryDepositResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1503,10 +1541,11 @@ export const QueryDepositsDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryDepositsResponse.decode(data);
       return {
-        ...QueryDepositsResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1525,10 +1564,11 @@ export const QueryTallyResultDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = QueryTallyResultResponse.decode(data);
       return {
-        ...QueryTallyResultResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -1557,6 +1597,7 @@ export class GrpcWebImpl {
 
     debug?: boolean;
     metadata?: grpc.Metadata;
+    upStreamRetryCodes?: number[];
   };
 
   constructor(
@@ -1566,6 +1607,7 @@ export class GrpcWebImpl {
 
       debug?: boolean;
       metadata?: grpc.Metadata;
+      upStreamRetryCodes?: number[];
     },
   ) {
     this.host = host;
@@ -1591,11 +1633,9 @@ export class GrpcWebImpl {
         debug: this.options.debug,
         onEnd: function (response) {
           if (response.status === grpc.Code.OK) {
-            resolve(response.message);
+            resolve(response.message!.toObject());
           } else {
-            const err = new Error(response.statusMessage) as any;
-            err.code = response.status;
-            err.metadata = response.trailers;
+            const err = new GrpcWebError(response.statusMessage, response.status, response.trailers);
             reject(err);
           }
         },
@@ -1604,9 +1644,31 @@ export class GrpcWebImpl {
   }
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+declare var self: any | undefined;
+declare var window: any | undefined;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
+  throw "Unable to locate global object";
+})();
+
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -1615,7 +1677,22 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}
+
+export class GrpcWebError extends tsProtoGlobalThis.Error {
+  constructor(message: string, public code: grpc.Code, public metadata: grpc.Metadata) {
+    super(message);
+  }
 }

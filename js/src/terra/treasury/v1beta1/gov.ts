@@ -18,7 +18,9 @@ export interface RemoveBurnTaxExemptionAddressProposal {
   addresses: string[];
 }
 
-const baseAddBurnTaxExemptionAddressProposal: object = { title: "", description: "", addresses: "" };
+function createBaseAddBurnTaxExemptionAddressProposal(): AddBurnTaxExemptionAddressProposal {
+  return { title: "", description: "", addresses: [] };
+}
 
 export const AddBurnTaxExemptionAddressProposal = {
   encode(message: AddBurnTaxExemptionAddressProposal, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -35,49 +37,48 @@ export const AddBurnTaxExemptionAddressProposal = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): AddBurnTaxExemptionAddressProposal {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseAddBurnTaxExemptionAddressProposal } as AddBurnTaxExemptionAddressProposal;
-    message.addresses = [];
+    const message = createBaseAddBurnTaxExemptionAddressProposal();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.title = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.description = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.addresses.push(reader.string());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): AddBurnTaxExemptionAddressProposal {
-    const message = { ...baseAddBurnTaxExemptionAddressProposal } as AddBurnTaxExemptionAddressProposal;
-    message.addresses = [];
-    if (object.title !== undefined && object.title !== null) {
-      message.title = String(object.title);
-    } else {
-      message.title = "";
-    }
-    if (object.description !== undefined && object.description !== null) {
-      message.description = String(object.description);
-    } else {
-      message.description = "";
-    }
-    if (object.addresses !== undefined && object.addresses !== null) {
-      for (const e of object.addresses) {
-        message.addresses.push(String(e));
-      }
-    }
-    return message;
+    return {
+      title: isSet(object.title) ? String(object.title) : "",
+      description: isSet(object.description) ? String(object.description) : "",
+      addresses: Array.isArray(object?.addresses) ? object.addresses.map((e: any) => String(e)) : [],
+    };
   },
 
   toJSON(message: AddBurnTaxExemptionAddressProposal): unknown {
@@ -92,29 +93,26 @@ export const AddBurnTaxExemptionAddressProposal = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<AddBurnTaxExemptionAddressProposal>): AddBurnTaxExemptionAddressProposal {
-    const message = { ...baseAddBurnTaxExemptionAddressProposal } as AddBurnTaxExemptionAddressProposal;
-    message.addresses = [];
-    if (object.title !== undefined && object.title !== null) {
-      message.title = object.title;
-    } else {
-      message.title = "";
-    }
-    if (object.description !== undefined && object.description !== null) {
-      message.description = object.description;
-    } else {
-      message.description = "";
-    }
-    if (object.addresses !== undefined && object.addresses !== null) {
-      for (const e of object.addresses) {
-        message.addresses.push(e);
-      }
-    }
+  create<I extends Exact<DeepPartial<AddBurnTaxExemptionAddressProposal>, I>>(
+    base?: I,
+  ): AddBurnTaxExemptionAddressProposal {
+    return AddBurnTaxExemptionAddressProposal.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<AddBurnTaxExemptionAddressProposal>, I>>(
+    object: I,
+  ): AddBurnTaxExemptionAddressProposal {
+    const message = createBaseAddBurnTaxExemptionAddressProposal();
+    message.title = object.title ?? "";
+    message.description = object.description ?? "";
+    message.addresses = object.addresses?.map((e) => e) || [];
     return message;
   },
 };
 
-const baseRemoveBurnTaxExemptionAddressProposal: object = { title: "", description: "", addresses: "" };
+function createBaseRemoveBurnTaxExemptionAddressProposal(): RemoveBurnTaxExemptionAddressProposal {
+  return { title: "", description: "", addresses: [] };
+}
 
 export const RemoveBurnTaxExemptionAddressProposal = {
   encode(
@@ -134,49 +132,48 @@ export const RemoveBurnTaxExemptionAddressProposal = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): RemoveBurnTaxExemptionAddressProposal {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseRemoveBurnTaxExemptionAddressProposal } as RemoveBurnTaxExemptionAddressProposal;
-    message.addresses = [];
+    const message = createBaseRemoveBurnTaxExemptionAddressProposal();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.title = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.description = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.addresses.push(reader.string());
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): RemoveBurnTaxExemptionAddressProposal {
-    const message = { ...baseRemoveBurnTaxExemptionAddressProposal } as RemoveBurnTaxExemptionAddressProposal;
-    message.addresses = [];
-    if (object.title !== undefined && object.title !== null) {
-      message.title = String(object.title);
-    } else {
-      message.title = "";
-    }
-    if (object.description !== undefined && object.description !== null) {
-      message.description = String(object.description);
-    } else {
-      message.description = "";
-    }
-    if (object.addresses !== undefined && object.addresses !== null) {
-      for (const e of object.addresses) {
-        message.addresses.push(String(e));
-      }
-    }
-    return message;
+    return {
+      title: isSet(object.title) ? String(object.title) : "",
+      description: isSet(object.description) ? String(object.description) : "",
+      addresses: Array.isArray(object?.addresses) ? object.addresses.map((e: any) => String(e)) : [],
+    };
   },
 
   toJSON(message: RemoveBurnTaxExemptionAddressProposal): unknown {
@@ -191,33 +188,29 @@ export const RemoveBurnTaxExemptionAddressProposal = {
     return obj;
   },
 
-  fromPartial(
-    object: DeepPartial<RemoveBurnTaxExemptionAddressProposal>,
+  create<I extends Exact<DeepPartial<RemoveBurnTaxExemptionAddressProposal>, I>>(
+    base?: I,
   ): RemoveBurnTaxExemptionAddressProposal {
-    const message = { ...baseRemoveBurnTaxExemptionAddressProposal } as RemoveBurnTaxExemptionAddressProposal;
-    message.addresses = [];
-    if (object.title !== undefined && object.title !== null) {
-      message.title = object.title;
-    } else {
-      message.title = "";
-    }
-    if (object.description !== undefined && object.description !== null) {
-      message.description = object.description;
-    } else {
-      message.description = "";
-    }
-    if (object.addresses !== undefined && object.addresses !== null) {
-      for (const e of object.addresses) {
-        message.addresses.push(e);
-      }
-    }
+    return RemoveBurnTaxExemptionAddressProposal.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<RemoveBurnTaxExemptionAddressProposal>, I>>(
+    object: I,
+  ): RemoveBurnTaxExemptionAddressProposal {
+    const message = createBaseRemoveBurnTaxExemptionAddressProposal();
+    message.title = object.title ?? "";
+    message.description = object.description ?? "";
+    message.addresses = object.addresses?.map((e) => e) || [];
     return message;
   },
 };
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -226,7 +219,16 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
 }

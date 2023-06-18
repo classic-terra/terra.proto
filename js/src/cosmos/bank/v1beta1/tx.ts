@@ -1,10 +1,10 @@
 /* eslint-disable */
-import Long from "long";
 import { grpc } from "@improbable-eng/grpc-web";
-import _m0 from "protobufjs/minimal";
 import { BrowserHeaders } from "browser-headers";
-import { Coin } from "../../../cosmos/base/v1beta1/coin";
-import { Input, Output } from "../../../cosmos/bank/v1beta1/bank";
+import Long from "long";
+import _m0 from "protobufjs/minimal";
+import { Coin } from "../../base/v1beta1/coin";
+import { Input, Output } from "./bank";
 
 export const protobufPackage = "cosmos.bank.v1beta1";
 
@@ -27,7 +27,9 @@ export interface MsgMultiSend {
 /** MsgMultiSendResponse defines the Msg/MultiSend response type. */
 export interface MsgMultiSendResponse {}
 
-const baseMsgSend: object = { fromAddress: "", toAddress: "" };
+function createBaseMsgSend(): MsgSend {
+  return { fromAddress: "", toAddress: "", amount: [] };
+}
 
 export const MsgSend = {
   encode(message: MsgSend, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -44,49 +46,48 @@ export const MsgSend = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgSend {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgSend } as MsgSend;
-    message.amount = [];
+    const message = createBaseMsgSend();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.fromAddress = reader.string();
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.toAddress = reader.string();
-          break;
+          continue;
         case 3:
+          if (tag !== 26) {
+            break;
+          }
+
           message.amount.push(Coin.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): MsgSend {
-    const message = { ...baseMsgSend } as MsgSend;
-    message.amount = [];
-    if (object.fromAddress !== undefined && object.fromAddress !== null) {
-      message.fromAddress = String(object.fromAddress);
-    } else {
-      message.fromAddress = "";
-    }
-    if (object.toAddress !== undefined && object.toAddress !== null) {
-      message.toAddress = String(object.toAddress);
-    } else {
-      message.toAddress = "";
-    }
-    if (object.amount !== undefined && object.amount !== null) {
-      for (const e of object.amount) {
-        message.amount.push(Coin.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      fromAddress: isSet(object.fromAddress) ? String(object.fromAddress) : "",
+      toAddress: isSet(object.toAddress) ? String(object.toAddress) : "",
+      amount: Array.isArray(object?.amount) ? object.amount.map((e: any) => Coin.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: MsgSend): unknown {
@@ -101,29 +102,22 @@ export const MsgSend = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<MsgSend>): MsgSend {
-    const message = { ...baseMsgSend } as MsgSend;
-    message.amount = [];
-    if (object.fromAddress !== undefined && object.fromAddress !== null) {
-      message.fromAddress = object.fromAddress;
-    } else {
-      message.fromAddress = "";
-    }
-    if (object.toAddress !== undefined && object.toAddress !== null) {
-      message.toAddress = object.toAddress;
-    } else {
-      message.toAddress = "";
-    }
-    if (object.amount !== undefined && object.amount !== null) {
-      for (const e of object.amount) {
-        message.amount.push(Coin.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<MsgSend>, I>>(base?: I): MsgSend {
+    return MsgSend.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgSend>, I>>(object: I): MsgSend {
+    const message = createBaseMsgSend();
+    message.fromAddress = object.fromAddress ?? "";
+    message.toAddress = object.toAddress ?? "";
+    message.amount = object.amount?.map((e) => Coin.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseMsgSendResponse: object = {};
+function createBaseMsgSendResponse(): MsgSendResponse {
+  return {};
+}
 
 export const MsgSendResponse = {
   encode(_: MsgSendResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -131,23 +125,23 @@ export const MsgSendResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgSendResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgSendResponse } as MsgSendResponse;
+    const message = createBaseMsgSendResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): MsgSendResponse {
-    const message = { ...baseMsgSendResponse } as MsgSendResponse;
-    return message;
+    return {};
   },
 
   toJSON(_: MsgSendResponse): unknown {
@@ -155,13 +149,19 @@ export const MsgSendResponse = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<MsgSendResponse>): MsgSendResponse {
-    const message = { ...baseMsgSendResponse } as MsgSendResponse;
+  create<I extends Exact<DeepPartial<MsgSendResponse>, I>>(base?: I): MsgSendResponse {
+    return MsgSendResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgSendResponse>, I>>(_: I): MsgSendResponse {
+    const message = createBaseMsgSendResponse();
     return message;
   },
 };
 
-const baseMsgMultiSend: object = {};
+function createBaseMsgMultiSend(): MsgMultiSend {
+  return { inputs: [], outputs: [] };
+}
 
 export const MsgMultiSend = {
   encode(message: MsgMultiSend, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -175,43 +175,40 @@ export const MsgMultiSend = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgMultiSend {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgMultiSend } as MsgMultiSend;
-    message.inputs = [];
-    message.outputs = [];
+    const message = createBaseMsgMultiSend();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
+          if (tag !== 10) {
+            break;
+          }
+
           message.inputs.push(Input.decode(reader, reader.uint32()));
-          break;
+          continue;
         case 2:
+          if (tag !== 18) {
+            break;
+          }
+
           message.outputs.push(Output.decode(reader, reader.uint32()));
-          break;
-        default:
-          reader.skipType(tag & 7);
-          break;
+          continue;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(object: any): MsgMultiSend {
-    const message = { ...baseMsgMultiSend } as MsgMultiSend;
-    message.inputs = [];
-    message.outputs = [];
-    if (object.inputs !== undefined && object.inputs !== null) {
-      for (const e of object.inputs) {
-        message.inputs.push(Input.fromJSON(e));
-      }
-    }
-    if (object.outputs !== undefined && object.outputs !== null) {
-      for (const e of object.outputs) {
-        message.outputs.push(Output.fromJSON(e));
-      }
-    }
-    return message;
+    return {
+      inputs: Array.isArray(object?.inputs) ? object.inputs.map((e: any) => Input.fromJSON(e)) : [],
+      outputs: Array.isArray(object?.outputs) ? object.outputs.map((e: any) => Output.fromJSON(e)) : [],
+    };
   },
 
   toJSON(message: MsgMultiSend): unknown {
@@ -229,25 +226,21 @@ export const MsgMultiSend = {
     return obj;
   },
 
-  fromPartial(object: DeepPartial<MsgMultiSend>): MsgMultiSend {
-    const message = { ...baseMsgMultiSend } as MsgMultiSend;
-    message.inputs = [];
-    message.outputs = [];
-    if (object.inputs !== undefined && object.inputs !== null) {
-      for (const e of object.inputs) {
-        message.inputs.push(Input.fromPartial(e));
-      }
-    }
-    if (object.outputs !== undefined && object.outputs !== null) {
-      for (const e of object.outputs) {
-        message.outputs.push(Output.fromPartial(e));
-      }
-    }
+  create<I extends Exact<DeepPartial<MsgMultiSend>, I>>(base?: I): MsgMultiSend {
+    return MsgMultiSend.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgMultiSend>, I>>(object: I): MsgMultiSend {
+    const message = createBaseMsgMultiSend();
+    message.inputs = object.inputs?.map((e) => Input.fromPartial(e)) || [];
+    message.outputs = object.outputs?.map((e) => Output.fromPartial(e)) || [];
     return message;
   },
 };
 
-const baseMsgMultiSendResponse: object = {};
+function createBaseMsgMultiSendResponse(): MsgMultiSendResponse {
+  return {};
+}
 
 export const MsgMultiSendResponse = {
   encode(_: MsgMultiSendResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
@@ -255,23 +248,23 @@ export const MsgMultiSendResponse = {
   },
 
   decode(input: _m0.Reader | Uint8Array, length?: number): MsgMultiSendResponse {
-    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = { ...baseMsgMultiSendResponse } as MsgMultiSendResponse;
+    const message = createBaseMsgMultiSendResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        default:
-          reader.skipType(tag & 7);
-          break;
       }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
     }
     return message;
   },
 
   fromJSON(_: any): MsgMultiSendResponse {
-    const message = { ...baseMsgMultiSendResponse } as MsgMultiSendResponse;
-    return message;
+    return {};
   },
 
   toJSON(_: MsgMultiSendResponse): unknown {
@@ -279,8 +272,12 @@ export const MsgMultiSendResponse = {
     return obj;
   },
 
-  fromPartial(_: DeepPartial<MsgMultiSendResponse>): MsgMultiSendResponse {
-    const message = { ...baseMsgMultiSendResponse } as MsgMultiSendResponse;
+  create<I extends Exact<DeepPartial<MsgMultiSendResponse>, I>>(base?: I): MsgMultiSendResponse {
+    return MsgMultiSendResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<MsgMultiSendResponse>, I>>(_: I): MsgMultiSendResponse {
+    const message = createBaseMsgMultiSendResponse();
     return message;
   },
 };
@@ -311,9 +308,7 @@ export class MsgClientImpl implements Msg {
   }
 }
 
-export const MsgDesc = {
-  serviceName: "cosmos.bank.v1beta1.Msg",
-};
+export const MsgDesc = { serviceName: "cosmos.bank.v1beta1.Msg" };
 
 export const MsgSendDesc: UnaryMethodDefinitionish = {
   methodName: "Send",
@@ -327,10 +322,11 @@ export const MsgSendDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = MsgSendResponse.decode(data);
       return {
-        ...MsgSendResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -349,10 +345,11 @@ export const MsgMultiSendDesc: UnaryMethodDefinitionish = {
   } as any,
   responseType: {
     deserializeBinary(data: Uint8Array) {
+      const value = MsgMultiSendResponse.decode(data);
       return {
-        ...MsgMultiSendResponse.decode(data),
+        ...value,
         toObject() {
-          return this;
+          return value;
         },
       };
     },
@@ -381,6 +378,7 @@ export class GrpcWebImpl {
 
     debug?: boolean;
     metadata?: grpc.Metadata;
+    upStreamRetryCodes?: number[];
   };
 
   constructor(
@@ -390,6 +388,7 @@ export class GrpcWebImpl {
 
       debug?: boolean;
       metadata?: grpc.Metadata;
+      upStreamRetryCodes?: number[];
     },
   ) {
     this.host = host;
@@ -415,11 +414,9 @@ export class GrpcWebImpl {
         debug: this.options.debug,
         onEnd: function (response) {
           if (response.status === grpc.Code.OK) {
-            resolve(response.message);
+            resolve(response.message!.toObject());
           } else {
-            const err = new Error(response.statusMessage) as any;
-            err.code = response.status;
-            err.metadata = response.trailers;
+            const err = new GrpcWebError(response.statusMessage, response.status, response.trailers);
             reject(err);
           }
         },
@@ -428,9 +425,31 @@ export class GrpcWebImpl {
   }
 }
 
-type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined | Long;
+declare var self: any | undefined;
+declare var window: any | undefined;
+declare var global: any | undefined;
+var tsProtoGlobalThis: any = (() => {
+  if (typeof globalThis !== "undefined") {
+    return globalThis;
+  }
+  if (typeof self !== "undefined") {
+    return self;
+  }
+  if (typeof window !== "undefined") {
+    return window;
+  }
+  if (typeof global !== "undefined") {
+    return global;
+  }
+  throw "Unable to locate global object";
+})();
+
+type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
+
 export type DeepPartial<T> = T extends Builtin
   ? T
+  : T extends Long
+  ? string | number | Long
   : T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
@@ -439,7 +458,22 @@ export type DeepPartial<T> = T extends Builtin
   ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
 
+type KeysOfUnion<T> = T extends T ? keyof T : never;
+export type Exact<P, I extends P> = P extends Builtin
+  ? P
+  : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
 if (_m0.util.Long !== Long) {
   _m0.util.Long = Long as any;
   _m0.configure();
+}
+
+function isSet(value: any): boolean {
+  return value !== null && value !== undefined;
+}
+
+export class GrpcWebError extends tsProtoGlobalThis.Error {
+  constructor(message: string, public code: grpc.Code, public metadata: grpc.Metadata) {
+    super(message);
+  }
 }
