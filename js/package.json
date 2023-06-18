@@ -1,9 +1,10 @@
 {
   "name": "@classic-terra/terra.proto",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "JS and TS types relating to Protocol Buffers used by Terra project",
   "contributors": [
-    "Yun Yeo <YunSuk-Yeo@users.noreply.github.com>"
+    "Yun Yeo <YunSuk-Yeo@users.noreply.github.com>",
+    "Inon Man <inon-man@proton.me>"
   ],
   "license": "Apache-2.0",
   "repository": {
